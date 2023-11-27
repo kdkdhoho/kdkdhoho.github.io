@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[욕심 많은 개발자]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 27 Nov 2023 12:04:40 GMT</lastBuildDate><item><title><![CDATA[단위 테스트]]></title><description><![CDATA[…]]></description><link>https://kdkdhoho.github.io/unit-test/</link><guid isPermaLink="false">https://kdkdhoho.github.io/unit-test/</guid><pubDate>Mon, 27 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;단위 테스트란?&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[woowacourse 5th]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 27 Nov 2023 12:17:23 GMT</lastBuildDate><item><title><![CDATA[단위 테스트]]></title><description><![CDATA[…]]></description><link>https://kdkdhoho.github.io/unit-test/</link><guid isPermaLink="false">https://kdkdhoho.github.io/unit-test/</guid><pubDate>Mon, 27 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;단위 테스트란?&lt;/h2&gt;
 &lt;p&gt;애플리케이션에서 동작하는 &lt;strong&gt;기능 또는 메서드를 실행&lt;/strong&gt;시키는 &lt;strong&gt;독립적인 단위의 테스트&lt;/strong&gt;이다.&lt;/p&gt;
 &lt;p&gt;이때 기능이라는 말이 포함되어있다. 즉, 단위 테스트라고 해서 무조건 메서드만 테스트하는 건 아니다.&lt;/p&gt;
 &lt;h2&gt;왜 단위 테스트를 하나?&lt;/h2&gt;
@@ -71,6 +71,7 @@
 &lt;/blockquote&gt;
 &lt;h3&gt;2. AssertJ 활용&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&quot;http://joel-costigliola.github.io/assertj/assertj-core-quick-start.html&quot;&gt;AssertJ&lt;/a&gt;는 &quot;&lt;em&gt;능수능란한 검증문 자바 라이브러리&lt;/em&gt;&quot; 라고 설명한다.&lt;/p&gt;
+&lt;p&gt;단순히 말해서 유용한 Assertion문을 선언할 수 있도록 도와주는 라이브러리라고 생각하자.&lt;/p&gt;
 &lt;p&gt;AssertJ는 메서드 체이닝 가능한 assert문을 지원하는 라이브러리이다.&lt;br&gt;
 이를 이용해서 더욱 가독성 좋은 단위 테스트를 작성할 수 있다.&lt;br&gt;
 아래 코드로 비교해보자.&lt;/p&gt;
