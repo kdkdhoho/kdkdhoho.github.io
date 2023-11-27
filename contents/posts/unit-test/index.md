@@ -1,6 +1,6 @@
 ---
 title: "단위 테스트"
-description: "단위 테스트에 대한 글입니다"
+description: "단위 테스트란? JUnit? AssertJ?"
 date: 2023-11-27
 update: 2023-11-27
 tags: ["unit test"]
