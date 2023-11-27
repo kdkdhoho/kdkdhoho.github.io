@@ -1,6 +1,6 @@
 module.exports = {
   title: "log4dh",
-  description: "기술 블로그 이전했습니다!",
+  description: "욕심 많은 개발자",
   author: "kdkdhoho",
   siteUrl: "https://kdkdhoho.github.io/",
   links: {
