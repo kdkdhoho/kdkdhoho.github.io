@@ -1,6 +1,6 @@
 module.exports = {
   title: "log4dh",
-  description: "욕심 많은 개발자",
+  description: "woowacourse 5th",
   author: "kdkdhoho",
   siteUrl: "https://kdkdhoho.github.io/",
   links: {

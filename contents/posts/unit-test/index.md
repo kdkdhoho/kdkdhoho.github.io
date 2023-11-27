@@ -99,6 +99,7 @@ class TestOrderTest {
 
 [AssertJ](http://joel-costigliola.github.io/assertj/assertj-core-quick-start.html)는 "_능수능란한 검증문 자바 라이브러리_" 라고 설명한다.
 
+단순히 말해서 유용한 Assertion문을 선언할 수 있도록 도와주는 라이브러리라고 생각하자.
 
 AssertJ는 메서드 체이닝 가능한 assert문을 지원하는 라이브러리이다.<br>
 이를 이용해서 더욱 가독성 좋은 단위 테스트를 작성할 수 있다.<br>
