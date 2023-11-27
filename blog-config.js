@@ -5,7 +5,7 @@ module.exports = {
   siteUrl: "https://kdkdhoho.github.io/",
   links: {
     github: "https://github.com/kdkdhoho",
-    linkedIn: "https://velog.io/@donghokim1998",
+    blogger: "https://velog.io/@donghokim1998",
   },
   utterances: {
     repo: "kdkdhoho/kdkdhoho.github.io",
