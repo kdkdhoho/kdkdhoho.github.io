@@ -100,6 +100,50 @@ public class AssertJWithIterableStudyTest {
         });
     }
 
+    public static List<Member> members() {
+        return List.of(
+                new Member(1, "job seeker"),
+                new Member(2, "woowa developer"),
+                new Member(3, "student"),
+                new Member(4, "woowa developer"),
+                new Member(5, "delivery hero")
+        );
+    }
+}
+
+class Member {
+    private final int id;
+    private final String job;
+
+    public Member(int id, String job) {
+        this.id = id;
+        this.job = job;
+    }
+
+    public String job() {
+        return job;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Member member = (Member) o;
+        return id == member.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+}
+```
+
+### 2. 예외 검증하기
+
+```java
+public class ExceptionAssertionStudyTest {
+
     private void throwIllegalStateException() {
         throw new IllegalStateException("예외 1번");
     }
@@ -142,79 +186,12 @@ public class AssertJWithIterableStudyTest {
 
     @Test
     void notExceptionTest() {
-        assertThatNoException().isThrownBy(this::members);
-    }
-
-    @Test
-    void usingRecursiveComparisonTest_1() {
-        List<Member> members = List.of(
-                new Member(1, "backend developer"),
-                new Member(2, "DBA"),
-                new Member(3, "frontend developer")
-        );
-
-        List<Member> other = List.of(
-                new Member(1, "DBA"),
-                new Member(2, "frontend developer"),
-                new Member(3, "backend developer")
-        );
-
-        assertThat(members).usingRecursiveComparison()
-                .comparingOnlyFields("job")
-                .ignoringCollectionOrder()
-                .isEqualTo(other);
-    }
-
-    @Test
-    void usingRecursiveComparisonTest_2() {
-        Member member = new Member(1, "DBA");
-        Member other = new Member(2, "DBA");
-
-        assertThat(member).usingRecursiveComparison()
-                .comparingOnlyFields("job")
-                .isEqualTo(other);
-    }
-
-    private List<Member> members() {
-        return List.of(
-                new Member(1, "job seeker"),
-                new Member(2, "woowa developer"),
-                new Member(3, "student"),
-                new Member(4, "woowa developer"),
-                new Member(5, "delivery hero")
-        );
-    }
-}
-
-class Member {
-    private final int id;
-    private final String job;
-
-    public Member(int id, String job) {
-        this.id = id;
-        this.job = job;
-    }
-
-    public String job() {
-        return job;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Member member = (Member) o;
-        return id == member.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
+        assertThatNoException().isThrownBy(AssertJWithIterableStudyTest::members);
     }
 }
 ```
 
-### 2. 테스트 메서드에 파라미터 전달하여 테스트하기
+### 3. 테스트 메서드에 파라미터 전달하여 테스트하기
 
 ```java
 public class ParameterizedStudyTest {
@@ -400,6 +377,43 @@ public class ParameterizedStudyTest {
     @ParameterizedTest(name = "{index} - Parameter is {0}")
     @EnumSource(value = Direction.class, names = {"SOUTH", "NORTH"})
     void displayNameTest(Direction direction) {
+    }
+}
+```
+
+### 4. 두 객체 리스트의 필드 비교하기
+
+```java
+public class UsingRecursiveComparisonStudyTest {
+
+    @Test
+    void usingRecursiveComparisonTest_1() {
+        List<Member> members = List.of(
+                new Member(1, "backend developer"),
+                new Member(2, "DBA"),
+                new Member(3, "frontend developer")
+        );
+
+        List<Member> other = List.of(
+                new Member(1, "DBA"),
+                new Member(2, "frontend developer"),
+                new Member(3, "backend developer")
+        );
+
+        assertThat(members).usingRecursiveComparison()
+                .comparingOnlyFields("job")
+                .ignoringCollectionOrder()
+                .isEqualTo(other);
+    }
+
+    @Test
+    void usingRecursiveComparisonTest_2() {
+        Member member = new Member(1, "DBA");
+        Member other = new Member(2, "DBA");
+
+        assertThat(member).usingRecursiveComparison()
+                .comparingOnlyFields("job")
+                .isEqualTo(other);
     }
 }
 ```
