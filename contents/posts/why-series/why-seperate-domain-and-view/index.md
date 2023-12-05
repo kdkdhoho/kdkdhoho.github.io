@@ -4,6 +4,7 @@ description: "Domain과 View는 왜 친해질 수 없는가?"
 date: 2023-12-04
 update: 2023-12-04
 tags: ["design-pattern", "mvc-pattern"]
+series: "Why? 시리즈"
 ---
 
 ## 들어가며
