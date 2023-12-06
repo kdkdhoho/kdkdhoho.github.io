@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[woowacourse 5th]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 05 Dec 2023 08:34:54 GMT</lastBuildDate><item><title><![CDATA[final 키워드를 사용해 값의 변경을 막아라. 왜?]]></title><description><![CDATA[왜 값의 변경을 막아야 할까?  자동차 경주 피드백 중 하나이다. 왜 이런 피드백이 있는지 알아보자 final 키워드를 붙이면 좋은 점…]]></description><link>https://kdkdhoho.github.io/why-use-final/</link><guid isPermaLink="false">https://kdkdhoho.github.io/why-use-final/</guid><pubDate>Tue, 05 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;왜 값의 변경을 막아야 할까?&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 06 Dec 2023 02:13:29 GMT</lastBuildDate><item><title><![CDATA[final 키워드를 사용해 값의 변경을 막아라. 왜?]]></title><description><![CDATA[왜 값의 변경을 막아야 할까?  자동차 경주 피드백 중 하나이다. 왜 이런 피드백이 있는지 알아보자 final 키워드를 붙이면 좋은 점…]]></description><link>https://kdkdhoho.github.io/why-use-final/</link><guid isPermaLink="false">https://kdkdhoho.github.io/why-use-final/</guid><pubDate>Tue, 05 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;왜 값의 변경을 막아야 할까?&lt;/h2&gt;
 &lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 620px; &apos;&gt;
       &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/49858e991f61c277dbd5636c889d2db8/abf7b/why-use-final.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
@@ -180,23 +180,25 @@
     &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;not-seperate.png&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;보기 싫다. 게다가 지금은 간단한 프로그램이라 그렇지 대규모 프로젝트였다면?&lt;/p&gt;
-&lt;p&gt;이제 그만 알아보자.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[MySQL에서의 사용자 식별에 대해]]></title><description><![CDATA[들어가며 MySQL에서의 계정 식별 방식, 권한, 역할에 대한 기본적인 내용을 알아보자. 왜 알아야 할까? 데이터베이스 서버의 보안을 위해 1. 사용자 식별 방법 🔑 핵심: MySQL…]]></description><link>https://kdkdhoho.github.io/03-user-identification/</link><guid isPermaLink="false">https://kdkdhoho.github.io/03-user-identification/</guid><pubDate>Mon, 04 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
-&lt;p&gt;MySQL에서의 계정 식별 방식, 권한, 역할에 대한 기본적인 내용을 알아보자.&lt;/p&gt;
+&lt;p&gt;이제 그만 알아보자.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[MySQL에서의 사용자 식별에 대해]]></title><description><![CDATA[들어가며 MySQL에서의 계정 식별 방식, 권한, 역할에 대한 기본적인 내용을 알아보자 왜 알아야 할까? 데이터베이스 서버의 보안을 위해 ! 괜히 보안떄문에 퇴근이 늦어지면 안되니까…]]></description><link>https://kdkdhoho.github.io/03-user-identification/</link><guid isPermaLink="false">https://kdkdhoho.github.io/03-user-identification/</guid><pubDate>Mon, 04 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
+&lt;p&gt;MySQL에서의 계정 식별 방식, 권한, 역할에 대한 기본적인 내용을 알아보자&lt;/p&gt;
 &lt;h2&gt;왜 알아야 할까?&lt;/h2&gt;
-&lt;p&gt;데이터베이스 서버의 &lt;strong&gt;보안&lt;/strong&gt;을 위해&lt;/p&gt;
-&lt;h2&gt;1. 사용자 식별 방법 🔑&lt;/h2&gt;
-&lt;hr&gt;
-&lt;p&gt;핵심: MySQL의 사용자 계정은 &lt;strong&gt;사용자 아이디&lt;/strong&gt; 뿐만 아니라 &lt;strong&gt;접속 지점(호스트명이나 도메인 또는 IP주소)&lt;/strong&gt;도 함께 확인한다.&lt;br&gt;
+&lt;p&gt;데이터베이스 서버의 &lt;strong&gt;보안&lt;/strong&gt;을 위해 !&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;del&gt;괜히 보안떄문에 퇴근이 늦어지면 안되니까&lt;/del&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;1. 사용자 식별 방법&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;사용자 아이디&lt;/strong&gt; 뿐만 아니라 &lt;strong&gt;접속 지점(호스트명이나 도메인 또는 IP주소)&lt;/strong&gt;도 함께 확인한다.&lt;br&gt;
 예시) &lt;code class=&quot;language-text&quot;&gt;root@localhost&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 257px; &apos;&gt;
       &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/5581f515ced6d59fbdfbc24ea69eb826/7101e/example.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 58.82352941176471%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAAB30lEQVR42lWTWXLbQAxEeZVUObY27vtOiRRFy0lcie9/FgQPFF32B4qcAdBooDFOlA5StTfphjcJok6CuJOmf5WyuYkXtlJUV+nOb3LyK/HV3+t/mPTma/q7pMXFzuTwdZLsLK0eKgXwo1ZiPdftIkU9a/AoaT4aaKiFkpzYu8RKgthK44jJ1V/UV/GCRpyDW1oAFQB7OWTyvE/NvLCRUoHrFrb15z0xu2P+eQbj6FXy9JKIA2qcDVJ3i9A+jpNfW4uRtpA9GLhBrb5SXL+2mC2OO1/bhzHgDizycpKTBuwO+aNaaWcKYDAMNGEDOriFxWEw/QZIlawc1SYbapJfrHUYusqeUczLX2U6GQB+mANADjOEFGaAtAKL8fouw/hbLtMfub1+WKKrQcP4y3ztcDdRpvndlCZu1P+ymU2wb4AknxWs06QNAJbeF0B8sJmXf0aAdcH/4ym0EbFyP3cG2BggSf1FK+v3qi3ChmLs4HL/WNdKZ1Upo/0pV0Xjh+KpzZUZGyAzZHbsUV5NtnMovs0lStYNOOr8nvfrSgG4ClOYKBSmmLXMYtMeLQRxbw6Gzj1i2eLq8AGlEwrT8gZiX2WHiAbIAUMQVON5AUJr4QOYp4nasEUQ5vX1AayW2d1/MSyLzJrchi8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;예시 사진.png&apos; title=&apos;&apos; src=&apos;/static/5581f515ced6d59fbdfbc24ea69eb826/7101e/example.png&apos; srcset=&apos;/static/5581f515ced6d59fbdfbc24ea69eb826/e7570/example.png 170w,
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;예시 사진&apos; title=&apos;&apos; src=&apos;/static/5581f515ced6d59fbdfbc24ea69eb826/7101e/example.png&apos; srcset=&apos;/static/5581f515ced6d59fbdfbc24ea69eb826/e7570/example.png 170w,
 /static/5581f515ced6d59fbdfbc24ea69eb826/7101e/example.png 257w&apos; sizes=&apos;(max-width: 257px) 100vw, 257px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
   &lt;/a&gt;
     &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;예시 사진.png&lt;/figcaption&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;예시 사진&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;따라서 계정의 HOST와 다른 지점에서 접속하면 실패한다.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -204,44 +206,46 @@
 &lt;/blockquote&gt;
 &lt;h3&gt;1-1. 만약 모든 지점에서 접속을 허용하고 싶다면&lt;/h3&gt;
 &lt;hr&gt;
-&lt;p&gt;계정의 HOST를 &lt;code class=&quot;language-text&quot;&gt;%&lt;/code&gt; 로 설정하자. (와일드카드 느낌이다.)&lt;/p&gt;
-&lt;h3&gt;1-2. 이를 활용한 사례&lt;/h3&gt;
+&lt;p&gt;계정의 HOST를 &lt;code class=&quot;language-text&quot;&gt;%&lt;/code&gt; 로 설정하자. (와일드카드 느낌)&lt;/p&gt;
+&lt;h3&gt;1-2. 계정의 HOST를 이용해 보안을 신경 쓴 사례&lt;/h3&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;[상황]&lt;/strong&gt;&lt;br&gt;
-한 대의 MySQL 서버에서 개발용 데이터베이스와 운영용 데이터베이스를 따로 구축해서 사용했다.
-그리고 개발용 EC2 인스턴스와 운영용 EC2 인스턴스에서 각각 DB용 인스턴스로 요청을 보냈다.&lt;/p&gt;
+주어진 자원: 1대의 MySQL 서버, 1대의 개발용 서버 1대, 1대의 운영용 서버 1대&lt;/p&gt;
+&lt;p&gt;개발용, 운영용 서버에서 1대의 MySQL 서버로 요청을 보낸다.
+MySQL 서버에는 개발용, 운영용 데이터베이스를 따로 구축하여 관리하고 있었다.&lt;/p&gt;
+&lt;p&gt;아래는 이해를 돕기 위한 사진이다.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
       &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/fd96d0893b7eef402149691c1ac35089/84055/infra_architecture.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 57.05882352941176%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABoklEQVR42p2SS28TMRSF84/Z8U/YsOMfoCDEBqlEzQIVtQtaoKFpk8xkEjIvz2SeHo/94ZnmBRsiLFm+vtc+9/j4DEzboLXGGENrV60N2saG/xsDMX6DM73n6WHCbHKHO58ym/6kKXOwzVAS2+18QF0mtGUGcsv4TrAJttBk6DrHyAJTZRgbnw24710qGH5bMAnSXebIypQ2Z/R5gFmaEG0CnEDw6vYFn5ZDq2FXantde8BqewTscrv4UD+RZLAefSS5vGAWl1x+/cD15IZC8ueFU8B/MfzlLCwZRa1aRj8k80CdlPeAKcae6XZKrEjvx4Rxwmq5JIoiVqs1Wf6s82A2X7DZ+MgW3t16TLtP+VvDjqF+ZtjGLsXjFUnoE60dEt9DrF2qNNr9sm7xPA/XF7z+/pILd7i7qw9PrtOQRMREsaASm0MjqRQir+hca6xbesC9x5bhlvc3b/k8+ULZHPXvWeUC1TTUUtJmEUUtuXr0ybxrlDtCdQT2gJ3PqDNSIYj8lDCIkcW2z5ludpaR5VFW+/y2SAjDgCpyQDz17PpzwG+nk1LPDBB9IgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;인프라 아키텍처의 일부.png&apos; title=&apos;&apos; src=&apos;/static/fd96d0893b7eef402149691c1ac35089/ca1dc/infra_architecture.png&apos; srcset=&apos;/static/fd96d0893b7eef402149691c1ac35089/e7570/infra_architecture.png 170w,
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;인프라 아키텍처의 일부&apos; title=&apos;&apos; src=&apos;/static/fd96d0893b7eef402149691c1ac35089/ca1dc/infra_architecture.png&apos; srcset=&apos;/static/fd96d0893b7eef402149691c1ac35089/e7570/infra_architecture.png 170w,
 /static/fd96d0893b7eef402149691c1ac35089/f46e7/infra_architecture.png 340w,
 /static/fd96d0893b7eef402149691c1ac35089/ca1dc/infra_architecture.png 680w,
 /static/fd96d0893b7eef402149691c1ac35089/02d09/infra_architecture.png 1020w,
 /static/fd96d0893b7eef402149691c1ac35089/84055/infra_architecture.png 1217w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
   &lt;/a&gt;
     &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;인프라 아키텍처의 일부.png&lt;/figcaption&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;인프라 아키텍처의 일부&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;[적용]&lt;/strong&gt;&lt;br&gt;
-MySQL의 계정을 &lt;code class=&quot;language-text&quot;&gt;celuveat_prod@{ec2_prod_ip}&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;celuveat_dev@{ec2_dev_ip}&lt;/code&gt; 하나씩 생성했고&lt;br&gt;
-이로 인해 의도하지 않은 상황 발생을 방지했다.&lt;/p&gt;
-&lt;h3&gt;1-3. 계정 식별에서의 주의할 점&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;[문제]&lt;/strong&gt;&lt;br&gt;
+혹여나 실수로 인해 개발용 서버에서 운영용 DB에 쿼리를 날리거나, 그 반대의 상황을 막고자 했다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;[해결]&lt;/strong&gt;&lt;br&gt;
+계정을 각 환경에 맞는 서버로 나누어 생성 및 관리를 함으로써 의도치 않은 상황을 예방했다.&lt;br&gt;
+(&lt;code class=&quot;language-text&quot;&gt;&apos;celuveat_prod&apos;@{ec2_prod_ip}&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;&apos;celuveat_dev&apos;@{ec2_dev_ip}&lt;/code&gt;)&lt;/p&gt;
+&lt;h3&gt;1-3. 계정 식별에서 주의할 점: 아이디는 같고 호스트가 다른 경우&lt;/h3&gt;
 &lt;hr&gt;
 &lt;p&gt;만약 &lt;code class=&quot;language-text&quot;&gt;user&lt;/code&gt; 이라는 계정이 두 개가 있다.&lt;br&gt;
-한 계정의 HOST는 &lt;code class=&quot;language-text&quot;&gt;192.168.1.01&lt;/code&gt;로 지정되어 있고, 한 계정의 HOST는 &lt;code class=&quot;language-text&quot;&gt;%&lt;/code&gt;로 모두 허용했다고 가정해보자.&lt;/p&gt;
-&lt;p&gt;이때 &lt;code class=&quot;language-text&quot;&gt;192.168.1.01&lt;/code&gt;에서 &lt;code class=&quot;language-text&quot;&gt;user&lt;/code&gt; 계정으로 접속을 시도하면 어떻게 될까?&lt;br&gt;
+한 계정의 HOST는 &lt;code class=&quot;language-text&quot;&gt;192.168.1.01&lt;/code&gt;이고 나머지는 &lt;code class=&quot;language-text&quot;&gt;%&lt;/code&gt;라고 가정해보자.&lt;br&gt;
+(&lt;code class=&quot;language-text&quot;&gt;&apos;user&apos;@&apos;192.168.1.01&apos;&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;&apos;user&apos;@&apos;%&apos;&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;이때 클라이언트의 IP가 &lt;code class=&quot;language-text&quot;&gt;192.168.1.01&lt;/code&gt;인 곳에서 &lt;code class=&quot;language-text&quot;&gt;user&lt;/code&gt; 계정으로 접속을 시도하면 어떻게 될까?&lt;br&gt;
 그리고 &lt;code class=&quot;language-text&quot;&gt;192.168.1.01&lt;/code&gt;이 아닌 곳에서 &lt;code class=&quot;language-text&quot;&gt;user&lt;/code&gt; 계정으로 접속을 시도하면 어떻게 될까?&lt;/p&gt;
 &lt;p&gt;정답은, &lt;code class=&quot;language-text&quot;&gt;user@192.168.1.01&lt;/code&gt; 계정으로 로그인을 시도한다.&lt;br&gt;
 MySQL은 기본적으로 &lt;strong&gt;더 좁은 범위의 HOST 계정으로 인증을 시도&lt;/strong&gt;하기 때문이다.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;💡 근데 이렇게 설정하는 경우는 가능한 자제하는 게 좋아보인다.&lt;br&gt;
-만약 불가피한 경우에는 &lt;code class=&quot;language-text&quot;&gt;--host&lt;/code&gt; 속성으로 계정을 명시해서 접속 시도할 수 있을 것이다.&lt;/p&gt;
+&lt;p&gt;애초에 이런 식으로 설정하는 경우는 가급적 자제하는 게 좋아보인다.&lt;br&gt;
+만약 불가피한 경우에는 &lt;code class=&quot;language-text&quot;&gt;--host&lt;/code&gt; 속성으로 계정을 명시해 접속 시도할 수 있을 것이다.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;💡 아이디과 호스트가 같은 계정 2개를 만드는 일은 하지 말자.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;이때 주의할 점은, 인증에 실패했다고 자동으로 더 넓은 범위의 계정으로 접속을 시도하지 않는다.&lt;/p&gt;
+&lt;p&gt;이때 주의할 점은, 인증에 실패했다고 더 넓은 범위의 계정으로 접속을 시도하지 않는다.&lt;/p&gt;
 &lt;h3&gt;1-4. 실험1: 만약 &lt;code class=&quot;language-text&quot;&gt;localhost&lt;/code&gt;와 현재 IP 주소로 설정한다면?&lt;/h3&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;create user &apos;kdkdhoho&apos;@localhost identified by abc;&lt;/code&gt; 명령어와&lt;br&gt;
@@ -250,23 +254,23 @@ MySQL은 기본적으로 &lt;strong&gt;더 좁은 범위의 HOST 계정으로 �
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 262px; &apos;&gt;
       &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/e38f0ebf53c61e4c8722ea1bb539ea25/6ae65/test_environment.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 68.82352941176471%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAACgklEQVR42lVU2W4aQRDcj7ExsOx9X+zJbRC5HNlSJFuKbSVSeEj+X5WuBlvJQ2mbmZ7qqxrDD+eI0x5psYDjVwjjFnE2IBG4wVy/hGnnZzs/+0VpJ/bZJ5UzP2owtVIYUdLqZZR0cP252qHYcdaLU62PAgliucU7CQlJQB8mwGRC4ZlaGYyZk4ljj7xcKenYTDCZpYJEH3phjaJao6o3+oD3zJY+YzPVM9peUOudYbu5PGqQFEs48ngqzsREYEs5PAslYCjlvt2ZiuyC828GVkItRfpoTSO4kpVtxnCYnXwjv1SkUvq8GPSe5/Y7aY6ZU/xP2DkhfmUZnvIC37wAz0WF+yDBY5ziMUrwYLv42fX4s9niWXyekgyvtoXxOMRoGmM0iXAt4HDYJmMnhIeiRdAfUQ5HtNsvSNpbuPkKZiQ9DRoUyw/ob7+i292h3N7hIYgxG3m4EqKrm0AQaoZKWDoxniWbl7rFqR/wox3w2nS4tz18njn6+NT3+L3e4KWq8b2scZqLGoTAjxvk1UonToVwOIYpU87SFkO9wmbYY9XvsGg3iDgsaXoSVFi2W+zXUoH45XGNxeKAdjig6fcoZfqBELvip4SWEIaip7zZohHHuj+gENt0S5l0IVNuUHV7DOuPSERaRLc8qqSoz2vp5bnkSw9ndqr6mwtJJ1GJut2pkCkL26s0k/X2k5Kw+WHcvffu5jIY520ojldoQ6l6iptrlMo2kNCjDi/rmJdLTFXMiYqZcrEEtlRCmz4qG1d0xqjcZ6qd5LZXIhOhv+11JmQkZPO5zwzCfpGYGtQA8mW2xsSMJJtSH5HMvWTFnWV0nnFX+dsXm2vKPwH2jqX+CxL+BSWs0R0KbX6jAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;실험 환경.png&apos; title=&apos;&apos; src=&apos;/static/e38f0ebf53c61e4c8722ea1bb539ea25/6ae65/test_environment.png&apos; srcset=&apos;/static/e38f0ebf53c61e4c8722ea1bb539ea25/e7570/test_environment.png 170w,
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;실험 환경&apos; title=&apos;&apos; src=&apos;/static/e38f0ebf53c61e4c8722ea1bb539ea25/6ae65/test_environment.png&apos; srcset=&apos;/static/e38f0ebf53c61e4c8722ea1bb539ea25/e7570/test_environment.png 170w,
 /static/e38f0ebf53c61e4c8722ea1bb539ea25/6ae65/test_environment.png 262w&apos; sizes=&apos;(max-width: 262px) 100vw, 262px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
   &lt;/a&gt;
     &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;실험 환경.png&lt;/figcaption&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;실험 환경&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;그리고 kdkdhoho 계정으로 로그인을 시도했을 때, 성공하는 계정을 보자.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 572px; &apos;&gt;
       &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/0b8a311a99a0bb7c0634d217ded1515a/698d8/after_test.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 40%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABTklEQVR42mVRWU7DMBD1YShtUidpEi9ZnZUAggsgFQnB/c/wmLEbVImPp5lx7LdMxNxvMGqAKR3kWRMMsqSCjA1SaRCdFB4IB65Hrtr3XB+j/xDfbsRH43DtRnz2AV/jiivVHzdh0z1SElRmgrIzLiSc01zoEVnhCPQ971CoEcmlg2i7Z0zTG5x7wTC8Yl7e0Xabn42dYJsn6GrxZIGkR0YEMm1wkhaRrDxiwulsIYLahIIc5PSAH/HjQEBnavxzkVxa33M0jr3HPNJ6Qm8g+KGpFx+lNOxo9ZVdcTX16nsWMlQtzRyf48qs9a6YcIeoKV7dbsiJ0O+J4AlvEZUN5LtgXg7eva5mImzu3AWnoqDITMaRzrQXvsTKTMARucZJ7c/SPOyP74Y19OEnkQiL8S5FrgdUekFbrDjEGhFF4BjRbcmRDPPe7/Pe34Md/gLesQM9N8jTJgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;로그인 결과.png&apos; title=&apos;&apos; src=&apos;/static/0b8a311a99a0bb7c0634d217ded1515a/698d8/after_test.png&apos; srcset=&apos;/static/0b8a311a99a0bb7c0634d217ded1515a/e7570/after_test.png 170w,
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;로그인 결과&apos; title=&apos;&apos; src=&apos;/static/0b8a311a99a0bb7c0634d217ded1515a/698d8/after_test.png&apos; srcset=&apos;/static/0b8a311a99a0bb7c0634d217ded1515a/e7570/after_test.png 170w,
 /static/0b8a311a99a0bb7c0634d217ded1515a/f46e7/after_test.png 340w,
 /static/0b8a311a99a0bb7c0634d217ded1515a/698d8/after_test.png 572w&apos; sizes=&apos;(max-width: 572px) 100vw, 572px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
   &lt;/a&gt;
     &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;로그인 결과.png&lt;/figcaption&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;로그인 결과&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;HOST를 &lt;code class=&quot;language-text&quot;&gt;localhost&lt;/code&gt;로 설정한 계정으로 로그인이 성공한다.&lt;/p&gt;
 &lt;h3&gt;1-5. 실험2: 실험1에 &lt;code class=&quot;language-text&quot;&gt;%&lt;/code&gt;이 추가된다면?&lt;/h3&gt;
@@ -275,43 +279,29 @@ MySQL은 기본적으로 &lt;strong&gt;더 좁은 범위의 HOST 계정으로 �
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 298px; &apos;&gt;
       &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/7e3ea946639547c7aa85555f51c7efff/c9fe3/test2_environment.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 64.70588235294117%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAACdUlEQVR42m1TyW4TQRD1pyDs2ONZPItn9UzPYs/iJBjDgQsSuQUFgRCBAAqruMABCAfEjQt3JA4JEIlNgg97VHVigSGHmu55U/Wmuuu9lusXGIkGwajEwEoQjiqKEqYjEMYVvGAM3YwRiylsN5MxSmos6rxwcow1sqbFBVFcw/FyWMNUJriE8TvjblBQYoogKuG4i5zj70TM+dpgBItyeG3xI6DCbDKDYSfoaQEUPYRGXdlUlI7PIKTClb6HTt9HVw3Qo32XQtF8GFaMFcWVwVhLuAIXDAtNR0HdVjClddruoe6oWO8bmGsDnNdNzA0HG16I0IygWgIG/ZA7546ZqKf6Mlpjw8OjzS1s332MnZ37uLG9i5u37uH2nYfY3X2Cp89e4NXea1zfeYCZFyNTbZw+7rJPJ+F7WyKM+jbePX+Jw++/sH9wiI+fv+DT4Vcc0Pr+w77cf/vxE3tv3iLVhjLaWiiPqxonEJZ2iLkbwuap0vHjIIepU0J7gF7HRDoao0hKpPkqNooKomvglOKj03UkwX+Ewo6wORLYalaxVTa4Ml3DpTDGTLNwMUxwtZ7iGmNpgctpjjLK4dBks3wNPq0GSW2JUKfJOlGFhKYZU2TVHBbJpk33ZJLWkslZifE+ytchinUUpAjXH2NgCxlLhAMiDEljk3KGggir+hyJuYBCSS7JpiKyuiGMCPk75/PdsUxOPDInsDhFtgpB95RRESufJ8iSYDewSzhZNSKJ80AU0qvOgv5XNkPqwiGCI0cI2MNMuoAxdoR0hZ9LzKTjsRF08yhY1KzHJcI//mxkwcJ+vLJf43QqrejTtdiELRzxdyzImPA3bwK/3PUJStUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;실험2 환경.png&apos; title=&apos;&apos; src=&apos;/static/7e3ea946639547c7aa85555f51c7efff/c9fe3/test2_environment.png&apos; srcset=&apos;/static/7e3ea946639547c7aa85555f51c7efff/e7570/test2_environment.png 170w,
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;실험2 환경&apos; title=&apos;&apos; src=&apos;/static/7e3ea946639547c7aa85555f51c7efff/c9fe3/test2_environment.png&apos; srcset=&apos;/static/7e3ea946639547c7aa85555f51c7efff/e7570/test2_environment.png 170w,
 /static/7e3ea946639547c7aa85555f51c7efff/c9fe3/test2_environment.png 298w&apos; sizes=&apos;(max-width: 298px) 100vw, 298px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
   &lt;/a&gt;
     &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;실험2 환경.png&lt;/figcaption&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;실험2 환경&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;만약 위와 같이 &lt;code class=&quot;language-text&quot;&gt;kdkdhoho@%&lt;/code&gt; 계정이 추가된다면 어떤 계정으로 접속하게 될까?&lt;br&gt;
-(참고로 위 계정의 암호는 &lt;code class=&quot;language-text&quot;&gt;xyz&lt;/code&gt;로 설정했다.)&lt;/p&gt;
+(참고로 위 계정의 암호는 &lt;code class=&quot;language-text&quot;&gt;xyz&lt;/code&gt;)&lt;/p&gt;
 &lt;p&gt;아마 예상하기 쉽겠지만 &lt;code class=&quot;language-text&quot;&gt;localhost&lt;/code&gt;로만 접속이 가능하다.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;💡 HOST의 범위는 &lt;code class=&quot;language-text&quot;&gt;localhost&lt;/code&gt; &amp;#x3C; 지정 IP &amp;#x3C; &lt;code class=&quot;language-text&quot;&gt;%&lt;/code&gt; 인 것 같다.&lt;br&gt;
-참고로 추가 실험 결과, &lt;code class=&quot;language-text&quot;&gt;127.0.0.1&lt;/code&gt;도 &lt;code class=&quot;language-text&quot;&gt;localhost&lt;/code&gt;에 순위가 밀린다.&lt;/p&gt;
+&lt;p&gt;💡결론: HOST의 범위는 &lt;code class=&quot;language-text&quot;&gt;localhost&lt;/code&gt; &amp;#x3C; 지정 IP &amp;#x3C; &lt;code class=&quot;language-text&quot;&gt;%&lt;/code&gt; 인 것 같다.&lt;br&gt;
+참고) 추가 실험 결과, &lt;code class=&quot;language-text&quot;&gt;127.0.0.1&lt;/code&gt;도 &lt;code class=&quot;language-text&quot;&gt;localhost&lt;/code&gt;에 순위가 밀린다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2&gt;2. 사용자 계정 관리&lt;/h2&gt;
-&lt;hr&gt;
-&lt;p&gt;계정을 관리할 수 있는 계정과 그렇지 않은 계정,&lt;br&gt;
-그리고 &lt;/p&gt;
 &lt;h3&gt;2-1. 시스템 계정과 일반 계정&lt;/h3&gt;
-&lt;hr&gt;
-&lt;p&gt;MySQL 8.0부터는 &lt;code class=&quot;language-text&quot;&gt;SYSTEM_USER&lt;/code&gt; 권한을 가지고 있냐에 따라 &lt;code class=&quot;language-text&quot;&gt;시스템 계정&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;일반 계정&lt;/code&gt;으로 구분된다.&lt;/p&gt;
+&lt;p&gt;MySQL 8.0부터는 &lt;code class=&quot;language-text&quot;&gt;SYSTEM_USER&lt;/code&gt; &lt;strong&gt;권한&lt;/strong&gt;을 가지고 있냐에 따라 &lt;code class=&quot;language-text&quot;&gt;시스템 계정&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;일반 계정&lt;/code&gt;으로 구분된다.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;시스템 계정이란?&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;MySQL 서버에서 내부적으로 실행되는 백그라운드 스레드와는 무관하다.&lt;/li&gt;
-&lt;li&gt;일반 계정과 같이 사용자, 그 중에서 &lt;em&gt;데이터베이스 서버 관리자&lt;/em&gt; 를 위한 계정이다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;일반 계정이란?&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;개발자를 위한 계정&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;SYSTEM_USER&lt;/code&gt; 권한은 &lt;code class=&quot;language-text&quot;&gt;ALL PRIVILEGES&lt;/code&gt; 안에 포함된다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3&gt;2-2. 두 계정의 차이&lt;/h3&gt;
-&lt;hr&gt;
 &lt;h4&gt;시스템 계정&lt;/h4&gt;
 &lt;ul&gt;
+&lt;li&gt;MySQL &lt;/li&gt;
 &lt;li&gt;시스템 계정과 일반 계정을 관리(생성, 삭제, 변경) 할 수 있다.&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;DB 서버 관리와 관련된 작업은 시스템 계정으로만 수행할 수 있다.&lt;/p&gt;
@@ -320,10 +310,12 @@ MySQL은 기본적으로 &lt;strong&gt;더 좁은 범위의 HOST 계정으로 �
 &lt;li&gt;Connection(세션) 강제 종료&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;li&gt;DBA를 위한 계정&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4&gt;일반 계정&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;시스템 계정을 관리할 수 없다.&lt;/li&gt;
+&lt;li&gt;개발자나 응용 프로그램을 위한 계정&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;2-3. 내장된 계정들&lt;/h3&gt;
 &lt;p&gt;MySQL 서버에는 다음과 같은 내장된 계정들이 존재한다. (&lt;code class=&quot;language-text&quot;&gt;root@localhost&lt;/code&gt; 제외)&lt;/p&gt;
@@ -331,7 +323,7 @@ MySQL은 기본적으로 &lt;strong&gt;더 좁은 범위의 HOST 계정으로 �
 &lt;li&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;mysql.sys@localhost&lt;/code&gt;: 8.0부터 기본으로 내장된 &lt;strong&gt;sys 스키마의 객체들의 DEFINER&lt;/strong&gt;로 사용하는 계정&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;sys: Performance Schema를 편하게 볼 수 있도록 별도로 만든 뷰의 모음&lt;/p&gt;
+&lt;p&gt;sys 스키마: Performance Schema를 편하게 볼 수 있도록 별도로 만든 뷰의 모음&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;mysql.session@localhost&lt;/code&gt;: &lt;strong&gt;MySQL 플러그인이 서버로 접근&lt;/strong&gt;할 때 사용하는 계정&lt;/li&gt;
@@ -347,12 +339,12 @@ MySQL은 기본적으로 &lt;strong&gt;더 좁은 범위의 HOST 계정으로 �
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 588px; &apos;&gt;
       &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/bef3e9fcba25b7f226316048daea12ed/f81fd/account_lock.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 18.823529411764707%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAoklEQVR42oVPWRKCMAzlNCKUvbSlLGV3dMb7X+eZRH8dPjJp0rwt0naF9Tsas6DWM1q7oW6pu5XeK4zb0fUn/PiQuWwmMMZ0GyodBFO3QfB5NSJisCo8DYMsLB3ykSp6It0I+BVz/kBB/7fEIE7t34qm+YVuODGEJ6omiNtlf8P1hzi4K4dYWSSZE5FLQo7DTthhmnuJygL6F493XEyWldeEH/ssgIx7l+YpAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;계정 잠김.png&apos; title=&apos;&apos; src=&apos;/static/bef3e9fcba25b7f226316048daea12ed/f81fd/account_lock.png&apos; srcset=&apos;/static/bef3e9fcba25b7f226316048daea12ed/e7570/account_lock.png 170w,
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;계정 잠김 확인&apos; title=&apos;&apos; src=&apos;/static/bef3e9fcba25b7f226316048daea12ed/f81fd/account_lock.png&apos; srcset=&apos;/static/bef3e9fcba25b7f226316048daea12ed/e7570/account_lock.png 170w,
 /static/bef3e9fcba25b7f226316048daea12ed/f46e7/account_lock.png 340w,
 /static/bef3e9fcba25b7f226316048daea12ed/f81fd/account_lock.png 588w&apos; sizes=&apos;(max-width: 588px) 100vw, 588px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
   &lt;/a&gt;
     &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;계정 잠김.png&lt;/figcaption&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;계정 잠김 확인&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
 &lt;h2&gt;3. 계정 생성&lt;/h2&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;CREATE USER&lt;/code&gt; 명령으로 계정을 생성할 수 있다.&lt;br&gt;
@@ -379,11 +371,12 @@ MySQL은 기본적으로 &lt;strong&gt;더 좁은 범위의 HOST 계정으로 �
     PASSWORD REUSE &lt;span class=&quot;token keyword&quot;&gt;INTERVAL&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;DEFAULT&lt;/span&gt;
     PASSWORD &lt;span class=&quot;token keyword&quot;&gt;REQUIRE&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;CURRENT&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;DEFAULT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3&gt;3-2. IDENTIFIED WITH&lt;/h3&gt;
-&lt;p&gt;계정 인증 방식과 비밀번호를 설정한다. =&gt; &lt;code class=&quot;language-text&quot;&gt;IDENTIFIED WITH {계정 인증 방식} BY {비밀번호}&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;계정 인증 방식과 비밀번호를 설정한다.&lt;br&gt;
+예) &lt;code class=&quot;language-text&quot;&gt;IDENTIFIED WITH {계정 인증 방식} BY {비밀번호}&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;계정 인증 방식은 플러그인 형태로 제공되며, 아래 4가지 방식이 가장 대표적이다.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;Native Pluggable Authentication&lt;/code&gt;: v5.7까지 기본으로 사용되던 방식이다. 단순하게 비밀번호에 대한 해시(SHA-1 알고리즘) 값을 저장하고, 클러이언트가 보낸 값과 해시값이 일치하는지 비교한다.&lt;/li&gt;
-&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;Caching SHA-2 Pluggable Authentication&lt;/code&gt;: v8.0의 기본 인증 방식이다. 암호화 해시값 생성을 위해 SHA-2(256비트) 알고리즘을 사용한다. &lt;code class=&quot;language-text&quot;&gt;Native&lt;/code&gt; 방식은 입력과 해시값이 매번 동일하지만, &lt;code class=&quot;language-text&quot;&gt;SHA-2&lt;/code&gt; 방식은 내부적으로 Salt 키를 활용해 수천 번의 해시 계산을 수행해 계산을 만들고 결국 동일한 입력일지라도 매번 결과가 달라진다. 이는 속도가 매우 느린 점을 고려하여, MySQL 서버는 해시 결과값을 메모리에 캐시해서 사용한다. 따라서 이름에 &lt;code class=&quot;language-text&quot;&gt;Caching&lt;/code&gt;이 포함되었다. 이 방식을 사용하려면 SSL/TLS 또는 RSA 키페어를 반드시 사용해야하고, 이를 위해 접속할 때 SSL 옵션을 활성화해야 한다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;Caching SHA-2 Pluggable Authentication&lt;/code&gt;: v8.0의 기본 인증 방식. 암호화 해시값 생성을 위해 SHA-2(256비트) 알고리즘을 사용한다. &lt;code class=&quot;language-text&quot;&gt;Native&lt;/code&gt; 방식은 입력과 해시값이 매번 동일하지만, &lt;code class=&quot;language-text&quot;&gt;SHA-2&lt;/code&gt; 방식은 내부적으로 Salt 키를 활용해 수천 번의 해시 계산을 수행해 계산을 만들고 결국 동일한 입력일지라도 매번 결과가 달라진다. 이는 속도가 매우 느린 점을 고려하여, MySQL 서버는 해시 결과값을 메모리에 캐시해서 사용한다. 따라서 이름에 &lt;code class=&quot;language-text&quot;&gt;Caching&lt;/code&gt;이 포함되었다. 이 방식을 사용하려면 SSL/TLS 또는 RSA 키페어를 반드시 사용해야하고, 이를 위해 접속할 때 SSL 옵션을 활성화해야 한다.&lt;/li&gt;
 &lt;li&gt;PAM Pluggable Authentication&lt;/li&gt;
 &lt;li&gt;LDAP Pluggable Authentication&lt;/li&gt;
 &lt;/ul&gt;
@@ -398,7 +391,7 @@ MySQL 8.0에서 &lt;code class=&quot;language-text&quot;&gt;Native Authenticatio
 &lt;h3&gt;3-2. REQUIRE&lt;/h3&gt;
 &lt;p&gt;서버에 접속할 때 암호화된 SSL/TLS 채널을 사용할지 여부를 설정한다.&lt;/p&gt;
 &lt;p&gt;DEFAULT 값은 비암호화 채널로 설정된다.&lt;/p&gt;
-&lt;p&gt;하지만 &lt;code class=&quot;language-text&quot;&gt;REQUIRE&lt;/code&gt; 옵션을 &lt;code class=&quot;language-text&quot;&gt;SSL&lt;/code&gt;로 설정하지 않아도, &lt;code class=&quot;language-text&quot;&gt;Caching SHA-2 Authentication&lt;/code&gt; 인증 방식을 사용하면 암호화된 채널만으로 서버에 접속하게 된다.&lt;/p&gt;
+&lt;p&gt;하지만 &lt;code class=&quot;language-text&quot;&gt;REQUIRE&lt;/code&gt; 옵션을 &lt;code class=&quot;language-text&quot;&gt;SSL&lt;/code&gt;로 설정하지 않아도, &lt;code class=&quot;language-text&quot;&gt;Caching SHA-2 Authentication&lt;/code&gt; 인증 방식을 사용하여 계정을 생성하면 해당 계정으로 접속할 때 암호화된 채널만으로 서버에 접속하게 된다.&lt;/p&gt;
 &lt;h3&gt;3-3. PASSWORD EXPIRE&lt;/h3&gt;
 &lt;p&gt;비밀번호의 유효 기간을 설정한다.&lt;/p&gt;
 &lt;p&gt;DEFAULT 값은 &lt;code class=&quot;language-text&quot;&gt;default_password_lifetime&lt;/code&gt; 시스템 변수에 저장된 기간으로 유효 기간이 설정된다.&lt;/p&gt;
@@ -468,10 +461,10 @@ MySQL 8.0에서 &lt;code class=&quot;language-text&quot;&gt;Native Authenticatio
 &lt;h3&gt;4-2. 비밀번호 이중화&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;[문제]&lt;/strong&gt;&lt;br&gt;
 스프링이 DB 서버의 하나의 계정을 사용중이다.&lt;br&gt;
-근데 만약 계정의 비밀번호를 바꾼다면 서비스에 타격이 갈 것이다.&lt;br&gt;
-결국 하나의 암호를 몇 년 동안 사용하게 될 것이다.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;[해결]&lt;/strong&gt;&lt;br&gt;
-이를 해결하기 위해 비밀번호로 2개의 값을 동시에 사용할 수 있도록 하는 기능이 존재한다.&lt;/p&gt;
+근데 만약 계정의 비밀번호를 바꾼다면 서비스에 장애가 발생할 것이다.&lt;br&gt;
+이로 인해 결국 하나의 암호를 몇 년 동안 사용하게 될 수도 있다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;[해결책]&lt;/strong&gt;&lt;br&gt;
+이를 해결하기 위해 비밀번호로 2개의 값을 &lt;strong&gt;동시에&lt;/strong&gt; 사용할 수 있도록 하는 기능이 존재한다.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;[설명]&lt;/strong&gt;&lt;br&gt;
 2개의 비밀번호는 Primary, Secondary로 구분된다.&lt;/p&gt;
 &lt;p&gt;가장 최근 설정한 비밀번호는 Primary, 기존 비밀번호는 Secondary가 된다.&lt;/p&gt;
@@ -500,7 +493,7 @@ mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span cla
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;ALL or ALL PRIVILEGES)&lt;/strong&gt;: 글로벌과 객체 권한 두 가지 용도로 사용할 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ALL or (ALL PRIVILEGES)&lt;/strong&gt;: 글로벌과 객체 권한 두 가지 용도로 사용할 수 있다.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;특정 객체에 ALL 권한이 부여되면 해당 객체에 적용될 수 있는 모든 권한을 부여한다.&lt;/li&gt;
 &lt;li&gt;글로벌로 ALL이 사용되면 글로벌 수준의 모든 권한이 부여된다.&lt;/li&gt;
@@ -549,10 +542,11 @@ mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span cla
 &lt;h3&gt;5-1. 사용자에게 권한 부여하기&lt;/h3&gt;
 &lt;p&gt;기본적으로 &lt;code class=&quot;language-text&quot;&gt;GRANT&lt;/code&gt; 명령을 사용한다.&lt;/p&gt;
 &lt;p&gt;이때, 부여하려는 권한의 특성에 따라 &lt;code class=&quot;language-text&quot;&gt;GRANT&lt;/code&gt; 명령의 &lt;code class=&quot;language-text&quot;&gt;ON&lt;/code&gt; 절에 명시되는 객체의 내용이 바뀌어야 한다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;-- 부여하려는 권한을 추가한다. &quot;,&quot; 를 구분자로 하여 여러 개를 동시에 명령할 수 있다.&lt;/span&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;-- 권한 부여하는 문법의 기본적인 틀&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;-- 부여하려는 권한을 추가한다. &quot;,&quot; 를 구분자로 하여 여러 개를 동시에 명령할 수 있다.&lt;/span&gt;
 mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;GRANT&lt;/span&gt; {권한} &lt;span class=&quot;token keyword&quot;&gt;ON&lt;/span&gt; db&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;table&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;TO&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;user&apos;&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;@&apos;host&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 
-&lt;span class=&quot;token comment&quot;&gt;-- GRANT OPTION 권한은 마지막에 WITH GRANT OPTION을 추가한다.&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;-- 참고: GRANT OPTION 권한은 마지막에 WITH GRANT OPTION을 추가한다.&lt;/span&gt;
 mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;OPTION&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;ON&lt;/span&gt; db&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;table&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;TO&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;user&apos;&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;@&apos;host&apos;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;WITH&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;OPTION&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 
 &lt;span class=&quot;token comment&quot;&gt;-- 글로벌 권한은 ON 절에 항상 *.* 을 사용한다.&lt;/span&gt;
