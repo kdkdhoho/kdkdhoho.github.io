@@ -1,6 +1,6 @@
 ---
 title: "OS 면접 스터디 1주차"
-description: "기록용"
+description: "OS 면접 스터디 5주차 질답"
 date: 2023-11-09
 update: 2023-12-01
 tags: ["operating-system", "interview"]
