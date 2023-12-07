@@ -3,7 +3,7 @@ title: "static을 더 잘 사용하기"
 description: "static 키워드 with JVM의 메모리 구조"
 date: 2023-12-06
 update: 2023-12-06
-tags: ["java", "operation-system"]
+tags: ["java", "operating-system"]
 ---
 
 ## JVM의 메모리 구조
@@ -17,6 +17,8 @@ tags: ["java", "operation-system"]
 1. Heap 영역
    - new 키워드를 사용해 **동적으로 생성한 객체의 인스턴스**가 담기는 공간이다.
    - **Garbage Collection**에 의해 관리된다.
+
+
 
 2. Stack 영역
    - 메서드 콜 스택이나, 지역 변수 혹은 변수 파라미터가 저장되는 공간이다.
