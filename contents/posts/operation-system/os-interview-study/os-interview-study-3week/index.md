@@ -1,6 +1,6 @@
 ---
-title: "OS 면접 스터디 3주차"
-description: "OS 면접 스터디 5주차 질답"
+title: "[JSCODE] - OS 면접 스터디 3주차"
+description: "[JSCODE] - OS 면접 스터디 3주차"
 date: 2023-11-23
 update: 2023-12-01
 tags: ["operating-system", "interview"]
