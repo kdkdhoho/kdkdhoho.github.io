@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 11 Dec 2023 14:58:09 GMT</lastBuildDate><item><title><![CDATA[Java에서 컬렉션을 사용할 때 주의할 점]]></title><description><![CDATA[문제 상황 인스턴스 필드로 List만을 가지는 일급 컬렉션 객체가 있습니다. 필드에   키워드가 존재하기 떄문에 항상 초기화를 해줘야 합니다. 따라서 객체를 생성하려면 생성자를 List…]]></description><link>https://kdkdhoho.github.io/cautions-for-using-collections-in-Java/</link><guid isPermaLink="false">https://kdkdhoho.github.io/cautions-for-using-collections-in-Java/</guid><pubDate>Mon, 11 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;문제 상황&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 12 Dec 2023 09:24:29 GMT</lastBuildDate><item><title><![CDATA[Java에서 컬렉션을 사용할 때 주의할 점]]></title><description><![CDATA[문제 상황 인스턴스 필드로 List만을 가지는 일급 컬렉션 객체가 있습니다. 필드에   키워드가 존재하기 떄문에 항상 초기화를 해줘야 합니다. 따라서 객체를 생성하려면 생성자를 List…]]></description><link>https://kdkdhoho.github.io/cautions-for-using-collections-in-Java/</link><guid isPermaLink="false">https://kdkdhoho.github.io/cautions-for-using-collections-in-Java/</guid><pubDate>Mon, 11 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;문제 상황&lt;/h2&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MyList&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
 
     &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;token generics&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt; list&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
@@ -2632,4 +2632,86 @@ Tomcat maxThreads의 기본값이 10인 이유는? 모르겠다. 아마 Tomcat�
 &lt;li&gt;말이 길어지는 경향이 있다. 개념을 물어봤을 때, 이런 개념입니다. 하고 부연 설명.&lt;/li&gt;
 &lt;li&gt;질문에 대해 답변이 한번씩은 많이 짧았다.
 한 마디만 더 했으면 면접관 입장에서 한번 더 물어볼 의향이 들었을텐데..&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item></channel></rss>
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[셀럽잇의 기술 스택 및 선정 이유]]></title><description><![CDATA[Java 17 우아한테크코스에서 진행한 미션들의 Java 버전은 11이었습니다. 모든 팀원들에게 익숙한 버전은 11 버전임은 부정할 수 없는 사실이지만, 그럼에도 17 버전을 선택한 이유는 다음과 같습니다. 생산성 17 버전에 포함된 Record…]]></description><link>https://kdkdhoho.github.io/tech-stacks/</link><guid isPermaLink="false">https://kdkdhoho.github.io/tech-stacks/</guid><pubDate>Fri, 07 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/21ffa5090d4e6d50fc811bb5e28085dd/3c266/tech_stack_icons.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 38.23529411764706%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAACFklEQVR42n2RT0iTARyGP7qH0SBmsKHkISvsIIGXDuYUG5j/UhfLDg41UnFu09Smkkus1DW/hfPLmX+wNQ+Ftpw6tyWoQw+W0SHykB7y0K2gg67p0zdP1qHn/j68v/cn6HWl9Dv7aeqtxeHso9bWyEOnHXP9HXoedWJpbqGuwYzDYae9rRW72EeHuxbRZWfCO4V/dg5zSysmi4VYLIYgQ1FZIelVaorLr5FWcYWrhhLOqU9QmpeBKvUip5LPkJubzYXzZ8kv05JtU1F8U4tr/A2SZ5rE04moVGqi0SjCkCQRiUSQXBLhhTCjY2MEAwtMeCZ5Pe3D+9KLW3Lj988yMjzCQjDIgMtJKBxmZHSceTmztrrK8soKcQRBocZkNJGQpEBryCclOYnLmZks+iaZezVOm/UuTd0NGK5r0aUpuK0rpiZFQbVex8njx+iQZ4gTP/dQmK4p4NngENqqIu6J9yks1FJZYyDknyIwM4VTfMKDPhtdHbK4MovuditNeVk8tnWSk53J82H338JeYwFezwtqmit4OuDAI67jc3+ktUskp0CPNChRX2fE99bPr90Yu/JO33/85Lcs2NuLcnBwwFGES0qBRpMJZWoCulslWG8s0VMdkWXlCMoMjCYzGk0WoigeBvb39/kfwkzgHd92dlhaXGbzyybra5/YWP/Mxof3BOUHbG19JRQKsb29fRiIN/q31VHhH+e+vvn+V3k8AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;프로젝트에서 선택한 기술 스택 아이콘&apos; title=&apos;&apos; src=&apos;/static/21ffa5090d4e6d50fc811bb5e28085dd/ca1dc/tech_stack_icons.png&apos; srcset=&apos;/static/21ffa5090d4e6d50fc811bb5e28085dd/e7570/tech_stack_icons.png 170w,
+/static/21ffa5090d4e6d50fc811bb5e28085dd/f46e7/tech_stack_icons.png 340w,
+/static/21ffa5090d4e6d50fc811bb5e28085dd/ca1dc/tech_stack_icons.png 680w,
+/static/21ffa5090d4e6d50fc811bb5e28085dd/02d09/tech_stack_icons.png 1020w,
+/static/21ffa5090d4e6d50fc811bb5e28085dd/9d567/tech_stack_icons.png 1360w,
+/static/21ffa5090d4e6d50fc811bb5e28085dd/3c266/tech_stack_icons.png 3923w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;프로젝트에서 선택한 기술 스택 아이콘&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;Java 17&lt;/h2&gt;
+&lt;p&gt;우아한테크코스에서 진행한 미션들의 Java 버전은 11이었습니다.&lt;/p&gt;
+&lt;p&gt;모든 팀원들에게 익숙한 버전은 11 버전임은 부정할 수 없는 사실이지만, 그럼에도 17 버전을 선택한 이유는 다음과 같습니다.&lt;/p&gt;
+&lt;h3&gt;생산성&lt;/h3&gt;
+&lt;p&gt;17 버전에 포함된 &lt;strong&gt;Record 타입, String 블럭 사용, Stream.toList()&lt;/strong&gt;사용 으로 생산성 향상을 기대했기 때문입니다.&lt;/p&gt;
+&lt;p&gt;우테코에서 진행하는 프로젝트 특성상 2주 단위로 기능을 빠르게 추가해야 하는 상황이었습니다.&lt;/p&gt;
+&lt;p&gt;따라서 팀에게 있어 생산성도 중요한 가치라고 판단했습니다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Record 타입은 JDK 14에 추가됐습니다. &lt;a href=&quot;https://www.baeldung.com/java-record-keyword&quot;&gt;관련 글&lt;/a&gt;&lt;br&gt;
+String 블럭은 JDK 15에 추가됐습니다. &lt;a href=&quot;https://www.baeldung.com/java-text-blocks&quot;&gt;관련 글&lt;/a&gt;
+Streams.toList()는 JDK 17에 추가됐습니다. &lt;a href=&quot;https://www.baeldung.com/java-stream-to-list-collecting&quot;&gt;관련 글&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;JDK 8, 11에 이은 LTS 버전&lt;/h3&gt;
+&lt;p&gt;JDK 11은 26년 9월, JDK 17은 31년 9월까지 지원하는 LTS 버전입니다.&lt;/p&gt;
+&lt;p&gt;셀럽잇 프로젝트를 앞으로 몇 년이고 지속할 수 있는 가능성이 존재했습니다.&lt;/p&gt;
+&lt;p&gt;또한, 신규 프로젝트를 진행하는 상황에 있어 레거시를 고려할 필요는 없을 뿐더러 앞으로 있을 미래를 대비하는 것이 현명하다고 판단했습니다.&lt;/p&gt;
+&lt;h3&gt;더 나은 GC 성능&lt;/h3&gt;
+&lt;p&gt;이는 추가적인 이유를 찾아보다가 발견한 이유입니다.&lt;/p&gt;
+&lt;p&gt;바로, JDK 11보다 더 나은 GC 성능을 가진다는 것인데요.&lt;/p&gt;
+&lt;p&gt;G1 GC의 경우 JDK 11에 비해, 8.66% 더 빠르다는 벤치마킹 결과가 존재하는 것을 확인할 수 있었습니다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.optaplanner.org/blog/2021/09/15/HowMuchFasterIsJava17.html&quot;&gt;참고 문서&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;GC 개선, JIT 컴파일러 개선, 클래스 데이터 공유로 인한 개선으로 인한 것이라고 합니다.&lt;/p&gt;
+&lt;h2&gt;Spring Boot 3&lt;/h2&gt;
+&lt;p&gt;Java 17은 Spring Boot 3 부터 지원을 강제하는 이유에서 선택했습니다.&lt;/p&gt;
+&lt;h2&gt;Nginx&lt;/h2&gt;
+&lt;p&gt;초기 개발 단계에서 React와 Spring이 한 대의 EC2 인스턴스 내에 존재했습니다.&lt;/p&gt;
+&lt;p&gt;따라서 접속 URL에 따라 포트 포워딩을 할 필요가 있었습니다.&lt;/p&gt;
+&lt;p&gt;추가로, Nginx와 연동 가능하며 HTTPS 적용에 필요한 SSL 인증서를 발급해주는 무료 오픈소스인 &lt;a href=&quot;https://letsencrypt.org/&quot;&gt;Let&apos;s Encrypt&lt;/a&gt;를 사용하여 간편하게 HTTPS 적용을 하기 위해 사용했습니다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://youtu.be/6FAwAXXj5N0?feature=shared&quot;&gt;[10분 테코톡] 🤫 피케이의 Nginx&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;JPA &amp;#x26; Spring Data JPA&lt;/h2&gt;
+&lt;p&gt;사실 처음에는, JPA를 사용해본 적이 없는 팀원이 저를 포함해 2명이 있었습니다.&lt;/p&gt;
+&lt;p&gt;따라서 처음엔 발생할 수 있는 문제에 모든 팀원이 대응할 수 있기 위해 JDBC를 사용했는데요.&lt;/p&gt;
+&lt;p&gt;개발을 본격적으로 시작하기까지는 조금의 시간이 있었습니다.&lt;/p&gt;
+&lt;p&gt;그 시간동안 JPA를 학습할 수 있었고, JPA를 통해 개발 초기에 빠르게 개발할 수 있다는 점에서 선택을 변경했습니다.&lt;/p&gt;
+&lt;p&gt;또한, JPA는 객체와 RDBMS의 패러다임 불일치를 해결해준다는 점에서 큰 메리트를 느꼈습니다.&lt;/p&gt;
+&lt;h2&gt;QueryDsl&lt;/h2&gt;
+&lt;p&gt;셀럽잇이 제공하는 기능 중, 음식점을 다양한 조건으로 필터링하여 조회하는 기능이 있었습니다.&lt;/p&gt;
+&lt;p&gt;해당 기능을 구현하기 위해서는 동적 쿼리를 만들어야 했는데요.&lt;/p&gt;
+&lt;p&gt;QueryDsl을 선택하기 전의 동적 쿼리는 유지보수가 매우 힘들었습니다.&lt;/p&gt;
+&lt;p&gt;따라서 유지보수를 위해 도입했습니다.&lt;/p&gt;
+&lt;h2&gt;Docker&lt;/h2&gt;
+&lt;p&gt;초기 개발 단계에서 운영 단계를 준비하는 과정에서 동일한 환경을 쉽게 세팅하기 위해 사용했습니다.&lt;/p&gt;
+&lt;h2&gt;nGrinder&lt;/h2&gt;
+&lt;p&gt;부하 테스트 툴로써 다른 대안이었던 JMeter에 비해 더 편리한 사용성과 편리한 UI/UX, 그리고 무엇보다 한국어를 지원한다는 점에서 선택했습니다.&lt;/p&gt;
+&lt;h2&gt;Grafana, Prometheus, Loki, Promtail&lt;/h2&gt;
+&lt;p&gt;다른 대안이었던 AWS CloudWatch는 새로 학습해야 하는 학습 비용이 존재했습니다. 동시에 금전적인 비용이 들어갑니다.&lt;/p&gt;
+&lt;p&gt;사실 &lt;em&gt;Grafana, Prometheus, Loki, Promtail&lt;/em&gt;도 팀원 전체가 학습을 해야하는 건 마찬가지였지만, 인프런에 김영한 님의 관련 강의가 존재하였고 이를 통해 쉽게 기술을 익혀 사용할 수 있을 것으로 판단했습니다.&lt;/p&gt;
+&lt;p&gt;동시에 모두 무료 오픈소스인 점에서 선택했습니다.&lt;/p&gt;
+&lt;h2&gt;S3&lt;/h2&gt;
+&lt;p&gt;음식점에 대한 정보 중, 음식점 사진이 존재했습니다.&lt;/p&gt;
+&lt;p&gt;초기에는 사진을 모두 EC2 인스턴스 내에 저장하여, 정적으로 Serving 했습니다.&lt;/p&gt;
+&lt;p&gt;하지만 음식점의 수가 증가함에 따라 사진 파일의 수도 증가하고, 그에 따라 서버의 용량을 걱정하지 않을 수 없었습니다.&lt;/p&gt;
+&lt;p&gt;동시에, React로 개발한 결과물을 빌드한 것은 모두 정적인 자원이며, EC2 인스턴스 내에서 빌드하는 데에 많은 시간이 걸렸습니다.&lt;/p&gt;
+&lt;p&gt;따라서 정적 자원들은 스토리지에서 제공하기 위해 사용했습니다.&lt;/p&gt;
+&lt;h2&gt;CloudFront&lt;/h2&gt;
+&lt;p&gt;S3를 그냥 사용하면 보안과 관련된 문제가 발생할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;또, S3에 있는 자원에 접근하려면 매우 길고 이상한 URL로 접근을 해야 했습니다.&lt;/p&gt;
+&lt;p&gt;이를 해결하기 위해 CDN 역할의 AWS CloudFront를 도입했습니다.&lt;/p&gt;
+&lt;h2&gt;Github Actions&lt;/h2&gt;
+&lt;p&gt;CI/CD 툴로 사용했습니다.&lt;/p&gt;
+&lt;p&gt;다른 대안이었던 Jenkins는 팀원 전체가 학습할 시간이 필요했습니다.&lt;/p&gt;
+&lt;p&gt;따라서 바로 적용할 수 있는 CI/CD 툴을 적용했습니다.&lt;/p&gt;
+&lt;h2&gt;OAuth 2.0&lt;/h2&gt;
+&lt;p&gt;OAuth 2.0을 적용하면 사용자의 개인 정보를 저장하지 않아도 되는 장점이 있습니다.&lt;/p&gt;
+&lt;p&gt;또한, 사용자 퍼널 개선을 위한 목적으로 선택했습니다.&lt;/p&gt;</content:encoded></item></channel></rss>
