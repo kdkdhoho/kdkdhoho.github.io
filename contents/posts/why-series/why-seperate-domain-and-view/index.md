@@ -3,7 +3,7 @@ title: "Domain과 View를 분리한다. 왜?"
 description: "Domain과 View는 왜 친해질 수 없는가?"
 date: 2023-12-04
 update: 2023-12-04
-tags: ["design-pattern", "mvc-pattern"]
+tags: ["design-pattern", "mvc-pattern", "clean-code"]
 series: "Why? 시리즈"
 ---
 

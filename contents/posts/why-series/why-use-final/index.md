@@ -3,7 +3,7 @@ title: "final 키워드를 사용해 값의 변경을 막아라. 왜?"
 description: "final 키워드의 장단점"
 date: 2023-12-05
 update: 2023-12-05
-tags: ["java"]
+tags: ["java", "clean-code"]
 series: "Why? 시리즈"
 ---
 
