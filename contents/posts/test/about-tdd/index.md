@@ -1,9 +1,8 @@
 ---
-title: "TDD에 대해"
+title: "TDD 이해하기"
 description: "TDD에 대해 알아보자"
 date: 2023-11-29
-update: 2023-11-29
-tags: ["tdd"]
+tags: ["tdd", "test"]
 ---
 
 ## TDD란?
