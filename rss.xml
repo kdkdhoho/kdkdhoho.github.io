@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 17 Dec 2023 11:55:13 GMT</lastBuildDate><item><title><![CDATA[InnoDB 엔진 이해하기]]></title><description><![CDATA[작성 예정]]></description><link>https://kdkdhoho.github.io/04-innodb-engine/</link><guid isPermaLink="false">https://kdkdhoho.github.io/04-innodb-engine/</guid><pubDate>Sun, 17 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;작성 예정&lt;/p&gt;</content:encoded></item><item><title><![CDATA[MySQL 엔진 아키텍처]]></title><description><![CDATA[MySQL 엔진 아키텍처  MySQL 서버는 크게 MySQL 엔진과 스토리지 엔진으로 나뉜다. MySQL…]]></description><link>https://kdkdhoho.github.io/04-mysql-engine-architecture/</link><guid isPermaLink="false">https://kdkdhoho.github.io/04-mysql-engine-architecture/</guid><pubDate>Thu, 14 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;MySQL 엔진 아키텍처&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 18 Dec 2023 09:15:22 GMT</lastBuildDate><item><title><![CDATA[InnoDB 엔진 이해하기]]></title><description><![CDATA[작성 예정]]></description><link>https://kdkdhoho.github.io/04-innodb-engine/</link><guid isPermaLink="false">https://kdkdhoho.github.io/04-innodb-engine/</guid><pubDate>Sun, 17 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;작성 예정&lt;/p&gt;</content:encoded></item><item><title><![CDATA[MySQL 엔진 아키텍처]]></title><description><![CDATA[MySQL 엔진 아키텍처  MySQL 서버는 크게 MySQL 엔진과 스토리지 엔진으로 나뉜다. MySQL…]]></description><link>https://kdkdhoho.github.io/04-mysql-engine-architecture/</link><guid isPermaLink="false">https://kdkdhoho.github.io/04-mysql-engine-architecture/</guid><pubDate>Thu, 14 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;MySQL 엔진 아키텍처&lt;/h2&gt;
 &lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
       &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/b9c53b77681406b338ac3bd2a26be5b8/38ea8/entire-structure-mysql.jpg&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
@@ -2864,7 +2864,181 @@ One &lt;em&gt;Statement Cycle&lt;/em&gt;은 한 쌍의 &lt;code class=&quot;lang
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=zowzVqx3MQ4&quot;&gt;https://www.youtube.com/watch?v=zowzVqx3MQ4&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[셀럽잇의 기술 스택 및 선정 이유]]></title><description><![CDATA[Java 17 우아한테크코스에서 진행한 미션들의 Java 버전은 11이었습니다. 모든 팀원들에게 익숙한 버전은 11 버전임은 부정할 수 없는 사실이지만, 그럼에도 17 버전을 선택한 이유는 다음과 같습니다. 생산성 17 버전에 포함된 Record…]]></description><link>https://kdkdhoho.github.io/tech-stacks/</link><guid isPermaLink="false">https://kdkdhoho.github.io/tech-stacks/</guid><pubDate>Fri, 07 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[[셀럽잇] OAuth 2.0 로그아웃 구현]]></title><description><![CDATA[로그아웃 API 명세 우선 OAuth 관련 기능을 구현하려면 무조건 해당 OAuth 서버의 공식 문서를 통해 API 명세를 확인해야합니다. 구현하고자 하는 OAuth 서버인 카카오의 로그아웃 API…]]></description><link>https://kdkdhoho.github.io/oauth-logout-and-withdraw/</link><guid isPermaLink="false">https://kdkdhoho.github.io/oauth-logout-and-withdraw/</guid><pubDate>Mon, 14 Aug 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;로그아웃 API 명세&lt;/h2&gt;
+&lt;p&gt;우선 OAuth 관련 기능을 구현하려면 무조건 해당 OAuth 서버의 공식 문서를 통해 API 명세를 확인해야합니다.&lt;/p&gt;
+&lt;p&gt;구현하고자 하는 OAuth 서버인 카카오의 로그아웃 API 명세는 다음과 같습니다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/fe21585bd6ffd1a94ab704b5e775db29/55091/kakao-logout-api-docs.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 48.8235294117647%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABLUlEQVR42q1SW3LDIAzk/gdsLtA6TfwAYwPmuZWgduq005+WmR2kAVbaFaLrOlwuL7j3I9oq+MsSUkqM44gYE/5jiYHIhmFCykAICT5EREp+QkrlBLd5eB+OPOcCoRdDciU2nzBOGpNcKM6wLn6DseGE7npHPygiTliNpz1COLfBGItC1nG1edbQejn2HUrNVCjUe9wJQ0qFvh+wUaecFzoUdQylDSLnXGMGxy1v4Ph5YNYarIuGo33nEOtqMWtTJXPLs16pMncTa759wpHkaQ6QBJbPZyx1mhP02nJPMxCVQC2VkPF+k3h9G+rhTspgj7qbRT89CFdDPt49RhUaIb0Xz2Pnitc+Qi0RIT4k5kQ/YHOnu7vM07epnn3xzodcp2xsIsLmW/O0HHd+wwc7PRAmERFhsAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;카카오 OAuth 공식문서의 로그아웃 API 명세&apos; title=&apos;&apos; src=&apos;/static/fe21585bd6ffd1a94ab704b5e775db29/ca1dc/kakao-logout-api-docs.png&apos; srcset=&apos;/static/fe21585bd6ffd1a94ab704b5e775db29/e7570/kakao-logout-api-docs.png 170w,
+/static/fe21585bd6ffd1a94ab704b5e775db29/f46e7/kakao-logout-api-docs.png 340w,
+/static/fe21585bd6ffd1a94ab704b5e775db29/ca1dc/kakao-logout-api-docs.png 680w,
+/static/fe21585bd6ffd1a94ab704b5e775db29/02d09/kakao-logout-api-docs.png 1020w,
+/static/fe21585bd6ffd1a94ab704b5e775db29/9d567/kakao-logout-api-docs.png 1360w,
+/static/fe21585bd6ffd1a94ab704b5e775db29/55091/kakao-logout-api-docs.png 1662w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;카카오 OAuth 공식문서의 로그아웃 API 명세&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;인증 방식 선택&lt;/h2&gt;
+&lt;p&gt;인증 방식을 보면 &lt;code class=&quot;language-text&quot;&gt;액세스 토큰&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;서비스 앱 어드민 키&lt;/code&gt;(이하 어드민 키)로 두 가지가 있습니다.&lt;/p&gt;
+&lt;p&gt;액세스 토큰 방식은 쉽게 생각해 JWT를 통해 인증하는 것이고, 어드민 키는 API 요청을 보낼 때, 어드민 키를 함께 파라미터로 담아 요청하는 방식입니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;저희 팀이 선택한 인증 방식은 어드민 키 방식&lt;/strong&gt;인데요. 이유로는, 로그인 시 발급되는 액세스 토큰을 따로 관리하지 않으며, 서비스의 인증 방식으로 토큰 방식이 아닌 세션 방식을 채택해 사용하고 있기 때문입니다.&lt;/p&gt;
+&lt;p&gt;하지만 액세스 토큰 방식이 더 간단하니 상황이 된다면 액세스 토큰 방식을 사용하는 것을 추천합니다.&lt;/p&gt;
+&lt;p&gt;어드민 키는 &apos;내 애플리케이션 - 앱 키&apos; 에서 확인할 수 있습니다.&lt;/p&gt;
+&lt;h2&gt;구현&lt;/h2&gt;
+&lt;p&gt;그럼 이제 &lt;code class=&quot;language-text&quot;&gt;어드민 키&lt;/code&gt; 방식으로 구현해보겠습니다.&lt;/p&gt;
+&lt;p&gt;일단 그 전에 어드민 키를 환경 변수에 설정해줍니다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/a66155de4c8ca6df40dc2e85ecfcf6eb/ef0cc/admin-key-in-properties.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 32.94117647058823%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAABkElEQVR42m2RTU8TURSG+yN00aHM1FKmw3x0mqEWQUJl5cJoWFQ0LvA3+ANI3Ju4w7h0oTFC+Q2A0PAhCmiNtgTjdExmam1CunJTH+/cLrTGc/PkvO/9ODm5J+FZFlo6i6pl0LQxRlJpkoqKMqINowz7pPDxXVW8+ZvE/GQB17RIqWOMqhks28XJe5iWO0S8P+wLjOsmSmpQWBGkRi+RsHSDGddh0rbRMxlW16qEYUSrFfwhCAiCgY6z7/t0u12ev3iJnrNxC0WJaeVJ6NkcMwWXK25eFi1fneXVapVerycLh2FIFEUS6aO21O32d87OvrC9vcPG5hZ7+wesPHkqOszpTDsmJdtkrugxkdZYvHOPRvOUd0fHghOOjk+kjvOA9+zuv+Hw8C31ep0bNxfIjhtMmKLDkudy2fG4Nn+drdc1Gp8+8q3lE8cvsf6Nfr8v83p1jaWl+1Ru38UwbDkoOZSpcoWpW8sUFx6y+OAZtQ8hnfOfNL52OG39+C9Nv8Nncf7o8QoXLibFcCxyhiP/8zfQw1M/czGgggAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;환경 변수 적용&apos; title=&apos;&apos; src=&apos;/static/a66155de4c8ca6df40dc2e85ecfcf6eb/ca1dc/admin-key-in-properties.png&apos; srcset=&apos;/static/a66155de4c8ca6df40dc2e85ecfcf6eb/e7570/admin-key-in-properties.png 170w,
+/static/a66155de4c8ca6df40dc2e85ecfcf6eb/f46e7/admin-key-in-properties.png 340w,
+/static/a66155de4c8ca6df40dc2e85ecfcf6eb/ca1dc/admin-key-in-properties.png 680w,
+/static/a66155de4c8ca6df40dc2e85ecfcf6eb/ef0cc/admin-key-in-properties.png 962w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;환경 변수 적용&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;그 다음 API 명세를 자세히 확인합니다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/6fd596515243ac91f779879d75564571/7bd25/api-specific.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 85.88235294117648%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsTAAALEwEAmpwYAAABsklEQVR42q1Ta2+DMBDj///KalW1rSvPhDyhN/tKULpV+4CGZHJJDofYd03btnI+v8nlcpHT6aQj4X2UI0/TgXCenazrKjlnHZdlkfv9foxwdl4m40ByB+EqDn/mQ5SMecJckZY/Mc9eYszgWEGIyee1A0nGNbPcboN03ajx7JI4gPEO5oVF1wuu+N4Yr+QNr2iMkWma9JdTSiDsdozjqFJwPQNpQ5GEIyXar8wXSUtCjFHJrbW4yqyHlQPrkd8UwhIrIV0O8ZijL02ZJistNKP4AfpQk66fcAjEdhHxqDH3yug3hA3M9z6pqU0ICYQDrhd0kWjbAW5T8AiTejHW674FeMh+wGZkXxPy/tSL2hRxnXMqPB+u932vOdTOe6+61abQtP3KhbAsMqH+iMZYa57MGYZhP/wXYQhBiLoz6k7hgQVcJ+qqKKQ74cf7O2pterl5yGX+fkr5f8uGrRMjy2aRWztCJ4eY2ga5fnUPV9XZ5akNNR+tyrbz/tHXDZuaZZHSCtIFm05Lg3OWwjAYEHuFsU5LhXkFzGce471s6l5k65WSoZ4Ojmu7be7WjvL5Of8G0/Q1h5UqpWIAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;API 명세 상세 정보&apos; title=&apos;&apos; src=&apos;/static/6fd596515243ac91f779879d75564571/ca1dc/api-specific.png&apos; srcset=&apos;/static/6fd596515243ac91f779879d75564571/e7570/api-specific.png 170w,
+/static/6fd596515243ac91f779879d75564571/f46e7/api-specific.png 340w,
+/static/6fd596515243ac91f779879d75564571/ca1dc/api-specific.png 680w,
+/static/6fd596515243ac91f779879d75564571/02d09/api-specific.png 1020w,
+/static/6fd596515243ac91f779879d75564571/9d567/api-specific.png 1360w,
+/static/6fd596515243ac91f779879d75564571/7bd25/api-specific.png 1664w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;API 명세 상세 정보&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;눈여겨 볼 포인트는 &lt;strong&gt;헤더&lt;/strong&gt;와 &lt;strong&gt;본문&lt;/strong&gt;, &lt;strong&gt;응답&lt;/strong&gt;입니다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/199ce5279890ea65711dbf3ec7bed159/e69c5/code-of-OauthController.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 30%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA90lEQVR42n2QS3KDMBBEuUcAI9AHSYwkfjblkCxy/zt1Rji4soiz6JJaVfPUPcWyjti2BfNyBa0r5HxDYB+vgX2EHxKcC7CW0LMs37Xxh3570xOksig6abGud0zLhjEtGAKLRoSQEMMIChOIJkRPUNqh7cxTnewPnXfRahT1pYPRPcgN8NbzcDp+dirAS07WDXCSUDcSZSVQ1e1LZVbRCM2VIsinI4lh2JlqGHLSGTHNCI7fTILiRtXlMfyXirY12NdPbMuOj/0L19s7QsyQR/V8Zt8bghAKTaNewn6AGpYr947gGZDrKu2fi8+7eSsblLX4N9kJ/AboF7APilxiogAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;OauthController&apos; title=&apos;&apos; src=&apos;/static/199ce5279890ea65711dbf3ec7bed159/ca1dc/code-of-OauthController.png&apos; srcset=&apos;/static/199ce5279890ea65711dbf3ec7bed159/e7570/code-of-OauthController.png 170w,
+/static/199ce5279890ea65711dbf3ec7bed159/f46e7/code-of-OauthController.png 340w,
+/static/199ce5279890ea65711dbf3ec7bed159/ca1dc/code-of-OauthController.png 680w,
+/static/199ce5279890ea65711dbf3ec7bed159/02d09/code-of-OauthController.png 1020w,
+/static/199ce5279890ea65711dbf3ec7bed159/9d567/code-of-OauthController.png 1360w,
+/static/199ce5279890ea65711dbf3ec7bed159/e69c5/code-of-OauthController.png 1656w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;OauthController&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/c331e42572849bd1f039d898125b7963/52c6a/code-of-KakaoMemberClient.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 21.176470588235293%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAuUlEQVR42oWPy3aEIBBE/ZHBEVReAwKKcZKc/P9f3aDJmU0WWdzuTVV1dee15dh2an3i6xfb8Undn2z7O2su1OODVHamySF69S+duE/k9aCsb/i0oLJHBYcOARcivmSMDS/DTUhu/S/iL11/HzHmgTWRsbVQxjI2jGmBPmFdRI4aMShOrRx0Y/7ZsqE0g5xfdLINP0XCnHBtWxuJcW1hS2sWL6Q1SGcv86ILUedL/3CJsJTrg1N/Hv8GIZd1NvCyBmMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;KakaoMemberClient&apos; title=&apos;&apos; src=&apos;/static/c331e42572849bd1f039d898125b7963/ca1dc/code-of-KakaoMemberClient.png&apos; srcset=&apos;/static/c331e42572849bd1f039d898125b7963/e7570/code-of-KakaoMemberClient.png 170w,
+/static/c331e42572849bd1f039d898125b7963/f46e7/code-of-KakaoMemberClient.png 340w,
+/static/c331e42572849bd1f039d898125b7963/ca1dc/code-of-KakaoMemberClient.png 680w,
+/static/c331e42572849bd1f039d898125b7963/02d09/code-of-KakaoMemberClient.png 1020w,
+/static/c331e42572849bd1f039d898125b7963/9d567/code-of-KakaoMemberClient.png 1360w,
+/static/c331e42572849bd1f039d898125b7963/52c6a/code-of-KakaoMemberClient.png 1452w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;KakaoMemberClient&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/dea5db4d0822077de2105d5c38b438c0/1263b/code-of-KakaoApiClient.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 22.941176470588236%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAABAklEQVR42lWPSY7DMAwE/ZF436J4kWzJi+wkh0GA+f+HaqgklzkU2GhRJDvSumEYGkapWl/pekNVK26dpuoU9dRT3FoaO1LrntZp6rGnmYYv4puBVt6Djvxxsq47h9RtDzwxZqGdT9T5Qt1fdI9frmYmyUvyuiUrG7KqIS1qkqISvxJdvXWUFy1F2bLvmmUZWDeN9yNGNm73H4zzdJ3jPj7w/cmiNrbOMw4WbZwks8zTKkedknQmusQ5lzjDOYVbFNYqtlVJ/FEWePG8eBuHXG7tjrP+/dFMC8t6vIfu/sksPWkmF2Z5TRiapMU/4uRD0KExEKclSfYhTqSmEjN4X8KcP19MmAzhYb8IAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;KakaoApiClient&apos; title=&apos;&apos; src=&apos;/static/dea5db4d0822077de2105d5c38b438c0/ca1dc/code-of-KakaoApiClient.png&apos; srcset=&apos;/static/dea5db4d0822077de2105d5c38b438c0/e7570/code-of-KakaoApiClient.png 170w,
+/static/dea5db4d0822077de2105d5c38b438c0/f46e7/code-of-KakaoApiClient.png 340w,
+/static/dea5db4d0822077de2105d5c38b438c0/ca1dc/code-of-KakaoApiClient.png 680w,
+/static/dea5db4d0822077de2105d5c38b438c0/1263b/code-of-KakaoApiClient.png 1000w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;KakaoApiClient&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 558px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/6bd5f6ab6c6bc1617eb4a8a31290599c/65207/KakaoLogoutResponse.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 31.76470588235294%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA2klEQVR42qWQW27CMBBFvY7ihISE2JMQOyTlWUhjXkXq/tdz67FEhZD4QHwczfiMPFe2WNQzXJcths5ibWpYIrjWYPCsKsJm2+N8+cX3cMLXzuF4umLfH4Mb3Bnu8BMqO2M7CF1olIUCTRW0J0lztKbBZ9NBF4RmvoAm46lBpUFZ2dAXqgqVz0rPQp/lGkLGGT5kilGUQsYTjJMcq02P3qdav2y3d4i8lzy/45kTnFBWDcgnRF7G4yzUkUz+L7HjIOa+f4Rngp+RTwmTTIUFLN9B8B/dlj1LfoU/eFSvKR8SakgAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;KakaoLogoutResponse&apos; title=&apos;&apos; src=&apos;/static/6bd5f6ab6c6bc1617eb4a8a31290599c/65207/KakaoLogoutResponse.png&apos; srcset=&apos;/static/6bd5f6ab6c6bc1617eb4a8a31290599c/e7570/KakaoLogoutResponse.png 170w,
+/static/6bd5f6ab6c6bc1617eb4a8a31290599c/f46e7/KakaoLogoutResponse.png 340w,
+/static/6bd5f6ab6c6bc1617eb4a8a31290599c/65207/KakaoLogoutResponse.png 558w&apos; sizes=&apos;(max-width: 558px) 100vw, 558px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;KakaoLogoutResponse&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;위 코드를 통해 간단하게 로그아웃 기능을 구현할 수 있습니다.&lt;/p&gt;
+&lt;h2&gt;테스트&lt;/h2&gt;
+&lt;p&gt;테스트 방식은 다음과 같습니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;로컬에서 프론트 애플리케이션을 띄운다.&lt;/li&gt;
+&lt;li&gt;브라우저를 통해 로그인 요청을 보낸다.&lt;/li&gt;
+&lt;li&gt;로그인 후 획득한 세션 아이디를 통해 포스트맨으로 로그아웃 요청을 보낸다.&lt;/li&gt;
+&lt;li&gt;결과를 확인한다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;로그인 요청 실패&lt;/h3&gt;
+&lt;p&gt;이때, 브라우저를 통해 로그인 요청을 보내면 이런 에러가 뜰 수 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/5a31ac47100c68dca5d1bef78272bed7/f621c/error-of-test-login.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 7.647058823529412%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAeUlEQVR42k3MSxKCMBREUTYCUSDBCCEf8iBQuP9lXSmcODh1J11d5VwofmEJhbRsiOzEJAwu0PlEM86o0dNOgV5bfMj3LkTBhRXrj9sYz6snVZaDdf8g20HMJ2Yq11nh5Xa0FfQw87YOe3m2hkZ1f3pqpakf5lel+QJ27zy7WOvZsQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;테스트 과정 중, 로그인 요청 실패&apos; title=&apos;&apos; src=&apos;/static/5a31ac47100c68dca5d1bef78272bed7/ca1dc/error-of-test-login.png&apos; srcset=&apos;/static/5a31ac47100c68dca5d1bef78272bed7/e7570/error-of-test-login.png 170w,
+/static/5a31ac47100c68dca5d1bef78272bed7/f46e7/error-of-test-login.png 340w,
+/static/5a31ac47100c68dca5d1bef78272bed7/ca1dc/error-of-test-login.png 680w,
+/static/5a31ac47100c68dca5d1bef78272bed7/02d09/error-of-test-login.png 1020w,
+/static/5a31ac47100c68dca5d1bef78272bed7/9d567/error-of-test-login.png 1360w,
+/static/5a31ac47100c68dca5d1bef78272bed7/f621c/error-of-test-login.png 2878w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;테스트 과정 중, 로그인 요청 실패&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;이는 &lt;strong&gt;허용 IP 주소를 설정해주지 않아서 생기는 오류입니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;이를 해결하기 위해 아래 페이지를 통해 현재 사용중인 IP를 추가합니다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/0db6eaac35f697f9cf77e42a0dc02ea9/b7b45/accept-server-ip-addresses.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 60.58823529411765%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAABNUlEQVR42pVTy26DQAzcz88lUu58Scg35FKh9hykJBWoEBJYlud0x63RqlUjamlkrc2Ox8ZrqqrC7XZDXdcoyxKPRw1nWzRNg7Zt4Zz7F0zf9xjHEYs1Ofr3N7wkryiLEtM0Ya3N8/xFSKgNvfNovTon8WEYVoPfG2uttPtdAqNXxFbzPJdRsCpV0qsKxTTNMqa6trDtIGfDvu/3+3KB7TN2vV5xPp9RFIUUyLIMl8vFz/ghAhRUxaskk5a7rpNESMgYK9OSJEEURUjTVM6qNsSvGZJAjYQER0HbbrcwxiCO4yX/9KewvZCQw2WCnrbb7YTwcDisI6SSZ4SqcL/fryPkAnO5fxLq/h2PR2w2G5xOp+XSU0KdWUgY7p/m6NfsosmyDxDWdv65Oe+drIlC95Q+jP+FTwqpm9K6OULUAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;허용 서버 IP 주소 관리 페이지&apos; title=&apos;&apos; src=&apos;/static/0db6eaac35f697f9cf77e42a0dc02ea9/ca1dc/accept-server-ip-addresses.png&apos; srcset=&apos;/static/0db6eaac35f697f9cf77e42a0dc02ea9/e7570/accept-server-ip-addresses.png 170w,
+/static/0db6eaac35f697f9cf77e42a0dc02ea9/f46e7/accept-server-ip-addresses.png 340w,
+/static/0db6eaac35f697f9cf77e42a0dc02ea9/ca1dc/accept-server-ip-addresses.png 680w,
+/static/0db6eaac35f697f9cf77e42a0dc02ea9/02d09/accept-server-ip-addresses.png 1020w,
+/static/0db6eaac35f697f9cf77e42a0dc02ea9/9d567/accept-server-ip-addresses.png 1360w,
+/static/0db6eaac35f697f9cf77e42a0dc02ea9/b7b45/accept-server-ip-addresses.png 2570w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;허용 서버 IP 주소 관리 페이지&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;입력할 IP는 &lt;code class=&quot;language-text&quot;&gt;외부 IP 주소&lt;/code&gt;입니다. 외부 IP는 (맥 기준) 터미널에 &lt;code class=&quot;language-text&quot;&gt;curl ipecho.net/plain; echo&lt;/code&gt; 명령어를 통해 확인할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;그리고 다시 로그인 요청을 보내면 정상적으로 되는 것을 확인할 수 있습니다.&lt;/p&gt;
+&lt;h3&gt;로그아웃 요청&lt;/h3&gt;
+&lt;p&gt;로그인을 통해 얻은 세션을 아래와 같이 설정해주고 요청을 보내봅니다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/370e9b21569677b831d51b1beeff6f31/62cc8/test-logout.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 46.470588235294116%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABJklEQVR42nWS6WqEQBCE503iPeN9H+iSBNGFkPd/nspUL4Zg9EdTy1D9dVevKko0giiE73nIsgxFUaAsK9R1bbUUNcbAdV34vg/P+qh3pUxsEEURkiSRxrosUJU5tNYwtviepql4wjBEHMfymwMIP5dKrIGmo7EpcnQWyGnnpiAIRPnuOI7ouRSnMuqxoefbposo3DjPX5tzQyp7/0Xuug7rusrt2EDzVXHoOI5YlgXzPIs2TSPQvz41TRO2bRPgMf0OyOFt2wqIia78ilP3fRfgcfA7IBPwzvSFId+1hRoBH/BfYN/3ssEVjLEIY9S6qhD4LnQU2E/N/jHOGzzXsffzXsBhGOSG3OBuO1YcJ2ht1KpuMb4/MX9+iY4fTzzWbzTjQ76CH+G2CymmHSmtAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;포스트맨을 이용해 로그아웃 요청&apos; title=&apos;&apos; src=&apos;/static/370e9b21569677b831d51b1beeff6f31/ca1dc/test-logout.png&apos; srcset=&apos;/static/370e9b21569677b831d51b1beeff6f31/e7570/test-logout.png 170w,
+/static/370e9b21569677b831d51b1beeff6f31/f46e7/test-logout.png 340w,
+/static/370e9b21569677b831d51b1beeff6f31/ca1dc/test-logout.png 680w,
+/static/370e9b21569677b831d51b1beeff6f31/02d09/test-logout.png 1020w,
+/static/370e9b21569677b831d51b1beeff6f31/9d567/test-logout.png 1360w,
+/static/370e9b21569677b831d51b1beeff6f31/62cc8/test-logout.png 1658w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;포스트맨을 이용해 로그아웃 요청&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 334px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/09ea678889d33acd8f40a5115bfb7877/ce235/result-of-test.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 21.176470588235293%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAzElEQVR42j2PzW7DIBCE/SDmzwShYCc2AQourWpVysE3v//LTACnPYy+3VkYabphGKCUgpSyiXMOxlhjlSh3wQopKxQQhJ97nd/kpNwohxwkuhpyHAe2bUPf9/DeI8YI5xystdBaY/p6YP79gIlzYcTV3zCmBVOyGFeL+0/AmB+4aHUG7vuOnDMIIS1kXVeEEJBSgjEG46fF7dtDz6bQlZAFJtwxZYdrmrE8U3sj1QWdEKJVrPqbKaX/Xqte6tZalYzQc2dvv3r96dX/L48pdf+tbX4CAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;테스트 결과 - 성공!&apos; title=&apos;&apos; src=&apos;/static/09ea678889d33acd8f40a5115bfb7877/ce235/result-of-test.png&apos; srcset=&apos;/static/09ea678889d33acd8f40a5115bfb7877/e7570/result-of-test.png 170w,
+/static/09ea678889d33acd8f40a5115bfb7877/ce235/result-of-test.png 334w&apos; sizes=&apos;(max-width: 334px) 100vw, 334px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;테스트 결과 - 성공!&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;정상적으로 로그아웃되는 것을 확인할 수 있습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[셀럽잇] 기술 스택 및 선정 이유]]></title><description><![CDATA[Java 17 우아한테크코스에서 진행한 미션들의 Java 버전은 11이었습니다. 모든 팀원들에게 익숙한 버전은 11 버전임은 부정할 수 없는 사실이지만, 그럼에도 17 버전을 선택한 이유는 다음과 같습니다. 생산성 17 버전에 포함된 Record…]]></description><link>https://kdkdhoho.github.io/tech-stacks/</link><guid isPermaLink="false">https://kdkdhoho.github.io/tech-stacks/</guid><pubDate>Fri, 07 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
       &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/21ffa5090d4e6d50fc811bb5e28085dd/3c266/tech_stack_icons.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 38.23529411764706%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAACFklEQVR42n2RT0iTARyGP7qH0SBmsKHkISvsIIGXDuYUG5j/UhfLDg41UnFu09Smkkus1DW/hfPLmX+wNQ+Ftpw6tyWoQw+W0SHykB7y0K2gg67p0zdP1qHn/j68v/cn6HWl9Dv7aeqtxeHso9bWyEOnHXP9HXoedWJpbqGuwYzDYae9rRW72EeHuxbRZWfCO4V/dg5zSysmi4VYLIYgQ1FZIelVaorLr5FWcYWrhhLOqU9QmpeBKvUip5LPkJubzYXzZ8kv05JtU1F8U4tr/A2SZ5rE04moVGqi0SjCkCQRiUSQXBLhhTCjY2MEAwtMeCZ5Pe3D+9KLW3Lj988yMjzCQjDIgMtJKBxmZHSceTmztrrK8soKcQRBocZkNJGQpEBryCclOYnLmZks+iaZezVOm/UuTd0NGK5r0aUpuK0rpiZFQbVex8njx+iQZ4gTP/dQmK4p4NngENqqIu6J9yks1FJZYyDknyIwM4VTfMKDPhtdHbK4MovuditNeVk8tnWSk53J82H338JeYwFezwtqmit4OuDAI67jc3+ktUskp0CPNChRX2fE99bPr90Yu/JO33/85Lcs2NuLcnBwwFGES0qBRpMJZWoCulslWG8s0VMdkWXlCMoMjCYzGk0WoigeBvb39/kfwkzgHd92dlhaXGbzyybra5/YWP/Mxof3BOUHbG19JRQKsb29fRiIN/q31VHhH+e+vvn+V3k8AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
