@@ -1,8 +1,8 @@
 ---
-title: "셀럽잇의 기술 스택 및 선정 이유"
-description: "셀럽잇의 기술 스택 및 선정 이유"
+title: "[셀럽잇] 기술 스택 및 선정 이유"
+description: "[셀럽잇] 기술 스택 및 선정 이유"
 date: 2023-07-07
-tags: ["celuveat"]
+tags: ["셀럽잇"]
 series: "셀럽잇 프로젝트"
 ---
 
