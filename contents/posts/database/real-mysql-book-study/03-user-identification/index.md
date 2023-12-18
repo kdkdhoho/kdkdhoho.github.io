@@ -2,8 +2,8 @@
 title: "MySQL에서의 사용자 식별에 대해"
 description: "Real MySQL 8.0 - Part 3. 사용자 식별"
 date: 2023-12-04
-update: 2023-12-04
 tags: ["database"]
+series: "Real MySQL 8.0"
 ---
 
 ## 들어가며

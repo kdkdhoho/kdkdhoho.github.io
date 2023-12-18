@@ -3,6 +3,7 @@ title: "MySQL 엔진 아키텍처"
 description: "Real MySQL 8.0 - Part 4. 아키텍처"
 date: 2023-12-14
 tags: ["database"]
+series: "Real MySQL 8.0"
 ---
 
 ## MySQL 엔진 아키텍처
