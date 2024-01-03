@@ -1,4 +1,296 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 02 Jan 2024 13:15:45 GMT</lastBuildDate><item><title><![CDATA[MySQL 로그파일, 그리고 트랜잭션과 Lock]]></title><description><![CDATA[작성 예정]]></description><link>https://kdkdhoho.github.io/0405-mysql-log-and-transaction/</link><guid isPermaLink="false">https://kdkdhoho.github.io/0405-mysql-log-and-transaction/</guid><pubDate>Wed, 03 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;작성 예정&lt;/p&gt;</content:encoded></item><item><title><![CDATA[2023년 회고록]]></title><description><![CDATA[2024년을 시작하는 오늘, 지난 한 해를 되돌아보고 올 한 해를 어떻게 보낼 지 미리 생각해보려고 한다. 우아한테크코스 2월부터 11월까지 진행했던 우아한테크코스가 사실상 202…]]></description><link>https://kdkdhoho.github.io/2023-retrospection/</link><guid isPermaLink="false">https://kdkdhoho.github.io/2023-retrospection/</guid><pubDate>Mon, 01 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;2024년을 시작하는 오늘, 지난 한 해를 되돌아보고 올 한 해를 어떻게 보낼 지 미리 생각해보려고 한다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 03 Jan 2024 06:22:17 GMT</lastBuildDate><item><title><![CDATA[MySQL 로그 파일]]></title><description><![CDATA[MySQL 로그 파일 MySQL…]]></description><link>https://kdkdhoho.github.io/04-mysql-log/</link><guid isPermaLink="false">https://kdkdhoho.github.io/04-mysql-log/</guid><pubDate>Wed, 03 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;MySQL 로그 파일&lt;/h2&gt;
+&lt;p&gt;MySQL 서버에 문제가 생겼을 때, &lt;strong&gt;로그 파일을 이용하면 문제의 원인을 쉽게 찾고 해결할 수 있다.&lt;/strong&gt;&lt;br&gt;
+따라서 가급적 아래에 나올 로그 파일들을 통해 문제를 파악하려는 태도를 가지는 것이 중요하다.&lt;/p&gt;
+&lt;p&gt;로그 파일의 종류는 아래와 같다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;에러 로그&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;서버가 시작되는 과정과 관련된 정보성 로그 및 에러 메시지&lt;/li&gt;
+&lt;li&gt;서버가 비정상적으로 종료될 때 기록되는 InnoDB의 트랜잭션 복구 메시지&lt;/li&gt;
+&lt;li&gt;쿼리 처리 도중 발생하는 문제에 대한 에러 메시지&lt;/li&gt;
+&lt;li&gt;비정상적으로 종료된 Connection에 대한 Log&lt;/li&gt;
+&lt;li&gt;InnoDB의 모니터링 또는 상태 조회 명령의 결과 메시지&lt;/li&gt;
+&lt;li&gt;MySQL의 종료 메시지&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;제네럴 쿼리 로그&lt;/li&gt;
+&lt;li&gt;슬로우 쿼리 로그&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;1. 에러 로그 파일&lt;/h2&gt;
+&lt;p&gt;서버가 실행되는 도중 발생하는 에러가 출력되어 기록되는 로그 파일이다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;my.cnf&lt;/code&gt;에서 &lt;code class=&quot;language-text&quot;&gt;log_error&lt;/code&gt; 파라미터에 정의된 경로로 설정된다.&lt;br&gt;
+별도로 지정하지 않았으면 &lt;code class=&quot;language-text&quot;&gt;datadir&lt;/code&gt; 파라미터에 설정된 디렉터리에 &lt;code class=&quot;language-text&quot;&gt;.err&lt;/code&gt; 라는 확장자가 붙은 파일로 생성된다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/f0b4e708412d8f959b965a4f7ac8f4c7/9a8ca/my-cnf.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 72.35294117647058%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAABuElEQVR42pVTTVfCMBDsj1GRrxYolJImLS2hVaqAevPmQQ/+//u4EwoPP0A9zNtNXjs7s7vxTLZCYTcYTwsEQ4NwMkcwMvAHGr6c/aFGuzdFqxP9CZ4yFZSuEMULRzpVS8TJUqJFLHk0W2DUFBmEKYZh5opcd38u4iXpDSZCNhxnGMhPQQOeg1HqyJgzOkLJSdo6RZgVd8jtGrZ6cNHMV+AdC1E1lRKzpBS11jlgPKkwzWsQ/IgYR4UjYD7TpbPX9RV6QeJipz8TJ6mcFa7ak++EVKTkx0lciK3cWdv3k3eMvGMeNa05O5Tc3sPePMCWWyyrLRblBqkUoWVCZ7cOLGzmNfoy/bOESVrJ2qyRiW1OfN+fy+vxAbTGeNFqzp2dVd5/hadEhUpvkcg+alHAgRC74dTgnjKnarpg8X3P2Uf2dhd38CpbY1Wusao2yPQCiV4ebCZGLDfW96tzvEIHyJACBwPvffuM16cXvAle75+RyxD68kJ6vvpk5bgF5+AVloN4REw1We3UsJdUcWrXzj89Xbm1GYQGI7ETRrlbFb7lq3b0f0K+ACqaSpPZMxbga+j6Py/ub4QfuVrJKy3cQzAAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;초기 my.cnf 설정값&apos; title=&apos;&apos; src=&apos;/static/f0b4e708412d8f959b965a4f7ac8f4c7/ca1dc/my-cnf.png&apos; srcset=&apos;/static/f0b4e708412d8f959b965a4f7ac8f4c7/e7570/my-cnf.png 170w,
+/static/f0b4e708412d8f959b965a4f7ac8f4c7/f46e7/my-cnf.png 340w,
+/static/f0b4e708412d8f959b965a4f7ac8f4c7/ca1dc/my-cnf.png 680w,
+/static/f0b4e708412d8f959b965a4f7ac8f4c7/9a8ca/my-cnf.png 868w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;초기 my.cnf 설정값&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/8fd027c49e2f57a96ef5371a1b51ac77/3d556/datadir.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 8.235294117647058%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAeklEQVR42j2KyxaCMAxE+RkXPIpQbU9TWwPiC5Cd//8rY8LCxT1zk5mC/IDtRFgEZxNMn1EbQt3GPatGXdKEfyqH0qFswr6rZKeuFN2ZEfIbkRdYP2Jev7iOKxLP6LW7PMG3DzzdQekl9wMsfdsluDBhmDZE+asfbcYPZMhCGnmiXCEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;datadir에 설정된 경로의 파일들&apos; title=&apos;&apos; src=&apos;/static/8fd027c49e2f57a96ef5371a1b51ac77/ca1dc/datadir.png&apos; srcset=&apos;/static/8fd027c49e2f57a96ef5371a1b51ac77/e7570/datadir.png 170w,
+/static/8fd027c49e2f57a96ef5371a1b51ac77/f46e7/datadir.png 340w,
+/static/8fd027c49e2f57a96ef5371a1b51ac77/ca1dc/datadir.png 680w,
+/static/8fd027c49e2f57a96ef5371a1b51ac77/02d09/datadir.png 1020w,
+/static/8fd027c49e2f57a96ef5371a1b51ac77/3d556/datadir.png 1309w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;datadir에 설정된 경로의 파일들&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;그런데 이 로그들이 어떻게 기록이 될까?&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/7d40b174ec42803c2933fc2290278912/b4ad3/query-files.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 133.52941176470588%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;로그 파일이 저장되는 형태&apos; title=&apos;&apos; src=&apos;/static/7d40b174ec42803c2933fc2290278912/ca1dc/query-files.png&apos; srcset=&apos;/static/7d40b174ec42803c2933fc2290278912/e7570/query-files.png 170w,
+/static/7d40b174ec42803c2933fc2290278912/f46e7/query-files.png 340w,
+/static/7d40b174ec42803c2933fc2290278912/ca1dc/query-files.png 680w,
+/static/7d40b174ec42803c2933fc2290278912/02d09/query-files.png 1020w,
+/static/7d40b174ec42803c2933fc2290278912/b4ad3/query-files.png 1080w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;로그 파일이 저장되는 형태&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;위 사진처럼 설정한 위치에 &lt;code class=&quot;language-text&quot;&gt;.log&lt;/code&gt; 파일들이 기록된다.&lt;/p&gt;
+&lt;p&gt;아래는 &lt;code class=&quot;language-text&quot;&gt;error.log&lt;/code&gt; 파일의 내용이다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 509px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/be74126482f6dde9eecdb12b740fbfd7/98235/error-log.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 145.29411764705884%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAdCAYAAACqhkzFAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFZ0lEQVR42i2W2ZKzNhSE/f63qUoqySy2AYHQzr54mZmk/tc6+YRzQeEB1Oo+p09rTtM0yPO2yfdjl3kcxDsndVWLN1Zso+Xj7VOqopKmrOXz/SLVpeB3Jep6lcv7u5Tns6gLz88f3D/lNE+jbOskTwCHoZO2baW4FlKx6O+/3+VyLqTg0lUj5Wchn29nefvzjfuH/P7bH3L9+BRTs2GVv7nKyTkrXRdkATTGIK1pRdWNtNpIWShRMGsrLcE4FtRS8yyzrEslb3+9S8XmHhKmUVyVnKw1kjovyzJyj2KR3LZGnHVSAVCx0AGerIeJPkDVtRStanlDQf67906CbcVbLadKKalB7vskjhe6ZRE7eh8Opkq96hnYyBojmmcNa6zWcvm8wM7I1HUyxCgpODkV1KpUhcTkJURYwNiHIKnv2cCLA6hjQZ86FsSDubevDUrWxuBlXybZ6MUMqVOFdtWUL0CuzDLxYqD7FuAGVl3XS0qJjaKY1nIZsYBei/IAfNxWeewLwKOcrqqUS3UWn7BJMNJQBwP1RMdrwBTyI+wigM55ymHEUALnrVR1LR2bfz13ed4X7AdgQf2u6iqx9weodlocTGO2EGwNsjvk91y5rgZmuZEZsFSVdClguVXut0nuWycnZehaW0o3BkBg4Fqxka6xc42FWmoVYBdjOmRqmtFwtTTvgrlDsHK/z7JtvayTl1PZKhheJAEYOqyi6bptDtllg22YFgNolmvwYoN1Gp5llkVZUFsnjwdNgd06+5fki/qUYY7iOwtbdchu2TkzbKihy1JpRqtzQ9zR6UAzqqqkFF5+vtcD9LbT5cKU0vhKxg1ZIz70sIsUPmTwRgo81wKmFeAqj2UtumETZw+7DSj795+NOg4MR/ahLqX2pQwrDHs6Rz0b1wDcSon8S1libgxeMHalZhwB1OawV837DPjzjWW2KPNs5XSuL1K2F+kXfDhgE1uJDkiGZYP0Stc0oZVa8RtAxb3NSQTDinIlyvT1Ncm6kgcZ8L34kNpBnQdpQnJAcmLY+bCGZQFgQXNU08BIS4H3Kk144IaKgfB8+3hOyA0yTxnwSmIYGAIYRupmlTSAtgm2HmvQpAqz61xT7hV2afGgx1otClLv5Pk/4JQB3woA27N0sIuDOwAzy7Z7AZaAuD7SsF5sitSWkGDmPQnVUuvAxt9HDTsY0pQzY5cBE+zigExHVwG0NEhTR4U0NyRqPNG0DktlZoweDDWbWTb9/lrkcR9lX7HNpb6KMtcDMADYOAI1El95aiKFN5lhknGdmZ4OoHBciU2sJ5libsrC6A2yLZFJ0cS3LaRnbLrR8xvAACsMe9QNhoGzZrtxREwT3wzMfeLOrOeZ5puv5yq3DR/O4QWosE2CUY+nXuFgYQwDQqJ2RvoZOfcb7wEchtdsd+kAzCwfhMMO4DyFHA7UjEnJYMMECDsGzpjMwPqcPuZgtcOwH0eMPCKTJtGg/D6nzoPo2gCcMsOcgaHTSM6AkYKb48N0MAAQE/ew2vedGBteYUuCd7mezLNm3m+E67pmQGroswXoao/kcX4BOpImS9IA5jwcpxlAJPfjAeqJsgDDnI0K09+zZMJ13cnDvDjEBile5iUdXYtdOI6A2+NGA3r+zoO/wSzXLzfjFbyWtQYC2z4e15Jtkw+krjcH3XXPZwfdxhITvnt+3WEbYD/yfjnYJSSbfGzCcJqRuWYwJiU3ZelegAm3L7BbeOCpX6QM+VjNdcyn3gDLbVtJk0lGGpSTZpw6+fXrIT8/u3yRh3fycCe1Tzk5dMvZQFoPSLUc2D0Fzwt72HRI7NLAvymcGbcntbzTgB1567HJsix8Ox3sQ4jyHxn+4VhPlRi9AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;에러 로그 내용&apos; title=&apos;&apos; src=&apos;/static/be74126482f6dde9eecdb12b740fbfd7/98235/error-log.png&apos; srcset=&apos;/static/be74126482f6dde9eecdb12b740fbfd7/e7570/error-log.png 170w,
+/static/be74126482f6dde9eecdb12b740fbfd7/f46e7/error-log.png 340w,
+/static/be74126482f6dde9eecdb12b740fbfd7/98235/error-log.png 509w&apos; sizes=&apos;(max-width: 509px) 100vw, 509px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;에러 로그 내용&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;아래 설명될 로그들은 에러 로그에서 주로 보는 로그이다.&lt;/p&gt;
+&lt;h3&gt;일별로 로그 저장하기&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;log-error&lt;/code&gt; 설정변수에 &lt;code class=&quot;language-text&quot;&gt;&quot;{로그가 저장될 디렉터리}/mysql-error-%Y-%m-%d.log&quot;&lt;/code&gt;로 값을 설정하자.&lt;/p&gt;
+&lt;h3&gt;1.1 MySQL이 시작하는 과정과 관련된 정보성 및 에러 로그&lt;/h3&gt;
+&lt;p&gt;설정 파일을 변경하거나 DB가 비정상적으로 종료된 이후 다시 시작하는 경우에, 반드시 MySQL 에러 로그 파일을 통해 변경이 제대로 적용됐는지 확인해야 한다.&lt;/p&gt;
+&lt;p&gt;만약 정상적으로 가동됐다면 &lt;code class=&quot;language-text&quot;&gt;mysqld:ready for connection&lt;/code&gt; 메시지를 확인할 수 있다.&lt;/p&gt;
+&lt;h3&gt;1.2 서버가 비정상적으로 종료된 경우 나타나는 InnoDB의 트랜잭션 복구 메시지&lt;/h3&gt;
+&lt;p&gt;InnoDB의 경우, MySQL이 비정상적으로 종료되면 완료되지 못한 트랜잭션을 정리하고 디스크에 기록되지 못한 데이터가 있다면 기록하는 작업을 진행한다.&lt;/p&gt;
+&lt;p&gt;이 과정에 대한 간단한 메시지가 출력되는데, 간혹 문제가 있어 복구되지 못할 때에는 에러 로그를 남기고 MySQL은 다시 종료된다.&lt;/p&gt;
+&lt;h3&gt;1.3 쿼리 처리 도중 발생하는 문제에 대한 로그&lt;/h3&gt;
+&lt;p&gt;쿼리 도중 발생하는 문제점은 사전 예방이 어려우며, 주기적으로 에러 로그 파일을 검토하는 과정에서 알게 된다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;쿼리의 실행 도중 발생한 에러나 복제에서 문제가 될 만한 쿼리에 대한 경고 메시지가 에러 로그에 기록된다.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;1.4 비정상적으로 종료된 커넥션 메시지&lt;/h3&gt;
+&lt;p&gt;클라이언트 애플리케이션에서 정상적으로 접속 종료를 하지 못하고 커넥션이 종료된 경우의 내용이 기록된다.&lt;/p&gt;
+&lt;h3&gt;1.5 InnoDB의 모니터링 또는 상태 조회 명령어(&lt;code class=&quot;language-text&quot;&gt;SHOW ENGINE INNODB STATUS&lt;/code&gt;같은)의 결과 메시지&lt;/h3&gt;
+&lt;p&gt;InnoDB의 테이블 모니터링이나 락 모니터링, 또는 엔진 상태를 조회하는 명령은 상대적으로 큰 메시지를 로그 파일에 기록한다.&lt;/p&gt;
+&lt;p&gt;엔진 모니터링을 활성화한 상태로 유지하는 경우 파일 시스템의 공간을 다 차지할 수도 있다.&lt;/p&gt;
+&lt;p&gt;따라서 모니터링을 사용한 이후에는 다시 비활성화해서 에러 로그 파일이 커지지 않게 만들어야 한다.&lt;/p&gt;
+&lt;h3&gt;1.6 MySQL의 종료 메시지&lt;/h3&gt;
+&lt;p&gt;누군가가 MySQL 서버를 종료시킨 경우 &lt;code class=&quot;language-text&quot;&gt;Received SHUTDOWN from user ...&lt;/code&gt;의 메시지를 확인할 수 있다.&lt;/p&gt;
+&lt;p&gt;그렇지 않고, 아무런 종료 관련 메시지가 없거나 스택 트레이스 같은 내용이 출력되는 경우에는 MySQL 서버가 세그멘테이션 폴트로 비정상 종료된 것으로 판단할 수 있다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;세그멘테이션 폴트&lt;br&gt;
+: 프로그램이 허용되지 않은 메모리 영역에 접근을 시도하거나, 허용되지 않은 방법으로 메모리 영역에 접근을 시도할 경우 발생한다.&lt;br&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;2. 제네럴 쿼리 로그 파일(제네럴 로그 파일, General Log)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;실행 계획 분석을 하는 경우와 같이 사용되는 쿼리로 어떤 것들이 있는지 전체 목록을 뽑아서 검토하는 경우가 있다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;스프링 애플리케이션 기준, 테스트 코드가 있다면 JPA가 뽑아주는 로그로도 추출하는 방법도 있다. &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;이 경우, 제네럴 쿼리 로그를 활성화해서 쿼리를 로그 파일로 기록하게 한 다음 해당 파일을 검토하면 된다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;시간 단위로 실행됐던 쿼리 내용이 모두 기록된다.&lt;/li&gt;
+&lt;li&gt;슬로우 쿼리 로그와는 달리 MySQL이 쿼리 요청을 받으면 실행되기 전에 바로 기록한다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;general_log_file&lt;/code&gt; 이름의 파라미터에 설정돼 있다.&lt;br&gt;
+별도로 설정되지 않은 경우에는, 아래와 같이 확인할 수 있다.
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 453px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/af12c8e327ec2ed0400df199542aa3ba/dac06/init-general-config.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 29.411764705882355%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABD0lEQVR42mWRR3LDMAxFdZnYlosiWV0k1anm2BOPV7n/QX4AMMkmC8yHAPChyGu6G2qyJO9F88pCNyvs8kSpJhT0nRY9evtAO9zJPhBnHQ6nHP65+GceJ027SnGpZ3lQ6AmnoEJeWnTjnYADjpdSYqznd4VLqH9UiQaRQRjXDGxRKEuwiQCDKCeDSNO0o+T4sQD/oG4a1t84Q8PYwOPuj+cXltuLVt4wrS9EcQNuVJkZdv5ElDRufYJn1FQZt4muFxngmnYUH92EGQH5ZlzMExnyS/JNu0lRQaA0HwReGQdgX+rI50YJnU1RLrwSkKlcwLfkBENTabJB0QQc3/mp2NvB2c5PSJ1xfH/MRPlHfQPu3ciD324kGwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;초기 general log 설정&apos; title=&apos;&apos; src=&apos;/static/af12c8e327ec2ed0400df199542aa3ba/dac06/init-general-config.png&apos; srcset=&apos;/static/af12c8e327ec2ed0400df199542aa3ba/e7570/init-general-config.png 170w,
+/static/af12c8e327ec2ed0400df199542aa3ba/f46e7/init-general-config.png 340w,
+/static/af12c8e327ec2ed0400df199542aa3ba/dac06/init-general-config.png 453w&apos; sizes=&apos;(max-width: 453px) 100vw, 453px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;초기 general log 설정&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;br&gt;
+기본적으로 general_log 설정은 꺼져있다.
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/12e6103030c20d44b2b5648c0730d43e/0469b/see-general-log.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 54.11764705882353%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB1klEQVR42k1TyXabQBDkk+LEO5ZBbMO+DCAQQrbkLAf//73dVXpKcqjXM0xvVd04Np3lNP0idtUq6Wst0XMhiVtJuqkleEjl9Ucs3m1C+PdG/Dsj2/uU9833iHf4+XeJOJ3Zic1m6RVlYKVJRqmjQZp4kCFfZFce+I5viVtK8JhJ+JhLjPNDJi83obg3gbjfAp6duT5q8CidmWgP3TuToAO8tcmO1cutJTKvEfNSSaHn2C3Uz0j0lLOIhw5Jd/5Nygd7kj/HT6nCnhWRsM/2DECRSSWx2cQivXaPBkJ9i54KAvSdfXOUqV5lVjuq03H4IPWNtj8W/4KQHBg1Mb4D8Mv9jnKgCfhRQwRVoaUD7tAK1XK/5RniFxqIO5N4LalDQ3y36aXrKujFWVQzdAfhW002VQc6Q+BaB1NoEiQ0OnFoB2roBEPBNkA3nzCXKSPhvn2jfrBn1bOJRk0YcY1QGV3Cb+3PSvVCeVFfbMZ1fa5woNkbMP5kEPTELoJyp1RAD5UvNFtas6loIw4k574iBnCW9l0ArAtEX+1ZShUYlJGwVX0RhG6GfE/xAWgNSbzbmL5X6B6uSk1XghNcNOGJQuMRf1Gx7UgLw6g1EaYKjetw+Mvkf3wBKiibRyDFtuEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;general log를 킨 후&apos; title=&apos;&apos; src=&apos;/static/12e6103030c20d44b2b5648c0730d43e/ca1dc/see-general-log.png&apos; srcset=&apos;/static/12e6103030c20d44b2b5648c0730d43e/e7570/see-general-log.png 170w,
+/static/12e6103030c20d44b2b5648c0730d43e/f46e7/see-general-log.png 340w,
+/static/12e6103030c20d44b2b5648c0730d43e/ca1dc/see-general-log.png 680w,
+/static/12e6103030c20d44b2b5648c0730d43e/0469b/see-general-log.png 805w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;general log를 킨 후&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;파일이 아닌 테이블로도 저장할 수 있다.&lt;br&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;log_output&lt;/code&gt; 파라미터로 설정할 수 있는데, default 값은 &lt;code class=&quot;language-text&quot;&gt;FILE&lt;/code&gt;이고 테이블에 저장하려면 &lt;code class=&quot;language-text&quot;&gt;TABLE&lt;/code&gt;로 설정하면 된다.
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 336px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/3f3c6f245f99825979dabccbd9597f4e/3fee3/log-output-config.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 35.88235294117647%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAABF0lEQVR42oWRWXqDMAyEuUy3JJANDGZJWAyEpElKc/+zTDWCvnV50Cfbske/xt4uKtENI1z/gTCuUbkr6vaOtOhRNlc0sm6lbvMOSdbpfrM/4FBdNHi/PY04lBf46wwei/lxQJw67E0FYx2ipFFxZtasCH2fUfRlYeBvMhAm2BbaYCViy8DCW/hWLrVCdUMlRKfzQ8Rbof5EJ52Dba4knIDi/ibH85uRiPD0Gs450szw+IAC7EbCaCYL40r3JDe2QWynzDM+JOVP4S2DVAVcP+JYvytVPzywDY9KoH6VZ7jujrWMt94Vv4qpIC9odxGlf0qZTCRm9pDrydNaJ/mTkGZSiHQciWt6mYgNRTmot/zh2t3+HZeCX/l56NNYjb5gAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;log_output 설정 상태&apos; title=&apos;&apos; src=&apos;/static/3f3c6f245f99825979dabccbd9597f4e/3fee3/log-output-config.png&apos; srcset=&apos;/static/3f3c6f245f99825979dabccbd9597f4e/e7570/log-output-config.png 170w,
+/static/3f3c6f245f99825979dabccbd9597f4e/3fee3/log-output-config.png 336w&apos; sizes=&apos;(max-width: 336px) 100vw, 336px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;log_output 설정 상태&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;해당 설정은 슬로우 쿼리 로그와 같이 적용된다.&lt;/li&gt;
+&lt;li&gt;옵션을 &lt;code class=&quot;language-text&quot;&gt;TABLE&lt;/code&gt;로 설정하더라도 mysql database의 &lt;em&gt;slow_log&lt;/em&gt; 테이블과 &lt;em&gt;general_log&lt;/em&gt; 테이블은 CSV 스토리지 엔진을 사용하기 때문에 결국 CSV 파일로 저장하는 것과 동일하게 작동한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;더 자세한 내용은 &lt;a href=&quot;https://dev.mysql.com/doc/refman/8.0/en/query-log.html&quot;&gt;MySQL 공식문서&lt;/a&gt;를 참조하자&lt;/p&gt;
+&lt;h2&gt;3. 슬로우 쿼리 로그&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;long_query_time&lt;/code&gt; 시스템 변수에 설정한 시간 이상의 시간이 소요된 쿼리가 모두 기록된다.&lt;/p&gt;
+&lt;p&gt;MySQL이 쿼리를 실행한 후, 실제 소요된 시간을 기준으로 기록하기 때문에 반드시 쿼리가 정상적으로 실행이 완료돼야 기록될 수 있다.&lt;/p&gt;
+&lt;p&gt;아래 사진은 슬로우 쿼리 로그의 일부이다.&lt;/p&gt;
+&lt;p&gt;여기서 중요하게 볼 것들을 설명해보겠다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/4172fec1f229be1e552f0edd8112e0bd/53510/slow-query-log.jpg&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 30.58823529411765%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAGABQDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAdywSD//xAAUEAEAAAAAAAAAAAAAAAAAAAAQ/9oACAEBAAEFAn//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAQ/9oACAEBAAY/An//xAAYEAACAwAAAAAAAAAAAAAAAAAAARAxQf/aAAgBAQABPyHRVH//2gAMAwEAAgADAAAAEPPP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGBABAQEBAQAAAAAAAAAAAAAAAREAQWH/2gAIAQEAAT8QjVWXjhwuD27/2Q==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;슬로우 쿼리 로그&apos; title=&apos;&apos; src=&apos;/static/4172fec1f229be1e552f0edd8112e0bd/a22ce/slow-query-log.jpg&apos; srcset=&apos;/static/4172fec1f229be1e552f0edd8112e0bd/0b705/slow-query-log.jpg 170w,
+/static/4172fec1f229be1e552f0edd8112e0bd/31389/slow-query-log.jpg 340w,
+/static/4172fec1f229be1e552f0edd8112e0bd/a22ce/slow-query-log.jpg 680w,
+/static/4172fec1f229be1e552f0edd8112e0bd/29373/slow-query-log.jpg 1020w,
+/static/4172fec1f229be1e552f0edd8112e0bd/232dc/slow-query-log.jpg 1360w,
+/static/4172fec1f229be1e552f0edd8112e0bd/53510/slow-query-log.jpg 3257w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;슬로우 쿼리 로그&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Time&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;쿼리가 종료된 시점&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Query_time&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;쿼리가 실행되는 데 걸린 전체 시간&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Lock_time&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;두 가지 레벨(MySQL 엔진 레벨, 스토리지 엔진 레벨)의 Lock 중 MySQL 엔진 레벨에서 관장하는 테이블 Lock에 대한 대기 시간만 표현&lt;/li&gt;
+&lt;li&gt;값이 0이 아니라고 해서 무조건 Lock 대기가 있었다고 판단하기는 어렵다.&lt;br&gt;
+실제 쿼리가 실행되는 데 필요한 잠금 체키와 같은 코드 실행 부분의 시간까지 모두 포함되기 때문이다.&lt;br&gt;
+따라서 매우 작은 값이면 무시해도 된다.&lt;/li&gt;
+&lt;li&gt;InnoDB 스토리지 엔진은 스토리지 엔진 레벨의 Lock을 지원한다.&lt;br&gt;
+가끔 InnoDB 테이블에 대한 SELECT 쿼리의 경우에도 값이 상대적으로 큰 값이 발생할 수 있는데, 이는 InnoDB의 레코드 수준의 Lock이 아닌 MySQL 엔진 레벨에서 설장한 테이블 Lock 때문일 가능성이 높다. 따라서 InnoDB 테이블에만 접근하는 쿼리 문장의 슬로우 쿼리 로그에서는 Lock_time은 튜닝이나 쿼리 분석에 별로 도움이 되지 않는다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Rows_examined&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;쿼리가 처리되기 위해 몇 건의 레코드에 접근했는지를 의미&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Rows_sent&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;실제 몇 건의 처리 결과를 클라이언트에게 보냈는지를 의미&lt;/li&gt;
+&lt;li&gt;일반적으로 Rows&lt;em&gt;examined 값은 높지만 Rows&lt;/em&gt;sent 값이 적다면, 해당 쿼리는 더 적은 레코드만 접근하도록 튜닝할 가치가 있다. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[MySQL에서의 트랜잭션과 Lock]]></title><description><![CDATA[트랜잭션 트랜잭션은 최소한의 논리적인 작업 단위이다. 하나의 작업 단위에 포함되는 모든 작업들이 100% 성공해야 트랜잭션이 commit 되며, 중간에 작업 하나라도 문제가 생겼을 땐 작업 전체를 무효화한다. (All or Nothing…]]></description><link>https://kdkdhoho.github.io/05-transaction-and-lock/</link><guid isPermaLink="false">https://kdkdhoho.github.io/05-transaction-and-lock/</guid><pubDate>Wed, 03 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;트랜잭션&lt;/h2&gt;
+&lt;p&gt;트랜잭션은 &lt;strong&gt;최소한의 논리적인 작업 단위이다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;하나의 작업 단위에 포함되는 모든 작업들이 100% 성공해야 트랜잭션이 commit 되며, 중간에 작업 하나라도 문제가 생겼을 땐 작업 전체를 무효화한다. (&lt;em&gt;All or Nothing&lt;/em&gt;)&lt;/p&gt;
+&lt;p&gt;이를 통해 데이터의 정합성을 보장한다.&lt;/p&gt;
+&lt;h3&gt;ACID 모델&lt;/h3&gt;
+&lt;p&gt;데이터베이스 설계 원칙으로 ACID 모델이 있다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/e0d7750aa8f3c0b309818a3a634d8975/a585f/img.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 50.588235294117645%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABtklEQVR42nVSa2/UQAzs//9HfEFIVBQhEG2vubts3pvHbZ6bxyWCJJfB67aCnmgkS7ZnNZ6xc3P3KPDN8vDx+x4f7h4hpMK9iPDpxwG39za+7lyUbU+4hdsHgS8Un38e8d53s64XnMcRbddjOJ85b3QH3XbohoHrrh8ImyifsND7eVneJ9ywIU4S2EJAOA78IITjuDgcBcIwgucHlNuIZMzYNE0cywvptm0cfwmpaLsOSuVI0hRFWaFuGlR1g7KqUVKt8hwN9SSR5kXB2DzP/1d43QhI1e5pD8f12a61P7KyVw3ZSeFh90RhwaO+wY+2w/i6rs+Er5KXZSWVGau9XDYMw8hWzZ4H2qfKC2TZCVprtmwITPxr/43C3/OCJMuRnsgiXbZqWrh+iLLWZF8jlAlkQgOLimxrPl6tW8aLqqEjjm8JZ1LoBRJ7OoghNQ93ZMn1I+S0y4PtQtAqzBDrIOCHErbjI04VMlUQeXdFSAqNgiCKSe2M/jzytUuaXpNaGae8kpT2GEQSaaY4N7+bWdF6uba8GMsKrhfytLYfuV7WjS0FkbF84ghliijOXgQkhGv8mlf8Abtv84qtW+V7AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;img.png&apos; title=&apos;&apos; src=&apos;/static/e0d7750aa8f3c0b309818a3a634d8975/ca1dc/img.png&apos; srcset=&apos;/static/e0d7750aa8f3c0b309818a3a634d8975/e7570/img.png 170w,
+/static/e0d7750aa8f3c0b309818a3a634d8975/f46e7/img.png 340w,
+/static/e0d7750aa8f3c0b309818a3a634d8975/ca1dc/img.png 680w,
+/static/e0d7750aa8f3c0b309818a3a634d8975/a585f/img.png 689w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;img.png&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;InnoDB의 트랜잭션은 이 ACID 모델을 준수한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Atomic: 원자성, 트랜잭션의 작업은 전부 적용되거나 전부 적용되지 않아야 한다.&lt;/li&gt;
+&lt;li&gt;Consistency: 일관성, 데이터베이스는 트랜잭션이 진행되거나 커밋되거나 롤백된 모든 경우에 항상 일관된 상태로 유지된다. &lt;/li&gt;
+&lt;li&gt;Isolation: 고립성, 트랜잭션끼리는 서로 간섭할 수 없다. 뒷장에 나올 고립 수준으로 고립성의 강도를 조절할 수 있다.&lt;/li&gt;
+&lt;li&gt;Durability: 지속성, 트랜잭션이 commit 된 후에는 반드시 디스크에 반영해야 한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;자세한 내용은 &lt;a href=&quot;https://dev.mysql.com/doc/refman/8.0/en/mysql-acid.html&quot;&gt;MySQL 공식문서&lt;/a&gt; 참고&lt;/p&gt;
+&lt;h3&gt;주의할 점&lt;/h3&gt;
+&lt;p&gt;트랜잭션 또한 DB Connection과 마찬가지로 &lt;strong&gt;최소한의 범위로 적용하는 것이 좋다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;트랜잭션의 범위가 많다는 것은 처리해야 할 작업이 많다는 것이고 이는 Connection이 존재하는 시간이 길어진다는 의미이다.&lt;br&gt;
+DB Connection의 수는 한정적이므로 하나의 Connection이 존재하는 시간이 길어지면 그만큼 다른 요청을 처리하는 데에 장애가 생길 확률이 높아진다.&lt;/p&gt;
+&lt;p&gt;그리고 트랜잭션에 &lt;strong&gt;네트워크를 통해 원격 서버와 통신하는 등의 작업은 어떻게 해서든 트랜잭션 내에서 제거하는 것이 좋다.&lt;/strong&gt;&lt;br&gt;
+트랜잭션이 실행되는 동안 외부 서버와 통신할 수 없는 상태라면, 해당 트랜잭션은 영영 처리되지 못하게 되며 다른 트랜잭션에도 악영향을 끼칠 수 있다.&lt;/p&gt;
+&lt;h2&gt;MySQL 엔진의 Lock&lt;/h2&gt;
+&lt;p&gt;Lock은 동시성을 제어하기 위한 기능이다.&lt;/p&gt;
+&lt;p&gt;여러 Connection이 동시에 동일한 자원에 대해 변경을 요청한 경우, 경쟁 조건이 발생하는 것을 방지하기 위한 역할을 한다.&lt;/p&gt;
+&lt;p&gt;크게 MySQL 엔진 레벨과 스토리지 엔진 레벨의 Lock으로 나눌 수 있다.&lt;/p&gt;
+&lt;p&gt;MySQL 엔진 레벨의 Lock은 모든 스토리지 엔진에 영향을 미치지만, 스토리지 엔진 레벨의 Lock은 스토리지 엔진 간 상호 영향을 미치지 않는다.&lt;/p&gt;
+&lt;h3&gt;글로벌 락&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;FLUSH TABLES WITH READ LOCK;&lt;/code&gt; 명령으로 글로벌 락을 획득할 수 있다.&lt;/li&gt;
+&lt;li&gt;MySQL에서 제공하는 Lock 가운데 범위가 가장 크다.&lt;/li&gt;
+&lt;li&gt;하나의 Connection에서 글로벌 락을 획득하면 다른 Connection에서 SELECT를 제외한 대부분의 DDL이나 DML을 실행한 경우 글로벌 락이 해제될 떄까지 대기한다.&lt;/li&gt;
+&lt;li&gt;영향을 미치는 범위는 MySQL 서버 전체이며, 작업 대상 테이블이나 데이터베이스가 다르더라도 동일하게 영향을 미친다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;테이블 락&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;개별 테이블 단위에 설정하는 락이다.&lt;/li&gt;
+&lt;li&gt;묵시적으로도 테이블 락을 획득할 수 있으나, 명시적으로는 &lt;code class=&quot;language-text&quot;&gt;LOCK TABLES table_name [ READ | WRITE ];&lt;/code&gt; 명렁으로 특정 테이블에 대한 락을 획득할 수 있다.&lt;br&gt;
+이렇게 명시적으로 획득한 락은 &lt;code class=&quot;language-text&quot;&gt;UNLOCK TABLES&lt;/code&gt; 명령으로 락을 반환할 수 있다.&lt;br&gt;
+사실 명시적인 잠금은 글로벌 락과 마찬가지로 특별한 상황이 아니라면 애플리케이션에서 거의 사용할 필요가 없다.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;묵시적 테이블 락은 MyISAM이나 MEMORY 테이블에 쓰기 작업의 쿼리를 실행하면 발생한다.&lt;br&gt;
+쿼리가 실행되는 동안 자동으로 획득했다가 쿼리가 완료된 후 자동 해제되는 식으로 동작한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;InnoDB 테이블의 경우, 스토리지 엔진 차원에서 레코드 기반 Lock을 지원하므로 DML 쿼리에서는 묵시적 테이블 락이 적용되지는 않는다.&lt;br&gt;
+DDL의 경우에만 묵시적 테이블 락을 획득한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;네임드 락&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;GET_LOCK()&lt;/code&gt; 함수를 이용해 &lt;strong&gt;임의의 문자열에 대해 Lock을 설정할 수 있다.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Lock의 대상이 데이터베이스 객체가 아니라는 특징이 있다.&lt;br&gt;
+단순히 사용자가 지정한 문자열에 대해 획득하고 반납하는 Lock이다.&lt;/li&gt;
+&lt;li&gt;자주 사용되지는 않는다.&lt;br&gt;
+여러 클라이언트가 상호 동기화를 처리해야 할 때 네임드 락을 이용하면 쉽게 해결할 수 있다.&lt;br&gt;
+또, 많은 레코드에 대해 복잡한 요건으로 레코드를 변경하는 트랜잭션에 유용할 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;자세한 내용은 &lt;a href=&quot;https://dev.mysql.com/doc/refman/8.0/en/locking-functions.html&quot;&gt;MySQL 공식문서&lt;/a&gt; 참고&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://techblog.woowahan.com/2631/&quot;&gt;우아한기술블로그 - MySQL의 네임드 락을 이용한 분산 락으로 여러 서버에 걸친 동시성 관리&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;메타데이터 락&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;데이터베이스 객체(테이블 or 뷰)의 이름이나 구조를 변경하는 경우에 획득하는 Lock이다.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;명시적으로 획득할 수는 없고, 테이블의 이름을 변경과 같은 경우에 자동으로 획득하는 Lock이다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;테이블을 변경하는 작업의 경우 원본 이름과 변경될 이름 두 개 모두 한꺼번에 Lock을 획득한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[2023년 회고록]]></title><description><![CDATA[2024년을 시작하는 오늘, 지난 한 해를 되돌아보고 올 한 해를 어떻게 보낼 지 미리 생각해보려고 한다. 우아한테크코스 2월부터 11월까지 진행했던 우아한테크코스가 사실상 202…]]></description><link>https://kdkdhoho.github.io/2023-retrospection/</link><guid isPermaLink="false">https://kdkdhoho.github.io/2023-retrospection/</guid><pubDate>Mon, 01 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;2024년을 시작하는 오늘, 지난 한 해를 되돌아보고 올 한 해를 어떻게 보낼 지 미리 생각해보려고 한다.&lt;/p&gt;
 &lt;h2&gt;우아한테크코스&lt;/h2&gt;
 &lt;p&gt;2월부터 11월까지 진행했던 우아한테크코스가 사실상 2023년에서 가장 핵심이며 유일한 이야깃거리다.&lt;/p&gt;
 &lt;p&gt;때문에 우테코에서 경험했던 것들에 대해 적어보고자 한다.&lt;/p&gt;
@@ -1621,6 +1913,11 @@ mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span cla
 &lt;h3&gt;5-2. 실제 권한을 사용한 사례&lt;/h3&gt;
 &lt;p&gt;우아한테크코스 프로젝트 요구사항 중, 운영 DB 서버를 &lt;code class=&quot;language-text&quot;&gt;DROP&lt;/code&gt;하지 못하도록 하는 요구사항이 있었다.&lt;/p&gt;
 &lt;p&gt;이를 &lt;code class=&quot;language-text&quot;&gt;celuveat_prod&lt;/code&gt; 계정의 권한에서 &lt;code class=&quot;language-text&quot;&gt;DROP&lt;/code&gt;을 제거하는 식으로 요구사항을 만족했다.&lt;/p&gt;
+&lt;h3&gt;5-3. 권한 확인하기&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# 사용자별 권한 확인&lt;/span&gt;
+mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;SHOW&lt;/span&gt; GRANTS &lt;span class=&quot;token keyword&quot;&gt;FOR&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;사용자계정&apos;&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;@&apos;호스트&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;# 접속된 계정 권한 확인&lt;/span&gt;
+mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;SHOW&lt;/span&gt; GRANTS &lt;span class=&quot;token keyword&quot;&gt;FOR&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;CURRENT_USER&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;6. 역할(Role)&lt;/h2&gt;
 &lt;p&gt;v8.0부터 권한을 묶어 역할(Role)을 사용할 수 있게 됐다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;-- 역할 생성&lt;/span&gt;
