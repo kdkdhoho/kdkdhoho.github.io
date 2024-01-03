@@ -343,6 +343,15 @@ mysql> GRANT SELECT,INSERT,UPDATE ON employees.department TO 'user'@'localhost';
 
 이를 `celuveat_prod` 계정의 권한에서 `DROP`을 제거하는 식으로 요구사항을 만족했다.
 
+### 5-3. 권한 확인하기
+
+```sql
+# 사용자별 권한 확인
+mysql> SHOW GRANTS FOR '사용자계정'@'호스트';
+# 접속된 계정 권한 확인
+mysql> SHOW GRANTS FOR CURRENT_USER;
+```
+
 ## 6. 역할(Role)
 
 v8.0부터 권한을 묶어 역할(Role)을 사용할 수 있게 됐다.
