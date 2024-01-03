@@ -18,14 +18,14 @@ series: "Real MySQL 8.0"
 
 데이터베이스 설계 원칙으로 ACID 모델이 있다.
 
-![img.png](img.png)
+![](img.png)
 
 InnoDB의 트랜잭션은 이 ACID 모델을 준수한다.
 
-- Atomic: 원자성, 트랜잭션의 작업은 전부 적용되거나 전부 적용되지 않아야 한다.
-- Consistency: 일관성, 데이터베이스는 트랜잭션이 진행되거나 커밋되거나 롤백된 모든 경우에 항상 일관된 상태로 유지된다. 
-- Isolation: 고립성, 트랜잭션끼리는 서로 간섭할 수 없다. 뒷장에 나올 고립 수준으로 고립성의 강도를 조절할 수 있다.
-- Durability: 지속성, 트랜잭션이 commit 된 후에는 반드시 디스크에 반영해야 한다.
+- **Atomic**: 원자성, 트랜잭션의 작업은 전부 적용되거나 전부 적용되지 않아야 한다.
+- **Consistency**: 일관성, 데이터베이스는 트랜잭션이 진행되거나 커밋되거나 롤백된 모든 경우에 항상 일관된 상태로 유지된다. 
+- **Isolation**: 고립성, 트랜잭션끼리는 서로 간섭할 수 없다. 뒷장에 나올 고립 수준으로 고립성의 정도를 조절할 수 있다.
+- **Durability**: 지속성, 트랜잭션이 commit 된 후에는 반드시 디스크에 반영해야 한다.
 
 자세한 내용은 [MySQL 공식문서](https://dev.mysql.com/doc/refman/8.0/en/mysql-acid.html) 참고
 
@@ -55,7 +55,7 @@ MySQL 엔진 레벨의 Lock은 모든 스토리지 엔진에 영향을 미치지
 
 - MySQL에서 제공하는 Lock 가운데 범위가 가장 크다.
 
-- 하나의 Connection에서 글로벌 락을 획득하면 다른 Connection에서 SELECT를 제외한 대부분의 DDL이나 DML을 실행한 경우 글로벌 락이 해제될 떄까지 대기한다.
+- 하나의 Connection에서 글로벌 락을 획득하면 다른 Connection에서 SELECT를 제외한 대부분의 DDL이나 DML을 실행한 경우 글로벌 락이 해제될 때까지 대기한다.
 
 - 영향을 미치는 범위는 MySQL 서버 전체이며, 작업 대상 테이블이나 데이터베이스가 다르더라도 동일하게 영향을 미친다.
 
@@ -85,7 +85,8 @@ MySQL 엔진 레벨의 Lock은 모든 스토리지 엔진에 영향을 미치지
 
 자세한 내용은 [MySQL 공식문서](https://dev.mysql.com/doc/refman/8.0/en/locking-functions.html) 참고
 
-[우아한기술블로그 - MySQL의 네임드 락을 이용한 분산 락으로 여러 서버에 걸친 동시성 관리](https://techblog.woowahan.com/2631/)
+> 한번 보면 좋을만한 글<br>
+> [우아한기술블로그 - MySQL의 네임드 락을 이용한 분산 락으로 여러 서버에 걸친 동시성 관리](https://techblog.woowahan.com/2631/)
 
 ### 메타데이터 락
 
