@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 03 Jan 2024 13:04:17 GMT</lastBuildDate><item><title><![CDATA[MySQL 로그 파일]]></title><description><![CDATA[MySQL 로그 파일 MySQL…]]></description><link>https://kdkdhoho.github.io/04-mysql-log/</link><guid isPermaLink="false">https://kdkdhoho.github.io/04-mysql-log/</guid><pubDate>Wed, 03 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;MySQL 로그 파일&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 05 Jan 2024 04:36:38 GMT</lastBuildDate><item><title><![CDATA[MySQL 로그 파일]]></title><description><![CDATA[MySQL 로그 파일 MySQL…]]></description><link>https://kdkdhoho.github.io/04-mysql-log/</link><guid isPermaLink="false">https://kdkdhoho.github.io/04-mysql-log/</guid><pubDate>Wed, 03 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;MySQL 로그 파일&lt;/h2&gt;
 &lt;p&gt;MySQL 서버에 문제가 생겼을 때, &lt;strong&gt;로그 파일을 이용하면 문제의 원인을 쉽게 찾고 해결할 수 있다.&lt;/strong&gt;&lt;br&gt;
 따라서 가급적 아래에 나올 로그 파일들을 통해 문제를 파악하려는 태도를 가지는 것이 중요하다.&lt;/p&gt;
 &lt;p&gt;로그 파일의 종류는 아래와 같다.&lt;/p&gt;
@@ -3104,7 +3104,237 @@ Tomcat maxThreads의 기본값이 10인 이유는? 모르겠다. 아마 Tomcat�
 &lt;li&gt;말이 길어지는 경향이 있다. 개념을 물어봤을 때, 이런 개념입니다. 하고 부연 설명.&lt;/li&gt;
 &lt;li&gt;질문에 대해 답변이 한번씩은 많이 짧았다.
 한 마디만 더 했으면 면접관 입장에서 한번 더 물어볼 의향이 들었을텐데..&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[DBCP와 HikariCP 이해하기]]></title><description><![CDATA[DBCP (DataBase Connection Pool) 탄생 배경 서버 애플리케이션에서 DB 서버로 요청을 보내면 TCP 통신을 한다. TCP 통신은 Connection이 유지되는 상태에서 통신한다. 이 Connection…]]></description><link>https://kdkdhoho.github.io/dbcp/</link><guid isPermaLink="false">https://kdkdhoho.github.io/dbcp/</guid><pubDate>Mon, 16 Oct 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;DBCP (DataBase Connection Pool) 탄생 배경&lt;/h2&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[셀럽잇] 무중단 배포 적용기]]></title><description><![CDATA[이번 글에선 셀럽잇이 왜? 그리고 어떻게? 무중단 배포를 적용했는 지에 대해 작성하고자 합니다. 무중단 배포를 왜 하는가? 서버가 1개인 상황에서 새로 배포를 하게 되면, 배포가 완료되는 시간동안 사용자들은 서비스를 이용하지 못합니다. 배포 시간이…]]></description><link>https://kdkdhoho.github.io/zero-downtime-deployment-of-celuveat/</link><guid isPermaLink="false">https://kdkdhoho.github.io/zero-downtime-deployment-of-celuveat/</guid><pubDate>Sat, 21 Oct 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이번 글에선 셀럽잇이 왜? 그리고 어떻게? 무중단 배포를 적용했는 지에 대해 작성하고자 합니다.&lt;/p&gt;
+&lt;h2&gt;무중단 배포를 왜 하는가?&lt;/h2&gt;
+&lt;p&gt;서버가 1개인 상황에서 새로 배포를 하게 되면, 배포가 완료되는 시간동안 사용자들은 서비스를 이용하지 못합니다.&lt;/p&gt;
+&lt;p&gt;배포 시간이 3초만 되어도 사용자는 3초 동안 에러 페이지만 보게 될 것입니다.&lt;/p&gt;
+&lt;p&gt;아래 사진은 구글이 제공하는 데이터입니다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/87b7ec682cc359165838f00f42318a60/1263b/user-bounce-rate-due-to-page-load-time.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 70%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAACTUlEQVR42o1TbW/TMBjk//8EvoEE26rBF4SAjbZjMDGE2Fg37T1N1rVLllcnjh0njns8cbdKlSa0RJdzbOty9zzOC91ojI5HmMU+nLEDpRS01miaBnVdr/DjuEPbtnjqeiGFxEavh9HkDMPdHWRZhjzPEUURkiRBmqYWjDGEYWiZ0Z6qqp4W7B7GGBhtFtwuuHPwCPtOmHfrc4PaUIIHSEOOTbMq+Cs7w3v/Oz7e7yPMYiRxjDAK4fs+giCwrq1jmg9YhJN8jIPsAkf5FU4LFzcyWBU8LTwMo0PsJcfgWtoF8mNvM1/wcy8r2FlXZLtjXWu0BK2oAUKhlgqK6iWEgJQSXAkEKoVfxZbviOOarQruxkd4c7uN3myIwfQ3ttx9fHF/4pOzR/iBSToDzwtqBkNaMozFHS75BFflrR37KlkVnFYhTrmHc9o04mMcly7Bw4n0MCrHYLq0m58T3QqmTYGgSmwEJSrUnGIWEiLjEIzAS3tUcjoyMU/J2RTnxQ0uyIBLDk9yBy11fynYD//gpfcBryaf0bsZYN3ZxpqzhbfXW1i73sa6+xXf7g4gqY68KunDCaWKMKP65eQ+Upk9TkvBqq1R6soibwUYoTA0NtIiMyWEUc/v8j1FnckInvSRCIaqEChZgTzOkIYxKk7dzQoUKTWFojt8Zs/fIbuEJ3yK7CIkl0vBnegvXlPc9WkfG7cDvJsMseH10fMGhD42qQybD3NTfk+JFDKqe9LkEG1l8fi3WMEuatpw2sQtJ7pAqvkS3XvSLOaauf5v5H9iPChDP/AiLQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;페이지 로딩 시간에 따른 사용자 이탈률&apos; title=&apos;&apos; src=&apos;/static/87b7ec682cc359165838f00f42318a60/ca1dc/user-bounce-rate-due-to-page-load-time.png&apos; srcset=&apos;/static/87b7ec682cc359165838f00f42318a60/e7570/user-bounce-rate-due-to-page-load-time.png 170w,
+/static/87b7ec682cc359165838f00f42318a60/f46e7/user-bounce-rate-due-to-page-load-time.png 340w,
+/static/87b7ec682cc359165838f00f42318a60/ca1dc/user-bounce-rate-due-to-page-load-time.png 680w,
+/static/87b7ec682cc359165838f00f42318a60/1263b/user-bounce-rate-due-to-page-load-time.png 1000w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;페이지 로딩 시간에 따른 사용자 이탈률&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;무려 3초만 서비스를 이용하지 못하더라도 약 1/3 의 사용자가 이탈합니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;따라서 실사용자가 있는 상황에서 배포에 따른 Down-Time을 제거하기 위해 무중단 배포를 적용해야 합니다.&lt;/strong&gt;  &lt;/p&gt;
+&lt;h2&gt;무중단 배포 방식 결정하기&lt;/h2&gt;
+&lt;p&gt;무중단 배포에는 &lt;em&gt;롤링 방식&lt;/em&gt;, &lt;em&gt;블루/그린 방식&lt;/em&gt;, &lt;em&gt;카나리 방식&lt;/em&gt;이 있습니다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(&lt;a href=&quot;https://kdkdhoho.github.io/zero-downtime-deployment&quot;&gt;무중단 배포 방식에 대해 정리한 글&lt;/a&gt;)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;이 중, 현재 주어진 리소스를 고려하여 최적의 방식을 선택하려고 합니다. &lt;/p&gt;
+&lt;p&gt;현재 리소스 상황으로는, 배포 서버로 EC2 인스턴스 1대를 사용중입니다.&lt;br&gt;
+해당 인스턴스에서 리버스 프록시 역할의 Nginx와 스프링 애플리케이션이 존재합니다.&lt;br&gt;
+이러한 상황에서 무중단 배포를 위한 인스턴스를 추가로 사용하기 위해선 기술 검토 요청을 보내야 하며 그 동안의 대기 시간이 필요합니다.&lt;br&gt;
+또한, 추가 사용이 가능한지도 미지수인 상황이었습니다.&lt;/p&gt;
+&lt;p&gt;따라서 한 대의 서버에서 무중단 배포를 적용하기엔 &lt;strong&gt;블루/그린 방식&lt;/strong&gt;이 최적의 방식이라고 판단했습니다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;더불에 블루/그린 방식의 문제점을 생각해봤을 때, 배포 서버의 자원을 2배로 사용한다는 점은 서비스를 운영함에 있어 문제되지 않았습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;배포 전략&lt;/h2&gt;
+&lt;p&gt;기본적으로 2개의 포트를 사용합니다.&lt;br&gt;
+저희 팀은 8080, 그리고 8081 포트를 사용하기로 했습니다.&lt;/p&gt;
+&lt;p&gt;배포 과정의 전체적인 Flow는 다음과 같습니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;비어있는 포트(Idle Port)를 찾는다.&lt;/li&gt;
+&lt;li&gt;해당 포트에 새로운 버전(그린)을 배포한다.&lt;/li&gt;
+&lt;li&gt;그린이 이상없이 동작하는지 확인하기 위해 헬스 체크를 진행한다.&lt;/li&gt;
+&lt;li&gt;문제가 없다면, Nginx의 포트 포워딩 설정을 그린으로 변경하고 기존 버전(블루)을 종료한다.&lt;br&gt;
+문제가 있다면, 그린을 종료한다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;위 시나리오의 과정에 대해 더 자세히 말씀드리겠습니다.&lt;/p&gt;
+&lt;p&gt;1)&lt;br&gt;
+Idle Port를 찾는 방법은, 8080 포트에 API 요청을 보내고 그에 따른 응답의 결과로 찾습니다.&lt;br&gt;
+만약 응답 코드가 200이면 현재 8080 포트에서 블루가 동작중인 셈이니 8081포트가 Idle Port가 됩니다.&lt;/p&gt;
+&lt;p&gt;21)&lt;br&gt;
+이런 식으로 찾은 Idle Port에 그린을 배포합니다.&lt;/p&gt;
+&lt;p&gt;3)&lt;br&gt;
+이후, 그린의 헬스 체크를 진행하기 위해 30초의 대기 시간을 가집니다.&lt;br&gt;
+대기 시간을 가지는 이유는 그린이 띄어진 직후에 실행한 헬스 체크는 정상으로 확인되었지만, 이후에 혹여나 예상치 못한 문제로 그린이 Down 될 가능성을 염두했기 때문입니다.&lt;br&gt;
+또한 당시 스프링 애플리케이션이 서버에 완전히 띄어지기까지 약 20초의 시간이 소요되는 점을 고려했기 때문입니다.&lt;/p&gt;
+&lt;p&gt;4)&lt;br&gt;
+이후 헬스 체크를 진행합니다.&lt;br&gt;
+체크 결과, 그린 서버가 정상적으로 배포가 됐다면 Nginx의 포트 포워딩 설정을 변경합니다. 그리고 5초의 여유를 가지고 블루 서버를 종료합니다.
+그린 서버에 문제가 생겨 정상적으로 실행되지 않았다면 종료합니다.&lt;/p&gt;
+&lt;h2&gt;배포 스크립트&lt;/h2&gt;
+&lt;p&gt;위 시나리오대로 작성한 배포 스크립트는 아래와 같습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token assign-left variable&quot;&gt;RESPONSE_CODE&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;curl&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-o&lt;/span&gt; /dev/null &lt;span class=&quot;token parameter variable&quot;&gt;-w&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;%{http_code}&quot;&lt;/span&gt; http://localhost:8080/celebs&lt;span class=&quot;token variable&quot;&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${RESPONSE_CODE}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;then&lt;/span&gt;
+        &lt;span class=&quot;token assign-left variable&quot;&gt;IDLE_PORT&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;8081&lt;/span&gt;
+        &lt;span class=&quot;token assign-left variable&quot;&gt;IDLE_MONITORING_PORT&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;18082&lt;/span&gt;
+        &lt;span class=&quot;token assign-left variable&quot;&gt;USED_PORT&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;8080&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt;
+        &lt;span class=&quot;token assign-left variable&quot;&gt;IDLE_PORT&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;8080&lt;/span&gt;
+        &lt;span class=&quot;token assign-left variable&quot;&gt;IDLE_MONITORING_PORT&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;18081&lt;/span&gt;
+        &lt;span class=&quot;token assign-left variable&quot;&gt;USED_PORT&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;8081&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;fi&lt;/span&gt;
+
+&lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;IDLE_PORT=&lt;span class=&quot;token variable&quot;&gt;${IDLE_PORT}&lt;/span&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;IDLE_MONITORING_PORT=&lt;span class=&quot;token variable&quot;&gt;${IDLE_MONITORING_PORT}&lt;/span&gt;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token assign-left variable&quot;&gt;IMAGE_TAG&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;back-prod-&lt;span class=&quot;token variable&quot;&gt;${APP_VERSION_TAG}&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;DOCKER_CONTAINER_NAME&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;backend-&lt;span class=&quot;token variable&quot;&gt;${IDLE_PORT}&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;DOCKER_HUB_REPOSITORY&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;celuveat/celuveat
+&lt;span class=&quot;token assign-left variable&quot;&gt;SERVER_LOG_DIR_PATH&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=~&lt;/span&gt;/log
+&lt;span class=&quot;token assign-left variable&quot;&gt;DOCKER_LOG_DIR_PATH&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;/app/logs
+
+&lt;span class=&quot;token function&quot;&gt;docker&lt;/span&gt; pull &lt;span class=&quot;token variable&quot;&gt;${DOCKER_HUB_REPOSITORY}&lt;/span&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;${IMAGE_TAG}&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;docker&lt;/span&gt; run &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;token parameter variable&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;token parameter variable&quot;&gt;--name&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${DOCKER_CONTAINER_NAME}&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;token parameter variable&quot;&gt;-p&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$IDLE_PORT&lt;/span&gt;:8080 &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;token parameter variable&quot;&gt;-p&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$IDLE_MONITORING_PORT&lt;/span&gt;:18080 &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;token parameter variable&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;SPRING_PROFILES_ACTIVE=prod&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;token parameter variable&quot;&gt;-v&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${SERVER_LOG_DIR_PATH}&lt;/span&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;${DOCKER_LOG_DIR_PATH}&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;token variable&quot;&gt;${DOCKER_HUB_REPOSITORY}&lt;/span&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;${IMAGE_TAG}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# 새로 뜬 컨테이너 확인&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;sleep&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;30&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;HEALTHY_CODE&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;curl&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-o&lt;/span&gt; /dev/null &lt;span class=&quot;token parameter variable&quot;&gt;-w&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;%{http_code}&quot;&lt;/span&gt; http://localhost:$&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;IDLE_PORT&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;/celebs&lt;span class=&quot;token variable&quot;&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${HEALTHY_CODE}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;then&lt;/span&gt;
+            &lt;span class=&quot;token assign-left variable&quot;&gt;IDLE_CONTAINER_ID&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;docker&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;ps&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-q&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;--filter&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;publish=&lt;span class=&quot;token variable&quot;&gt;${IDLE_PORT}&lt;/span&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;)&lt;/span&gt;&lt;/span&gt;
+            &lt;span class=&quot;token function&quot;&gt;docker&lt;/span&gt; stop &lt;span class=&quot;token variable&quot;&gt;${IDLE_CONTAINER_ID}&lt;/span&gt;
+            &lt;span class=&quot;token function&quot;&gt;docker&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${IDLE_CONTAINER_ID}&lt;/span&gt;
+            &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;TERMINATED&quot;&lt;/span&gt;
+            &lt;span class=&quot;token builtin class-name&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;fi&lt;/span&gt;
+
+&lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;set \&lt;span class=&quot;token variable&quot;&gt;$service_url&lt;/span&gt; http://127.0.0.1:&lt;span class=&quot;token variable&quot;&gt;${IDLE_PORT}&lt;/span&gt;;set \&lt;span class=&quot;token variable&quot;&gt;$service_monitoring_url&lt;/span&gt; http://127.0.0.1:&lt;span class=&quot;token variable&quot;&gt;${IDLE_MONITORING_PORT}&lt;/span&gt;;&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;tee&lt;/span&gt; /etc/nginx/conf.d/service-url.inc
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;service&lt;/span&gt; nginx reload
+
+&lt;span class=&quot;token function&quot;&gt;sleep&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;USED_CONTAINER_ID&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;docker&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;ps&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-q&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;--filter&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;publish=&lt;span class=&quot;token variable&quot;&gt;${USED_PORT}&lt;/span&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;docker&lt;/span&gt; stop &lt;span class=&quot;token variable&quot;&gt;${USED_CONTAINER_ID}&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;docker&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${USED_CONTAINER_ID}&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;docker&lt;/span&gt; image prune &lt;span class=&quot;token parameter variable&quot;&gt;-f&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;추가로 신경써야 할 점&lt;/h2&gt;
+&lt;p&gt;기존에 애플리케이션 모니터링을 위해 Spring Actuator에 포트를 할당해 사용하고 있었습니다.&lt;br&gt;
+따라서 모니터링을 위한 포트도 함께 변경해줘야 합니다.&lt;/p&gt;
+&lt;p&gt;저희 팀은 &lt;code class=&quot;language-text&quot;&gt;8080, 18080&lt;/code&gt; / &lt;code class=&quot;language-text&quot;&gt;8081, 18081&lt;/code&gt; 으로 묶어 관리하기로 결정했습니다.&lt;/p&gt;
+&lt;p&gt;모니터링을 위한 포트도 마찬가지로 Nginx에서 포트 포워딩을 통해 처리해줍니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;그런데 여기서 중요한 점이 있습니다!!&lt;/strong&gt;&lt;br&gt;
+Nginx에서 Actuator로 향하는 포트를 listen하기 위해 18080 포트를 사용하고 있었습니다.&lt;br&gt;
+즉, Actuator의 포트로 18080 포트를 사용하지 못하게 됩니다.&lt;/p&gt;
+&lt;p&gt;결과적으로 모니터링을 위한 포트는 &lt;code class=&quot;language-text&quot;&gt;18081&lt;/code&gt; 과 &lt;code class=&quot;language-text&quot;&gt;18082&lt;/code&gt; 를 사용하게 되었습니다.&lt;/p&gt;
+&lt;h2&gt;Nginx 설정&lt;/h2&gt;
+&lt;p&gt;아래는 Nginx 포트 포워딩 설정 스크립트입니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;server &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  listen &lt;span class=&quot;token number&quot;&gt;443&lt;/span&gt; ssl&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  server_name api.celuveat.com&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  ssl_certificate /etc/letsencrypt/live/api.celuveat.com/fullchain.pem&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  ssl_certificate_key /etc/letsencrypt/live/api.celuveat.com/privkey.pem&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  include /etc/nginx/conf.d/service-url.inc&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  location / &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    proxy_pass &lt;span class=&quot;token variable&quot;&gt;$service_url&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    proxy_set_header Host &lt;span class=&quot;token variable&quot;&gt;$http_host&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    proxy_set_header X-Real-IP &lt;span class=&quot;token variable&quot;&gt;$remote_addr&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    proxy_set_header X-Forwarded-For &lt;span class=&quot;token variable&quot;&gt;$proxy_add_x_forwarded_for&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    proxy_set_header X-Forwarded-Proto &lt;span class=&quot;token variable&quot;&gt;$scheme&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+server &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  listen &lt;span class=&quot;token number&quot;&gt;18080&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  include /etc/nginx/conf.d/service-url.inc&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  location / &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    proxy_pass &lt;span class=&quot;token variable&quot;&gt;$service_monitoring_url&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    proxy_set_header Host &lt;span class=&quot;token variable&quot;&gt;$http_host&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    proxy_set_header X-Real-IP &lt;span class=&quot;token variable&quot;&gt;$remote_addr&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    proxy_set_header X-Forwarded-For &lt;span class=&quot;token variable&quot;&gt;$proxy_add_x_forwarded_for&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    proxy_set_header X-Forwarded-Proto &lt;span class=&quot;token variable&quot;&gt;$scheme&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;기타 설정 (참고용)&lt;/h2&gt;
+&lt;p&gt;Github Actions Workflow는 아래와 같이 수정되었습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;name: ✨ Celuveat backend PROD CD ✨
+
+env:
+  PROFILE: prod
+  IMAGE_TAG: back-prod-&lt;span class=&quot;token variable&quot;&gt;${{ secrets.APP_VERSION_TAG }&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  DOCKER_CONTAINER_NAME: backend
+  DOCKER_HUB_REPOSITORY: celuveat/celuveat
+  SERVER_LOG_DIR_PATH: ~/log
+  DOCKER_LOG_DIR_PATH: /app/logs
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - &lt;span class=&quot;token string&quot;&gt;&quot;backend/**&quot;&lt;/span&gt;
+
+jobs:
+  backend-docker-build-and-push:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./backend
+
+    steps:
+      - name: ✨ Checkout repository
+        uses: actions/checkout@v3
+        with:
+          submodules: &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+          token: &lt;span class=&quot;token variable&quot;&gt;${{ secrets.ACTION_TOKEN }&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+      - name: ✨ JDK &lt;span class=&quot;token number&quot;&gt;17&lt;/span&gt; 설정
+        uses: actions/setup-java@v3
+        with:
+          java-version: &lt;span class=&quot;token string&quot;&gt;&apos;17&apos;&lt;/span&gt;
+          distribution: &lt;span class=&quot;token string&quot;&gt;&apos;temurin&apos;&lt;/span&gt;
+
+      - name: ✨ Gradle Caching
+        uses: actions/cache@v3
+        with:
+          path: &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: &lt;span class=&quot;token variable&quot;&gt;${{ runner.os }&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;-gradle-&lt;span class=&quot;token variable&quot;&gt;${{ hashFiles(&apos;**&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;*.gradle*&apos;&lt;span class=&quot;token operator&quot;&gt;,&lt;/span&gt; &apos;**&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;gradle-wrapper.properties&apos;) }&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+          restore-keys: &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;
+            &lt;span class=&quot;token variable&quot;&gt;${{ runner.os }&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;-gradle-
+
+      - name: ✨ Gradlew 권한 설정
+        run: &lt;span class=&quot;token function&quot;&gt;chmod&lt;/span&gt; +x ./gradlew
+
+      - name: ✨ Jar 파일 빌드
+        run: ./gradlew bootJar
+
+      - name: ✨ DockerHub에 로그인
+        uses: docker/login-action@v2
+        with:
+          username: &lt;span class=&quot;token variable&quot;&gt;${{ secrets.DOCKER_HUB_USERNAME }&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+          password: &lt;span class=&quot;token variable&quot;&gt;${{ secrets.DOCKER_HUB_PASSWORD }&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+      - name: ✨ Docker Image 빌드 후 DockerHub에 Push
+        uses: docker/build-push-action@v4
+        with:
+          context: ./backend
+          file: ./backend/Dockerfile
+          push: &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+          platforms: linux/arm64
+          tags: &lt;span class=&quot;token variable&quot;&gt;${{ env.DOCKER_HUB_REPOSITORY }&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;:&lt;span class=&quot;token variable&quot;&gt;${{ env.IMAGE_TAG }&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  backend-docker-pull-and-run:
+    runs-on: &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;self-hosted, prod&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+    if: &lt;span class=&quot;token variable&quot;&gt;${{ needs.backend-docker-build-and-push.result == &apos;success&apos; }&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    needs: &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; backend-docker-build-and-push &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+    steps:
+      - name: ✨ 배포 스크립트 실행
+        run: &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;
+          &lt;span class=&quot;token builtin class-name&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token assign-left variable&quot;&gt;APP_VERSION_TAG&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;${{ secrets.APP_VERSION_TAG }&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;token function&quot;&gt;sh&lt;/span&gt; /home/ubuntu/deploy.sh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[DBCP와 HikariCP 이해하기]]></title><description><![CDATA[DBCP (DataBase Connection Pool) 탄생 배경 서버 애플리케이션에서 DB 서버로 요청을 보내면 TCP 통신을 한다. TCP 통신은 Connection이 유지되는 상태에서 통신한다. 이 Connection…]]></description><link>https://kdkdhoho.github.io/dbcp/</link><guid isPermaLink="false">https://kdkdhoho.github.io/dbcp/</guid><pubDate>Mon, 16 Oct 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;DBCP (DataBase Connection Pool) 탄생 배경&lt;/h2&gt;
 &lt;p&gt;서버 애플리케이션에서 DB 서버로 요청을 보내면 TCP 통신을 한다.&lt;/p&gt;
 &lt;p&gt;TCP 통신은 &lt;strong&gt;Connection&lt;/strong&gt;이 유지되는 상태에서 통신한다.&lt;/p&gt;
 &lt;p&gt;이 Connection은 생성하고 사용하고 삭제되기까지 꽤 많은 작업이 포함된다. 즉, 통신 비용이 &lt;strong&gt;비싸다&lt;/strong&gt;.&lt;/p&gt;
