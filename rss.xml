@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 05 Jan 2024 05:42:30 GMT</lastBuildDate><item><title><![CDATA[MySQL 로그 파일]]></title><description><![CDATA[MySQL 로그 파일 MySQL…]]></description><link>https://kdkdhoho.github.io/04-mysql-log/</link><guid isPermaLink="false">https://kdkdhoho.github.io/04-mysql-log/</guid><pubDate>Wed, 03 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;MySQL 로그 파일&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 09 Jan 2024 05:53:42 GMT</lastBuildDate><item><title><![CDATA[MySQL 로그 파일]]></title><description><![CDATA[MySQL 로그 파일 MySQL…]]></description><link>https://kdkdhoho.github.io/04-mysql-log/</link><guid isPermaLink="false">https://kdkdhoho.github.io/04-mysql-log/</guid><pubDate>Wed, 03 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;MySQL 로그 파일&lt;/h2&gt;
 &lt;p&gt;MySQL 서버에 문제가 생겼을 때, &lt;strong&gt;로그 파일을 이용하면 문제의 원인을 쉽게 찾고 해결할 수 있다.&lt;/strong&gt;&lt;br&gt;
 따라서 가급적 아래에 나올 로그 파일들을 통해 문제를 파악하려는 태도를 가지는 것이 중요하다.&lt;/p&gt;
 &lt;p&gt;로그 파일의 종류는 아래와 같다.&lt;/p&gt;
@@ -340,7 +340,181 @@ DDL의 경우에만 묵시적 테이블 락을 획득한다.&lt;/li&gt;
 /static/45b85ca69d15e12805c3c6d27c214de0/9d567/comment-of-pobi.png 1360w,
 /static/45b85ca69d15e12805c3c6d27c214de0/cae0a/comment-of-pobi.png 3024w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
   &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[InnoDB 엔진 이해하기]]></title><description><![CDATA[작성 예정]]></description><link>https://kdkdhoho.github.io/04-innodb-engine/</link><guid isPermaLink="false">https://kdkdhoho.github.io/04-innodb-engine/</guid><pubDate>Sun, 17 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;작성 예정&lt;/p&gt;</content:encoded></item><item><title><![CDATA[MySQL 엔진 아키텍처]]></title><description><![CDATA[MySQL 엔진 아키텍처  MySQL 서버는 크게 MySQL 엔진과 스토리지 엔진으로 나뉜다. MySQL…]]></description><link>https://kdkdhoho.github.io/04-mysql-engine-architecture/</link><guid isPermaLink="false">https://kdkdhoho.github.io/04-mysql-engine-architecture/</guid><pubDate>Thu, 14 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;MySQL 엔진 아키텍처&lt;/h2&gt;
+    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[InnoDB 엔진 이해하기]]></title><description><![CDATA[InnoDB 스토리지 엔진 MySQL에서 사용할 수 있는 스토리지 엔진 중 거의 유일하게 레코드 기반 Lock을 지원한다. 덕분에 높은 동시성 처리와 뛰어난 성능을 가진다. 아키텍처 InnoDB의 전반적인 아키텍처는 다음과 같다.  InnoDB…]]></description><link>https://kdkdhoho.github.io/04-innodb-engine/</link><guid isPermaLink="false">https://kdkdhoho.github.io/04-innodb-engine/</guid><pubDate>Sun, 17 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;InnoDB 스토리지 엔진&lt;/h2&gt;
+&lt;p&gt;MySQL에서 사용할 수 있는 스토리지 엔진 중 거의 유일하게 &lt;strong&gt;레코드 기반 Lock&lt;/strong&gt;을 지원한다.&lt;/p&gt;
+&lt;p&gt;덕분에 &lt;strong&gt;높은 동시성 처리&lt;/strong&gt;와 &lt;strong&gt;뛰어난 성능&lt;/strong&gt;을 가진다.&lt;/p&gt;
+&lt;h3&gt;아키텍처&lt;/h3&gt;
+&lt;p&gt;InnoDB의 전반적인 아키텍처는 다음과 같다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 540px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/c39432198d80990d10e709c395e6dfba/03ec9/InnoDB-Architecture.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 92.3529411764706%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsTAAALEwEAmpwYAAADuUlEQVR42k1UaU8bSRT0b89+WmxMkAxhpayyUhZlpSwkaA/CBoKNcfCFjQ0e38d47PExjM/xAdiurdcmUVpqTc90T/V7VfWeazQcodFooNlsol6vYzx2MBoN0e/ZGA6HGHEOBgN+G6HX6/GsoWYul0W5XEY+n0etVkE+q+Hx8RGu6WQCGQ8PD2i1TDw9PWHijLn5gMnEQb9vYz6fwnEctNttmGYTltVFqZjH/f09FosFnxbi0bD61zWdTnmDDqNuoENA2SyXS2iaDQQvg/jw8RChqxCOjo64/qjmp0/HKORzaHfasHlhw9CRuI5juVzCNZ/PkE6lUKmU0TSYMqMrlYqwbQvv3/+Jn168wOHhAd7+/hZu9wY2Nz1wezz47+QYDUZbqBSRL2SRSiZUpi5nPIau19DiZrVWRafbQbFYUFHGYjEV2fHxv/j19Wtsb21hy+vFjs+HSDiMal1HppDH3V0aqVQSo/EIrjEBF08LjEl6XQ6Q7JOTE1wGAxRlgBVvbZomXu3sYntzE96NDbwk8Onnz4pLizwWCjkFaJIyl5Cd0bJKaYlMy+UUd/F4DIFAADE+rxMJ7O4S0EtAt5uRvoT//AvFc1SaFWaT0e7WKYsd0qk0RdFRJnclWiGb0xT4m9/ewONx44937+Bjmp6Nn+Hm9G1v42voUtlKRo4CadnsGnDsTGgFU3FYLpWQvLnB2dkZEolrHBwcwOvdwj9//4X9/X3s7Pjwy94e9vZeMcJTTKdry2mkSeYakByuVktySHEoyqDfVymKIDfJJC6CQUQiUSSv+S0a40VJxGNxhEIhZDIZ5Y5wJIwig3lWec2DQ7sYVFuGVEucAFpGU2KFQl9ZSQ3F2dVVWFVIpVJRICKkXCzv322jQPijAEr5zGj2WDxOCsqYzmbwBy7Q7XbVuTW4qdZiZBlZcpi6Tatqck2cNQ9ye71WUzbps2ZrXEttW5aFPAUSS0iZtVh+38RYrlbPHGqqtlWE3U4X9/xJRNErVYIYiEajFOYUAf85glTzCy3iP/eTy8iaU5o6Sl7lXfi9uAgoShTghM1BIhIOpat0eIFt22wKPZZgCen0LQyjAZtndEYcJoBw2Kd4ck46T57eres6KVjBhR+GdJfVcxrylHTbnY66SIbVtZTaUgQ/cijB3KZTpIKltyKqbKyehZkx4vl8jhnFkA5UZSca0VKSiZg+mbxREcol0vJERJvll2OUwrFLIvkWlVRNw1g3W4nCMAwF+r0B8329x8lnq9VWIplci3+Fw/8BeS8J/p0k80IAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;InnoDB 아키텍처&apos; title=&apos;&apos; src=&apos;/static/c39432198d80990d10e709c395e6dfba/03ec9/InnoDB-Architecture.png&apos; srcset=&apos;/static/c39432198d80990d10e709c395e6dfba/e7570/InnoDB-Architecture.png 170w,
+/static/c39432198d80990d10e709c395e6dfba/f46e7/InnoDB-Architecture.png 340w,
+/static/c39432198d80990d10e709c395e6dfba/03ec9/InnoDB-Architecture.png 540w&apos; sizes=&apos;(max-width: 540px) 100vw, 540px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;InnoDB 아키텍처&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;InnoDB의 주요 특징&lt;/h2&gt;
+&lt;h3&gt;프라이머리 키에 의한 클러스터링&lt;/h3&gt;
+&lt;p&gt;모든 InnoDB 테이블은 PK에 의해 클러스터링 인덱스가 생성된다.&lt;/p&gt;
+&lt;p&gt;따라서 PK를 이용한 조회가 성능에 큰 영향을 끼친다.&lt;/p&gt;
+&lt;h3&gt;외래 키 지원&lt;/h3&gt;
+&lt;p&gt;FK를 지원한다.&lt;/p&gt;
+&lt;p&gt;다만, FK를 사용할 때는 부모 테이블과 자식 테이블에 데이터 존재 유무를 체크하는 작업이 필요하다.&lt;/p&gt;
+&lt;p&gt;이때 Lock이 여러 테이블로 전파되고, 이로 인해 데드락이 발생할 가능성이 많으므로 사용에 주의해야 한다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;foregin_key_checks&lt;/code&gt; 시스템 변수를 OFF로 설정하면 외래 키 관계에 대한 체크 작업을 일시적으로 멈출 수 있다.&lt;br&gt;
+데이터 추가 및 삭제 시에, 부가적인 작업이 발생하지 않게 된다.&lt;br&gt;
+다만, &lt;code class=&quot;language-text&quot;&gt;foregin_key_checks&lt;/code&gt;가 비활성화되면 &lt;code class=&quot;language-text&quot;&gt;ON DELETE CASCADE&lt;/code&gt; 나 &lt;code class=&quot;language-text&quot;&gt;ON UPDATE CASCADE&lt;/code&gt;도 무시하게 된다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;foregin_key_checks&lt;/code&gt; 시스템 변수는 적용 범위를 GLOBAL과 SESSION 모두 설정 가능하다.&lt;br&gt;
+따라서 본 작업을 수행할 때는 반드시 현재 작업을 수행하는 SESSION에서만 외래 키 체크 기능을 해제하는 것이 안전하다.&lt;br&gt;
+명령어는 다음과 같다.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;mysql&gt; SET SESSION foreign_key_checks=OFF;&lt;/code&gt;&lt;br&gt;
+작업이 완료되면 반드시 현재 세션을 종료하기 전, 다시 활성화해야 한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;MVCC(Multi Version Concurrency Control)&lt;/h3&gt;
+&lt;p&gt;MVCC의 가장 큰 목적은, &lt;strong&gt;잠금을 사용하지 않는 일관된 읽기를 제공하는 데 있다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;InnoDB는 &lt;strong&gt;언두 로그를 이용해 이 기능을 구현한다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;여기서 Multi Version이라 함은 하나의 레코드에 대해 여러 개의 버전이 동시에 관리된다는 의미다.&lt;/p&gt;
+&lt;p&gt;예시를 통해 더 자세히 알아보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;TABLE&lt;/span&gt; member &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    id      &lt;span class=&quot;token keyword&quot;&gt;BIGINT&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;PRIMARY&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;KEY&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;AUTO_INCREMENT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    name    &lt;span class=&quot;token keyword&quot;&gt;VARCHAR&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; NOTNULL&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    area    &lt;span class=&quot;token keyword&quot;&gt;VARCHAR&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;NOT&lt;/span&gt; NUL&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;INDEX&lt;/span&gt; idx_area &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;area&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;INTO&lt;/span&gt; member &lt;span class=&quot;token keyword&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;홍길동&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;서울&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;회원 정보를 저장하는 member 테이블을 생성하고 이름은 홍길동, 지역은 서울인 레코드를 추가한다.&lt;/p&gt;
+&lt;p&gt;데이터베이스의 상태는 다음과 같이 바뀔 것이다.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/494bf5e47807da2fc1c229ef35903999/89e0a/insert-state.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 73.52941176470587%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAABG0lEQVR42oWU4ZKCMAyEU6DYVkBR72Y8/Xfv/46XMBtn7VCPmU8iaTfbtCAiEpVDgxFEij2X8HxRHsDyW7JXhh0KJiYS6kAAscpLpgeJXJjgrJzobmOFipnwTVmVIwva4G8knvT/F2I9nPiVIMrX4AXt56xMylX5wX1B9YV6KFhmrsQCL7lALOJ+gtOEQr6U+I+gt2sLCoQWxDNir1poiQH50BL0nes/MNDudnCYUaggfrXF3dTMNKFUAolEbdwF7bLcq9my05eBXI5VPMLtAWLemrfjIFWfJjDD1Qr3XWNOajk0Z1/gDla8XvedM/i2+3sOI/XpBmHf/fXDqnLLofcmk/BEx6hvCB6FXv5IR8S/MKU6PoGKpYqt+B+nTwh5eQjiTQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;insert state&apos; title=&apos;&apos; src=&apos;/static/494bf5e47807da2fc1c229ef35903999/ca1dc/insert-state.png&apos; srcset=&apos;/static/494bf5e47807da2fc1c229ef35903999/e7570/insert-state.png 170w,
+/static/494bf5e47807da2fc1c229ef35903999/f46e7/insert-state.png 340w,
+/static/494bf5e47807da2fc1c229ef35903999/ca1dc/insert-state.png 680w,
+/static/494bf5e47807da2fc1c229ef35903999/02d09/insert-state.png 1020w,
+/static/494bf5e47807da2fc1c229ef35903999/89e0a/insert-state.png 1355w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이후, 지역을 서울에서 경기로 수정한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;UPDATE&lt;/span&gt; member &lt;span class=&quot;token keyword&quot;&gt;SET&lt;/span&gt; area&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;경기&apos;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;where&lt;/span&gt; id &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;UPDATE 쿼리가 실행되면 InnoDB 버퍼 풀에는 커밋 여부와 상관없이 새로운 값인 경기로 수정된다.&lt;/p&gt;
+&lt;p&gt;디스크에는 체크포인트나 Write 쓰레드에 의해 새로운 값으로 수정됐을 수도, 아닐 수도 있다.&lt;/p&gt;
+&lt;p&gt;아직 커밋이나 롤백이 되지 않은 상태에서 다른 세션에 의해 해당 데이터의 조회가 발생하면 데이터베이스는 어떻게 작업을 수행할까?&lt;/p&gt;
+&lt;p&gt;이때는 &lt;strong&gt;MySQL 서버의 시스템 변수에 설정된 격리 수준에 따라 다르다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;격리 수준이 READ_UNCOMMITED인 경우에는, 버퍼 풀의 데이터를 조회한다.&lt;/p&gt;
+&lt;p&gt;격리 수준이 READ&lt;em&gt;COMMITED 혹은 REPEATABLE&lt;/em&gt;READ, SERIALIZABLE인 경우에는 언두 로그의 값을 조회한다.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/e3d3f183747cf17e9c9b7d5490ac304c/ef64d/after-update.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 85.88235294117648%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsTAAALEwEAmpwYAAABeElEQVR42o1US27CMBAdO8H5B9oSqNRKbFohsWDDCqnXyI5bdMEV2PYQnIOrdZK8oRPXtFh6ydieeZ43GYdoGIZRM3JGzJgxEtilwiPDMR4wTzE3dMcwwN0B/w3LWCCLHFmbwKHBMVFweFPbUnk80vRy6UljJXGCklilZDRqoEKdnrrAjux0otfzua+ZRZZSa6ljDiUzxI5OiJVtPFuyERUR9lIQ1aJMJMTIUGS5zWbAbnctR+eTMebIzkL6FKSd3Ts4EFWYF3AqIMmALMJaCd8Sa7HKuN+oUIM5Un/GmlNSK5DJoYlI9D9MDcfu/UJl2dDHV0PLbaF60OCQ9zXRek+0wl4capkCJ+bXntseeO0tQZD0ZH8zWvb9/ImJQoSJqpFTX1Fsi71ErTsQBhtbekmQAalni4Ia9c5vESbePFLkKUpSBK7bzTvuPEfps2V3G/ixYAnNjbg/CfW9ztAe9YGzWw2ZWs8vtDY6yQIRyPQPw3qIQPgrw28ulxNqZrp1ygAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;after update&apos; title=&apos;&apos; src=&apos;/static/e3d3f183747cf17e9c9b7d5490ac304c/ca1dc/after-update.png&apos; srcset=&apos;/static/e3d3f183747cf17e9c9b7d5490ac304c/e7570/after-update.png 170w,
+/static/e3d3f183747cf17e9c9b7d5490ac304c/f46e7/after-update.png 340w,
+/static/e3d3f183747cf17e9c9b7d5490ac304c/ca1dc/after-update.png 680w,
+/static/e3d3f183747cf17e9c9b7d5490ac304c/02d09/after-update.png 1020w,
+/static/e3d3f183747cf17e9c9b7d5490ac304c/ef64d/after-update.png 1165w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이러한 과정을 DBMS에서 MVCC라고 표현한다.&lt;/p&gt;
+&lt;p&gt;만약 UPDATE 쿼리가 COMMIT 되면 지금의 상태를 영구적인 데이터로 만든다.&lt;/p&gt;
+&lt;p&gt;반대로 &lt;strong&gt;ROLLBACK 되면 언두 로그에 있는 데이터를 버퍼 풀로 다시 복구하고 언두 로그의 데이터를 삭제한다.&lt;/strong&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;언두 로그의 데이터는는, 해당 데이터를 필요로 하는 트랜잭션이 더는 없을 때 비로소 삭제된다.&lt;/p&gt;
+&lt;h3&gt;잠금 없는 일관된 읽기(Non-Locking Consistent Read)&lt;/h3&gt;
+&lt;p&gt;위의 MVCC 기술을 이용해 잠금을 걸지 않고 읽기 작업을 수행한다.&lt;/p&gt;
+&lt;p&gt;격리 수준이 SERIALIZABLE이 아니며 INSERT와 연결되지 않은 순수한 SELECT 작업은, 다른 트랜잭션의 변경 작업과 관계없이 항상 Lock을 대기하지 않고 바로 실행된다.&lt;/p&gt;
+&lt;h3&gt;자동 데드락 감지&lt;/h3&gt;
+&lt;p&gt;내부적으로 잠금 대기 목록을 그래프(Wait-for List) 형태로 관리한다.&lt;/p&gt;
+&lt;p&gt;데드락 감지 쓰레드가 주기적으로 잠금 대기 그래프를 검사해 데드락에 빠진 Tx들을 찾아 그 중 하나를 강제 종료한다.&lt;/p&gt;
+&lt;p&gt;이때 기준은 언두 로그 레코드를 더 적게 가진 Tx를 강제 종료한다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;InnoDB는 스토리지 엔진이기에 MySQL 엔진에서 관리되는 테이블 잠금은 볼 수가 없어 데드락 감지가 불확실할 수 있다.&lt;br&gt;
+하지만 &lt;code class=&quot;language-text&quot;&gt;innodb_table_locks&lt;/code&gt; 시스템 변수를 활성화하면 InnoDB 스토리지 엔진의 레코드 잠금뿐만 아니라 테이블 레벨의 잠금까지 감지할 수 있게 된다.&lt;br&gt;
+따라서 특별한 이유가 있는 것이 아니라면 위 변수를 활성화하자.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;일반적인 서비스에서는 데드락 감지 스레드의 작업이 부담되지 않는다.&lt;br&gt;
+하지만 동시에 처리해야하는 스레드의 수가 매우 많아지거나 각 Tx이 가지는 잠금이 많아지면 데드락 감지 스레드의 작업이 느려진다.&lt;/p&gt;
+&lt;p&gt;데드락 감지 스레드는 잠금 목록을 검사한다.&lt;br&gt;
+당시의 잠금 상태가 변경되지 않도록 잠금 목록이 저장된 리스트(잠금 테이블)에 새로운 잠금을 걸게 된다.&lt;br&gt;
+즉, 데드락 감지 스레드가 느려지면 서비스 쿼리에도 악영향이 미치게 된다.&lt;/p&gt;
+&lt;p&gt;위 문제를 해결하기 위해 &lt;code class=&quot;language-text&quot;&gt;innodb_deadlock_detect&lt;/code&gt; 시스템 변수가 존재하고 해당 변수를 비활성화하여 데드락 감지 스레드를 사용하지 않을 수 있다.&lt;/p&gt;
+&lt;p&gt;하지만 이렇게 되면 데드락이 발생할 수 있는 가능성이 존재하기 때문에 다른 대안이 필요하다.&lt;/p&gt;
+&lt;p&gt;이럴 땐 &lt;code class=&quot;language-text&quot;&gt;innodb_lock_wait_timeout&lt;/code&gt; 시스템 변수를 활성화할 수 있다.&lt;/p&gt;
+&lt;p&gt;default 값은 50초인데, 이보다 훨씬 낮은 시간으로 설정하여 데드락을 방지하자.&lt;/p&gt;
+&lt;h3&gt;자동화된 장애 복구&lt;/h3&gt;
+&lt;p&gt;MySQL 서버가 시작될 때 완료되지 못한 Tx이나 디스크에 일부만 기록된 데이터 페이지 등에 대한 일련의 복구 작업이 알아서 진행된다.&lt;/p&gt;
+&lt;p&gt;만약 자동으로 복구될 수 없는 정도의 손상이라면 자동 복구를 멈추고 MySQL 서버를 종료시킨다.&lt;/p&gt;
+&lt;h3&gt;InnoDB 버퍼 풀&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;InnoDB 스토리지 엔진에서 가장 핵심적인 부분이다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;디스크의 데이터 파일이나 인덱스 정보를 메모리에 캐시해 두는 공간이다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;쓰기 작업을 지연시켜 일괄 작업으로 처리할 수 있도록 하는 버퍼의 역할도 수행한다.&lt;/p&gt;
+&lt;h4&gt;버퍼 풀의 크기 설정&lt;/h4&gt;
+&lt;p&gt;버퍼 풀의 크기는 적절히 작은 값부터 시작해 조금씩 큰 값으로 설정하는 것이 최적의 방법이다.&lt;/p&gt;
+&lt;p&gt;기존에 사용하는 MySQL 서버가 있다면 해당 서버의 메모리 설정을 기준으로 크기를 조정하자.&lt;br&gt;
+만약 처음으로 MySQL 서버를 준비한다고 했을 땐, 운영체제의 전체 메모리 공간이 8GB 미만이라면 50% 정도로 설정한다.&lt;br&gt;
+전체 메모리 공간이 8GB 이상이라면 50% 에서 시작해서 조금씩 올려가며 최적점을 찾는다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;innodb_buffer_pool_size&lt;/code&gt; 시스템 변수로 크기를 설정할 수 있다.&lt;/p&gt;
+&lt;p&gt;하지만 버퍼 풀 크기 변경은 크리티컬한 변경이므로 서버가 한가한 시간에 수행해야 한다.&lt;br&gt;
+그리고 용량을 더 크게 변경하는 건 시스템 영향도가 크진 않지만 줄이는 작업은 영향도가 매우 크므로 가능한 하지 않도록 하자.&lt;/p&gt;
+&lt;p&gt;버퍼 풀은 내부적으로 128MB 청크 단위로 쪼개어 관리된다.&lt;br&gt;
+이는 버퍼 풀의 크기를 변경하는 단위로 사용된다.&lt;/p&gt;
+&lt;h4&gt;버퍼 풀의 구조&lt;/h4&gt;
+&lt;p&gt;버퍼 풀은 3개의 자료 구조를 관리한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;LRU(Least Recently Used) List&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;디스크로부터 한 번 읽어온 페이지를 최대한 오랫동안 보관하여 디스크 IO를 최소화하기 위해 사용&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Flush List&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;디스크로 동기화되지 않은 데이터를 가진 데이터 페이지(더티 페이지)의 변경 시점 기준의 페이지 목록을 관리&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Free List&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;실제 사용자 데이터로 채워지지 않은 비어 있는 페이지들의 목록&lt;/li&gt;
+&lt;li&gt;사용자의 쿼리가 새롭게 디스크의 데이터 페이지를 읽어와야 하는 경우 사용&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Double Write Buffer&lt;/h3&gt;
+&lt;p&gt;InnoDB의 리두 로그는 공간을 효울적으로 사용하기 위해 페이지의 변경된 내용만 기록한다.&lt;br&gt;
+이로 인해 더티 페이지를 디스크 파일로 플러시할 때 일부만 기록되는 문제가 발생하면 그 페이지의 내용은 복구할 수 없을 수도 있다.&lt;br&gt;
+이렇게 페이지가 일부만 기록되는 현상을 Partial-page 또는 Torn-page 라고 하는데, 하드웨어의 오작동이나 시스템 비정상 종료 등올 발생할 수 있다.&lt;/p&gt;
+&lt;p&gt;이 같은 문제를 막기 위해 사용하는 기법이 Double-Write 기법이다.&lt;/p&gt;
+&lt;p&gt;InnoDB 버퍼 풀에 존재하는 더티 페이지를 한 번의 디스크 쓰기로 시스템 테이블스페이스의 DoubleWrite 버퍼에 기록한다.&lt;br&gt;
+그리고 각 더티 페이지를 데이터 파일에 하나씩 랜덤으로 쓰기를 실행한다.&lt;/p&gt;
+&lt;p&gt;이렇게 시스템 테이블스페이스의 DoubleWrite 버퍼에 기록된 변경 내용은 디스크에 모두 정상적으로 기록되면 필요가 없어진다.&lt;br&gt;
+하지만 실제 데이터 파일의 쓰기가 중간에 실패할 때만 원래의 목적으로 사용된다.&lt;/p&gt;
+&lt;p&gt;InnoDB 스토리지 엔진은 재시작될 때 항상 DoubleWrite 버퍼의 내용과 디스크 데이터 파일을 모두 비교해서 다른 내용을 담고 있는 페이지가 존재한다면, DoubleWrite 버퍼의 내용을 디스크 데이터 파일의 페이지로 복사한다.&lt;/p&gt;
+&lt;h3&gt;언두 로그&lt;/h3&gt;
+&lt;p&gt;트랜잭션과 격리 수준을 보장하기 위해 &lt;strong&gt;변경되기 이전 버전의 데이터를 별도로 백업한다.&lt;/strong&gt;&lt;br&gt;
+이렇게 &lt;strong&gt;백업된 데이터를 언두 로그라고 한다.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;체인지 버퍼&lt;/h3&gt;
+&lt;p&gt;레코드가 INSERT 되거나 UPDATE 될 때는 데이터 파일 뿐만 아니라 해당 테이블에 포함된 인덱스를 업데이트하는 작업도 필요하다.&lt;br&gt;
+하지만 인덱스를 업데이트하는 작업은 디스크를 랜덤하게 읽는 작업이 포함된다.&lt;/p&gt;
+&lt;p&gt;변경해야 할 인덱스 페이지가 버퍼 풀에 있으면 바로 업데이트를 수행하지만, 그렇지 않고 디스크로부터 읽어와서 업데이트해야 하는 상황이라면 임시 공간에 저장해두고 곧바로 사용자에게 결과를 반환하는 형태로 성능을 향상시킨다.&lt;br&gt;
+이때의 임시 공간이 체인지 버퍼다.&lt;/p&gt;
+&lt;h3&gt;리두 로그 및 로그 버퍼&lt;/h3&gt;
+&lt;p&gt;ACID 중, 영속성과 밀접한 관련이 있다.&lt;br&gt;
+모종의 이유로 인해 MySQL 서버가 비정상적으로 종료됐을 때 데이터 파일에 기록되지 못한 데이터를 복구할 때 사용하는 것이 리두 로그다.&lt;/p&gt;
+&lt;p&gt;대부분의 데이터베이스는 데이터 변경 내용을 로그로 먼저 기록한다.&lt;br&gt;
+이유는, 보통 쓰기보다 읽기의 성능을 고려한 자료 구조를 가지고 있기 때문에 데이터 파일 쓰기는 랜덤 디스크 액세스가 필요하다.&lt;br&gt;
+그래서 변경된 데이터를 데이터 파일에 기록하려면 상대적으로 큰 비용이 필요하다.&lt;/p&gt;
+&lt;p&gt;이로 인한 &lt;strong&gt;쓰기 성능 저하를 막기 위해 데이터베이스 서버는 쓰기 비용이 낮은 자료 구조인, 리두 로그를 가진다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;비정상 종료가 발생하면 리두 로그의 내용을 이용해 데이터 파일을 다시 서버가 종료되기 전으로 복구한다.&lt;/p&gt;
+&lt;h3&gt;어댑티브 해시 인덱스&lt;/h3&gt;
+&lt;p&gt;InnoDB 스토리지 엔진에서 &lt;strong&gt;사용자가 자주 요청하는 데이터에 대해 자동으로 생성하는 인덱스이다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;어댑티브 해시 인덱스는 B-Tree 검색 시간을 줄여주기 위해 도입된 기능이다.&lt;/p&gt;
+&lt;p&gt;자주 읽히는 데이터 페이지의 키 값을 이용해 해시 인덱스를 만들고, 필요할 때마다 어댑티브 해시 인덱스를 검색해서 해당 레코드가 저장된 데이터 페이지를 즉시 찾아갈 수 있다.&lt;/p&gt;
+&lt;p&gt;해시 인덱스는 &apos;인덱스 키 값&apos;과 해당 인덱스 키 값이 저장된 &apos;데이터 페이지 주소&apos;의 쌍으로 관리된다.&lt;/p&gt;
+&lt;p&gt;인덱스 키 값은, &apos;B-Tree 인덱스의 고유 번호&apos;와 &apos;B-Tree 인덱스의 실제 키 값&apos;의 조합으로 생성된다.&lt;/p&gt;
+&lt;p&gt;데이터 페이지 주소는, 실제 키 값이 저장된 데이터 페이지의 메모리 주소를 가진다. 이는 InnoDB 버퍼 풀에 로딩된 페이지의 주소를 의미한다. 따라서 어댑티브 해시 인덱스는 버퍼 풀에 올려진 데이터 페이지에 대해서만 관리되고, 버퍼 풀에 해당 데이터 페이지가 없어지면 어댑티브 해시 인덱스에서도 해당 데이터 페이지에 대한 정보가 사라진다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[MySQL 엔진 아키텍처]]></title><description><![CDATA[MySQL 엔진 아키텍처  MySQL 서버는 크게 MySQL 엔진과 스토리지 엔진으로 나뉜다. MySQL…]]></description><link>https://kdkdhoho.github.io/04-mysql-engine-architecture/</link><guid isPermaLink="false">https://kdkdhoho.github.io/04-mysql-engine-architecture/</guid><pubDate>Thu, 14 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;MySQL 엔진 아키텍처&lt;/h2&gt;
 &lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
       &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/b9c53b77681406b338ac3bd2a26be5b8/38ea8/entire-structure-mysql.jpg&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
@@ -1035,7 +1209,124 @@ GC를 튜닝한다는 말은 주로 이 Stop the world 시간이 짧아지도록
 &lt;p&gt;운영체제 스터디 뿐만 아니라 인성 면접이나, 멘토님들에게 개인적인 질문도 할 수 있었다.&lt;/p&gt;
 &lt;p&gt;면접이나 이력서, 그리고 프로젝트 기반 면접 팁 같은 것들도 얻어갈 수 있었다.&lt;/p&gt;
 &lt;p&gt;취준생인 나에게 투자 대비 효율이 좋았던 스터디라 생각한다.&lt;/p&gt;
-&lt;p&gt;5주 간 함께 해주신 팀원들, 멘토님들 감사합니당 🙇‍♂️&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[JSCODE] - OS 면접 스터디 5주차]]></title><description><![CDATA[…]]></description><link>https://kdkdhoho.github.io/os-interview-study-5week/</link><guid isPermaLink="false">https://kdkdhoho.github.io/os-interview-study-5week/</guid><pubDate>Wed, 06 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;가상 주소와 물리 주소(실주소)에 대해 설명해주세요.&lt;/h2&gt;
+&lt;p&gt;5주 간 함께 해주신 팀원들, 멘토님들 감사합니당 🙇‍♂️&lt;/p&gt;</content:encoded></item><item><title><![CDATA[static을 더 잘 사용하기]]></title><description><![CDATA[JVM의 메모리 구조 우선 static에 대해 이해하기 전에 JVM이 실행될 때 메모리에 어떻게 적재되는 지부터 살펴보자.  크게 세 공간으로 나뉜다. Heap 영역 new…]]></description><link>https://kdkdhoho.github.io/static-with-memory-structure/</link><guid isPermaLink="false">https://kdkdhoho.github.io/static-with-memory-structure/</guid><pubDate>Wed, 06 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;JVM의 메모리 구조&lt;/h2&gt;
+&lt;p&gt;우선 static에 대해 이해하기 전에 JVM이 실행될 때 메모리에 어떻게 적재되는 지부터 살펴보자.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/2c8208ed1a173d358aad4b5c8d0ccf01/ee235/memory.jpg&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 75.88235294117648%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAd4gsD//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAEFAl//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAY/Al//xAAZEAEAAgMAAAAAAAAAAAAAAAABABARUXH/2gAIAQEAAT8hezDukgJX/9oADAMBAAIAAwAAABDTz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABoQAAIDAQEAAAAAAAAAAAAAAAERACExQYH/2gAIAQEAAT8QYmkUGj3xQZcMSFkJPfYMup//2Q==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;메모리 구조&apos; title=&apos;&apos; src=&apos;/static/2c8208ed1a173d358aad4b5c8d0ccf01/a22ce/memory.jpg&apos; srcset=&apos;/static/2c8208ed1a173d358aad4b5c8d0ccf01/0b705/memory.jpg 170w,
+/static/2c8208ed1a173d358aad4b5c8d0ccf01/31389/memory.jpg 340w,
+/static/2c8208ed1a173d358aad4b5c8d0ccf01/a22ce/memory.jpg 680w,
+/static/2c8208ed1a173d358aad4b5c8d0ccf01/29373/memory.jpg 1020w,
+/static/2c8208ed1a173d358aad4b5c8d0ccf01/ee235/memory.jpg 1314w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;메모리 구조&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;크게 세 공간으로 나뉜다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Heap 영역&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;new 키워드를 사용해 &lt;strong&gt;동적으로 생성한 객체의 인스턴스&lt;/strong&gt;가 담기는 공간이다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Garbage Collection&lt;/strong&gt;에 의해 관리된다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Stack 영역&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;메서드 콜 스택이나, 지역 변수 혹은 변수 파라미터가 저장되는 공간이다.&lt;/li&gt;
+&lt;li&gt;주로 메서드와 관련이 있으며 메서드가 호출될 때 새로운 영역이 할당되고 반환될 때 영역도 반환된다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;StackOverflow&lt;/code&gt;가 발생하는 이유도 메모리 관점에서 생각해보면 알 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Static 영역&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;운영체제에서의 Code, Data 영역이다.&lt;/li&gt;
+&lt;li&gt;동일한 프로세스 내에서 언제 어디서든 접근할 수 있다.&lt;/li&gt;
+&lt;li&gt;우리가 작성한 Class나 정적 변수(클래스 변수)가 이 영역에 저장된다.&lt;/li&gt;
+&lt;li&gt;이 곳에 담긴 데이터들은 프로그램이 종료되기 전까지 유지된다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Java의 static 키워드&lt;/h2&gt;
+&lt;p&gt;이제 Java의 static 키워드에 대해 알아보자&lt;/p&gt;
+&lt;p&gt;Java에서 static 키워드를 변수, 메서드, 클래스에 추가할 수 있다.&lt;/p&gt;
+&lt;p&gt;static을 붙여 변수를 생성하거나 메서드나 클래스를 선언하게 되면, &lt;strong&gt;프로그램 실행 시&lt;/strong&gt;에 &lt;strong&gt;딱 한 번 생성&lt;/strong&gt;되어 위 메모리 구조의 &lt;strong&gt;&lt;code class=&quot;language-text&quot;&gt;Static&lt;/code&gt; 영역에 포함&lt;/strong&gt;된다.&lt;/p&gt;
+&lt;p&gt;따라서, 우리가 객체를 생성하지 않고도 static 변수를 참조하거나 메서드를 호출할 수 있는 것이다.&lt;/p&gt;
+&lt;h2&gt;static을 많이 사용하게 된다면?&lt;/h2&gt;
+&lt;p&gt;이러한 static 변수, 메서드, 클래스를 많이 사용하게 되면 어떤 일이 발생할까?&lt;/p&gt;
+&lt;p&gt;결론부터 말하면 &lt;strong&gt;프로그램에 부작용을 초래할 확률이 증가&lt;/strong&gt;한다.&lt;/p&gt;
+&lt;p&gt;메모리 관점에서 생각해보자.&lt;/p&gt;
+&lt;p&gt;운영체제는 메모리에 Java 프로그램의 공간을 내어줄 때 무한정으로 제공하지 않는다.&lt;br&gt;
+따라서 제한된 영역 내에서 프로그램을 실행해야 한다.&lt;/p&gt;
+&lt;p&gt;그런데 Static 영역이 Heap과 Stack 영역에 비해 더 많은 공간을 차지하게 된다면, &lt;code class=&quot;language-text&quot;&gt;StackOverflow&lt;/code&gt;나 &lt;code class=&quot;language-text&quot;&gt;OutOfMemoryError&lt;/code&gt; 가 발생할 확률이 증가한다.&lt;/p&gt;
+&lt;p&gt;아무리 GC가 Heap 영역을 관리해 준다 한들, 사용할 수 있는 공간 자체가 적다면 GC의 역할에도 한계가 있을 것이다.&lt;/p&gt;
+&lt;p&gt;추가로 사용되지 않음에도 static으로 선언되었다는 이유로, 불필요하게 메모리를 차지하게 될 경우도 분명 존재할 것이다.&lt;/p&gt;
+&lt;h2&gt;어느 상황에 static을 사용하면 좋을까?&lt;/h2&gt;
+&lt;p&gt;그렇다면 어느 상황에서 static을 적절히 사용하면 좋을까?&lt;/p&gt;
+&lt;p&gt;단순히 생각해서 객체를 매번 만들 필요가 없는 경우에만 사용하면 좋을 것이다.&lt;/p&gt;
+&lt;p&gt;즉, 프로그램을 실행할 때 딱 한 번만 메모리에 올려놓고 계속해서 사용하는 경우이다.&lt;/p&gt;
+&lt;p&gt;다시 말해, Java 프로그램이 실행되면 딱 한 번만 메모리에 올려놓고 사용하는 경우가 될 것이다.&lt;/p&gt;
+&lt;h3&gt;상수&lt;/h3&gt;
+&lt;p&gt;상수는 변하지 않는 값을 의미한다.&lt;/p&gt;
+&lt;p&gt;이러한 상수는 런타임으로 새로운 변수가 계속해서 만들어질 필요가 없다.&lt;/p&gt;
+&lt;p&gt;가령, 회원가입 시에 1,000 포인트를 기본적으로 제공한다는 예시가 있다고 가정해보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Member&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;WELCOME_POINT&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1_000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 상수&lt;/span&gt;
+   
+   &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Member&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;// ...&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;point &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;WELCOME_POINT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;// ...&lt;/span&gt;
+   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위 코드의 &lt;code class=&quot;language-text&quot;&gt;WELCOME_POINT&lt;/code&gt; 처럼, Member 객체를 만들 때마다 새로 만들어 줄 필요도 없는 값의 경우 사용하면 효율적일 것이다.&lt;/p&gt;
+&lt;h4&gt;번외: 상수의 접근 제어자의 범위를 어떤 기준으로 지정하면 좋을까?&lt;/h4&gt;
+&lt;p&gt;위 예시에서는 &lt;code class=&quot;language-text&quot;&gt;private&lt;/code&gt;로 선언을 했는데, &lt;code class=&quot;language-text&quot;&gt;public&lt;/code&gt;으로 한다면 어떨까?&lt;/p&gt;
+&lt;p&gt;메모리 영역에서 생각해 봤을 때 &lt;code class=&quot;language-text&quot;&gt;Static&lt;/code&gt; 영역으로 올라가고, 이 영역은 같은 프로세스 내의 모든 곳에서 접근이 가능하다.&lt;/p&gt;
+&lt;p&gt;그렇지만 위 상수가 다른 클래스에서 범용적으로 쓰이지 않는 한, 불필요하게 public으로 열어둘 필요는 없어보인다.&lt;/p&gt;
+&lt;p&gt;필요하다면 private으로 선언 후, getter를 통해 값을 반환하는 게 코드를 작성하고 이해하는 데에 훨씬 도움이 될 것이라고 생각한다.&lt;/p&gt;
+&lt;p&gt;최대한 작은 범위로 설정하자.&lt;/p&gt;
+&lt;h3&gt;util성 메서드 (static 메서드)&lt;/h3&gt;
+&lt;p&gt;흔히 &lt;strong&gt;유틸성 클래스&lt;/strong&gt;라고 하는 곳에 존재하는 메서드들에 &lt;code class=&quot;language-text&quot;&gt;static&lt;/code&gt; 키워드를 붙여 사용한다.&lt;/p&gt;
+&lt;p&gt;이는 인스턴스를 만들지 않고도 사용할 수 있고, 어디에서든 호출할 수 있다.&lt;/p&gt;
+&lt;p&gt;다만, 인스턴스로 쓰이는 클래스에 static 메서드가 존재할 수 있는데, 이때 조심해야 할 점이 있다.&lt;/p&gt;
+&lt;p&gt;바로 static 메서드는 재정의가 불가능 하다는 것이다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 445px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/7db57a8785540b6a4b1764dbf9ef4711/a6969/cannot-extends.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 65.88235294117646%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAABt0lEQVR42p1S2XKjMBD0fyTmsIU5dBlziEBsfMASu5KH/f+P6R1kx4V3qzbZfWhG6hlaI03PdJLAKIGEKwSrBI7jw/OWcNwFXIJjsYR7477CzKFCGcWoUw0Vx8glRy645YyWCKRBlO+hNwUYCzGnA/8uSB/PY/AXDHlRoShfkMkC62SDrDTI8goyzRCTOAuirwXHq4yFns/stcY4HjCuXcstLL5zXSsYhtd3s4Qzkj7mtJ67/rdF/nhDhzq4djZ2uLx3+l+CRgg0WiGKBTIahlEcinPEXE+m/A+CWSwRByF8FoCtQgTh53tOsZzgd/6xduayhCaZ4ud7i3Pf4ONyQhBJLFf8DhaKhzjlWfi4n40DSKizOlVkFRIniwznd5y6HzgcO+wJu/aII+2Pp96i6weba/dHbCl36t/QDxe87tqrDz/b32QlGdigaAZUuzMMoXwdaN+jJJjtG3GXeywol5sGVb1FXtaWf/Dh07OLKFHIqwN02UEXB6Smg9AlxLokg79AbhoIG2uotAaXqUUitM3PVuTD0f2j8PPcA6dE03YkdMK6aLGpB/phTdA2x4WaRHXL3SA0fgGQBIBVIBrXfQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;클래스 상속 시&apos; title=&apos;&apos; src=&apos;/static/7db57a8785540b6a4b1764dbf9ef4711/a6969/cannot-extends.png&apos; srcset=&apos;/static/7db57a8785540b6a4b1764dbf9ef4711/e7570/cannot-extends.png 170w,
+/static/7db57a8785540b6a4b1764dbf9ef4711/f46e7/cannot-extends.png 340w,
+/static/7db57a8785540b6a4b1764dbf9ef4711/a6969/cannot-extends.png 445w&apos; sizes=&apos;(max-width: 445px) 100vw, 445px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;클래스 상속 시&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 449px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/0ebdd0b4ee34267b671c61130d19ed55/46d70/cannot-implements.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 65.29411764705883%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAABuElEQVR42pVT23abMBDkP2IbBNgIJHEziEswmNg4TU7//3emK+Em7UN77Ic5o9Wi0ax2cfIkwVEKVEpAJgKHOMXO9bF1meWdF6z8IBzGQoiI41RmyEWMLOGQMUcYCSQiA48l3CdEnZ0b0AEfQbBHXbdo2g5HVaFQNSrdoqI9mRfgSiIIObY79n9Bc3t4iG1pHrllwQGM7WGcM39llwXW5SNOnQMXX4G53Tq483fsr3ikZM8Lv8pw/xC28ZMNsYIZdbnJFMI9h04VujxFm0mkQkKo/HlBj1wwFtwd+TCx562NelbMCm62DCKJMLUZ2lKiLgU2/3gv25jfazMd7t+NMmtnR11MOMdwzFFKiaIo8f75E9P5DfNlwTRfMIxnu54vN5znBdfbB0bKj9OM4TThuvwgfKDtT3DCg8A+kjTICrobUVQ99ImS4wo9LGiGG3R/gW5fUesOVTtS7pNy72gM0zndDciPmt6QHJqGGH7ZeOCJQt1fkTcE/Ua40GBryKyGTAsLoY5Iy1eosiPuKS7v+wXNYZTYMTH1v2xc+t1SDNNixQo9o+wW+jAlZLbrK2gtUyQEw9/7OX4B6x19Ik//fAUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;인터페이스 구현 시&apos; title=&apos;&apos; src=&apos;/static/0ebdd0b4ee34267b671c61130d19ed55/46d70/cannot-implements.png&apos; srcset=&apos;/static/0ebdd0b4ee34267b671c61130d19ed55/e7570/cannot-implements.png 170w,
+/static/0ebdd0b4ee34267b671c61130d19ed55/f46e7/cannot-implements.png 340w,
+/static/0ebdd0b4ee34267b671c61130d19ed55/46d70/cannot-implements.png 449w&apos; sizes=&apos;(max-width: 449px) 100vw, 449px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;인터페이스 구현 시&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;추가로 광범위하게 사용되는 특징을 가진 Util성 메서드인 만큼, 클래스의 변경 가능성이 증가한다는 특징이 있다.&lt;/p&gt;
+&lt;p&gt;가급적 Util성 클래스에 static 메서드를 모아서 사용하도록 하자.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h2&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://mangkyu.tistory.com/47&quot;&gt;망나니 개발자 블로그&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.yes24.com/Product/Goods/24259565&quot;&gt;Java의 정석&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/att-israel/should-you-avoid-using-static-ae4b58ca1de5&quot;&gt;AT&amp;#x26;T Israel Tech Blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[[JSCODE] - OS 면접 스터디 5주차]]></title><description><![CDATA[…]]></description><link>https://kdkdhoho.github.io/os-interview-study-5week/</link><guid isPermaLink="false">https://kdkdhoho.github.io/os-interview-study-5week/</guid><pubDate>Wed, 06 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;가상 주소와 물리 주소(실주소)에 대해 설명해주세요.&lt;/h2&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;가상 주소의 경우 프로세스마다 독립적으로 가지는 주소 공간입니다. 모두 0번지부터 시작합니다.
 물리 주소의 경우 프로세스가 실제 메모리에 올라가는 위치입니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;가상 주소를 물리 주소(실주소)로 어떻게 변환할까요?&lt;/h2&gt;
@@ -1230,124 +1521,7 @@ limit register는 실행하려는 프로세스가 가지는 주소의 전체 범
 
 그런데 이 페이지 테이블은 4byte로 나누고, 실행되는 프로세스가 32비트인 경우, 각 프로세스마다 100만 행의 페이지 테이블을 가진다.
 이때 중요한 점은 컨텍스트 스위칭이 발생할 때 이 페이지 테이블도 함께 초기화된다.
-따라서 효율측면에서 좋지 않다. 따라서 캐싱 기법을 통해 성능을 개선한다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[static을 더 잘 사용하기]]></title><description><![CDATA[JVM의 메모리 구조 우선 static에 대해 이해하기 전에 JVM이 실행될 때 메모리에 어떻게 적재되는 지부터 살펴보자.  크게 세 공간으로 나뉜다. Heap 영역 new…]]></description><link>https://kdkdhoho.github.io/static-with-memory-structure/</link><guid isPermaLink="false">https://kdkdhoho.github.io/static-with-memory-structure/</guid><pubDate>Wed, 06 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;JVM의 메모리 구조&lt;/h2&gt;
-&lt;p&gt;우선 static에 대해 이해하기 전에 JVM이 실행될 때 메모리에 어떻게 적재되는 지부터 살펴보자.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/2c8208ed1a173d358aad4b5c8d0ccf01/ee235/memory.jpg&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 75.88235294117648%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAd4gsD//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAEFAl//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAY/Al//xAAZEAEAAgMAAAAAAAAAAAAAAAABABARUXH/2gAIAQEAAT8hezDukgJX/9oADAMBAAIAAwAAABDTz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABoQAAIDAQEAAAAAAAAAAAAAAAERACExQYH/2gAIAQEAAT8QYmkUGj3xQZcMSFkJPfYMup//2Q==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;메모리 구조&apos; title=&apos;&apos; src=&apos;/static/2c8208ed1a173d358aad4b5c8d0ccf01/a22ce/memory.jpg&apos; srcset=&apos;/static/2c8208ed1a173d358aad4b5c8d0ccf01/0b705/memory.jpg 170w,
-/static/2c8208ed1a173d358aad4b5c8d0ccf01/31389/memory.jpg 340w,
-/static/2c8208ed1a173d358aad4b5c8d0ccf01/a22ce/memory.jpg 680w,
-/static/2c8208ed1a173d358aad4b5c8d0ccf01/29373/memory.jpg 1020w,
-/static/2c8208ed1a173d358aad4b5c8d0ccf01/ee235/memory.jpg 1314w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;메모리 구조&lt;/figcaption&gt;
-  &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;크게 세 공간으로 나뉜다.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Heap 영역&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;new 키워드를 사용해 &lt;strong&gt;동적으로 생성한 객체의 인스턴스&lt;/strong&gt;가 담기는 공간이다.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Garbage Collection&lt;/strong&gt;에 의해 관리된다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Stack 영역&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;메서드 콜 스택이나, 지역 변수 혹은 변수 파라미터가 저장되는 공간이다.&lt;/li&gt;
-&lt;li&gt;주로 메서드와 관련이 있으며 메서드가 호출될 때 새로운 영역이 할당되고 반환될 때 영역도 반환된다.&lt;/li&gt;
-&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;StackOverflow&lt;/code&gt;가 발생하는 이유도 메모리 관점에서 생각해보면 알 수 있다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Static 영역&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;운영체제에서의 Code, Data 영역이다.&lt;/li&gt;
-&lt;li&gt;동일한 프로세스 내에서 언제 어디서든 접근할 수 있다.&lt;/li&gt;
-&lt;li&gt;우리가 작성한 Class나 정적 변수(클래스 변수)가 이 영역에 저장된다.&lt;/li&gt;
-&lt;li&gt;이 곳에 담긴 데이터들은 프로그램이 종료되기 전까지 유지된다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2&gt;Java의 static 키워드&lt;/h2&gt;
-&lt;p&gt;이제 Java의 static 키워드에 대해 알아보자&lt;/p&gt;
-&lt;p&gt;Java에서 static 키워드를 변수, 메서드, 클래스에 추가할 수 있다.&lt;/p&gt;
-&lt;p&gt;static을 붙여 변수를 생성하거나 메서드나 클래스를 선언하게 되면, &lt;strong&gt;프로그램 실행 시&lt;/strong&gt;에 &lt;strong&gt;딱 한 번 생성&lt;/strong&gt;되어 위 메모리 구조의 &lt;strong&gt;&lt;code class=&quot;language-text&quot;&gt;Static&lt;/code&gt; 영역에 포함&lt;/strong&gt;된다.&lt;/p&gt;
-&lt;p&gt;따라서, 우리가 객체를 생성하지 않고도 static 변수를 참조하거나 메서드를 호출할 수 있는 것이다.&lt;/p&gt;
-&lt;h2&gt;static을 많이 사용하게 된다면?&lt;/h2&gt;
-&lt;p&gt;이러한 static 변수, 메서드, 클래스를 많이 사용하게 되면 어떤 일이 발생할까?&lt;/p&gt;
-&lt;p&gt;결론부터 말하면 &lt;strong&gt;프로그램에 부작용을 초래할 확률이 증가&lt;/strong&gt;한다.&lt;/p&gt;
-&lt;p&gt;메모리 관점에서 생각해보자.&lt;/p&gt;
-&lt;p&gt;운영체제는 메모리에 Java 프로그램의 공간을 내어줄 때 무한정으로 제공하지 않는다.&lt;br&gt;
-따라서 제한된 영역 내에서 프로그램을 실행해야 한다.&lt;/p&gt;
-&lt;p&gt;그런데 Static 영역이 Heap과 Stack 영역에 비해 더 많은 공간을 차지하게 된다면, &lt;code class=&quot;language-text&quot;&gt;StackOverflow&lt;/code&gt;나 &lt;code class=&quot;language-text&quot;&gt;OutOfMemoryError&lt;/code&gt; 가 발생할 확률이 증가한다.&lt;/p&gt;
-&lt;p&gt;아무리 GC가 Heap 영역을 관리해 준다 한들, 사용할 수 있는 공간 자체가 적다면 GC의 역할에도 한계가 있을 것이다.&lt;/p&gt;
-&lt;p&gt;추가로 사용되지 않음에도 static으로 선언되었다는 이유로, 불필요하게 메모리를 차지하게 될 경우도 분명 존재할 것이다.&lt;/p&gt;
-&lt;h2&gt;어느 상황에 static을 사용하면 좋을까?&lt;/h2&gt;
-&lt;p&gt;그렇다면 어느 상황에서 static을 적절히 사용하면 좋을까?&lt;/p&gt;
-&lt;p&gt;단순히 생각해서 객체를 매번 만들 필요가 없는 경우에만 사용하면 좋을 것이다.&lt;/p&gt;
-&lt;p&gt;즉, 프로그램을 실행할 때 딱 한 번만 메모리에 올려놓고 계속해서 사용하는 경우이다.&lt;/p&gt;
-&lt;p&gt;다시 말해, Java 프로그램이 실행되면 딱 한 번만 메모리에 올려놓고 사용하는 경우가 될 것이다.&lt;/p&gt;
-&lt;h3&gt;상수&lt;/h3&gt;
-&lt;p&gt;상수는 변하지 않는 값을 의미한다.&lt;/p&gt;
-&lt;p&gt;이러한 상수는 런타임으로 새로운 변수가 계속해서 만들어질 필요가 없다.&lt;/p&gt;
-&lt;p&gt;가령, 회원가입 시에 1,000 포인트를 기본적으로 제공한다는 예시가 있다고 가정해보자.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Member&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-   &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;WELCOME_POINT&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1_000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 상수&lt;/span&gt;
-   
-   &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Member&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;token comment&quot;&gt;// ...&lt;/span&gt;
-      &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;point &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;WELCOME_POINT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-      &lt;span class=&quot;token comment&quot;&gt;// ...&lt;/span&gt;
-   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;위 코드의 &lt;code class=&quot;language-text&quot;&gt;WELCOME_POINT&lt;/code&gt; 처럼, Member 객체를 만들 때마다 새로 만들어 줄 필요도 없는 값의 경우 사용하면 효율적일 것이다.&lt;/p&gt;
-&lt;h4&gt;번외: 상수의 접근 제어자의 범위를 어떤 기준으로 지정하면 좋을까?&lt;/h4&gt;
-&lt;p&gt;위 예시에서는 &lt;code class=&quot;language-text&quot;&gt;private&lt;/code&gt;로 선언을 했는데, &lt;code class=&quot;language-text&quot;&gt;public&lt;/code&gt;으로 한다면 어떨까?&lt;/p&gt;
-&lt;p&gt;메모리 영역에서 생각해 봤을 때 &lt;code class=&quot;language-text&quot;&gt;Static&lt;/code&gt; 영역으로 올라가고, 이 영역은 같은 프로세스 내의 모든 곳에서 접근이 가능하다.&lt;/p&gt;
-&lt;p&gt;그렇지만 위 상수가 다른 클래스에서 범용적으로 쓰이지 않는 한, 불필요하게 public으로 열어둘 필요는 없어보인다.&lt;/p&gt;
-&lt;p&gt;필요하다면 private으로 선언 후, getter를 통해 값을 반환하는 게 코드를 작성하고 이해하는 데에 훨씬 도움이 될 것이라고 생각한다.&lt;/p&gt;
-&lt;p&gt;최대한 작은 범위로 설정하자.&lt;/p&gt;
-&lt;h3&gt;util성 메서드 (static 메서드)&lt;/h3&gt;
-&lt;p&gt;흔히 &lt;strong&gt;유틸성 클래스&lt;/strong&gt;라고 하는 곳에 존재하는 메서드들에 &lt;code class=&quot;language-text&quot;&gt;static&lt;/code&gt; 키워드를 붙여 사용한다.&lt;/p&gt;
-&lt;p&gt;이는 인스턴스를 만들지 않고도 사용할 수 있고, 어디에서든 호출할 수 있다.&lt;/p&gt;
-&lt;p&gt;다만, 인스턴스로 쓰이는 클래스에 static 메서드가 존재할 수 있는데, 이때 조심해야 할 점이 있다.&lt;/p&gt;
-&lt;p&gt;바로 static 메서드는 재정의가 불가능 하다는 것이다.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 445px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/7db57a8785540b6a4b1764dbf9ef4711/a6969/cannot-extends.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 65.88235294117646%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAABt0lEQVR42p1S2XKjMBD0fyTmsIU5dBlziEBsfMASu5KH/f+P6R1kx4V3qzbZfWhG6hlaI03PdJLAKIGEKwSrBI7jw/OWcNwFXIJjsYR7477CzKFCGcWoUw0Vx8glRy645YyWCKRBlO+hNwUYCzGnA/8uSB/PY/AXDHlRoShfkMkC62SDrDTI8goyzRCTOAuirwXHq4yFns/stcY4HjCuXcstLL5zXSsYhtd3s4Qzkj7mtJ67/rdF/nhDhzq4djZ2uLx3+l+CRgg0WiGKBTIahlEcinPEXE+m/A+CWSwRByF8FoCtQgTh53tOsZzgd/6xduayhCaZ4ud7i3Pf4ONyQhBJLFf8DhaKhzjlWfi4n40DSKizOlVkFRIniwznd5y6HzgcO+wJu/aII+2Pp96i6weba/dHbCl36t/QDxe87tqrDz/b32QlGdigaAZUuzMMoXwdaN+jJJjtG3GXeywol5sGVb1FXtaWf/Dh07OLKFHIqwN02UEXB6Smg9AlxLokg79AbhoIG2uotAaXqUUitM3PVuTD0f2j8PPcA6dE03YkdMK6aLGpB/phTdA2x4WaRHXL3SA0fgGQBIBVIBrXfQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;클래스 상속 시&apos; title=&apos;&apos; src=&apos;/static/7db57a8785540b6a4b1764dbf9ef4711/a6969/cannot-extends.png&apos; srcset=&apos;/static/7db57a8785540b6a4b1764dbf9ef4711/e7570/cannot-extends.png 170w,
-/static/7db57a8785540b6a4b1764dbf9ef4711/f46e7/cannot-extends.png 340w,
-/static/7db57a8785540b6a4b1764dbf9ef4711/a6969/cannot-extends.png 445w&apos; sizes=&apos;(max-width: 445px) 100vw, 445px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;클래스 상속 시&lt;/figcaption&gt;
-  &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 449px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/0ebdd0b4ee34267b671c61130d19ed55/46d70/cannot-implements.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 65.29411764705883%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAABuElEQVR42pVT23abMBDkP2IbBNgIJHEziEswmNg4TU7//3emK+Em7UN77Ic5o9Wi0ax2cfIkwVEKVEpAJgKHOMXO9bF1meWdF6z8IBzGQoiI41RmyEWMLOGQMUcYCSQiA48l3CdEnZ0b0AEfQbBHXbdo2g5HVaFQNSrdoqI9mRfgSiIIObY79n9Bc3t4iG1pHrllwQGM7WGcM39llwXW5SNOnQMXX4G53Tq483fsr3ikZM8Lv8pw/xC28ZMNsYIZdbnJFMI9h04VujxFm0mkQkKo/HlBj1wwFtwd+TCx562NelbMCm62DCKJMLUZ2lKiLgU2/3gv25jfazMd7t+NMmtnR11MOMdwzFFKiaIo8f75E9P5DfNlwTRfMIxnu54vN5znBdfbB0bKj9OM4TThuvwgfKDtT3DCg8A+kjTICrobUVQ99ImS4wo9LGiGG3R/gW5fUesOVTtS7pNy72gM0zndDciPmt6QHJqGGH7ZeOCJQt1fkTcE/Ua40GBryKyGTAsLoY5Iy1eosiPuKS7v+wXNYZTYMTH1v2xc+t1SDNNixQo9o+wW+jAlZLbrK2gtUyQEw9/7OX4B6x19Ik//fAUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;인터페이스 구현 시&apos; title=&apos;&apos; src=&apos;/static/0ebdd0b4ee34267b671c61130d19ed55/46d70/cannot-implements.png&apos; srcset=&apos;/static/0ebdd0b4ee34267b671c61130d19ed55/e7570/cannot-implements.png 170w,
-/static/0ebdd0b4ee34267b671c61130d19ed55/f46e7/cannot-implements.png 340w,
-/static/0ebdd0b4ee34267b671c61130d19ed55/46d70/cannot-implements.png 449w&apos; sizes=&apos;(max-width: 449px) 100vw, 449px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;인터페이스 구현 시&lt;/figcaption&gt;
-  &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;추가로 광범위하게 사용되는 특징을 가진 Util성 메서드인 만큼, 클래스의 변경 가능성이 증가한다는 특징이 있다.&lt;/p&gt;
-&lt;p&gt;가급적 Util성 클래스에 static 메서드를 모아서 사용하도록 하자.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;h2&gt;Reference&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://mangkyu.tistory.com/47&quot;&gt;망나니 개발자 블로그&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.yes24.com/Product/Goods/24259565&quot;&gt;Java의 정석&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://medium.com/att-israel/should-you-avoid-using-static-ae4b58ca1de5&quot;&gt;AT&amp;#x26;T Israel Tech Blog&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[final 키워드를 사용해 값의 변경을 막아라. 왜?]]></title><description><![CDATA[왜 값의 변경을 막아야 할까?  자동차 경주 피드백 중 하나이다. 왜 이런 피드백이 있는지 알아보자 final 키워드를 붙이면 좋은 점…]]></description><link>https://kdkdhoho.github.io/why-use-final/</link><guid isPermaLink="false">https://kdkdhoho.github.io/why-use-final/</guid><pubDate>Tue, 05 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;왜 값의 변경을 막아야 할까?&lt;/h2&gt;
+따라서 효율측면에서 좋지 않다. 따라서 캐싱 기법을 통해 성능을 개선한다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[final 키워드를 사용해 값의 변경을 막아라. 왜?]]></title><description><![CDATA[왜 값의 변경을 막아야 할까?  자동차 경주 피드백 중 하나이다. 왜 이런 피드백이 있는지 알아보자 final 키워드를 붙이면 좋은 점…]]></description><link>https://kdkdhoho.github.io/why-use-final/</link><guid isPermaLink="false">https://kdkdhoho.github.io/why-use-final/</guid><pubDate>Tue, 05 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;왜 값의 변경을 막아야 할까?&lt;/h2&gt;
 &lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 620px; &apos;&gt;
       &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/49858e991f61c277dbd5636c889d2db8/abf7b/why-use-final.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
@@ -1463,7 +1637,73 @@ limit register는 실행하려는 프로세스가 가지는 주소의 전체 범
 &lt;p&gt;조금 더 넓은 범위에서 이해해보면, 사실 프로그래밍 언어가 제공하는 기능을 통해 프로그램의 안정성을 도모하는 것이다.&lt;/p&gt;
 &lt;p&gt;프로그램이 안정적이면 개발자는 조금 더 퇴근을 빨리하거나 꿀잠을 잘 수 있다.&lt;/p&gt;
 &lt;p&gt;하지만 개발하는 과정에서 final 키워드로 인해 눈이 조금이라도 피곤하고 머리가 아프다면 붙이지 않는 것이다.&lt;/p&gt;
-&lt;p&gt;근데 나라면 더 빠른 퇴근과 편안한 잠을 위해 final 키워드를 붙이는 데에 손을 들고 싶다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[MySQL에서의 사용자 식별에 대해]]></title><description><![CDATA[들어가며 MySQL에서의 계정 식별 방식, 권한, 역할에 대한 기본적인 내용을 알아보자 왜 알아야 할까? 데이터베이스 서버의 보안을 위해 ! 괜히 보안떄문에 퇴근이 늦어지면 안되니까…]]></description><link>https://kdkdhoho.github.io/03-user-identification/</link><guid isPermaLink="false">https://kdkdhoho.github.io/03-user-identification/</guid><pubDate>Mon, 04 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
+&lt;p&gt;근데 나라면 더 빠른 퇴근과 편안한 잠을 위해 final 키워드를 붙이는 데에 손을 들고 싶다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Domain과 View를 분리한다. 왜?]]></title><description><![CDATA[들어가며 흔히 Domain과 View는 분리해야 한다고 한다. 대표적인 디자인 패턴으로 MVC 패턴이 있다. 같이 작성하면 개발도 빨리 할 수 있고 코드 작성에도 편한데, 왜 분리하라고 할까? 결론 결론부터 말하자면, Domain…]]></description><link>https://kdkdhoho.github.io/why-seperate-domain-and-view/</link><guid isPermaLink="false">https://kdkdhoho.github.io/why-seperate-domain-and-view/</guid><pubDate>Mon, 04 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
+&lt;p&gt;흔히 Domain과 View는 분리해야 한다고 한다.&lt;/p&gt;
+&lt;p&gt;대표적인 디자인 패턴으로 MVC 패턴이 있다.&lt;/p&gt;
+&lt;p&gt;같이 작성하면 개발도 빨리 할 수 있고 코드 작성에도 편한데, 왜 분리하라고 할까?&lt;/p&gt;
+&lt;h2&gt;결론&lt;/h2&gt;
+&lt;p&gt;결론부터 말하자면, Domain 객체를 잦은 변경으로부터 보호하기 위해서이다.&lt;/p&gt;
+&lt;h2&gt;왜 Domain을 보호해야 할까?&lt;/h2&gt;
+&lt;p&gt;이를 알아보기 위해서는 우선 Domain이 무엇을 의미하는 &lt;strong&gt;용어&lt;/strong&gt;인지 이해해보자.&lt;/p&gt;
+&lt;h3&gt;Domain이란?&lt;/h3&gt;
+&lt;p&gt;흔히 &lt;strong&gt;소프트웨어로 해결하고자 하는 문제 영역&lt;/strong&gt;이라고 한다.&lt;/p&gt;
+&lt;p&gt;우리에게 친숙한 서비스로 생각해봤을 때&lt;br&gt;
+카카오톡이 해결하고자 하는 문제 영역은 채팅이다.&lt;br&gt;
+배달의 민족이 해결하고자 하는 문제 영역은 배달 주문이다.&lt;/p&gt;
+&lt;p&gt;우리가 개발하는 이유에 대해서 생각해 봤을 때에도 결국 어떠한 문제를 해결을 위해서이다.&lt;/p&gt;
+&lt;p&gt;그렇기에 &lt;strong&gt;Domain은 프로그램에 있어 가장 본질적인&lt;/strong&gt;, 그리고 &lt;strong&gt;우리의 밥줄이 되는 코드&lt;/strong&gt;라고 할 수 있다.&lt;/p&gt;
+&lt;h2&gt;View&lt;/h2&gt;
+&lt;p&gt;이제 View에 대해 알아보자.&lt;/p&gt;
+&lt;p&gt;View는 쉽게 말해 사용자에게 보여지는 코드이다.&lt;/p&gt;
+&lt;p&gt;View는 어떤 특징을 가질까?&lt;/p&gt;
+&lt;p&gt;개인적인 경험으로 View는 Domain에 비해 엄청난 변경이 발생한다.&lt;/p&gt;
+&lt;p&gt;페이지를 추가하거나,&lt;br&gt;
+메인 페이지 개편을 하거나,&lt;br&gt;
+처음엔 웹페이지로만 만들었다가 웹앱으로 만들었다가..&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;심지어 웹페이지랑 웹앱은 따로 관리해야 한다고도 한다 😂&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;더 다양한 상황의 변경이 일어난다.&lt;/p&gt;
+&lt;p&gt;혹여나 웹 서비스가 성공해서 앱으로도 제공하려면, 앱 전용 View도 작성해야 할 것이다.&lt;/p&gt;
+&lt;h2&gt;다시 돌아와서&lt;/h2&gt;
+&lt;p&gt;이제 다시 돌아와서 &quot;왜 Domain과 View를 분리해야 할까?&quot; 라는 질문보다,&lt;/p&gt;
+&lt;p&gt;반대로 &quot;Domain과 View가 공존한다면? 혹은 Domain이 View에 강력하게 결합되어 있다면?&quot; 이라는 질문을 하고 싶다.&lt;/p&gt;
+&lt;p&gt;이에 대한 답으로, 변경 가능성이 매우 높은 View가 변할 때마다 Domain도 그에 따라 변화에 대응해야 한다.&lt;/p&gt;
+&lt;p&gt;따라서 결론으로, &lt;strong&gt;우리의 밥줄인 Domain을 변경하는 상황을 최소화하는 노력&lt;/strong&gt; 중 하나라고 이해하면 될 것 같다.&lt;/p&gt;
+&lt;h2&gt;이해를 돕는 좋은 예시&lt;/h2&gt;
+&lt;p&gt;사실 위 내용은 어느 블로그에서나 할 수 있는 이야기이다.&lt;/p&gt;
+&lt;p&gt;그렇기에 개인적으로 Domain과 View의 분리가 와닿았던 사례에 대해 소개하고자 한다.&lt;/p&gt;
+&lt;p&gt;아래 그림을 보자.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 270px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/91b0575ab1804294603e74c2e5e9836b/8c112/recommend-example.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 203.5294117647059%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAApCAYAAAA1bQl+AAAACXBIWXMAAAsTAAALEwEAmpwYAAAERUlEQVR42p1X2XLiCAzMv8xD8H1f+MIYMLY5QzLJ1G7V/v9X9EoyzCaZBMw+KAJX0W5dLeXBdnxM0xL7wzPabouXn79wfPopvijnUFQDhulAN+xR9sB/HDdAXsyxajosVx2adY/N9kAvKkYDfQDUdAsTRSewnljuiOELMT4JyyBMoGrmfYCm5YJDZ8B60ZBvsViusaYU+AJoQeewf4fuXAc0zAFw1fQSctvv0PVbHA5PiAhwomjQNAMa5VP82b4FlLDJJhMFqlNCT19hxznsZI6gWCNZ7BDPN+S3g6+39HwlRL4FFKaGCcsv4KQH+NMSblyIeckMflbDm1bw4pL8HLafXGcoedENmH4FJ38lwBnCokE0WyOqOvj5glgtEWQLpM0T7GBKYZvXGQqgN4OdPQugT4z8tJbwBIxAmeXNKr8PmQGd7ESh5hRqJYxCAnQpVAb3KdybVb6YoqjQPcpP8ZewCcpmKEi9kTA5n6qq3WbIo8W9mExzxOkMSd4gLWrk8waWG8HyYsmZaftjGtsSMB6/rj+g3+yl/97e/sbx+CyJv5iuj5yUizFwToKwbneY1yt6wR42vUhjoJEC8bEo9KM4yVHXDapFj6bdygTxrN81y+9NpZGaKDRW0zdYyYoK0l+t6k1AZslmp0fquSW1ypyKEQyg5hd2C/ACatM8O/ECMU0JV1gleWNBUNWPfiSgDavUadyKYfyqlkawQ8hjSBbkSxKJXvxnlg9f58KBlWZwk0JCZnFgc0UYKrhRLt+dMB3L0CVAmpZyS5OyQViyhO2JXStCwSlRHieUhk86qZtXikLz7GXNmWElnkO8yJl3ZusEKTHN5LnlRX8C8ltU6jstOhDgWhhK/sq1MGTPsz08a4bnxJqFl1PyAdCyPZqQBofjC7q2hef5mDwqUlExrrR6rvC5yuJ/r4YvQvaDWKYlndEbwxymE5IFIgyG5Z2b/NKDzsfvZN+GbNCkeFlH+2NDIVJx6p3kTbuxUh++6sGhKM9wp2eVpiKYwu5/jN6l0taUBDWpaVJakv8GBmvhCJH4HjB7QzDbyZT4sgaam+F+KV8X9baSvTD0aFk5NBk29dtIxX63U1RDbhyWL4v2ipssJWTuMzbO512Al8uL7xvTcqTi7/Om3ZvDar6SI4mPJQ77HqX+tKQ8OF6I3f4ke+T55Y32ygaPE+2uY/MPhq4fIcsrCZmv14CmhkOW3rz0qPGfjdt6dMludyecTics6aL9QSwVvswI+JHuRPYTbbCbgJwzVXawBSV5RUWj1kYhFmGEXZJgTb4OQizJz8mb5nAG3lxSJh+g6RMyEocmDOTHlR+iiSIszp9n/gB4e1KkVQwoxT8o4grHJMKSgLo4Rk+2jRP5vE1IlRxPhOTKOWfCcDPadj1KKkhBLHLSRLaUbObTfwteAIvFQyIZc3AGczk4u9DHfjqwaYnhivLGrDhU7Urb/At94R/1jFahyQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;recommend-example.png&apos; title=&apos;&apos; src=&apos;/static/91b0575ab1804294603e74c2e5e9836b/8c112/recommend-example.png&apos; srcset=&apos;/static/91b0575ab1804294603e74c2e5e9836b/e7570/recommend-example.png 170w,
+/static/91b0575ab1804294603e74c2e5e9836b/8c112/recommend-example.png 270w&apos; sizes=&apos;(max-width: 270px) 100vw, 270px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;recommend-example.png&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;RacingCar&lt;/em&gt; 라는 이름의 게임이다.&lt;/p&gt;
+&lt;p&gt;패키지 구조를 보면 &lt;code class=&quot;language-text&quot;&gt;android&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;console&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;domain&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;ios&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;web&lt;/code&gt; 으로 크게 나뉘어져있다.&lt;/p&gt;
+&lt;p&gt;그리고 위 사진을 보면, &lt;code class=&quot;language-text&quot;&gt;domain&lt;/code&gt; 패키지 안에는 자동차 경주 게임을 진행할 때 정말 꼭 있어야 하는 필수 객체들이 존재한다.&lt;/p&gt;
+&lt;p&gt;그리고 동시에 &lt;code class=&quot;language-text&quot;&gt;console&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;web&lt;/code&gt; 패키지를 보자.&lt;/p&gt;
+&lt;p&gt;각 View의 속성에 따라 객체들이 다르게 존재하는 것을 볼 수 있다.&lt;/p&gt;
+&lt;p&gt;따라서 위 게임은 콘솔 환경에서도, 웹 환경에서도 &lt;strong&gt;Domain 객체의 변경이 일어나지 않는다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;만약, 패키지 구분없이 &lt;code class=&quot;language-text&quot;&gt;console&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;web&lt;/code&gt;의 실행 환경을 동시에 해야 하는 요구 사항이 있다면 패키지는 어떻게 됐을까?&lt;/p&gt;
+&lt;p&gt;아마 아래와 같은 형태일 것이다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 234px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/a8f63db08b549a984cc2f8e8564eda70/f7db0/not-seperate.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 160.58823529411765%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAgCAYAAAASYli2AAAACXBIWXMAAAsTAAALEwEAmpwYAAADwUlEQVR42pWWW1PbSBCF82+CbV1Gd40k32QZ340TCOSyyWa3KpWqZP//69nTLRsIGDAPXTMaqtrfnO4+wxsTxJBYb95jNJ5isdxgudxiNl9hsdpiMKzR7XlwXHNSvPFNDN9EWK13qCcz3Hz8hN3uEl8+/4WvX7+jmc5x1nHgesFpCXuOjx43b8866Ho5OuXfcJMhgrLB267P897JyTRhuwnguj5ckyHsXyHMBkj7DTw/YjJzcrJ7CRmOBzcsEdQ/EJEur1dIBueQG+jfJbGSHuLFhCT0U/j5BiYuSdmHH+Xo9VxN2pVV997d6nhPX9lxXHhhhaD5jbg6Rz5eknKNcn6p0V9eo5y1+3L2HtXiA+KyVpDjhKKhn8DYDfzYIkhLkhZcK645wnzIGOi3RlLCC5LnCV0SmslPJMMl7PQCdrJRouJ8p5GNFnrWX33k97s7fZ8j9O2W2ln4YQpPejTMlFCIvSBVKpfnLjvg2bY5EAbNL2o4Qz5ZI2+2KKiX0Ih+trkg3Q1/RIrlnVBls69y0tcqm72WfpTtW4f96oWv6MOAfTj+wf5bqHZClFMzqbb8YK/rHtXtWcKgf01CJk7aCsfVRCsa2ZGeOS+M4QPCAmb4DVHRsMpbpKN5q9/8CuXiCkl/+srRMznM4JP2nDRtxJCqdrvO7XTcFvGJ8XuQ0DLhNyYcI+OkZKMlDMev2+m1+klSJu/uQ1rtmYSGCQ1M7VO3moWZIaU5ZOOVXl0Kkw7nGtLgEq4fnpBwECHIqvbKdkjdGm2hqBjr6CVVo4WSOFagx41d/ybRWs1BaMTCpHWESIjl2qopJfhTz+CJxubomeRAOFJCoYuKkRIfbKvn3rM01dbVHI/Nof6JbLLlqL1T3SzHT4NmIYWqaGPyLRYmazHdcUQ3tLMrnazH9lVcqG2pweroVfsRbNcwbUfSsMklgntDIIbxBOHBrtg61M+jGahut869v/Zh3bv4vSsfngDaV75GQjOIYqvWlXKN+G63xhDA28ddhY8W5e4JMNP/sLIlbooM2zzFl6rAdWFxU5UaO+6vykKT9l5+pOQJaA02IGUsOtFoDb9D+Q9D6UxLeOoz6o/+YWEmSKX3aF+ioaVBuNTxjK3Rdczr7Muv6CxhjEEUowhCWEZmAqSMimc25ON/qtt4tC9v9C9GqcWH0uKiKDDPMmysxTTNVL8t9x2p9hNG+8BtspYwzlAnCfIgQp9UdZKSOtKQs0GcIDbhS0URQgtv+B1jEl6SsCHV1uZY5zkpc54VmPHsgpQFZTlG+T9fbwZwWndpRQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;not-seperate.png&apos; title=&apos;&apos; src=&apos;/static/a8f63db08b549a984cc2f8e8564eda70/f7db0/not-seperate.png&apos; srcset=&apos;/static/a8f63db08b549a984cc2f8e8564eda70/e7570/not-seperate.png 170w,
+/static/a8f63db08b549a984cc2f8e8564eda70/f7db0/not-seperate.png 234w&apos; sizes=&apos;(max-width: 234px) 100vw, 234px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;not-seperate.png&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;보기 싫다. 게다가 지금은 간단한 프로그램이라 그렇지 대규모 프로젝트였다면?&lt;/p&gt;
+&lt;p&gt;이제 그만 알아보자.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[MySQL에서의 사용자 식별에 대해]]></title><description><![CDATA[들어가며 MySQL에서의 계정 식별 방식, 권한, 역할에 대한 기본적인 내용을 알아보자 왜 알아야 할까? 데이터베이스 서버의 보안을 위해 ! 괜히 보안떄문에 퇴근이 늦어지면 안되니까…]]></description><link>https://kdkdhoho.github.io/03-user-identification/</link><guid isPermaLink="false">https://kdkdhoho.github.io/03-user-identification/</guid><pubDate>Mon, 04 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
 &lt;p&gt;MySQL에서의 계정 식별 방식, 권한, 역할에 대한 기본적인 내용을 알아보자&lt;/p&gt;
 &lt;h2&gt;왜 알아야 할까?&lt;/h2&gt;
 &lt;p&gt;데이터베이스 서버의 &lt;strong&gt;보안&lt;/strong&gt;을 위해 !&lt;/p&gt;
@@ -1875,73 +2115,7 @@ mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span cla
 &lt;span class=&quot;token comment&quot;&gt;-- 주의! 계정이 로그아웃됐다가 로그인하면 역할이 비활성화된다. 아래 명령어를 통해 활성화를 시켜주자.&lt;/span&gt;
 &lt;span class=&quot;token comment&quot;&gt;-- 자동으로 활성화를 시켜주려면 activate_all_roles_on_login 시스템 변수를 ON 으로 설정해주자.&lt;/span&gt;
 mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;SET&lt;/span&gt; ROLE role_emp_reader&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;SET&lt;/span&gt; ROLE role_emp_writer&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Domain과 View를 분리한다. 왜?]]></title><description><![CDATA[들어가며 흔히 Domain과 View는 분리해야 한다고 한다. 대표적인 디자인 패턴으로 MVC 패턴이 있다. 같이 작성하면 개발도 빨리 할 수 있고 코드 작성에도 편한데, 왜 분리하라고 할까? 결론 결론부터 말하자면, Domain…]]></description><link>https://kdkdhoho.github.io/why-seperate-domain-and-view/</link><guid isPermaLink="false">https://kdkdhoho.github.io/why-seperate-domain-and-view/</guid><pubDate>Mon, 04 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
-&lt;p&gt;흔히 Domain과 View는 분리해야 한다고 한다.&lt;/p&gt;
-&lt;p&gt;대표적인 디자인 패턴으로 MVC 패턴이 있다.&lt;/p&gt;
-&lt;p&gt;같이 작성하면 개발도 빨리 할 수 있고 코드 작성에도 편한데, 왜 분리하라고 할까?&lt;/p&gt;
-&lt;h2&gt;결론&lt;/h2&gt;
-&lt;p&gt;결론부터 말하자면, Domain 객체를 잦은 변경으로부터 보호하기 위해서이다.&lt;/p&gt;
-&lt;h2&gt;왜 Domain을 보호해야 할까?&lt;/h2&gt;
-&lt;p&gt;이를 알아보기 위해서는 우선 Domain이 무엇을 의미하는 &lt;strong&gt;용어&lt;/strong&gt;인지 이해해보자.&lt;/p&gt;
-&lt;h3&gt;Domain이란?&lt;/h3&gt;
-&lt;p&gt;흔히 &lt;strong&gt;소프트웨어로 해결하고자 하는 문제 영역&lt;/strong&gt;이라고 한다.&lt;/p&gt;
-&lt;p&gt;우리에게 친숙한 서비스로 생각해봤을 때&lt;br&gt;
-카카오톡이 해결하고자 하는 문제 영역은 채팅이다.&lt;br&gt;
-배달의 민족이 해결하고자 하는 문제 영역은 배달 주문이다.&lt;/p&gt;
-&lt;p&gt;우리가 개발하는 이유에 대해서 생각해 봤을 때에도 결국 어떠한 문제를 해결을 위해서이다.&lt;/p&gt;
-&lt;p&gt;그렇기에 &lt;strong&gt;Domain은 프로그램에 있어 가장 본질적인&lt;/strong&gt;, 그리고 &lt;strong&gt;우리의 밥줄이 되는 코드&lt;/strong&gt;라고 할 수 있다.&lt;/p&gt;
-&lt;h2&gt;View&lt;/h2&gt;
-&lt;p&gt;이제 View에 대해 알아보자.&lt;/p&gt;
-&lt;p&gt;View는 쉽게 말해 사용자에게 보여지는 코드이다.&lt;/p&gt;
-&lt;p&gt;View는 어떤 특징을 가질까?&lt;/p&gt;
-&lt;p&gt;개인적인 경험으로 View는 Domain에 비해 엄청난 변경이 발생한다.&lt;/p&gt;
-&lt;p&gt;페이지를 추가하거나,&lt;br&gt;
-메인 페이지 개편을 하거나,&lt;br&gt;
-처음엔 웹페이지로만 만들었다가 웹앱으로 만들었다가..&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;심지어 웹페이지랑 웹앱은 따로 관리해야 한다고도 한다 😂&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;더 다양한 상황의 변경이 일어난다.&lt;/p&gt;
-&lt;p&gt;혹여나 웹 서비스가 성공해서 앱으로도 제공하려면, 앱 전용 View도 작성해야 할 것이다.&lt;/p&gt;
-&lt;h2&gt;다시 돌아와서&lt;/h2&gt;
-&lt;p&gt;이제 다시 돌아와서 &quot;왜 Domain과 View를 분리해야 할까?&quot; 라는 질문보다,&lt;/p&gt;
-&lt;p&gt;반대로 &quot;Domain과 View가 공존한다면? 혹은 Domain이 View에 강력하게 결합되어 있다면?&quot; 이라는 질문을 하고 싶다.&lt;/p&gt;
-&lt;p&gt;이에 대한 답으로, 변경 가능성이 매우 높은 View가 변할 때마다 Domain도 그에 따라 변화에 대응해야 한다.&lt;/p&gt;
-&lt;p&gt;따라서 결론으로, &lt;strong&gt;우리의 밥줄인 Domain을 변경하는 상황을 최소화하는 노력&lt;/strong&gt; 중 하나라고 이해하면 될 것 같다.&lt;/p&gt;
-&lt;h2&gt;이해를 돕는 좋은 예시&lt;/h2&gt;
-&lt;p&gt;사실 위 내용은 어느 블로그에서나 할 수 있는 이야기이다.&lt;/p&gt;
-&lt;p&gt;그렇기에 개인적으로 Domain과 View의 분리가 와닿았던 사례에 대해 소개하고자 한다.&lt;/p&gt;
-&lt;p&gt;아래 그림을 보자.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 270px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/91b0575ab1804294603e74c2e5e9836b/8c112/recommend-example.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 203.5294117647059%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAApCAYAAAA1bQl+AAAACXBIWXMAAAsTAAALEwEAmpwYAAAERUlEQVR42p1X2XLiCAzMv8xD8H1f+MIYMLY5QzLJ1G7V/v9X9EoyzCaZBMw+KAJX0W5dLeXBdnxM0xL7wzPabouXn79wfPopvijnUFQDhulAN+xR9sB/HDdAXsyxajosVx2adY/N9kAvKkYDfQDUdAsTRSewnljuiOELMT4JyyBMoGrmfYCm5YJDZ8B60ZBvsViusaYU+AJoQeewf4fuXAc0zAFw1fQSctvv0PVbHA5PiAhwomjQNAMa5VP82b4FlLDJJhMFqlNCT19hxznsZI6gWCNZ7BDPN+S3g6+39HwlRL4FFKaGCcsv4KQH+NMSblyIeckMflbDm1bw4pL8HLafXGcoedENmH4FJ38lwBnCokE0WyOqOvj5glgtEWQLpM0T7GBKYZvXGQqgN4OdPQugT4z8tJbwBIxAmeXNKr8PmQGd7ESh5hRqJYxCAnQpVAb3KdybVb6YoqjQPcpP8ZewCcpmKEi9kTA5n6qq3WbIo8W9mExzxOkMSd4gLWrk8waWG8HyYsmZaftjGtsSMB6/rj+g3+yl/97e/sbx+CyJv5iuj5yUizFwToKwbneY1yt6wR42vUhjoJEC8bEo9KM4yVHXDapFj6bdygTxrN81y+9NpZGaKDRW0zdYyYoK0l+t6k1AZslmp0fquSW1ypyKEQyg5hd2C/ACatM8O/ECMU0JV1gleWNBUNWPfiSgDavUadyKYfyqlkawQ8hjSBbkSxKJXvxnlg9f58KBlWZwk0JCZnFgc0UYKrhRLt+dMB3L0CVAmpZyS5OyQViyhO2JXStCwSlRHieUhk86qZtXikLz7GXNmWElnkO8yJl3ZusEKTHN5LnlRX8C8ltU6jstOhDgWhhK/sq1MGTPsz08a4bnxJqFl1PyAdCyPZqQBofjC7q2hef5mDwqUlExrrR6rvC5yuJ/r4YvQvaDWKYlndEbwxymE5IFIgyG5Z2b/NKDzsfvZN+GbNCkeFlH+2NDIVJx6p3kTbuxUh++6sGhKM9wp2eVpiKYwu5/jN6l0taUBDWpaVJakv8GBmvhCJH4HjB7QzDbyZT4sgaam+F+KV8X9baSvTD0aFk5NBk29dtIxX63U1RDbhyWL4v2ipssJWTuMzbO512Al8uL7xvTcqTi7/Om3ZvDar6SI4mPJQ77HqX+tKQ8OF6I3f4ke+T55Y32ygaPE+2uY/MPhq4fIcsrCZmv14CmhkOW3rz0qPGfjdt6dMludyecTics6aL9QSwVvswI+JHuRPYTbbCbgJwzVXawBSV5RUWj1kYhFmGEXZJgTb4OQizJz8mb5nAG3lxSJh+g6RMyEocmDOTHlR+iiSIszp9n/gB4e1KkVQwoxT8o4grHJMKSgLo4Rk+2jRP5vE1IlRxPhOTKOWfCcDPadj1KKkhBLHLSRLaUbObTfwteAIvFQyIZc3AGczk4u9DHfjqwaYnhivLGrDhU7Urb/At94R/1jFahyQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;recommend-example.png&apos; title=&apos;&apos; src=&apos;/static/91b0575ab1804294603e74c2e5e9836b/8c112/recommend-example.png&apos; srcset=&apos;/static/91b0575ab1804294603e74c2e5e9836b/e7570/recommend-example.png 170w,
-/static/91b0575ab1804294603e74c2e5e9836b/8c112/recommend-example.png 270w&apos; sizes=&apos;(max-width: 270px) 100vw, 270px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;recommend-example.png&lt;/figcaption&gt;
-  &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;RacingCar&lt;/em&gt; 라는 이름의 게임이다.&lt;/p&gt;
-&lt;p&gt;패키지 구조를 보면 &lt;code class=&quot;language-text&quot;&gt;android&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;console&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;domain&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;ios&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;web&lt;/code&gt; 으로 크게 나뉘어져있다.&lt;/p&gt;
-&lt;p&gt;그리고 위 사진을 보면, &lt;code class=&quot;language-text&quot;&gt;domain&lt;/code&gt; 패키지 안에는 자동차 경주 게임을 진행할 때 정말 꼭 있어야 하는 필수 객체들이 존재한다.&lt;/p&gt;
-&lt;p&gt;그리고 동시에 &lt;code class=&quot;language-text&quot;&gt;console&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;web&lt;/code&gt; 패키지를 보자.&lt;/p&gt;
-&lt;p&gt;각 View의 속성에 따라 객체들이 다르게 존재하는 것을 볼 수 있다.&lt;/p&gt;
-&lt;p&gt;따라서 위 게임은 콘솔 환경에서도, 웹 환경에서도 &lt;strong&gt;Domain 객체의 변경이 일어나지 않는다.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;만약, 패키지 구분없이 &lt;code class=&quot;language-text&quot;&gt;console&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;web&lt;/code&gt;의 실행 환경을 동시에 해야 하는 요구 사항이 있다면 패키지는 어떻게 됐을까?&lt;/p&gt;
-&lt;p&gt;아마 아래와 같은 형태일 것이다.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 234px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/a8f63db08b549a984cc2f8e8564eda70/f7db0/not-seperate.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 160.58823529411765%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAgCAYAAAASYli2AAAACXBIWXMAAAsTAAALEwEAmpwYAAADwUlEQVR42pWWW1PbSBCF82+CbV1Gd40k32QZ340TCOSyyWa3KpWqZP//69nTLRsIGDAPXTMaqtrfnO4+wxsTxJBYb95jNJ5isdxgudxiNl9hsdpiMKzR7XlwXHNSvPFNDN9EWK13qCcz3Hz8hN3uEl8+/4WvX7+jmc5x1nHgesFpCXuOjx43b8866Ho5OuXfcJMhgrLB267P897JyTRhuwnguj5ckyHsXyHMBkj7DTw/YjJzcrJ7CRmOBzcsEdQ/EJEur1dIBueQG+jfJbGSHuLFhCT0U/j5BiYuSdmHH+Xo9VxN2pVV997d6nhPX9lxXHhhhaD5jbg6Rz5eknKNcn6p0V9eo5y1+3L2HtXiA+KyVpDjhKKhn8DYDfzYIkhLkhZcK645wnzIGOi3RlLCC5LnCV0SmslPJMMl7PQCdrJRouJ8p5GNFnrWX33k97s7fZ8j9O2W2ln4YQpPejTMlFCIvSBVKpfnLjvg2bY5EAbNL2o4Qz5ZI2+2KKiX0Ih+trkg3Q1/RIrlnVBls69y0tcqm72WfpTtW4f96oWv6MOAfTj+wf5bqHZClFMzqbb8YK/rHtXtWcKgf01CJk7aCsfVRCsa2ZGeOS+M4QPCAmb4DVHRsMpbpKN5q9/8CuXiCkl/+srRMznM4JP2nDRtxJCqdrvO7XTcFvGJ8XuQ0DLhNyYcI+OkZKMlDMev2+m1+klSJu/uQ1rtmYSGCQ1M7VO3moWZIaU5ZOOVXl0Kkw7nGtLgEq4fnpBwECHIqvbKdkjdGm2hqBjr6CVVo4WSOFagx41d/ybRWs1BaMTCpHWESIjl2qopJfhTz+CJxubomeRAOFJCoYuKkRIfbKvn3rM01dbVHI/Nof6JbLLlqL1T3SzHT4NmIYWqaGPyLRYmazHdcUQ3tLMrnazH9lVcqG2pweroVfsRbNcwbUfSsMklgntDIIbxBOHBrtg61M+jGahut869v/Zh3bv4vSsfngDaV75GQjOIYqvWlXKN+G63xhDA28ddhY8W5e4JMNP/sLIlbooM2zzFl6rAdWFxU5UaO+6vykKT9l5+pOQJaA02IGUsOtFoDb9D+Q9D6UxLeOoz6o/+YWEmSKX3aF+ioaVBuNTxjK3Rdczr7Muv6CxhjEEUowhCWEZmAqSMimc25ON/qtt4tC9v9C9GqcWH0uKiKDDPMmysxTTNVL8t9x2p9hNG+8BtspYwzlAnCfIgQp9UdZKSOtKQs0GcIDbhS0URQgtv+B1jEl6SsCHV1uZY5zkpc54VmPHsgpQFZTlG+T9fbwZwWndpRQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;not-seperate.png&apos; title=&apos;&apos; src=&apos;/static/a8f63db08b549a984cc2f8e8564eda70/f7db0/not-seperate.png&apos; srcset=&apos;/static/a8f63db08b549a984cc2f8e8564eda70/e7570/not-seperate.png 170w,
-/static/a8f63db08b549a984cc2f8e8564eda70/f7db0/not-seperate.png 234w&apos; sizes=&apos;(max-width: 234px) 100vw, 234px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;not-seperate.png&lt;/figcaption&gt;
-  &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;보기 싫다. 게다가 지금은 간단한 프로그램이라 그렇지 대규모 프로젝트였다면?&lt;/p&gt;
-&lt;p&gt;이제 그만 알아보자.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[JSCODE] - OS 면접 스터디 4주차]]></title><description><![CDATA[📝 질문 리스트 병행성(동시성)과 병렬성에 대해 설명해주세요. 프로세스 동기화에 대해 설명해 주세요. Critical Section(임계 영역)에 대해 설명해주세요. Race Condition(경쟁 조건)이 무엇인가요? Mutual Exclusion…]]></description><link>https://kdkdhoho.github.io/os-interview-study-4week/</link><guid isPermaLink="false">https://kdkdhoho.github.io/os-interview-study-4week/</guid><pubDate>Thu, 30 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;📝 질문 리스트&lt;/h2&gt;
+mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;SET&lt;/span&gt; ROLE role_emp_writer&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[[JSCODE] - OS 면접 스터디 4주차]]></title><description><![CDATA[📝 질문 리스트 병행성(동시성)과 병렬성에 대해 설명해주세요. 프로세스 동기화에 대해 설명해 주세요. Critical Section(임계 영역)에 대해 설명해주세요. Race Condition(경쟁 조건)이 무엇인가요? Mutual Exclusion…]]></description><link>https://kdkdhoho.github.io/os-interview-study-4week/</link><guid isPermaLink="false">https://kdkdhoho.github.io/os-interview-study-4week/</guid><pubDate>Thu, 30 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;📝 질문 리스트&lt;/h2&gt;
 &lt;h3&gt;병행성(동시성)과 병렬성에 대해 설명해주세요.&lt;/h3&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;[병행성]
 병행성은 코어 1개를 가진 CPU가 2개 이상의 작업을 처리하는 것을 생각하면 됩니다.
@@ -2090,116 +2264,7 @@ mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span cla
 &lt;p&gt;프로젝트에 TDD를 적용한다고 했을 때, 항상 모든 기능에 대해 테스트 코드를 먼저 작성할 수 없다.&lt;/p&gt;
 &lt;p&gt;물론 구현하려는 기능에 대해 분명하고 확실한 상황이라면 TDD를 적용할 수 있지만, 개발이라는 게 처음 생각한대로 구현하다보면 생각지도 못한 기능을 함께 구현해야 하는 경우가 종종 있다.&lt;/p&gt;
 &lt;p&gt;따라서 TDD를 처음 시도해보려는 사람들이 혹여나 &quot;테스트 코드를 먼저 작성하기 전까지는 기능 구현 안할거야 !!&quot; 라는 생각을 가질 수 있다고 생각한다.&lt;/p&gt;
-&lt;p&gt;본인이 구현하려는 기능이 무엇인지 분명히 아는 선에서, TDD를 적용하는 것이 바람직해보인다.  &lt;/p&gt;</content:encoded></item><item><title><![CDATA[DB 면접 스터디 2주차]]></title><description><![CDATA[📝 질문 리스트 SQL에 대해서 설명해주세요. C언어와 같은 프로그래밍 언어와 어떤 차이가 있나요? 개발자가 작성한 SQL이 어떤 과정을 통해 실행 되는지 설명해주세요. DML은 무엇인가요? 어떤 구문이 있는지도 설명해주세요. DDL…]]></description><link>https://kdkdhoho.github.io/db-interview-study-2week/</link><guid isPermaLink="false">https://kdkdhoho.github.io/db-interview-study-2week/</guid><pubDate>Tue, 28 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;📝 질문 리스트&lt;/h2&gt;
-&lt;h3&gt;SQL에 대해서 설명해주세요. C언어와 같은 프로그래밍 언어와 어떤 차이가 있나요?&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;SQL은 DBMS에게 명령하는 언어입니다.
-
-반면 C언어는 프로그래머가 작성한 코드가 C언어 컴파일러에 의해 기계어로 번역이 됩니다.
-이 기계어는 OS에 의해 코드가 작성된대로 실행됩니다. 
-
-즉, SQL은 DMS에게 요청을 보내는 반면 프로그래밍 언어는 미리 작성된 대로 수행된다는 차이점이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;개발자가 작성한 SQL이 어떤 과정을 통해 실행 되는지 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;크게 나눠 파싱, 최적화, 실행의 단계로 실행됩니다.
-
-DBMS는 개발자가 작성한 SQL문을 파싱하고 문법 오류가 없는지 검사합니다.
-오류가 없다면 파싱한 SQL문을 통해 가장 효율적인 실행 계획을 수립합니다.
-그 다음 최적화된 실행 계획에 따라 쿼리문을 실행합니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;DML은 무엇인가요? 어떤 구문이 있는지도 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;데이터를 조작하는 쿼리문입니다.
-테이블에 저장된 데이터와 관련된 쿼리문으로 이해하고 있습니다.
-
-INSERT, SELECT, UPDATE, DELETE 문이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;DDL은 무엇인가요? 어떤 구문이 있는지도 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;데이터를 정의하는 언어입니다.
-테이블과 관련된 쿼리문으로 이해하고 있습니다.
-
-보통 CREATE, ALTER, DROP, TRUNCATE 문이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;DCL은 무엇인가요? 어떤 구문이 있는지도 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;주로 보안과 관련된 언어업니다.
-
-GRANT, REVOKE, COMMIT, ROLLBACK 문이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;참조 무결성에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;테이블 간의 관계를 정의할 때 반드시 지켜야하는 제약 조건입니다.
-
-외래키를 설정할 때 반드시 관계를 맺으려는 테이블의 기본키 값으로 해야 한다는 것입니다.
-만약 값이 없을 경우 외래키 값은 NULL이 될 수도 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;CASCADE 설정에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;외래키를 참조하고 있는 행에 삭제 또는 변경이 발생할 때, 그에 따라 참조하고 있는 행을 동시에 관리하는 옵션입니다.
-
-UPDATE CASCADE의 경우 참조되는 기본키가 변경될 때, 참조하는 행의 외래키도 함께 변경합니다.
-DELETE CASCADE의 경우 참조되는 기본키의 행이 삭제될 때, 참조하는 행도 함께 삭제한다는 것입니다. &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;VIEW에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;기존 테이블에서 사용자가 필요로한 데이터만을 따로 추출하여 만든 임의의 가상 테이블입니다.
-
-VIEW는 실제로 물리적으로 저장하지 않고 기존 테이블의 데이터를 참조하여 가상으로 생성됩니다.
-이를 통해 대규모거나 복잡한 데이터 조회의 경우 VIEW 테이블로 추출하여 쉽고 빠르게 조회할 수 있습니다.
-
-하지만 VIEW가 참조하고 있는 데이터가 변경될 경우, VIEW도 함께 변경해줘야 한다는 특징이 있습니다. &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;SELECT 절의 처리순서에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;FROM -&gt; WHERE -&gt; GROUP BY -&gt; HAVING -&gt; SELECT -&gt; ORDER BY 순으로 처리됩니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;SELECT ~ FOR UPDATE 구문에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;SELECT 절에 해당하는 행들에 접근할 때 LOCK을 설정하는 구문입니다.
-
-이 구문을 사용하면 해당 행에는 하나의 트랜잭션 만이 값을 변경할 수 있습니다.
-LOCK이 걸린 도중에 다른 트랜잭션이 동일한 행을 수정하려 한다면 LOCK이 해제될 때까지 대기해야합니다.
-이 LOCK은 커밋 또는 롤백을 할 때까지 유지됩니다.
-
-이를 통해 동시성 문제를 해결할 수 있지만, 성능에 악영향을 줄 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;GROUP BY 절에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;GROUP BY 절을 통해 특정 칼럼의 데이터를 그룹화할 수 있습니다.
-
-보통 집계 함수와 함께 사용하여 유의미한 결과를 도출할 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;ORDER BY 절에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;쿼리의 결과를 특정 열을 기준으로 정렬하기 위해 사용하는 절입니다.
-
-기본적으로 오름차순으로 정렬을 하지만 내림차순으로 정렬할 수 있으며,
-정렬의 기준이 되는 열을 2개 이상 설정할 수 있습니다. &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;INNER JOIN과 OUTER JOIN에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;INNER JOIN은 JOIN 하려는 두 테이블의 특정 열을 기준으로 동일한 행들만 반환하는 명령어입니다.
-
-OUTER JOIN은 두 테이블의 동일한 행 뿐만 아니라, 조건에 일치하지 않는 특정 테이블의 행들도 함께 반환하는 명령입니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;LEFT OUTER JOIN, RIGHT OUTER JOIN에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;LEFT OUTER JOIN은 JOIN 시에 왼쪽, 즉 기준이 되는 테이블의 모든 행과, JOIN 조건에 일치하는 행들을 모두 반환합니다.
-
-RIGHT OUTER JOIN은 LEFT와 반대로 오른쪽, 즉 JOIN이 되는 테이블의 모든 행과 JOIN 조건에 일치하는 행들을 모두 반환합니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;CROSS JOIN에 대해서도 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;첫 번째 테이블의 모든 각 행이 두 번째 테이블의 전체 행과 결합하는 방식의 JOIN입니다.
-
-두 테이블의 각 전체 데이터 수를 곱한 크기의 JOIN 결과가 반환됩니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;서브쿼리에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;쿼리문 안에서 실행되는 또 다른 쿼리문입니다.
-
-주로 쿼리문 안에서 추가적인 쿼리문이 필요할 때 사용합니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;DROP, TRUNCATE, DELETE에 각각에 대해 설명해주세요. 어떤차이가 있나요?&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;DROP은 테이블 자체를 삭제하는 명령입니다.
-TRUNCATE는 테이블은 그대로 두고 테이블 안에 있는 모든 데이터를 삭제하는 명령입니다.
-DELETE는 테이블 안에 있는 특정 행을 삭제하는 데 사용합니다.
-
-DROP, TRUNCATE는 롤백을 할 수 없지만 DELETE는 롤백이 가능합니다.
-DROP, TRUNCATE는 빠른 속도로 실행되지만 DELETE는 조건을 비교하는 과정이 필요하기에 시간이 오래 걸릴 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;DISTINCT에 대해서 설명해주세요. 사용해본 경험도 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;쿼리 결과에서 특정 칼럼에 해당하는 데이터의 중복을 제거한 결과를 반환하는 명령어입니다.
-
-셀럽잇 프로젝트에서 음식점 테이블과 비디오 테이블을 음식점 ID로 JOIN하는 과정이 존재했습니다.
-이때 음식점 테이블과 비디오 테이블은 1:다 관계였기에 JOIN 결과로 같은 음식점이 2개 이상 존재하는 상황이 발생했습니다.
-따라서 이때 생기는 중복을 제거하기 위해 사용한 경험이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;SQL Injection 공격이 무엇인지 어떻게 공격을 예방할 수 있는지 설명해 주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;악의적인 사용자가 입력 필드를 통해 서버에 SQL 쿼리를 주입하여 DB에 대한 공격을 시도하는 행위입니다.
-
-이를 방지하기 위해 입력값을 직접 쿼리문에 넣지 않고, 쿼리를 파라미터화하여 공격을 예방할 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;알고 있는 SQL 안티패턴이 있다면 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&apos;SELECT *&apos; 을 사용하는 것입니다.
-
-이는 불필요한 열의 데이터까지 모두 가져오기에 불필요한 오버헤드가 발생할 수 있습니다.
-실제로 셀럽잇 프로젝트에서 음식점 테이블과 행정구역 테이블을 통해 공간 인덱스를 활용하려는 시도에서,
-실수로 SELECT * 을 사용하여 항상 테이블 풀 스캔의 결과가 발생했고
-이를 뒤늦게 발견하여 의도했던 결과가 나오지 않았던 것을 알게 된 경험이 있습니다.
-
-추가로 비효율적인 JOIN, 서브쿼리 남용 등이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;페이지네이션을 구현한다고 했을때 쿼리를 어떻게 작성해야할까요?&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;MySQL을 기준으로 LIMIT과 OFFSET을 통해 구현할 수 있습니다.
-
-OFFSET을 통해 쿼리 결과에서 n번 째부터 LIMIT의 수만큼의 데이터만을 가져옴으로써 페이지네이션을 구현할 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[JUnit과 AssertJ 활용법]]></title><description><![CDATA[이 글의 목적 JUnit과 AssertJ…]]></description><link>https://kdkdhoho.github.io/using-junit-and-assertJ/</link><guid isPermaLink="false">https://kdkdhoho.github.io/using-junit-and-assertJ/</guid><pubDate>Tue, 28 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;이 글의 목적&lt;/h2&gt;
+&lt;p&gt;본인이 구현하려는 기능이 무엇인지 분명히 아는 선에서, TDD를 적용하는 것이 바람직해보인다.  &lt;/p&gt;</content:encoded></item><item><title><![CDATA[JUnit과 AssertJ 활용법]]></title><description><![CDATA[이 글의 목적 JUnit과 AssertJ…]]></description><link>https://kdkdhoho.github.io/using-junit-and-assertJ/</link><guid isPermaLink="false">https://kdkdhoho.github.io/using-junit-and-assertJ/</guid><pubDate>Tue, 28 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;이 글의 목적&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;JUnit과 AssertJ의 학습 테스트 코드를 통해 단위 테스트를 처음 해보려는 사람에게 어떻게 쓰는지 간단한 가이드 라인 제시&lt;/li&gt;
 &lt;li&gt;단위 테스트하면서 잘 사용하지 않는 기능에 대해 나만의 치트 시트 역할&lt;/li&gt;
@@ -2593,7 +2658,116 @@ OFFSET을 통해 쿼리 결과에서 n번 째부터 LIMIT의 수만큼의 데이
     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;마치며&lt;/h2&gt;
-&lt;p&gt;더 나은 방법이 있거나 제안이 있다면 언제든 댓글 달아주시면 감사하겠습니다!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[단위 테스트 이해하기]]></title><description><![CDATA[…]]></description><link>https://kdkdhoho.github.io/unit-test/</link><guid isPermaLink="false">https://kdkdhoho.github.io/unit-test/</guid><pubDate>Mon, 27 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;단위 테스트란?&lt;/h2&gt;
+&lt;p&gt;더 나은 방법이 있거나 제안이 있다면 언제든 댓글 달아주시면 감사하겠습니다!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[DB 면접 스터디 2주차]]></title><description><![CDATA[📝 질문 리스트 SQL에 대해서 설명해주세요. C언어와 같은 프로그래밍 언어와 어떤 차이가 있나요? 개발자가 작성한 SQL이 어떤 과정을 통해 실행 되는지 설명해주세요. DML은 무엇인가요? 어떤 구문이 있는지도 설명해주세요. DDL…]]></description><link>https://kdkdhoho.github.io/db-interview-study-2week/</link><guid isPermaLink="false">https://kdkdhoho.github.io/db-interview-study-2week/</guid><pubDate>Tue, 28 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;📝 질문 리스트&lt;/h2&gt;
+&lt;h3&gt;SQL에 대해서 설명해주세요. C언어와 같은 프로그래밍 언어와 어떤 차이가 있나요?&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;SQL은 DBMS에게 명령하는 언어입니다.
+
+반면 C언어는 프로그래머가 작성한 코드가 C언어 컴파일러에 의해 기계어로 번역이 됩니다.
+이 기계어는 OS에 의해 코드가 작성된대로 실행됩니다. 
+
+즉, SQL은 DMS에게 요청을 보내는 반면 프로그래밍 언어는 미리 작성된 대로 수행된다는 차이점이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;개발자가 작성한 SQL이 어떤 과정을 통해 실행 되는지 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;크게 나눠 파싱, 최적화, 실행의 단계로 실행됩니다.
+
+DBMS는 개발자가 작성한 SQL문을 파싱하고 문법 오류가 없는지 검사합니다.
+오류가 없다면 파싱한 SQL문을 통해 가장 효율적인 실행 계획을 수립합니다.
+그 다음 최적화된 실행 계획에 따라 쿼리문을 실행합니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;DML은 무엇인가요? 어떤 구문이 있는지도 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;데이터를 조작하는 쿼리문입니다.
+테이블에 저장된 데이터와 관련된 쿼리문으로 이해하고 있습니다.
+
+INSERT, SELECT, UPDATE, DELETE 문이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;DDL은 무엇인가요? 어떤 구문이 있는지도 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;데이터를 정의하는 언어입니다.
+테이블과 관련된 쿼리문으로 이해하고 있습니다.
+
+보통 CREATE, ALTER, DROP, TRUNCATE 문이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;DCL은 무엇인가요? 어떤 구문이 있는지도 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;주로 보안과 관련된 언어업니다.
+
+GRANT, REVOKE, COMMIT, ROLLBACK 문이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;참조 무결성에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;테이블 간의 관계를 정의할 때 반드시 지켜야하는 제약 조건입니다.
+
+외래키를 설정할 때 반드시 관계를 맺으려는 테이블의 기본키 값으로 해야 한다는 것입니다.
+만약 값이 없을 경우 외래키 값은 NULL이 될 수도 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;CASCADE 설정에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;외래키를 참조하고 있는 행에 삭제 또는 변경이 발생할 때, 그에 따라 참조하고 있는 행을 동시에 관리하는 옵션입니다.
+
+UPDATE CASCADE의 경우 참조되는 기본키가 변경될 때, 참조하는 행의 외래키도 함께 변경합니다.
+DELETE CASCADE의 경우 참조되는 기본키의 행이 삭제될 때, 참조하는 행도 함께 삭제한다는 것입니다. &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;VIEW에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;기존 테이블에서 사용자가 필요로한 데이터만을 따로 추출하여 만든 임의의 가상 테이블입니다.
+
+VIEW는 실제로 물리적으로 저장하지 않고 기존 테이블의 데이터를 참조하여 가상으로 생성됩니다.
+이를 통해 대규모거나 복잡한 데이터 조회의 경우 VIEW 테이블로 추출하여 쉽고 빠르게 조회할 수 있습니다.
+
+하지만 VIEW가 참조하고 있는 데이터가 변경될 경우, VIEW도 함께 변경해줘야 한다는 특징이 있습니다. &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;SELECT 절의 처리순서에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;FROM -&gt; WHERE -&gt; GROUP BY -&gt; HAVING -&gt; SELECT -&gt; ORDER BY 순으로 처리됩니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;SELECT ~ FOR UPDATE 구문에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;SELECT 절에 해당하는 행들에 접근할 때 LOCK을 설정하는 구문입니다.
+
+이 구문을 사용하면 해당 행에는 하나의 트랜잭션 만이 값을 변경할 수 있습니다.
+LOCK이 걸린 도중에 다른 트랜잭션이 동일한 행을 수정하려 한다면 LOCK이 해제될 때까지 대기해야합니다.
+이 LOCK은 커밋 또는 롤백을 할 때까지 유지됩니다.
+
+이를 통해 동시성 문제를 해결할 수 있지만, 성능에 악영향을 줄 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;GROUP BY 절에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;GROUP BY 절을 통해 특정 칼럼의 데이터를 그룹화할 수 있습니다.
+
+보통 집계 함수와 함께 사용하여 유의미한 결과를 도출할 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;ORDER BY 절에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;쿼리의 결과를 특정 열을 기준으로 정렬하기 위해 사용하는 절입니다.
+
+기본적으로 오름차순으로 정렬을 하지만 내림차순으로 정렬할 수 있으며,
+정렬의 기준이 되는 열을 2개 이상 설정할 수 있습니다. &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;INNER JOIN과 OUTER JOIN에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;INNER JOIN은 JOIN 하려는 두 테이블의 특정 열을 기준으로 동일한 행들만 반환하는 명령어입니다.
+
+OUTER JOIN은 두 테이블의 동일한 행 뿐만 아니라, 조건에 일치하지 않는 특정 테이블의 행들도 함께 반환하는 명령입니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;LEFT OUTER JOIN, RIGHT OUTER JOIN에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;LEFT OUTER JOIN은 JOIN 시에 왼쪽, 즉 기준이 되는 테이블의 모든 행과, JOIN 조건에 일치하는 행들을 모두 반환합니다.
+
+RIGHT OUTER JOIN은 LEFT와 반대로 오른쪽, 즉 JOIN이 되는 테이블의 모든 행과 JOIN 조건에 일치하는 행들을 모두 반환합니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;CROSS JOIN에 대해서도 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;첫 번째 테이블의 모든 각 행이 두 번째 테이블의 전체 행과 결합하는 방식의 JOIN입니다.
+
+두 테이블의 각 전체 데이터 수를 곱한 크기의 JOIN 결과가 반환됩니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;서브쿼리에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;쿼리문 안에서 실행되는 또 다른 쿼리문입니다.
+
+주로 쿼리문 안에서 추가적인 쿼리문이 필요할 때 사용합니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;DROP, TRUNCATE, DELETE에 각각에 대해 설명해주세요. 어떤차이가 있나요?&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;DROP은 테이블 자체를 삭제하는 명령입니다.
+TRUNCATE는 테이블은 그대로 두고 테이블 안에 있는 모든 데이터를 삭제하는 명령입니다.
+DELETE는 테이블 안에 있는 특정 행을 삭제하는 데 사용합니다.
+
+DROP, TRUNCATE는 롤백을 할 수 없지만 DELETE는 롤백이 가능합니다.
+DROP, TRUNCATE는 빠른 속도로 실행되지만 DELETE는 조건을 비교하는 과정이 필요하기에 시간이 오래 걸릴 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;DISTINCT에 대해서 설명해주세요. 사용해본 경험도 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;쿼리 결과에서 특정 칼럼에 해당하는 데이터의 중복을 제거한 결과를 반환하는 명령어입니다.
+
+셀럽잇 프로젝트에서 음식점 테이블과 비디오 테이블을 음식점 ID로 JOIN하는 과정이 존재했습니다.
+이때 음식점 테이블과 비디오 테이블은 1:다 관계였기에 JOIN 결과로 같은 음식점이 2개 이상 존재하는 상황이 발생했습니다.
+따라서 이때 생기는 중복을 제거하기 위해 사용한 경험이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;SQL Injection 공격이 무엇인지 어떻게 공격을 예방할 수 있는지 설명해 주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;악의적인 사용자가 입력 필드를 통해 서버에 SQL 쿼리를 주입하여 DB에 대한 공격을 시도하는 행위입니다.
+
+이를 방지하기 위해 입력값을 직접 쿼리문에 넣지 않고, 쿼리를 파라미터화하여 공격을 예방할 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;알고 있는 SQL 안티패턴이 있다면 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&apos;SELECT *&apos; 을 사용하는 것입니다.
+
+이는 불필요한 열의 데이터까지 모두 가져오기에 불필요한 오버헤드가 발생할 수 있습니다.
+실제로 셀럽잇 프로젝트에서 음식점 테이블과 행정구역 테이블을 통해 공간 인덱스를 활용하려는 시도에서,
+실수로 SELECT * 을 사용하여 항상 테이블 풀 스캔의 결과가 발생했고
+이를 뒤늦게 발견하여 의도했던 결과가 나오지 않았던 것을 알게 된 경험이 있습니다.
+
+추가로 비효율적인 JOIN, 서브쿼리 남용 등이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;페이지네이션을 구현한다고 했을때 쿼리를 어떻게 작성해야할까요?&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;MySQL을 기준으로 LIMIT과 OFFSET을 통해 구현할 수 있습니다.
+
+OFFSET을 통해 쿼리 결과에서 n번 째부터 LIMIT의 수만큼의 데이터만을 가져옴으로써 페이지네이션을 구현할 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[단위 테스트 이해하기]]></title><description><![CDATA[…]]></description><link>https://kdkdhoho.github.io/unit-test/</link><guid isPermaLink="false">https://kdkdhoho.github.io/unit-test/</guid><pubDate>Mon, 27 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;단위 테스트란?&lt;/h2&gt;
 &lt;p&gt;애플리케이션에서 동작하는 &lt;strong&gt;기능 또는 메서드를 실행&lt;/strong&gt;시키는 &lt;strong&gt;독립적인 단위의 테스트&lt;/strong&gt;이다.&lt;/p&gt;
 &lt;p&gt;이때 기능이라는 말이 포함되어있다. 즉, 단위 테스트라고 해서 무조건 메서드만 테스트하는 건 아니다.&lt;/p&gt;
 &lt;h2&gt;왜 단위 테스트를 하나?&lt;/h2&gt;
