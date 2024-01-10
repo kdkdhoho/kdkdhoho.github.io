@@ -2,7 +2,7 @@
 title: "[MySQL] DATETIME vs TIMESTAMP"
 description: "두 자료형 알아보고 비교하기"
 date: 2024-01-10
-tags: [ "database", "MySQL" ]
+tags: ["database", "MySQL", "DATETIME", "TIMESTAMP"]
 ---
 
 ## 들어가며
