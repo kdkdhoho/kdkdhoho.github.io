@@ -2,7 +2,7 @@
 title: "InnoDB 스토리지 엔진의 락"
 description: "InnoDB 스토리지 엔진 레벨의 락에 대해 이해해보자"
 date: 2024-01-11
-tags: [ "database", "MySQL", "InnoDB", "Lock" ]
+tags: ["database", "MySQL"]
 series: "Real MySQL 8.0"
 ---
 
