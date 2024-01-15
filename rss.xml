@@ -1,4 +1,149 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 12 Jan 2024 07:21:28 GMT</lastBuildDate><item><title><![CDATA[1장. 웹과 네트워크의 기본에 대해 알아보자]]></title><description><![CDATA[들어가며 이 글은 그림으로 배우는 Http & Network Basic…]]></description><link>https://kdkdhoho.github.io/comprehension-about-web-and-network-basic/</link><guid isPermaLink="false">https://kdkdhoho.github.io/comprehension-about-web-and-network-basic/</guid><pubDate>Fri, 12 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 15 Jan 2024 02:54:10 GMT</lastBuildDate><item><title><![CDATA[[git&github] IntelliJ에서 커밋 메시지 작성 시, 자동으로 커밋 타입과 이슈 번호 추가하기]]></title><description><![CDATA[…]]></description><link>https://kdkdhoho.github.io/add-feat-and-issue-number-automatically/</link><guid isPermaLink="false">https://kdkdhoho.github.io/add-feat-and-issue-number-automatically/</guid><pubDate>Fri, 12 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
+&lt;p&gt;이번 글에서는 브랜치 네이밍을 이용해 자동으로 커밋 타입과 이슈 번호를 추가하는 방법에 작성하겠습니다.&lt;/p&gt;
+&lt;p&gt;글의 대상은 다음과 같습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;브랜치 네이밍 컨벤션과 커밋 메시지 컨벤션을 정하려는 팀&lt;/li&gt;
+&lt;li&gt;커밋 메시지 컨벤션에 따라 매번 커밋 메시지를 작성하는 게 귀찮거나 자주 까먹는 사람&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;이 글을 읽고 나면&lt;/h3&gt;
+&lt;p&gt;커밋 메시지를 &lt;code class=&quot;language-text&quot;&gt;message&lt;/code&gt;라고만 했을 경우, 저장된 커밋 메시지의 결과는 &lt;code class=&quot;language-text&quot;&gt;feat: message (#1)&lt;/code&gt;과 같이 작성될 것입니다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 321px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/f663a46e83e18e225cbcab1a2c72a202/4f068/before.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 56.470588235294116%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB0ElEQVR42n1Sy3KbQBDkY1KlCAG7PBYQAoQAC4FNJDu2YkUpy0654ktOqZxSueQncs6X5Vc6M6vYeZSlQ9cAu/RM97QRRgmqkwWEq3DaX2B1vkZ3tkLdnKKsW1iOh5EtD8IWHv0bwAsi/W4IqRBNSjjSR7PosX6zRb+8xHQ2RzatMRw5eGnaujJMS/yDR2J+5nPD6b4h/fwTIxFBej4sGcAm8iCMCWMkaQHX5zMFX41p4sPTMqkhyw9Qmx+wRABF8qVw4AgBFaeQZENIlSWxNCY9Jl8TulIiTcK9HNOEO9shqa+R5xPkRYUsL4jM1WT/y30OBjOHcUYdXASBj2z5Cc3mK9bbe9zcPWDz7hbRONN+sgVs/iHopQyGo6dxi6pFkcUor76g2n3HrL3GycUO3eUtuqs72nxPiWgJ3W+0fyolQpD/RhgnyKeVJtSdVAw34En206hoAkFypRfqaLGfj9h/o+qHhAgmTziyhY7MgAj5AmeyX77Goj8niQnSvKSLQl/+2yv23PGoYTZHVJ4hrl9BqAkMzpgkwrfSwj0tZxv6eIh9rGwTLywJ6+gSnKdGPJjO4WBowaaD98rFTTPHpmnwsW2wdoiQFmUficlzsfkFt+9pH3zbrlgAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;커밋할 때&apos; title=&apos;&apos; src=&apos;/static/f663a46e83e18e225cbcab1a2c72a202/4f068/before.png&apos; srcset=&apos;/static/f663a46e83e18e225cbcab1a2c72a202/e7570/before.png 170w,
+/static/f663a46e83e18e225cbcab1a2c72a202/4f068/before.png 321w&apos; sizes=&apos;(max-width: 321px) 100vw, 321px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;커밋할 때&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 664px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/a90e70b6482d29aa84e1d2a3be7991cc/5bd9c/after.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 7.647058823529412%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAkklEQVR42g3F1wqCYACA0Z4nNRwNE1Ny/+AoR4XQRTQkLwpaNz38V+fmDO5VR7++8CgOCKdl6HVY4oThn5klPcX+S7L9YGc3guaNXz0J6hdGeEV2jyjLDkl3ULUxjicYtGlGGcY0icBzY/Tpksnc/b/AtH3qzZ683GE5IUGc40UpkVj9z1E0E1mdISk68khFM31+/xpJr5Dml5UAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;커밋 이후 결과&apos; title=&apos;&apos; src=&apos;/static/a90e70b6482d29aa84e1d2a3be7991cc/5bd9c/after.png&apos; srcset=&apos;/static/a90e70b6482d29aa84e1d2a3be7991cc/e7570/after.png 170w,
+/static/a90e70b6482d29aa84e1d2a3be7991cc/f46e7/after.png 340w,
+/static/a90e70b6482d29aa84e1d2a3be7991cc/5bd9c/after.png 664w&apos; sizes=&apos;(max-width: 664px) 100vw, 664px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;커밋 이후 결과&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;h3&gt;참고&lt;/h3&gt;
+&lt;p&gt;시작하기 앞서 &lt;code class=&quot;language-text&quot;&gt;커밋 타입&lt;/code&gt;은 &lt;code class=&quot;language-text&quot;&gt;feat&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;refactor&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;chore&lt;/code&gt;와 같은 &lt;a href=&quot;https://www.conventionalcommits.org/en/v1.0.0/&quot;&gt;Conventional Commits&lt;/a&gt;의 &lt;code class=&quot;language-text&quot;&gt;type&lt;/code&gt;을 의미합니다.&lt;/p&gt;
+&lt;p&gt;개발 환경은 다음과 같습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MacOS 14.2.1(23C71)&lt;/li&gt;
+&lt;li&gt;IntelliJ 2023.2.5 (Ultimate Edition)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;컨벤션 정하기&lt;/h2&gt;
+&lt;p&gt;해당 작업을 수행하기 전 &lt;em&gt;브랜치 네이밍 컨벤션&lt;/em&gt; 과 &lt;em&gt;커밋 메시지 컨벤션&lt;/em&gt; 을 먼저 정해야 합니다.&lt;/p&gt;
+&lt;p&gt;이번 글에선 브랜치 네이밍 컨벤션을 &lt;code class=&quot;language-text&quot;&gt;type/issue_number&lt;/code&gt; 와 같은 형식으로, 커밋 메시지 컨벤션을 &lt;code class=&quot;language-text&quot;&gt;type: message (#1)&lt;/code&gt;와 같이 설정하겠습니다.&lt;br&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;예) 브랜치 네이밍 컨벤션 : &lt;code class=&quot;language-text&quot;&gt;feat/1&lt;/code&gt;&lt;br&gt;
+커밋 메시지 컨벤션 : &lt;code class=&quot;language-text&quot;&gt;feat: 기능 구현 (#1)&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;스크립트 작성&lt;/h2&gt;
+&lt;p&gt;프로젝트의 루트 위치 아래에 &lt;code class=&quot;language-text&quot;&gt;.githooks&lt;/code&gt; 디렉터리를 만들고 그 안에 &lt;code class=&quot;language-text&quot;&gt;commit-msg&lt;/code&gt;를 만들어주세요.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;commit-msg&lt;/code&gt;는 단순히 file 형태로 만들면 됩니다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 145px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/d6c0e219475c6c3c3248bb5a297f1650/73c62/script_path.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 29.655172413793103%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABVklEQVR42l2P2U7CUBRF+zconaCoKDIUoWUITogDGEgjiFOYJ2cjGmPikzHGR33wP5dtDUZ9WNnnZO99bq4gyj4cvJJKKBxjMRJHVjU805Kr2kzQ9Z39O+tnyisz6f1HUP0B4gkTSfGxnt+iXKmhxw02Clvcju9ptDo0W12q+wd0+0M63QGl3Yr9gOh2RFn9gyAqGrJvFq99PaobZHN5ZoJhVvNFNosW84s6S0YGM7OMkc6RTOVImFk8ooqkBnD6ojJRDUHR68g2joqRKtPhPXdfSNeZM2pI0RqekIVnwfpRJ6clj/BGam5WtHUyC0qyzQTV6CAlWoRWz2h3RvY3TyjUn6gPXzkcvTG4+3Dni8dPrPYzK9YD/fE71d6L68ULV/bBRJPfyEsN/GabzHaf1GaPyPopufKYVPEaY+fKLp2TLt0Qy58RXhuR3L7EtL3j01f0jXO+AAd+4JSr14X5AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;스크립트 경로&apos; title=&apos;&apos; src=&apos;/static/d6c0e219475c6c3c3248bb5a297f1650/73c62/script_path.png&apos; srcset=&apos;/static/d6c0e219475c6c3c3248bb5a297f1650/73c62/script_path.png 145w&apos; sizes=&apos;(max-width: 145px) 100vw, 145px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;스크립트 경로&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;그 다음 스크립트 코드를 작성하겠습니다.&lt;br&gt;
+코드에 대한 설명은 주석을 참고해주세요.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token shebang important&quot;&gt;#!/bin/sh&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# 본 스크립트는 브랜치 명을 토대로 개발자가 작성한 커밋 메시지에 자동으로 PREFIX와 POSTFIX 문자열을 추가하는 스크립트입니다.&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;# 브랜치 명은 &quot;feat/14&quot; 와 같이 &quot;{type}/{issue_number}&quot; 의 형식입니다.&lt;/span&gt;
+
+&lt;span class=&quot;token assign-left variable&quot;&gt;COMMIT_MESSAGE_FILE_PATH&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$1&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# 작성한 커밋 메시지가 저장된 File의 경로 추출&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;MESSAGE&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;cat&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$COMMIT_MESSAGE_FILE_PATH&lt;/span&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;)&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# 작성한 커밋 메시지 추출&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# 커밋 메시지가 존재하지 않은 경우, 스크립트 종료&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;head&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-1&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$COMMIT_MESSAGE_FILE_PATH&lt;/span&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;)&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;then&lt;/span&gt;
+  &lt;span class=&quot;token builtin class-name&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;fi&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# 브랜치 이름에서 &apos;/&apos; 이전의 문자열만 남긴다. 만약 명시적으로 type을 작성한 경우 작성하지 않는다.&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$MESSAGE&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;!=&lt;/span&gt; *:* &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;then&lt;/span&gt;
+  &lt;span class=&quot;token assign-left variable&quot;&gt;PREFIX&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; branch &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;\*&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;s/\* //&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;s/\([^/]*\).*/\1/&apos;&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;)&lt;/span&gt;&lt;/span&gt;:&quot;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;fi&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# 브랜치 이름에서 &apos;/&apos; 이후의 문자열만 남긴다. &apos;/&apos;가 없다면 브랜치 전체 이름이 POSTFIX가 된다.&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;# POSTFIX의 첫 번째 &apos;-&apos; 앞 뒤의 문자열만 포함한다. &apos;-&apos;가 없다면 변경은 없다.&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;# 명시적으로 이슈 번호를 작성한 경우 작성하지 않는다.&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$MESSAGE&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;!=&lt;/span&gt; *&lt;span class=&quot;token comment&quot;&gt;#* ]]; then&lt;/span&gt;
+  &lt;span class=&quot;token assign-left variable&quot;&gt;POSTFIX&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;(#&lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; branch &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;\*&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;s/* //&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;s/^.*\///&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;s/^\([^-]*-[^-]*\).*/\1/&apos;&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;)&lt;/span&gt;&lt;/span&gt;)&quot;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;fi&lt;/span&gt;
+
+&lt;span class=&quot;token builtin class-name&quot;&gt;printf&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;%s %s %s&quot;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$PREFIX&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$MESSAGE&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$POSTFIX&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$COMMIT_MESSAGE_FILE_PATH&lt;/span&gt;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;git hooks 설정&lt;/h2&gt;
+&lt;p&gt;git hooks를 설정해야 작성한 &lt;code class=&quot;language-text&quot;&gt;/.githooks/commit-msg&lt;/code&gt; 스크립트를 적용할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;레포지토리에서 clone한 프로젝트를 로컬 환경에서 설정하기 위해&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git config core.hooksPath .githooks&lt;/code&gt; 명령어를 입력해야 합니다.&lt;/p&gt;
+&lt;p&gt;이 외에도 권한 부여 명령어를 한꺼번에 편하게 작성하게 위해 Mac(or Linux) OS에 기본적으로 제공되는 &lt;a href=&quot;https://www.gnu.org/software/make/&quot;&gt;Makefile&lt;/a&gt;를 이용하겠습니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;프로젝트 루트 경로에 &lt;code class=&quot;language-text&quot;&gt;Makefile&lt;/code&gt;을 만들어줍니다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 281px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/4a26a31909d56dc73e0cb8d02dc085c7/fa392/Makefile.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 120%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAYAAAD6S912AAAACXBIWXMAAAsTAAALEwEAmpwYAAAC+klEQVR42pVVaXPSUBTlL/hBnfGTWhEIWUhCFkII2QiEsJWWlqVWRx3tjNO6jP//eO+TOoNjET6cecm7953c7Z2U6rIGRdPRDmJ04wFGkxmiJKM9A03bg2m30LRaMAn8rpsO6krjQZTuCd12hG5/gbPFJcK4h4ZhEUELltuG5XhoEiyn/X9Cqa5BIlJ+cVs+RddHmuVYrt+gGM8wmy8gqzrKFUng3vdhwq0DH5JVA5puYTiaCWKOlNP3gwiu14Hnd/eSbSNUxQMTMxQiDuMMcTog4imGxRT5cEzrBKvNNdSGuTfKUlVuoKboUCgy2wsQpkMk2Qin5xukgwnkhoWT13W8qsgoV2Xhuw8lU6vCatTgGDICR0PWsZGnHorMo9WBZynCbusS7IYknveh1NZfIjBeILIr6NlljK0KktYTpN4j5N2nCK3n6Aifw/CnKVwbh7uc5qJ+Z+drmj0PtW2ND0VJVyWYWh2WoaLtmMhCH2nkYTxM4Dk6jK39UOymbJUxISStx0go5cB8RumeHJyuSFlRFKiqCr1Bg+26yHoZ+lkP41GBPM+F7RiUajQ2Eo+NZoq7GlMNc5q9bDBC0stRp2Fn+6HYaYpN97afj5H2BpifXWBxuRZ7xzRmh5DFoBul6HRjBAQWBVado7r8N2GvXxCGguykXEVVUo6MkJxZGPigRTUcDCeISBRYbVhpxtO5+BDb2e/gCHnV9KZQGI6ShSGhWrLaBGHyX1HYJaQv82o0HfSpu6yHOakL6+FkdoaL5ebg5ghCToWd+RBrIXeaIzylTnfCGK9e1w6Kbkt4r4cqNNOGn1CaFGWc0xxSPV361xiWQykb+O2r7cGfCA3SMgMtw8Si6+Ft3sf7SYEP0zFWWYoNCavrh+BLwIP+IASh0oQafYIc3eB9cInr4R3ulnf4urzF16tv+Dn/iPP2ApX4C7ToM/ne/AO0T3a5mTChAdVfQvI3WLUKvAsv8LlY4cfpBrfTDb4P5pi4BSqdK/JbQfHX/wbZZSPALyzPDkG4Ux/HAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;Makefile 위치&apos; title=&apos;&apos; src=&apos;/static/4a26a31909d56dc73e0cb8d02dc085c7/fa392/Makefile.png&apos; srcset=&apos;/static/4a26a31909d56dc73e0cb8d02dc085c7/e7570/Makefile.png 170w,
+/static/4a26a31909d56dc73e0cb8d02dc085c7/fa392/Makefile.png 281w&apos; sizes=&apos;(max-width: 281px) 100vw, 281px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;Makefile 위치&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Makefile에 아래의 코드를 작성합니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;init:
+	&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config core.hooksPath .githooks
+	&lt;span class=&quot;token function&quot;&gt;chmod&lt;/span&gt; +x .githooks/commit-msg
+	&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; update-index &lt;span class=&quot;token parameter variable&quot;&gt;--chmod&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;+x .githooks/commit-msg&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Makefile 문법 상, 띄어쓰기가 아닌 Tab을 입력해야 합니다.&lt;br&gt;
+&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;git config core.hooksPath .githooks&lt;/code&gt;: git hooks의 위치를 .githooks로 변경합니다.&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;chmod +x .githooks/commit-msg&lt;/code&gt;: ./githooks/commit-msg 파일을 실행할 권한을 부여합니다.&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;git update-index --chmod=+x .githooks/commit-msg&lt;/code&gt;: git이 .githooks/commit-msg 파일을 실행할 권한을 부여합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;그 다음 터미널에서 &lt;code class=&quot;language-text&quot;&gt;make&lt;/code&gt; 명령어를 입력해 위 파일을 실행시켜줍니다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 393px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/e1941b3337350456ed6969947a79472a/52621/result_after_make.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 22.352941176470587%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAw0lEQVR42mWPWQ6DMAxEWVpxibIVJChQCDsJm3r/Q01tS+WnH0/OjJzJxLrd7nAcR3Bdl6YrZ9t24HkepsXAbCeWZcM4adRNh2E0KMoGM3naHAjC54Wl2gFlWaNRPS0ueL8V2CvIY80X9HrgRZp9s57i8X4QxojiFGGUXFhtN2HbP6goKC8qsJ6ljcGsN2q4UsAuARyUpBn8IBYefvSH1agBjOpGaqTR9hy4SpssLyWYg36teTJdP8u9nn6h2hE1Pcj6C19Nd/93QJZkAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;결과&apos; title=&apos;&apos; src=&apos;/static/e1941b3337350456ed6969947a79472a/52621/result_after_make.png&apos; srcset=&apos;/static/e1941b3337350456ed6969947a79472a/e7570/result_after_make.png 170w,
+/static/e1941b3337350456ed6969947a79472a/f46e7/result_after_make.png 340w,
+/static/e1941b3337350456ed6969947a79472a/52621/result_after_make.png 393w&apos; sizes=&apos;(max-width: 393px) 100vw, 393px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;결과&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;확인하기&lt;/h2&gt;
+&lt;p&gt;이제 끝났습니다.&lt;/p&gt;
+&lt;p&gt;직접 커밋을 남겨보고 그 결과를 확인해보면 Prefix와 Postfix가 추가된 상태로 커밋되는 것을 확인할 수 있습니다!&lt;/p&gt;
+&lt;h2&gt;주의사항 및 적용 해제하기&lt;/h2&gt;
+&lt;h3&gt;주의 사항&lt;/h3&gt;
+&lt;p&gt;만약 프로젝트를 레포지토리에서 새로 clone 한 경우 터미널에 &lt;code class=&quot;language-text&quot;&gt;make&lt;/code&gt;를 입력해야 스크립트가 적용됩니다.&lt;/p&gt;
+&lt;h3&gt;적용 해제하기&lt;/h3&gt;
+&lt;p&gt;적용을 해제하려면 터미널에 &lt;code class=&quot;language-text&quot;&gt;git config core.hooksPath .git/hooks&lt;/code&gt;를 입력해서 원래 설정으로 돌려놓으면 됩니다.&lt;/p&gt;
+&lt;h2&gt;마치며&lt;/h2&gt;
+&lt;p&gt;해당 글에서는 적용 방법에 대한 내용만 작성했습니다.&lt;/p&gt;
+&lt;p&gt;만약 각 과정의 이유에 대해 알아보고 싶은 분들은 &lt;a href=&quot;https://blog.deercorp.com/commit-convention/&quot;&gt;해당 포스팅&lt;/a&gt;을 참고해주세요.&lt;/p&gt;
+&lt;h3&gt;Reference&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://blog.deercorp.com/commit-convention/&quot;&gt;https://blog.deercorp.com/commit-convention/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://feb-dain.tistory.com/7&quot;&gt;https://feb-dain.tistory.com/7&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[1장. 웹과 네트워크의 기본에 대해 알아보자]]></title><description><![CDATA[들어가며 이 글은 그림으로 배우는 Http & Network Basic…]]></description><link>https://kdkdhoho.github.io/comprehension-about-web-and-network-basic/</link><guid isPermaLink="false">https://kdkdhoho.github.io/comprehension-about-web-and-network-basic/</guid><pubDate>Fri, 12 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
 &lt;p&gt;이 글은 &lt;a href=&quot;https://m.yes24.com/Goods/Detail/15894097&quot;&gt;그림으로 배우는 Http &amp;#x26; Network Basic&lt;/a&gt; 책을 읽으며 학습한 내용을 정리한 글입니다.&lt;/p&gt;
 &lt;h2&gt;웹, 그리고 네트워크를 공부해야 하는 이유&lt;/h2&gt;
 &lt;blockquote&gt;
