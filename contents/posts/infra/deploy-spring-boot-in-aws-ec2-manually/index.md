@@ -50,7 +50,7 @@ tags: ["Infra", "EC2", "Deploy"]
 
 저의 경우 `ec2-${project_name}` 같이 짓습니다.
 
- ![EC2 이름 짓기](../what-is-ami-architecture-of-ec2/ec2_name.png)
+ ![EC2 이름 짓기](ec2_name.png)
 
 ### AMI 설정
 
@@ -58,7 +58,7 @@ tags: ["Infra", "EC2", "Deploy"]
 
 아래와 같이 Linux 계열인 `Ubuntu`를 설정하고 아키텍처는 `64비트(Arm)`을 설정합니다.
 
-![AMI 설정](../what-is-ami-architecture-of-ec2/ec2_ami.png)
+![AMI 설정](ec2_ami.png)
 
 > [CPU 아키텍처란?](https://kdkdhoho.github.io/what-is-ami-architecture-of-ec2)
 
