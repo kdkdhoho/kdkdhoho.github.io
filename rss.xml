@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 23 Jan 2024 04:27:34 GMT</lastBuildDate><item><title><![CDATA[3장. HTTP 정보는 HTTP 메시지에 있다]]></title><description><![CDATA[들어가며 이 글은 그림으로 배우는 Http & Network Basic을 읽고 학습한 내용을 정리한 글입니다. 이번 글에서는 Http Request와 Http Response가 어떻게 동작하는지에 대해 작성하겠습니다. HTTP 메시지 HTTP…]]></description><link>https://kdkdhoho.github.io/03-http-detail/</link><guid isPermaLink="false">https://kdkdhoho.github.io/03-http-detail/</guid><pubDate>Tue, 23 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 23 Jan 2024 11:59:46 GMT</lastBuildDate><item><title><![CDATA[3장. HTTP 정보는 HTTP 메시지에 있다]]></title><description><![CDATA[들어가며 이 글은 그림으로 배우는 Http & Network Basic을 읽고 학습한 내용을 정리한 글입니다. 이번 글에서는 Http Request와 Http Response가 어떻게 동작하는지에 대해 작성하겠습니다. HTTP 메시지 HTTP…]]></description><link>https://kdkdhoho.github.io/03-http-detail/</link><guid isPermaLink="false">https://kdkdhoho.github.io/03-http-detail/</guid><pubDate>Tue, 23 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
 &lt;p&gt;이 글은 &lt;a href=&quot;https://m.yes24.com/Goods/Detail/15894097&quot;&gt;그림으로 배우는 Http &amp;#x26; Network Basic&lt;/a&gt;을 읽고 학습한 내용을 정리한 글입니다.&lt;/p&gt;
 &lt;p&gt;이번 글에서는 Http Request와 Http Response가 어떻게 동작하는지에 대해 작성하겠습니다.&lt;/p&gt;
 &lt;h2&gt;HTTP 메시지&lt;/h2&gt;
@@ -394,17 +394,7 @@ HTTP 메시지는 ASCII로 인코딩된 동일한 구조의 텍스트입니다.&
 &lt;p&gt;&lt;strong&gt;EC2 인스턴스의 성능&lt;/strong&gt;입니다.&lt;br&gt;
 서버를 띄우는 목적과 비용에 따라 선택하면 됩니다.&lt;/p&gt;
 &lt;p&gt;본문에서는 프리티어를 선택하도록 하겠습니다.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 671px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/b44c2f1b93416a577786a5d3f98646d1/b5f03/type_of_instance.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 34.11764705882353%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA+ElEQVR42pWQjW6EIBCEff9HNK1eT++uCsiPqCDodKG2aa6mSUk+ZiEwDFs0TYO6vqAsS1zbB5ie0ckJyi4IYcW6/o9Caw0hBjDOIbWBnlw2s4tHiAFr+AMy8M+GxoxQSlOagDT2fU9z1sS2JbZTzkZRVTXa9pbdY4xkHKkOWb333/VvQmYYBozjiHmePw1fXiv0PaOUClJJcC7AaJ0OGmPgnDtS48cPQAYLPbji3gu8cwkmDSL9prjcOrwR10Or5pG1uXfQ1EtlHabUzyPRF+mhlNT6DXqJEJb6GTYU3HqI0UPNIW8yqpNqWnOqH8rRhYAU7JmzHn4AuFgfv35UYm4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;인스턴스 유형 선택&apos; title=&apos;&apos; src=&apos;/static/b44c2f1b93416a577786a5d3f98646d1/b5f03/type_of_instance.png&apos; srcset=&apos;/static/b44c2f1b93416a577786a5d3f98646d1/e7570/type_of_instance.png 170w,
-/static/b44c2f1b93416a577786a5d3f98646d1/f46e7/type_of_instance.png 340w,
-/static/b44c2f1b93416a577786a5d3f98646d1/b5f03/type_of_instance.png 671w&apos; sizes=&apos;(max-width: 671px) 100vw, 671px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;인스턴스 유형 선택&lt;/figcaption&gt;
-  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;type_of_instance.png&quot; alt=&quot;인스턴스 유형 선택&quot;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/ko/free/?all-free-tier.sort-by=item.additionalFields.SortRank&amp;#x26;all-free-tier.sort-order=asc&amp;#x26;awsf.Free%20Tier%20Types=*all&amp;#x26;awsf.Free%20Tier%20Categories=*all&quot;&gt;프리티어?&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
