@@ -67,8 +67,8 @@ HTTP 메시지 본문이나 전송되는 데이터를 압축하는 방식입니�
 server:
   compression:
     enabled: true
-    min-response-size: ${압축 기준 크기} (default: 2048 (byte))
-    mime-types: ${압축을 지원하는 Content type} (default: text/html, text/xml, text/plain, text/css, text/javascript, application/javascript, application/json, application/xml)
+    min-response-size: 압축 기준 크기 (default: 2048 (byte))
+    mime-types: 압축을 지원하는 Content type (default: text/html, text/xml, text/plain, text/css, text/javascript, application/javascript, application/json, application/xml)
     
 ```
 
@@ -189,6 +189,8 @@ Http Response에서 `Content-Range`를 통해 응답에 대한 정보를 담는�
 그러면 브라우저는 이를 통해 원하는 리소스에 해당하는 URL로 재요청을 보내는 방식입니다.
 
 ![클라이언트 주도적 콘텐츠 협상](client-driven-nogotiation.png)
+
+> 참고: [콘텐츠협상 - MDN](https://developer.mozilla.org/ko/docs/Web/HTTP/Content_negotiation#%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8_%EC%A3%BC%EB%8F%84_%ED%98%91%EC%83%81)
 
 ### Reference
 > - [그림으로 배우는 Http & Network Basic](https://m.yes24.com/Goods/Detail/15894097)
