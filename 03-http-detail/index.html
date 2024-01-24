@@ -293,8 +293,8 @@ data-styled.g45[id="Footer__HiddenWrapper-sc-zqxmks-9"]{content:"yzdKT,ivqWaF,"}
 <div class="gatsby-highlight" data-language="yaml"><pre class="language-yaml"><code class="language-yaml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
   <span class="token key atrule">compression</span><span class="token punctuation">:</span>
     <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-    <span class="token key atrule">min-response-size</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span>압축 기준 크기<span class="token punctuation">}</span> (default<span class="token punctuation">:</span> 2048 (byte))
-    <span class="token key atrule">mime-types</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span>압축을 지원하는 Content type<span class="token punctuation">}</span> (default<span class="token punctuation">:</span> text/html<span class="token punctuation">,</span> text/xml<span class="token punctuation">,</span> text/plain<span class="token punctuation">,</span> text/css<span class="token punctuation">,</span> text/javascript<span class="token punctuation">,</span> application/javascript<span class="token punctuation">,</span> application/json<span class="token punctuation">,</span> application/xml)
+    <span class="token key atrule">min-response-size</span><span class="token punctuation">:</span> <span class="token key atrule">압축 기준 크기 (default</span><span class="token punctuation">:</span> 2048 (byte))
+    <span class="token key atrule">mime-types</span><span class="token punctuation">:</span> <span class="token key atrule">압축을 지원하는 Content type (default</span><span class="token punctuation">:</span> text/html<span class="token punctuation">,</span> text/xml<span class="token punctuation">,</span> text/plain<span class="token punctuation">,</span> text/css<span class="token punctuation">,</span> text/javascript<span class="token punctuation">,</span> application/javascript<span class="token punctuation">,</span> application/json<span class="token punctuation">,</span> application/xml)
     </code></pre></div>
 <blockquote>
 <p>참고: <a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto.webserver.enable-response-compression">HTTP Response Compression - Spring Boot Reference</a></p>
@@ -406,6 +406,9 @@ Content-Type: image/jpeg</code></pre></div>
     </span>
     <figcaption class='gatsby-resp-image-figcaption'>클라이언트 주도적 콘텐츠 협상</figcaption>
   </figure></p>
+<blockquote>
+<p>참고: <a href="https://developer.mozilla.org/ko/docs/Web/HTTP/Content_negotiation#%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8_%EC%A3%BC%EB%8F%84_%ED%98%91%EC%83%81">콘텐츠협상 - MDN</a></p>
+</blockquote>
 <h3>Reference</h3>
 <blockquote>
 <ul>
