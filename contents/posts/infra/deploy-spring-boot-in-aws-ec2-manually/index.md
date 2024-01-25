@@ -138,7 +138,7 @@ tags: ["Infra", "EC2", "Deploy"]
 
 ```
 > chmod 400 ${key_path}
-> ssh -i ${key_path} ${instance_public_ip}
+> ssh -i ${key_path} ubuntu@${instance_public_ip}
 ```
 
 - `chmod 400 ${key_path}`: 키 페어 파일에 대한 운영체제 내의 접근 권한을 설정합니다.
