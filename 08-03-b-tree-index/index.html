@@ -333,9 +333,7 @@ B-Tree의 리프 노드를 찾아 그냥 삭제 마킹만 하면 끝이다.<br>
 조금만 생각해보면 쉽게 알아차릴 수 있다.</p>
 <p>인덱스 키 값이 크기가 늘어나면, 하나의 페이지에서 저장할 수 있는 인덱스는 줄어든다.<br>
 하나의 페이지에서 저장할 수 있는 인덱스가 줄어들면, 그만큼 페이지를 더 많이 만들어야 한다.<br>
-이는 결국, B-Tree 자료구조의 depth가 길어지는 결과를 낳는다.</p>
-<p>트리 자료구조에서 조회의 성능에 직접적인 영향을 미치는 것이 바로 이 depth이다.<br>
-depth가 길어진다면 인덱스의 조회 성능에도 악영향을 미칠 것이다.</p>
+페이지가 늘어날 수록 한 페이지에서 조회할 수 있는 레코드의 수가 적으므로 더 많은 페이지를 뒤져야 한다.</p>
 <p>결국, <u>인덱스 키 값의 크기가 작을 수록 인덱스를 이용한 조회 성능이 향상된다.</u></p>
 <h4>3-2. Cardinality</h4>
 <p>또 다른 기준으로 <em>Cardinality</em>가 있다.<br>
@@ -399,7 +397,7 @@ depth가 길어진다면 인덱스의 조회 성능에도 악영향을 미칠 �
 <p>쿼리의 <code class="language-text">WHERE</code> 절이나 <code class="language-text">GROUP BY</code> 또는 <code class="language-text">ORDER BY</code> 절이 어떤 경우에 인덱스를 사용하며 어떤 방식으로 조회하는지 식별할 수 있어야 한다.<br>
 이번에는 이에 대해 알아보자.</p>
 <h4>6-1. 비교 조건의 종류와 효율성</h4>
-<p>다중 칼럼 인덱스에서 각 칼럼의 순서와 그 칼럼에 적용된 조건이 동등 비교인지 아니면 대소 비교 같은 범위 조건인지에 따라 인덱스 활용 형태가 달라진다.</p>
+<p>다중 칼럼 인덱스에서 각 <u>칼럼의 순서와 그 칼럼에 적용된 조건이 동등 비교인지 아니면 대소 비교 같은 범위 조건인지에 따라 인덱스 활용 형태가 달라진다.</u></p>
 <p><span class='gatsby-resp-image-wrapper' style='position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;'>
       <a class='gatsby-resp-image-link' href='/static/43bd2197855fc3a99dad906605e8361e/7ca0a/example-1.png' style='display: block' target='_blank' rel='noopener'>
     <span class='gatsby-resp-image-background-image' style="padding-bottom: 52.94117647058824%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACRUlEQVR42m2T62/SUBjG+b9d/KRmRN0ConMXJZJtXmLYxWSwm3OAUBi7gJiM6AbMUhgtLS29QEv7+PYgbB9s8+Rtzjnv7zxPexoYDk3ohgzDVJhGrgnH8cckaLpEYzKsgUa1T9Jpzoau6xBFEZZlodfrQdNo3jDgX4GW2MA3bhdHuV2UqnkGNK0euPIxEsfbKPzIgBeuUSyeoF6vo9vtotlsotPpMPE8z2qr1RoDf1ZLWIiFsbj2EluHcQJa6JPj9e0YIrEQ3m1E0Zaa5EIhZxoB/kCgZt+VIAgMJssyVFUdA3mhhuIFh4vKGU7KBdgjk+yr4M6zKJTzyJc4qLpCSz26XUiSSM0ai+3HlCQJtm0zmOu6CGQLGSy8eYGPW+tIn6XJ4QDtWx7Lq0tYWV1EMrNHwJ6/nOYceJ7HGv3qawKajAV+16p4v7mOyHIImVIWQ8egjyEjmU5ifnEeO6kkVKNHsCFsx6JqM7kEH4Oc6TMDVmuXCL0N4+HsDOIHm9Rk0DtUsEqbPHgyg5VPUSh9hTkZuSPm0vUmkNE9/QMe59IIRp7h+es5JL/v07EYwKTjkUjtYW4phA87cYiyiNxpDlf1XwzsEcDzfN1FnyjAFTmsfV5D4msC6ZM07WRD6oqIRF/hcXgWj0JBxL9sIBh+ioPUPgPajj12es/ZFNjpdtDga6g1rklXdFhN3HbaODzaR/G8gMplBYal46Z5A6HdHEcf3cWcAKeRFUVGv69B1VR2lhRFYVXX++xPYBHvRRvD3P/KB/4F4dYknF7nRUEAAAAASUVORK5CYII='); background-size: cover; display: block;"></span>
@@ -411,8 +409,9 @@ depth가 길어진다면 인덱스의 조회 성능에도 악영향을 미칠 �
 /static/43bd2197855fc3a99dad906605e8361e/7ca0a/example-1.png 1879w' sizes='(max-width: 680px) 100vw, 680px' style='width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;' loading='lazy' decoding='async'>
   </a>
     </span></p>
-<p>위 그림을 보면 왼쪽의 경우 인덱스 칼럼과 조건절의 순서가 일치하다. 이 경우에는 인덱스 레인지 스캔 방식으로 조회한다.<br>
-하지만 오른쪽의 경우 인덱스의 칼럼와 조건절의 순서가 반대이다. 이때는 첫 번째 칼럼을 인덱스 레인지 스캔하지만 그 과정에서 필요없는 레코드를 조회하게 된다.<br></p>
+<p>여기서 눈여겨 볼 것은 dept<em>no는 <code class="language-text">=</code> 검색이고 emp</em>no는 <code class="language-text">>=</code> 비교이다.<br>
+이때 인덱스 칼럼의 순서가 <code class="language-text">(dept_no, emp_no)</code> 이냐 <code class="language-text">(emp_no, dept_no)</code>에 따라 인덱스를 조회하는 방식이 달라진다.</p>
+<p>범위 조건 비교 (<code class="language-text">>=</code>) 보다 동등 조건 비교 (<code class="language-text">=</code>)가 값을 조회하기엔 더 최적화된 조건이므로, dept_no 칼럼이 선행된 인덱스의 경우 더 효율적으로 조회할 수 있는 것이다.</p>
 <h4>6-2. 인덱스의 가용성</h4>
 <p>만약 인덱스 칼럼의 순서가 <code class="language-text">(dept_no, emp_no)</code>인 인덱스에 <code class="language-text">WHERE</code> 절에 <code class="language-text">emp_no</code>만 있는 쿼리를 날린다면, 인덱스 칼럼의 선행 조건인 <code class="language-text">dept_no</code>를 이용하지 못하므로 인덱스를 효율적으로 사용할 수 없다.</p>
 <h4>6-3. 가용성과 효율성 판단</h4>
