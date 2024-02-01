@@ -352,6 +352,21 @@ mysql> SHOW GRANTS FOR '사용자계정'@'호스트';
 mysql> SHOW GRANTS FOR CURRENT_USER;
 ```
 
+### 5-4. 권한 해제하기
+
+권한을 빼앗고 싶을 경우가 있을 것이다.
+
+그럴 땐 아래 명령어를 이용하면 된다.
+
+```sql
+mysql> REVOKE 권한1, 권한2, ... ON 데이터베이스.테이블 FROM '사용자'@'호스트';
+```
+
+![권한 해제 전](before_revoke.png)
+
+![권한 해제 후](after_revoke.png)
+
+
 ## 6. 역할(Role)
 
 v8.0부터 권한을 묶어 역할(Role)을 사용할 수 있게 됐다.
