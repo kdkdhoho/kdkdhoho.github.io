@@ -1,4 +1,48 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 21 Feb 2024 06:17:23 GMT</lastBuildDate><item><title><![CDATA[[ListyWave] SNS 서비스에서 카테고리를 관리하는 방법]]></title><description><![CDATA[들어가며 이번 글에서는 ListyWave를 개발하며 'SNS 도메인에서 카테고리를 누가? 그리고 어떻게 관리할 것인지'에 대해 정말 많이 했던 고민과 최종 결정을 기록하고자 합니다. ListyWave는 "내가 가장 좋아하는 축구선수 TOP…]]></description><link>https://kdkdhoho.github.io/who-and-how-manage-category/</link><guid isPermaLink="false">https://kdkdhoho.github.io/who-and-how-manage-category/</guid><pubDate>Wed, 21 Feb 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 04 Mar 2024 12:38:18 GMT</lastBuildDate><item><title><![CDATA[[ListyWave] 1, 2주차 회고]]></title><description><![CDATA[들어가며 ListyWave 프로젝트의 공식 일정이 모두 끝이 났다.
+최종 발표는 매우 뜨거운 반응을 낳으며 성황리에 끝이 났다. 그간 최종 일자에 쫓겨 개발 일정을 진행하다보니 회고 쓸 여유도 없었다.
+나흘을 푹 쉬고 내일부터 다시 Next Step…]]></description><link>https://kdkdhoho.github.io/3-6-weeks/</link><guid isPermaLink="false">https://kdkdhoho.github.io/3-6-weeks/</guid><pubDate>Mon, 04 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
+&lt;p&gt;ListyWave 프로젝트의 공식 일정이 모두 끝이 났다.&lt;br&gt;
+최종 발표는 매우 뜨거운 반응을 낳으며 성황리에 끝이 났다.&lt;/p&gt;
+&lt;p&gt;그간 최종 일자에 쫓겨 개발 일정을 진행하다보니 회고 쓸 여유도 없었다.&lt;br&gt;
+나흘을 푹 쉬고 내일부터 다시 Next Step을 위해 움직이기 전에 잊기 전 회고를 작성하려고 한다.&lt;/p&gt;
+&lt;h2&gt;이번 프로젝트에서 배운 것&lt;/h2&gt;
+&lt;h3&gt;1. 테스트 코드의 중요성&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://kdkdhoho.github.io/1-2-week/&quot;&gt;1, 2주차 회고록&lt;/a&gt;에서도 작성했듯이 6주라는 타이트한 개발 일정과 프론트엔드는 5명, 백엔드는 직장인 1명 나 1명으로 이뤄지다보니 개발 일정이 매&lt;del&gt;&lt;/del&gt;우 빠듯했다.&lt;br&gt;
+그러다보니 결국 테스트 코드는 모든 기능 구현과 버그 fix가 마친 이후에야 조금씩 짤 수 있었다.&lt;/p&gt;
+&lt;p&gt;하지만 끝내 최종 발표 전까지는 테스트 코드를 완성하지 못했다..&lt;br&gt;
+그러다보니 이상한 곳에서 자꾸 발생하는 버그 🐞들 때문에 골머리를 앓았다.&lt;br&gt;
+(&lt;del&gt;사실 지금도 검색 결과에 아이템 관련된 결과가 포함되지 않는 버그가 존재한다.&lt;/del&gt;)&lt;/p&gt;
+&lt;p&gt;만약, 초반에 적어도 인수 테스트를 진행할 틀을 잡고 구현할 기능에 대해 적어도 인수 테스트라도 존재했더라면 어땠을지 궁금하다.&lt;br&gt;
+이는 내 실력과 경험이 부족했던 탓이라고 하자.&lt;/p&gt;
+&lt;h3&gt;2. 기획의 중요성&lt;/h3&gt;
+&lt;p&gt;ListyWave는 팀에 한 분에 의해 기획되었다.&lt;br&gt;
+기획자를 준비하셨다고 들었지만 진짜 여태 만난 서비스 기획 중 최고의 기획이었다.&lt;br&gt;
+상세한 &lt;a href=&quot;https://docs.google.com/spreadsheets/d/1zKPf-iuBuGF66OgM_K993VIctbCX5laXCqLIGblCVD0/edit?usp=sharing&quot;&gt;IA&lt;/a&gt;부터 개발자를 고려한 요구사항 정리까지..&lt;br&gt;
+만약 기획이 이렇게까지 깔끔히 정리되지 않았다면 개발 속도에도 영향이 미쳤을 정도였다.&lt;/p&gt;
+&lt;p&gt;무엇보다 최종 결과물이 너무너무너무너무너무 만족스럽다 !&lt;br&gt;
+SNS를 잘 하지 않는 나지만 가끔 생각나서 들어가게 되고 괜히 리스트를 만들고 댓글을 달곤 한다.&lt;/p&gt;
+&lt;p&gt;많은 사람들이 한번씩 써봤으면 좋겠다 ㅎㅎ&lt;/p&gt;
+&lt;p&gt;⭐️ --&gt; 배포 주소: &lt;a href=&quot;https://listywave.com&quot;&gt;https://listywave.com&lt;/a&gt; ⭐️&lt;/p&gt;
+&lt;h3&gt;3. 팀원의 중요성&lt;/h3&gt;
+&lt;p&gt;모든 팀원의 소프트 스킬 역량이 정말 뛰어나다.&lt;br&gt;
+그리고 다들 미친듯이 열심히도 하고 일정이 빠듯해보여 이거 할 수 있을까..? 싶은 생각이 들었지만 모두 끝내 해내버린다.&lt;br&gt;
+팀장과 기획 리더의 리더쉽도 어마어마하다.&lt;/p&gt;
+&lt;p&gt;앞으로 취준하면서, 아니 취업하고도 이런 팀원들을 만날 수 있을지 잘 모르겠다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;전 이 팀 계속 가고 싶어요 ㅜㅜ&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;ListyWave의 앞으로의 방향&lt;/h2&gt;
+&lt;p&gt;백엔드 개발자로서 해결할 숙제들이 아직 많다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;토큰 관리 정책&lt;/li&gt;
+&lt;li&gt;반정규화와 Soft-Delete로 인한 데이터 정합성 문제&lt;/li&gt;
+&lt;li&gt;리스트 검색 방법 변경&lt;/li&gt;
+&lt;li&gt;모니터링, 쿼리튜닝, DB 인덱스 등..&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;위와 같은 숙제들을 하나하나씩 해결하는 데에 집중하려고 한다.&lt;/p&gt;
+&lt;h2&gt;마치며&lt;/h2&gt;
+&lt;p&gt;정말 간절히 신청했던 마음이 보상받는 것과 같은 6주였다.&lt;br&gt;
+비록 프로젝트가 끝은 아니지만 그동안 너무 감사했다는 말을 전하고 싶다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[ListyWave] SNS 서비스에서 카테고리를 관리하는 방법]]></title><description><![CDATA[들어가며 이번 글에서는 ListyWave를 개발하며 'SNS 도메인에서 카테고리를 누가? 그리고 어떻게 관리할 것인지'에 대해 정말 많이 했던 고민과 최종 결정을 기록하고자 합니다. ListyWave는 "내가 가장 좋아하는 축구선수 TOP…]]></description><link>https://kdkdhoho.github.io/who-and-how-manage-category/</link><guid isPermaLink="false">https://kdkdhoho.github.io/who-and-how-manage-category/</guid><pubDate>Wed, 21 Feb 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
 &lt;p&gt;이번 글에서는 ListyWave를 개발하며 &apos;SNS 도메인에서 카테고리를 누가? 그리고 어떻게 관리할 것인지&apos;에 대해 정말 많이 했던 고민과 최종 결정을 기록하고자 합니다.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&quot;https://listywave.com&quot;&gt;ListyWave&lt;/a&gt;는 &quot;내가 가장 좋아하는 축구선수 TOP 5&quot; 처럼 자신의 취향이 담긴 리스트를 만들고 공유하는 SNS 서비스입니다.&lt;/p&gt;
@@ -253,7 +297,7 @@ Enum을 통해 같은 주제에 대해 다양한 데이터를 나열하고 그 �
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://m.yes24.com/Goods/Detail/15894097&quot;&gt;그림으로 배우는 Http &amp;#x26; Network Basic&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[[ListyWave] 1, 2주차 회고]]></title><description><![CDATA[들어가며 이 글은 ListyWave…]]></description><link>https://kdkdhoho.github.io/1-2-week/</link><guid isPermaLink="false">https://kdkdhoho.github.io/1-2-week/</guid><pubDate>Sun, 04 Feb 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[[ListyWave] 1, 2주차 회고]]></title><description><![CDATA[들어가며 이 글은 ListyWave…]]></description><link>https://kdkdhoho.github.io/1-2-weeks/</link><guid isPermaLink="false">https://kdkdhoho.github.io/1-2-weeks/</guid><pubDate>Sun, 04 Feb 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
 &lt;p&gt;이 글은 ListyWave 프로젝트를 진행하며 한 주를 되돌아보는 회고록입니다.&lt;/p&gt;
 &lt;h2&gt;프로젝트를 하게 된 계기는요&lt;/h2&gt;
 &lt;p&gt;우테코가 끝나고 개인 공부를 쭈욱 해오면서 개인 사이드 프로젝트를 진행하고 싶다는 생각이 들었습니다.
