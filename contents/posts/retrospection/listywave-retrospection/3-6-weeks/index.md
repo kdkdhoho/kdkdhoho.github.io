@@ -1,6 +1,6 @@
 ---
-title: "[ListyWave] 1, 2주차 회고"
-description: "ListyWave 프로젝트를 회고해보자"
+title: "[ListyWave] 3~6주차 회고"
+description: "ListyWave 프로젝트 마치며"
 date: 2024-03-04
 tags: ["ListyWave", "retrospective"]
 series: "ListyWave Project 회고"
