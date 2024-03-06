@@ -72,7 +72,7 @@ CREATE TABLE users (
 - STATS_PERSISTENT = DEFAULT
   - `STATS_PERSISTENT` 옵션을 설정하지 않은 것과 동일하다.
   - 테이블의 통계 정보를 영구적으로 관리할 것인지에 대한 결정은 `innodb_stats_persistente` 시스템 변수에 따라 결정된다.
-  - `innodb_stats_persistetce` 시스템 변수의 default 값은 ON이다. 결국, 모든 설정의 default 값은 테이블의 통계 정보를 영구적으로 관리하게 된다.
+  - `innodb_stats_persistence` 시스템 변수의 default 값은 ON이다. 결국, 모든 설정의 default 값은 테이블의 통계 정보를 영구적으로 관리하게 된다.
 
 `ALTER TABLE users STATS_PERSISTENT=?` 명령어로 이미 만들어진 테이블에 설정을 변경할 수 있다.
 
@@ -107,9 +107,9 @@ default 값은 ON으로 설정되어 있다.
 
 테이블에 따라 통계 정보를 자동으로 수집할 지 여부를 설정할 수 있다.
 
-- STATS_AUTO_RECALC=0: `ANALYZE TABLE` 명령으로만 갱신한다. 즉, 수동으로 갱신한다.
-- STATS_AUTO_RECALC=1: 자동 수집한다.
-- STATS_AUTO_RECALC=DEFAULT: 따로 STATS_AUTO_RECALC 옵션을 설정하지 않은 것과 같다. `innodb_stats_auto_recalc` 시스템 변수 값에 따라 결정된다.
+- `STATS_AUTO_RECALC`=0: `ANALYZE TABLE` 명령으로만 갱신한다. 즉, 수동으로 갱신한다.
+- `STATS_AUTO_RECALC`=1: 자동 수집한다.
+- `STATS_AUTO_RECALC`=DEFAULT: 따로 STATS_AUTO_RECALC 옵션을 설정하지 않은 것과 같다. `innodb_stats_auto_recalc` 시스템 변수 값에 따라 결정된다.
 
 이 통계 정보를 수집하거나 갱신할 때 얼마만큼의 데이터 샘플을 가져올 것인지를 정하는 옵션도 존재한다.
 
@@ -824,7 +824,7 @@ COLUMN_NAME: title
   - 버킷은 최대 1024개 설정할 수 있지만 일반적으로 100개의 버킷이면 충분한 것으로 알려져있다.
 
 > 주의 🚨<br>
-> MySQL 8.0.19 미만 버전까지는 히스토그램 생성 시 sampling-rate,histogram_generation_max_mem_size 시스템 변수 크기와 상관없이 풀 스캔을 통해 데이터 페이지를 샘플링하여 히스토그램을 생성했다.<br>
+> MySQL 8.0.19 미만 버전까지는 히스토그램 생성 시 `sampling-rate`, `histogram_generation_max_mem_size` 시스템 변수 크기와 상관없이 풀 스캔을 통해 데이터 페이지를 샘플링하여 히스토그램을 생성했다.<br>
 > 하지만 MySQL 8.0.19 버전부터 InnoDB 스토리지 엔진 자체적으로 샘플링 알고리즘을 구현했으며, 더이상 풀 스캔을 통해 히스토그램을 생성하지 않는다.<br>
 > 따라서 MySQL 8.0.18 버전까지는 히스토그램 생성 시 주의가 필요하다.
 
