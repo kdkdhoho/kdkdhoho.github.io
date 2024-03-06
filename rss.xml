@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 06 Mar 2024 12:02:42 GMT</lastBuildDate><item><title><![CDATA[6장. HTTP 헤더]]></title><description><![CDATA[들어가며 이 글은 그림으로 배우는 Http & Network Basic을 읽고 학습한 내용을 정리한 글입니다. 이번 장에서는 HTTP 헤더에 대해 학습한 내용을 정리해보겠습니다. 추가로 HTTP Entity…]]></description><link>https://kdkdhoho.github.io/06-http-header/</link><guid isPermaLink="false">https://kdkdhoho.github.io/06-http-header/</guid><pubDate>Wed, 06 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 06 Mar 2024 12:36:59 GMT</lastBuildDate><item><title><![CDATA[6장. HTTP 헤더]]></title><description><![CDATA[들어가며 이 글은 그림으로 배우는 Http & Network Basic을 읽고 학습한 내용을 정리한 글입니다. 이번 장에서는 HTTP 헤더에 대해 학습한 내용을 정리해보겠습니다. 추가로 HTTP Entity…]]></description><link>https://kdkdhoho.github.io/06-http-header/</link><guid isPermaLink="false">https://kdkdhoho.github.io/06-http-header/</guid><pubDate>Wed, 06 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
 &lt;p&gt;이 글은 &lt;a href=&quot;https://m.yes24.com/Goods/Detail/15894097&quot;&gt;그림으로 배우는 Http &amp;#x26; Network Basic&lt;/a&gt;을 읽고 학습한 내용을 정리한 글입니다.&lt;/p&gt;
 &lt;p&gt;이번 장에서는 HTTP 헤더에 대해 학습한 내용을 정리해보겠습니다. 추가로 HTTP Entity에 대해서도 학습한 내용을 정리해보겠습니다.&lt;/p&gt;
 &lt;h2&gt;HTTP 헤더란&lt;/h2&gt;
@@ -332,7 +332,7 @@ MySQL 8.0 버전부터는 &lt;strong&gt;인덱스되지 않은 칼럼들에 대�
 &lt;ul&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;STATS_PERSISTENT&lt;/code&gt; 옵션을 설정하지 않은 것과 동일하다.&lt;/li&gt;
 &lt;li&gt;테이블의 통계 정보를 영구적으로 관리할 것인지에 대한 결정은 &lt;code class=&quot;language-text&quot;&gt;innodb_stats_persistente&lt;/code&gt; 시스템 변수에 따라 결정된다.&lt;/li&gt;
-&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;innodb_stats_persistetce&lt;/code&gt; 시스템 변수의 default 값은 ON이다. 결국, 모든 설정의 default 값은 테이블의 통계 정보를 영구적으로 관리하게 된다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;innodb_stats_persistence&lt;/code&gt; 시스템 변수의 default 값은 ON이다. 결국, 모든 설정의 default 값은 테이블의 통계 정보를 영구적으로 관리하게 된다.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -411,9 +411,9 @@ MySQL 8.0 버전부터는 &lt;strong&gt;인덱스되지 않은 칼럼들에 대�
 default 값은 ON으로 설정되어 있다.&lt;/p&gt;
 &lt;p&gt;테이블에 따라 통계 정보를 자동으로 수집할 지 여부를 설정할 수 있다.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;STATS&lt;em&gt;AUTO&lt;/em&gt;RECALC=0: &lt;code class=&quot;language-text&quot;&gt;ANALYZE TABLE&lt;/code&gt; 명령으로만 갱신한다. 즉, 수동으로 갱신한다.&lt;/li&gt;
-&lt;li&gt;STATS&lt;em&gt;AUTO&lt;/em&gt;RECALC=1: 자동 수집한다.&lt;/li&gt;
-&lt;li&gt;STATS&lt;em&gt;AUTO&lt;/em&gt;RECALC=DEFAULT: 따로 STATS&lt;em&gt;AUTO&lt;/em&gt;RECALC 옵션을 설정하지 않은 것과 같다. &lt;code class=&quot;language-text&quot;&gt;innodb_stats_auto_recalc&lt;/code&gt; 시스템 변수 값에 따라 결정된다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;STATS_AUTO_RECALC&lt;/code&gt;=0: &lt;code class=&quot;language-text&quot;&gt;ANALYZE TABLE&lt;/code&gt; 명령으로만 갱신한다. 즉, 수동으로 갱신한다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;STATS_AUTO_RECALC&lt;/code&gt;=1: 자동 수집한다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;STATS_AUTO_RECALC&lt;/code&gt;=DEFAULT: 따로 STATS&lt;em&gt;AUTO&lt;/em&gt;RECALC 옵션을 설정하지 않은 것과 같다. &lt;code class=&quot;language-text&quot;&gt;innodb_stats_auto_recalc&lt;/code&gt; 시스템 변수 값에 따라 결정된다.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;이 통계 정보를 수집하거나 갱신할 때 얼마만큼의 데이터 샘플을 가져올 것인지를 정하는 옵션도 존재한다.&lt;/p&gt;
 &lt;ul&gt;
@@ -1196,7 +1196,7 @@ COLUMN_NAME: title
 &lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;주의 🚨&lt;br&gt;
-MySQL 8.0.19 미만 버전까지는 히스토그램 생성 시 sampling-rate,histogram&lt;em&gt;generation&lt;/em&gt;max&lt;em&gt;mem&lt;/em&gt;size 시스템 변수 크기와 상관없이 풀 스캔을 통해 데이터 페이지를 샘플링하여 히스토그램을 생성했다.&lt;br&gt;
+MySQL 8.0.19 미만 버전까지는 히스토그램 생성 시 &lt;code class=&quot;language-text&quot;&gt;sampling-rate&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;histogram_generation_max_mem_size&lt;/code&gt; 시스템 변수 크기와 상관없이 풀 스캔을 통해 데이터 페이지를 샘플링하여 히스토그램을 생성했다.&lt;br&gt;
 하지만 MySQL 8.0.19 버전부터 InnoDB 스토리지 엔진 자체적으로 샘플링 알고리즘을 구현했으며, 더이상 풀 스캔을 통해 히스토그램을 생성하지 않는다.&lt;br&gt;
 따라서 MySQL 8.0.18 버전까지는 히스토그램 생성 시 주의가 필요하다.&lt;/p&gt;
 &lt;/blockquote&gt;

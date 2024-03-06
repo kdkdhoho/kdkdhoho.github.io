@@ -305,7 +305,7 @@ MySQL 8.0 버전부터는 <strong>인덱스되지 않은 칼럼들에 대해서 
 <ul>
 <li><code class="language-text">STATS_PERSISTENT</code> 옵션을 설정하지 않은 것과 동일하다.</li>
 <li>테이블의 통계 정보를 영구적으로 관리할 것인지에 대한 결정은 <code class="language-text">innodb_stats_persistente</code> 시스템 변수에 따라 결정된다.</li>
-<li><code class="language-text">innodb_stats_persistetce</code> 시스템 변수의 default 값은 ON이다. 결국, 모든 설정의 default 값은 테이블의 통계 정보를 영구적으로 관리하게 된다.</li>
+<li><code class="language-text">innodb_stats_persistence</code> 시스템 변수의 default 값은 ON이다. 결국, 모든 설정의 default 값은 테이블의 통계 정보를 영구적으로 관리하게 된다.</li>
 </ul>
 </li>
 </ul>
@@ -384,9 +384,9 @@ MySQL 8.0 버전부터는 <strong>인덱스되지 않은 칼럼들에 대해서 
 default 값은 ON으로 설정되어 있다.</p>
 <p>테이블에 따라 통계 정보를 자동으로 수집할 지 여부를 설정할 수 있다.</p>
 <ul>
-<li>STATS<em>AUTO</em>RECALC=0: <code class="language-text">ANALYZE TABLE</code> 명령으로만 갱신한다. 즉, 수동으로 갱신한다.</li>
-<li>STATS<em>AUTO</em>RECALC=1: 자동 수집한다.</li>
-<li>STATS<em>AUTO</em>RECALC=DEFAULT: 따로 STATS<em>AUTO</em>RECALC 옵션을 설정하지 않은 것과 같다. <code class="language-text">innodb_stats_auto_recalc</code> 시스템 변수 값에 따라 결정된다.</li>
+<li><code class="language-text">STATS_AUTO_RECALC</code>=0: <code class="language-text">ANALYZE TABLE</code> 명령으로만 갱신한다. 즉, 수동으로 갱신한다.</li>
+<li><code class="language-text">STATS_AUTO_RECALC</code>=1: 자동 수집한다.</li>
+<li><code class="language-text">STATS_AUTO_RECALC</code>=DEFAULT: 따로 STATS<em>AUTO</em>RECALC 옵션을 설정하지 않은 것과 같다. <code class="language-text">innodb_stats_auto_recalc</code> 시스템 변수 값에 따라 결정된다.</li>
 </ul>
 <p>이 통계 정보를 수집하거나 갱신할 때 얼마만큼의 데이터 샘플을 가져올 것인지를 정하는 옵션도 존재한다.</p>
 <ul>
@@ -1169,7 +1169,7 @@ COLUMN_NAME: title
 </ul>
 <blockquote>
 <p>주의 🚨<br>
-MySQL 8.0.19 미만 버전까지는 히스토그램 생성 시 sampling-rate,histogram<em>generation</em>max<em>mem</em>size 시스템 변수 크기와 상관없이 풀 스캔을 통해 데이터 페이지를 샘플링하여 히스토그램을 생성했다.<br>
+MySQL 8.0.19 미만 버전까지는 히스토그램 생성 시 <code class="language-text">sampling-rate</code>, <code class="language-text">histogram_generation_max_mem_size</code> 시스템 변수 크기와 상관없이 풀 스캔을 통해 데이터 페이지를 샘플링하여 히스토그램을 생성했다.<br>
 하지만 MySQL 8.0.19 버전부터 InnoDB 스토리지 엔진 자체적으로 샘플링 알고리즘을 구현했으며, 더이상 풀 스캔을 통해 히스토그램을 생성하지 않는다.<br>
 따라서 MySQL 8.0.18 버전까지는 히스토그램 생성 시 주의가 필요하다.</p>
 </blockquote>
