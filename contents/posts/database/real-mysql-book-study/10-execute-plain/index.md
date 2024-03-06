@@ -1,6 +1,6 @@
 ---
-title: "MySQL에서의 실행 계획에 대해 알아보자"
-description: "10 실행 계획"
+title: "MySQL의 실행 계획에 대해 알아보자"
+description: "10. 실행 계획"
 date: 2024-03-05
 tags: ["database"]
 series: "Real MySQL 8.0"
