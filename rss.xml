@@ -1,4 +1,220 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 06 Mar 2024 12:36:59 GMT</lastBuildDate><item><title><![CDATA[6장. HTTP 헤더]]></title><description><![CDATA[들어가며 이 글은 그림으로 배우는 Http & Network Basic을 읽고 학습한 내용을 정리한 글입니다. 이번 장에서는 HTTP 헤더에 대해 학습한 내용을 정리해보겠습니다. 추가로 HTTP Entity…]]></description><link>https://kdkdhoho.github.io/06-http-header/</link><guid isPermaLink="false">https://kdkdhoho.github.io/06-http-header/</guid><pubDate>Wed, 06 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 07 Mar 2024 10:11:16 GMT</lastBuildDate><item><title><![CDATA[[Spring] 스프링 컨테이너, 그리고 IoC/DI]]></title><description><![CDATA[들어가며 이번에는 스프링 애플리케이션의 핵심인 스프링 컨테이너와 스프링의 핵심 프로그래밍 모델 중 하나인 IoC/DI에 대해 학습한 내용을 정리해보겠습니다. 참고로 토비의 스프링 3.1을 통해 학습을 진행했습니다. 1. IoC 컨테이너: Bean…]]></description><link>https://kdkdhoho.github.io/ioc-container-and-di/</link><guid isPermaLink="false">https://kdkdhoho.github.io/ioc-container-and-di/</guid><pubDate>Thu, 07 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
+&lt;p&gt;이번에는 스프링 애플리케이션의 핵심인 &lt;u&gt;스프링 컨테이너&lt;/u&gt;와 스프링의 핵심 프로그래밍 모델 중 하나인 &lt;u&gt;IoC/DI&lt;/u&gt;에 대해 학습한 내용을 정리해보겠습니다.&lt;/p&gt;
+&lt;p&gt;참고로 &lt;a href=&quot;https://m.yes24.com/Goods/Detail/75738556&quot;&gt;토비의 스프링 3.1&lt;/a&gt;을 통해 학습을 진행했습니다.&lt;/p&gt;
+&lt;h2&gt;1. IoC 컨테이너: Bean Factory와 Application Context&lt;/h2&gt;
+&lt;p&gt;스프링 애플리케이션에는 스프링 컨테이너가 존재합니다.&lt;br&gt;
+스프링 컨테이너는 객체 생성, 의존성 주입(DI), 객체 소멸을 개발자 대신 수행합니다.&lt;br&gt;
+이 때문에 제어의 역전, Inversion of Control. 즉, &lt;strong&gt;스프링 컨테이너를 IoC 컨테이너라고도 부릅니다.&lt;/strong&gt;&lt;br&gt;
+또는 경우에 따라 &lt;strong&gt;Bean Factory&lt;/strong&gt;나 &lt;strong&gt;Application Context&lt;/strong&gt; 라고 부르기도 합니다.&lt;/p&gt;
+&lt;p&gt;하지만 Bean Factory와 Application Context는 느낌이 약간 다릅니다.&lt;br&gt;
+객체의 생성과 소멸, DI를 수행하는 관점에서는 Bean Factory 라고 할 수 있지만, 사실 스프링 컨테이너는 더 많은 작업을 수행하기 때문입니다.&lt;br&gt;
+이러한 작업들을 모두 포함해서 스프링 컨테이너를 봤을 땐 Application Context 라고 부르는 것이 합당할 수 있겠습니다.&lt;br&gt;
+따라서 일반적으로 스프링 컨테이너를 &lt;strong&gt;Application Context&lt;/strong&gt;라고 부릅니다.&lt;/p&gt;
+&lt;p&gt;실제로 아래 사진을 보시면 &lt;code class=&quot;language-text&quot;&gt;ApplicationContext&lt;/code&gt;가 &lt;code class=&quot;language-text&quot;&gt;BeanFactory&lt;/code&gt;를 상속받아 기능을 확장하고 있는 것을 확인할 수 있습니다.&lt;br&gt;
+(클릭하면 크게 볼 수 있습니다!) &lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/77eab79253e25860f0f891091dd88d98/ced39/inherit.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 67.64705882352942%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAACSElEQVR42pWT2XKbQBBF+Q3HEssMs8Gwik1CSLHjqOK3/P/P3FxQ7DgPqZQfTmkQdE/fvt3By/Adt+NPLO0CmWrikEiDOFEbidCfIkiyCjqvYF0OR3zZQGsLpQyUdgij5FME0tYwWc2EHtp6GOOQuQIuK7cbw0gijOX2uw9XBPY8R/Gf/z8S2OIA62tkeYmiqOAzj8KXTJptlcaxQLiP+HEMKQRUmiKVDA5jJr8TfiCYLzf45oKsOkPlExLdQ5ge0g7QxQWKpJ7vyHS+4evzK5brDeXhHqP9kTHdFiMYE3TTBe0wQ7OXjtVKyn6MFKLEEHtHsFLhEMkMqSlhXAObtXB5yzZVkMoj1cX2TTC3J1zGJ8z9QmYcigGeL9cevbH2KhF0PEkpW0IoBak1RKo2HsMQX3Z77FbJp/aCfnjFNP7A1Cw4d1ccfM/epe+j8z5CqYG3DlM14kjJU3vGUI+oXYs666ClRSBchdA2iOj2nhU8PO7xsAvZ7OQvwkggZsKqKHBbntE1T+i7b+jYx8Z1aPMRRlJyWVbI8+I+Ouyhp9Or23mW02m3PWuOUiLWiik9EZvMHYMjXiApfxdGLIKSOQ3BaXlB3pzhuSm2PCHlTYrIbEBK1O/nlcR05EBHu39wQNCPV6xJh+MTWhpz5HnmWBTNBEFzQjr3xury/wi6bsK8XNH1I7qhxzAe0bb9toqrxD3l/E38T7bBfqk9Fro7s8FnbshkDE5Zhilv6CadLBeM5FhfMRQjnM23FV1X1XJFzbqu9n5OlcMvt8meJjuCSVgAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;실제 상속 구조&apos; title=&apos;&apos; src=&apos;/static/77eab79253e25860f0f891091dd88d98/ca1dc/inherit.png&apos; srcset=&apos;/static/77eab79253e25860f0f891091dd88d98/e7570/inherit.png 170w,
+/static/77eab79253e25860f0f891091dd88d98/f46e7/inherit.png 340w,
+/static/77eab79253e25860f0f891091dd88d98/ca1dc/inherit.png 680w,
+/static/77eab79253e25860f0f891091dd88d98/02d09/inherit.png 1020w,
+/static/77eab79253e25860f0f891091dd88d98/9d567/inherit.png 1360w,
+/static/77eab79253e25860f0f891091dd88d98/ced39/inherit.png 1408w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;실제 상속 구조&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h4&gt;요약&lt;br&gt;&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;스프링 애플리케이션에는 스프링 컨테이너가 존재한다.&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;스프링 컨테이너는 객체의 생명주기와 의존성 주입을 수행한다.&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;경우에 따라 스프링 컨테이너는 IoC 컨테이너, Bean Factory, Application Context 라고 불린다.&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;하지만 BeanFactory와 ApplicationContext의 역할을 따졌을 때, 일반적으로 Application Context 로 불린다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;2. IoC 컨테이너의 동작원리&lt;/h2&gt;
+&lt;p&gt;그럼 IoC 컨테이너는 어떻게 객체를 생성하고 소멸하며, 필요한 의존성을 주입하게 되는 것일까요?&lt;br&gt;
+바로 &lt;u&gt;POJO 클래스와 설정 메타정보를 이용하기 때문입니다.&lt;/u&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;POJO 클래스&lt;/h3&gt;
+&lt;p&gt;POJO(Plain Old Java Object)는 &lt;u&gt;Java로만 만들어진 순수 클래스 파일입니다.&lt;/u&gt;&lt;br&gt;
+바로 이 POJO 클래스가 개발자가 작성한 코드가 되는 것이죠.&lt;br&gt;
+Repository 객체가 될 수 있고, Service 객체가 될 수 있으며, 순수한 Domain 객체가 될 수 있습니다.&lt;/p&gt;
+&lt;h4&gt;설정 메타정보&lt;/h4&gt;
+&lt;p&gt;설정 메타정보는 &lt;u&gt;스프링 애플리케이션에게 런타임에 사용할 POJO 객체임을 선언하고, 이로 인해 IoC 컨테이너가 제어할 수 있도록 알려주는 메타정보입니다.&lt;/u&gt;&lt;br&gt;
+즉, 스프링에게 Bean으로 등록할 객체를 알리는 방법입니다.&lt;br&gt;
+(여기서 Bean이란, 스프링 컨테이너에 생성되어 관리되는 객체를 일컫는 용어입니다.)&lt;/p&gt;
+&lt;p&gt;결국 &lt;u&gt;스프링 컨테이너는 POJO와 설정 메타정보를 가지고 IoC/DI 작업을 수행하는 것입니다.&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 498px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/dd0e46ebb3c279e93ca5aebf419cd4b5/c365b/spring-container.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 59.411764705882355%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAAB8UlEQVR42pWTTU8TQRjH9xNULigJNSRw4EC4cOGrcODQhM/AgTs3TnrVEGnQAiE01kZFjQlUTZRELzX75na7td26u27TfWnZZV/+zgx2Y6QSfJJ/Zmfn2V9+M5Pl0jTF2AAstPRuF98UBYIggOd5aJqGer2ORqMBSZLY+36/z3q5fwERxyzJxQV6loWh58F3HHhkHAyHcMiz7/tsThOG4SXwtwSSJGGhsISAvnS6eP9dJ+ngtNnC2Q8LH9o6DNdj/SP7UY1EuJh8HAQBoijKoNTmpaphT2mixMsoCTL2JQX7ZK5YdiYwbmccXVBVFZVKBdVqFbVaDYau422rg7LawoPTd7j/4hjFs894qrWh2r3MCGMs2ZapHT1cURRhmCbSOMIzWUGRmO3yEh6LxFBRsUvmsmldD8wu4c8FYm24PtqOh47jQ+6akHSDxT8PcF1lQHqWcRKzs4lJeoOfsAcmGU2Iza8sAokXuDcDstslIFq2Z2P5YBm3d+4gX7yLqe0pzJbmMLE9ga1PW6wnSqKbAw3XwNLhEmYOZrB4tIiFowXMH84jt5PD5sfN/wearonph9O49SiH2b05TBYnkX+SB3ePw8bJBusJ4/Dqz3AFmF4C3XMX6yfrWD1eReF1AYVXBay9WcPK8xWUhXJm+DeMAn8B1rtqWQIt6icAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;스프링 컨테이너&apos; title=&apos;&apos; src=&apos;/static/dd0e46ebb3c279e93ca5aebf419cd4b5/c365b/spring-container.png&apos; srcset=&apos;/static/dd0e46ebb3c279e93ca5aebf419cd4b5/e7570/spring-container.png 170w,
+/static/dd0e46ebb3c279e93ca5aebf419cd4b5/f46e7/spring-container.png 340w,
+/static/dd0e46ebb3c279e93ca5aebf419cd4b5/c365b/spring-container.png 498w&apos; sizes=&apos;(max-width: 498px) 100vw, 498px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;스프링 컨테이너&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;설정 메타정보는 &lt;code class=&quot;language-text&quot;&gt;BeanDefinition&lt;/code&gt; 으로 만들어진 순수한 추상 정보이고, 스프링 컨테이너는 바로 이 &lt;code class=&quot;language-text&quot;&gt;BeanDefinition&lt;/code&gt;으로 만들어진 객체를 사용해 IoC/DI 작업을 수행하게 되는 것입니다.&lt;br&gt;
+따라서 제공하려는 메타정보를 읽어서 &lt;code class=&quot;language-text&quot;&gt;BeanDefinition&lt;/code&gt; 객체로 만들어 등록하는 &lt;code class=&quot;language-text&quot;&gt;BeanDefinitionReader&lt;/code&gt;만 있다면 어떤 방법으로든 모두 가능합니다.&lt;br&gt;
+주로 XML, 어노테이션 등과 같은 방식으로 메타정보를 나타냅니다.&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;결과적으로 스프링 컨테이너는 각 객체에 대한 정보를 담은 설정 메타정보를 읽고, 이를 활용해 IoC/DI 작업을 수행하게 됩니다.&lt;/u&gt;&lt;br&gt;
+&lt;u&gt;이 작업들을 통해 만들어진 객체들이 모여 하나의 애플리케이션을 구성하고 동작하게 되는 것입니다.&lt;/u&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h4&gt;요약&lt;br&gt;&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;IoC 컨테이너는 POJO 클래스와 설정 메타정보를 이용해 IoC/DI 작업을 수행한다.&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;POJO 클래스는 개발자가 작성한 순수 Java 코드이다.&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;설정 메타정보는 Bean으로 등록할 객체임을 스프링에게 알리는 방법이다.&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;IoC 컨테이너는 메타정보를 통해 객체들을 생성하며 DI 작업을 수행하고 마침내 스프링 애플리케이션이 동작하게 된다.&lt;br&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;직접 IoC 컨테이너 만들어보기&lt;/h3&gt;
+&lt;p&gt;이제는 직접 코드를 통해 IoC 컨테이너를 만들어보고 눈으로 확인해보겠습니다.&lt;br&gt;
+다시 한번 상기시키자면 IoC 컨테이너는 &lt;strong&gt;POJO&lt;/strong&gt;와 &lt;strong&gt;설정 메타정보&lt;/strong&gt;가 필요합니다.&lt;/p&gt;
+&lt;p&gt;우선 POJO 만으로 IoC 컨테이너에 Bean으로 등록해보겠습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Hello&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; name&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Printer&lt;/span&gt; printer&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;sayHello&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Hello &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; name&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        printer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;sayHello&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; name&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; name&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setPrinter&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Printer&lt;/span&gt; printer&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;printer &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; printer&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Printer&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    
+    &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; message&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;StringPrinter&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Printer&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;StringBuffer&lt;/span&gt; buffer &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;StringBuffer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; message&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        buffer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;message&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; buffer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ConsolePrinter&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Printer&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; message&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;message&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 650px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/f8b6b9898ec27fd3897b97f965819f47/663f3/test1-result.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 31.76470588235294%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABTklEQVR42nXOT3OaQBzGcd5GggokGUVYRCmwIkRI0KAhbZNpD3rsoebPC8jBXDJj+7q/3Wy95vCZZ5/f/nZmjbFwcT2B1Q9wnAvMjvWpTtem23V06tlHKp2jnnWG4djnxGlOcdWQ5XMSOSOVuZplOmVW6JmcFogwIhAeURSTqp4mU208SRhHCYOhwLAtC284JPAFvuerB4HqnuoBQhkFI5VC94HrcuGeM+j31d6IwO0j3AG27eBYNnbPwqimNdf5HdXslqu85TK9oZ5/Y6Es59+p1N08W6udlixdIpNa/aokDgsKtZtHJVVckYYlclJhDItffFnumK6fkCul2ZE0j+TtC7P2mUn9G/n1lWpzIPtxoNz+odr+Jb1/J1y/Mdb2BM2e0WqPYfV6mKcmpx9ME/NI95P/Zy+UXJYNTfPAYvWTZbshyW/xoxo/Xmji6B/YeMEIizsQYAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;테스트1 결과&apos; title=&apos;&apos; src=&apos;/static/f8b6b9898ec27fd3897b97f965819f47/663f3/test1-result.png&apos; srcset=&apos;/static/f8b6b9898ec27fd3897b97f965819f47/e7570/test1-result.png 170w,
+/static/f8b6b9898ec27fd3897b97f965819f47/f46e7/test1-result.png 340w,
+/static/f8b6b9898ec27fd3897b97f965819f47/663f3/test1-result.png 650w&apos; sizes=&apos;(max-width: 650px) 100vw, 650px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;테스트1 결과&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;테스트 수행 결과, 개발자가 따로 &lt;code class=&quot;language-text&quot;&gt;Hello&lt;/code&gt; 객체를 만들어주지 않아도 IoC 컨테이너에 객체로 만들어져있는 것을 확인할 수 있습니다.&lt;br&gt;
+이제는 직접 &lt;code class=&quot;language-text&quot;&gt;BeanDefinition&lt;/code&gt;을 활용해 설정 메타정보를 만들고 &lt;code class=&quot;language-text&quot;&gt;Printer&lt;/code&gt;에 대한 의존성 주입까지 해보겠습니다.&lt;br&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;의존성 주입을 받는 방법으로는 setter 주입, 필드 주입, 생성자 주입이 있습니다.&lt;br&gt;
+본 글에서는 편의를 위해 setter 주입을 사용합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Test&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// given&lt;/span&gt;
+    &lt;span class=&quot;token class-name&quot;&gt;StaticApplicationContext&lt;/span&gt; applicationContext &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;StaticApplicationContext&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token class-name&quot;&gt;RootBeanDefinition&lt;/span&gt; printerBeanDefinition &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;RootBeanDefinition&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;StringPrinter&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    applicationContext&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;registerBeanDefinition&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;printer&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; stringPrinterBeanDefinition&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;// when&lt;/span&gt;
+    &lt;span class=&quot;token class-name&quot;&gt;BeanDefinition&lt;/span&gt; helloBeanDefinition &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;RootBeanDefinition&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Hello&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token class-name&quot;&gt;MutablePropertyValues&lt;/span&gt; propertyValues &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; helloBeanDefinition&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getPropertyValues&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    propertyValues&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addPropertyValue&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;World!&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    propertyValues&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addPropertyValue&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;printer&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;RuntimeBeanReference&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;printer&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    applicationContext&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;registerBeanDefinition&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;hello&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; helloBeanDefinition&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;// then&lt;/span&gt;
+    &lt;span class=&quot;token class-name&quot;&gt;Hello&lt;/span&gt; hello &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; applicationContext&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getBean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;hello&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Hello&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    hello&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token function&quot;&gt;assertThat&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;applicationContext&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getBean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;printer&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;isEqualTo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Hello World!&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위 테스트 코드에서는 &lt;code class=&quot;language-text&quot;&gt;StringPrinter&lt;/code&gt;를 IoC 컨테이너에 Bean으로 등록하고 &lt;code class=&quot;language-text&quot;&gt;Hello&lt;/code&gt; 객체에 &lt;code class=&quot;language-text&quot;&gt;addPropertyValue&lt;/code&gt; 메서드를 통해 주입해주었습니다.&lt;br&gt;
+만약 생성자 주입이라면 아래와 같이 코드를 작성하면 됩니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token class-name&quot;&gt;BeanDefinition&lt;/span&gt; helloBeanDefinition &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;RootBeanDefinition&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Hello&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token class-name&quot;&gt;ConstructorArgumentValues&lt;/span&gt; constructorArgumentValues &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; helloBeanDefinition&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getConstructorArgumentValues&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+constructorArgumentValues&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addIndexedArgumentValue&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;World!&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+constructorArgumentValues&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addIndexedArgumentValue&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;RuntimeBeanReference&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;printer&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이번에는 코드 한 줄만 바꿔 &lt;code class=&quot;language-text&quot;&gt;ConsolePrinter&lt;/code&gt;가 주입되도록 수정해보겠습니다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/143fe39b4999b45b5285e558446ecb2e/00c79/console-printer-injection.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 64.70588235294117%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB/0lEQVR42oWTWZKbMBCGOUfsGMQmIUBiswEDnkwmLznBVM397/GnuxkndlUqefiqW2pV7wr61qHwZxjbIFIZojiHIqIHVKwf9J040UiImGzqgYANvh3hfA9T1Cisgy4q0W3pkesSOjdyLzYiI8LU4MspwTFKEao/BCrO4JseTTugdp3QdmfB+Q62KOFcg6YbUDUdNufxs2vw5h3eihxTGuN4inEKdyjDXJxUdYuy8pSVkzNnXNUNZVWj5EytRWIKdLbC5hssFGR1NVySPjvkDNlRri3YOcssL6RHSiWkG2K/Y1uScq8yHMjJIdwJmSjZHfKD+XrDOK+4Li/COC1ynkiu2wvZNwznGRO9u4wz+mGQJEqpppWKSqqGg4rDad7k8bq9ivN5uWG7fZfzQozTirLtUddegs3bHpSd8aByUyIpDFKqJohoMpou0sxIOSz3Eq3odyLqVZxSSyiL7BMu/RSq3/3bh0JO+mGSKfMAOCKvjKHV4QFpUyHRtHO5hqYVMlkuPTscQ3w9RYR6IuCd4wx432QQFPUOZ88olT3d/4vAUnMNZ0bZsLzrT1S7tJ8Uf4HveTDBeVxx+/YD/WXGSsN4Jf08LnIeLlda6Mv/6S9w9DnYcVDTb/D9iImW9X1d8bGtGFv+FQP9IPo9tOCOJC866/ffdD87P4ide89D+QVnB4abaI+PkQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;ConsolePrinter 주입&apos; title=&apos;&apos; src=&apos;/static/143fe39b4999b45b5285e558446ecb2e/ca1dc/console-printer-injection.png&apos; srcset=&apos;/static/143fe39b4999b45b5285e558446ecb2e/e7570/console-printer-injection.png 170w,
+/static/143fe39b4999b45b5285e558446ecb2e/f46e7/console-printer-injection.png 340w,
+/static/143fe39b4999b45b5285e558446ecb2e/ca1dc/console-printer-injection.png 680w,
+/static/143fe39b4999b45b5285e558446ecb2e/00c79/console-printer-injection.png 879w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;ConsolePrinter 주입&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;테스트를 돌려보면 실제로 &lt;code class=&quot;language-text&quot;&gt;Hello World!&lt;/code&gt; 가 콘솔창에 출력되는 것을 확인할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;마지막으로 IoC 컨테이너에서 Bean을 삭제하는 것도 테스트해보겠습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Test&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// given&lt;/span&gt;
+    &lt;span class=&quot;token class-name&quot;&gt;StaticApplicationContext&lt;/span&gt; applicationContext &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;StaticApplicationContext&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token class-name&quot;&gt;RootBeanDefinition&lt;/span&gt; printerBeanDefinition &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;RootBeanDefinition&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;ConsolePrinter&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    applicationContext&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;registerBeanDefinition&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;printer&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; printerBeanDefinition&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;// when&lt;/span&gt;
+    applicationContext&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;removeBeanDefinition&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;printer&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;// then&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;assertThatThrownBy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&gt;&lt;/span&gt; applicationContext&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getBean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;printer&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;isInstanceOf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;NoSuchBeanDefinitionException&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 289px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/c9e29010ac9bf1bc5ccbb6e91194abc6/3b5c2/result-test4.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 20.58823529411765%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA40lEQVR42l2M206DUBBF+RujcoAjCByutlB8sTRSaom3mpiYqJE+mJj4BaZfvTxQ0wcfVvaelZkxTMthRDr4gSKKU/wwGnuoYsIoIdA5eOl6WI7Eds5wpDumLfddWJJjU2BYMsD2Ymx9VF/f0qw3tN0TdXPHor2nuXlguX7UbkNxWaOSApWWRJo4m40keYUbZJzaPoapWqzyEzHpEdUbk9U3zfMPq5cdav7FUfqKmPac5O+Y0w9EsdWpd4t+9Ae0t8qtfuheIMIFIpgj1BXn+ZJ01pFVHV7WYA5+INxzmP9h/vELfuiMnDrXf9cAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;Bean 삭제 테스트 결과&apos; title=&apos;&apos; src=&apos;/static/c9e29010ac9bf1bc5ccbb6e91194abc6/3b5c2/result-test4.png&apos; srcset=&apos;/static/c9e29010ac9bf1bc5ccbb6e91194abc6/e7570/result-test4.png 170w,
+/static/c9e29010ac9bf1bc5ccbb6e91194abc6/3b5c2/result-test4.png 289w&apos; sizes=&apos;(max-width: 289px) 100vw, 289px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;Bean 삭제 테스트 결과&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Bean 삭제 또한 가능한 것을 확인할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;지금까지 POJO와 &lt;code class=&quot;language-text&quot;&gt;BeanDefinition&lt;/code&gt;을 이용한 설정 메타정보를 통해 IoC 컨테이너를 만들어보았습니다.&lt;br&gt;
+코드로 직접 테스트해보니 객체 생성, 의존성 주입, 객체 삭제까지 객체의 모든 생명 주기를 관리하는 것을 확인할 수 있었다.&lt;/p&gt;
+&lt;h2&gt;마치며&lt;/h2&gt;
+&lt;p&gt;스프링 컨테이너와 IoC/DI에 대해 어느정도 알고 있다고 생각했지만 막상 다시 공부해보니 새로운 느낌이었습니다.&lt;br&gt;
+게다가 테스트 코드를 통해 직접 눈으로 확인해보니 조금 더 잘 와닿는 것 같습니다.&lt;/p&gt;
+&lt;p&gt;다음으로는 IoC 컨테이너의 종류 중 하나인 &lt;code class=&quot;language-text&quot;&gt;WebApplicationContext&lt;/code&gt;에 대해 알아보겠습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[6장. HTTP 헤더]]></title><description><![CDATA[들어가며 이 글은 그림으로 배우는 Http & Network Basic을 읽고 학습한 내용을 정리한 글입니다. 이번 장에서는 HTTP 헤더에 대해 학습한 내용을 정리해보겠습니다. 추가로 HTTP Entity…]]></description><link>https://kdkdhoho.github.io/06-http-header/</link><guid isPermaLink="false">https://kdkdhoho.github.io/06-http-header/</guid><pubDate>Wed, 06 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
 &lt;p&gt;이 글은 &lt;a href=&quot;https://m.yes24.com/Goods/Detail/15894097&quot;&gt;그림으로 배우는 Http &amp;#x26; Network Basic&lt;/a&gt;을 읽고 학습한 내용을 정리한 글입니다.&lt;/p&gt;
 &lt;p&gt;이번 장에서는 HTTP 헤더에 대해 학습한 내용을 정리해보겠습니다. 추가로 HTTP Entity에 대해서도 학습한 내용을 정리해보겠습니다.&lt;/p&gt;
 &lt;h2&gt;HTTP 헤더란&lt;/h2&gt;
