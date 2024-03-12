@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 12 Mar 2024 07:32:09 GMT</lastBuildDate><item><title><![CDATA[[Java] JDBC 마스터하기]]></title><description><![CDATA[들어가며 이번에는 JDBC에 대해 학습한 내용을 정리해보겠습니다. 1. JDBC란? Java DataBase Connectivity, JDBC는 Java 애플리케이션과 DB를 연결하고 통신할 수 있도록 제공하는 API 입니다.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 12 Mar 2024 08:17:05 GMT</lastBuildDate><item><title><![CDATA[[Java] JDBC 마스터하기]]></title><description><![CDATA[들어가며 이번에는 JDBC에 대해 학습한 내용을 정리해보겠습니다. 1. JDBC란? Java DataBase Connectivity, JDBC는 Java 애플리케이션과 DB를 연결하고 통신할 수 있도록 제공하는 API 입니다.
 JDBC…]]></description><link>https://kdkdhoho.github.io/what-is-jdbc/</link><guid isPermaLink="false">https://kdkdhoho.github.io/what-is-jdbc/</guid><pubDate>Tue, 12 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
 &lt;p&gt;이번에는 JDBC에 대해 학습한 내용을 정리해보겠습니다.&lt;/p&gt;
 &lt;h2&gt;1. JDBC란?&lt;/h2&gt;
@@ -27,6 +27,27 @@ JDBC 덕분에 우리는 어떤 DB 제품을 사용하더라도 JDBC에만 의�
 &lt;p&gt;&quot;특정 DB와의 연결(세션)이다. 연결 컨텍스트 내에서 SQL 문이 실행되고 결과가 반환된다.&quot;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;결국, 쿼리를 날리고 결과를 반환받기 위해선 이 &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt; 객체가 필수로 생성되어야 합니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt;이 제공하는 기능은 다음과 같습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;트랜잭션 경계 설정: &lt;code class=&quot;language-text&quot;&gt;setAutoCommit(boolean)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;트랜잭션 격리 레벨 설정: &lt;code class=&quot;language-text&quot;&gt;setTransactionIsolation(int)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ReadOnly 설정: &lt;code class=&quot;language-text&quot;&gt;setReadOnly(boolean)&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ReadOnly를 true로 설정하면 &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt;을 읽기 전용 모드로 설정하며 &lt;code class=&quot;language-text&quot;&gt;Driver&lt;/code&gt;에게 힌트로 제공하여 최적화를 활성화합니다.
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 619px; &apos;&gt;
+      &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 24.11764705882353%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA1klEQVR42l2PSW7DMAxFdZNY82BLsuWoLjps0vuf6ZeiHSDt4uGTAPVICeU8bEowIVwZT+K/JCzVmubHm7P/O6+9hxiNzwsPB0qXIpGIGW4h5pkXjRxIbZlJGdwmjZu8uGqhrSfhDJNItjaoVKBDYnkoGX5ZmKd8EGvhJROJlXWQ5syxRJwbHVSgK2uDy5W/MiSxFE4WkyjkzFi6Xhp6Q0g6iGvKSVmILRfM9UDoP4j9gbZ19Fqxrjve3r+xtgN73XDfGvb+iX584d4/4EOG0gHaxBcSfgEEspN75akLtQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;ReadOnly&apos; title=&apos;&apos; src=&apos;/static/53574cd4e857adb5f65141d4e62d080f/80833/explain-of-readonly.png&apos; srcset=&apos;/static/53574cd4e857adb5f65141d4e62d080f/e7570/explain-of-readonly.png 170w,
+/static/53574cd4e857adb5f65141d4e62d080f/f46e7/explain-of-readonly.png 340w,
+/static/53574cd4e857adb5f65141d4e62d080f/80833/explain-of-readonly.png 619w&apos; sizes=&apos;(max-width: 619px) 100vw, 619px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;ReadOnly&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;br&gt;
+참고: &lt;a href=&quot;https://dev.mysql.com/doc/refman/8.0/en/innodb-performance-ro-txn.html&quot;&gt;Optimizing InnoDB Read-Only Transactions - MySQL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;그렇다면 &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt; 객체는 어떻게 생성할까요?&lt;br&gt;
 총 2가지 방법이 존재하며 각각에 대해 알아보겠습니다.&lt;/p&gt;
 &lt;h3&gt;2-1. DriverManager&lt;/h3&gt;

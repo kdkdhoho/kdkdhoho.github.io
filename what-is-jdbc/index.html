@@ -249,6 +249,27 @@ JDBC 덕분에 우리는 어떤 DB 제품을 사용하더라도 JDBC에만 의�
 <p>"특정 DB와의 연결(세션)이다. 연결 컨텍스트 내에서 SQL 문이 실행되고 결과가 반환된다."</p>
 </blockquote>
 <p>결국, 쿼리를 날리고 결과를 반환받기 위해선 이 <code class="language-text">Connection</code> 객체가 필수로 생성되어야 합니다.</p>
+<p><code class="language-text">Connection</code>이 제공하는 기능은 다음과 같습니다.</p>
+<ul>
+<li>트랜잭션 경계 설정: <code class="language-text">setAutoCommit(boolean)</code></li>
+<li>트랜잭션 격리 레벨 설정: <code class="language-text">setTransactionIsolation(int)</code></li>
+<li>
+<p>ReadOnly 설정: <code class="language-text">setReadOnly(boolean)</code></p>
+<ul>
+<li>ReadOnly를 true로 설정하면 <code class="language-text">Connection</code>을 읽기 전용 모드로 설정하며 <code class="language-text">Driver</code>에게 힌트로 제공하여 최적화를 활성화합니다.
+<figure class='gatsby-resp-image-figure' style='margin-bottom: 16px;'>
+    <span class='gatsby-resp-image-wrapper' style='position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 619px; '>
+      <span class='gatsby-resp-image-background-image' style="padding-bottom: 24.11764705882353%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA1klEQVR42l2PSW7DMAxFdZNY82BLsuWoLjps0vuf6ZeiHSDt4uGTAPVICeU8bEowIVwZT+K/JCzVmubHm7P/O6+9hxiNzwsPB0qXIpGIGW4h5pkXjRxIbZlJGdwmjZu8uGqhrSfhDJNItjaoVKBDYnkoGX5ZmKd8EGvhJROJlXWQ5syxRJwbHVSgK2uDy5W/MiSxFE4WkyjkzFi6Xhp6Q0g6iGvKSVmILRfM9UDoP4j9gbZ19Fqxrjve3r+xtgN73XDfGvb+iX584d4/4EOG0gHaxBcSfgEEspN75akLtQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"></span>
+  <img class='gatsby-resp-image-image' alt='ReadOnly' title='' src='/static/53574cd4e857adb5f65141d4e62d080f/80833/explain-of-readonly.png' srcset='/static/53574cd4e857adb5f65141d4e62d080f/e7570/explain-of-readonly.png 170w,
+/static/53574cd4e857adb5f65141d4e62d080f/f46e7/explain-of-readonly.png 340w,
+/static/53574cd4e857adb5f65141d4e62d080f/80833/explain-of-readonly.png 619w' sizes='(max-width: 619px) 100vw, 619px' style='width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;' loading='lazy' decoding='async'>
+    </span>
+    <figcaption class='gatsby-resp-image-figcaption'>ReadOnly</figcaption>
+  </figure><br>
+참고: <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-performance-ro-txn.html">Optimizing InnoDB Read-Only Transactions - MySQL</a></li>
+</ul>
+</li>
+</ul>
 <p>그렇다면 <code class="language-text">Connection</code> 객체는 어떻게 생성할까요?<br>
 총 2가지 방법이 존재하며 각각에 대해 알아보겠습니다.</p>
 <h3>2-1. DriverManager</h3>
