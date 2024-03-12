@@ -28,9 +28,18 @@ JDBC를 이해하기 위해선 `Connection`, `Statement`, `ResultSet`를 이해�
 
 결국, 쿼리를 날리고 결과를 반환받기 위해선 이 `Connection` 객체가 필수로 생성되어야 합니다.
 
+`Connection`이 제공하는 기능은 다음과 같습니다.
+
+- 트랜잭션 경계 설정: `setAutoCommit(boolean)`
+- 트랜잭션 격리 레벨 설정: `setTransactionIsolation(int)`
+- ReadOnly 설정: `setReadOnly(boolean)`
+  - ReadOnly를 true로 설정하면 `Connection`을 읽기 전용 모드로 설정하며 `Driver`에게 힌트로 제공하여 최적화를 활성화합니다. 
+    ![ReadOnly](explain-of-readonly.png)<br>
+    참고: [Optimizing InnoDB Read-Only Transactions - MySQL](https://dev.mysql.com/doc/refman/8.0/en/innodb-performance-ro-txn.html)
+
 그렇다면 `Connection` 객체는 어떻게 생성할까요?<br>
 총 2가지 방법이 존재하며 각각에 대해 알아보겠습니다.
-
+ 
 ### 2-1. DriverManager
 
 Legacy한 방법의 `DriverManager` 입니다.
