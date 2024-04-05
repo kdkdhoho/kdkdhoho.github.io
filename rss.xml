@@ -1,4 +1,320 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 28 Mar 2024 13:47:25 GMT</lastBuildDate><item><title><![CDATA[7장. 웹을 안전하게 지켜주는 HTTPS]]></title><description><![CDATA[들어가며 이 글은 그림으로 배우는 Http & Network Basic을 읽고 학습한 내용을 정리한 글입니다. 이번 장에서는 HTTPS에 대해 알아보겠습니다. HTTPS 등장 배경 지금까지 살펴본 HTTP…]]></description><link>https://kdkdhoho.github.io/07-https/</link><guid isPermaLink="false">https://kdkdhoho.github.io/07-https/</guid><pubDate>Thu, 28 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 05 Apr 2024 07:56:08 GMT</lastBuildDate><item><title><![CDATA[[MySQL] 바이너리 로그로 데이터 복구하기]]></title><description><![CDATA[들어가며 며칠 전, 리스티웨이브 프로젝트를 진행하며 특정 조건의 데이터를 모두 삭제 할 일이 있었습니다.
+하지만 실수로 해당 테이블의 데이터가 모두 삭제되는 일이 있었는데요..!
+이를 복원하기 위해 MySQL…]]></description><link>https://kdkdhoho.github.io/restore-using-binarylog/</link><guid isPermaLink="false">https://kdkdhoho.github.io/restore-using-binarylog/</guid><pubDate>Fri, 05 Apr 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
+&lt;p&gt;며칠 전, &lt;a href=&quot;https://listywave.com&quot;&gt;리스티웨이브&lt;/a&gt; 프로젝트를 진행하며 특정 조건의 데이터를 모두 삭제 할 일이 있었습니다.&lt;br&gt;
+하지만 실수로 해당 테이블의 데이터가 모두 삭제되는 일이 있었는데요..!&lt;br&gt;
+이를 복원하기 위해 MySQL이 지원하는 바이너리 로그를 이용해봤습니다.&lt;/p&gt;
+&lt;p&gt;이번 글에서는 위 과정을 정리하고 바이너리 로그를 통해 복원하는 방법에 대해 정리해보겠습니다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;MySQL 버전은 8.3.0이며 Homebrew로 설치해 로컬에서 진행했습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;바이너리 로그&lt;/h2&gt;
+&lt;p&gt;우선 복구를 진행함에 앞서 바이너리 로그를 이해해야 합니다.&lt;/p&gt;
+&lt;p&gt;바이너리 로그는 테이블 생성이나 데이터 변경과 같은 DB 변경 사항을 설명하는 &lt;em&gt;이벤트&lt;/em&gt; 가 기록되는 로그입니다.&lt;br&gt;
+데이터에 영향을 주지 않는 SELECT 나 SHOW 같은 처리는 기록되지 않습니다.&lt;br&gt;
+이러한 바이너리 로그를 통해 &lt;strong&gt;DB 복제(레플리케이션)&lt;/strong&gt; 이나 &lt;strong&gt;데이터 복구 작업&lt;/strong&gt;을 수행할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;MySQL 서버는 기본적으로 바이너리 로그를 기록합니다.&lt;br&gt;
+서버가 시작되거나 종료될 때, 서버가 로그를 flush 할 때, 혹은 로그 파일의 크기가 &lt;code class=&quot;language-text&quot;&gt;max_binlog_size&lt;/code&gt;에 도달할 때마다 새로운 로그 파일을 자동으로 만들며 기록합니다.&lt;/p&gt;
+&lt;p&gt;기록된 바이너리 로그 파일을 보고 싶다면 MySQL 서버에 접속해서 &lt;code class=&quot;language-text&quot;&gt;SHOW BINARY LOGS;&lt;/code&gt; 를 입력하면 확인할 수 있습니다.
+&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 302px; margin-bottom: 16px;&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/4713115907e84e37c4b79ddf8c1ab59d/83034/show-binary-logs.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 91.76470588235294%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsTAAALEwEAmpwYAAACwElEQVR42oVU2XLiQAzkT3YrJOEIp8GAsfHBZfBBjIkxIUCA2uP/v0CrliFblQq7D1Mez0itVkujnG7OaO6/0MDySFFt8sOUnNGCxtOIlqs3Oe9qYwr4vNm2KP/YolKlR48llR6KbVn3hbb8F5+6lFNUizRjSv2BK197GIhjtWFQs2VRtz8hBAVoT8d+Th3eG9ac9MFM/EzbF5tGywSgLZcTd0mm45E7X1G1rgsLGCCI6fgcKKSB7YkNghgMgHNkMp3HGREmkKsrA46cMUQUfOdBQtNZLP9gWih3ZIG5NfQlkMUA+CJV3D3V+hlDAI6mz6LjInqlMNrQ4fib0u2Zxm4khnCAdhoHhq7Vpk7Py63IcF9oyX25qknAXEMxyRmHzGhJ/mIt7NLtSRwgRbWhXwTvSPq4rzUNsVV7o1uAC5pwisFzSl6wpg2zkwqzZjVOGexcbyXnyAKp+YuUOp8AlfZFQ2cUclEi8sKEU0/Y8URRvBVAMERr6KZLM5Ylftkxw4EAfslQAK8ph+sL4JkiZojKVbjicLh7aAojnCNIcBvQpCGnjNIjqscabfc/aLU+fDCEA1iiG+JkLzLcBIQew8mC+y8WI7DcHX5RsjmKFFeGcOwbLiXpUYqCblC/0hCAKAr6LuDKgWH6eqIla4VAV8CHoioMl6Lh1wyVz22TVTkDTDbvEqhS70vbfM83BCCK3yTl/xZlwoB/q3zmau6lDwFY5mfY0UZiBw3h4/+rKNAKDMEOLwZtA0e81aeaJoXBm8UdGGaANxobekCr2eXpQcfd4aewtEeBAKLC3+7q1O4Oab05fRQFrPOPikiCYSKArY7DT2oixn2MMeMyJHiPcaXyORoZLGFr8PjCG9bYDv8YHlhK26YWT66czEGuHlhCM6QBY8sJqMdjCsyRusULRSrwEC1Xe1TkNEuVbH9dYPkH+oxvP0fEHtsAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;show binary logs&apos; title=&apos;&apos; src=&apos;/static/4713115907e84e37c4b79ddf8c1ab59d/83034/show-binary-logs.png&apos; srcset=&apos;/static/4713115907e84e37c4b79ddf8c1ab59d/e7570/show-binary-logs.png 170w,
+/static/4713115907e84e37c4b79ddf8c1ab59d/83034/show-binary-logs.png 302w&apos; sizes=&apos;(max-width: 302px) 100vw, 302px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;현재 기록중인 바이너리 로그 파일을 확인하고 싶다면 &lt;code class=&quot;language-text&quot;&gt;SHOW MASTER STATUS;&lt;/code&gt; 를 입력하면 됩니다.
+&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; margin-bottom: 16px;&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/074453ab7fd8c9d7b4ea979021dc3360/6d370/show-master-status.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 18.23529411764706%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAsElEQVR42k1QSRLCMAzrd6B7KGRvM93LwP+fI2K3BQ4eW4rGkZxIPULZCa7bYP0CbWfYdsU117hkiovmH5ZHPzn5p1NItJtR3VpUokUj+7h05YXSTDBugQ9PuHYD6UzkCdP7zi2sdxGTlkwl9Bj6F8LwxkMPyCvLInJNc1l7FLWDaLodC8+9iHx9cGeRLiFX0owQ94CHGjgynyE6pA+y0nKclGPvsc54aRE5mr9nUfgAjvKD3bKNC7cAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;show master status&apos; title=&apos;&apos; src=&apos;/static/074453ab7fd8c9d7b4ea979021dc3360/6d370/show-master-status.png&apos; srcset=&apos;/static/074453ab7fd8c9d7b4ea979021dc3360/e7570/show-master-status.png 170w,
+/static/074453ab7fd8c9d7b4ea979021dc3360/f46e7/show-master-status.png 340w,
+/static/074453ab7fd8c9d7b4ea979021dc3360/6d370/show-master-status.png 590w&apos; sizes=&apos;(max-width: 590px) 100vw, 590px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;로그 파일이 저장되는 위치는 기본적으로 &lt;code class=&quot;language-text&quot;&gt;datadir&lt;/code&gt; 에 저장됩니다.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;--log-bin&lt;/code&gt; 시스템 옵션을 통해 절대 경로를 지정하여 위치를 변경할 수 있습니다.&lt;br&gt;
+저는 따로 설정해주지 않아 &lt;em&gt;/var/mysql&lt;/em&gt; 아래에 저장되어 있습니다.
+&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 529px; margin-bottom: 16px;&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/300f344e23416f784584536daa91ed84/3e20f/binary-log-files.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 68.82352941176471%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB4ElEQVR42n2T6XKqQBSEeRhXDK6s4gYICkhkEb1Jbu77v0Xfnomx4pYfXUNRh48+p88oI32J4WQBbeBiwNMdOvCNOQJrCY/nUp8hoGx9jqGxQqujo3lWq2uirV5LWawSOLMN3PkW1nSNmRtirFkY9y15js7qvdjQLR+mHWBierCcNVTNIdS4Bi79FHn5gSz/g/WmgO1GaLLoIhY1Oga6/NgPX+EutlJzGlE1W0I6PUtKAj0vRbY7IGTx1AnQbE/u2hAuen0Hm6RCmp3grTNs+ZyX7/zJHqsgk+9Eh0rmx8jjAsf8hGNaot/VpatboGgv2hYoqg9EcYWYJjyC7GnIrkKILESNErHlaFejOP5DsT8ROEFLvR+2UJyyk01Ot1Mp0c1XOMZFysZPsE1rlIdPVPljoCjsMpQkO8LkWBrt8QV0l/IVcP8cKAJI2InHWYuZGSJxwr/DeAxk0tpToMN2Czk7AU5fT1gw0E7vicOCwGP1/msoIUMJoj3XK5fQh3sYERgJYP2Jkg5/m2FwXhHh0if4UXBKTGCaVqjrv3ir3iSw+WSGAiiv6dCVP3gaSp0dUCQlPDdAm+ndL7b55ZCudpzdiNAG627nJ4Hiwtu8yyr3qvEA9lMC+jKYonuT7E/gfxdBzphn3YNEAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;binary log files&apos; title=&apos;&apos; src=&apos;/static/300f344e23416f784584536daa91ed84/3e20f/binary-log-files.png&apos; srcset=&apos;/static/300f344e23416f784584536daa91ed84/e7570/binary-log-files.png 170w,
+/static/300f344e23416f784584536daa91ed84/f46e7/binary-log-files.png 340w,
+/static/300f344e23416f784584536daa91ed84/3e20f/binary-log-files.png 529w&apos; sizes=&apos;(max-width: 529px) 100vw, 529px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;mysqlbinlog&lt;/h2&gt;
+&lt;p&gt;바이너리 로그는 이름 그대로 &lt;strong&gt;이진 데이터를 기록하는 로그 파일&lt;/strong&gt;입니다.&lt;br&gt;
+즉, 사람이 로그 파일을 읽고 쓸 수 없습니다.&lt;br&gt;
+하지만 MySQL이 기본으로 제공하는 &lt;strong&gt;&lt;em&gt;mysqlbinlog&lt;/em&gt; 를 이용하면 사람이 읽을 수 있는 형식으로 출력&lt;/strong&gt;해줍니다.&lt;br&gt;
+또한 바이너리 로그를 &lt;code class=&quot;language-text&quot;&gt;.txt&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;.sql&lt;/code&gt;과 같은 확장자를 가진 파일로 변환도 가능하게 해줍니다.&lt;/p&gt;
+&lt;p&gt;사용법은 어렵지 않습니다.&lt;br&gt;
+로그 파일이 있는 폴더에서 &lt;code class=&quot;language-text&quot;&gt;mysqlbinlog [options] {log_files}&lt;/code&gt; 를 입력하면 해당 파일을 출력해줍니다.
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/c6a6f8163866082c193526894c5fc314/a124e/read-log-file.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 51.17647058823529%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAACEUlEQVR42lWSW2/TQBCF/WOApE0cJ7YT3+JL3Dr32LkHJbVb0rRSW1pxeYAiNRQEtGpIhVr6ADzxSw+76xDEw6czO7N7ZiwP57sNBOUANbuGjufDVLeQyVnIiTZ4wUCK19ekeWOl/2JKRigikzXZfW4cnWPv7BuG+58xmH5CJ7pEd/cj2kT9yRzBznu0w0um9dE7pq3JBZrjCxYHO/P4XvQBXnAGrhvN0T95gL+/QGu6QHN6g+BgifbhLdPgcMnUn31F49nNWum9v9B3rdkttvtvyYQHX7D75jfCVz8Rvv6FycsfGD5/QP/4njS6R+/4Dr2jOwxOvmN4ShrPlqiEV6hG16hEV4Tr+Ly3gDc8BzcYnWIwfoFqI0SlHqJcC+FVJ7DdIUynv2LAtGh3CT3oZodhWN0Yk2oPqtYAZzt1eF4TqupAlosQRZ3ENgoFi8QGJMlg+RzJJ5MiJJLL5jQIgspqMUWWT5A6V9ry4ZK/q5tV6FYNiu5BNcrQipU1tEZVIXmp4CKVIX+ZbsCK9IpESgFXqXXR7o3R9EdoBk/Jp/dhlerIqy5kxSUGJUaerJNKmvFZA48SMp5s5PE4Kf9HYrNAJ2yhXO1AI93zSmxCp6QmgmghK5GdlG2ymyY20io7U9O0oJO6ycisNEkntJwGqKmibTND+phOQ5EKDjOmTcS8g01eY0pNs2LciEJzVOmEfwDfFHFVCke3HAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;mysqlbinlog 사용&apos; title=&apos;&apos; src=&apos;/static/c6a6f8163866082c193526894c5fc314/ca1dc/read-log-file.png&apos; srcset=&apos;/static/c6a6f8163866082c193526894c5fc314/e7570/read-log-file.png 170w,
+/static/c6a6f8163866082c193526894c5fc314/f46e7/read-log-file.png 340w,
+/static/c6a6f8163866082c193526894c5fc314/ca1dc/read-log-file.png 680w,
+/static/c6a6f8163866082c193526894c5fc314/a124e/read-log-file.png 869w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;mysqlbinlog 사용&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;로그 형식은 STATEMENT 기반인지 Row 기반인지에 따라 달라집니다.&lt;br&gt;
+기본적으로 Row 기반 출력이며 이때의 출력 형식은 SQL 문이 아닌, 행 변경의 과정이 기록됩니다.&lt;/p&gt;
+&lt;p&gt;읽는 방법은 다음과 같습니다.&lt;/p&gt;
+&lt;p&gt;각 이벤트 앞에는 추가 정보를 제공하는 주석이 존재합니다.
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/8b3f90ffe1a4537cf24ddeee695f5a93/41929/log-format.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 19.411764705882355%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA2UlEQVR42i2P3XKDIBBGfZg2rZjpRIRFRMT4EzWZmmR6kfd/kq8Lk4szB5jl291sv78wT7+wdkRjJ2aE9wuIArQOUCrAUA/NPh5Neqtki/Lk2B4UayoPpbmmdMiu5w1DfYavWjjp4JXHYAcE6tCb8HYPrz3Mj4HnRsQBOsKBRnXpHmvqk0W27y9c1yfW5ZHow4bWzXBMcjMl4jlO3nDAd04QhYEQhJwpCoIVElIoZLfbH7b1geVyZz9xmXd0/DGuaXnyuFJ0bZh6RCsbuLzEgYMiX29/MJ+C8A94Hoaykfry3AAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;Header Comment&apos; title=&apos;&apos; src=&apos;/static/8b3f90ffe1a4537cf24ddeee695f5a93/ca1dc/log-format.png&apos; srcset=&apos;/static/8b3f90ffe1a4537cf24ddeee695f5a93/e7570/log-format.png 170w,
+/static/8b3f90ffe1a4537cf24ddeee695f5a93/f46e7/log-format.png 340w,
+/static/8b3f90ffe1a4537cf24ddeee695f5a93/ca1dc/log-format.png 680w,
+/static/8b3f90ffe1a4537cf24ddeee695f5a93/41929/log-format.png 825w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;Header Comment&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;첫 번째 줄 (# at 2374386)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;at 뒤에 오는 숫자는 바이너리 로그 파일에서 이벤트의 오프셋 또는 시작 위치를 나타냅니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;두 번째 줄 (#240316 21:21:54 server id 1 end&lt;em&gt;log&lt;/em&gt;pos 2374462)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;이벤트가 발생한 날짜와 시간, 서버의 id, 다음 이벤트가 시작되는 위치 값을 나타냅니다.&lt;/li&gt;
+&lt;li&gt;end&lt;em&gt;log&lt;/em&gt;pos 2374462: 다음 이벤트의 오프셋의 번호가 2374462 라는 의미입니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;또한 Row Based 출력 형식이라면 options에 &lt;code class=&quot;language-text&quot;&gt;-v&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;-vv&lt;/code&gt;를 입력함으로써 좀 더 자세한 내용을 확인할 수 있습니다.&lt;br&gt;
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/12831c930dfee0f24bc1a777738b736e/75539/when-v.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 41.76470588235294%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABM0lEQVR42pWRaU7DQAyFcxnaZmm2ydpszd40SYGARIWQuP8pHvawI6jEj0+OZc+z/aJM1RGnbkaXdxjrEZwLkcF0M1hOBsNKYJg7GVUjgraNoVPOkXOucW46qUQp6xnzzRlFNSGIG4S7FrusR5S0EMEeXlhC+Hv4UQWdRHiIS7nl5hIRlHC8QvbYIoeSl6MU86OaipVsZrjxK1xnMX68tZM30g8sukgzYyjd4Rbnh2csy6Pk7v4Jw7AgKwakOUGRt43TDnsanGQHrFT/G1fM5vVbOTYjjv01EjopphMTOjEkD10zwoY9I9QfrLXgT5ShndEcFukde2L77FsFhwR54lr9bH7f6KJgX08omhmCNmMv+O9Ko7csGFx8/Kvg2Ezo2hNcMllTPei0gU7R1jystP8LvgD0DASzk0M4VgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;-v 옵션&apos; title=&apos;&apos; src=&apos;/static/12831c930dfee0f24bc1a777738b736e/ca1dc/when-v.png&apos; srcset=&apos;/static/12831c930dfee0f24bc1a777738b736e/e7570/when-v.png 170w,
+/static/12831c930dfee0f24bc1a777738b736e/f46e7/when-v.png 340w,
+/static/12831c930dfee0f24bc1a777738b736e/ca1dc/when-v.png 680w,
+/static/12831c930dfee0f24bc1a777738b736e/75539/when-v.png 839w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;-v 옵션&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/aa7013f638a1b14003fb2fdeec83fd92/c2a54/when-vv.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 38.82352941176471%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABaklEQVR42nWS2XKCQBRE+RoVBAUEZN/XQRCXJCb5/+/otKTKmAcfTt1h7tDVt2ekY3WASBvUYYlTMyAPSqjbAJoeYqk4MwvZnnleL2TnwX1f0Txo/E+qigNCv4RlRrCtGLoeYGOEM6aVwNjFczXtFMu1A53ntmb8wGBPv59hf8ueJMYbiuaEvJ5QsgapgB+38KNmrm5QwwtrfrfwiO0WWKkuZI2o/1mt95Cu0w2DOEPUR9YL2mpEFjdwnQSBm8NzUuztBP4+Q8w4HE6xli2sFPspEuexloS4IqSDIKjgc3SXDkxav7Pl+ArHVJRfZGYns27UPVQKLpQ/oYdgVh1Rt3Q4vKPuzuj660xOp21/QcQITDvDzsmYVwqDWVm76LVgUo6Isx7D9Inj+Rvt4Q09cy0pLsYPZOznjMP2Cqx5i6oRzRf3UrDlsymSBkN3wu3yhZF1orOxm2baooeoBsRejg2z04ih7KC9EPwBu8YLghfUaUUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;-vv 옵션&apos; title=&apos;&apos; src=&apos;/static/aa7013f638a1b14003fb2fdeec83fd92/ca1dc/when-vv.png&apos; srcset=&apos;/static/aa7013f638a1b14003fb2fdeec83fd92/e7570/when-vv.png 170w,
+/static/aa7013f638a1b14003fb2fdeec83fd92/f46e7/when-vv.png 340w,
+/static/aa7013f638a1b14003fb2fdeec83fd92/ca1dc/when-vv.png 680w,
+/static/aa7013f638a1b14003fb2fdeec83fd92/c2a54/when-vv.png 829w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;-vv 옵션&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;이제 진짜 복구해보기&lt;/h2&gt;
+&lt;p&gt;우선 실제로 복구했던 환경과 최대한 비슷하게 세팅을 하겠습니다.&lt;br&gt;
+(&lt;del&gt;사실 뒤에 나올 내용은 세팅 환경이 중요하지 않습니다.&lt;/del&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 205px; margin-bottom: 16px;&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/db28ef14d5108564df3336a2650e2d86/182e3/table-users.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 57.64705882352942%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAABvElEQVR42o2TW0/CQBCF+1tMQJEiLbSltPRCoYKCXETkokFjjC/GJ/9/jnMGUHlRHibdbna+PXNm1qjaEUwrhFWPUbFaKFeaqHttWLUINTeF08hkP4R5EcByEvhhLnGJczlnVgPNubBbKJk+iucejMXqGdPZA+aLJ7S7NwLLcL98xkT27hYbdHsT2AJy/Qx5f4qX13dsnt7g+R2Mb9eS+6j7WT5WqJG0B6qCSVF6jUbQRVXUUbEtESVXosZH4cyRcHdfB6eihvsls7FbN3FWbsAgyGt2kXaGWqrtpEiyIa6Hc72Al/Ewk5iwDU//iyVX4mfN7xYo8tNsD0y0TNqwV0/gPuG/MFpSEs1nc/Yl02QGS49lrywNORpIVSyDMIIJzPLRt0+0Qzt4LNARIBdpRzoswCDqaddOCrZCOSY0/2ggFXHOwrinyUGrp94RwlJ5waGHf4ONUBJqbqJD6ge5NKGt/tW9VD0kkGDawgSOCde/x+cAyO5S2VyGeXa/URhHht6NJisdXAKX6xfp/hTvH5/yAEboD+70AcTp4KBpBn9oerUW68hwTbUskwppBxXxIp7lHu3YPrnoQD2BX2qXiiTr8OZkAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;table users&apos; title=&apos;&apos; src=&apos;/static/db28ef14d5108564df3336a2650e2d86/182e3/table-users.png&apos; srcset=&apos;/static/db28ef14d5108564df3336a2650e2d86/e7570/table-users.png 170w,
+/static/db28ef14d5108564df3336a2650e2d86/182e3/table-users.png 205w&apos; sizes=&apos;(max-width: 205px) 100vw, 205px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 200px; margin-bottom: 16px;&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/4766a2b2a16a56b1003729f02f88e7f8/56d15/table-list.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 79.41176470588235%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsTAAALEwEAmpwYAAACLElEQVR42o1U2XLaQBDUr6SCEZcAge4LHWAMwsT4CiSOK3GlnKf8/2N7eyRckDg4D1u7Wu329PT0rNYxPPTNCMYwxGAUy9wxfNheLvsjO8XYydAbhGoEap3Dj87hhTM5y33TmsidZtuGNhxP8Hn3A6tPW1zfPmA6vxKAh8dnLFf3uLn7hjRfwXJz2S/X93j8/gvbL09wvAL5dI31ZockW6LbD6AxQpKVGKkopgKP06W6nGGg2JHxYJTIv/4wEkAvmOFjcyyj2bbQ6rrCrN3zZK0ZNWWmkBYrucQ0yXQ632CmZkOBZdNLRJOF/CcAL+sdB3rbqeZ6aEYd2fGLml2V2qK8VWAbFLO1BJyotKkdtSXgIcgfgCGiZAFqORwniCdVyn0zFmbcYwDOttIsiOfvAzJFahkmF7Lu9v2jQw19LCyrlFM0WycBI0mDFWLKjj+V9SGLs5YlBSMgz/L7JCB1I8O0uJS03gSsGfLsfwHSmBXDfwGmSGpLvQ+oRKeWrKTt5n8BNnRLmCdpKQU6Ccj2YlQWgj60BNCXSwTloIkZlN3A/0c+fKvKrnI/gVkQ2oJ6sW/5j4OMyYznOD40zNdgZy37KBuNfqM29BmBgriyDrXknuUW0rNDFkXZKojmEpiaczAwM2rWHaPxMqvHyNvdE66uv6KnGC3KO0lvox6Mi+WN+I+PR6ac8PP5t7QqHw6eDxUJelV6mah7Pdjg+ybf7x+u9Y77+hgc6nao5wvenwni8qdXRQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;table list&apos; title=&apos;&apos; src=&apos;/static/4766a2b2a16a56b1003729f02f88e7f8/56d15/table-list.png&apos; srcset=&apos;/static/4766a2b2a16a56b1003729f02f88e7f8/e7570/table-list.png 170w,
+/static/4766a2b2a16a56b1003729f02f88e7f8/56d15/table-list.png 200w&apos; sizes=&apos;(max-width: 200px) 100vw, 200px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 256px; margin-bottom: 16px;&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/f7f714358a7c7b57ba5a5eaf578ec12f/e3135/table-collaborator.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 45.294117647058826%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABeElEQVR42mVS2XKDQAzjX9rcEBruM9yQkKuZzOT//0S1nPLQ5sHDsrYlWV5ju8sQZz2K+oSdV8DxSzTdTf7PiJIOluSDqMHp+kRWHOGHNZJ8QJR2KJuL9qb7A4K4xcoMYRBgPD8xHB/aQJDucEfVXuAFNVzJ5+WoeQLxTIC2/0Y33JFkg/SNSrDZJjBMO4EbVFrsCTtVEphEVMZmnn05x9Ls+hVCUeOFFWZLHx9zB58LV8LDYh3AsL5eI9cyZpi02kw1VJILcC7sQdyg6W+qfLqfFBFkuQk1fgFTUVjCdnJVZNop1laswQY/qmX0SotXZqT5L7dQxWsrwnzla24Kg0sh2GQsCxgcg7miOul3tvT0frkJtJYkJHwDJOPOfW2XRVQxyWeOJLaTqUfTaKpQ/N5s43dAAnEJ9KZszupjtj+qT3Haq4fD+HhtND+I11e1houciP8Acim2s0fdXrGvRh0/lKdDQKrzw0buT/qM6Fsvi6Hn/5VNgD9nlyrLyW6DQAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;table collaborator&apos; title=&apos;&apos; src=&apos;/static/f7f714358a7c7b57ba5a5eaf578ec12f/e3135/table-collaborator.png&apos; srcset=&apos;/static/f7f714358a7c7b57ba5a5eaf578ec12f/e7570/table-collaborator.png 170w,
+/static/f7f714358a7c7b57ba5a5eaf578ec12f/e3135/table-collaborator.png 256w&apos; sizes=&apos;(max-width: 256px) 100vw, 256px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;궁금해서 바이너리 로그를 출력해보니 모두 잘 기록되어 있네요 👍
+&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/6a6d1d6b83754f82fae5a3186d0bdbe4/0ae55/confirm-binary-log.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 78.82352941176471%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsTAAALEwEAmpwYAAACkElEQVR42m1UWXabQBDkMrEBSez7vghJIGF5zfJecv9jVKoH2Y6sfNTrmQFququr0ap+RtFMKNsjvLDF2imwsnMYmxSmleHOjKCvkyvcrz6hr2PGGN+MSL2rPc+vOB9fcNyf0dcHdNUeHWNTDMjjFq6VIgkqpFGNyC2WdVgjCStkcYPAydVZyGe+lUCbdg8LQblDK4RES9KahGXWI+LLZbZFzJiQqEg7+G4On0ShXyLgOvAKtZe1Ns7fcXz4gYk4nX8qzI+/8PT2B+PpDQ0lifMBOsszLzIsZcfXYLkSNfnoML2oD9vtjLweEWcDsnIPx69JFF/h3vxcG0IsRP9AG4YHpGmPhKV4XgmXWjiERNmbqwgOy5Ezm9HlmexlvSFuCMeBXaZeoQgrgrMRPjUJqI/EtRnCozaeukT0KvleDd9OoRuh6uwV4ZZlptWIjKWm1YElT0jLA7FXe5dWsrxKaWdussVOtNWKmRu87CbD4+ERKbsYMDvfrxhrhOxmzEyjsMGKL202bAg/NoxAQScsk2szus1wpge3/Qkdzd0wy66dFOSs5VmadIyjIk94SZFvWT61Fl2ZuUUpBGs7o6YFtAO7LLaRbn/Y5om2ef2NYXxGxQkK4m7J5GKRu0tmd8Z/Sj7TMlL2tpvQM7OKGaRRg5yZBe7SFIvj5XAK7E2sIHubcHmm39pmRpD0KgtJ3WYXbZZksxw3WHz4XpbYRJ5bLE1m3uFYftVR24kP2VE/ol2YWURP2v5C9k6oLhEiuZB28qRZ0nVjacz9V8KMNslJKijYGJmSrNirKB8LkUyFwTKNy4RIVitqqPMvo/40F2gT/zIldUuYXUy7iLEFOScnS1pqlqjBX7SLPmBfdFwu+sRfUi0O7p05jYwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;confirm binary log&apos; title=&apos;&apos; src=&apos;/static/6a6d1d6b83754f82fae5a3186d0bdbe4/ca1dc/confirm-binary-log.png&apos; srcset=&apos;/static/6a6d1d6b83754f82fae5a3186d0bdbe4/e7570/confirm-binary-log.png 170w,
+/static/6a6d1d6b83754f82fae5a3186d0bdbe4/f46e7/confirm-binary-log.png 340w,
+/static/6a6d1d6b83754f82fae5a3186d0bdbe4/ca1dc/confirm-binary-log.png 680w,
+/static/6a6d1d6b83754f82fae5a3186d0bdbe4/02d09/confirm-binary-log.png 1020w,
+/static/6a6d1d6b83754f82fae5a3186d0bdbe4/0ae55/confirm-binary-log.png 1121w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이제 실수를 가정하고 collaborator의 모든 데이터를 삭제해보겠습니다.&lt;br&gt;
+&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 274px; margin-bottom: 16px;&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/337dbf2fe60e6a3adee4f289964e9b80/64b85/delete-all-collaborator.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 71.76470588235294%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAACOElEQVR42nWT15LaYAyFeZdsKEs3xsYYF2yKMaYsybbs5CKT938GRZ+MdyYzycU/f5OOjo6kVn+0lDAuZBntxfXWslhuJV4fJUpL8YJcBuOlJHovym/izFNZhFtZxQdZJQcJwtp25mXSGyyk8+hJazRdyV6NQzWKklKC1U5iBSPI1E10peaUZpV4i9wAOad5ZcEBni8yeRwqYE8BB8pwroYw9JcbA+TMjpMXbMTXtdlfxfUzY06wr11XvrQdWw8dV9oKZgyHk9CcfY3GDgMAV0ktA6zCqJB8e7HAIX+aDVIB0O37tjgb4GAcytiJZDSNTLNGi3ZvLo6mjG7oCCPexk5swbHj3gB9Ag4nK0FH0oJdA/bQmel9Z/r0R4EB8kbh0Lvb/y9gaBEBZocRAWBNQWDt+muZzBLBdjKLTRpS/icgjmiV5ifZFTdjBcjucDOtovQgx9OLHI7fJc6OkqmWAFOEZv0FiKDogU4wo/yNrqSKM+0Do6G+szdFaHaYNmytD6vzq7J7sp6iPQplA8NEGXG+Pf80pon233b/JJfbD+tF/tabk5IITFMDRJPr7UMNr9Zf1eXNGNEiOG12V2vgoqydSX2rwSkMgEiANPldCkuZCD1N1dLS4jhznZB7EYhKoQiCHW/IwUD073fzH9CPyhDD1/dfcrq+2WSQUqlFqM4vGv1srVRWz/L+8VtZ1cXDhkLB6qhyIRWg6NiiGACgXTNiMGBSmHHmmllm0Yt1P9Y9yc7oAdQU6A/ID9TDl8RNHgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;delete all collaborator&apos; title=&apos;&apos; src=&apos;/static/337dbf2fe60e6a3adee4f289964e9b80/64b85/delete-all-collaborator.png&apos; srcset=&apos;/static/337dbf2fe60e6a3adee4f289964e9b80/e7570/delete-all-collaborator.png 170w,
+/static/337dbf2fe60e6a3adee4f289964e9b80/64b85/delete-all-collaborator.png 274w&apos; sizes=&apos;(max-width: 274px) 100vw, 274px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;복구를 시작하기에 앞서 가장 먼저 &lt;strong&gt;현재 바이너리 로그 파일의 이름&lt;/strong&gt;을 알아야 합니다.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;mysql&gt; SHOW MASTER STATUS;&lt;/code&gt; 을 통해 현재 바이너리 로그 파일의 이름을 확인합니다.&lt;br&gt;
+복구에 이용될 로그 파일 이름은 &lt;em&gt;binlog.002564&lt;/em&gt; 이네요.
+&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 593px; margin-bottom: 16px;&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/e3a0407b4feb30f377af732710995ef5/a0904/current-binary-log.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 18.23529411764706%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAr0lEQVR42k2PVw7CQAxEcxogvUHK1kSQAuH+1xlsR0H5eJrxSOtZB03/QqsmGLeiNzP5fQ6TDteo+XOLW9FL+BCO7DwzgRs2ZKVBUTm0tNwNH2hPy/UMbVcpsv4NZWdigSGvKeN3XMyZGzdRzgNLCxQ99OMXTf9EkmvyG/jn7PPKSlndjFRsZWbK2qO8e8mK2okyAW/u9IRO7fRmkdO5TZGPMyXnH8pETHrK0j1j/wNCiIPjqoB+jQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;current binary log&apos; title=&apos;&apos; src=&apos;/static/e3a0407b4feb30f377af732710995ef5/a0904/current-binary-log.png&apos; srcset=&apos;/static/e3a0407b4feb30f377af732710995ef5/e7570/current-binary-log.png 170w,
+/static/e3a0407b4feb30f377af732710995ef5/f46e7/current-binary-log.png 340w,
+/static/e3a0407b4feb30f377af732710995ef5/a0904/current-binary-log.png 593w&apos; sizes=&apos;(max-width: 593px) 100vw, 593px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그리고 위 파일을 확실하게 기록하고 저장하기 위해 &lt;code class=&quot;language-text&quot;&gt;mysql&gt; FLUSH LOGS;&lt;/code&gt; 명령어를 통해 현재 로그를 기록해줍니다.&lt;br&gt;
+새로운 로그 파일이 생기는 것을 확인할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;이제 &lt;code class=&quot;language-text&quot;&gt;local&gt; mysqlbinlog binglog.002564 | mysql -u root -p&lt;/code&gt; 명령어를 통해 복구를 진행할 수 있습니다.&lt;br&gt;
+이때, 중요한 점은 &lt;em&gt;binglog.002564&lt;/em&gt; 파일에 있는 모든 이벤트들이 mysql 서버에서 재실행이 되는 구조입니다.&lt;br&gt;
+따라서 경우에 따라 아래같이 에러가 발생해 실패하는 경우가 있습니다.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;test&lt;/code&gt; 데이터베이스에 &lt;code class=&quot;language-text&quot;&gt;item&lt;/code&gt; 이라는 테이블이 없는데 &lt;code class=&quot;language-text&quot;&gt;DROP&lt;/code&gt; 하려는 명령어때문에 발생한 오류이네요.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 407px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/caeea7a337b8afdcfefdb2ed744d900c/fc7bc/occurs-error.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 17.64705882352941%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA5ElEQVR42j1Qy26DMBDkf6pGaklTEjDEdnmagAMBAoGEVlUv/f/z1CxSD6NZaWYfs1bmRVAsQuwILPUpSPDxFqz1MUVxzIweIz2EyNwIqRtCGj33E/J4GwfeswO22ROs7+sD82XEWHaYdI+haPHZTJjrEb/zD77aO5RpXjzTuTfaiFvRoRQKbVqhM9BcQdgB3Kd3WI/6Bi1yjPqK4dSgSfT/FXIbEHObIdxxQryXxML2V96uzF8Z+AuDda8G2tbnjYmb0tYmOSM5SGrO/ZiiKxNviVmFBfmWN9RRSYO1zOklWij8AQKbkx5mBbaUAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;복구 결과 에러 발생&apos; title=&apos;&apos; src=&apos;/static/caeea7a337b8afdcfefdb2ed744d900c/fc7bc/occurs-error.png&apos; srcset=&apos;/static/caeea7a337b8afdcfefdb2ed744d900c/e7570/occurs-error.png 170w,
+/static/caeea7a337b8afdcfefdb2ed744d900c/f46e7/occurs-error.png 340w,
+/static/caeea7a337b8afdcfefdb2ed744d900c/fc7bc/occurs-error.png 407w&apos; sizes=&apos;(max-width: 407px) 100vw, 407px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;복구 결과 에러 발생&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 324px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/39e0b86bb4ee63b0685003e965400634/94b54/check-by-query.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 11.176470588235293%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAhUlEQVR42lWN2wqCQABE/ZlQkiCo1F3zvq6566UiiYge+/9PONnlpYfDwHCYcQKpUPqIiDUyabDDlVDW6MMZsW+I4pqi6vFXgoW3xfUD3OUXzw//8o2TFZb740mhBoyZsN1EkreMpxumn4jm8ba7UOmRNDfzmfq4gVDsooqstKw3KeWvewGSNkVVpFpIrQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;실제 쿼리 결과&apos; title=&apos;&apos; src=&apos;/static/39e0b86bb4ee63b0685003e965400634/94b54/check-by-query.png&apos; srcset=&apos;/static/39e0b86bb4ee63b0685003e965400634/e7570/check-by-query.png 170w,
+/static/39e0b86bb4ee63b0685003e965400634/94b54/check-by-query.png 324w&apos; sizes=&apos;(max-width: 324px) 100vw, 324px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;실제 쿼리 결과&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 342px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/dc6d0c3ccc1c2406751237434b4fcd50/28260/check-by-vim.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 14.705882352941178%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAu0lEQVR42j3L226CQBSFYd5GgdsBiQWDYRBlykHaYcRTxNaYvv8D/J1i0osve2XtvZ3+PePaHWml4nu48nO58zzduOwNh+qDsT/zsP2oTxwbzeeuIV+uSYOEbJFSxJIsSlmLmEiscMYu52mfzqph2FZ8dYZcvNHnCmMVYUKzktxazbCr7V2LluXU7dONVVAlkjpKWPgCR5sSpQxl2SFlTRxvmLsBs7nA9YIp/3G98DWnHOD54b/XzvJDfgF7OWv9tCergAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;vim으로 확인 결과&apos; title=&apos;&apos; src=&apos;/static/dc6d0c3ccc1c2406751237434b4fcd50/28260/check-by-vim.png&apos; srcset=&apos;/static/dc6d0c3ccc1c2406751237434b4fcd50/e7570/check-by-vim.png 170w,
+/static/dc6d0c3ccc1c2406751237434b4fcd50/f46e7/check-by-vim.png 340w,
+/static/dc6d0c3ccc1c2406751237434b4fcd50/28260/check-by-vim.png 342w&apos; sizes=&apos;(max-width: 342px) 100vw, 342px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;vim으로 확인 결과&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;이럴 땐 &lt;strong&gt;이벤트 번호를 통해 원하는 곳을 지정&lt;/strong&gt;할 수 있습니다.&lt;br&gt;
+간단한 예시로 &lt;code class=&quot;language-text&quot;&gt;fruits&lt;/code&gt; 테이블을 만들고 &lt;code class=&quot;language-text&quot;&gt;fruit&lt;/code&gt;로 이름을 수정하고 테이블을 삭제하는 케이스가 있다고 가정하겠습니다.&lt;br&gt;
+이제 &lt;code class=&quot;language-text&quot;&gt;mysqlbinlog&lt;/code&gt; 명령어로 아래 그림처럼 복구를 희망하는 시작 지점의 이벤트 번호 (237) 과 종료 시점의 이벤트 번호 (681)을 확인합니다.
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/f112cad8556c9457bda170d86a6c1357/95234/restore-fruit.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 55.88235294117647%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACCUlEQVR42lVS2ZLaMBD0v2QB35csn2B8AzY212Y3lbzk/3+iMyM2W8VD14xVcqu7Z7TpeMXQTqjLAUVaIxE7xOH2CeplUED4haqRn6tz4WXqnqBv6STQzRibL2iH6R396a7QDjdU3YKk6BHGtUKc90gIgazhBDu4YQlPlLD9LXQng21Er4TT/BMnJj3c0PQLmm5GUR4h0wZCVvCIxCcSlwhsLycUsAgbK8HKiOGY8pVwOD1wJMKBFJb1hLQY4Is9/GgP083wpkf4sRaqvukSG6q2HsLRBWwiC0xBRFKRrQ0Jra9H5EmFLN6rXDgnziaizJKoVEjl/plhuEMRZOj8GH2YoXZj5HaklJtOqtRr0/kd5/kDI6mclw8sl0+F++MPLtdfOI4PiuMKQYo9Gg5H4ITPDNn2mmBSloadKFKN7TKa/oKqnbFvzsi2NPHyhChpYNAl3XpOcs05Uc/21BnBYFKy+h/agbLb0s9MIuIKlpsTsm8L3LMlN9h+wyJFAUXBvU33Tfv5qEFVDYWV8UAqmjAr5Wm3wxUt98MFHW2AILUB2WZ4UQWXqu7kWFkpHIqCbXPVxuUT8+03jucPAq0Q5ck7yec1kcq8Uzu4oddXbNvOICyJ1AwRK4hXy3+nCx7diHt9wFJ2GLMKfVSgDlLUfoodTXHnSFRegpKmWtHZ3onQU21cidZ93cN/9SxufxGaM9gAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;이벤트 번호 확인&apos; title=&apos;&apos; src=&apos;/static/f112cad8556c9457bda170d86a6c1357/ca1dc/restore-fruit.png&apos; srcset=&apos;/static/f112cad8556c9457bda170d86a6c1357/e7570/restore-fruit.png 170w,
+/static/f112cad8556c9457bda170d86a6c1357/f46e7/restore-fruit.png 340w,
+/static/f112cad8556c9457bda170d86a6c1357/ca1dc/restore-fruit.png 680w,
+/static/f112cad8556c9457bda170d86a6c1357/02d09/restore-fruit.png 1020w,
+/static/f112cad8556c9457bda170d86a6c1357/95234/restore-fruit.png 1079w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;이벤트 번호 확인&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;그리고 &lt;code class=&quot;language-text&quot;&gt;--start-point&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;--end-point&lt;/code&gt; 옵션을 통해 원하는 구간의 이벤트만 재실행하도록 합니다.
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 619px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/b6badf79668e5a18b407d707ee7e66b7/80833/restore-fruti-command.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 10.588235294117647%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAfklEQVR42lWNUQ6CMBQEuQ8BBSml9BWkpaIBjYH7n2Vs+PNjssluMps1esK4BSuRzyTscyKO7EHwMtCaiE17re5/qC5QVkLdjORlT3UbyAtDNvqNsHx5rQfH7Hg7xSrtmYPWqFP4pE0C3Uca7THpvLORKsk6++BSO1Tqi6vwA4xQREecaC5tAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;복구 시도&apos; title=&apos;&apos; src=&apos;/static/b6badf79668e5a18b407d707ee7e66b7/80833/restore-fruti-command.png&apos; srcset=&apos;/static/b6badf79668e5a18b407d707ee7e66b7/e7570/restore-fruti-command.png 170w,
+/static/b6badf79668e5a18b407d707ee7e66b7/f46e7/restore-fruti-command.png 340w,
+/static/b6badf79668e5a18b407d707ee7e66b7/80833/restore-fruti-command.png 619w&apos; sizes=&apos;(max-width: 619px) 100vw, 619px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;복구 시도&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;그 결과 fruit 테이블이 복구되는 것을 확인할 수 있습니다.&lt;br&gt;
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 180px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/657d141a0a4913691b799aab4c323292/e9ea2/result-of-restore-fruit-table.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 85.29411764705883%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsTAAALEwEAmpwYAAACX0lEQVR42o1U2W4aQRDkS6Ikjm3uvS/Y28AuCwvmCsYxPpREyf//QKertaAkYMsPoxnNTFdXVx+1RtuhZsejesuhVrdHbaVP101b7jqqT422K284462r+fzmyv1Vw5K/f6+abkW0f/5Fs9sdbbZPNF/ek27FFKdTut9/p2/7H2S5NzTMF/Qo/+7kz2S2Jc2MTkBrXfacDmbkeAPy/EyMVSOU3ekNyeuPyGAHlpPKu2En1A9zitghIjphqOgB2R6MBwLi+SNyGQgsER7u8Ae7yWAmAyt6SG5/SJd18xQQbGBgOgk9PP6k5XpPi9UDzRY70vhtzlLAYVF+pTVLUnLIzbYn7P8HqxiGEkKb6Xe1QFZH7UsSLDeVM9iqeiCMFXaimzH54fh8UvAJ9GEcJhPWZkJhXFDCuvrRWM7QK+DdZT3hUGNAaHsWEJmCNhC85PAAiIxvd880nd9RMd3IPbJqc+IurnQBQlRvAoLNILsVZgBBqF+uDTE6GGJHTWK9CoikIHPwjvLJi7WAo3APn+pN5x+jNwE1I5LaAiiKF+xMOxV2MDyXyXcBglU2WdOHT136fMk6nQF6HyBriAyjcEf5ktLhnCLONvr2nMEBEARe1xAM2WNRbigbL6WPVSM4GmM1qr3eskXfXpAf3zFgDvJI66HOsLeVniw4Mayk0jYhhWsPZ0SBIrervofOWB8v1GNF1MAuvinFICtWNOV6M1kCFDvCwj3ukkEp3YNJE8Rjenr5LSXWCzKZQGgKyCedgl4FK+iHsMHCqIodkwaOMDQwmSAHzjnf2dUwycYrSRKw/gCvCjPwpioziAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;복구 성공&apos; title=&apos;&apos; src=&apos;/static/657d141a0a4913691b799aab4c323292/e9ea2/result-of-restore-fruit-table.png&apos; srcset=&apos;/static/657d141a0a4913691b799aab4c323292/e7570/result-of-restore-fruit-table.png 170w,
+/static/657d141a0a4913691b799aab4c323292/e9ea2/result-of-restore-fruit-table.png 180w&apos; sizes=&apos;(max-width: 180px) 100vw, 180px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;복구 성공&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;그럼 이제 원래 목적인 collaborator 데이터를 복구해보겠습니다.&lt;br&gt;
+바이너리 로그를 이용한 복구 방법에는 다양한 방법이 있습니다.&lt;br&gt;
+위에서 해봤던 position을 이용해 원하는 부분만 재실행하는 방법, 그리고 &lt;strong&gt;모든 바이너리 로그 파일을 sql 파일로 저장하고 해당 파일을 수정한 뒤 mysql 서버에 실행하는 방법&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;position을 이용한 방법은 위에서 해봤으니 이번엔 sql 파일을 통해 복구를 해보겠습니다.&lt;/p&gt;
+&lt;p&gt;우선 지금까지의 모든 바이너리 로그 파일을 하나의 sql 파일로 저장합니다.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;local&gt; mysqlbinlog binlog.00* &gt; binlog.sql&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;그리고 vim을 통해 파일을 수정해줍니다.&lt;br&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;참고로 vim 편집기에서 &lt;code class=&quot;language-text&quot;&gt;Shift + g&lt;/code&gt; 를 누르면 맨 마지막 줄로 커서가 이동합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/71f498c6fa38d86701813199a09fb147/7bc11/apply-comment.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 21.176470588235293%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA2UlEQVR42i2OW3KDMBRDWQ0NUErwC5PwsAGnbUhIZtqfTve/DlV4+nHmyrak6+T+vuF22TCeZgykaxx8F9BbD1OfYVUPK3scCw1RNlHrqoUiLd+iR3YwpBIDknVe0bsrtHHQjUctaOI0doLSjnqCPS14LS0qhhV9NUuFHMkAqcboV28WaWaQ/Hz/Ily/MF+eCB9PTGHDQu3me2TwK+cN3fgZz4JLDkWDvGyRccnOro+FQZqzcIslD3ia/bJh+seeA2rlYoHgL5TxkNR7OM00XhjeZ9SkylW8+wNDZIZbz3WLUAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;주석 처리&apos; title=&apos;&apos; src=&apos;/static/71f498c6fa38d86701813199a09fb147/ca1dc/apply-comment.png&apos; srcset=&apos;/static/71f498c6fa38d86701813199a09fb147/e7570/apply-comment.png 170w,
+/static/71f498c6fa38d86701813199a09fb147/f46e7/apply-comment.png 340w,
+/static/71f498c6fa38d86701813199a09fb147/ca1dc/apply-comment.png 680w,
+/static/71f498c6fa38d86701813199a09fb147/7bc11/apply-comment.png 878w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;주석 처리&lt;/figcaption&gt;
+  &lt;/figure&gt;
+문제가 되는 부분을 찾아 주석처리 해줍니다.&lt;/p&gt;
+&lt;p&gt;이제 &lt;code class=&quot;language-text&quot;&gt;$&gt; mysql -u root -p -f &amp;lt; binlog.sql&lt;/code&gt; 을 입력하면 그동안 수행된 모든 로그들이 재실행됨으로써 복구할 수 있습니다.
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/cd8cc98f21919138f2ccc8804de2eb74/43738/restore-using-sql-file.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 27.647058823529413%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABCUlEQVR42o1Ry26DMBDkZ5omgfAIwQZjMBgDoSQoyqX//yXTXUeReqp6GO14QTszu4HSM0o1QlQObb8iuxic0hqHqMTnUWAfCl//i6Af7tBmQd0uyEUHScOLcsC56JDmLZJzS/2eakMikgTk3wNlNSJONdbtG1FSo7M3dCSimhmSXLPzSk+4CEt8QJYb7PYFdoc3xC9eIHDzA9P1CTc9YMcNhmKb/oZpecLQ8Kb7wkzcus0nYffHU4UwZijPI6qhR4XA2NW74R+lcn6HKeEdmd9J1tBetXfH0aNE+T1zjwfFmfacEbCydXeU9eiPwo7YCcdmzpWPxt/r9vqKL1/x2QD3WZiP+HEo8APGrMZMVNCJaAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;복구 시도&apos; title=&apos;&apos; src=&apos;/static/cd8cc98f21919138f2ccc8804de2eb74/ca1dc/restore-using-sql-file.png&apos; srcset=&apos;/static/cd8cc98f21919138f2ccc8804de2eb74/e7570/restore-using-sql-file.png 170w,
+/static/cd8cc98f21919138f2ccc8804de2eb74/f46e7/restore-using-sql-file.png 340w,
+/static/cd8cc98f21919138f2ccc8804de2eb74/ca1dc/restore-using-sql-file.png 680w,
+/static/cd8cc98f21919138f2ccc8804de2eb74/43738/restore-using-sql-file.png 992w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;복구 시도&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 261px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/a31be43151dc657cc73280cab8217281/51582/result-of-restore.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 47.05882352941176%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABaUlEQVR42nWS6VLCQBCE8y4iIBACucl9k0gAyyr1/Z+knZ6IpRb+2Nqt2Z2eb3rWWG8j+IcGQdTA2qfYuwXirEcgMccrsd0l8MIKZXOBH9Zyn8P2CoRRq3mOnAM5W3aK+ZMHY+dkGMY3NN0VUXpEGLfo+lcU9VkEpIjcJ1LgdH7HITnqG+7j5QNle9HilewEWqx8GCRkhTDulIQXST7A8QsVT4tnJfKEjsluUKmg45d4mDt4XLqYLab9W5CJFHGDUtuo2+sknA0qYkvrdfeibfNtnPZafLkOfi0VNHexEtIb9UQqs4gp3ll2JjSdxlbmQWO0iLR8S88o8nMZGytWQ0nE1pg4W7jSji3JqbQ8SCzUZLZFEtrDt3/FvggTrUZvKMopb6xIRUhND0lFIVOK844TJvldwq18lYjTk0W/pi80Dek2oLwadZKMJXmvFrCrfwhjJWEiaXi+TZJe3YZDURbKypMS36Oj4Ceajyl+9jSQ4AAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;복구 성공!&apos; title=&apos;&apos; src=&apos;/static/a31be43151dc657cc73280cab8217281/51582/result-of-restore.png&apos; srcset=&apos;/static/a31be43151dc657cc73280cab8217281/e7570/result-of-restore.png 170w,
+/static/a31be43151dc657cc73280cab8217281/51582/result-of-restore.png 261w&apos; sizes=&apos;(max-width: 261px) 100vw, 261px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;복구 성공!&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;-f&lt;/code&gt; 옵션은 로그 재실행 중에 발생하는 에러를 출력만하고 무시하고 계속해서 진행하는 옵션입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;사실 위 방법은 모든 바이너리 로그를 재실행한다는 점에서 운용중인 DB에 사용하면 서비스 장애를 초래할 수 있습니다.&lt;br&gt;
+따라서 사용자가 많이 없는 시간을 이용하거나 이벤트 position을 통해 정말 필요한 부분만 재실행 할 필요가 있겠습니다.&lt;br&gt;
+혹은 복구용 데이터베이스를 만들고 복구를 마친 다음, 서버 애플리케이션이 복구된 데이터베이스를 바로보도록 하는 등의 방식이 안전할 것 같습니다.&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;바이너리 로그를 이용해 복구하는 방법에는 여러 방법이 있으니 취사 선택하시면 될 것 같습니다.&lt;/p&gt;
+&lt;h2&gt;마치며&lt;/h2&gt;
+&lt;p&gt;지금까지 MySQL이 제공하는 바이너리 로그를 이용해 데이터 복구 하는 방법에 대해 알아보았습니다.&lt;br&gt;
+막상 어렵지는 않지만 실제 상황에서 잘못 데이터를 날려 복구해야 하는 상황이라면 뇌가 하얘지고 손발이 달달 떨릴 것 같습니다..&lt;br&gt;
+그럴 일이 없길 바라며 마치겠습니다.&lt;/p&gt;
+&lt;p&gt;감사합니다.&lt;/p&gt;
+&lt;h2&gt;Reference&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/doc/refman/8.0/en/mysqlbinlog.html#option_mysqlbinlog_start-datetime&quot;&gt;https://dev.mysql.com/doc/refman/8.0/en/mysqlbinlog.html#option_mysqlbinlog_start-datetime&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/doc/refman/8.0/en/point-in-time-recovery-positions.html&quot;&gt;https://dev.mysql.com/doc/refman/8.0/en/point-in-time-recovery-positions.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/doc/refman/8.0/en/binary-log.html&quot;&gt;https://dev.mysql.com/doc/refman/8.0/en/binary-log.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[7장. 웹을 안전하게 지켜주는 HTTPS]]></title><description><![CDATA[들어가며 이 글은 그림으로 배우는 Http & Network Basic을 읽고 학습한 내용을 정리한 글입니다. 이번 장에서는 HTTPS에 대해 알아보겠습니다. HTTPS 등장 배경 지금까지 살펴본 HTTP…]]></description><link>https://kdkdhoho.github.io/07-https/</link><guid isPermaLink="false">https://kdkdhoho.github.io/07-https/</guid><pubDate>Thu, 28 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
 &lt;p&gt;이 글은 &lt;a href=&quot;https://m.yes24.com/Goods/Detail/15894097&quot;&gt;그림으로 배우는 Http &amp;#x26; Network Basic&lt;/a&gt;을 읽고 학습한 내용을 정리한 글입니다.&lt;/p&gt;
 &lt;p&gt;이번 장에서는 HTTPS에 대해 알아보겠습니다.&lt;/p&gt;
 &lt;h2&gt;HTTPS 등장 배경&lt;/h2&gt;
