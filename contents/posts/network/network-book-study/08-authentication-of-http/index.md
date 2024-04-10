@@ -10,7 +10,7 @@ series: "그림으로 배우는 Http & Network Basic"
 
 이번엔 HTTP 표준이 설명하는 여러 가지 인증 방식에 대해 알아보겠다.
 
-## Baisc 인증
+## Basic 인증
 
 이름 그대로 가장 기본적인 인증 방식이다.
 
@@ -87,12 +87,16 @@ Form 방식은 HTTP 프로토콜로 스펙이 정의되어 있지는 않다.<br>
 
 HTTP 프로토콜은 Stateless 하다.<br>
 방금 전에 로그인에 성공했지만 다음 요청마다 로그인을 새로 해야 한다.<br>
-이를 개선하기 위해 쿠키[[^1]] 가 도입되었고 여기에 세션[[^2]]이나 토큰[[^3]] 을 이용해 사용자 인증 정보를 유지한다.
+이를 개선하기 위해 쿠키[[^2]] 가 도입되었고 여기에 세션[[^3]]이나 토큰[[^4]] 을 이용해 사용자 인증 정보를 유지한다.
 
 세션과 토큰은 현재 대부분의 경우 사용 중인 방식이다.<br>
 이 둘을 잘 이해하고 사용할 줄 아는 것은 매우 중요하다는 의미이며 다른 포스팅에서 집중적으로 알아볼 예정이다.
 
-[^0]: [그림으로 배우는 Http & Network Basic](https://m.yes24.com/Goods/Detail/15894097)
-[^1]: [MDN - 쿠키](https://developer.mozilla.org/ko/docs/Web/HTTP/Cookies)
-[^2]: [MDN - 세션](https://developer.mozilla.org/ko/docs/Web/HTTP/Session)
-[^3]: [오픈튜토리얼스 - AccessToken](https://opentutorials.org/course/3405/22008)
+<br>
+<br>
+<br>
+
+[^1]: [그림으로 배우는 Http & Network Basic](https://m.yes24.com/Goods/Detail/15894097)
+[^2]: [MDN - 쿠키](https://developer.mozilla.org/ko/docs/Web/HTTP/Cookies)
+[^3]: [MDN - 세션](https://developer.mozilla.org/ko/docs/Web/HTTP/Session)
+[^4]: [오픈튜토리얼스 - AccessToken](https://opentutorials.org/course/3405/22008)

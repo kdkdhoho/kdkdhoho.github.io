@@ -17,7 +17,7 @@ series: "그림으로 배우는 Http & Network Basic"
 
 ## HTTP의 병목 현상을 해소하는 SPDY
 
-Google이 2010년에 발표한 **SPDY**(스피디)[[^1]]는 **HTTP의 병목 현상을 해소하고 웹 페이지 로딩 시간을 50% 단축**한다는 목표로 시작한 프로젝트다.
+Google이 2010년에 발표한 **SPDY**(스피디)[[^2]]는 **HTTP의 병목 현상을 해소하고 웹 페이지 로딩 시간을 50% 단축**한다는 목표로 시작한 프로젝트다.
 
 ### HTTP의 병목 현상
 
@@ -32,7 +32,7 @@ HTTP 병목 현상은 많은 요청 대비 처리량이 낮아 발생한다.
 
 ### Ajax로 해결하기
 
-2번 문제를 해결하기 위해 Ajax[[^2]]가 탄생했다.
+2번 문제를 해결하기 위해 Ajax[[^3]]가 탄생했다.
 
 Ajax(Asynchronous JavaScript+XML)는 JavaScript나 DOM 조작 등을 활용하여 **웹 페이지의 일부만 고쳐쓸 수 있는 비동기 통신 방법**이다.<br>
 기존의 동기식 통신에 비해서 페이지의 일부분만 갱신되기 때문에 응답으로 전송되는 데이터 양은 감소한다.<br>
@@ -41,7 +41,7 @@ Ajax(Asynchronous JavaScript+XML)는 JavaScript나 DOM 조작 등을 활용하�
 
 ### Comet으로 해결하기
 
-1번 문제를 해결하기 위해 Comet[[^3]]이 탄생했다.
+1번 문제를 해결하기 위해 Comet[[^4]]이 탄생했다.
 
 Comet은 **서버 쪽에서 리소스의 갱신이 있을 경우, 요청을 받지 않아도 클라이언트로 응답을 보내기 위한 방법**이다.<br>
 응답을 연장시킴으로써, 서버에서 통신을 개시하는 서버 푸시 기능과 유사하다.
@@ -76,7 +76,7 @@ HTTP 프로토콜 바로 아래, SSL(TLS) 프로토콜 바로 위에서 동작�
 5. 서버 힌트 기능<br>
    서버가 클라이언트에게 요청해야 할 리소스를 제안할 수도 있다.
 
-### 헬로 HTTP/2, 굿바이 SPDY[[^4]]
+### 헬로 HTTP/2, 굿바이 SPDY[[^5]]
 
 HTTP/2가 SPDY를 기본적으로 스펙에 포함하는 수준으로 발표되었다.<br>
 따라서 HTTP/2를 사용하면 위 기능들을 모두 사용할 수 있다.
@@ -86,7 +86,7 @@ HTTP/2가 SPDY를 기본적으로 스펙에 포함하는 수준으로 발표되�
 ## WebSocket
 
 Ajax와 Comet을 사용한 통신은 웹 브라우징을 고속화하지만 기저가 HTTP 프로토콜이라는 점에서 근본적으로 병목 현상을 해결할 수 없다.<br>
-WebSocket[[^5]]은 새로운 프로토콜과 API로 병목 현상을 해결하기 위해 탄생됐다.
+WebSocket[[^6]]은 새로운 프로토콜과 API로 병목 현상을 해결하기 위해 탄생됐다.
 
 WebSocket은 서버와 클라이언트가 Connection을 맺는데 성공하면, 서버 또는 클라이언트 모두 송신이 가능하게 되며 그 뒤 통신은 모두 전용 프로토콜로 수행하는 방식이다.
 ![출처: https://velog.io/@nhs075241/WebSocket이란-Network](websocket.png)
@@ -109,7 +109,7 @@ Sec-WebSocket-Version: 13
 `Sec-WebSocket-Key` 에는 핸드쉐이크에 필요한 키가 저장된다.<br>
 `Sec-WebSocket-Protocol`에는 사용하는 서브 프로토콜이 저장된다.
 
-위 요청에 대한 응답 상태 코드는 `101 Switching Protocols`[[^6]] 이다.<br>
+위 요청에 대한 응답 상태 코드는 `101 Switching Protocols`[[^7]] 이다.<br>
 ```http request
 HTTP/1.1 101 Switching Protocols
 Upgrade: websocket
@@ -130,10 +130,10 @@ HTTP/2.0은 성능 개선이 주된 목표이다. 따라서 *SPDY* 와 같은 �
 <br>
 <br>
 
-[^0]: [그림으로 배우는 Http & Network Basic](https://m.yes24.com/Goods/Detail/15894097)
-[^1]: [SPDY - The Chromium Projects](https://www.chromium.org/spdy/)
-[^2]: [Ajax - Wikipedia](https://ko.wikipedia.org/wiki/Ajax)
-[^3]: [Comet - Wikipedia](https://ko.wikipedia.org/wiki/%EC%BD%94%EB%A9%A7_(%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D))
-[^4]: [헬로 HTTP/2, 굿바이 SPDY - Google for Developers KR](https://developers-kr.googleblog.com/2015/02/hellohttp2.html)
-[^5]: [WebSocket - Wikipedia](https://ko.wikipedia.org/wiki/%EC%9B%B9%EC%86%8C%EC%BC%93)
-[^6]: [101 Switching Protocols - MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/101)
+[^1]: [그림으로 배우는 Http & Network Basic](https://m.yes24.com/Goods/Detail/15894097)
+[^2]: [SPDY - The Chromium Projects](https://www.chromium.org/spdy/)
+[^3]: [Ajax - Wikipedia](https://ko.wikipedia.org/wiki/Ajax)
+[^4]: [Comet - Wikipedia](https://ko.wikipedia.org/wiki/%EC%BD%94%EB%A9%A7_(%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D))
+[^5]: [헬로 HTTP/2, 굿바이 SPDY - Google for Developers KR](https://developers-kr.googleblog.com/2015/02/hellohttp2.html)
+[^6]: [WebSocket - Wikipedia](https://ko.wikipedia.org/wiki/%EC%9B%B9%EC%86%8C%EC%BC%93)
+[^7]: [101 Switching Protocols - MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/101)
