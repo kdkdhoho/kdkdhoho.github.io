@@ -147,10 +147,10 @@ ArrayList<String> stringList = new ArrayList<>();
 ArrayList<Integer> intList = new ArrayList<>();
 ```
 
-`ArrayList` 클래스에 `String` 타입 혹은 `Integer` 타입을 파라미터로 전달하는 것이고 (이것이 **매개변수화된 타입**(Parameterized Type)이다.)<br>
-결국엔 2개의 `ArrayList` 타입 인스턴스를 생성하는 것이다.
+제네릭 클래스로 선언된 `ArrayList` 클래스에 `String` 타입과 `Integer` 타입을 타입 매개변수로 전달한다.<br>
+따라서 `ArrayList<String>`과 `ArrayList<Integer>` 타입의 두 인스턴스가 생성되는데, 이들을 **매개변수화된 타입**이라고 부른다.
 
-따라서 **`stringList`와 `intList`는 서로 다른 타입의 인스턴스가 아니다.**
+이때 **두 인스턴스(`stringList`, `intList`)는 서로 다른 타입이 아니다.**
 
 이를 잘 설명하는 예시로, 다음 코드가 있다.
 
