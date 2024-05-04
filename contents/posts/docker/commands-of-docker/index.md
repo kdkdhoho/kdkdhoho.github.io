@@ -37,6 +37,11 @@ tags: ["docker"]
   - `--net DRIVER_NAME`: 네트워크 드라이버를 설정한다.
   - `--net-alias HOST_NAME`: 컨테이너의 Domain Name을 설정한다.
   - `--log-opt max-size={} | max-file={}`: 컨테이너가 남기는 로그 파일의 최대 용량과 개수를 설정한다.
+  - `--restart`: 컨테이너의 재시작 옵션을 설정한다.
+    - `no`: 아무런 재시작 동작을 하지 않는다. 기본값.
+    - `on-failure`: 에러로 종료할 때 재시작한다.
+    - `always`: 항상 재시작한다. 수동으로 종료한 경우, Docker가 재시작되면 함께 재시작된다.
+    - `unless-stopped`: 컨테이너가 종료되지 않는 한, 매번 재시작된다. 직접 종료 후 재시작 전까지는, Docker가 재시작돼도 컨테이너는 재시작하지 않는다.
 - `docker update`: 컨테이너의 설정을 변경한다.
 - `docker create NAME|ID`: 컨테이너를 단순히 생성만 한다. 내부로 들어가진 않는다.
 - `docker start NAME|ID`: 컨테이너를 실행한다.
