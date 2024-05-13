@@ -15,6 +15,7 @@ tags: ["docker"]
   ```docker
   docker run -d \
   --name mysql \
+  -p 3306:3306 \
   -e MYSQL_ROOT_PASSWORD=root \
   -e MYSQL_USER=sa \
   -e MYSQL_ALLOW_EMPTY_PASSWORD=yes \
