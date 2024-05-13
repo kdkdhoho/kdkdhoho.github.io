@@ -232,6 +232,7 @@ data-styled.g45[id="Footer__HiddenWrapper-sc-zqxmks-9"]{content:"yzdKT,ivqWaF,"}
 <p>mysql 띄우기</p>
 <div class="gatsby-highlight" data-language="docker"><pre class="language-docker"><code class="language-docker">docker run -d \
 --name mysql \
+-p 3306:3306 \
 -e MYSQL_ROOT_PASSWORD=root \
 -e MYSQL_USER=sa \
 -e MYSQL_ALLOW_EMPTY_PASSWORD=yes \

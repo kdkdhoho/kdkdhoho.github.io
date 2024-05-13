@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 13 May 2024 13:26:12 GMT</lastBuildDate><item><title><![CDATA[11장. 웹 공격 기술]]></title><description><![CDATA[이번 장에서는 웹 애플리케이션을 공격하는 기술들에 대해 알아본다. 1. 공격 패턴의 종류 공격의 종류는 크게 두 가지로 나눌 수 있다. 1-…]]></description><link>https://kdkdhoho.github.io/10-web-attacks/</link><guid isPermaLink="false">https://kdkdhoho.github.io/10-web-attacks/</guid><pubDate>Sun, 12 May 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이번 장에서는 &lt;strong&gt;웹 애플리케이션을 공격하는 기술&lt;/strong&gt;들에 대해 알아본다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 13 May 2024 13:55:28 GMT</lastBuildDate><item><title><![CDATA[11장. 웹 공격 기술]]></title><description><![CDATA[이번 장에서는 웹 애플리케이션을 공격하는 기술들에 대해 알아본다. 1. 공격 패턴의 종류 공격의 종류는 크게 두 가지로 나눌 수 있다. 1-…]]></description><link>https://kdkdhoho.github.io/10-web-attacks/</link><guid isPermaLink="false">https://kdkdhoho.github.io/10-web-attacks/</guid><pubDate>Sun, 12 May 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이번 장에서는 &lt;strong&gt;웹 애플리케이션을 공격하는 기술&lt;/strong&gt;들에 대해 알아본다.&lt;/p&gt;
 &lt;h2&gt;1. 공격 패턴의 종류&lt;/h2&gt;
 &lt;p&gt;공격의 종류는 크게 두 가지로 나눌 수 있다.&lt;/p&gt;
 &lt;h3&gt;1-1. 능동적 공격&lt;/h3&gt;
@@ -82,6 +82,7 @@ URL은 정상적인 사이트처럼 보이는 피싱 사이트이거나 사용�
 &lt;p&gt;mysql 띄우기&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;docker&quot;&gt;&lt;pre class=&quot;language-docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;docker run -d \
 --name mysql \
+-p 3306:3306 \
 -e MYSQL_ROOT_PASSWORD=root \
 -e MYSQL_USER=sa \
 -e MYSQL_ALLOW_EMPTY_PASSWORD=yes \
