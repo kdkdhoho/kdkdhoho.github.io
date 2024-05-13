@@ -9,6 +9,17 @@ tags: ["docker"]
 
 그래도 도커를 공부하면서 유용한 명령어들을 정리할 겸 작성한다.
 
+## 치트 시트
+
+- mysql 띄우기
+  ```docker
+  docker run -d \
+  --name mysql \
+  -e MYSQL_ROOT_PASSWORD="root" \
+  -v /Users/dongho/mysql_container:/var/lib/mysql \
+  mysql
+  ```
+
 ## 버전 관련
 
 - `docker version`: 도커의 버전을 확인한다.
@@ -26,22 +37,22 @@ tags: ["docker"]
   - `-t`: tty를 활성하하여 bash shell을 사용한다.
   - `--name NAME`: 컨테이너 이름을 설정한다.
   - `-p`: 호스트의 포트와 컨테이너의 포트를 바인딩해 연결한다.
-    - `-p [호스트의 포트]:[컨테이너의 포트]`
-    - 컨테이너에 접속할 호스트의 포트를 설정하고, 해당 컨테이너의 포트에 해당하는 프로세스로 통신하는 것이다.
+      - `-p [호스트의 포트]:[컨테이너의 포트]`
+      - 컨테이너에 접속할 호스트의 포트를 설정하고, 해당 컨테이너의 포트에 해당하는 프로세스로 통신하는 것이다.
   - ex) `docker run -i -t --name myUbuntu -p 7777:80 ubuntu:14.04`
   - `-d`: `-i`, `-t`가 접근 가능한 상태, Attach로 설정했다면, `-d`는 Detached 모드로 설정한다.
   - `-e`: 컨테이너 내부의 환경변수를 설정한다.
   - `-v`: 컨테이너에 볼륨을 설정한다.
-    - `-v HOST_DIRECTORY:CONTAINER_DIRECTORY`: 호스트 볼륨 공유 설정
-    - `-v VOLUME_NAME:CONTAINER_DIRECTORY`: 도커 볼륨 설정
+      - `-v HOST_DIRECTORY:CONTAINER_DIRECTORY`: 호스트 볼륨 공유 설정
+      - `-v VOLUME_NAME:CONTAINER_DIRECTORY`: 도커 볼륨 설정
   - `--net DRIVER_NAME`: 네트워크 드라이버를 설정한다.
   - `--net-alias HOST_NAME`: 컨테이너의 Domain Name을 설정한다.
   - `--log-opt max-size={} | max-file={}`: 컨테이너가 남기는 로그 파일의 최대 용량과 개수를 설정한다.
   - `--restart`: 컨테이너의 재시작 옵션을 설정한다.
-    - `no`: 아무런 재시작 동작을 하지 않는다. 기본값.
-    - `on-failure`: 에러로 종료할 때 재시작한다.
-    - `always`: 항상 재시작한다. 수동으로 종료한 경우, Docker가 재시작되면 함께 재시작된다.
-    - `unless-stopped`: 컨테이너가 종료되지 않는 한, 매번 재시작된다. 직접 종료 후 재시작 전까지는, Docker가 재시작돼도 컨테이너는 재시작하지 않는다.
+      - `no`: 아무런 재시작 동작을 하지 않는다. 기본값.
+      - `on-failure`: 에러로 종료할 때 재시작한다.
+      - `always`: 항상 재시작한다. 수동으로 종료한 경우, Docker가 재시작되면 함께 재시작된다.
+      - `unless-stopped`: 컨테이너가 종료되지 않는 한, 매번 재시작된다. 직접 종료 후 재시작 전까지는, Docker가 재시작돼도 컨테이너는 재시작하지 않는다.
 - `docker update`: 컨테이너의 설정을 변경한다.
 - `docker create NAME|ID`: 컨테이너를 단순히 생성만 한다. 내부로 들어가진 않는다.
 - `docker start NAME|ID`: 컨테이너를 실행한다.
