@@ -15,7 +15,10 @@ tags: ["docker"]
   ```docker
   docker run -d \
   --name mysql \
-  -e MYSQL_ROOT_PASSWORD="root" \
+  -e MYSQL_ROOT_PASSWORD=root \
+  -e MYSQL_USER=sa \
+  -e MYSQL_ALLOW_EMPTY_PASSWORD=yes \
+  -e MYSQL_DATABASE=listywave \
   -v /Users/dongho/mysql_container:/var/lib/mysql \
   mysql
   ```
