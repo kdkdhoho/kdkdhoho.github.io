@@ -232,7 +232,10 @@ data-styled.g45[id="Footer__HiddenWrapper-sc-zqxmks-9"]{content:"yzdKT,ivqWaF,"}
 <p>mysql 띄우기</p>
 <div class="gatsby-highlight" data-language="docker"><pre class="language-docker"><code class="language-docker">docker run -d \
 --name mysql \
--e MYSQL_ROOT_PASSWORD="root" \
+-e MYSQL_ROOT_PASSWORD=root \
+-e MYSQL_USER=sa \
+-e MYSQL_ALLOW_EMPTY_PASSWORD=yes \
+-e MYSQL_DATABASE=listywave \
 -v /Users/dongho/mysql_container:/var/lib/mysql \
 mysql</code></pre></div>
 </li>
