@@ -1,4 +1,114 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 13 May 2024 13:55:28 GMT</lastBuildDate><item><title><![CDATA[11장. 웹 공격 기술]]></title><description><![CDATA[이번 장에서는 웹 애플리케이션을 공격하는 기술들에 대해 알아본다. 1. 공격 패턴의 종류 공격의 종류는 크게 두 가지로 나눌 수 있다. 1-…]]></description><link>https://kdkdhoho.github.io/10-web-attacks/</link><guid isPermaLink="false">https://kdkdhoho.github.io/10-web-attacks/</guid><pubDate>Sun, 12 May 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이번 장에서는 &lt;strong&gt;웹 애플리케이션을 공격하는 기술&lt;/strong&gt;들에 대해 알아본다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 23 May 2024 06:11:40 GMT</lastBuildDate><item><title><![CDATA[[Infra] Github Actions를 이용한 CI 작업 속도를 캐싱으로 개선하기]]></title><description><![CDATA[들어가며 현재 ListyWave 프로젝트에서 백엔드는 CI를 위해 Github Actions를 이용 중이다. 수행하는 작업을 의미하는 Workflow는 크게 아래와 같이 나눌 수 있다. 코드 체크아웃 JDK 준비 Gradle…]]></description><link>https://kdkdhoho.github.io/enhance-speed-ci-workflow/</link><guid isPermaLink="false">https://kdkdhoho.github.io/enhance-speed-ci-workflow/</guid><pubDate>Thu, 23 May 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
+&lt;p&gt;현재 &lt;a href=&quot;https://listywave.com&quot;&gt;ListyWave&lt;/a&gt; 프로젝트에서 백엔드는 CI를 위해 Github Actions를 이용 중이다.&lt;/p&gt;
+&lt;p&gt;수행하는 작업을 의미하는 Workflow는 크게 아래와 같이 나눌 수 있다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;코드 체크아웃&lt;/li&gt;
+&lt;li&gt;JDK 준비&lt;/li&gt;
+&lt;li&gt;Gradle 준비&lt;/li&gt;
+&lt;li&gt;빌드&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;하지만 &lt;strong&gt;Gradle을 준비하고 빌드하는 &lt;em&gt;Build with Gradle&lt;/em&gt; 과정에서 최소 1m이 걸리고 있었다.&lt;/strong&gt;&lt;br&gt;
+(&lt;del&gt;지금 보니 Gradle 준비와 빌드가 동시에 일어나고 있었다. 즉, 빌드를 2번 수행했었다 😓&lt;/del&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/1e6d6610742292d945d807af10a25920/4a768/not-enhanced.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 60.58823529411765%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAABZElEQVR42o2T2W6DMBBFWcJmG2zAGLI1fen/f+LtHZNQFCkVDwdLMBxmI5nPX7h//yArDIrGoqg75KVBelIbSd6gNgP88kC4POD8BU07QnU+UuselXIxJlG82PEMxQDNh0LFgIyirNAb8qGGsSKSF0sKXrySOFUtEgl2wxnGTvGFJKuRMiMhSp+kp4aZ1vH5PmYfG4U5L1JKNywR0wsztAvI+NVESj5AysROzDQpKVzCDb2bMFAkeLZg8mxD06Es1CEqUouwrw0u4Yp5CJicR+gDLEVt3cKUGpqBiuzPd+S+1Q5eWySGwut8RaAw9BPFM2UGDXumS/URtTtF2DEJp5ihNNLPd3TsWc91cCxXd9PW+P1g/kVK59qtwuULlgP54xxXQ3jfyU+sq2XXKffTDYYZyuq0PAU7cuoc0LoKzUEhS87LFiOnLGVqClXrN+QPkMDjGT6F8qfErFhqvLlf3AOyvfAXBewLu1Y0FUYAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;개선 전&apos; title=&apos;&apos; src=&apos;/static/1e6d6610742292d945d807af10a25920/ca1dc/not-enhanced.png&apos; srcset=&apos;/static/1e6d6610742292d945d807af10a25920/e7570/not-enhanced.png 170w,
+/static/1e6d6610742292d945d807af10a25920/f46e7/not-enhanced.png 340w,
+/static/1e6d6610742292d945d807af10a25920/ca1dc/not-enhanced.png 680w,
+/static/1e6d6610742292d945d807af10a25920/4a768/not-enhanced.png 738w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;개선 전&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;이를 Github Actions Market Place에 있는 &lt;a href=&quot;https://github.com/marketplace/actions/gradle-cache&quot;&gt;actions/gradle-cache&lt;/a&gt;를 이용해 속도를 개선하려고 한다.&lt;/p&gt;
+&lt;h2&gt;actions/gradle-cache&lt;/h2&gt;
+&lt;p&gt;우선 &lt;a href=&quot;https://github.com/marketplace/actions/gradle-cache&quot;&gt;actions/gradle-cache&lt;/a&gt;에 대해 간단하게 이해해보자.&lt;/p&gt;
+&lt;p&gt;Github Actions는 작업이 수행될 때마다 매번 새로운 환경의 가상 호스트를 생성하고 작업을 수행한다.&lt;br&gt;
+따라서 JDK 셋업이나 Gradle 셋업 및 빌드 과정이 매번 동일하게 수행된다.&lt;/p&gt;
+&lt;p&gt;하지만 위 작업들은 변경되지 않는 한, &lt;strong&gt;캐싱을 이용할 수 있는 작업들&lt;/strong&gt;이다.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;actions/gradle-cache&lt;/em&gt; 는 그 중에서도, Gradle을 셋업하고 빌드하는 과정을 전반적으로 수행해주며 동시에 원격 혹은 로컬에 캐싱을 지원해주는 기술이다.&lt;/p&gt;
+&lt;h2&gt;Gradle 성능 개선&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://sejoung.github.io/2021/08/2021-08-04-gradle_build/&quot;&gt;Gradle 공식 문서&lt;/a&gt;와 &lt;a href=&quot;https://sejoung.github.io/2021/08/2021-08-04-gradle_build/&quot;&gt;기술 블로그&lt;/a&gt;를 통해 &lt;strong&gt;Gradle 자체적으로 성능 개선을 위한 옵션을 지원&lt;/strong&gt;하고 있는 것을 확인할 수 있었다.&lt;/p&gt;
+&lt;p&gt;여러 종류의 옵션이 지원되고 있는데, 나는 그 중에서 &lt;strong&gt;빌드를 병렬적으로 수행하게 해주는 옵션&lt;/strong&gt;과 &lt;strong&gt;빌드 캐시를 활성화해주는 옵션을 설정&lt;/strong&gt;했다.&lt;/p&gt;
+&lt;p&gt;옵션에 대한 자세한 설명은 공식 문서나 블로그 글을 참고해보면 좋겠다.&lt;/p&gt;
+&lt;h2&gt;개선된 CI Workflow&lt;/h2&gt;
+&lt;p&gt;이제 위 내용을 모두 적용한 CI Workflow는 아래과 같다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; CI workflow
+
+&lt;span class=&quot;token key atrule&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;pull_request&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;dev&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;prod&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;workflow_dispatch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+
+&lt;span class=&quot;token key atrule&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;runs-on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ubuntu&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;22.04&lt;/span&gt;
+
+    &lt;span class=&quot;token key atrule&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 체크아웃
+        &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; actions/checkout@v4
+
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; JDK 셋업
+        &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; actions/setup&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;java@v4
+        &lt;span class=&quot;token key atrule&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;java-version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;17&apos;&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;gradle&apos;&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;distribution&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;corretto&apos;&lt;/span&gt;
+
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Gradle 셋업&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 빌드&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 캐시
+        &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; burrunan/gradle&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;cache&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;action@3bf23b8dd95e7d2bacf2470132454fe893a178a1
+        &lt;span class=&quot;token key atrule&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; build
+          &lt;span class=&quot;token key atrule&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;token scalar string&quot;&gt;
+            --build-cache
+            --parallel&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위 Workflow로 수행한 결과는 아래와 같다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/5292be1ec2c1214d685521fa5d341a9c/fb3ea/enhanced.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 54.70588235294118%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABNklEQVR42qWS6XKDMAyETQg3BoPNWSBtQibN+z/gVlKHTpPplemPb2yMtJalVbadMB/O8MMcQVJgHxW01/D26QfKTxClBqZ5QkXoqkOc10i0FUL6FyWlxKiUDio3gtdUO2SFQ0LB94IBJWjToah75GWDmJLjrBJC+hfEVAyhdpRg7ICMglhsE9kF2Q2b8MbnC7d4FlU+bVy/oKancGW7L8T+ArcsZEGPbjN2pApb6YNSIZUdPwzrsKjqyhqv6xXrcsJxfsHSz5jaEb3tMNgeg7vjm7ORcg6uI0Fd4Xq64LwchcvzKuvUDBiq5ld6xjiMJCqCnp/CtjMKsoKmweSmlfFLgx94Mvf+PYcaWpMX2VtsCbbB1pP7Sf6EDIVnwB91M4m32DripQfFbmzDm5J8uJlW3P4PwTdh6fhwLfZqFwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;개선 후&apos; title=&apos;&apos; src=&apos;/static/5292be1ec2c1214d685521fa5d341a9c/ca1dc/enhanced.png&apos; srcset=&apos;/static/5292be1ec2c1214d685521fa5d341a9c/e7570/enhanced.png 170w,
+/static/5292be1ec2c1214d685521fa5d341a9c/f46e7/enhanced.png 340w,
+/static/5292be1ec2c1214d685521fa5d341a9c/ca1dc/enhanced.png 680w,
+/static/5292be1ec2c1214d685521fa5d341a9c/fb3ea/enhanced.png 742w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;개선 후&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/b69c4ac21792b1fc2fbb7108932c5c57/018c1/detail-of-gradle-job.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 72.35294117647058%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB8UlEQVR42p2T2W7bMBBFJVkbtVH7alm7lDipk6Z9a///t26HNGQkQFykfbgYjsA5vDOkFD+uwIIMlptAt0Nopg/VuGpfa2aAg8VvErlJ+/1I1Oaw/ZTqYxg2h9Iub1hffmO9/MJp+4nj/B0dxdP2A+36JtfN9Iqy/4Z6uKAiyUi5+LbnzfiConuGwnmMp2XA47rh/HDGMs0Y+wHTMJImzOOEru1Q5CXiOEWSZDJK0ZoHIRzmwnU82MyDwpwQ27BgXZ6wrc+0sYB+YDBND6bhwTJdWHaAhPnILAcB5Zoh5Mio6kLOTYpNwKKeEdYronoBLxc4SQcvH+EXI+yoheZVsC0fus6gvSv+TNJhmVRIkxohz+CyEJ4TwSFXLuNgFAXMNv4OugENKijrDqdulmqOA8QhimpB1UgHm1yxL8FuwCCmgWcNeFojLlp4XDwjcknPwSS4auxzu87rQPMV+hRoUltV3aNuBumwoli3E/KqQ1aeEOd0EB0Y0liEkvyIIKKLozHcBc7HHpftjIeeQFEG4VoUCEe7m13yuyg8sPvAnBw2Hd1ukMoCRbOvrcnZ7YUUCXIPdANaBFzJ4Ss5HKsWx7SETjdqkRJ6d4bY9MULuTqk9sbmhMv6KOP7dv4F9MFhT84GcpmHGUKHI3JD+Yf8D/APMltFd7x9KFcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;Gradle 셋업, 빌드, 캐시 작업 로그&apos; title=&apos;&apos; src=&apos;/static/b69c4ac21792b1fc2fbb7108932c5c57/ca1dc/detail-of-gradle-job.png&apos; srcset=&apos;/static/b69c4ac21792b1fc2fbb7108932c5c57/e7570/detail-of-gradle-job.png 170w,
+/static/b69c4ac21792b1fc2fbb7108932c5c57/f46e7/detail-of-gradle-job.png 340w,
+/static/b69c4ac21792b1fc2fbb7108932c5c57/ca1dc/detail-of-gradle-job.png 680w,
+/static/b69c4ac21792b1fc2fbb7108932c5c57/02d09/detail-of-gradle-job.png 1020w,
+/static/b69c4ac21792b1fc2fbb7108932c5c57/018c1/detail-of-gradle-job.png 1282w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;Gradle 셋업, 빌드, 캐시 작업 로그&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Gradle를 셋업하는 과정에서 캐시 데이터를 활용한 것을 볼 수 있고, 빌드 과정 중에서 &lt;code class=&quot;language-text&quot;&gt;Task :compileJava&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;Task :compileTestJava&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;Task :test&lt;/code&gt; 작업이 모두 캐시로부터 수행된 것을 확인할 수 있다.&lt;br&gt;
+그 결과, 확실히 Gradle과 관련된 작업에서 상당한 성능 개선이 이루어진 것을 확인할 수 있다.&lt;/p&gt;
+&lt;p&gt;혹시나해서 고의로 실패하는 테스트를 작성 후 Workflow를 실행해보았다.
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/e48f6227bd10a785dc96ef9f91def9e2/95b97/result-for-fail-test.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 48.8235294117647%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR42o2S23KCQBBEV0VBBbkjK3c0xvCU/P/HdeihIJtUTOWha5apnTOzPahh+MDt7R1NP6DqHihb6tXQ4w9Nd4rmjvo6INUtVJyVqNoXnC8NnEMAtbKh1s7/tdkvWjHqshuBd+iyR5hc4BwD0d6NJnlTPJ4SHLx4Eb+3zmkCWYdFygsynMLzCAml0PUTORNqjxNbtofNzpVo2XOctN4ev8EEGMRapivqG3TRyfMzXYN5NmITFppPW574AyZAP8pH/1rkIyzTDS7VFcm5AvPz5L8VPpNiERcyAzmpCaRXO3r1bFnGQgTIReiql8k4KaGMhBIYpQWCREsDwl0/lTwt4ZkLoi2MluNBpXktHnJKKY70CCslx18qzavFEi6JjXiPOdZy0/SYixOv2S3OCum42/tffsymz/+X8W0uRc7GvU/29urf7HfjhQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;실패하는 테스트 작성 후 실행 결과&apos; title=&apos;&apos; src=&apos;/static/e48f6227bd10a785dc96ef9f91def9e2/ca1dc/result-for-fail-test.png&apos; srcset=&apos;/static/e48f6227bd10a785dc96ef9f91def9e2/e7570/result-for-fail-test.png 170w,
+/static/e48f6227bd10a785dc96ef9f91def9e2/f46e7/result-for-fail-test.png 340w,
+/static/e48f6227bd10a785dc96ef9f91def9e2/ca1dc/result-for-fail-test.png 680w,
+/static/e48f6227bd10a785dc96ef9f91def9e2/02d09/result-for-fail-test.png 1020w,
+/static/e48f6227bd10a785dc96ef9f91def9e2/95b97/result-for-fail-test.png 1283w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;실패하는 테스트 작성 후 실행 결과&lt;/figcaption&gt;
+  &lt;/figure&gt;
+Build가 성공적으로 실패하는 것을 확인할 수 있었다.&lt;/p&gt;
+&lt;h2&gt;마치며&lt;/h2&gt;
+&lt;p&gt;바쁘고 바쁜 현대 사회에서 CI에 헛된 시간을 낭비할 수 없다.&lt;br&gt;
+어렵지 않고 단순한 위 작업을 통해 우리의 중요한 시간을 더 중요한 곳에 쏟을 수 있길 바란다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[11장. 웹 공격 기술]]></title><description><![CDATA[이번 장에서는 웹 애플리케이션을 공격하는 기술들에 대해 알아본다. 1. 공격 패턴의 종류 공격의 종류는 크게 두 가지로 나눌 수 있다. 1-…]]></description><link>https://kdkdhoho.github.io/10-web-attacks/</link><guid isPermaLink="false">https://kdkdhoho.github.io/10-web-attacks/</guid><pubDate>Sun, 12 May 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이번 장에서는 &lt;strong&gt;웹 애플리케이션을 공격하는 기술&lt;/strong&gt;들에 대해 알아본다.&lt;/p&gt;
 &lt;h2&gt;1. 공격 패턴의 종류&lt;/h2&gt;
 &lt;p&gt;공격의 종류는 크게 두 가지로 나눌 수 있다.&lt;/p&gt;
 &lt;h3&gt;1-1. 능동적 공격&lt;/h3&gt;
