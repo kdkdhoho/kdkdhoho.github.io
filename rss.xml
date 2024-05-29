@@ -1,4 +1,149 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 29 May 2024 03:15:09 GMT</lastBuildDate><item><title><![CDATA[[Infra] Github Actions를 이용한 CI 작업 속도를 캐싱으로 개선하기]]></title><description><![CDATA[들어가며 현재 ListyWave 프로젝트에서 백엔드는 CI를 위해 Github Actions를 이용 중이다. 수행하는 작업을 의미하는 Workflow는 크게 아래와 같이 나눌 수 있다. 코드 체크아웃 JDK 준비 Gradle…]]></description><link>https://kdkdhoho.github.io/enhance-speed-ci-workflow/</link><guid isPermaLink="false">https://kdkdhoho.github.io/enhance-speed-ci-workflow/</guid><pubDate>Thu, 23 May 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 29 May 2024 07:02:41 GMT</lastBuildDate><item><title><![CDATA[[Infra] Github Actions와 Docker를 이용해 배포 자동화하기]]></title><description><![CDATA[Github Actions와 Docker를 이용해 배포 자동화하는 방법에 대해 정리해보겠습니다. Github Actions, Docker, EC…]]></description><link>https://kdkdhoho.github.io/continuous-deploy-using-github-actions-and-docker/</link><guid isPermaLink="false">https://kdkdhoho.github.io/continuous-deploy-using-github-actions-and-docker/</guid><pubDate>Wed, 29 May 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Github Actions와 Docker를 이용해 배포 자동화하는 방법에 대해 정리해보겠습니다.&lt;/p&gt;
+&lt;p&gt;Github Actions, Docker, EC2에 대한 기초적인 내용은 모두 알고 있다는 전제하에 설명을 할 것입니다.&lt;br&gt;
+따라서 잘 모르겠거나, 이 부분은 왜 이렇게 해야 하는지? 궁금하다면 직접 구글링을 하거나 댓글로 질문을 남겨주세요. &lt;/p&gt;
+&lt;p&gt;실제 적용 결과는 &lt;a href=&quot;https://github.com/8-Sprinters/ListyWave-back/commit/ab176bee2f3722c29a9f92826b4b6f13bd01989e&quot;&gt;해당 태그&lt;/a&gt;에서 확인할 수 있습니다.&lt;/p&gt;
+&lt;h2&gt;0. 동작 흐름&lt;/h2&gt;
+&lt;p&gt;우선 전체적인 숲을 보며 어떤 식으로 동작이 흘러가는지 큰 그림을 그려보겠습니다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;&quot; alt=&quot;전체 동작 흐름&quot;&gt;&lt;/p&gt;
+&lt;h2&gt;1. CD Workflow&lt;/h2&gt;
+&lt;p&gt;작성한 CD Workflow는 다음과 같습니다.&lt;/p&gt;
+&lt;p&gt;각 step 별로 name을 한글로 적었으니, 코드 별로 어떤 처리를 하는 지 대강 파악할 수 있을 것입니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Deploy to PROD
+
+&lt;span class=&quot;token key atrule&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;workflow_dispatch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;prod&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;token key atrule&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;deploy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;runs-on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ubuntu&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;latest
+    &lt;span class=&quot;token key atrule&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Github Actions 호스트 IP 가져오기
+        &lt;span class=&quot;token key atrule&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ip
+        &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; haythem/public&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;ip@bdddd92c198b0955f0b494a8ebeac529754262ff
+
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; AWS 로그인
+        &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; aws&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;actions/configure&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;aws&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;credentials@e3dd6a429d7300a6a4c196c26e071d42e0343502
+        &lt;span class=&quot;token key atrule&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;aws-access-key-id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.AWS_ACCESS_KEY_ID &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;aws-secret-access-key&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.AWS_SECRET_ACCESS_KEY &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;aws-region&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.AWS_DEFAULT_REGION &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; IP 허용
+        &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;token scalar string&quot;&gt;
+          aws ec2 authorize-security-group-ingress --group-id ${{ secrets.AWS_SECURITY_GROUP_ID }} --protocol &quot;tcp&quot; --port &quot;${{ secrets.PROD_EC2_PORT }}&quot; --cidr &quot;${{ steps.ip.outputs.ipv4 }}/32&quot;&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;AWS_ACCESS_KEY_ID&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.AWS_ACCESS_KEY_ID &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;AWS_SECRET_ACCESS_KEY&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.AWS_SECRET_ACCESS_KEY &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;AWS_DEFAULT_REGION&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.AWS_DEFAULT_REGION &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 저장소 Checkout
+        &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29
+
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 자바 17 셋업
+        &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; actions/setup&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;java@99b8673ff64fbf99d8d325f52d9a5bdedb8483e9
+        &lt;span class=&quot;token key atrule&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;java-version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;17&apos;&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;gradle&apos;&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;distribution&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;corretto&apos;&lt;/span&gt;
+
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 설정 파일 추가
+        &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;token scalar string&quot;&gt;
+          cd ./src/main/resources/&lt;/span&gt;
+          
+          cat &amp;lt;&amp;lt;EOF &lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt; application&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;prod.yml
+          $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.APPLICATION_PROD_YML &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+          EOF
+          
+          cat &amp;lt;&amp;lt;EOF &lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt; application&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;oauth.yml
+          $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.APPLICATION_OAUTH_YML &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+          EOF
+          
+          cat &amp;lt;&amp;lt;EOF &lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt; application&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;storage.yml
+          $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.APPLICATION_STORAGE_YML &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+          EOF
+
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 애플리케이션 빌드
+        &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;token scalar string&quot;&gt;
+          cd /home/runner/work/ListyWave-back/ListyWave-back/
+          ./gradlew bootJar&lt;/span&gt;
+
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 도커 이미지 빌드
+        &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; docker build &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;t $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.DOCKER_HUB_USERNAME &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;/$&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.IMAGE_NAME &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;$&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.PROD_TAG &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; ./
+
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 도커 허브에 로그인
+        &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; docker/login&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;action@0d4c9c5ea7693da7b068278f7b52bda2a190a446
+        &lt;span class=&quot;token key atrule&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.DOCKER_HUB_USERNAME &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.DOCKER_HUB_TOKEN &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 도커 허브에 Push
+        &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; docker push $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.DOCKER_HUB_USERNAME &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;/$&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.IMAGE_NAME &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;$&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.PROD_TAG &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 인스턴스 접속 및 배포 스크립트 실행
+        &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; appleboy/ssh&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;action@029f5b4aeeeb58fdfe1410a5d17f967dacf36262
+        &lt;span class=&quot;token key atrule&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.PROD_EC2_HOST &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.PROD_EC2_USERNAME &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.PROD_EC2_PRIVATE_KEY &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;token scalar string&quot;&gt;
+            docker stop &quot;${{ secrets.PROD_CONTAINER_NAME }}&quot;
+            docker rm -f &quot;${{ secrets.PROD_CONTAINER_NAME }}&quot;
+            docker rmi &quot;${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.IMAGE_NAME }}:${{ secrets.PROD_TAG }}&quot;
+            docker pull &quot;${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.IMAGE_NAME }}:${{ secrets.PROD_TAG }}&quot;
+            docker run -d -p 8080:8080 --name &quot;${{ secrets.PROD_CONTAINER_NAME }}&quot; &quot;${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.IMAGE_NAME }}:${{ secrets.PROD_TAG }}&quot;&lt;/span&gt;
+
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; IP 제거
+        &lt;span class=&quot;token key atrule&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; always() &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;token scalar string&quot;&gt;
+          aws ec2 revoke-security-group-ingress --group-id &quot;${{ secrets.AWS_SECURITY_GROUP_ID }}&quot; --protocol &quot;tcp&quot; --port &quot;${{ secrets.PROD_EC2_PORT }}&quot; --cidr &quot;${{ steps.ip.outputs.ipv4 }}/32&quot;&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;AWS_ACCESS_KEY_ID&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.AWS_ACCESS_KEY_ID &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;AWS_SECRET_ACCESS_KEY&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.AWS_SECRET_ACCESS_KEY &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;AWS_DEFAULT_REGION&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.AWS_DEFAULT_REGION &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Github Repository - Actions Secrets에 본인 환경에 맞는 값들을 빠짐없이 넣어줍니다!&lt;br&gt;
+&lt;del&gt;필자는 하나를 빠트려 2시간을 날렸다..&lt;/del&gt;
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/ed5450b26d4595e89a8b59d2a6d69b8a/38242/actions-secrets.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 61.76470588235294%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAAB3UlEQVR42m1Ty5KbQAzkS1IxmPcMM8MbDPYudrmczTX3VOX//6EjCROTZA9dzAghdbeEF6QWUV4hUhXCrESYl4h1jSAxOGZOwDnH1MGnmB8XdLZ0LhCmBoOyaHKKBym+HHN4mengugtiVSPVDdKilQa2mVAPb4QLym5GO11RVKMUDBIrDTdwo4Ab0jsvpo9NPUG5AZlp4UeFJDWnK+r5G4rxA3p4QLU36O6GalhQj+/0fJecdrrRfZFz7np4zMa1Z5hmFtmHSJMkg5I+rKYHqvN3en7A9Qts9wZLubadocoBuhyFSG57ARPxYsXyziSzlGJMm5HZDrlpkBW1ICf22RNJ0axSn7l7SEH++Guo/nrBDBQxYBl8P4RaGm74rJgw5G4Vme/vOrLpPJzV106mug7Arufn/ZX/gscShstdZPzb+UCs9zE2vz/f0c13mv7yKvqctC8e0s6xyZup0pGLbdJ2BdkeXi8GD/MPw1gRNGKCx5NNSRYXloWOrXTitWBGWnbP7GTv9o/iuizx+Lng8euK248TSaYiA+2SrU5QJD+ixIQ6OZo8L7ymOLNnT/+DXn124wWqHpG5Dp5RJfp2QkMBo4ktFVNkriJPuZihP+Yzfzcwcy4e0p9yTCx+AyB9cWKXKAB2AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;Actions Secrets&apos; title=&apos;&apos; src=&apos;/static/ed5450b26d4595e89a8b59d2a6d69b8a/ca1dc/actions-secrets.png&apos; srcset=&apos;/static/ed5450b26d4595e89a8b59d2a6d69b8a/e7570/actions-secrets.png 170w,
+/static/ed5450b26d4595e89a8b59d2a6d69b8a/f46e7/actions-secrets.png 340w,
+/static/ed5450b26d4595e89a8b59d2a6d69b8a/ca1dc/actions-secrets.png 680w,
+/static/ed5450b26d4595e89a8b59d2a6d69b8a/02d09/actions-secrets.png 1020w,
+/static/ed5450b26d4595e89a8b59d2a6d69b8a/38242/actions-secrets.png 1115w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;Actions Secrets&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;2. Dockerfile&lt;/h2&gt;
+&lt;p&gt;작성한 Dockerfile은 다음과 같습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;dockerfile&quot;&gt;&lt;pre class=&quot;language-dockerfile&quot;&gt;&lt;code class=&quot;language-dockerfile&quot;&gt;&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; arm64v8/amazoncorretto:17-alpine-jdk&lt;/span&gt;
+
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;COPY&lt;/span&gt; ./build/libs/listywave.jar listywave.jar&lt;/span&gt;
+
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ENV&lt;/span&gt; TZ=Asia/Seoul&lt;/span&gt;
+
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ENTRYPOINT&lt;/span&gt; [&lt;span class=&quot;token string&quot;&gt;&quot;java&quot;&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&quot;-Dspring.profiles.active=prod,oauth,storage&quot;&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&quot;-jar&quot;&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&quot;listywave.jar&quot;&lt;/span&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;본인 프로젝트에 맞게 적절히 값을 수정해주면 되겠습니다.&lt;/p&gt;
+&lt;p&gt;Dockerfile의 위치는 프로젝트 경로 맨 위에 위치시키면 됩니다.&lt;/p&gt;
+&lt;h3&gt;Docker Private Repository 만들기&lt;/h3&gt;
+&lt;p&gt;여기선 따로 정리하진 않지만 Docker Image를 저장할 Private Repository를 만들어야 합니다!&lt;br&gt;
+이 내용도 많은 블로그에서 이미 정리가 잘 되어 있으니 참고하시면 되겠습니다.&lt;/p&gt;
+&lt;h2&gt;3. WAS에서 Docker Login 해놓기&lt;/h2&gt;
+&lt;p&gt;Workflow를 보면 Actions 호스트에서 WAS에 SSH 접속 후, 미리 작성해놓은 스크립트를 수행합니다.&lt;br&gt;
+이때, 중요한 점은 Actions 호스트에서만 Docker에 Login을 했고 WAS 에서는 Login을 하지 않아 &lt;code class=&quot;language-text&quot;&gt;docker pull&lt;/code&gt; 명령어를 수행할 때 실패한다는 것입니다.&lt;/p&gt;
+&lt;p&gt;따라서 미리 WAS에서 Docker에 Login을 해놓으면 되겠습니다.&lt;/p&gt;
+&lt;h2&gt;마무리&lt;/h2&gt;
+&lt;p&gt;사실 위 작업들만 빠짐없이 꼼꼼히 해주어도 한 번에 될 것으로 예상합니다.&lt;br&gt;
+하지만, 인프라 및 클라우드 작업은 사소한 설정 하나만 틀려도 실패하는데요.&lt;br&gt;
+이럴 때는 침착하게 로그를 보면서 원인을 분명하게 파악하고, 해당 문제를 해결하기 위한 검색만이 답인 것 같습니다.&lt;/p&gt;
+&lt;p&gt;위에서 설명한 작업들 뿐만 아니라 기본적으로 해주어야 하는 작업들은 있지만, 해당 내용들은 다른 블로그에서 잘 작성해두었으니 참고하면 되겠습니다.&lt;br&gt;
+실제로 저 또한, 위 작업을 약 이틀 동안 삽질하면서 여러 블로그 및 공식 문서를 참고해가며 이렇게도 해보고 저렇게도 해보면서 해결했습니다!&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;너무 대충 정리한 것 같긴 하지만, 어디서부터 어디까지 정리해야 할 지 감이 안잡히기에 이렇게만 정리하겠습니다.&lt;/p&gt;
+&lt;p&gt;자세한 질문이나 문제가 생겼다면 댓글이나 &lt;a href=&quot;https://open.kakao.com/o/sDdYkMhf&quot;&gt;카카오톡 오픈 채팅방&lt;/a&gt;을 통해 질문해주길 바라겠습니다.&lt;/p&gt;
+&lt;p&gt;감사합니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Infra] Github Actions를 이용한 CI 작업 속도를 캐싱으로 개선하기]]></title><description><![CDATA[들어가며 현재 ListyWave 프로젝트에서 백엔드는 CI를 위해 Github Actions를 이용 중이다. 수행하는 작업을 의미하는 Workflow는 크게 아래와 같이 나눌 수 있다. 코드 체크아웃 JDK 준비 Gradle…]]></description><link>https://kdkdhoho.github.io/enhance-speed-ci-workflow/</link><guid isPermaLink="false">https://kdkdhoho.github.io/enhance-speed-ci-workflow/</guid><pubDate>Thu, 23 May 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
 &lt;p&gt;현재 &lt;a href=&quot;https://listywave.com&quot;&gt;ListyWave&lt;/a&gt; 프로젝트에서 백엔드는 CI를 위해 Github Actions를 이용 중이다.&lt;/p&gt;
 &lt;p&gt;수행하는 작업을 의미하는 Workflow는 크게 아래와 같이 나눌 수 있다.&lt;/p&gt;
 &lt;ol&gt;
