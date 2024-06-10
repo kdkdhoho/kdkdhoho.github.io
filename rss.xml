@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 29 May 2024 07:02:41 GMT</lastBuildDate><item><title><![CDATA[[Infra] Github Actions와 Docker를 이용해 배포 자동화하기]]></title><description><![CDATA[Github Actions와 Docker를 이용해 배포 자동화하는 방법에 대해 정리해보겠습니다. Github Actions, Docker, EC…]]></description><link>https://kdkdhoho.github.io/continuous-deploy-using-github-actions-and-docker/</link><guid isPermaLink="false">https://kdkdhoho.github.io/continuous-deploy-using-github-actions-and-docker/</guid><pubDate>Wed, 29 May 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Github Actions와 Docker를 이용해 배포 자동화하는 방법에 대해 정리해보겠습니다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 10 Jun 2024 12:23:26 GMT</lastBuildDate><item><title><![CDATA[[Infra] Github Actions와 Docker를 이용해 배포 자동화하기]]></title><description><![CDATA[Github Actions와 Docker를 이용해 배포 자동화하는 방법에 대해 정리해보겠습니다. Github Actions, Docker, EC…]]></description><link>https://kdkdhoho.github.io/continuous-deploy-using-github-actions-and-docker/</link><guid isPermaLink="false">https://kdkdhoho.github.io/continuous-deploy-using-github-actions-and-docker/</guid><pubDate>Wed, 29 May 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Github Actions와 Docker를 이용해 배포 자동화하는 방법에 대해 정리해보겠습니다.&lt;/p&gt;
 &lt;p&gt;Github Actions, Docker, EC2에 대한 기초적인 내용은 모두 알고 있다는 전제하에 설명을 할 것입니다.&lt;br&gt;
 따라서 잘 모르겠거나, 이 부분은 왜 이렇게 해야 하는지? 궁금하다면 직접 구글링을 하거나 댓글로 질문을 남겨주세요. &lt;/p&gt;
 &lt;p&gt;실제 적용 결과는 &lt;a href=&quot;https://github.com/8-Sprinters/ListyWave-back/commit/ab176bee2f3722c29a9f92826b4b6f13bd01989e&quot;&gt;해당 태그&lt;/a&gt;에서 확인할 수 있습니다.&lt;/p&gt;
@@ -143,17 +143,16 @@
 실제로 저 또한, 위 작업을 약 이틀 동안 삽질하면서 여러 블로그 및 공식 문서를 참고해가며 이렇게도 해보고 저렇게도 해보면서 해결했습니다!&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;너무 대충 정리한 것 같긴 하지만, 어디서부터 어디까지 정리해야 할 지 감이 안잡히기에 이렇게만 정리하겠습니다.&lt;/p&gt;
 &lt;p&gt;자세한 질문이나 문제가 생겼다면 댓글이나 &lt;a href=&quot;https://open.kakao.com/o/sDdYkMhf&quot;&gt;카카오톡 오픈 채팅방&lt;/a&gt;을 통해 질문해주길 바라겠습니다.&lt;/p&gt;
-&lt;p&gt;감사합니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Infra] Github Actions를 이용한 CI 작업 속도를 캐싱으로 개선하기]]></title><description><![CDATA[들어가며 현재 ListyWave 프로젝트에서 백엔드는 CI를 위해 Github Actions를 이용 중이다. 수행하는 작업을 의미하는 Workflow는 크게 아래와 같이 나눌 수 있다. 코드 체크아웃 JDK 준비 Gradle…]]></description><link>https://kdkdhoho.github.io/enhance-speed-ci-workflow/</link><guid isPermaLink="false">https://kdkdhoho.github.io/enhance-speed-ci-workflow/</guid><pubDate>Thu, 23 May 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
-&lt;p&gt;현재 &lt;a href=&quot;https://listywave.com&quot;&gt;ListyWave&lt;/a&gt; 프로젝트에서 백엔드는 CI를 위해 Github Actions를 이용 중이다.&lt;/p&gt;
-&lt;p&gt;수행하는 작업을 의미하는 Workflow는 크게 아래와 같이 나눌 수 있다.&lt;/p&gt;
+&lt;p&gt;감사합니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Infra] Github Actions를 이용한 CI 작업 속도를 캐싱으로 개선하기]]></title><description><![CDATA[들어가며 현재 ListyWave 프로젝트에서 백엔드는 지속적 통합(이하 CI)의 툴로 Github Actions를 이용 중이다. CI 과정에서 수행하는 작업은 크게 아래와 같다. 저장소 Checkout JDK 준비 Gradle 준비 Build…]]></description><link>https://kdkdhoho.github.io/enhance-speed-ci-workflow/</link><guid isPermaLink="false">https://kdkdhoho.github.io/enhance-speed-ci-workflow/</guid><pubDate>Thu, 23 May 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
+&lt;p&gt;현재 &lt;a href=&quot;https://listywave.com&quot;&gt;ListyWave&lt;/a&gt; 프로젝트에서 백엔드는 지속적 통합(이하 CI)의 툴로 &lt;a href=&quot;https://docs.github.com/ko/actions&quot;&gt;Github Actions&lt;/a&gt;를 이용 중이다.&lt;/p&gt;
+&lt;p&gt;CI 과정에서 수행하는 작업은 크게 아래와 같다.&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;코드 체크아웃&lt;/li&gt;
+&lt;li&gt;저장소 Checkout&lt;/li&gt;
 &lt;li&gt;JDK 준비&lt;/li&gt;
 &lt;li&gt;Gradle 준비&lt;/li&gt;
-&lt;li&gt;빌드&lt;/li&gt;
+&lt;li&gt;Build&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;하지만 &lt;strong&gt;Gradle을 준비하고 빌드하는 &lt;em&gt;Build with Gradle&lt;/em&gt; 과정에서 최소 1m이 걸리고 있었다.&lt;/strong&gt;&lt;br&gt;
-(&lt;del&gt;지금 보니 Gradle 준비와 빌드가 동시에 일어나고 있었다. 즉, 빌드를 2번 수행했었다 😓&lt;/del&gt;)&lt;/p&gt;
+&lt;p&gt;하지만 3, 4번 과정에서 최소 1분이 걸리고 있었다.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
       &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/1e6d6610742292d945d807af10a25920/4a768/not-enhanced.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
@@ -167,18 +166,27 @@
     &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;개선 전&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;이를 Github Actions Market Place에 있는 &lt;a href=&quot;https://github.com/marketplace/actions/gradle-cache&quot;&gt;actions/gradle-cache&lt;/a&gt;를 이용해 속도를 개선하려고 한다.&lt;/p&gt;
-&lt;h2&gt;actions/gradle-cache&lt;/h2&gt;
+&lt;h2&gt;1. actions/gradle-cache&lt;/h2&gt;
 &lt;p&gt;우선 &lt;a href=&quot;https://github.com/marketplace/actions/gradle-cache&quot;&gt;actions/gradle-cache&lt;/a&gt;에 대해 간단하게 이해해보자.&lt;/p&gt;
 &lt;p&gt;Github Actions는 작업이 수행될 때마다 매번 새로운 환경의 가상 호스트를 생성하고 작업을 수행한다.&lt;br&gt;
 따라서 JDK 셋업이나 Gradle 셋업 및 빌드 과정이 매번 동일하게 수행된다.&lt;/p&gt;
 &lt;p&gt;하지만 위 작업들은 변경되지 않는 한, &lt;strong&gt;캐싱을 이용할 수 있는 작업들&lt;/strong&gt;이다.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;actions/gradle-cache&lt;/em&gt; 는 그 중에서도, Gradle을 셋업하고 빌드하는 과정을 전반적으로 수행해주며 동시에 원격 혹은 로컬에 캐싱을 지원해주는 기술이다.&lt;/p&gt;
-&lt;h2&gt;Gradle 성능 개선&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://sejoung.github.io/2021/08/2021-08-04-gradle_build/&quot;&gt;Gradle 공식 문서&lt;/a&gt;와 &lt;a href=&quot;https://sejoung.github.io/2021/08/2021-08-04-gradle_build/&quot;&gt;기술 블로그&lt;/a&gt;를 통해 &lt;strong&gt;Gradle 자체적으로 성능 개선을 위한 옵션을 지원&lt;/strong&gt;하고 있는 것을 확인할 수 있었다.&lt;/p&gt;
+&lt;h2&gt;2. Gradle을 캐싱하면 속도가 빨라지는 이유&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.gradle.org/&quot;&gt;Gradle&lt;/a&gt;은 Java, Android, Kotlin을 &lt;strong&gt;Build&lt;/strong&gt; 해주는 오픈 소스 라이브러리다.&lt;/p&gt;
+&lt;p&gt;Build란 우리가 완성한 프로젝트를 실행가능한 독립적인 하나의 파일로 만드는 과정을 의미한다.&lt;br&gt;
+Java를 기준으로 설명하면, Build의 산출물로 &lt;em&gt;.jar&lt;/em&gt; 또는 &lt;em&gt;.war&lt;/em&gt; 파일이 탄생한다.&lt;/p&gt;
+&lt;p&gt;Build를 하기 위해서는 컴파일 -&gt; 링크 -&gt; 패키징 -&gt; 테스트의 과정을 거친다.&lt;br&gt;
+이 과정에서 &lt;strong&gt;프로젝트에서 사용되는 종속성을 네트워크를 통해 다운로드&lt;/strong&gt; 받아야 한다.&lt;br&gt;
+또한 중요한 사실은, &lt;strong&gt;Build의 입력(소스 코드, 종속성, 빌드 옵션 등)이 동일하면 출력도 동일&lt;/strong&gt;하다.&lt;/p&gt;
+&lt;p&gt;따라서 &lt;strong&gt;직전 Build의 결과를 저장하고 다음 Build 작업에서 입력이 바뀌지 않았다면 해당 결과물을 재사용함으로써 시간을 절약&lt;/strong&gt;할 수 있다.&lt;br&gt;
+또한 &lt;strong&gt;종속성을 캐싱한다면 네트워크를 통해 다운로드 받는 반복 작업을 수행하지 않을 수 있다&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2&gt;3. 적용하기&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://sejoung.github.io/2021/08/2021-08-04-gradle_build/&quot;&gt;Gradle 공식 문서&lt;/a&gt;와 &lt;a href=&quot;https://sejoung.github.io/2021/08/2021-08-04-gradle_build/&quot;&gt;기술 블로그&lt;/a&gt;를 통해 &lt;strong&gt;Gradle 자체적으로 성능 개선을 위한 옵션을 지원&lt;/strong&gt;하고 있는 것을 확인할 수 있다.&lt;/p&gt;
 &lt;p&gt;여러 종류의 옵션이 지원되고 있는데, 나는 그 중에서 &lt;strong&gt;빌드를 병렬적으로 수행하게 해주는 옵션&lt;/strong&gt;과 &lt;strong&gt;빌드 캐시를 활성화해주는 옵션을 설정&lt;/strong&gt;했다.&lt;/p&gt;
 &lt;p&gt;옵션에 대한 자세한 설명은 공식 문서나 블로그 글을 참고해보면 좋겠다.&lt;/p&gt;
-&lt;h2&gt;개선된 CI Workflow&lt;/h2&gt;
-&lt;p&gt;이제 위 내용을 모두 적용한 CI Workflow는 아래과 같다.&lt;/p&gt;
+&lt;h3&gt;개선된 CI Workflow&lt;/h3&gt;
+&lt;p&gt;Gradle 캐싱을 적용한 CI Workflow는 아래과 같다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; CI workflow
 
 &lt;span class=&quot;token key atrule&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
@@ -204,7 +212,8 @@
       &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Gradle 셋업&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 빌드&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 캐시
         &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; burrunan/gradle&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;cache&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;action@3bf23b8dd95e7d2bacf2470132454fe893a178a1
         &lt;span class=&quot;token key atrule&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
-          &lt;span class=&quot;token key atrule&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; build
+          &lt;span class=&quot;token key atrule&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; build &lt;span class=&quot;token comment&quot;&gt;# 경우에 따라 bootJar 로도 할 수 있다.&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;save-gradle-dependencies-cache&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean important&quot;&gt;true&lt;/span&gt;
           &lt;span class=&quot;token key atrule&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;token scalar string&quot;&gt;
             --build-cache
             --parallel&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -252,8 +261,7 @@
   &lt;/figure&gt;
 Build가 성공적으로 실패하는 것을 확인할 수 있었다.&lt;/p&gt;
 &lt;h2&gt;마치며&lt;/h2&gt;
-&lt;p&gt;바쁘고 바쁜 현대 사회에서 CI에 헛된 시간을 낭비할 수 없다.&lt;br&gt;
-어렵지 않고 단순한 위 작업을 통해 우리의 중요한 시간을 더 중요한 곳에 쏟을 수 있길 바란다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[11장. 웹 공격 기술]]></title><description><![CDATA[이번 장에서는 웹 애플리케이션을 공격하는 기술들에 대해 알아본다. 1. 공격 패턴의 종류 공격의 종류는 크게 두 가지로 나눌 수 있다. 1-…]]></description><link>https://kdkdhoho.github.io/10-web-attacks/</link><guid isPermaLink="false">https://kdkdhoho.github.io/10-web-attacks/</guid><pubDate>Sun, 12 May 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이번 장에서는 &lt;strong&gt;웹 애플리케이션을 공격하는 기술&lt;/strong&gt;들에 대해 알아본다.&lt;/p&gt;
+&lt;p&gt;이 글을 통해 Github Actions를 이용해 CI를 구축하려는 사람들이 조금 더 빠른 속도로 처리했으면 좋겠다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[11장. 웹 공격 기술]]></title><description><![CDATA[이번 장에서는 웹 애플리케이션을 공격하는 기술들에 대해 알아본다. 1. 공격 패턴의 종류 공격의 종류는 크게 두 가지로 나눌 수 있다. 1-…]]></description><link>https://kdkdhoho.github.io/10-web-attacks/</link><guid isPermaLink="false">https://kdkdhoho.github.io/10-web-attacks/</guid><pubDate>Sun, 12 May 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이번 장에서는 &lt;strong&gt;웹 애플리케이션을 공격하는 기술&lt;/strong&gt;들에 대해 알아본다.&lt;/p&gt;
 &lt;h2&gt;1. 공격 패턴의 종류&lt;/h2&gt;
 &lt;p&gt;공격의 종류는 크게 두 가지로 나눌 수 있다.&lt;/p&gt;
 &lt;h3&gt;1-1. 능동적 공격&lt;/h3&gt;
@@ -9829,13 +9837,11 @@ One &lt;em&gt;Statement Cycle&lt;/em&gt;은 한 쌍의 &lt;code class=&quot;lang
     &lt;/span&gt;
     &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;테스트 결과 - 성공!&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;정상적으로 로그아웃되는 것을 확인할 수 있습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[셀럽잇] HTTPS 적용기]]></title><description><![CDATA[EC2 서버 HTTPS 적용하기 안녕하세요. 셀럽잇 팀의 백엔드 도기입니다. 🐶 저희 팀은 이번 3차 데모데이에 운영 서버에 서비스를 배포했습니다!! 🎉 그 과정에서 Domain Name과 HTTPS…]]></description><link>https://kdkdhoho.github.io/https/</link><guid isPermaLink="false">https://kdkdhoho.github.io/https/</guid><pubDate>Wed, 02 Aug 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;EC2 서버 HTTPS 적용하기&lt;/p&gt;
-&lt;!--truncate--&gt;
-&lt;p&gt;안녕하세요. 셀럽잇 팀의 백엔드 도기입니다. 🐶&lt;/p&gt;
+&lt;p&gt;정상적으로 로그아웃되는 것을 확인할 수 있습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[셀럽잇] HTTPS 적용기]]></title><description><![CDATA[안녕하세요. 셀럽잇 팀의 백엔드 도기입니다. 🐶 저희 팀은 이번 3차 데모데이에 운영 서버에 서비스를 배포했습니다!! 🎉 그 과정에서 Domain Name과 HTTPS…]]></description><link>https://kdkdhoho.github.io/apply-https/</link><guid isPermaLink="false">https://kdkdhoho.github.io/apply-https/</guid><pubDate>Wed, 02 Aug 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요. 셀럽잇 팀의 백엔드 도기입니다. 🐶&lt;/p&gt;
 &lt;p&gt;저희 팀은 이번 3차 데모데이에 운영 서버에 서비스를 배포했습니다!! 🎉&lt;/p&gt;
 &lt;p&gt;그 과정에서 Domain Name과 HTTPS를 적용했는데요. 그 과정을 모두 기록하려고 합니다.&lt;/p&gt;
 &lt;p&gt;그럼 바로 시작하겠습니다.&lt;/p&gt;
-&lt;h1&gt;적용 이유 🧐&lt;/h1&gt;
+&lt;h2&gt;적용 이유 🧐&lt;/h2&gt;
 &lt;p&gt;도메인과 HTTPS 적용 이유는 다음과 같습니다.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;도메인 적용 --&gt; 사용자에게 편리한 접근성을 제공한다. &lt;/li&gt;
@@ -9843,10 +9849,10 @@ One &lt;em&gt;Statement Cycle&lt;/em&gt;은 한 쌍의 &lt;code class=&quot;lang
 &lt;/ol&gt;
 &lt;p&gt;실제 사용자가 사용할 서비스인데 외우기도 어려운 서버 IP를 쳐서 들어오면 ... 🫨 저라도 들어가기 싫을 것 같습니다.&lt;br/&gt;
 그리고 사용중인 서비스가 내 정보를 쉽게 탈취 가능한 서비스라면 아무리 좋은 서비스라도 사용하지 않겠죠.&lt;/p&gt;
-&lt;h1&gt;도메인 적용 🎯&lt;/h1&gt;
+&lt;h2&gt;도메인 적용 🎯&lt;/h2&gt;
 &lt;p&gt;우선 도메인을 적용하는 것부터 설명하겠습니다.&lt;/p&gt;
-&lt;h2&gt;1. 도메인 구매&lt;/h2&gt;
-&lt;p&gt;도메인 구매하면 가장 먼저 생각나는 &lt;a href=&quot;https://www.gabia.com/?utm_source=google&amp;#x26;utm_medium=cpc&amp;#x26;utm_term=%25EA%25B0%2580%25EB%25B9%2584%25EC%2595%2584&amp;#x26;utm_campaign=%25EA%25B0%2580%25EB%25B9%2584%25EC%2595%2584&quot;&gt;가비아&lt;/a&gt;에서 도메인을 먼저 구매하겠습니다.&lt;br/&gt;&lt;/p&gt;
+&lt;h3&gt;1. 도메인 구매&lt;/h3&gt;
+&lt;p&gt;도메인 구매하면 가장 먼저 생각나는 &lt;a href=&quot;https://www.google.com/aclk?sa=l&amp;#x26;ai=DChcSEwi_lu-H9tCGAxXEbQ8CHZtLAgwYABAAGgJ0Yg&amp;#x26;ase=2&amp;#x26;gclid=CjwKCAjwyJqzBhBaEiwAWDRJVCBeoJGtVdLVADgDZ0PZlQ7jZFrMIKDIBo57oxoDDmctdw9Mp5MdaRoCXOwQAvD_BwE&amp;#x26;ei=MuJmZpOIDJTI1e8P3v2z0Ak&amp;#x26;sig=AOD64_3C-PTMmN-jL5yrdpK931wqJGnYJA&amp;#x26;q&amp;#x26;sqi=2&amp;#x26;nis=4&amp;#x26;adurl&amp;#x26;ved=2ahUKEwiT6emH9tCGAxUUZPUHHd7-DJoQ0Qx6BAgFEAE&quot;&gt;가비아&lt;/a&gt;에서 도메인을 먼저 구매하겠습니다.&lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
       &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/c8226eaa69922edf4203267b044f5f0a/64756/%EB%8F%84%EB%A9%94%EC%9D%B8%EA%B5%AC%EB%A7%A4.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
@@ -9861,7 +9867,7 @@ One &lt;em&gt;Statement Cycle&lt;/em&gt;은 한 쌍의 &lt;code class=&quot;lang
     &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;도메인구매.png&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;현재 저희는 celuveat.com 을 구매한 상태이기에 &quot;이미 등록된 도메인&quot;이라고 뜨네요.&lt;/p&gt;
-&lt;h2&gt;2. 레코드 수정&lt;/h2&gt;
+&lt;h3&gt;2. 레코드 수정&lt;/h3&gt;
 &lt;p&gt;구매한 다음, My 가비아 -&gt; 서비스 관리 -&gt; (구매한 도메인) 관리 -&gt; DNS 정보 -&gt; DNS 관리 -&gt; (구매한 도메인) 설정 -&gt; 레코드 수정을 누르면 다음 화면이 뜹니다.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
@@ -9892,24 +9898,25 @@ One &lt;em&gt;Statement Cycle&lt;/em&gt;은 한 쌍의 &lt;code class=&quot;lang
   &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;그러면 위처럼 설정을 해주고 &apos;값/위치&apos;에 서버 IP를 입력해주세요.&lt;br/&gt;
 (참고로 호스트에 dev는 개발 서버를 위한 도메인이고, @은 &lt;code class=&quot;language-text&quot;&gt;celuveat.com&lt;/code&gt;으로 바로 들어오기 위한 설정입니다.)&lt;/p&gt;
-&lt;h2&gt;3. 적용 확인&lt;/h2&gt;
+&lt;h3&gt;3. 적용 확인&lt;/h3&gt;
 &lt;p&gt;그 다음 바로 &lt;code class=&quot;language-text&quot;&gt;www.celuveat.com&lt;/code&gt;에 접속해서 확인을 하시면 됩니다.&lt;br/&gt;
 저희는 현재 HTTPS를 적용한 상태이기에 결과를 보여드리진 못할 것 같네요 😭&lt;/p&gt;
 &lt;p&gt;그럼 바로 HTTPS를 적용해봅시다!&lt;/p&gt;
-&lt;h1&gt;HTTPS 적용 🎯&lt;/h1&gt;
+&lt;h2&gt;HTTPS 적용 🎯&lt;/h2&gt;
 &lt;p&gt;저희는 nginx를 사용해서 HTTPS를 적용하기로 했습니다.&lt;/p&gt;
 &lt;p&gt;이유는 한 대의 서버 안에 React와 Spring 애플리케이션이 모두 돌아가는 상황이기에 진입점에 따른 포트 포워딩이 필요함과 동시에, &lt;br/&gt;
 시간과 비용이 부족한 스프린트 환경을 고려하여 nginx와 연동이 가능한 ssl 발급해주는 무료 오픈소스 &lt;code class=&quot;language-text&quot;&gt;Let&apos;s encrypt&lt;/code&gt;를 사용하기 위함입니다. &lt;/p&gt;
-&lt;h2&gt;1. Nginx, CertBot 설치&lt;/h2&gt;
+&lt;h3&gt;1. Nginx, CertBot 설치&lt;/h3&gt;
 &lt;p&gt;우선 서버에 접속해서 &lt;strong&gt;Nginx&lt;/strong&gt;와 Let’s Encrypt 인증서를 사용하여 HTTPS를 적용할 수 있게 하는 오픈 소스툴인 &lt;strong&gt;CertBot&lt;/strong&gt;을 설치하겠습니다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ sudo apt-get update
 $ sudo apt-get upgrade
 $ sudo apt-get install nginx
 $ sudo apt-get install python3-certbot-nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;2. SSL 인증서 발급&lt;/h2&gt;
+&lt;h3&gt;2. SSL 인증서 발급&lt;/h3&gt;
 &lt;p&gt;설치한 CertBot을 이용하여 SSL 인증서를 발급받겠습니다.&lt;/p&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;$ certbot certonly --nginx -d {domain}&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;이때 &lt;code class=&quot;language-text&quot;&gt;{domain}&lt;/code&gt; 에는 적용하고자하는 도메인을 입력해주세요!&lt;/p&gt;
+&lt;p&gt;이때 &lt;code class=&quot;language-text&quot;&gt;{domain}&lt;/code&gt; 에는 적용하고자하는 도메인을 입력해주세요!&lt;br&gt;
+이때 중요한 점은 &lt;strong&gt;적용하려는 도메인을 정확히&lt;/strong&gt; 적어주는 것입니다. 심지어 서브 도메인일지라도요!&lt;/p&gt;
 &lt;p&gt;그 다음엔 이메일을 입력하고, 약관 동의인 첫 번째엔 y 이메일 수신 여부인 두 번째에는 n을 누릅니다.&lt;/p&gt;
 &lt;p&gt;이제 &lt;code class=&quot;language-text&quot;&gt;$ sudo ls /etc/letsencrypt/live/{domain}&lt;/code&gt; 을 통해 1개의 README 파일과 4개의 pem키 파일이 생성된 것을 확인하시면 됩니다.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
@@ -9923,45 +9930,42 @@ $ sudo apt-get install python3-certbot-nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt
     &lt;/span&gt;
     &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;인증서발급확인&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
-&lt;h2&gt;3. Nginx 설정&lt;/h2&gt;
-&lt;p&gt;이제 nginx 설정을 통해 도메인에 들어오는 요청을 https로 리다이렉션과 포트포워딩을 해주겠습니다.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/d957e919c61a6a4af419691f0f469013/21062/nginx%EC%84%A4%EC%A0%95.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 86.47058823529412%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAABYlAAAWJQFJUiTwAAADAElEQVR42n1T2XLaSBTlKzCLJLq1S6DVCAmDAWODwQRn8KQSp7JUzTx4/v8LzpzusSdJlZ2HW73fe8/SrTQXKC5cxMMhfCtAr99Dt9tFv/djNDsdmJybnBv9PkzTfDNaYRRh826P6/UGu4sdFssFtpst5vM5sjRFGMcQeQ7BuWBRGYawLOvNaIVBhDTJkEQJUidFzsdFUSDLMozHY6Scy6aBnEwgyhL2aASLnbyZMIpNeG4Hhmmg3W3j7OwM7XYbHcLUkAnR4qhDwVfr33WYlx7W9zPU8ykuhjOU8wUKdhIEAQaDgb5k/hyv8PZLQildZHmBvMhREWJOiAqqgu44DqSUEEL8P9q2/cueClVYrbUovu+jqmo0zVwLMZvNMCFfDXlbLpdYr9e4vrmhWEu9Xq1W2G63el+fX13pPbUekV8mdDCpYtSTmKomjAwjqhlRfQU7oqoJLw6fI6Lq6qFCMOQ9FUlCQemCIc9aUpgoLwKMFxFGdYrkvEBKhdWj8vwcxbRhgRSNM4VtCvQoWr9vaLEMw9Ch5i/rlmmYEBTCvb+Ht9vC2+8RnE6oCeNms0G23yG8OyA8PsBVFmIxSb4sPh48CzF4Di2KZfThHg/w//4L7p8f4H39CvvpCRMm+8DEJxY6fvyI5cMJyeMj/Kd/EDx+hn15CVnXsK+vIcmlw7VNmlq2dGDFCcy8hEUeVAxoG4+HijulesGusijWvA64tic1pOv+ZxllrZdQHTquwDDsIXTPEDgSsedD0MA9GrmnRnLW1SbvoE+YlvrLyuRv/BaKYqDalKiPDca3l5jtt2hok4pwluSxud2imi5wVdyxoK+JtxSHKsErSbUo1nQGubuDpJckk8nDAePLBVb02IhJg9sdHHIpaXhZVRA0vIarEr/AfS7SUmo57ML78gXu6Q8Enz7B/vYNJYm+Z+LT8YjD+/dY0czpwwO879/hUyQlgmByWzWhBOGHsOnZlv5eJF+QeKHGhKLwK7o8VEZNKFJK4w6V0bk3ULahP1WXr0H+F953/v8I9U2PAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;Nginx 설정&apos; title=&apos;&apos; src=&apos;/static/d957e919c61a6a4af419691f0f469013/ca1dc/nginx%EC%84%A4%EC%A0%95.png&apos; srcset=&apos;/static/d957e919c61a6a4af419691f0f469013/e7570/nginx%EC%84%A4%EC%A0%95.png 170w,
-/static/d957e919c61a6a4af419691f0f469013/f46e7/nginx%EC%84%A4%EC%A0%95.png 340w,
-/static/d957e919c61a6a4af419691f0f469013/ca1dc/nginx%EC%84%A4%EC%A0%95.png 680w,
-/static/d957e919c61a6a4af419691f0f469013/21062/nginx%EC%84%A4%EC%A0%95.png 926w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;Nginx 설정&lt;/figcaption&gt;
-  &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;저희의 설정은 다음과 같습니다.&lt;br/&gt;
-꼭 위 {domain}에는 적용하고자는 도메인 주소를 입력해주세요 !!&lt;/p&gt;
+&lt;h3&gt;3. Nginx 설정&lt;/h3&gt;
+&lt;p&gt;이제 Nginx 설정을 통해 도메인에 들어오는 요청을 https로 리다이렉션과 포트포워딩을 해주겠습니다.&lt;/p&gt;
+&lt;p&gt;Nginx 설정은 &lt;code class=&quot;language-text&quot;&gt;$ cd ~/etc/nginx/conf.d&lt;/code&gt; 위치에 &lt;em&gt;my-domain.conf&lt;/em&gt; 이름의 파일을 생성해줌으로써 할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;설정은 아래와 같이 해주면 되겠습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;&lt;span class=&quot;token directive&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;server&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token directive&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;listen&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;80&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token directive&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;server_name&lt;/span&gt; my.domain.com&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token directive&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;301&lt;/span&gt; https://my.domain.com&lt;span class=&quot;token variable&quot;&gt;$request_uri&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token directive&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;server&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token directive&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;listen&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;443&lt;/span&gt; ssl&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token directive&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;listen&lt;/span&gt; [::]:443 ssl&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;token directive&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;server_name&lt;/span&gt; my.domain.com&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;token directive&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ssl_certificate&lt;/span&gt; /etc/letsencrypt/live/my.domain.com/fullchain.pem&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token directive&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ssl_certificate_key&lt;/span&gt; /etc/letsencrypt/live/my.domain.com/privkey.pem&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;token directive&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;location&lt;/span&gt; /&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                   &lt;span class=&quot;token directive&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;proxy_pass&lt;/span&gt; http://localhost:8080&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                   &lt;span class=&quot;token directive&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;proxy_set_header&lt;/span&gt; Host &lt;span class=&quot;token variable&quot;&gt;$http_host&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                   &lt;span class=&quot;token directive&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;proxy_set_header&lt;/span&gt; X-Real-IP &lt;span class=&quot;token variable&quot;&gt;$remote_addr&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                   &lt;span class=&quot;token directive&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;proxy_set_header&lt;/span&gt; X-Forwarded-For &lt;span class=&quot;token variable&quot;&gt;$proxy_add_x_forwarded_for&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                   &lt;span class=&quot;token directive&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;proxy_set_header&lt;/span&gt; X-Forwarded-Proto &lt;span class=&quot;token variable&quot;&gt;$scheme&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ol&gt;
-&lt;li&gt;HTTP로 들어오는 80 포트에 대해서는 &lt;code class=&quot;language-text&quot;&gt;https://{domain}/$request_uri&lt;/code&gt;로 리다이렉션합니다.&lt;/li&gt;
-&lt;li&gt;위에서 리다이렉션 해준 위치이자, 정상적인 HTTPS 요청의 경우 CertBot을 통한 ssl 인증서를 적용합니다.
-그리고 요청 URI의 마지막이 &lt;code class=&quot;language-text&quot;&gt;/&lt;/code&gt; 로 들어온 요청은 리액트로, &lt;code class=&quot;language-text&quot;&gt;/api&lt;/code&gt;로 들어온 요청은 스프링으로 요청을 보내도록 포트 포워딩을 적용했습니다.&lt;/li&gt;
+&lt;li&gt;HTTP 프로토콜의 요청은 HTTPS 프로토콜을 적용하도록 리다이렉션 합니다.&lt;/li&gt;
+&lt;li&gt;HTTPS 프로토콜의 요청은 CertBot을 통해 발급받은 SSL 인증서를 이용해 처리합니다.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;proxy_set_header&lt;/code&gt;에 대한 설명으로는 지 선생님의 답변을 대신하겠습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/2f22462bb2abcdbc066a6ce2ba13f75f/47fb9/proxy%EC%84%A4%EB%AA%85.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 99.41176470588235%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAABYlAAAWJQFJUiTwAAACi0lEQVR42nWU13bbQAxE+WmJeqUKexMpy5JtOfH/v21wsQQlJycP4FYOBhhgg/kyc1Hy4pLs1R2izk3niZvMYm/z2I1t3pudj6fRP8Z+wIXdoXVZcVPQJLu6ozhI86vLy7fBWVG99+feVuvCQWa5zt1ilYnlHhDkTVi7on53cXJxTfvpSpnXp7uC4qhqPtTYxwG23TUu3J80qnDfKKkBcL0t9XJe3hSorD8UOBOGeW8Ax+lFmR6i8/9DhjZM0vxVRwDX20pztQlLDclCmy4SDc3CG0+/53fIIZTJi4UDg/2xdceYsVNmRzuLO5cWVxnP4ihVx7NFOrAMQN3uahcLICGXElIt+epevhSIPQ1ZRjUJnbDJuQnJGmcA96JUmsMku2jyudCcfg1gVe0F2R1Omg41ETKUNWTYRxRSEUwkD6tNKSCSfDz2yuIZ1swxQJ4FGE2eBJl4G0RJ+h8BrZq7zuvTp+4jxlJqzufK5wtjbfl73gums4co1NQx9qKwRhTq7SFQOxh3qV8vYqfnpCEYTY4aDhvkwErEj4Xu8aM3nz+cPPZqreOV2LeQCddCTnMfMsXNHhEMYsiPCKFgOwP0ZwpI7KhEiVjfMiePKMwcQNrMj03PsFLz61rDJiItm9Wm0B+sCzgw4wzvBvB9XuqacGGrZYP8eIERgkTCiO4I++a3GkMIRgw2MOfMmLMHc2m9VAWhiH1nvLmd/AwDQuHyUjz/GO3dz/FhMFv//UBoDqPk3HfFTV8a2NJ63flLO4dHg96lnHAGE6KhUxACYKpFAfnAYnhM5WcVSAy1rXfZa9q773V5kdrzb+0s5tplQoaOU0BywQF5sJdG58LK8sodHFo1cG5VQelQfnTKH8oxGjd2zoX1AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;proxy  &apos; title=&apos;&apos; src=&apos;/static/2f22462bb2abcdbc066a6ce2ba13f75f/ca1dc/proxy%EC%84%A4%EB%AA%85.png&apos; srcset=&apos;/static/2f22462bb2abcdbc066a6ce2ba13f75f/e7570/proxy%EC%84%A4%EB%AA%85.png 170w,
-/static/2f22462bb2abcdbc066a6ce2ba13f75f/f46e7/proxy%EC%84%A4%EB%AA%85.png 340w,
-/static/2f22462bb2abcdbc066a6ce2ba13f75f/ca1dc/proxy%EC%84%A4%EB%AA%85.png 680w,
-/static/2f22462bb2abcdbc066a6ce2ba13f75f/02d09/proxy%EC%84%A4%EB%AA%85.png 1020w,
-/static/2f22462bb2abcdbc066a6ce2ba13f75f/47fb9/proxy%EC%84%A4%EB%AA%85.png 1246w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h2&gt;4. Nginx 실행&lt;/h2&gt;
+&lt;h3&gt;4. Nginx 실행&lt;/h3&gt;
 &lt;p&gt;이제 설정도 했으니 nginx를 실행시켜야겠죠?&lt;br/&gt;
 실행 명령어는 다음과 같습니다.&lt;/p&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;$ sudo service nginx start&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;그 후 &lt;code class=&quot;language-text&quot;&gt;$ sudo service nginx status&lt;/code&gt; 명령어를 통해 &lt;/p&gt;
+&lt;p&gt;그 후 &lt;code class=&quot;language-text&quot;&gt;$ sudo service nginx status&lt;/code&gt; 명령어를 통해 &lt;em&gt;active&lt;/em&gt;가 초록색인지 확인해봅니다! &lt;/p&gt;
 &lt;p&gt;&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
       &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/54c87a47b92e4b8045a388112594585e/23a6b/nginx%EC%83%81%ED%83%9C%ED%99%95%EC%9D%B8.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 28.82352941176471%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAABYlAAAWJQFJUiTwAAABH0lEQVR42k1QW46CQBDkHvLSyPDQIMpbQBxBTfjYa7gnMNmYPcB6JQ5XO91G4keluofuoqq1y9cZj98H7j93HNoLmvKKfdGjVtxUElIe0batYoksyyCEwHK5xGw2g67rExuGAdM0ocmjRJRHSJsEhcxQH/ZK4KDEayWQoqqqCUmSIAxDxmazwXq9nmrHcVhU6/oOXdfh3F9QFqX6IOD7AbPneeyI2Pd9uK6L1WqFIAgYbzFybNv2y2HTNBwpTdNpmBZpYLFYYD6fT7A/alqmqJ9xWZAe6DbDMKDve77V6XRCnMSIoogdvEGOttst1+SaYgrhcArXffVaHL8Wn88/jOOI2+0b9EaO6WZU53nOP6V+t9vxPPdqhuZIkNxZloV/ty+96Fp7yE8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
@@ -9973,8 +9977,7 @@ $ sudo apt-get install python3-certbot-nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt
 /static/54c87a47b92e4b8045a388112594585e/23a6b/nginx%EC%83%81%ED%83%9C%ED%99%95%EC%9D%B8.png 1766w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;active&lt;/em&gt;가 초록색인지 확인해봅니다!&lt;/p&gt;
-&lt;h2&gt;5. 브라우저를 통해 확인&lt;/h2&gt;
+&lt;h3&gt;5. 브라우저를 통해 확인&lt;/h3&gt;
 &lt;p&gt;nginx가 처음 동작하면 다소 시간이 걸릴 수 있습니다.&lt;br/&gt;
 그래서 실행 직후 바로 들어간다면 화면이 안뜰 수 있어요.&lt;br/&gt;
 하지만 조금 기다렸다가 브라우저 주소창에 적용한 도메인을 입력하면 아래와 같이 확인할 수 있습니다~!&lt;/p&gt;
