@@ -1,47 +1,76 @@
 ---
-title: "[Infra] Github Actions와 Docker를 이용해 배포 자동화하기"
-description: "Github Actions와 Docker를 이용해 배포 자동화하기"
+title: "[Infra] Github Actions와 Docker를 이용해 배포 자동화 구축하기"
+description: "Github Actions와 Docker를 이용해 배포 자동화 구축하기"
 date: 2024-05-29
 tags: ["infra", "github actions", "docker", "continuous deploy"]
 ---
 
-Github Actions와 Docker를 이용해 배포 자동화하는 방법에 대해 정리해보겠다.
+## 들어가며
 
-Github Actions, Docker, EC2에 대한 기초적인 내용은 모두 알고 있다는 전제하에 설명을 할 것이다.
+서비스를 지속적으로 발전하기 위해서는 많은 기능을 추가하거나 성능을 개선하는 등 많은 작업이 필연적으로 이뤄진다.<br>
+작업이 완료되면 이를 배포해야 하는데, 배포하는 과정이 귀찮고 길어지면 서비스를 지속적으로 발전하는 데 문제가 생긴다.
 
-따라서 잘 모르겠거나, 이 부분은 왜 이렇게 해야 하는지? 궁금하다면 직접 구글링을 하거나 댓글로 질문을 남겨주면 되겠다. 
+따라서 **배포를 자동화하는 작업은 서비스를 지속적으로 운영함에 있어 매우 중요한 작업**이다.
 
-실제 적용 결과는 [본 링크](https://github.com/8-Sprinters/ListyWave-back/commit/ab176bee2f3722c29a9f92826b4b6f13bd01989e)에서 확인할 수 있다.
+배포 자동화를 구축하는 방법과 툴은 여러 가지가 있지만, 이번 글에서는 Github Actions와 Docker를 이용해 구축하는 방법에 대해 작성해보겠다.
 
-## 1. 동작 흐름
+## Architecture
 
-우선 전체적으로 배포가 어떤 식으로 동작하는지 큰 그림을 먼저 보겠다.
+배포 자동화가 수행되면 아래 그림과 같은 순서로 동작하게 될 것이다.
 
-![전체 동작 흐름](overview.png)
+![전체 동작 흐름](architecture.png)
 
-1. Push 혹은 Merge가 일어나면 Github Actions를 통해 Deploy Workflow가 수행한다.
+1. 특정 브랜치에 Push or Merge가 발생하면 Github Actions를 통해 Deploy Workflow가 수행한다.
 2. Docker Hub에서 Image를 Pull하기 위해 Github Actions Host에서 EC2 인스턴스에 접속해야 한다.<br>
-이를 위해서는 EC2 Security Group에 현재 수행 중인 Github Actions의 Host IP를 허용해야 한다.
+이를 위해 EC2 보안 그룹 인바운드 규칙에 현재 수행 중인 Github Actions Host의 IP를 추가해야 한다.
 3. Docker Image를 만들기 전, 프로젝트 설정 파일을 추가하고 프로젝트를 빌드한다.
 4. 프로젝트 빌드의 결과물을 Dockerfile을 이용해 Image로 만들고 Docker Hub에 Push 한다.
 5. EC2 인스턴스에 접속해 Docker Hub에 올려놓은 Image를 Pull 하고 실행시킨다.
 
-## 2. Docker Private Repository 만들기
+<br>
 
-여기선 따로 만드는 법을 정리하진 않는다.<br>ㄴ
-하지만 이미 많은 블로그에 정리가 잘 되어 있으니 참고하면 되겠다.
+이제 위 작업을 하나씩 수행해보자.
 
-## 3. WAS에서 Docker Login 해놓기
+## Docker Private Repository 만들기
+
+우선 [Docker Hub](https://hub.docker.com/)에 접속 후 로그인하자.<br>
+
+로그인 후 상단에 `Repository` 탭을 누르고 `Create Repository` 버튼을 누른다.
+
+그리고 *Repository Name*을 본인에 맞게 작성하자.<br>
+참고로 `account/repository name` 으로 생성된다.<br>
+작성했다면 아래 `Private`을 선택해 생성하자.
+
+생성하고 나면 아래 사진처럼 Private Repository가 존재할 것이다.
+![](private-repository.png)
+
+## Docker Access Token 발급받기
+
+뒤에서 진행될 Docker Login과 GitHub Actions에서 Docker에 Login하기 위해 *Docker Access Token*이 필요하다.
+
+미리 발급을 받아놓자.
+
+우측 상단에 프로필 버튼을 눌러 `Account Settings` -> `Security`로 들어가면 `Access Tokens`가 있을 것이다.<br>
+`New Access Token` 버튼을 눌러 발급받자.<br>
+그리고 Token 값은 본인만 알고 있는 곳에 기록해놓으면 되겠다.
+
+## WAS에 접속해 Docker Login 해놓기
+
+다음 단계로, WAS에 접속해 미리 Docker에 Login 해놓는 것이다.
 
 전체 동작 흐름을 보면 Actions Host에서 EC2 인스턴스에에 SSH로 접속 후, 미리 작성해놓은 스크립트를 수행한다.<br>
-이때, DockerHub에서 Image를 Pull 받는 과정에서 실패할 수 있다.<br>
-따라서 미리 EC2 인스턴스에서 Docker에 Login 해놓자.
+이때, Docker Hub에서 Image를 Pull 받는 과정은 로그인이 된 상태에서 수행되어야 한다.<br>
 
-따라서 미리 WAS에서 Docker에 Login을 해놓으면 되겠습니다.
+WAS에 접속 후 `docker login --username ... --password ...` 명령어로 로그인을 해놓자.
 
-## 4. Dockerfile
+참고로 구글 계정으로 로그인을 했다면 password에 미리 발급받아놓은 `Docker Access Token` 값을 입력하면 된다. 
 
-Docker Image로 만들기 위한 Dockerfile은 다음과 같다.
+## Dockerfile
+
+다음으로 *Dockerfile*을 작성해보겠다.<br>
+Dockerfile은 우리가 만든 프로젝트를 이미지로 만들기 위해 필요한 스크립트 파일이다.<br>
+
+작성한 Dockerfile은 다음과 같다.
 
 ```dockerfile
 FROM arm64v8/amazoncorretto:17-alpine-jdk
@@ -50,23 +79,24 @@ COPY ./build/libs/listywave.jar listywave.jar
 
 ENV TZ=Asia/Seoul
 
-ENTRYPOINT ["java", "-Dspring.profiles.active=prod,oauth,storage", "-jar", "listywave.jar"]
+ENTRYPOINT ["java", "-jar", "listywave.jar"]
 ```
 
-본인 프로젝트에 맞게 적절히 값을 수정해주면 된다.<br>
-필자는 EC2 인스턴스의 CPU 아키텍처가  _arm64v8_ 라서 추가해주었다.
+여기서 따로 수정이 필요할 수 있는 부분은 `FROM arm64v8/amazoncorretto:17-alpine-jdk` 이라고 생각한다.<br>
+필자의 EC2 인스턴스의 CPU 아키텍처가  _arm64v8_ 라서 앞에 `arm64v8`을 추가해주었다.<br>
+본인 환경에 맞게 수정해주면 되겠다.
 
-`"-Dspring.profiles.active=prod,oauth,storage"`의 경우도 본인 프로젝트에 맞게 작성해주면 되겠다.
+Dockerfile은 프로젝트 경로 최상단에 위치시키면 된다. 
 
-Dockerfile의 위치는 프로젝트 경로 맨 위에 위치하면 된다.
+## CD Workflow
 
-## 5. CD Workflow
+이제 셋팅은 모두 끝났다. 배포 자동화의 전체 동작을 기술한 Workflow를 작성해보자.<br>
+`/프로젝트 최상단/.github/workflows/` 경로에 아래 yml 파일을 작성하자. 
 
-이제 최종적으로 전체 동작을 수행하는 Workflow는 다음과 같다.
-
-각 step 별로 name을 한글로 적었으니, 각각 어떤 처리를 하는 지 대강 파악할 수 있을 것이다.
+각 step 별로 name을 한글로 적었으니, 각각 어떤 작업을 수행하는지 파악할 수 있을 것이다.
 
 ```yaml
+# prod-cd.yml
 name: Deploy to PROD
 
 on:
@@ -159,22 +189,30 @@ jobs:
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
 ```
 
-## 6. Github Repository에 Secret 값 넣어주기
+## Github Repository에 Secret 값 넣어주기
 
-이제 위 Workflow를 **천천히!** **차근차근!** 보면서<br>
-Github Repository -> Actions Secrets에 본인에 맞는 값들을 빠짐없이 넣어준다!<br>
-~~필자는 하나를 빠트려 2시간을 날렸다..~~
+이제 위 workflow가 정상적으로 수행할 수 있도록 *Secrets* 값들을 넣어주자.
+
+프로젝트의 GitHub Repository에서 `Settings` - `Secrets and variables` - `Actions`로 들어가자.
+
+그리고 `New Repository secret` 버튼을 눌러 Secrets 값들을 저장해주면 된다.
 ![Actions Secrets](actions-secrets.png)
+
+위 Workflow를 위에서부터 하나씩 **천천히!** **차근차근!** 보면서 저장해주자.<br>
+필자는 단 하나를 빠트려 2시간을 날렸다.. 😭😭
+
+## 동작 확인하기
+
+이제 설정한 브랜치에 코드를 push해서 제대로 동작하는지 확인하면 모든 작업은 끝이 난다.
+
+만약 작업이 실패한다면, `Actions` 탭에서 해당 workflow의 로그를 살펴보며 어디서 실패했는지 확인하면 된다.<br>
+대부분 설정 하나를 빠트렸다거나, 값을 잘못 작성했다거나 하는 문제일 가능성이 크기 때문에<br>
+로그를 읽고 하나씩 해결하면 모두 올바르게 동작할 것이다.
 
 ## 마무리
 
-사실 위 작업들만 빠짐없이 꼼꼼히 해주어도 한 번에 될 것으로 예상한다.
+인프라 작업은 다양한 곳에서 설정해줘야 하기에 세심함이 필요하다.<br>
+급하게 하기보단 하나씩 작업을 수행하고 확인하는 식으로 진행하는 것을 추천한다.
 
-하지만 Docker나 Github Actions가 익숙하지 않으면 분명 매우매우 어려울 것이다.<br>
-게다가 인프라 및 클라우드 작업은 사소한 설정 하나만 틀려도 실패한다.<br>
-이럴 때는 침착하게 Actions의 로그를 보면서 원인을 분명하게 파악하고, 해당 문제를 하나씩 해결하가면 될 것이다.
-
-위에서 설명한 작업들 뿐만 아니라 기본적으로 해주어야 하는 작업들이 있지만, 해당 내용은 다른 블로그에서 이미 잘 작성해주었으니 참고하면 되겠다.<br>
-실제로 나 또한, 위 작업을 약 이틀 동안 삽질하면서 여러 블로그 및 공식 문서를 참고해가며 이렇게도 해보고 저렇게도 해보면서 해결했다!<br>
-
-질문이나 문제가 생겼다면 댓글이나 [카카오톡 오픈 채팅방](https://open.kakao.com/o/sDdYkMhf)을 통해 질문해주면 감사하겠다.
+혹여나 설명이 빠졌거나 부족한 부분이 있다면 언제든지 댓글로 알려주세요.<br>
+감사합니다.
