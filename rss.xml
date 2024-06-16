@@ -1,4 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 15 Jun 2024 08:22:54 GMT</lastBuildDate><item><title><![CDATA[[Infra] Prometheus와 Grafana, 그리고 Docker를 이용해 모니터링 대시보드 구축하기]]></title><description><![CDATA[…]]></description><link>https://kdkdhoho.github.io/build-monitoring-system/</link><guid isPermaLink="false">https://kdkdhoho.github.io/build-monitoring-system/</guid><pubDate>Sat, 15 Jun 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 16 Jun 2024 07:54:25 GMT</lastBuildDate><item><title><![CDATA[[회고] 06.10 ~ 06.16]]></title><description><![CDATA[What I Studied 프로메테우스, 그라파나를 도커에서 띄우기 컨테이너-컨테이너, 컨테이너-호스트 간의 통신 도커 네트워크 이분탐색 목표의 중요성 Keep 주, 월 단위의 목표를 설정하고 목표를 달성하는 데 정진하자. Problem & Try…]]></description><link>https://kdkdhoho.github.io/june-3rd/</link><guid isPermaLink="false">https://kdkdhoho.github.io/june-3rd/</guid><pubDate>Sun, 16 Jun 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;What I Studied&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://kdkdhoho.github.io/build-monitoring-system/&quot;&gt;프로메테우스, 그라파나를 도커에서 띄우기&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;컨테이너-컨테이너, 컨테이너-호스트 간의 통신&lt;/li&gt;
+&lt;li&gt;도커 네트워크&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;이분탐색&lt;/li&gt;
+&lt;li&gt;목표의 중요성&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Keep&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;주, 월 단위의 목표를 설정하고 목표를 달성하는 데 정진하자.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Problem &amp;#x26; Try&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;조급하지말자.&lt;/li&gt;
+&lt;li&gt;동기부여를 만들어보자. &lt;/li&gt;
+&lt;li&gt;완벽하지 않아도 되는 마음을 가지자.&lt;/li&gt;
+&lt;li&gt;초심을 잃지말자. 처음 자바를 공부했을 때 마인드를 떠올리자.&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[Infra] Prometheus와 Grafana, 그리고 Docker를 이용해 모니터링 대시보드 구축하기]]></title><description><![CDATA[…]]></description><link>https://kdkdhoho.github.io/build-monitoring-system/</link><guid isPermaLink="false">https://kdkdhoho.github.io/build-monitoring-system/</guid><pubDate>Sat, 15 Jun 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
 &lt;p&gt;서비스를 운영하면서 발생한 장애를 빠르게 대응하고 복구하는 것은 매우 중요하다.&lt;br&gt;
 이를 위해선 &lt;strong&gt;장애의 원인을 빠르게 파악&lt;/strong&gt;해야 한다.&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;문제의 원인을 파악하는 방법에는 애플리케이션의 상태를 전반적으로 관찰 가능한 &lt;strong&gt;모니터링 대시보드&lt;/strong&gt;, 사용자의 요청을 한 트랜잭션으로 묶어 파악하는 &lt;strong&gt;APM&lt;/strong&gt;, 문제에 대한 상세한 설명이 적힌 &lt;strong&gt;로깅&lt;/strong&gt; 등이 있다.&lt;/p&gt;
@@ -398,58 +420,86 @@ Prometheus와 Grafana 설정도 바꿔주자.&lt;/p&gt;
 &lt;p&gt;물론 그라파나로의 연결도 인바운드 규칙 등을 이용해 특정 IP에서만 접속할 수 있도록 설정하여 보안을 강화하자.&lt;/p&gt;
 &lt;h2&gt;마치며&lt;/h2&gt;
 &lt;p&gt;지금까지 Docker, Prometheus, Grafana를 이용해 Spring Application 모니터링 대시보드 구축에 대해 작성해보았다.&lt;/p&gt;
-&lt;p&gt;꽤 까다로운 작업이었지만 모니터링 대시보드를 통해 서비스 운영이 원활해질 것을 기대한다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Infra] Github Actions와 Docker를 이용해 배포 자동화하기]]></title><description><![CDATA[Github Actions와 Docker를 이용해 배포 자동화하는 방법에 대해 정리해보겠다. Github Actions, Docker, EC…]]></description><link>https://kdkdhoho.github.io/continuous-deploy-using-github-actions-and-docker/</link><guid isPermaLink="false">https://kdkdhoho.github.io/continuous-deploy-using-github-actions-and-docker/</guid><pubDate>Wed, 29 May 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Github Actions와 Docker를 이용해 배포 자동화하는 방법에 대해 정리해보겠다.&lt;/p&gt;
-&lt;p&gt;Github Actions, Docker, EC2에 대한 기초적인 내용은 모두 알고 있다는 전제하에 설명을 할 것이다.&lt;/p&gt;
-&lt;p&gt;따라서 잘 모르겠거나, 이 부분은 왜 이렇게 해야 하는지? 궁금하다면 직접 구글링을 하거나 댓글로 질문을 남겨주면 되겠다. &lt;/p&gt;
-&lt;p&gt;실제 적용 결과는 &lt;a href=&quot;https://github.com/8-Sprinters/ListyWave-back/commit/ab176bee2f3722c29a9f92826b4b6f13bd01989e&quot;&gt;본 링크&lt;/a&gt;에서 확인할 수 있다.&lt;/p&gt;
-&lt;h2&gt;1. 동작 흐름&lt;/h2&gt;
-&lt;p&gt;우선 전체적으로 배포가 어떤 식으로 동작하는지 큰 그림을 먼저 보겠다.&lt;/p&gt;
+&lt;p&gt;꽤 까다로운 작업이었지만 모니터링 대시보드를 통해 서비스 운영이 원활해질 것을 기대한다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Infra] Github Actions와 Docker를 이용해 배포 자동화 구축하기]]></title><description><![CDATA[…]]></description><link>https://kdkdhoho.github.io/continuous-deploy-using-github-actions-and-docker/</link><guid isPermaLink="false">https://kdkdhoho.github.io/continuous-deploy-using-github-actions-and-docker/</guid><pubDate>Wed, 29 May 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
+&lt;p&gt;서비스를 지속적으로 발전하기 위해서는 많은 기능을 추가하거나 성능을 개선하는 등 많은 작업이 필연적으로 이뤄진다.&lt;br&gt;
+작업이 완료되면 이를 배포해야 하는데, 배포하는 과정이 귀찮고 길어지면 서비스를 지속적으로 발전하는 데 문제가 생긴다.&lt;/p&gt;
+&lt;p&gt;따라서 &lt;strong&gt;배포를 자동화하는 작업은 서비스를 지속적으로 운영함에 있어 매우 중요한 작업&lt;/strong&gt;이다.&lt;/p&gt;
+&lt;p&gt;배포 자동화를 구축하는 방법과 툴은 여러 가지가 있지만, 이번 글에서는 Github Actions와 Docker를 이용해 구축하는 방법에 대해 작성해보겠다.&lt;/p&gt;
+&lt;h2&gt;Architecture&lt;/h2&gt;
+&lt;p&gt;배포 자동화가 수행되면 아래 그림과 같은 순서로 동작하게 될 것이다.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/7a9323470b8eddba193fffb97cbb0144/a4588/overview.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/7a9323470b8eddba193fffb97cbb0144/a4588/architecture.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 56.470588235294116%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB60lEQVR42oWS22rbQBCG/WZ9jl73qs/QFwh5gBC3l4XelJJelYLBGMfCTkkNgaS25aPkVJJ1sqzD6uj9u7NyFVpIO7Ca1emf+b/ZVpqm4JzjeDyKxQEc8WCW2HiV2HMEwQGr1Qqapsm8XC5lth0HFMpij/cjA2leiv8rtIqiQJZlSJIEURwLvQITG/h0D0x2HJ7nQt9uYRiGFN1sNtD1LZydBVXf4fWHCV6+u4OyDGSBFnXY7/fR7XZxfT2AZZnwDzHuLeDRLxDHEaqqkkUpQ/ZdX/dJgS93Fi66a9xqYS2Y5znCMITrulBVFbZtI88L+ZIwTKdTjMdjjEYjadX3fZimiYQxZCzG6qcN1WYCG2pBskzx+eoK52dn+HZzI+9/d6PpuliPwronuTmiMO0dsY8J0SlOemjRQOiD9uUlBoMB3rbbfwimLAKLvPoXngvEiXQxm80apuv1GmVZPlmmWCwWUBRFANdPJXldtUqQRz7Ui1eofnwFiwPkGUOaZrJDGiYtfvLcWCboxJFEh8Phkw0hyKI9vr95geL2Iz0QcEs8F40gZRKkAREfGkj9IgZPXUSOhvwgRp8F+Fc0lkmk0+k07BrMXNyHAkNiiKwBJftrDM90OJ/P0ev15LGoEXL8L8hFFEWSJWU6078AN/pApM71Z/IAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;전체 동작 흐름&apos; title=&apos;&apos; src=&apos;/static/7a9323470b8eddba193fffb97cbb0144/ca1dc/overview.png&apos; srcset=&apos;/static/7a9323470b8eddba193fffb97cbb0144/e7570/overview.png 170w,
-/static/7a9323470b8eddba193fffb97cbb0144/f46e7/overview.png 340w,
-/static/7a9323470b8eddba193fffb97cbb0144/ca1dc/overview.png 680w,
-/static/7a9323470b8eddba193fffb97cbb0144/02d09/overview.png 1020w,
-/static/7a9323470b8eddba193fffb97cbb0144/a4588/overview.png 1254w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;전체 동작 흐름&apos; title=&apos;&apos; src=&apos;/static/7a9323470b8eddba193fffb97cbb0144/ca1dc/architecture.png&apos; srcset=&apos;/static/7a9323470b8eddba193fffb97cbb0144/e7570/architecture.png 170w,
+/static/7a9323470b8eddba193fffb97cbb0144/f46e7/architecture.png 340w,
+/static/7a9323470b8eddba193fffb97cbb0144/ca1dc/architecture.png 680w,
+/static/7a9323470b8eddba193fffb97cbb0144/02d09/architecture.png 1020w,
+/static/7a9323470b8eddba193fffb97cbb0144/a4588/architecture.png 1254w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
   &lt;/a&gt;
     &lt;/span&gt;
     &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;전체 동작 흐름&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Push 혹은 Merge가 일어나면 Github Actions를 통해 Deploy Workflow가 수행한다.&lt;/li&gt;
+&lt;li&gt;특정 브랜치에 Push or Merge가 발생하면 Github Actions를 통해 Deploy Workflow가 수행한다.&lt;/li&gt;
 &lt;li&gt;Docker Hub에서 Image를 Pull하기 위해 Github Actions Host에서 EC2 인스턴스에 접속해야 한다.&lt;br&gt;
-이를 위해서는 EC2 Security Group에 현재 수행 중인 Github Actions의 Host IP를 허용해야 한다.&lt;/li&gt;
+이를 위해 EC2 보안 그룹 인바운드 규칙에 현재 수행 중인 Github Actions Host의 IP를 추가해야 한다.&lt;/li&gt;
 &lt;li&gt;Docker Image를 만들기 전, 프로젝트 설정 파일을 추가하고 프로젝트를 빌드한다.&lt;/li&gt;
 &lt;li&gt;프로젝트 빌드의 결과물을 Dockerfile을 이용해 Image로 만들고 Docker Hub에 Push 한다.&lt;/li&gt;
 &lt;li&gt;EC2 인스턴스에 접속해 Docker Hub에 올려놓은 Image를 Pull 하고 실행시킨다.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2&gt;2. Docker Private Repository 만들기&lt;/h2&gt;
-&lt;p&gt;여기선 따로 만드는 법을 정리하진 않는다.&lt;br&gt;ㄴ
-하지만 이미 많은 블로그에 정리가 잘 되어 있으니 참고하면 되겠다.&lt;/p&gt;
-&lt;h2&gt;3. WAS에서 Docker Login 해놓기&lt;/h2&gt;
+&lt;br&gt;
+&lt;p&gt;이제 위 작업을 하나씩 수행해보자.&lt;/p&gt;
+&lt;h2&gt;Docker Private Repository 만들기&lt;/h2&gt;
+&lt;p&gt;우선 &lt;a href=&quot;https://hub.docker.com/&quot;&gt;Docker Hub&lt;/a&gt;에 접속 후 로그인하자.&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;로그인 후 상단에 &lt;code class=&quot;language-text&quot;&gt;Repository&lt;/code&gt; 탭을 누르고 &lt;code class=&quot;language-text&quot;&gt;Create Repository&lt;/code&gt; 버튼을 누른다.&lt;/p&gt;
+&lt;p&gt;그리고 &lt;em&gt;Repository Name&lt;/em&gt;을 본인에 맞게 작성하자.&lt;br&gt;
+참고로 &lt;code class=&quot;language-text&quot;&gt;account/repository name&lt;/code&gt; 으로 생성된다.&lt;br&gt;
+작성했다면 아래 &lt;code class=&quot;language-text&quot;&gt;Private&lt;/code&gt;을 선택해 생성하자.&lt;/p&gt;
+&lt;p&gt;생성하고 나면 아래 사진처럼 Private Repository가 존재할 것이다.
+&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/902f132b288fbff163ccb384e19ad610/bf24a/private-repository.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 21.176470588235293%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA9UlEQVR42k2Nu0oDQRSG94VEVBAvTdDCoL6NL6CECCZEEAJW1lYi+ApCGrG3EBsL3Z0xu3Fns7Nz+xx3LTzwcX7O5f+T/o1kZypYv0zZmKTsXgmOriXbE8HWOGNtmLI6yFg5zehdCA7jvD8S7A0FvYHg4FxwPJbsn32wefJGkhaarDTkGmQVkMohvw2fi4Z0YSOGd6EQpeNLeYp4Uywhr2CuoGrg4ckwuq+5fWxItNYsqwprDD54nHNYa/Eu4l2LtYYQdxDoqushhFY/vxruZjWzl2hYR8N5XlAqhW6aiMFEw/D30PJP+4h1HhODjXXt/W8odIE/3mcd7w8IANYAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;private repository&apos; title=&apos;&apos; src=&apos;/static/902f132b288fbff163ccb384e19ad610/ca1dc/private-repository.png&apos; srcset=&apos;/static/902f132b288fbff163ccb384e19ad610/e7570/private-repository.png 170w,
+/static/902f132b288fbff163ccb384e19ad610/f46e7/private-repository.png 340w,
+/static/902f132b288fbff163ccb384e19ad610/ca1dc/private-repository.png 680w,
+/static/902f132b288fbff163ccb384e19ad610/02d09/private-repository.png 1020w,
+/static/902f132b288fbff163ccb384e19ad610/bf24a/private-repository.png 1175w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;Docker Access Token 발급받기&lt;/h2&gt;
+&lt;p&gt;뒤에서 진행될 Docker Login과 GitHub Actions에서 Docker에 Login하기 위해 &lt;em&gt;Docker Access Token&lt;/em&gt;이 필요하다.&lt;/p&gt;
+&lt;p&gt;미리 발급을 받아놓자.&lt;/p&gt;
+&lt;p&gt;우측 상단에 프로필 버튼을 눌러 &lt;code class=&quot;language-text&quot;&gt;Account Settings&lt;/code&gt; -&gt; &lt;code class=&quot;language-text&quot;&gt;Security&lt;/code&gt;로 들어가면 &lt;code class=&quot;language-text&quot;&gt;Access Tokens&lt;/code&gt;가 있을 것이다.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;New Access Token&lt;/code&gt; 버튼을 눌러 발급받자.&lt;br&gt;
+그리고 Token 값은 본인만 알고 있는 곳에 기록해놓으면 되겠다.&lt;/p&gt;
+&lt;h2&gt;WAS에 접속해 Docker Login 해놓기&lt;/h2&gt;
+&lt;p&gt;다음 단계로, WAS에 접속해 미리 Docker에 Login 해놓는 것이다.&lt;/p&gt;
 &lt;p&gt;전체 동작 흐름을 보면 Actions Host에서 EC2 인스턴스에에 SSH로 접속 후, 미리 작성해놓은 스크립트를 수행한다.&lt;br&gt;
-이때, DockerHub에서 Image를 Pull 받는 과정에서 실패할 수 있다.&lt;br&gt;
-따라서 미리 EC2 인스턴스에서 Docker에 Login 해놓자.&lt;/p&gt;
-&lt;p&gt;따라서 미리 WAS에서 Docker에 Login을 해놓으면 되겠습니다.&lt;/p&gt;
-&lt;h2&gt;4. Dockerfile&lt;/h2&gt;
-&lt;p&gt;Docker Image로 만들기 위한 Dockerfile은 다음과 같다.&lt;/p&gt;
+이때, Docker Hub에서 Image를 Pull 받는 과정은 로그인이 된 상태에서 수행되어야 한다.&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;WAS에 접속 후 &lt;code class=&quot;language-text&quot;&gt;docker login --username ... --password ...&lt;/code&gt; 명령어로 로그인을 해놓자.&lt;/p&gt;
+&lt;p&gt;참고로 구글 계정으로 로그인을 했다면 password에 미리 발급받아놓은 &lt;code class=&quot;language-text&quot;&gt;Docker Access Token&lt;/code&gt; 값을 입력하면 된다. &lt;/p&gt;
+&lt;h2&gt;Dockerfile&lt;/h2&gt;
+&lt;p&gt;다음으로 &lt;em&gt;Dockerfile&lt;/em&gt;을 작성해보겠다.&lt;br&gt;
+Dockerfile은 우리가 만든 프로젝트를 이미지로 만들기 위해 필요한 스크립트 파일이다.&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;작성한 Dockerfile은 다음과 같다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;dockerfile&quot;&gt;&lt;pre class=&quot;language-dockerfile&quot;&gt;&lt;code class=&quot;language-dockerfile&quot;&gt;&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; arm64v8/amazoncorretto:17-alpine-jdk&lt;/span&gt;
 
 &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;COPY&lt;/span&gt; ./build/libs/listywave.jar listywave.jar&lt;/span&gt;
 
 &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ENV&lt;/span&gt; TZ=Asia/Seoul&lt;/span&gt;
 
-&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ENTRYPOINT&lt;/span&gt; [&lt;span class=&quot;token string&quot;&gt;&quot;java&quot;&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&quot;-Dspring.profiles.active=prod,oauth,storage&quot;&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&quot;-jar&quot;&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&quot;listywave.jar&quot;&lt;/span&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;본인 프로젝트에 맞게 적절히 값을 수정해주면 된다.&lt;br&gt;
-필자는 EC2 인스턴스의 CPU 아키텍처가  &lt;em&gt;arm64v8&lt;/em&gt; 라서 추가해주었다.&lt;/p&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;&quot;-Dspring.profiles.active=prod,oauth,storage&quot;&lt;/code&gt;의 경우도 본인 프로젝트에 맞게 작성해주면 되겠다.&lt;/p&gt;
-&lt;p&gt;Dockerfile의 위치는 프로젝트 경로 맨 위에 위치하면 된다.&lt;/p&gt;
-&lt;h2&gt;5. CD Workflow&lt;/h2&gt;
-&lt;p&gt;이제 최종적으로 전체 동작을 수행하는 Workflow는 다음과 같다.&lt;/p&gt;
-&lt;p&gt;각 step 별로 name을 한글로 적었으니, 각각 어떤 처리를 하는 지 대강 파악할 수 있을 것이다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Deploy to PROD
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ENTRYPOINT&lt;/span&gt; [&lt;span class=&quot;token string&quot;&gt;&quot;java&quot;&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&quot;-jar&quot;&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&quot;listywave.jar&quot;&lt;/span&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;여기서 따로 수정이 필요할 수 있는 부분은 &lt;code class=&quot;language-text&quot;&gt;FROM arm64v8/amazoncorretto:17-alpine-jdk&lt;/code&gt; 이라고 생각한다.&lt;br&gt;
+필자의 EC2 인스턴스의 CPU 아키텍처가  &lt;em&gt;arm64v8&lt;/em&gt; 라서 앞에 &lt;code class=&quot;language-text&quot;&gt;arm64v8&lt;/code&gt;을 추가해주었다.&lt;br&gt;
+본인 환경에 맞게 수정해주면 되겠다.&lt;/p&gt;
+&lt;p&gt;Dockerfile은 프로젝트 경로 최상단에 위치시키면 된다. &lt;/p&gt;
+&lt;h2&gt;CD Workflow&lt;/h2&gt;
+&lt;p&gt;이제 셋팅은 모두 끝났다. 배포 자동화의 전체 동작을 기술한 Workflow를 작성해보자.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;/프로젝트 최상단/.github/workflows/&lt;/code&gt; 경로에 아래 yml 파일을 작성하자. &lt;/p&gt;
+&lt;p&gt;각 step 별로 name을 한글로 적었으니, 각각 어떤 작업을 수행하는지 파악할 수 있을 것이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# prod-cd.yml&lt;/span&gt;
+&lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Deploy to PROD
 
 &lt;span class=&quot;token key atrule&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
   &lt;span class=&quot;token key atrule&quot;&gt;workflow_dispatch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
@@ -539,10 +589,10 @@ Prometheus와 Grafana 설정도 바꿔주자.&lt;/p&gt;
           &lt;span class=&quot;token key atrule&quot;&gt;AWS_ACCESS_KEY_ID&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.AWS_ACCESS_KEY_ID &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
           &lt;span class=&quot;token key atrule&quot;&gt;AWS_SECRET_ACCESS_KEY&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.AWS_SECRET_ACCESS_KEY &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
           &lt;span class=&quot;token key atrule&quot;&gt;AWS_DEFAULT_REGION&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.AWS_DEFAULT_REGION &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;6. Github Repository에 Secret 값 넣어주기&lt;/h2&gt;
-&lt;p&gt;이제 위 Workflow를 &lt;strong&gt;천천히!&lt;/strong&gt; &lt;strong&gt;차근차근!&lt;/strong&gt; 보면서&lt;br&gt;
-Github Repository -&gt; Actions Secrets에 본인에 맞는 값들을 빠짐없이 넣어준다!&lt;br&gt;
-&lt;del&gt;필자는 하나를 빠트려 2시간을 날렸다..&lt;/del&gt;
+&lt;h2&gt;Github Repository에 Secret 값 넣어주기&lt;/h2&gt;
+&lt;p&gt;이제 위 workflow가 정상적으로 수행할 수 있도록 &lt;em&gt;Secrets&lt;/em&gt; 값들을 넣어주자.&lt;/p&gt;
+&lt;p&gt;프로젝트의 GitHub Repository에서 &lt;code class=&quot;language-text&quot;&gt;Settings&lt;/code&gt; - &lt;code class=&quot;language-text&quot;&gt;Secrets and variables&lt;/code&gt; - &lt;code class=&quot;language-text&quot;&gt;Actions&lt;/code&gt;로 들어가자.&lt;/p&gt;
+&lt;p&gt;그리고 &lt;code class=&quot;language-text&quot;&gt;New Repository secret&lt;/code&gt; 버튼을 눌러 Secrets 값들을 저장해주면 된다.
 &lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
       &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/ed5450b26d4595e89a8b59d2a6d69b8a/38242/actions-secrets.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
@@ -556,14 +606,18 @@ Github Repository -&gt; Actions Secrets에 본인에 맞는 값들을 빠짐없�
     &lt;/span&gt;
     &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;Actions Secrets&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;위 Workflow를 위에서부터 하나씩 &lt;strong&gt;천천히!&lt;/strong&gt; &lt;strong&gt;차근차근!&lt;/strong&gt; 보면서 저장해주자.&lt;br&gt;
+필자는 단 하나를 빠트려 2시간을 날렸다.. 😭😭&lt;/p&gt;
+&lt;h2&gt;동작 확인하기&lt;/h2&gt;
+&lt;p&gt;이제 설정한 브랜치에 코드를 push해서 제대로 동작하는지 확인하면 모든 작업은 끝이 난다.&lt;/p&gt;
+&lt;p&gt;만약 작업이 실패한다면, &lt;code class=&quot;language-text&quot;&gt;Actions&lt;/code&gt; 탭에서 해당 workflow의 로그를 살펴보며 어디서 실패했는지 확인하면 된다.&lt;br&gt;
+대부분 설정 하나를 빠트렸다거나, 값을 잘못 작성했다거나 하는 문제일 가능성이 크기 때문에&lt;br&gt;
+로그를 읽고 하나씩 해결하면 모두 올바르게 동작할 것이다.&lt;/p&gt;
 &lt;h2&gt;마무리&lt;/h2&gt;
-&lt;p&gt;사실 위 작업들만 빠짐없이 꼼꼼히 해주어도 한 번에 될 것으로 예상한다.&lt;/p&gt;
-&lt;p&gt;하지만 Docker나 Github Actions가 익숙하지 않으면 분명 매우매우 어려울 것이다.&lt;br&gt;
-게다가 인프라 및 클라우드 작업은 사소한 설정 하나만 틀려도 실패한다.&lt;br&gt;
-이럴 때는 침착하게 Actions의 로그를 보면서 원인을 분명하게 파악하고, 해당 문제를 하나씩 해결하가면 될 것이다.&lt;/p&gt;
-&lt;p&gt;위에서 설명한 작업들 뿐만 아니라 기본적으로 해주어야 하는 작업들이 있지만, 해당 내용은 다른 블로그에서 이미 잘 작성해주었으니 참고하면 되겠다.&lt;br&gt;
-실제로 나 또한, 위 작업을 약 이틀 동안 삽질하면서 여러 블로그 및 공식 문서를 참고해가며 이렇게도 해보고 저렇게도 해보면서 해결했다!&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;질문이나 문제가 생겼다면 댓글이나 &lt;a href=&quot;https://open.kakao.com/o/sDdYkMhf&quot;&gt;카카오톡 오픈 채팅방&lt;/a&gt;을 통해 질문해주면 감사하겠다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Infra] Github Actions를 이용한 CI 작업 속도를 캐싱으로 개선하기]]></title><description><![CDATA[들어가며 현재 ListyWave 프로젝트에서 백엔드는 지속적 통합(이하 CI)의 툴로 Github Actions를 이용 중이다. CI 과정에서 수행하는 작업은 크게 아래와 같다. 저장소 Checkout JDK 준비 Gradle 준비 Build…]]></description><link>https://kdkdhoho.github.io/enhance-speed-ci-workflow/</link><guid isPermaLink="false">https://kdkdhoho.github.io/enhance-speed-ci-workflow/</guid><pubDate>Thu, 23 May 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
+&lt;p&gt;인프라 작업은 다양한 곳에서 설정해줘야 하기에 세심함이 필요하다.&lt;br&gt;
+급하게 하기보단 하나씩 작업을 수행하고 확인하는 식으로 진행하는 것을 추천한다.&lt;/p&gt;
+&lt;p&gt;혹여나 설명이 빠졌거나 부족한 부분이 있다면 언제든지 댓글로 알려주세요.&lt;br&gt;
+감사합니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Infra] Github Actions를 이용한 CI 작업 속도를 캐싱으로 개선하기]]></title><description><![CDATA[들어가며 현재 ListyWave 프로젝트에서 백엔드는 지속적 통합(이하 CI)의 툴로 Github Actions를 이용 중이다. CI 과정에서 수행하는 작업은 크게 아래와 같다. 저장소 Checkout JDK 준비 Gradle 준비 Build…]]></description><link>https://kdkdhoho.github.io/enhance-speed-ci-workflow/</link><guid isPermaLink="false">https://kdkdhoho.github.io/enhance-speed-ci-workflow/</guid><pubDate>Thu, 23 May 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
 &lt;p&gt;현재 &lt;a href=&quot;https://listywave.com&quot;&gt;ListyWave&lt;/a&gt; 프로젝트에서 백엔드는 지속적 통합(이하 CI)의 툴로 &lt;a href=&quot;https://docs.github.com/ko/actions&quot;&gt;Github Actions&lt;/a&gt;를 이용 중이다.&lt;/p&gt;
 &lt;p&gt;CI 과정에서 수행하는 작업은 크게 아래와 같다.&lt;/p&gt;
 &lt;ol&gt;
@@ -1326,6 +1380,101 @@ list&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class
 &lt;a href=&quot;#fnref-1&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;/div&gt;</content:encoded></item><item><title><![CDATA[8장. 누가 액세스하고 있는지를 확인하는 인증]]></title><description><![CDATA[들어가며 이번엔 HTTP 표준이 설명하는 여러 가지 인증 방식에 대해 알아보겠다. Basic 인증 이름 그대로 가장 기본적인 인증 방식이다. 클라이언트가 Http Request를 보낼 때  헤더에 ID와 패스워드를 Base6…]]></description><link>https://kdkdhoho.github.io/08-authentication-of-http/</link><guid isPermaLink="false">https://kdkdhoho.github.io/08-authentication-of-http/</guid><pubDate>Wed, 10 Apr 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
+&lt;p&gt;이번엔 HTTP 표준이 설명하는 여러 가지 인증 방식에 대해 알아보겠다.&lt;/p&gt;
+&lt;h2&gt;Basic 인증&lt;/h2&gt;
+&lt;p&gt;이름 그대로 가장 기본적인 인증 방식이다.&lt;/p&gt;
+&lt;p&gt;클라이언트가 Http Request를 보낼 때 &lt;code class=&quot;language-text&quot;&gt;Authorization&lt;/code&gt; 헤더에 ID와 패스워드를 Base64 형식으로 인코딩 한 값을 담아 보내는 방식이다.&lt;br&gt;
+이때 값 앞에 &lt;code class=&quot;language-text&quot;&gt;&quot;Basic &quot;&lt;/code&gt;을 Prefix로 담아 함께 보내어 Basic 인증임을 나타낸다.&lt;/p&gt;
+&lt;p&gt;Basic 인증은 아래와 같은 요청이 서버로 전달된다. &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
+Authoization: Basic Z3Vlc3Q35wervc32= &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;가장 단순하며 간편한 인증 방식이다.&lt;br&gt;
+하지만 Base64 형식은 &lt;a href=&quot;https://www.base64decode.org/&quot;&gt;온라인 디코더 사이트&lt;/a&gt;도 있는만큼 매우 위험한 인증 방식이다.&lt;br&gt;
+따라서 잘 사용하진 않는다.&lt;/p&gt;
+&lt;h2&gt;DIGEST 인증&lt;/h2&gt;
+&lt;p&gt;편리하지만 안전하지 않은 Basic 인증을 보완하기 위해 탄생한 기술이다.&lt;br&gt;
+DIGEST 인증에는 &lt;em&gt;챌린지 리스폰스&lt;/em&gt; 방식이 사용되고 있어 패스워드를 그대로 보낼 일은 없다.&lt;/p&gt;
+&lt;p&gt;챌린지 리스폰스 방식은 최초에 상대방에게 인증 요구를 보내고 그 결과로 받은 챌린지 코드를 사용해서 리스폰스 코드를 계산한다.&lt;br&gt;
+이 값을 상대에게 송신하여 인증하는 방법이다.&lt;br&gt;
+리스폰스 코드는 패스워드와 챌린지 코드를 이용해 계산한 결과이다. 이 결과값을 보내기에 패스워드가 통신되는 일은 없다.&lt;/p&gt;
+&lt;p&gt;좀 더 자세히 살펴보면 인증 순서에 따른 요청 및 응답 내용은 아래와 같다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;클라이언트가 리소스에 접근&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
+Host: listywave.com&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;서버는 인증이 필요하다는 상태 코드와 함께 패스워드와 챌린지 코드(nonce)를 송신&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;HTTP/1.1 401 Unauthorized
+WWW-Authenticate: Digest realm=&amp;quot;my&amp;quot;, nonce=&amp;quot;MoSq25=sddfAMi217wsnDS&amp;quot;, algorithm=MD5, qop=&amp;quot;auth&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;클라이언트는 패스워드와 챌린지 코드를 통해 리스폰스 코드를 계산해서 송신&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
+Host: listywave.com
+Authorization: Digest username=&amp;quot;kdkdhoho&amp;quot;, realm=&amp;quot;my&amp;quot;, nonce=&amp;quot;MoSq25=sddfAMi217wsnDS&amp;quot;, uri=&amp;quot;/my&amp;quot;, algorithm=MD5, response=&amp;quot;df563836bnfasf7acfasdfc78&amp;quot;, qop=&amp;quot;auth&amp;quot;, nc=000000001, cnonce=&amp;quot;0827c27c29c271&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;서버는 인증 성공 시 &lt;code class=&quot;language-text&quot;&gt;200 OK&lt;/code&gt;를 응답하고, 실패했을 경우 다시 &lt;code class=&quot;language-text&quot;&gt;401 Unauthorized&lt;/code&gt;를 응답한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;HTTP/1.1 200 OK
+Authentication-Info: rspauth=&amp;quot;fvacacwararact3c5ttcctyct7tcc4t7y&amp;quot;, cnonce=&amp;quot;0827c27c29c271&amp;quot;, nc=000000001, qop=&amp;quot;auth&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;하지만 Digest 방식도 사용상의 문제와 부족한 보안성 때문에 잘 사용하지는 않는다.&lt;/p&gt;
+&lt;h2&gt;SSL 클라이언트 인증&lt;/h2&gt;
+&lt;p&gt;위 두 방식은 사용자 ID와 패스워드를 통해 인증을 진행한다.&lt;br&gt;
+SSL 클라이언트 인증의 경우에는 클라이언트가 &lt;strong&gt;클라이언트 인증서&lt;/strong&gt;를 서버로 전송해 인증한다.&lt;/p&gt;
+&lt;p&gt;클라이언트가 클라이언트 인증서를 서버로 전송하기 위해서는 사전에 미리 가지고 있어야 한다.&lt;br&gt;
+이를 위해선 서버가 미리 증명서를 구매하여 사용자에게 배포를 해야 한다.&lt;br&gt;
+다른 말로 인증을 위한 비용이 상당하다는 것이다.&lt;br&gt;
+따라서 웹 애플리케이션 인증만을 위한 용도로는 사용하지 않고 후술할 Form 방식과 함께 사용되어 2-Factor 인증으로 사용한다.&lt;/p&gt;
+&lt;h2&gt;Form 방식&lt;/h2&gt;
+&lt;p&gt;Form 방식은 HTTP 프로토콜로 스펙이 정의되어 있지는 않다.&lt;br&gt;
+하지만 많은 웹사이트에서 채택 중이며 대부분의 경우 로그인 페이지를 통해 사용자의 인증 정보를 폼에 입력 후 서버로 전송하면, 서버는 해당 값을 토대로 사용자를 식별하고 그에 따른 인증 처리를 하는 방식으로 채택 중이다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/9c59e807258884b8c8889affd6decef8/adc5a/form-auth-example.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 96.47058823529412%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAABoElEQVR42q2Uy0vEMBDG9+8VD75Q96D4Qj2I4EXUg6y4PmDrPkA8WUU9C4J42IMIorB0VdqmSdM26WfSfeiKbnfVwFeGmeaXyUySDP55ZHr5SUqZKI7jvwM1SI9eYF2BLUC1WoVpmjAMA4yxVHhPGVqWhXq93n+GeuUoihIFQdCWECLRZ1/Lnwp0HAe2bbfBP4lzDt/304GuS+C4Hniosuwi3+fgSl2BUsZg1IXkbxCBq5fQ3m8lRJhk+SOw0TiJ2wcP0wWC+aKH+RLFXJFi5ZhgueIl9kKZYtqg2DI9sOaWPzf9CzDGzT3BWJ4ge0AwqTSxT7BUtjFjuBhXdvaQYFTF105cUNYF+NHlQFmdksJXMd7pkzxpzq+uHldbEyLq7xzKZtp3TxEGcxTDeYaRPYrZI6LqRrBYcTFV8DCUpxhQ8dUTpubEaTUEHl8E1k99bJwybJ4x7FxS5C4odq8ots895eMqzlG6Dtpz4rQt6zo6r8/wHAvEbkjbzmsNpGaB207vd1mvKtRRi9SnpTBqSNtBIBCGsl2iXzXl3x/YfoDvEiq/mkSMcbMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;Form 방식의 로그인 페이지 (출처: https://gundogmuseray.medium.com/easy-way-to-stop-worry-about-client-side-auth-with-firebase-and-sveltekit-d17cdcccb663)&apos; title=&apos;&apos; src=&apos;/static/9c59e807258884b8c8889affd6decef8/ca1dc/form-auth-example.png&apos; srcset=&apos;/static/9c59e807258884b8c8889affd6decef8/e7570/form-auth-example.png 170w,
+/static/9c59e807258884b8c8889affd6decef8/f46e7/form-auth-example.png 340w,
+/static/9c59e807258884b8c8889affd6decef8/ca1dc/form-auth-example.png 680w,
+/static/9c59e807258884b8c8889affd6decef8/02d09/form-auth-example.png 1020w,
+/static/9c59e807258884b8c8889affd6decef8/adc5a/form-auth-example.png 1068w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;Form 방식의 로그인 페이지 (출처: https://gundogmuseray.medium.com/easy-way-to-stop-worry-about-client-side-auth-with-firebase-and-sveltekit-d17cdcccb663)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;세션 및 토큰&lt;/h2&gt;
+&lt;p&gt;HTTP 프로토콜은 Stateless 하다.&lt;br&gt;
+방금 전에 로그인에 성공했지만 다음 요청마다 로그인을 새로 해야 한다.&lt;br&gt;
+이를 개선하기 위해 쿠키[&lt;sup id=&quot;fnref-2&quot;&gt;&lt;a href=&quot;#fn-2&quot; class=&quot;footnote-ref&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;] 가 도입되었고 여기에 세션[&lt;sup id=&quot;fnref-3&quot;&gt;&lt;a href=&quot;#fn-3&quot; class=&quot;footnote-ref&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;]이나 토큰[&lt;sup id=&quot;fnref-4&quot;&gt;&lt;a href=&quot;#fn-4&quot; class=&quot;footnote-ref&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;] 을 이용해 사용자 인증 정보를 유지한다.&lt;/p&gt;
+&lt;p&gt;세션과 토큰은 현재 대부분의 경우 사용 중인 방식이다.&lt;br&gt;
+이 둘을 잘 이해하고 사용할 줄 아는 것은 매우 중요하다는 의미이며 다른 포스팅에서 집중적으로 알아볼 예정이다.&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn-1&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://m.yes24.com/Goods/Detail/15894097&quot;&gt;그림으로 배우는 Http &amp;#x26; Network Basic&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;#fnref-1&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;
+&lt;/li&gt;
+&lt;li id=&quot;fn-2&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/HTTP/Cookies&quot;&gt;MDN - 쿠키&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;#fnref-2&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;
+&lt;/li&gt;
+&lt;li id=&quot;fn-3&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/HTTP/Session&quot;&gt;MDN - 세션&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;#fnref-3&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;
+&lt;/li&gt;
+&lt;li id=&quot;fn-4&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://opentutorials.org/course/3405/22008&quot;&gt;오픈튜토리얼스 - AccessToken&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;#fnref-4&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/div&gt;</content:encoded></item><item><title><![CDATA[9장. HTTP에 기능을 추가한 프로토콜]]></title><description><![CDATA[들어가며 인터넷이 보급되고 웹 시장이 커져감에 따라 HTTP 프로토콜이 정말 많이 사용되고 있다.
 하지만 본래 HTML 문서를 전송하기 위해 탄생한 HTTP는 발전해가는 웹 시장에 비하면 부족한 기능들이 다수 존재했다.
 그래서 HTTP…]]></description><link>https://kdkdhoho.github.io/09-advanced-http-protocol/</link><guid isPermaLink="false">https://kdkdhoho.github.io/09-advanced-http-protocol/</guid><pubDate>Wed, 10 Apr 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
@@ -1463,101 +1612,6 @@ HTTP/2.0은 성능 개선이 주된 목표이다. 따라서 &lt;em&gt;SPDY&lt;/e
 &lt;li id=&quot;fn-7&quot;&gt;
 &lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/101&quot;&gt;101 Switching Protocols - MDN&lt;/a&gt;&lt;/p&gt;
 &lt;a href=&quot;#fnref-7&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</content:encoded></item><item><title><![CDATA[8장. 누가 액세스하고 있는지를 확인하는 인증]]></title><description><![CDATA[들어가며 이번엔 HTTP 표준이 설명하는 여러 가지 인증 방식에 대해 알아보겠다. Basic 인증 이름 그대로 가장 기본적인 인증 방식이다. 클라이언트가 Http Request를 보낼 때  헤더에 ID와 패스워드를 Base6…]]></description><link>https://kdkdhoho.github.io/08-authentication-of-http/</link><guid isPermaLink="false">https://kdkdhoho.github.io/08-authentication-of-http/</guid><pubDate>Wed, 10 Apr 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
-&lt;p&gt;이번엔 HTTP 표준이 설명하는 여러 가지 인증 방식에 대해 알아보겠다.&lt;/p&gt;
-&lt;h2&gt;Basic 인증&lt;/h2&gt;
-&lt;p&gt;이름 그대로 가장 기본적인 인증 방식이다.&lt;/p&gt;
-&lt;p&gt;클라이언트가 Http Request를 보낼 때 &lt;code class=&quot;language-text&quot;&gt;Authorization&lt;/code&gt; 헤더에 ID와 패스워드를 Base64 형식으로 인코딩 한 값을 담아 보내는 방식이다.&lt;br&gt;
-이때 값 앞에 &lt;code class=&quot;language-text&quot;&gt;&quot;Basic &quot;&lt;/code&gt;을 Prefix로 담아 함께 보내어 Basic 인증임을 나타낸다.&lt;/p&gt;
-&lt;p&gt;Basic 인증은 아래와 같은 요청이 서버로 전달된다. &lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
-Authoization: Basic Z3Vlc3Q35wervc32= &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;가장 단순하며 간편한 인증 방식이다.&lt;br&gt;
-하지만 Base64 형식은 &lt;a href=&quot;https://www.base64decode.org/&quot;&gt;온라인 디코더 사이트&lt;/a&gt;도 있는만큼 매우 위험한 인증 방식이다.&lt;br&gt;
-따라서 잘 사용하진 않는다.&lt;/p&gt;
-&lt;h2&gt;DIGEST 인증&lt;/h2&gt;
-&lt;p&gt;편리하지만 안전하지 않은 Basic 인증을 보완하기 위해 탄생한 기술이다.&lt;br&gt;
-DIGEST 인증에는 &lt;em&gt;챌린지 리스폰스&lt;/em&gt; 방식이 사용되고 있어 패스워드를 그대로 보낼 일은 없다.&lt;/p&gt;
-&lt;p&gt;챌린지 리스폰스 방식은 최초에 상대방에게 인증 요구를 보내고 그 결과로 받은 챌린지 코드를 사용해서 리스폰스 코드를 계산한다.&lt;br&gt;
-이 값을 상대에게 송신하여 인증하는 방법이다.&lt;br&gt;
-리스폰스 코드는 패스워드와 챌린지 코드를 이용해 계산한 결과이다. 이 결과값을 보내기에 패스워드가 통신되는 일은 없다.&lt;/p&gt;
-&lt;p&gt;좀 더 자세히 살펴보면 인증 순서에 따른 요청 및 응답 내용은 아래와 같다.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;클라이언트가 리소스에 접근&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
-Host: listywave.com&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;서버는 인증이 필요하다는 상태 코드와 함께 패스워드와 챌린지 코드(nonce)를 송신&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;HTTP/1.1 401 Unauthorized
-WWW-Authenticate: Digest realm=&amp;quot;my&amp;quot;, nonce=&amp;quot;MoSq25=sddfAMi217wsnDS&amp;quot;, algorithm=MD5, qop=&amp;quot;auth&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;클라이언트는 패스워드와 챌린지 코드를 통해 리스폰스 코드를 계산해서 송신&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
-Host: listywave.com
-Authorization: Digest username=&amp;quot;kdkdhoho&amp;quot;, realm=&amp;quot;my&amp;quot;, nonce=&amp;quot;MoSq25=sddfAMi217wsnDS&amp;quot;, uri=&amp;quot;/my&amp;quot;, algorithm=MD5, response=&amp;quot;df563836bnfasf7acfasdfc78&amp;quot;, qop=&amp;quot;auth&amp;quot;, nc=000000001, cnonce=&amp;quot;0827c27c29c271&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;서버는 인증 성공 시 &lt;code class=&quot;language-text&quot;&gt;200 OK&lt;/code&gt;를 응답하고, 실패했을 경우 다시 &lt;code class=&quot;language-text&quot;&gt;401 Unauthorized&lt;/code&gt;를 응답한다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;HTTP/1.1 200 OK
-Authentication-Info: rspauth=&amp;quot;fvacacwararact3c5ttcctyct7tcc4t7y&amp;quot;, cnonce=&amp;quot;0827c27c29c271&amp;quot;, nc=000000001, qop=&amp;quot;auth&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;하지만 Digest 방식도 사용상의 문제와 부족한 보안성 때문에 잘 사용하지는 않는다.&lt;/p&gt;
-&lt;h2&gt;SSL 클라이언트 인증&lt;/h2&gt;
-&lt;p&gt;위 두 방식은 사용자 ID와 패스워드를 통해 인증을 진행한다.&lt;br&gt;
-SSL 클라이언트 인증의 경우에는 클라이언트가 &lt;strong&gt;클라이언트 인증서&lt;/strong&gt;를 서버로 전송해 인증한다.&lt;/p&gt;
-&lt;p&gt;클라이언트가 클라이언트 인증서를 서버로 전송하기 위해서는 사전에 미리 가지고 있어야 한다.&lt;br&gt;
-이를 위해선 서버가 미리 증명서를 구매하여 사용자에게 배포를 해야 한다.&lt;br&gt;
-다른 말로 인증을 위한 비용이 상당하다는 것이다.&lt;br&gt;
-따라서 웹 애플리케이션 인증만을 위한 용도로는 사용하지 않고 후술할 Form 방식과 함께 사용되어 2-Factor 인증으로 사용한다.&lt;/p&gt;
-&lt;h2&gt;Form 방식&lt;/h2&gt;
-&lt;p&gt;Form 방식은 HTTP 프로토콜로 스펙이 정의되어 있지는 않다.&lt;br&gt;
-하지만 많은 웹사이트에서 채택 중이며 대부분의 경우 로그인 페이지를 통해 사용자의 인증 정보를 폼에 입력 후 서버로 전송하면, 서버는 해당 값을 토대로 사용자를 식별하고 그에 따른 인증 처리를 하는 방식으로 채택 중이다.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/9c59e807258884b8c8889affd6decef8/adc5a/form-auth-example.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 96.47058823529412%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAABoElEQVR42q2Uy0vEMBDG9+8VD75Q96D4Qj2I4EXUg6y4PmDrPkA8WUU9C4J42IMIorB0VdqmSdM26WfSfeiKbnfVwFeGmeaXyUySDP55ZHr5SUqZKI7jvwM1SI9eYF2BLUC1WoVpmjAMA4yxVHhPGVqWhXq93n+GeuUoihIFQdCWECLRZ1/Lnwp0HAe2bbfBP4lzDt/304GuS+C4Hniosuwi3+fgSl2BUsZg1IXkbxCBq5fQ3m8lRJhk+SOw0TiJ2wcP0wWC+aKH+RLFXJFi5ZhgueIl9kKZYtqg2DI9sOaWPzf9CzDGzT3BWJ4ge0AwqTSxT7BUtjFjuBhXdvaQYFTF105cUNYF+NHlQFmdksJXMd7pkzxpzq+uHldbEyLq7xzKZtp3TxEGcxTDeYaRPYrZI6LqRrBYcTFV8DCUpxhQ8dUTpubEaTUEHl8E1k99bJwybJ4x7FxS5C4odq8ots895eMqzlG6Dtpz4rQt6zo6r8/wHAvEbkjbzmsNpGaB207vd1mvKtRRi9SnpTBqSNtBIBCGsl2iXzXl3x/YfoDvEiq/mkSMcbMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;Form 방식의 로그인 페이지 (출처: https://gundogmuseray.medium.com/easy-way-to-stop-worry-about-client-side-auth-with-firebase-and-sveltekit-d17cdcccb663)&apos; title=&apos;&apos; src=&apos;/static/9c59e807258884b8c8889affd6decef8/ca1dc/form-auth-example.png&apos; srcset=&apos;/static/9c59e807258884b8c8889affd6decef8/e7570/form-auth-example.png 170w,
-/static/9c59e807258884b8c8889affd6decef8/f46e7/form-auth-example.png 340w,
-/static/9c59e807258884b8c8889affd6decef8/ca1dc/form-auth-example.png 680w,
-/static/9c59e807258884b8c8889affd6decef8/02d09/form-auth-example.png 1020w,
-/static/9c59e807258884b8c8889affd6decef8/adc5a/form-auth-example.png 1068w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;Form 방식의 로그인 페이지 (출처: https://gundogmuseray.medium.com/easy-way-to-stop-worry-about-client-side-auth-with-firebase-and-sveltekit-d17cdcccb663)&lt;/figcaption&gt;
-  &lt;/figure&gt;&lt;/p&gt;
-&lt;h2&gt;세션 및 토큰&lt;/h2&gt;
-&lt;p&gt;HTTP 프로토콜은 Stateless 하다.&lt;br&gt;
-방금 전에 로그인에 성공했지만 다음 요청마다 로그인을 새로 해야 한다.&lt;br&gt;
-이를 개선하기 위해 쿠키[&lt;sup id=&quot;fnref-2&quot;&gt;&lt;a href=&quot;#fn-2&quot; class=&quot;footnote-ref&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;] 가 도입되었고 여기에 세션[&lt;sup id=&quot;fnref-3&quot;&gt;&lt;a href=&quot;#fn-3&quot; class=&quot;footnote-ref&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;]이나 토큰[&lt;sup id=&quot;fnref-4&quot;&gt;&lt;a href=&quot;#fn-4&quot; class=&quot;footnote-ref&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;] 을 이용해 사용자 인증 정보를 유지한다.&lt;/p&gt;
-&lt;p&gt;세션과 토큰은 현재 대부분의 경우 사용 중인 방식이다.&lt;br&gt;
-이 둘을 잘 이해하고 사용할 줄 아는 것은 매우 중요하다는 의미이며 다른 포스팅에서 집중적으로 알아볼 예정이다.&lt;/p&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn-1&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;https://m.yes24.com/Goods/Detail/15894097&quot;&gt;그림으로 배우는 Http &amp;#x26; Network Basic&lt;/a&gt;&lt;/p&gt;
-&lt;a href=&quot;#fnref-1&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;
-&lt;/li&gt;
-&lt;li id=&quot;fn-2&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/HTTP/Cookies&quot;&gt;MDN - 쿠키&lt;/a&gt;&lt;/p&gt;
-&lt;a href=&quot;#fnref-2&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;
-&lt;/li&gt;
-&lt;li id=&quot;fn-3&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/HTTP/Session&quot;&gt;MDN - 세션&lt;/a&gt;&lt;/p&gt;
-&lt;a href=&quot;#fnref-3&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;
-&lt;/li&gt;
-&lt;li id=&quot;fn-4&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;https://opentutorials.org/course/3405/22008&quot;&gt;오픈튜토리얼스 - AccessToken&lt;/a&gt;&lt;/p&gt;
-&lt;a href=&quot;#fnref-4&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;</content:encoded></item><item><title><![CDATA[[MySQL] 바이너리 로그로 데이터 복구하기]]></title><description><![CDATA[들어가며 며칠 전, 리스티웨이브 프로젝트를 진행하며 특정 조건의 데이터를 모두 삭제 할 일이 있었습니다.
@@ -2804,7 +2858,129 @@ CSRF는 이를 노린 공격이고 이를 악용하여 공격자는 쿠키로 �
 &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/&quot;&gt;MDN&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.w3.org/&quot;&gt;W3C&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[MySQL의 실행 계획에 대해 알아보자]]></title><description><![CDATA[들어가며 MySQL…]]></description><link>https://kdkdhoho.github.io/10-execute-plain/</link><guid isPermaLink="false">https://kdkdhoho.github.io/10-execute-plain/</guid><pubDate>Tue, 05 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[Spring Boot에서 Rest Assured로 인수 테스트할 때 OAuth 로그인 처리하기]]></title><description><![CDATA[이번 글에서는 Spring Boot에서 Rest Assured를 이용해 인수 테스트를 하는 과정에서 OAuth를 처리하는 방법을 고민한 흔적과 해결 방법을 기록하려고 합니다. 비단 OAuth 뿐만 아니라 다른 외부 REST API…]]></description><link>https://kdkdhoho.github.io/oauth-test/</link><guid isPermaLink="false">https://kdkdhoho.github.io/oauth-test/</guid><pubDate>Tue, 05 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이번 글에서는 Spring Boot에서 Rest Assured를 이용해 인수 테스트를 하는 과정에서 OAuth를 처리하는 방법을 고민한 흔적과 해결 방법을 기록하려고 합니다.&lt;/p&gt;
+&lt;p&gt;비단 OAuth 뿐만 아니라 다른 외부 REST API를 호출하는 부분을 해결하는 데에도 도움이 될 것으로 기대합니다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;개발 환경은 Spring Boot 3.2.2, Rest Assured 5.3.2를 사용합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;개요&lt;/h2&gt;
+&lt;p&gt;현재 ListyWave가 제공하는 모든 기능들에 인수 테스트를 작성하려고 합니다.&lt;/p&gt;
+&lt;p&gt;하지만 서비스는 자체적인 로그인 기능을 제공하지 않고 &lt;u&gt;사용자 경험 개선&lt;/u&gt;과 &lt;u&gt;서비스 신뢰도 향상&lt;/u&gt;을 위해 카카오 OAuth를 채택하여 사용 중입니다.&lt;/p&gt;
+&lt;p&gt;이는 다른 의미로, 회원과 관련된 기능들을 인수 테스트하기 위해서는 카카오 OAuth 로그인이 선행되어야 한다는 뜻입니다. 하지만 Rest Assured 만으로는 카카오 로그인을 수행하지 못합니다.&lt;/p&gt;
+&lt;h2&gt;문제 파악하기&lt;/h2&gt;
+&lt;p&gt;왜 수행하지 못할까요?&lt;/p&gt;
+&lt;p&gt;현재 ListyWave에서 수행 중인 로그인 요청부터 처리까지의 Flow는 대략 다음과 같습니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;사용자가 카카오로 로그인하기 버튼 클릭 -&gt; 프론트엔드 서버에서 백엔드 서버로 로그인 URL 요청 -&gt; 사용자는 카카오 로그인 페이지에서 로그인&lt;/li&gt;
+&lt;li&gt;카카오 로그인에 성공하면 Redirect URI(프론트엔드 서버)로 AuthCode 전송 -&gt; 프론트엔드는 AuthCode를 백엔드로 전송 -&gt; AuthCode로 Kakao Authorization Server에 액세스 토큰 발급 요청 -&gt; 발급받은 액세스 토큰으로 Kakao Resources Server에 회원 정보 요청 -&gt; 받은 회원 정보로 로그인 비즈니스 로직 처리&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;위 flow는 이해가 잘 가지 않을 수 있기에 핵심만 말씀드리면 &lt;u&gt;로그인이 선행되려면 AuthCode가 필요하고&lt;/u&gt;&lt;br&gt;
+&lt;u&gt;AuthCode는 카카오 로그인 페이지에서 로그인 해야 하기 때문입니다!&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;추가로, 만~약에 RestAssured 만으로도 카카오 로그인에 성공해서 AuthCode를 받아왔다고 해도 OAuth는 결국 &lt;u&gt;외부 API를 호출하는 것과 같습니다.&lt;/u&gt;&lt;br&gt;
+이는 다시 말해, 테스트 코드로 인해 사이드 이펙트가 발생할 가능성이 있다는 의미와 같습니다.&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;따라서 &lt;u&gt;테스트 코드는 AuthCode로부터 자유로워야 하고, 실제 REST API를 호출하지 않아야 합니다.&lt;/u&gt;&lt;/p&gt;
+&lt;h2&gt;문제 해결하기&lt;/h2&gt;
+&lt;p&gt;우선 OAuth 로그인에 사용되는 객체들을 천천히 살펴보았습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;요청과 응답을 처리하는 AuthController&lt;/li&gt;
+&lt;li&gt;로그인 비즈니스 로직을 처리하는 AuthService&lt;/li&gt;
+&lt;li&gt;Kakao Authorization Server와 Resources Server에 REST API 요청을 보내기 위해 필요한 파라미터 값을 조립하는 KakaoOauthClient&lt;/li&gt;
+&lt;li&gt;실제 REST API를 호출하는 KakaoOauthApiClient&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;일단 &lt;u&gt;문제 해결의 핵심은 실제 REST API를 호출하는 &lt;code class=&quot;language-text&quot;&gt;KakaoOauthApiClient&lt;/code&gt;&lt;/u&gt;가 될 것으로 생각됩니다.&lt;/p&gt;
+&lt;p&gt;AuthCode를 파라미터로 받아 Kakao Authorization Server에 액세스 토큰 발급 요청을 보내며,&lt;br&gt;
+발급받은 액세스 토큰을 통해 Kakao Resource Server에 회원 정보를 요청하기 때문입니다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/5b10c72d08b9cf34115e3a965bf60253/f97d7/KakaoOauthApiClient.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 52.94117647058824%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB1ElEQVR42n2T23LkIAxE5z8yY4NtxB2b8VxS+///1dsitansSx5OocIgqVv4kn1AHUS048TRn4O2n/Ch4DYtmGZlHets1l+55CJQ2h6xboKrsZgME1gm0EP2B8vKAha3mx3rpMzLf1wMEyzrhvN8op8vpL5DeoJ/VMi9whF5NMYFclaYIJjdBiMOhutXAYMr0fgiPmNzEaV2csCFBpsaltzgcyQeEhUWyQWhVYTKQinxbOTdMHASYRenkndKPgYpswPfMMUH5nBHKgk5bYjBIcaCxEJVC/NsCJV7lXcact5R230kvqTkuCHY1UPnh09m/WJeNkysOq8KY7vg+jHjejXfMofUn5Kn2cLQ8Pfnn0E9O/yZET4PyGsf+DfjJ32kr5YW2BxoC1f6eeMg/iUdQ9Gnoawu0eyCWRpusmOjJyIbnFMcoQIrSEKpLsNLhoQ8vBNPf2mJUQ8rTe69I6p/6Y61vWGJK/SmesTiEdhRavu4WOOBEndEYSMc6EjGhiL9HUPpXRNWvF4dj/McH4QPvFJe6gXlLMh3DuFoKMeBvT9w8LuXNFToIDSpdjok67PRJIGkVLFQyuyZgE8lRsdpbkRlsZs1Im3sZmVMi0LUzuo3+qf8BaXjQP91pI9QAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;KakaoOauthApiClient 코드&apos; title=&apos;&apos; src=&apos;/static/5b10c72d08b9cf34115e3a965bf60253/ca1dc/KakaoOauthApiClient.png&apos; srcset=&apos;/static/5b10c72d08b9cf34115e3a965bf60253/e7570/KakaoOauthApiClient.png 170w,
+/static/5b10c72d08b9cf34115e3a965bf60253/f46e7/KakaoOauthApiClient.png 340w,
+/static/5b10c72d08b9cf34115e3a965bf60253/ca1dc/KakaoOauthApiClient.png 680w,
+/static/5b10c72d08b9cf34115e3a965bf60253/02d09/KakaoOauthApiClient.png 1020w,
+/static/5b10c72d08b9cf34115e3a965bf60253/9d567/KakaoOauthApiClient.png 1360w,
+/static/5b10c72d08b9cf34115e3a965bf60253/f97d7/KakaoOauthApiClient.png 2000w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;KakaoOauthApiClient 코드&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;어쩌면 이 녀석만 해결하면 모든 문제가 술술 풀릴 것 같은 생각이 듭니다.&lt;/p&gt;
+&lt;p&gt;따라서 저는 Mocking을 통해 해당 객체를 &lt;a href=&quot;https://tecoble.techcourse.co.kr/post/2020-09-19-what-is-test-double/&quot;&gt;테스트 더블&lt;/a&gt;을 시도해보았습니다.&lt;br&gt;
+Stubing으로도 해결할 수 있겠지만 Mocking이 더 유연하고 간편하다고 판단했기 때문입니다.&lt;br&gt;
+또한 인수 테스트 특성 상, Test Context에 모든 Bean을 Load하기에 &lt;code class=&quot;language-text&quot;&gt;@MockBean&lt;/code&gt;을 통해 쉽게 Mocking 할 수 있다고 판단했기 때문입니다.&lt;/p&gt;
+&lt;h2&gt;해결 과정&lt;/h2&gt;
+&lt;p&gt;우선 모든 인수 테스트가 상속받는 &lt;code class=&quot;language-text&quot;&gt;AcceptanceTest&lt;/code&gt;에 &lt;code class=&quot;language-text&quot;&gt;KakaoOauthApiClient&lt;/code&gt; 객체를 &lt;code class=&quot;language-text&quot;&gt;@MockBean&lt;/code&gt;으로 선언하여 등록합니다.
+&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/1a76075338e483fa7f663afa3b31bb73/f97d7/AcceptanceTest.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 46.470588235294116%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB20lEQVR42mWPy27TQBSG8wbQi0AicZz4OvZ4fGni8TVJK1SBShcIULtHLEjbV2CBEBtW0Jbn/Zi6lRBl8c35dWbmP+cf1W1CVUvqJqHt7nXV5Og6p+ka+vURdbsyvZ623xi9pqxa1npJpzVpVKBEhhQpkVCM+lpRLyW9Mey0MVzEtHXDpluhq47V5iVdf4hKCw6Pjil1Q14sWZqqVEGXtNRJg440eXzAaCFj0lCQBCGL6F5Hnk8uAqRMKRYVxUE5kOULXC9kYs0YT2ys6ZyxZTOezgYmhtHYcpi7Lk7wgO/hC5+Z59w/nvxlYpjaDvbMHRi07f7DyJo65EqwqhS9VjQmclkISpXhO2LYZtjkYYM77gZZ9nwwfMxoYo5MCDaFMcwUbVnT6NYMOKIqO1ITU4UZZaxZRia6OGARlwReNAz6z3A6c3DmJqYTmOrjh5I4SQkjiYgSQiEJzeckSJG+IvbkUF3zfmoM7ceGjhsRN6+IT7bI15+w1p95srxgR1+wq7eGC/bqS3aqLTv1lqe1uTPsmt5+e8Vec8W+4VlzOTB6rj8iTr5Qvv+OfvcN+fYH8dlvkvNb5NkN6vyG6MM1whCc/CQ/vSE9vSYzNXnzC3V6i3f8lRfRirHo+QPw/BpWggEmCAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;AcceptanceTest&apos; title=&apos;&apos; src=&apos;/static/1a76075338e483fa7f663afa3b31bb73/ca1dc/AcceptanceTest.png&apos; srcset=&apos;/static/1a76075338e483fa7f663afa3b31bb73/e7570/AcceptanceTest.png 170w,
+/static/1a76075338e483fa7f663afa3b31bb73/f46e7/AcceptanceTest.png 340w,
+/static/1a76075338e483fa7f663afa3b31bb73/ca1dc/AcceptanceTest.png 680w,
+/static/1a76075338e483fa7f663afa3b31bb73/02d09/AcceptanceTest.png 1020w,
+/static/1a76075338e483fa7f663afa3b31bb73/9d567/AcceptanceTest.png 1360w,
+/static/1a76075338e483fa7f663afa3b31bb73/f97d7/AcceptanceTest.png 2000w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그리고 테스트 코드에서 Mocking을 해줍니다.
+&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/61d81c52f712a095341da30984eb7e84/f97d7/Mocking-in-TestCode.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 40.588235294117645%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABNklEQVR42pWSW07DMBREswskSPy24yRuXk5bSBESK+CD/a9lGFct4rN8jK59b3w8Y6VKfY9DGjGtR2pD6ge03QF+mCFchDQB6h+qnHOQYcCTTahdgvQd1ItAfK7RsepGoRYKzVUaTXOrv1J/pFG11uE8ZcwpYwoJB7rahcFXI/HNj96VQWMDtOHF2rIWJ/e1h9Eeuoh9yX7VSoM9Tbgcz/jIr/jcLrhsO8ZxQR5XbG0PS9c2tNDOw/sexhPqueasdT28jXChg2a/Uspi4SB3A3JMmDlYQ4/JBcyuxcC9osMSVdB5iSYYTdwi1zfdn6ASBApaz6cd6+kNcZkxns4YjhndvMA6ArWDYJJHVEkCy4GBsWOX4HyEj4xRIrDfSHO9+WFggXU9fxPGvMIIusuxJxn3UVgB/gDLyuRKJxAWvQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;Mocking in TestCode&apos; title=&apos;&apos; src=&apos;/static/61d81c52f712a095341da30984eb7e84/ca1dc/Mocking-in-TestCode.png&apos; srcset=&apos;/static/61d81c52f712a095341da30984eb7e84/e7570/Mocking-in-TestCode.png 170w,
+/static/61d81c52f712a095341da30984eb7e84/f46e7/Mocking-in-TestCode.png 340w,
+/static/61d81c52f712a095341da30984eb7e84/ca1dc/Mocking-in-TestCode.png 680w,
+/static/61d81c52f712a095341da30984eb7e84/02d09/Mocking-in-TestCode.png 1020w,
+/static/61d81c52f712a095341da30984eb7e84/9d567/Mocking-in-TestCode.png 1360w,
+/static/61d81c52f712a095341da30984eb7e84/f97d7/Mocking-in-TestCode.png 2000w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;디버깅 모드로 하나씩 따라가보면 아래 사진처럼 만든 값들이 그대로 나오는 것을 확인할 수 있습니다.
+&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/0ee56258650dff0a56b02f037d6131d7/f97d7/debug.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 38.82352941176471%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABrklEQVR42kWQW2+bQBBG+TGNL2Bjc2fZ5WJjGzB2c6lkRZWj5rmvfWibJs1PPx1jqXk4mgFmz86HpbpnmtN3Nud3qtNP6scX2qdXmq8vrE+/yG5/0J5fh3f142+6pzf6b3/Zyvfm/Gfoj8/vrGS2kxlrqTasqh375pZ+f0/f3bNrHlDtA8nhjmBzIMhafNXgCaHpiPI9gdRLHxf90HuqJdAdlj1fYHyXRvm0ecK+SDgKaRLiasEEONGSeepjy9zNaMKn0UjqmMnUGZjaH1jOIiCPAjojssrQlZpSZ6jU4MdKtjBEQqA1Zl1TrXfUu4562zKXs/ZsiTP3/mM5rk8e+oOwF+GhugpDkXmZxheRn2USWaHKEl2sRLqlqGqRLZjYc8bT2VAvz7Khj7kIdcJdXYhU86XO6UuDKTLyrSYqRSi9Z5RssbziesOlShfovCIzJQsvxJpdIocBrYk5rg2tiGqR7moj/1PT6JQ0SvH8lCjOiFK5ILliZNtts6frP7PrDjITXyOrwGeVRmxkgzhOcNKYmWw8kgg3tsvEWUgcd2DqfHCJOpo43IztoV4i/wPYzBC4d+cm7QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;debug&apos; title=&apos;&apos; src=&apos;/static/0ee56258650dff0a56b02f037d6131d7/ca1dc/debug.png&apos; srcset=&apos;/static/0ee56258650dff0a56b02f037d6131d7/e7570/debug.png 170w,
+/static/0ee56258650dff0a56b02f037d6131d7/f46e7/debug.png 340w,
+/static/0ee56258650dff0a56b02f037d6131d7/ca1dc/debug.png 680w,
+/static/0ee56258650dff0a56b02f037d6131d7/02d09/debug.png 1020w,
+/static/0ee56258650dff0a56b02f037d6131d7/9d567/debug.png 1360w,
+/static/0ee56258650dff0a56b02f037d6131d7/f97d7/debug.png 2000w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;결과&lt;/h2&gt;
+&lt;p&gt;테스트가 통과하는 것을 확인할 수 있습니다.
+&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/8e0fc8a4ee0b0ebd722292ebd1fc5d04/018c1/test-success.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 73.52941176470587%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAACHElEQVR42n2U6ZKbMBCEeY/4ACGBuG8wi494s7WVSuVH3v9lOjMjvLHjbH58JYmSmp4egacjizzPYYseUVoiNBYqjBGoCKG20FECbRIomisdyzNGmVj2ap3Q2s35mecHWjY0zQF9O6OpBnTDAVXdwtoMUZzCRKkc8LURcZkbmpOZSKfQoXXPae3t/VDcFHmNvjugbUZ07YimHcRdTJiViIVDFmVnMWFlzs8CelkYxyyoSdAgTys0ZY+qbFFWHWxCMSSFCPlKww/MSgiu6gEyxcb8UDuHnEFV90jSAmlWIMlKGokko40Km62P7Y4JHtjt1R2BiHr7wDnM8spR1MgJFucxzSrK8ZYllU4jrzmzR0GHNIWV+QDnlq7uuGTntHKZGdfdj/l6G/jsp4JtN6IoG3LWiFCal7JmcdeYVBoViUtyTE75/JMgE9MVYcRB+MeJ62IkmW02e3xZ4VyZT0tWdKhueizzBcfmjGlaMM4LuZ4wtXwvO4kgy12uil70nwyVNKahkllwaU9Yjhe8HM84DAtOw1dcxleMzeyqoLL5uv1b0HcOGd6c55ShrZCXLkdxRLCjv0ve7tTTVfL4slpLYdN36DoZP6E0f9fEuscRCxzVPV47THh7/47rt3ecLq8YphfUbU8MH7T9KHAkt/FGRbnf452vb/jx8xeO5yum+Sh0w0xCI81PGA/UmH6SHwY3hWMx8gdyTs3dt878BqmDuNMqk4tAAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;test success&apos; title=&apos;&apos; src=&apos;/static/8e0fc8a4ee0b0ebd722292ebd1fc5d04/ca1dc/test-success.png&apos; srcset=&apos;/static/8e0fc8a4ee0b0ebd722292ebd1fc5d04/e7570/test-success.png 170w,
+/static/8e0fc8a4ee0b0ebd722292ebd1fc5d04/f46e7/test-success.png 340w,
+/static/8e0fc8a4ee0b0ebd722292ebd1fc5d04/ca1dc/test-success.png 680w,
+/static/8e0fc8a4ee0b0ebd722292ebd1fc5d04/02d09/test-success.png 1020w,
+/static/8e0fc8a4ee0b0ebd722292ebd1fc5d04/018c1/test-success.png 1282w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이제 이를 &lt;code class=&quot;language-text&quot;&gt;AcceptanceTest&lt;/code&gt; 객체에 메서드로 만들어 다른 도메인에서 재사용할 수도 있습니다.
+&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/e95e9c426b6aa7aca6c9bc1dd05373c9/8aec5/login-method.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 122.3529411764706%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAYAAAD6S912AAAACXBIWXMAAAsTAAALEwEAmpwYAAADKElEQVR42p1VWZLbOBTTPTrWxl0kRclaLLs7SWUyv7n/cRCQTqczVcmMez5QpCUZwsPDo6ptD7hciG3GbdtxXTbs84qZSGGEVR5KODStQN30/4kqBYeJCMHjc4r4ti74tpyx+giph0Jo5PA4YS8URu8wBgslNT7UHU5Nhw+n9o76jkfICqGSClsKWOYF87TBGo+gR3ii61Qhf5TsTqg09iWw5ADrItwQYUg6aO5VYLn+4XILodaazYhUOCGmBd6PCDYhmonNsGg7iaYR71GosJ89xhgwhARj7+qCGdH/v5LvhGmMJJxKmdm/XGZuxql+J6Em4bGGn4QxznD00qihEPuiVD+stHj4so84zwmeZDGd2aCpEAWTvUwliw/n0JDw4zGyKTPStGJgU0bLvTszl/cJeVeXhZCIg2H+LGMzQjMysrdwMpSRyx7mgJe1hDwHvy/ra/h/faaSJAz0T7gJ2hporUgcSrdLx6l4YDatcsVTp/kiaejz/V7ObXmGUBzVonDg6AnjmLme5XXoeoVe6H+CeczNyVHK2ex/80z+X9WRZFl37MenEujBRD6sSwl1Lu8Vza/7nmv/23tVL+mXZZfHHTFsiOMGQy/zdaHsj9UVyB9rJ8wfUUnK9Myi1QaCCrOXOYee3oQhMOiuRMfxCBuyp/Q3l99STUbDRr3t2eWp6/Alenzl4fr3fsFf64YvxFfuD872kTa8nDcc3mOzDhu9Xti8pCQWitjcgJmNnIzERUpUvmlZMmeZpV6WZyzTgXW9Yb99pLdH6XCXDSdaoqG/NRWe6H1e2/Jb4Kln/CiuCm3LSDCHucQ4IVGVswMPi8SgL1B8meDBm68ZG5hTroTW9985Wpr/7+nfam1W2CDyuF/nK78nL5zrF+zrFcfxjPmcm7SUUcxKJZv0CsEsviJHqCEmHtZU2EFTvuGkzMuOiSQTPXT8QLV57IRguTzGTm/TcKrbt8jk04h4YkN83ZCQdXfMUY7I9fkz1u2KyI9UuuxYbzeM+4owca5ZZs5e/YfD9okI7EeV+h46E9LYMz3zHClN+ZYvcNrxE8CSqKBv/h0tkZoW3wH6VLQvRMUR1AAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;login method&apos; title=&apos;&apos; src=&apos;/static/e95e9c426b6aa7aca6c9bc1dd05373c9/ca1dc/login-method.png&apos; srcset=&apos;/static/e95e9c426b6aa7aca6c9bc1dd05373c9/e7570/login-method.png 170w,
+/static/e95e9c426b6aa7aca6c9bc1dd05373c9/f46e7/login-method.png 340w,
+/static/e95e9c426b6aa7aca6c9bc1dd05373c9/ca1dc/login-method.png 680w,
+/static/e95e9c426b6aa7aca6c9bc1dd05373c9/8aec5/login-method.png 942w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;또한, 요구사항 중에 최초로 로그인 한 회원의 여부를 &lt;code class=&quot;language-text&quot;&gt;LoginResult#isFirst&lt;/code&gt; 필드에 boolean 타입으로 담아 반환하고 있는데요.&lt;br&gt;
+해당 로직을 테스트해도 제대로 응답하고 있음을 확인할 수 있습니다.
+&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 559px; margin-bottom: 16px;&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/7d33bf2282ed284e747b81406ca34777/11d18/other-test.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 78.82352941176471%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsTAAALEwEAmpwYAAACl0lEQVR42oVU23LaQAz1dyQxvmFjG9/vBgOxwSEUSNJk0maSdvr/X3EqbYCGpjN9OCOttNbqnNVaMiwbijaEMTSRZx5GtoOBakLVLWhDG6pxxIhiIxFXdPqGfEU/xIYONMprugkpzAuYjgfTGqPOEnhxDSeZYxRNYUUzONkSbt7BSRewkwXGRYug6eFVHcL5Lby6h1P08JMpoqSEpGomZEUHW0U14PkR0rzCmKw7DuhkEwPKn0B7FFUXexXNEOuPeYnbZEfV3ws6ri8KMbwghm5Y5wX/g08FNdLIGrmQBxourxRhj5vZlwf6AdopJx/yKt3Fn4K0YJRVg2beYjJdoJldY9osUFQT4Vd1gzDOTr5PDOrJDGVRoSwnCML0c4esYZIWYjPTD6MUQ9MW6yjJhQz8Ie+J4pz2eIhcF67j4oo6Pi9IHQ4Ug0bIFnQuLgcCV7JC9N99loFxcSGLuJBGVslXzzXkYtxhRjfMNPKiRppVyMgyzSyvT+CuC6LIHcd+itBLEJM/9sJDQTqFb1MjJGkpIIpRcabGm3mU2DLNJCsFjCENNzHSaOSOjUk8R9y2Ow4FOMHF/8a/4qytaTlnkGyeOy9Au7w5oVutsexv0XY9WvJXNxv0662wHD/mp3zbJM9HSDFRKsoa1/TxerPD7Zc74bfLNRbtCvPrJa1v3g+gw44xBsvAt85NHSFxsJg0ItmtNtTFVujHGuUkPF+IHyY0KvTOg4TYhPQsY+EHUUb5/AMySItlj28vP/Hy+gvP39/I/4H93RN2d1+x3T1gu3/Abk8+YX//SPFH6nhNdFuBZt5hs73H0/MrMdxDcv0QaVnR9LdCg3lLFOkQpsYvhqnNFp2QgWkzuHOH3jr/QBgBjVGU5sL+BjzU77ShHBg/AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;other test&apos; title=&apos;&apos; src=&apos;/static/7d33bf2282ed284e747b81406ca34777/11d18/other-test.png&apos; srcset=&apos;/static/7d33bf2282ed284e747b81406ca34777/e7570/other-test.png 170w,
+/static/7d33bf2282ed284e747b81406ca34777/f46e7/other-test.png 340w,
+/static/7d33bf2282ed284e747b81406ca34777/11d18/other-test.png 559w&apos; sizes=&apos;(max-width: 559px) 100vw, 559px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;마치며&lt;/h2&gt;
+&lt;p&gt;이렇게 Spring Boot에서 Rest Assured로 인수 테스트하는 과정에서 OAuth와 같이 REST API를 호출하는 로직을 처리하는 방법에 대해 알아보았습니다.&lt;/p&gt;
+&lt;p&gt;피드백 및 더 좋은 방법 제시는 언제든지 환영입니다.&lt;br&gt;
+긴 글 읽어주셔서 감사합니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[MySQL의 실행 계획에 대해 알아보자]]></title><description><![CDATA[들어가며 MySQL…]]></description><link>https://kdkdhoho.github.io/10-execute-plain/</link><guid isPermaLink="false">https://kdkdhoho.github.io/10-execute-plain/</guid><pubDate>Tue, 05 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
 &lt;p&gt;MySQL에서 쿼리가 실행되는 과정 중에, 주어진 쿼리를 효율적으로 실행하기 위해 어떻게 실행할 지 계획을 짜는 과정이 포함된다.&lt;br&gt;
 이 과정을 &lt;strong&gt;옵티마이저&lt;/strong&gt;가 수행한다. 하지만 &lt;u&gt;옵티마이저는 만능이 아니다.&lt;/u&gt;&lt;/p&gt;
 &lt;p&gt;개발자가 의도하는 대로 옵티마이저가 계획을 잘 수립했는지 확인하기 위해서는 &lt;code class=&quot;language-text&quot;&gt;EXPLAIN&lt;/code&gt; 명령어를 통해 현재의 실행 계획을 확인할 수 있어야 한다.&lt;br&gt;
@@ -3761,129 +3937,7 @@ mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span cla
 &lt;p&gt;이러한 쿼리라면 옵티마이저는 first&lt;em&gt;name 칼럼의 인덱스와 birth&lt;/em&gt;date 칼럼의 히스토그램 정보를 사용할까?&lt;br&gt;
 MySQL 8.0부터는 인덱스된 칼럼을 검색 조건으로 사용하는 경우 그 칼럼의 히스토그램은 사용하지 않고 인덱스 다이브를 통해 직접 수집한 정보를 활용한다.&lt;br&gt;
 이는 실제 검색 조건의 대상 값으로 직접 샘플링을 실행하는 것이므로 항상 히스토그램보다 더 정확한 결과를 기대할 수 있기 때문이다.&lt;/p&gt;
-&lt;p&gt;그래서 MySQL 8.0 버전부터는 히스토그램을 주로 인덱스되지 않은 칼럼에 대한 데이터 분포도를 참조하는 용도로 사용된다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Spring Boot에서 Rest Assured로 인수 테스트할 때 OAuth 로그인 처리하기]]></title><description><![CDATA[이번 글에서는 Spring Boot에서 Rest Assured를 이용해 인수 테스트를 하는 과정에서 OAuth를 처리하는 방법을 고민한 흔적과 해결 방법을 기록하려고 합니다. 비단 OAuth 뿐만 아니라 다른 외부 REST API…]]></description><link>https://kdkdhoho.github.io/oauth-test/</link><guid isPermaLink="false">https://kdkdhoho.github.io/oauth-test/</guid><pubDate>Tue, 05 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이번 글에서는 Spring Boot에서 Rest Assured를 이용해 인수 테스트를 하는 과정에서 OAuth를 처리하는 방법을 고민한 흔적과 해결 방법을 기록하려고 합니다.&lt;/p&gt;
-&lt;p&gt;비단 OAuth 뿐만 아니라 다른 외부 REST API를 호출하는 부분을 해결하는 데에도 도움이 될 것으로 기대합니다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;개발 환경은 Spring Boot 3.2.2, Rest Assured 5.3.2를 사용합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2&gt;개요&lt;/h2&gt;
-&lt;p&gt;현재 ListyWave가 제공하는 모든 기능들에 인수 테스트를 작성하려고 합니다.&lt;/p&gt;
-&lt;p&gt;하지만 서비스는 자체적인 로그인 기능을 제공하지 않고 &lt;u&gt;사용자 경험 개선&lt;/u&gt;과 &lt;u&gt;서비스 신뢰도 향상&lt;/u&gt;을 위해 카카오 OAuth를 채택하여 사용 중입니다.&lt;/p&gt;
-&lt;p&gt;이는 다른 의미로, 회원과 관련된 기능들을 인수 테스트하기 위해서는 카카오 OAuth 로그인이 선행되어야 한다는 뜻입니다. 하지만 Rest Assured 만으로는 카카오 로그인을 수행하지 못합니다.&lt;/p&gt;
-&lt;h2&gt;문제 파악하기&lt;/h2&gt;
-&lt;p&gt;왜 수행하지 못할까요?&lt;/p&gt;
-&lt;p&gt;현재 ListyWave에서 수행 중인 로그인 요청부터 처리까지의 Flow는 대략 다음과 같습니다.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;사용자가 카카오로 로그인하기 버튼 클릭 -&gt; 프론트엔드 서버에서 백엔드 서버로 로그인 URL 요청 -&gt; 사용자는 카카오 로그인 페이지에서 로그인&lt;/li&gt;
-&lt;li&gt;카카오 로그인에 성공하면 Redirect URI(프론트엔드 서버)로 AuthCode 전송 -&gt; 프론트엔드는 AuthCode를 백엔드로 전송 -&gt; AuthCode로 Kakao Authorization Server에 액세스 토큰 발급 요청 -&gt; 발급받은 액세스 토큰으로 Kakao Resources Server에 회원 정보 요청 -&gt; 받은 회원 정보로 로그인 비즈니스 로직 처리&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;위 flow는 이해가 잘 가지 않을 수 있기에 핵심만 말씀드리면 &lt;u&gt;로그인이 선행되려면 AuthCode가 필요하고&lt;/u&gt;&lt;br&gt;
-&lt;u&gt;AuthCode는 카카오 로그인 페이지에서 로그인 해야 하기 때문입니다!&lt;/u&gt;&lt;/p&gt;
-&lt;p&gt;추가로, 만~약에 RestAssured 만으로도 카카오 로그인에 성공해서 AuthCode를 받아왔다고 해도 OAuth는 결국 &lt;u&gt;외부 API를 호출하는 것과 같습니다.&lt;/u&gt;&lt;br&gt;
-이는 다시 말해, 테스트 코드로 인해 사이드 이펙트가 발생할 가능성이 있다는 의미와 같습니다.&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;따라서 &lt;u&gt;테스트 코드는 AuthCode로부터 자유로워야 하고, 실제 REST API를 호출하지 않아야 합니다.&lt;/u&gt;&lt;/p&gt;
-&lt;h2&gt;문제 해결하기&lt;/h2&gt;
-&lt;p&gt;우선 OAuth 로그인에 사용되는 객체들을 천천히 살펴보았습니다.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;요청과 응답을 처리하는 AuthController&lt;/li&gt;
-&lt;li&gt;로그인 비즈니스 로직을 처리하는 AuthService&lt;/li&gt;
-&lt;li&gt;Kakao Authorization Server와 Resources Server에 REST API 요청을 보내기 위해 필요한 파라미터 값을 조립하는 KakaoOauthClient&lt;/li&gt;
-&lt;li&gt;실제 REST API를 호출하는 KakaoOauthApiClient&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;일단 &lt;u&gt;문제 해결의 핵심은 실제 REST API를 호출하는 &lt;code class=&quot;language-text&quot;&gt;KakaoOauthApiClient&lt;/code&gt;&lt;/u&gt;가 될 것으로 생각됩니다.&lt;/p&gt;
-&lt;p&gt;AuthCode를 파라미터로 받아 Kakao Authorization Server에 액세스 토큰 발급 요청을 보내며,&lt;br&gt;
-발급받은 액세스 토큰을 통해 Kakao Resource Server에 회원 정보를 요청하기 때문입니다.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/5b10c72d08b9cf34115e3a965bf60253/f97d7/KakaoOauthApiClient.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 52.94117647058824%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB1ElEQVR42n2T23LkIAxE5z8yY4NtxB2b8VxS+///1dsitansSx5OocIgqVv4kn1AHUS048TRn4O2n/Ch4DYtmGZlHets1l+55CJQ2h6xboKrsZgME1gm0EP2B8vKAha3mx3rpMzLf1wMEyzrhvN8op8vpL5DeoJ/VMi9whF5NMYFclaYIJjdBiMOhutXAYMr0fgiPmNzEaV2csCFBpsaltzgcyQeEhUWyQWhVYTKQinxbOTdMHASYRenkndKPgYpswPfMMUH5nBHKgk5bYjBIcaCxEJVC/NsCJV7lXcact5R230kvqTkuCHY1UPnh09m/WJeNkysOq8KY7vg+jHjejXfMofUn5Kn2cLQ8Pfnn0E9O/yZET4PyGsf+DfjJ32kr5YW2BxoC1f6eeMg/iUdQ9Gnoawu0eyCWRpusmOjJyIbnFMcoQIrSEKpLsNLhoQ8vBNPf2mJUQ8rTe69I6p/6Y61vWGJK/SmesTiEdhRavu4WOOBEndEYSMc6EjGhiL9HUPpXRNWvF4dj/McH4QPvFJe6gXlLMh3DuFoKMeBvT9w8LuXNFToIDSpdjok67PRJIGkVLFQyuyZgE8lRsdpbkRlsZs1Im3sZmVMi0LUzuo3+qf8BaXjQP91pI9QAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;KakaoOauthApiClient 코드&apos; title=&apos;&apos; src=&apos;/static/5b10c72d08b9cf34115e3a965bf60253/ca1dc/KakaoOauthApiClient.png&apos; srcset=&apos;/static/5b10c72d08b9cf34115e3a965bf60253/e7570/KakaoOauthApiClient.png 170w,
-/static/5b10c72d08b9cf34115e3a965bf60253/f46e7/KakaoOauthApiClient.png 340w,
-/static/5b10c72d08b9cf34115e3a965bf60253/ca1dc/KakaoOauthApiClient.png 680w,
-/static/5b10c72d08b9cf34115e3a965bf60253/02d09/KakaoOauthApiClient.png 1020w,
-/static/5b10c72d08b9cf34115e3a965bf60253/9d567/KakaoOauthApiClient.png 1360w,
-/static/5b10c72d08b9cf34115e3a965bf60253/f97d7/KakaoOauthApiClient.png 2000w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;KakaoOauthApiClient 코드&lt;/figcaption&gt;
-  &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;어쩌면 이 녀석만 해결하면 모든 문제가 술술 풀릴 것 같은 생각이 듭니다.&lt;/p&gt;
-&lt;p&gt;따라서 저는 Mocking을 통해 해당 객체를 &lt;a href=&quot;https://tecoble.techcourse.co.kr/post/2020-09-19-what-is-test-double/&quot;&gt;테스트 더블&lt;/a&gt;을 시도해보았습니다.&lt;br&gt;
-Stubing으로도 해결할 수 있겠지만 Mocking이 더 유연하고 간편하다고 판단했기 때문입니다.&lt;br&gt;
-또한 인수 테스트 특성 상, Test Context에 모든 Bean을 Load하기에 &lt;code class=&quot;language-text&quot;&gt;@MockBean&lt;/code&gt;을 통해 쉽게 Mocking 할 수 있다고 판단했기 때문입니다.&lt;/p&gt;
-&lt;h2&gt;해결 과정&lt;/h2&gt;
-&lt;p&gt;우선 모든 인수 테스트가 상속받는 &lt;code class=&quot;language-text&quot;&gt;AcceptanceTest&lt;/code&gt;에 &lt;code class=&quot;language-text&quot;&gt;KakaoOauthApiClient&lt;/code&gt; 객체를 &lt;code class=&quot;language-text&quot;&gt;@MockBean&lt;/code&gt;으로 선언하여 등록합니다.
-&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/1a76075338e483fa7f663afa3b31bb73/f97d7/AcceptanceTest.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 46.470588235294116%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB20lEQVR42mWPy27TQBSG8wbQi0AicZz4OvZ4fGni8TVJK1SBShcIULtHLEjbV2CBEBtW0Jbn/Zi6lRBl8c35dWbmP+cf1W1CVUvqJqHt7nXV5Og6p+ka+vURdbsyvZ623xi9pqxa1npJpzVpVKBEhhQpkVCM+lpRLyW9Mey0MVzEtHXDpluhq47V5iVdf4hKCw6Pjil1Q14sWZqqVEGXtNRJg440eXzAaCFj0lCQBCGL6F5Hnk8uAqRMKRYVxUE5kOULXC9kYs0YT2ys6ZyxZTOezgYmhtHYcpi7Lk7wgO/hC5+Z59w/nvxlYpjaDvbMHRi07f7DyJo65EqwqhS9VjQmclkISpXhO2LYZtjkYYM77gZZ9nwwfMxoYo5MCDaFMcwUbVnT6NYMOKIqO1ITU4UZZaxZRia6OGARlwReNAz6z3A6c3DmJqYTmOrjh5I4SQkjiYgSQiEJzeckSJG+IvbkUF3zfmoM7ceGjhsRN6+IT7bI15+w1p95srxgR1+wq7eGC/bqS3aqLTv1lqe1uTPsmt5+e8Vec8W+4VlzOTB6rj8iTr5Qvv+OfvcN+fYH8dlvkvNb5NkN6vyG6MM1whCc/CQ/vSE9vSYzNXnzC3V6i3f8lRfRirHo+QPw/BpWggEmCAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;AcceptanceTest&apos; title=&apos;&apos; src=&apos;/static/1a76075338e483fa7f663afa3b31bb73/ca1dc/AcceptanceTest.png&apos; srcset=&apos;/static/1a76075338e483fa7f663afa3b31bb73/e7570/AcceptanceTest.png 170w,
-/static/1a76075338e483fa7f663afa3b31bb73/f46e7/AcceptanceTest.png 340w,
-/static/1a76075338e483fa7f663afa3b31bb73/ca1dc/AcceptanceTest.png 680w,
-/static/1a76075338e483fa7f663afa3b31bb73/02d09/AcceptanceTest.png 1020w,
-/static/1a76075338e483fa7f663afa3b31bb73/9d567/AcceptanceTest.png 1360w,
-/static/1a76075338e483fa7f663afa3b31bb73/f97d7/AcceptanceTest.png 2000w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;그리고 테스트 코드에서 Mocking을 해줍니다.
-&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/61d81c52f712a095341da30984eb7e84/f97d7/Mocking-in-TestCode.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 40.588235294117645%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABNklEQVR42pWSW07DMBREswskSPy24yRuXk5bSBESK+CD/a9lGFct4rN8jK59b3w8Y6VKfY9DGjGtR2pD6ge03QF+mCFchDQB6h+qnHOQYcCTTahdgvQd1ItAfK7RsepGoRYKzVUaTXOrv1J/pFG11uE8ZcwpYwoJB7rahcFXI/HNj96VQWMDtOHF2rIWJ/e1h9Eeuoh9yX7VSoM9Tbgcz/jIr/jcLrhsO8ZxQR5XbG0PS9c2tNDOw/sexhPqueasdT28jXChg2a/Uspi4SB3A3JMmDlYQ4/JBcyuxcC9osMSVdB5iSYYTdwi1zfdn6ASBApaz6cd6+kNcZkxns4YjhndvMA6ArWDYJJHVEkCy4GBsWOX4HyEj4xRIrDfSHO9+WFggXU9fxPGvMIIusuxJxn3UVgB/gDLyuRKJxAWvQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;Mocking in TestCode&apos; title=&apos;&apos; src=&apos;/static/61d81c52f712a095341da30984eb7e84/ca1dc/Mocking-in-TestCode.png&apos; srcset=&apos;/static/61d81c52f712a095341da30984eb7e84/e7570/Mocking-in-TestCode.png 170w,
-/static/61d81c52f712a095341da30984eb7e84/f46e7/Mocking-in-TestCode.png 340w,
-/static/61d81c52f712a095341da30984eb7e84/ca1dc/Mocking-in-TestCode.png 680w,
-/static/61d81c52f712a095341da30984eb7e84/02d09/Mocking-in-TestCode.png 1020w,
-/static/61d81c52f712a095341da30984eb7e84/9d567/Mocking-in-TestCode.png 1360w,
-/static/61d81c52f712a095341da30984eb7e84/f97d7/Mocking-in-TestCode.png 2000w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;디버깅 모드로 하나씩 따라가보면 아래 사진처럼 만든 값들이 그대로 나오는 것을 확인할 수 있습니다.
-&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/0ee56258650dff0a56b02f037d6131d7/f97d7/debug.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 38.82352941176471%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABrklEQVR42kWQW2+bQBBG+TGNL2Bjc2fZ5WJjGzB2c6lkRZWj5rmvfWibJs1PPx1jqXk4mgFmz86HpbpnmtN3Nud3qtNP6scX2qdXmq8vrE+/yG5/0J5fh3f142+6pzf6b3/Zyvfm/Gfoj8/vrGS2kxlrqTasqh375pZ+f0/f3bNrHlDtA8nhjmBzIMhafNXgCaHpiPI9gdRLHxf90HuqJdAdlj1fYHyXRvm0ecK+SDgKaRLiasEEONGSeepjy9zNaMKn0UjqmMnUGZjaH1jOIiCPAjojssrQlZpSZ6jU4MdKtjBEQqA1Zl1TrXfUu4562zKXs/ZsiTP3/mM5rk8e+oOwF+GhugpDkXmZxheRn2USWaHKEl2sRLqlqGqRLZjYc8bT2VAvz7Khj7kIdcJdXYhU86XO6UuDKTLyrSYqRSi9Z5RssbziesOlShfovCIzJQsvxJpdIocBrYk5rg2tiGqR7moj/1PT6JQ0SvH8lCjOiFK5ILliZNtts6frP7PrDjITXyOrwGeVRmxkgzhOcNKYmWw8kgg3tsvEWUgcd2DqfHCJOpo43IztoV4i/wPYzBC4d+cm7QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;debug&apos; title=&apos;&apos; src=&apos;/static/0ee56258650dff0a56b02f037d6131d7/ca1dc/debug.png&apos; srcset=&apos;/static/0ee56258650dff0a56b02f037d6131d7/e7570/debug.png 170w,
-/static/0ee56258650dff0a56b02f037d6131d7/f46e7/debug.png 340w,
-/static/0ee56258650dff0a56b02f037d6131d7/ca1dc/debug.png 680w,
-/static/0ee56258650dff0a56b02f037d6131d7/02d09/debug.png 1020w,
-/static/0ee56258650dff0a56b02f037d6131d7/9d567/debug.png 1360w,
-/static/0ee56258650dff0a56b02f037d6131d7/f97d7/debug.png 2000w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h2&gt;결과&lt;/h2&gt;
-&lt;p&gt;테스트가 통과하는 것을 확인할 수 있습니다.
-&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/8e0fc8a4ee0b0ebd722292ebd1fc5d04/018c1/test-success.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 73.52941176470587%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAACHElEQVR42n2U6ZKbMBCEeY/4ACGBuG8wi494s7WVSuVH3v9lOjMjvLHjbH58JYmSmp4egacjizzPYYseUVoiNBYqjBGoCKG20FECbRIomisdyzNGmVj2ap3Q2s35mecHWjY0zQF9O6OpBnTDAVXdwtoMUZzCRKkc8LURcZkbmpOZSKfQoXXPae3t/VDcFHmNvjugbUZ07YimHcRdTJiViIVDFmVnMWFlzs8CelkYxyyoSdAgTys0ZY+qbFFWHWxCMSSFCPlKww/MSgiu6gEyxcb8UDuHnEFV90jSAmlWIMlKGokko40Km62P7Y4JHtjt1R2BiHr7wDnM8spR1MgJFucxzSrK8ZYllU4jrzmzR0GHNIWV+QDnlq7uuGTntHKZGdfdj/l6G/jsp4JtN6IoG3LWiFCal7JmcdeYVBoViUtyTE75/JMgE9MVYcRB+MeJ62IkmW02e3xZ4VyZT0tWdKhueizzBcfmjGlaMM4LuZ4wtXwvO4kgy12uil70nwyVNKahkllwaU9Yjhe8HM84DAtOw1dcxleMzeyqoLL5uv1b0HcOGd6c55ShrZCXLkdxRLCjv0ve7tTTVfL4slpLYdN36DoZP6E0f9fEuscRCxzVPV47THh7/47rt3ecLq8YphfUbU8MH7T9KHAkt/FGRbnf452vb/jx8xeO5yum+Sh0w0xCI81PGA/UmH6SHwY3hWMx8gdyTs3dt878BqmDuNMqk4tAAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;test success&apos; title=&apos;&apos; src=&apos;/static/8e0fc8a4ee0b0ebd722292ebd1fc5d04/ca1dc/test-success.png&apos; srcset=&apos;/static/8e0fc8a4ee0b0ebd722292ebd1fc5d04/e7570/test-success.png 170w,
-/static/8e0fc8a4ee0b0ebd722292ebd1fc5d04/f46e7/test-success.png 340w,
-/static/8e0fc8a4ee0b0ebd722292ebd1fc5d04/ca1dc/test-success.png 680w,
-/static/8e0fc8a4ee0b0ebd722292ebd1fc5d04/02d09/test-success.png 1020w,
-/static/8e0fc8a4ee0b0ebd722292ebd1fc5d04/018c1/test-success.png 1282w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;이제 이를 &lt;code class=&quot;language-text&quot;&gt;AcceptanceTest&lt;/code&gt; 객체에 메서드로 만들어 다른 도메인에서 재사용할 수도 있습니다.
-&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/e95e9c426b6aa7aca6c9bc1dd05373c9/8aec5/login-method.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 122.3529411764706%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAYAAAD6S912AAAACXBIWXMAAAsTAAALEwEAmpwYAAADKElEQVR42p1VWZLbOBTTPTrWxl0kRclaLLs7SWUyv7n/cRCQTqczVcmMez5QpCUZwsPDo6ptD7hciG3GbdtxXTbs84qZSGGEVR5KODStQN30/4kqBYeJCMHjc4r4ti74tpyx+giph0Jo5PA4YS8URu8wBgslNT7UHU5Nhw+n9o76jkfICqGSClsKWOYF87TBGo+gR3ii61Qhf5TsTqg09iWw5ADrItwQYUg6aO5VYLn+4XILodaazYhUOCGmBd6PCDYhmonNsGg7iaYR71GosJ89xhgwhARj7+qCGdH/v5LvhGmMJJxKmdm/XGZuxql+J6Em4bGGn4QxznD00qihEPuiVD+stHj4so84zwmeZDGd2aCpEAWTvUwliw/n0JDw4zGyKTPStGJgU0bLvTszl/cJeVeXhZCIg2H+LGMzQjMysrdwMpSRyx7mgJe1hDwHvy/ra/h/faaSJAz0T7gJ2hporUgcSrdLx6l4YDatcsVTp/kiaejz/V7ObXmGUBzVonDg6AnjmLme5XXoeoVe6H+CeczNyVHK2ex/80z+X9WRZFl37MenEujBRD6sSwl1Lu8Vza/7nmv/23tVL+mXZZfHHTFsiOMGQy/zdaHsj9UVyB9rJ8wfUUnK9Myi1QaCCrOXOYee3oQhMOiuRMfxCBuyp/Q3l99STUbDRr3t2eWp6/Alenzl4fr3fsFf64YvxFfuD872kTa8nDcc3mOzDhu9Xti8pCQWitjcgJmNnIzERUpUvmlZMmeZpV6WZyzTgXW9Yb99pLdH6XCXDSdaoqG/NRWe6H1e2/Jb4Kln/CiuCm3LSDCHucQ4IVGVswMPi8SgL1B8meDBm68ZG5hTroTW9985Wpr/7+nfam1W2CDyuF/nK78nL5zrF+zrFcfxjPmcm7SUUcxKJZv0CsEsviJHqCEmHtZU2EFTvuGkzMuOiSQTPXT8QLV57IRguTzGTm/TcKrbt8jk04h4YkN83ZCQdXfMUY7I9fkz1u2KyI9UuuxYbzeM+4owca5ZZs5e/YfD9okI7EeV+h46E9LYMz3zHClN+ZYvcNrxE8CSqKBv/h0tkZoW3wH6VLQvRMUR1AAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;login method&apos; title=&apos;&apos; src=&apos;/static/e95e9c426b6aa7aca6c9bc1dd05373c9/ca1dc/login-method.png&apos; srcset=&apos;/static/e95e9c426b6aa7aca6c9bc1dd05373c9/e7570/login-method.png 170w,
-/static/e95e9c426b6aa7aca6c9bc1dd05373c9/f46e7/login-method.png 340w,
-/static/e95e9c426b6aa7aca6c9bc1dd05373c9/ca1dc/login-method.png 680w,
-/static/e95e9c426b6aa7aca6c9bc1dd05373c9/8aec5/login-method.png 942w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;또한, 요구사항 중에 최초로 로그인 한 회원의 여부를 &lt;code class=&quot;language-text&quot;&gt;LoginResult#isFirst&lt;/code&gt; 필드에 boolean 타입으로 담아 반환하고 있는데요.&lt;br&gt;
-해당 로직을 테스트해도 제대로 응답하고 있음을 확인할 수 있습니다.
-&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 559px; margin-bottom: 16px;&apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/7d33bf2282ed284e747b81406ca34777/11d18/other-test.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 78.82352941176471%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsTAAALEwEAmpwYAAACl0lEQVR42oVU23LaQAz1dyQxvmFjG9/vBgOxwSEUSNJk0maSdvr/X3EqbYCGpjN9OCOttNbqnNVaMiwbijaEMTSRZx5GtoOBakLVLWhDG6pxxIhiIxFXdPqGfEU/xIYONMprugkpzAuYjgfTGqPOEnhxDSeZYxRNYUUzONkSbt7BSRewkwXGRYug6eFVHcL5Lby6h1P08JMpoqSEpGomZEUHW0U14PkR0rzCmKw7DuhkEwPKn0B7FFUXexXNEOuPeYnbZEfV3ws6ri8KMbwghm5Y5wX/g08FNdLIGrmQBxourxRhj5vZlwf6AdopJx/yKt3Fn4K0YJRVg2beYjJdoJldY9osUFQT4Vd1gzDOTr5PDOrJDGVRoSwnCML0c4esYZIWYjPTD6MUQ9MW6yjJhQz8Ie+J4pz2eIhcF67j4oo6Pi9IHQ4Ug0bIFnQuLgcCV7JC9N99loFxcSGLuJBGVslXzzXkYtxhRjfMNPKiRppVyMgyzSyvT+CuC6LIHcd+itBLEJM/9sJDQTqFb1MjJGkpIIpRcabGm3mU2DLNJCsFjCENNzHSaOSOjUk8R9y2Ow4FOMHF/8a/4qytaTlnkGyeOy9Au7w5oVutsexv0XY9WvJXNxv0662wHD/mp3zbJM9HSDFRKsoa1/TxerPD7Zc74bfLNRbtCvPrJa1v3g+gw44xBsvAt85NHSFxsJg0ItmtNtTFVujHGuUkPF+IHyY0KvTOg4TYhPQsY+EHUUb5/AMySItlj28vP/Hy+gvP39/I/4H93RN2d1+x3T1gu3/Abk8+YX//SPFH6nhNdFuBZt5hs73H0/MrMdxDcv0QaVnR9LdCg3lLFOkQpsYvhqnNFp2QgWkzuHOH3jr/QBgBjVGU5sL+BjzU77ShHBg/AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;other test&apos; title=&apos;&apos; src=&apos;/static/7d33bf2282ed284e747b81406ca34777/11d18/other-test.png&apos; srcset=&apos;/static/7d33bf2282ed284e747b81406ca34777/e7570/other-test.png 170w,
-/static/7d33bf2282ed284e747b81406ca34777/f46e7/other-test.png 340w,
-/static/7d33bf2282ed284e747b81406ca34777/11d18/other-test.png 559w&apos; sizes=&apos;(max-width: 559px) 100vw, 559px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h2&gt;마치며&lt;/h2&gt;
-&lt;p&gt;이렇게 Spring Boot에서 Rest Assured로 인수 테스트하는 과정에서 OAuth와 같이 REST API를 호출하는 로직을 처리하는 방법에 대해 알아보았습니다.&lt;/p&gt;
-&lt;p&gt;피드백 및 더 좋은 방법 제시는 언제든지 환영입니다.&lt;br&gt;
-긴 글 읽어주셔서 감사합니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[ListyWave] 3~6주차 회고]]></title><description><![CDATA[들어가며 ListyWave 프로젝트의 공식 일정이 모두 끝이 났다.
+&lt;p&gt;그래서 MySQL 8.0 버전부터는 히스토그램을 주로 인덱스되지 않은 칼럼에 대한 데이터 분포도를 참조하는 용도로 사용된다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[ListyWave] 3~6주차 회고]]></title><description><![CDATA[들어가며 ListyWave 프로젝트의 공식 일정이 모두 끝이 났다.
 최종 발표는 매우 뜨거운 반응을 낳으며 성황리에 끝이 났다. 그간 최종 일자에 쫓겨 개발 일정을 진행하다보니 회고 쓸 여유도 없었다.
 나흘을 푹 쉬고 내일부터 다시 Next Step…]]></description><link>https://kdkdhoho.github.io/3-6-weeks/</link><guid isPermaLink="false">https://kdkdhoho.github.io/3-6-weeks/</guid><pubDate>Mon, 04 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
 &lt;p&gt;ListyWave 프로젝트의 공식 일정이 모두 끝이 났다.&lt;br&gt;
@@ -6009,90 +6063,7 @@ This is tmpPage.html
 &lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/donghokim1998/post/27ab1cd6-6895-4364-ad84-62bb6d187fb0/image.png&quot;&gt;&lt;/p&gt;
 &lt;p&gt;코드 상으로는 같은 &quot;tmpPage&quot; 를 반환합니다.
 하지만 @ResponseBody 가 붙지 않은 메서드인, &lt;code class=&quot;language-text&quot;&gt;justController()&lt;/code&gt;의 경우 Spring 내의 &lt;a href=&quot;https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ViewResolver.html&quot;&gt;ViewResolver&lt;/a&gt;에 의해 view로 변환이 됩니다.&lt;/p&gt;
-&lt;p&gt;반면 &lt;code class=&quot;language-text&quot;&gt;restController()&lt;/code&gt;의 경우 문자열 &quot;tmpPage&quot;이 그대로 Body에 반환되는 것을 확인할 수 있습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[InnoDB 스토리지 엔진의 락]]></title><description><![CDATA[Lock에는 MySQL 엔진이 관리하는 Lock과 InnoDB 스토리지 엔진이 관리하는 락이 있다. 이번에는 InnoDB 스토리지 엔진이 관리하는 Lock에 대해 알아보자. 레코드 락 InnoDB 엔진이 관리하는 락 중에서 핵심이다. 다른 DBMS…]]></description><link>https://kdkdhoho.github.io/05-lock-of-innodb-storage-engine/</link><guid isPermaLink="false">https://kdkdhoho.github.io/05-lock-of-innodb-storage-engine/</guid><pubDate>Thu, 11 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Lock에는 MySQL 엔진이 관리하는 Lock과 InnoDB 스토리지 엔진이 관리하는 락이 있다.&lt;/p&gt;
-&lt;p&gt;이번에는 InnoDB 스토리지 엔진이 관리하는 Lock에 대해 알아보자.&lt;/p&gt;
-&lt;h2&gt;레코드 락&lt;/h2&gt;
-&lt;p&gt;InnoDB 엔진이 관리하는 락 중에서 핵심이다.&lt;/p&gt;
-&lt;p&gt;다른 DBMS의 레코드 락과 동일하지만 한 가지 중요한 차이는 &lt;strong&gt;레코드 자체가 아니라 인덱스의 레코드를 잠근다는 것이다.&lt;/strong&gt;&lt;br&gt;
-따로 생성한 세컨더리 인덱스 뿐만 아니라 PK 인덱스도 마찬가지다.&lt;br&gt;
-다만, PK 인덱스는 갭 락을 걸지 않고 레코드 락만 걸지만 세컨더리 인덱스에서는 넥스트 키 락 또는 갭 락을 이용한다.&lt;/p&gt;
-&lt;h2&gt;갭 락&lt;/h2&gt;
-&lt;p&gt;갭 락은 &lt;strong&gt;레코드와 해당 레코드와 바로 인접한 레코드 사이 간격을 잠그는 것을 의미&lt;/strong&gt;한다.&lt;/p&gt;
-&lt;p&gt;갭 락의 역할은 &lt;strong&gt;레코드와 레코드 사이에 새로운 레코드가 INSERT 되는 것을 막기 위함&lt;/strong&gt;이다.&lt;/p&gt;
-&lt;p&gt;갭 락 그 자체보다는 넥스트 키 락의 일부로 자주 사용된다.&lt;/p&gt;
-&lt;h2&gt;넥스트 키 락&lt;/h2&gt;
-&lt;p&gt;레코드 락과 갭 락을 합쳐놓은 형태의 잠금이다.&lt;/p&gt;
-&lt;p&gt;갭 락이나 넥스트 키 락의 주목적은, 바이너리 로그에 기록되는 쿼리가 Slave 서버에서 실행될 때 Master 서버에서 만들어 낸 결과와 동일한 결과를 만들어내도록 보장하는 것이다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.linux.co.kr/bbs/board.php?bo_table=lecture&amp;#x26;wr_id=5775&quot;&gt;바이너리 로그?&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2&gt;Auto Increment 락&lt;/h2&gt;
-&lt;p&gt;MySQL에는 테이블에 INSERT 할 때, 자동 증가하는 숫자를 넣어주는 &lt;code class=&quot;language-text&quot;&gt;AUTO_INCREMENT&lt;/code&gt; 칼럼 속성이 존재한다.&lt;/p&gt;
-&lt;p&gt;보통 ID 칼럼에 사용하곤 하는데, 테이블에 동시에 여러 건의 INSERT가 발생하는 경우 저장되는 각 레코드의 ID 값은 중복되지 않고 순서대로 증가하는 값이 자동으로 저장된다.&lt;/p&gt;
-&lt;p&gt;InnoDB 스토리지 엔진에서는 이 작업을 위해 내부적으로 &lt;strong&gt;AUTO_INCREMENT 락&lt;/strong&gt; 이라고 하는 테이블 수준의 잠금을 사용한다.&lt;/p&gt;
-&lt;p&gt;어쩌면 당연하게 새로운 레코드를 저장하는 쿼리, INSERT, REPLACE 쿼리에서만 작동한다.&lt;/p&gt;
-&lt;p&gt;해당 락은, &lt;strong&gt;트랜잭션과 상관없이 INSERT 혹은 REPLACE 쿼리에서 AUTO_INCREMENT 값을 가져올 때만 락이 걸렸다가 즉시 해제한다.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;AUTO&lt;em&gt;INCREMENT 락은 테이블 당 하나만 존재한다.&lt;br&gt;
-따라서 2개 이상의 INSERT 쿼리가 동시에 실행되는 경우, 하나의 쿼리가 해당 테이블에 AUTO&lt;/em&gt;INCREMENT 락을 걸면 나머지 쿼리는 락이 해제될 때까지 기다려야 한다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;참고로 AUTO&lt;em&gt;INCREMENT 칼럼에 값을 명시적으로 넣어준 쿼리가 실행되어도 AUTO&lt;/em&gt;INCREMENT 락은 수행된다. 그 이유는, AUTO&lt;em&gt;INCREMENT 속성이 걸린 칼럼에 값이 명시적으로 담겨져
-INSERT 되면, AUTO&lt;/em&gt;INCREMENT 값을 재설정하는 작업이 수행되기 떄문이다.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;AUTO_INCREMENT 락은 명시적으로 획득하고 해제하는 방법은 없다.&lt;br&gt;
-그리고 아주 짧은 시간동안 존재하는 락이기 때문에 대부분 문제가 잘 되지 않는다.&lt;/p&gt;
-&lt;p&gt;지금까지는 MySQL 5.0 이하 버전에서 사용되던 방식이다.&lt;br&gt;
-MySQL 5.1 이상부터는 &lt;code class=&quot;language-text&quot;&gt;innodb_autoinc_lock_mode&lt;/code&gt; 시스템 변수를 이용해 작동 방식을 변경할 수 있다.&lt;/p&gt;
-&lt;h3&gt;innodb&lt;em&gt;autoinc&lt;/em&gt;lock_mode = 0&lt;/h3&gt;
-&lt;p&gt;위에서 설명된 방식 그대로 사용한다.&lt;/p&gt;
-&lt;h3&gt;innodb&lt;em&gt;autoinc&lt;/em&gt;lock_mode = 1&lt;/h3&gt;
-&lt;p&gt;MySQL 서버가 INSERT 되는 레코드의 수를 정확히 예측할 수 있을 때에는 AUTO_INCREMENT 락을 걸지 않고, 훨씬 빠른 래치(뮤텍스)를 이용한다.&lt;/p&gt;
-&lt;p&gt;락이 존재하는 타이밍이 존재하긴 하지만 AUTO_INCREMNET 락보다는 훨씬 빠르게 테이블에 락을 걸고 해제하게 된다.&lt;/p&gt;
-&lt;p&gt;다만, &lt;em&gt;INSERT 되는 레코드의 수를 정확히 예측할 수 있어야 한다&lt;/em&gt;는 전제 조건이 있기 때문에 이 조건을 만족하지 못하면 AUTO_INCREMENT를 사용한다.&lt;/p&gt;
-&lt;p&gt;대량의 INSERT 쿼리가 처리될 때는, InnoDB 스토리지 엔진이 AUTO&lt;em&gt;INCREMENT 값을 한 번에 여러 값을 할당받아서 사용한다.&lt;br&gt;
-하지만 이때 할당받은 값을 모두 사용하지 못하게 되면 폐기하게 되어, 그 다음 INSERT 쿼리에서 AUTO&lt;/em&gt;INCREMENT 값은 중간 값이 누락된 값이 저장될 수 있다.&lt;/p&gt;
-&lt;p&gt;위 설정에서는 하나의 INSERT 쿼리로 저장되는 레코드는 연속된 자동 증가 값을 가진다는 특징을 가진다.&lt;br&gt;
-따라서 이 설정 모드를 &lt;em&gt;연속 모드&lt;/em&gt; 라고도 한다.&lt;/p&gt;
-&lt;h3&gt;innodb&lt;em&gt;autoinc&lt;/em&gt;lock_mode = 2&lt;/h3&gt;
-&lt;p&gt;해당 설정은 AUTO_INCREMENT 락을 걸지 않고 가벼운 래치(뮤텍스)를 사용한다.&lt;/p&gt;
-&lt;p&gt;이 설정에서는 &lt;strong&gt;대량 INSERT 문장이 실행되는 중에도 다른 커넥션에서 INSERT를 수행할 수 있다.&lt;/strong&gt;&lt;br&gt;
-결과적으로 동시 처리 성능이 높아진다.&lt;/p&gt;
-&lt;p&gt;하지만 자동 증가 값이 연속되는 것은 보장할 수 없다. 단지 유니크한 값만 생성한다는 것만 보장한다.&lt;br&gt;
-하나의 INSERT 쿼리로 저장할 때에도 순서는 보장할 수 없다. 따라서 &lt;em&gt;인터리빙 모드&lt;/em&gt; 라고도 한다.&lt;/p&gt;
-&lt;p&gt;위 설정에서 &lt;strong&gt;STATEMENT 포맷의 바이너리 로그를 사용하는 Replication 에서는 Master와 Slave의 AUTO_INCREMENT 값이 달라질 수 있다.&lt;/strong&gt;&lt;br&gt;
-STATEMENT 포맷의 바이너리 로그를 사용한다면 mode 값을 1로 설정하자.&lt;/p&gt;
-&lt;h2&gt;인덱스와 InnoDB의 잠금&lt;/h2&gt;
-&lt;p&gt;레코드 락에서 언급한대로 InnoDB는 &lt;strong&gt;레코드 자체가 아니라 인덱스의 레코드를 잠근다.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;이 말은 즉슨, &lt;strong&gt;SELECT나 UPDATE, DELETE 처럼 변경해야 할 레코드를 찾기 위해 인덱스를 타고 검색하게 되는데, 이 과정에서 조건에 해당하는 레코드를 전부 잠근다.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;MySQL의 InnoDB에서 인덱스 설계가 중요한 이유 또한 이것이다.&lt;/p&gt;
-&lt;h3&gt;레코드 수준의 잠금 확인 및 해제&lt;/h3&gt;
-&lt;p&gt;MySQL 8.0부터는 performance&lt;em&gt;schema의 data&lt;/em&gt;locks와 data&lt;em&gt;lock&lt;/em&gt;waits 테이블을 통해 확인할 수 있다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# 현재 프로세스의 목록을 조회한다.&lt;/span&gt;
-mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;SHOW&lt;/span&gt; PROCESSLIST&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;token comment&quot;&gt;# performance_schema의 data_locks와 data_lock_waits 테이블을 통해 잠금 대기 순서를 조회한다.&lt;/span&gt;
-mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; 
-    r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_id waiting_trx_id&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 
-    r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_mysql_thread_id waiting_thread&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 
-    r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_query waiting_query&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 
-    b&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_id blocking_trx_id&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    b&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_mysql_thread_id blocking_thread&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 
-    b&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_query blocking_query 
-    &lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; performance_schema&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data_lock_watis w
-    &lt;span class=&quot;token keyword&quot;&gt;JOIN&lt;/span&gt; information_schema&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innodb_trx b
-    &lt;span class=&quot;token keyword&quot;&gt;ON&lt;/span&gt; b&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_id &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; w&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;blocking_engine_transaction_id
-    &lt;span class=&quot;token keyword&quot;&gt;JOIN&lt;/span&gt; infromation_schema&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innodb_trx r
-    &lt;span class=&quot;token keyword&quot;&gt;ON&lt;/span&gt; r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_id &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; w&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;requesting_engine_transaction_id&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    
-&lt;span class=&quot;token comment&quot;&gt;# 각 스레드가 어떤 잠금을 가지는지 상세하게 조회한다.&lt;/span&gt;
-mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; performance_schema&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data_locks\G&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;문제가 되는 잠금이 있다면 &lt;code class=&quot;language-text&quot;&gt;mysql&gt; KILL {thread_id}&lt;/code&gt; 를 통해 스레드를 강제 종료하자.&lt;/p&gt;
-&lt;h3&gt;Reference&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/doc/refman/8.0/en/example-auto-increment.html&quot;&gt;https://dev.mysql.com/doc/refman/8.0/en/example-auto-increment.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://product.kyobobook.co.kr/detail/S000001766482&quot;&gt;https://product.kyobobook.co.kr/detail/S000001766482&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[MySQL의 격리 수준]]></title><description><![CDATA[들어가며 MySQL에는…]]></description><link>https://kdkdhoho.github.io/05-isolation-level-of-MySQL/</link><guid isPermaLink="false">https://kdkdhoho.github.io/05-isolation-level-of-MySQL/</guid><pubDate>Thu, 11 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
+&lt;p&gt;반면 &lt;code class=&quot;language-text&quot;&gt;restController()&lt;/code&gt;의 경우 문자열 &quot;tmpPage&quot;이 그대로 Body에 반환되는 것을 확인할 수 있습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[MySQL의 격리 수준]]></title><description><![CDATA[들어가며 MySQL에는…]]></description><link>https://kdkdhoho.github.io/05-isolation-level-of-MySQL/</link><guid isPermaLink="false">https://kdkdhoho.github.io/05-isolation-level-of-MySQL/</guid><pubDate>Thu, 11 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
 &lt;p&gt;MySQL에는 4가지의 격리 수준이 존재한다.&lt;/p&gt;
 &lt;p&gt;격리 수준에 따라 같은 상황, 그리고 같은 쿼리라 하더라도 결과가 매번 달라질 수 있다.&lt;br&gt;
 이로 인해 정합성 문제가 발생할 수 있다.&lt;/p&gt;
@@ -6307,6 +6278,89 @@ MySQL은 주로 &lt;em&gt;Repeatable Read&lt;/em&gt;를 사용한다.&lt;/p&gt;
 &lt;h3&gt;Reference&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://product.kyobobook.co.kr/detail/S000001766482&quot;&gt;https://product.kyobobook.co.kr/detail/S000001766482&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[InnoDB 스토리지 엔진의 락]]></title><description><![CDATA[Lock에는 MySQL 엔진이 관리하는 Lock과 InnoDB 스토리지 엔진이 관리하는 락이 있다. 이번에는 InnoDB 스토리지 엔진이 관리하는 Lock에 대해 알아보자. 레코드 락 InnoDB 엔진이 관리하는 락 중에서 핵심이다. 다른 DBMS…]]></description><link>https://kdkdhoho.github.io/05-lock-of-innodb-storage-engine/</link><guid isPermaLink="false">https://kdkdhoho.github.io/05-lock-of-innodb-storage-engine/</guid><pubDate>Thu, 11 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Lock에는 MySQL 엔진이 관리하는 Lock과 InnoDB 스토리지 엔진이 관리하는 락이 있다.&lt;/p&gt;
+&lt;p&gt;이번에는 InnoDB 스토리지 엔진이 관리하는 Lock에 대해 알아보자.&lt;/p&gt;
+&lt;h2&gt;레코드 락&lt;/h2&gt;
+&lt;p&gt;InnoDB 엔진이 관리하는 락 중에서 핵심이다.&lt;/p&gt;
+&lt;p&gt;다른 DBMS의 레코드 락과 동일하지만 한 가지 중요한 차이는 &lt;strong&gt;레코드 자체가 아니라 인덱스의 레코드를 잠근다는 것이다.&lt;/strong&gt;&lt;br&gt;
+따로 생성한 세컨더리 인덱스 뿐만 아니라 PK 인덱스도 마찬가지다.&lt;br&gt;
+다만, PK 인덱스는 갭 락을 걸지 않고 레코드 락만 걸지만 세컨더리 인덱스에서는 넥스트 키 락 또는 갭 락을 이용한다.&lt;/p&gt;
+&lt;h2&gt;갭 락&lt;/h2&gt;
+&lt;p&gt;갭 락은 &lt;strong&gt;레코드와 해당 레코드와 바로 인접한 레코드 사이 간격을 잠그는 것을 의미&lt;/strong&gt;한다.&lt;/p&gt;
+&lt;p&gt;갭 락의 역할은 &lt;strong&gt;레코드와 레코드 사이에 새로운 레코드가 INSERT 되는 것을 막기 위함&lt;/strong&gt;이다.&lt;/p&gt;
+&lt;p&gt;갭 락 그 자체보다는 넥스트 키 락의 일부로 자주 사용된다.&lt;/p&gt;
+&lt;h2&gt;넥스트 키 락&lt;/h2&gt;
+&lt;p&gt;레코드 락과 갭 락을 합쳐놓은 형태의 잠금이다.&lt;/p&gt;
+&lt;p&gt;갭 락이나 넥스트 키 락의 주목적은, 바이너리 로그에 기록되는 쿼리가 Slave 서버에서 실행될 때 Master 서버에서 만들어 낸 결과와 동일한 결과를 만들어내도록 보장하는 것이다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.linux.co.kr/bbs/board.php?bo_table=lecture&amp;#x26;wr_id=5775&quot;&gt;바이너리 로그?&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Auto Increment 락&lt;/h2&gt;
+&lt;p&gt;MySQL에는 테이블에 INSERT 할 때, 자동 증가하는 숫자를 넣어주는 &lt;code class=&quot;language-text&quot;&gt;AUTO_INCREMENT&lt;/code&gt; 칼럼 속성이 존재한다.&lt;/p&gt;
+&lt;p&gt;보통 ID 칼럼에 사용하곤 하는데, 테이블에 동시에 여러 건의 INSERT가 발생하는 경우 저장되는 각 레코드의 ID 값은 중복되지 않고 순서대로 증가하는 값이 자동으로 저장된다.&lt;/p&gt;
+&lt;p&gt;InnoDB 스토리지 엔진에서는 이 작업을 위해 내부적으로 &lt;strong&gt;AUTO_INCREMENT 락&lt;/strong&gt; 이라고 하는 테이블 수준의 잠금을 사용한다.&lt;/p&gt;
+&lt;p&gt;어쩌면 당연하게 새로운 레코드를 저장하는 쿼리, INSERT, REPLACE 쿼리에서만 작동한다.&lt;/p&gt;
+&lt;p&gt;해당 락은, &lt;strong&gt;트랜잭션과 상관없이 INSERT 혹은 REPLACE 쿼리에서 AUTO_INCREMENT 값을 가져올 때만 락이 걸렸다가 즉시 해제한다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;AUTO&lt;em&gt;INCREMENT 락은 테이블 당 하나만 존재한다.&lt;br&gt;
+따라서 2개 이상의 INSERT 쿼리가 동시에 실행되는 경우, 하나의 쿼리가 해당 테이블에 AUTO&lt;/em&gt;INCREMENT 락을 걸면 나머지 쿼리는 락이 해제될 때까지 기다려야 한다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;참고로 AUTO&lt;em&gt;INCREMENT 칼럼에 값을 명시적으로 넣어준 쿼리가 실행되어도 AUTO&lt;/em&gt;INCREMENT 락은 수행된다. 그 이유는, AUTO&lt;em&gt;INCREMENT 속성이 걸린 칼럼에 값이 명시적으로 담겨져
+INSERT 되면, AUTO&lt;/em&gt;INCREMENT 값을 재설정하는 작업이 수행되기 떄문이다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;AUTO_INCREMENT 락은 명시적으로 획득하고 해제하는 방법은 없다.&lt;br&gt;
+그리고 아주 짧은 시간동안 존재하는 락이기 때문에 대부분 문제가 잘 되지 않는다.&lt;/p&gt;
+&lt;p&gt;지금까지는 MySQL 5.0 이하 버전에서 사용되던 방식이다.&lt;br&gt;
+MySQL 5.1 이상부터는 &lt;code class=&quot;language-text&quot;&gt;innodb_autoinc_lock_mode&lt;/code&gt; 시스템 변수를 이용해 작동 방식을 변경할 수 있다.&lt;/p&gt;
+&lt;h3&gt;innodb&lt;em&gt;autoinc&lt;/em&gt;lock_mode = 0&lt;/h3&gt;
+&lt;p&gt;위에서 설명된 방식 그대로 사용한다.&lt;/p&gt;
+&lt;h3&gt;innodb&lt;em&gt;autoinc&lt;/em&gt;lock_mode = 1&lt;/h3&gt;
+&lt;p&gt;MySQL 서버가 INSERT 되는 레코드의 수를 정확히 예측할 수 있을 때에는 AUTO_INCREMENT 락을 걸지 않고, 훨씬 빠른 래치(뮤텍스)를 이용한다.&lt;/p&gt;
+&lt;p&gt;락이 존재하는 타이밍이 존재하긴 하지만 AUTO_INCREMNET 락보다는 훨씬 빠르게 테이블에 락을 걸고 해제하게 된다.&lt;/p&gt;
+&lt;p&gt;다만, &lt;em&gt;INSERT 되는 레코드의 수를 정확히 예측할 수 있어야 한다&lt;/em&gt;는 전제 조건이 있기 때문에 이 조건을 만족하지 못하면 AUTO_INCREMENT를 사용한다.&lt;/p&gt;
+&lt;p&gt;대량의 INSERT 쿼리가 처리될 때는, InnoDB 스토리지 엔진이 AUTO&lt;em&gt;INCREMENT 값을 한 번에 여러 값을 할당받아서 사용한다.&lt;br&gt;
+하지만 이때 할당받은 값을 모두 사용하지 못하게 되면 폐기하게 되어, 그 다음 INSERT 쿼리에서 AUTO&lt;/em&gt;INCREMENT 값은 중간 값이 누락된 값이 저장될 수 있다.&lt;/p&gt;
+&lt;p&gt;위 설정에서는 하나의 INSERT 쿼리로 저장되는 레코드는 연속된 자동 증가 값을 가진다는 특징을 가진다.&lt;br&gt;
+따라서 이 설정 모드를 &lt;em&gt;연속 모드&lt;/em&gt; 라고도 한다.&lt;/p&gt;
+&lt;h3&gt;innodb&lt;em&gt;autoinc&lt;/em&gt;lock_mode = 2&lt;/h3&gt;
+&lt;p&gt;해당 설정은 AUTO_INCREMENT 락을 걸지 않고 가벼운 래치(뮤텍스)를 사용한다.&lt;/p&gt;
+&lt;p&gt;이 설정에서는 &lt;strong&gt;대량 INSERT 문장이 실행되는 중에도 다른 커넥션에서 INSERT를 수행할 수 있다.&lt;/strong&gt;&lt;br&gt;
+결과적으로 동시 처리 성능이 높아진다.&lt;/p&gt;
+&lt;p&gt;하지만 자동 증가 값이 연속되는 것은 보장할 수 없다. 단지 유니크한 값만 생성한다는 것만 보장한다.&lt;br&gt;
+하나의 INSERT 쿼리로 저장할 때에도 순서는 보장할 수 없다. 따라서 &lt;em&gt;인터리빙 모드&lt;/em&gt; 라고도 한다.&lt;/p&gt;
+&lt;p&gt;위 설정에서 &lt;strong&gt;STATEMENT 포맷의 바이너리 로그를 사용하는 Replication 에서는 Master와 Slave의 AUTO_INCREMENT 값이 달라질 수 있다.&lt;/strong&gt;&lt;br&gt;
+STATEMENT 포맷의 바이너리 로그를 사용한다면 mode 값을 1로 설정하자.&lt;/p&gt;
+&lt;h2&gt;인덱스와 InnoDB의 잠금&lt;/h2&gt;
+&lt;p&gt;레코드 락에서 언급한대로 InnoDB는 &lt;strong&gt;레코드 자체가 아니라 인덱스의 레코드를 잠근다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;이 말은 즉슨, &lt;strong&gt;SELECT나 UPDATE, DELETE 처럼 변경해야 할 레코드를 찾기 위해 인덱스를 타고 검색하게 되는데, 이 과정에서 조건에 해당하는 레코드를 전부 잠근다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;MySQL의 InnoDB에서 인덱스 설계가 중요한 이유 또한 이것이다.&lt;/p&gt;
+&lt;h3&gt;레코드 수준의 잠금 확인 및 해제&lt;/h3&gt;
+&lt;p&gt;MySQL 8.0부터는 performance&lt;em&gt;schema의 data&lt;/em&gt;locks와 data&lt;em&gt;lock&lt;/em&gt;waits 테이블을 통해 확인할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# 현재 프로세스의 목록을 조회한다.&lt;/span&gt;
+mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;SHOW&lt;/span&gt; PROCESSLIST&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# performance_schema의 data_locks와 data_lock_waits 테이블을 통해 잠금 대기 순서를 조회한다.&lt;/span&gt;
+mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; 
+    r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_id waiting_trx_id&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 
+    r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_mysql_thread_id waiting_thread&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 
+    r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_query waiting_query&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 
+    b&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_id blocking_trx_id&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    b&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_mysql_thread_id blocking_thread&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 
+    b&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_query blocking_query 
+    &lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; performance_schema&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data_lock_watis w
+    &lt;span class=&quot;token keyword&quot;&gt;JOIN&lt;/span&gt; information_schema&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innodb_trx b
+    &lt;span class=&quot;token keyword&quot;&gt;ON&lt;/span&gt; b&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_id &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; w&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;blocking_engine_transaction_id
+    &lt;span class=&quot;token keyword&quot;&gt;JOIN&lt;/span&gt; infromation_schema&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innodb_trx r
+    &lt;span class=&quot;token keyword&quot;&gt;ON&lt;/span&gt; r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_id &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; w&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;requesting_engine_transaction_id&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    
+&lt;span class=&quot;token comment&quot;&gt;# 각 스레드가 어떤 잠금을 가지는지 상세하게 조회한다.&lt;/span&gt;
+mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; performance_schema&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data_locks\G&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;문제가 되는 잠금이 있다면 &lt;code class=&quot;language-text&quot;&gt;mysql&gt; KILL {thread_id}&lt;/code&gt; 를 통해 스레드를 강제 종료하자.&lt;/p&gt;
+&lt;h3&gt;Reference&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/doc/refman/8.0/en/example-auto-increment.html&quot;&gt;https://dev.mysql.com/doc/refman/8.0/en/example-auto-increment.html&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://product.kyobobook.co.kr/detail/S000001766482&quot;&gt;https://product.kyobobook.co.kr/detail/S000001766482&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[[MySQL] DATETIME vs TIMESTAMP]]></title><description><![CDATA[들어가며 최근 개인 프로젝트를 시작하면서 ERD 설계를 진행했습니다. 이때, 작성 날짜나 시작 날짜 같은 날짜에 대한 값을 저장할 칼럼이 필요했고 해당 칼럼의 자료형을 결정하는 과정에서 DATETIME과 TIMESTAMP…]]></description><link>https://kdkdhoho.github.io/compare-of-datetime-and-timestamp/</link><guid isPermaLink="false">https://kdkdhoho.github.io/compare-of-datetime-and-timestamp/</guid><pubDate>Wed, 10 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
