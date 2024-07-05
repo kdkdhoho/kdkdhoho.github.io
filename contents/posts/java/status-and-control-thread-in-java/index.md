@@ -1,6 +1,6 @@
 ---
-title: "[Java] Java Thread의 상태와 행동을 제어하는 방법"
-description: "Thread의 상태와 행동을 제어하는 방법에 대해 알아보자"
+title: "Java Thread 2 - Java Thread의 상태와 행동을 제어하는 방법"
+description: "쓰레드 상태와 상태 관련 메서드 (sleep, interrupt, yield, join)"
 date: 2024-07-05
 tags: [ "Java", "Thread" ]
 ---
@@ -10,7 +10,6 @@ tags: [ "Java", "Thread" ]
 지난 글에는 Java에서 쓰레드를 구현하고 실행하는 방법, Main 쓰레드, 쓰레드의 우선순위, 쓰레드 그룹, 데몬 쓰레드에 대해 알아보았다.
 
 이번 글에서는 쓰레드를 다루고 사용함에 있어 중요한 **쓰레드의 상태**와 **쓰레드의 행동을 제어하는 메서드**들에 대해 알아보겠다.
-
 
 ## 쓰레드의 실행제어
 
