@@ -707,6 +707,7 @@ class Table {
                 System.out.println(Thread.currentThread().getName() + " is waiting.");
 
                 try {
+                    // lock.unlock(); // 대기시키기 전에 획득한 Lock을 반환해야 하는게 아닌가? 의문이 들 수 있다. 결론은, 반환하지 않아도 된다. JVM이 알아서 Lock을 반환해준다. 자세한 내용은 https://stackoverflow.com/questions/11308768/condition-should-unlock-before-await 를 참고하자.
                     conditionForCustomers.await(); // Customer 쓰레드를 Customer Condition에 대기시킨다.
                     Thread.sleep(500);
                 } catch (InterruptedException e) {
