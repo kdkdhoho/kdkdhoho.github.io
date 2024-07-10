@@ -13,9 +13,9 @@ tags: [ "Java", "Thread" ]
 
 Java에서 쓰레드를 동기화하는 방법에는 3가지가 있다.
 
-## 임계영역과 락
+## 임계영역과 락, 그리고 모니터
 
-쓰레드의 동기화를 알아보기 전에, **임계 영역(Critical Section)**과 **락(Lock)**에 대해 간단히 알아보자.
+쓰레드의 동기화를 알아보기 전에, **임계 영역(Critical Section)**과 **락(Lock)**, 그리고 **모니터(Monitor) 방식**에 대해 간단히 알아보자.
 
 ### 임계 영역 (Critical Section)
 
@@ -74,9 +74,21 @@ Final count: 3995
 
 이제 본격적으로 동기화하는 방법에 대해 알아보자.
 
+### 모니터(Monitor)
+
+모니터는 스레드 간의 동기화하는 기법 중 하나다.<br>
+모니터는 상호 배제(Mutual Exclusion)을 지원하고 조건에 따라 스레드를 WAITING 상태로 전환한다.<br>
+모니터의 구성 요소로는 Mutex Lock과 Condition Variable(s)가 있다.<br>
+Mutex Lock은 말 그대로 여러 스레드가 임계 영역에 접근하기 위해 획득을 시도하는 Lock이고 Condition Variable은 WAITING 상태로 전환된 스레드가 대기하는 공간이다. 구현에 따라 Queue나 Pool의 개념으로 구현할 수 있다.
+
+모니터에 대해 알아본 이유는, JVM이 모든 객체에 대해 모니터 기법으로 동기화 하기 때문이다.<br>
+자바에서 모든 객체는 Lock을 하나씩 가지고 있고 (Mutex Lock), Lock을 획득하기 위해 대기하는 공간인 Waiting Pool (Condition Variable)이 하나씩 존재한다.
+
 ## 1. synchronized를 이용한 동기화
 
 제일 먼저 가장 쉽고 단순한 방법인 `synchronized` 키워드를 이용한 동기화에 대해 알아보자.
+
+`synchronized` 키워드를 선언하면 JVM이 해당 자원(객체)에 대해 모니터 방식으로 동기화를 제어한다.
 
 `synchronized`를 사용하는 방식으로는 두 가지가 있다.
 
@@ -568,6 +580,12 @@ public class Main {
 **기아 상태를 해결하기 위해선 `notifyAll()`을 호출**해야 한다.<br>
 만약 `notifyAll()`을 호출했을 때, 바로 다음 차례에 또 다시 Customer 쓰레드가 Lock을 획득했다 하더라도, 해당 Customer 쓰레드는 마찬가지로 먹을 게 없어 다시 Waiting Pool로 돌아갈 것이고<br>
 Cook 쓰레드는 Lock을 얻기 위해 대기하고 있다가 차례가 오면 마침내 Lock을 획득할 수 있게 되어 음식을 추가할 수 있게 될 것이다.
+
+### 참고
+
+참고로 위의 테이블, 요리사, 손님 예시는 [생산자-소비자 문제](https://ko.wikipedia.org/wiki/%EC%83%9D%EC%82%B0%EC%9E%90-%EC%86%8C%EB%B9%84%EC%9E%90_%EB%AC%B8%EC%A0%9C)와 같다.
+
+그리고 스레드 동기화 기법 중, [모니터](https://ko.wikipedia.org/wiki/%EB%AA%A8%EB%8B%88%ED%84%B0_(%EB%8F%99%EA%B8%B0%ED%99%94))를 `wait()`, `notify()`, `notifyAll()`로 구현할 수 있다.
 
 ## 3. Lock과 Condition을 이용한 동기화
 
