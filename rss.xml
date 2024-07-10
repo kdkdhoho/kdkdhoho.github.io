@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 10 Jul 2024 06:18:15 GMT</lastBuildDate><item><title><![CDATA[Java Thread 3 - Thread 동기화하기]]></title><description><![CDATA[들어가며 지난 글에는 쓰레드를 다루기 위해 쓰레드의 상태와 쓰레드의 행동을 제어하는 메서드들에 대해 알아보았다. 이번에는 쓰레드의 핵심. 쓰레드의 꽃이라고 생각하는 쓰레드 동기화에 대해 알아보자. Java에서 쓰레드를 동기화하는 방법에는…]]></description><link>https://kdkdhoho.github.io/synchronize-threads/</link><guid isPermaLink="false">https://kdkdhoho.github.io/synchronize-threads/</guid><pubDate>Sat, 06 Jul 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 10 Jul 2024 06:58:17 GMT</lastBuildDate><item><title><![CDATA[Java Thread 3 - Thread 동기화하기]]></title><description><![CDATA[들어가며 지난 글에는 쓰레드를 다루기 위해 쓰레드의 상태와 쓰레드의 행동을 제어하는 메서드들에 대해 알아보았다. 이번에는 쓰레드의 핵심. 쓰레드의 꽃이라고 생각하는 쓰레드 동기화에 대해 알아보자. Java에서 쓰레드를 동기화하는 방법에는…]]></description><link>https://kdkdhoho.github.io/synchronize-threads/</link><guid isPermaLink="false">https://kdkdhoho.github.io/synchronize-threads/</guid><pubDate>Sat, 06 Jul 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://kdkdhoho.github.io/status-and-control-thread-in-java&quot;&gt;지난 글&lt;/a&gt;에는 쓰레드를 다루기 위해 &lt;strong&gt;쓰레드의 상태&lt;/strong&gt;와 &lt;strong&gt;쓰레드의 행동을 제어하는 메서드&lt;/strong&gt;들에 대해 알아보았다.&lt;/p&gt;
 &lt;p&gt;이번에는 쓰레드의 핵심. 쓰레드의 꽃이라고 생각하는 &lt;strong&gt;쓰레드 동기화&lt;/strong&gt;에 대해 알아보자.&lt;/p&gt;
 &lt;p&gt;Java에서 쓰레드를 동기화하는 방법에는 3가지가 있다.&lt;/p&gt;
-&lt;h2&gt;임계영역과 락&lt;/h2&gt;
-&lt;p&gt;쓰레드의 동기화를 알아보기 전에, &lt;strong&gt;임계 영역(Critical Section)&lt;/strong&gt;과 &lt;strong&gt;락(Lock)&lt;/strong&gt;에 대해 간단히 알아보자.&lt;/p&gt;
+&lt;h2&gt;임계영역과 락, 그리고 모니터&lt;/h2&gt;
+&lt;p&gt;쓰레드의 동기화를 알아보기 전에, &lt;strong&gt;임계 영역(Critical Section)&lt;/strong&gt;과 &lt;strong&gt;락(Lock)&lt;/strong&gt;, 그리고 &lt;strong&gt;모니터(Monitor) 방식&lt;/strong&gt;에 대해 간단히 알아보자.&lt;/p&gt;
 &lt;h3&gt;임계 영역 (Critical Section)&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;임계 영역&lt;/strong&gt;은 &lt;strong&gt;둘 이상의 쓰레드가 동시에 접근해서 안되는 공유 자원에 접근하는 구간 또는 영역&lt;/strong&gt;이다.&lt;/p&gt;
 &lt;p&gt;아래 코드를 예시로 했을 때, &lt;code class=&quot;language-text&quot;&gt;Main.increment()&lt;/code&gt;가 임계 영역이 된다.&lt;br&gt;&lt;/p&gt;
@@ -48,8 +48,16 @@
 &lt;br&gt;
 &lt;br&gt;
 &lt;p&gt;이제 본격적으로 동기화하는 방법에 대해 알아보자.&lt;/p&gt;
+&lt;h3&gt;모니터(Monitor)&lt;/h3&gt;
+&lt;p&gt;모니터는 스레드 간의 동기화하는 기법 중 하나다.&lt;br&gt;
+모니터는 상호 배제(Mutual Exclusion)을 지원하고 조건에 따라 스레드를 WAITING 상태로 전환한다.&lt;br&gt;
+모니터의 구성 요소로는 Mutex Lock과 Condition Variable(s)가 있다.&lt;br&gt;
+Mutex Lock은 말 그대로 여러 스레드가 임계 영역에 접근하기 위해 획득을 시도하는 Lock이고 Condition Variable은 WAITING 상태로 전환된 스레드가 대기하는 공간이다. 구현에 따라 Queue나 Pool의 개념으로 구현할 수 있다.&lt;/p&gt;
+&lt;p&gt;모니터에 대해 알아본 이유는, JVM이 모든 객체에 대해 모니터 기법으로 동기화 하기 때문이다.&lt;br&gt;
+자바에서 모든 객체는 Lock을 하나씩 가지고 있고 (Mutex Lock), Lock을 획득하기 위해 대기하는 공간인 Waiting Pool (Condition Variable)이 하나씩 존재한다.&lt;/p&gt;
 &lt;h2&gt;1. synchronized를 이용한 동기화&lt;/h2&gt;
 &lt;p&gt;제일 먼저 가장 쉽고 단순한 방법인 &lt;code class=&quot;language-text&quot;&gt;synchronized&lt;/code&gt; 키워드를 이용한 동기화에 대해 알아보자.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;synchronized&lt;/code&gt; 키워드를 선언하면 JVM이 해당 자원(객체)에 대해 모니터 방식으로 동기화를 제어한다.&lt;/p&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;synchronized&lt;/code&gt;를 사용하는 방식으로는 두 가지가 있다.&lt;/p&gt;
 &lt;h3&gt;1-1. 메서드 전체를 임계 영역으로 설정&lt;/h3&gt;
 &lt;p&gt;아래 코드처럼 메서드 자체에 &lt;code class=&quot;language-text&quot;&gt;synchronized&lt;/code&gt; 키워드를 추가함으로써 &lt;strong&gt;메서드 전체를 임계 영역으로 설정&lt;/strong&gt;할 수 있다.&lt;br&gt;&lt;/p&gt;
@@ -494,6 +502,9 @@ Lock은 JVM이 소유하고 관리한다.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;기아 상태를 해결하기 위해선 &lt;code class=&quot;language-text&quot;&gt;notifyAll()&lt;/code&gt;을 호출&lt;/strong&gt;해야 한다.&lt;br&gt;
 만약 &lt;code class=&quot;language-text&quot;&gt;notifyAll()&lt;/code&gt;을 호출했을 때, 바로 다음 차례에 또 다시 Customer 쓰레드가 Lock을 획득했다 하더라도, 해당 Customer 쓰레드는 마찬가지로 먹을 게 없어 다시 Waiting Pool로 돌아갈 것이고&lt;br&gt;
 Cook 쓰레드는 Lock을 얻기 위해 대기하고 있다가 차례가 오면 마침내 Lock을 획득할 수 있게 되어 음식을 추가할 수 있게 될 것이다.&lt;/p&gt;
+&lt;h3&gt;참고&lt;/h3&gt;
+&lt;p&gt;참고로 위의 테이블, 요리사, 손님 예시는 &lt;a href=&quot;https://ko.wikipedia.org/wiki/%EC%83%9D%EC%82%B0%EC%9E%90-%EC%86%8C%EB%B9%84%EC%9E%90_%EB%AC%B8%EC%A0%9C&quot;&gt;생산자-소비자 문제&lt;/a&gt;와 같다.&lt;/p&gt;
+&lt;p&gt;그리고 스레드 동기화 기법 중, &lt;a href=&quot;https://ko.wikipedia.org/wiki/%EB%AA%A8%EB%8B%88%ED%84%B0_(%EB%8F%99%EA%B8%B0%ED%99%94)&quot;&gt;모니터&lt;/a&gt;를 &lt;code class=&quot;language-text&quot;&gt;wait()&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;notify()&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;notifyAll()&lt;/code&gt;로 구현할 수 있다.&lt;/p&gt;
 &lt;h2&gt;3. Lock과 Condition을 이용한 동기화&lt;/h2&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;wait()&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;notify()&lt;/code&gt;를 이용해서 Lock을 효율적으로 관리할 수 있었다.
 하지만 &lt;code class=&quot;language-text&quot;&gt;notify()&lt;/code&gt; 특성상, 특정 쓰레드를 찝어서 RUNNABLE 상태로 바꾸기는 불가능했다.
