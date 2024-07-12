@@ -1,6 +1,6 @@
 ---
 title: "[Spring] 스프링 컨테이너, 그리고 IoC/DI"
-description: "Spring Application의 기본인 스프링 컨테이너와 핵심 프로그래밍 모델 중 하나인 IoC/DI에 대해 알아보자"
+description: "스프링 프레임워크의 기본 뼈대인 스프링 컨테이너와 핵심 프로그래밍 모델 중 하나인 IoC/DI에 대해"
 date: 2024-03-07
 tags: ["Spring", "Spring Container", "IoC/DI"]
 ---

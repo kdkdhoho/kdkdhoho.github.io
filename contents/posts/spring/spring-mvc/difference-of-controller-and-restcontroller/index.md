@@ -1,6 +1,6 @@
 ---
 title: "[Spring] @Controller와 @RestController 비교하기"
-description: "@Controller와 @RestController 비교하기"
+description: "@Controller와 @RestController의 역할과 차이에 대해"
 date: 2024-01-12
 tags: ["Spring", "Spring MVC"]
 ---
