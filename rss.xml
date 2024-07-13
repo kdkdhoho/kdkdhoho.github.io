@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 12 Jul 2024 04:35:24 GMT</lastBuildDate><item><title><![CDATA[[회고] 07.01 ~ 07.07]]></title><description><![CDATA[What I Studied DFS&BFS, 다익스트라 복습 ! Java 쓰레드 정리법 CS 공부할 때 얼추 손으로 정리하고, 블로그에 정리하는 게 더 정리가 잘된다. Java…]]></description><link>https://kdkdhoho.github.io/july-1st/</link><guid isPermaLink="false">https://kdkdhoho.github.io/july-1st/</guid><pubDate>Sun, 07 Jul 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;What I Studied&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 13 Jul 2024 04:10:56 GMT</lastBuildDate><item><title><![CDATA[[회고] 07.01 ~ 07.07]]></title><description><![CDATA[What I Studied DFS&BFS, 다익스트라 복습 ! Java 쓰레드 정리법 CS 공부할 때 얼추 손으로 정리하고, 블로그에 정리하는 게 더 정리가 잘된다. Java…]]></description><link>https://kdkdhoho.github.io/july-1st/</link><guid isPermaLink="false">https://kdkdhoho.github.io/july-1st/</guid><pubDate>Sun, 07 Jul 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;What I Studied&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;DFS&amp;#x26;BFS, 다익스트라 복습 !&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://kdkdhoho.github.io/thread-in-jvm&quot;&gt;Java 쓰레드&lt;/a&gt;&lt;/li&gt;
@@ -4001,13 +4001,14 @@ InnoDB에는 &lt;em&gt;InnoDB 버퍼 풀&lt;/em&gt; 과 &lt;em&gt;언두 로그&
 &lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/doc/&quot;&gt;https://dev.mysql.com/doc/&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;데이터베이스 첫걸음&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[[Java] JDBC 마스터하기]]></title><description><![CDATA[들어가며 이번에는 JDBC에 대해 학습한 내용을 정리해보겠습니다. 1. JDBC란? Java DataBase Connectivity, JDBC는 Java 애플리케이션과 DB를 연결하고 통신할 수 있도록 제공하는 API 입니다.
-JDBC…]]></description><link>https://kdkdhoho.github.io/what-is-jdbc/</link><guid isPermaLink="false">https://kdkdhoho.github.io/what-is-jdbc/</guid><pubDate>Tue, 12 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
-&lt;p&gt;이번에는 JDBC에 대해 학습한 내용을 정리해보겠습니다.&lt;/p&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[[Java] JDBC 파헤쳐보기]]></title><description><![CDATA[JPA, JDBCTemplate 등 자바 프로그램에서 DB에 연결하기 위해선 JDBC를 반드시 사용하게 된다.
+아무리 JPA…]]></description><link>https://kdkdhoho.github.io/what-is-jdbc/</link><guid isPermaLink="false">https://kdkdhoho.github.io/what-is-jdbc/</guid><pubDate>Tue, 12 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;JPA, JDBCTemplate 등 자바 프로그램에서 DB에 연결하기 위해선 &lt;strong&gt;JDBC&lt;/strong&gt;를 반드시 사용하게 된다.&lt;br&gt;
+아무리 JPA 같은 기술이 추상화를 잘해주어 편리하게 사용한다해도 기반이 되는 기술을 알아야 더 나은 코드와 프로그램을 만들 수 있다.&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;이번에는 &lt;strong&gt;자바의 데이터베이스 연결을 책임지는 JDBC(Java DataBase Connectivity)&lt;/strong&gt;에 대해 알아보겠다.&lt;/p&gt;
 &lt;h2&gt;1. JDBC란?&lt;/h2&gt;
-&lt;p&gt;Java DataBase Connectivity, &lt;u&gt;JDBC는 Java 애플리케이션과 DB를 연결하고 통신할 수 있도록 제공하는 API&lt;/u&gt; 입니다.&lt;br&gt;
-JDBC 덕분에 우리는 어떤 DB 제품을 사용하더라도 JDBC에만 의존하여 애플리케이션을 개발할 수 있게 되었습니다.&lt;br&gt;
-일종의 Application과 DB 사이에 위치하는 추상화 계층인 셈 입니다.&lt;/p&gt;
+&lt;p&gt;JDBC는 자바 애플리케이션과 DB를 연결하고 통신할 수 있도록 제공하는 API이다.&lt;br&gt;
+JDBC 덕분에 우리는 어떠한 DB Driver를 사용하더라도 JDBC만 사용해 DB와 통신할 수 있다.&lt;br&gt;
+일종의 애플리케이션과 DB 사이에서 연결을 추상화한 계층인 것이다.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
       &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/ff6e6f639b1eb241b021d85abf22d26a/07608/jdbc-architecture.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
@@ -4022,64 +4023,79 @@ JDBC 덕분에 우리는 어떤 DB 제품을 사용하더라도 JDBC에만 의�
     &lt;/span&gt;
     &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;JDBC 아키텍처&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;JDBC를 이해하기 위해선 &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;Statement&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;ResultSet&lt;/code&gt;를 이해해야 합니다.&lt;/p&gt;
+&lt;p&gt;JDBC는 Connection, &lt;code class=&quot;language-text&quot;&gt;Statement&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;ResultSet&lt;/code&gt;으로 구성되어 있다.&lt;/p&gt;
 &lt;h2&gt;2. Connection&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://docs.oracle.com/javase/8/docs/api/java/sql/Connection.html&quot;&gt;Oracle 공식문서&lt;/a&gt;에서는 &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt; 객체를 다음과 같이 설명하고 있습니다.&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.oracle.com/javase/8/docs/api/java/sql/Connection.html&quot;&gt;Oracle 공식문서&lt;/a&gt;에서는 Connection 객체를 다음과 같이 설명하고 있다.&lt;br&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&quot;&lt;em&gt;A connection (session) with a specific database. SQL statements are executed and results are returned within the context of a connection.&lt;/em&gt;&quot;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;&quot;특정 DB와의 연결(세션)이다. 연결 컨텍스트 내에서 SQL 문이 실행되고 결과가 반환된다.&quot;&lt;/p&gt;
+&lt;p&gt;&quot;&lt;em&gt;A connection (session) with a specific database. SQL statements are executed and results are returned within the context of a connection.&lt;/em&gt;&quot;&lt;br&gt;
+&quot;특정 DB와의 연결(세션)이다. 연결 컨텍스트 내에서 SQL 문이 실행되고 결과가 반환된다.&quot;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;결국, 쿼리를 날리고 결과를 반환받기 위해선 이 &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt; 객체가 필수로 생성되어야 합니다.&lt;/p&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt;이 제공하는 기능은 다음과 같습니다.&lt;/p&gt;
+&lt;p&gt;결국, DB에 쿼리를 날리고 결과를 반환받기 위해선 이 Connection 객체가 최우선적으로 생성되어야 한다.&lt;/p&gt;
+&lt;p&gt;Connection이 제공하는 기능은 다음과 같다.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;트랜잭션 경계 설정: &lt;code class=&quot;language-text&quot;&gt;setAutoCommit(boolean)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;트랜잭션 격리 레벨 설정: &lt;code class=&quot;language-text&quot;&gt;setTransactionIsolation(int)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;setAutoCommit(boolean)&lt;/code&gt;: Auto Commit 모드 제어&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;setTransactionIsolation(int)&lt;/code&gt;: 트랜잭션 격리 레벨 설정&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;ReadOnly 설정: &lt;code class=&quot;language-text&quot;&gt;setReadOnly(boolean)&lt;/code&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;ReadOnly를 true로 설정하면 &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt;을 읽기 전용 모드로 설정하며 &lt;code class=&quot;language-text&quot;&gt;Driver&lt;/code&gt;에게 힌트로 제공하여 최적화를 활성화합니다.
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;setReadOnly(boolean)&lt;/code&gt;: ReadOnly 설정&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ReadOnly를 true로 설정하면 &lt;strong&gt;Connection을 읽기 전용 모드&lt;/strong&gt;로 설정하며 &lt;code class=&quot;language-text&quot;&gt;Driver&lt;/code&gt;에게 쿼리 힌트로 제공하게 되어 쿼리 실행을 최적화할 수 있다. &lt;sup id=&quot;fnref-1&quot;&gt;&lt;a href=&quot;#fn-1&quot; class=&quot;footnote-ref&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;
 &lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 619px; &apos;&gt;
-      &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 24.11764705882353%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA1klEQVR42l2PSW7DMAxFdZNY82BLsuWoLjps0vuf6ZeiHSDt4uGTAPVICeU8bEowIVwZT+K/JCzVmubHm7P/O6+9hxiNzwsPB0qXIpGIGW4h5pkXjRxIbZlJGdwmjZu8uGqhrSfhDJNItjaoVKBDYnkoGX5ZmKd8EGvhJROJlXWQ5syxRJwbHVSgK2uDy5W/MiSxFE4WkyjkzFi6Xhp6Q0g6iGvKSVmILRfM9UDoP4j9gbZ19Fqxrjve3r+xtgN73XDfGvb+iX584d4/4EOG0gHaxBcSfgEEspN75akLtQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;ReadOnly&apos; title=&apos;&apos; src=&apos;/static/53574cd4e857adb5f65141d4e62d080f/80833/explain-of-readonly.png&apos; srcset=&apos;/static/53574cd4e857adb5f65141d4e62d080f/e7570/explain-of-readonly.png 170w,
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/53574cd4e857adb5f65141d4e62d080f/80833/explain-of-readonly.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 24.11764705882353%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA1klEQVR42l2PSW7DMAxFdZNY82BLsuWoLjps0vuf6ZeiHSDt4uGTAPVICeU8bEowIVwZT+K/JCzVmubHm7P/O6+9hxiNzwsPB0qXIpGIGW4h5pkXjRxIbZlJGdwmjZu8uGqhrSfhDJNItjaoVKBDYnkoGX5ZmKd8EGvhJROJlXWQ5syxRJwbHVSgK2uDy5W/MiSxFE4WkyjkzFi6Xhp6Q0g6iGvKSVmILRfM9UDoP4j9gbZ19Fqxrjve3r+xtgN73XDfGvb+iX584d4/4EOG0gHaxBcSfgEEspN75akLtQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;ReadOnly 설명&apos; title=&apos;&apos; src=&apos;/static/53574cd4e857adb5f65141d4e62d080f/80833/explain-of-readonly.png&apos; srcset=&apos;/static/53574cd4e857adb5f65141d4e62d080f/e7570/explain-of-readonly.png 170w,
 /static/53574cd4e857adb5f65141d4e62d080f/f46e7/explain-of-readonly.png 340w,
 /static/53574cd4e857adb5f65141d4e62d080f/80833/explain-of-readonly.png 619w&apos; sizes=&apos;(max-width: 619px) 100vw, 619px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
     &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;ReadOnly&lt;/figcaption&gt;
-  &lt;/figure&gt;&lt;br&gt;
-참고: &lt;a href=&quot;https://dev.mysql.com/doc/refman/8.0/en/innodb-performance-ro-txn.html&quot;&gt;Optimizing InnoDB Read-Only Transactions - MySQL&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;ReadOnly 설명&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;br&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;그렇다면 &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt; 객체는 어떻게 생성할까요?&lt;br&gt;
-총 2가지 방법이 존재하며 각각에 대해 알아보겠습니다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;그렇다면 Connection 객체는 어떻게 생성할까?&lt;br&gt;
+생성하는 데에는 총 2가지 방법이 존재한다.&lt;/p&gt;
 &lt;h3&gt;2-1. DriverManager&lt;/h3&gt;
-&lt;p&gt;Legacy한 방법의 &lt;code class=&quot;language-text&quot;&gt;DriverManager&lt;/code&gt; 입니다.&lt;/p&gt;
+&lt;p&gt;Legacy한 방법으로, &lt;code class=&quot;language-text&quot;&gt;DriverManager&lt;/code&gt; 객체를 사용하는 방법이 있다.&lt;br&gt;
+아래는 DriverManager를 이용해 Connection 객체를 생성하는 예시이다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Connection&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getConnection&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; url&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; username&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; password&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;DriverManager&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getConnection&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;url&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; username&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; password&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;참고로 JDBC 4.0 이전에는 &lt;code class=&quot;language-text&quot;&gt;Class.forName&lt;/code&gt; 메서드를 통해 JDBC 드라이버를 직접 등록해줘야 했습니다.&lt;br&gt;
-하지만 이후부터 &lt;code class=&quot;language-text&quot;&gt;DriverManager&lt;/code&gt;가 주어진 url 값을 이용해 라이브러리에 등록된 Driver와 비교해 적절한 JDBC Driver를 찾아 제공합니다.&lt;/p&gt;
-&lt;p&gt;하지만 &lt;code class=&quot;language-text&quot;&gt;DataSource&lt;/code&gt;의 등장으로 잘 사용하지 않습니다.&lt;/p&gt;
+&lt;p&gt;참고로 JDBC 4.0 이전에는 &lt;code class=&quot;language-text&quot;&gt;Class.forName&lt;/code&gt; 메서드를 통해 JDBC 드라이버를 직접 등록해줘야 했다.&lt;br&gt;
+하지만 이후부터 &lt;code class=&quot;language-text&quot;&gt;DriverManager&lt;/code&gt;가 주어진 url 값을 이용해 라이브러리에 등록된 Driver와 비교해 적절한 JDBC Driver를 찾아 제공한다.&lt;/p&gt;
+&lt;p&gt;하지만 DataSource의 등장으로 잘 사용되지 않는 방법이 되었다.&lt;/p&gt;
 &lt;h3&gt;2-2. DataSource&lt;/h3&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;DataSource&lt;/code&gt;는 &lt;code class=&quot;language-text&quot;&gt;DriverManager&lt;/code&gt;에 비해 발전된 모델입니다.&lt;br&gt;
-DB 연결 정보를 &lt;strong&gt;코드가 아닌 properties로으로 값을 주입&lt;/strong&gt;할 수 있으며&lt;br&gt;
-&lt;strong&gt;Connection Pool, 분산 트랜잭션 기능을 지원&lt;/strong&gt;합니다.&lt;/p&gt;
+&lt;p&gt;DataSource는 &lt;code class=&quot;language-text&quot;&gt;DriverManager&lt;/code&gt;를 발전한 모델이다.&lt;br&gt;
+DB 연결 정보를 &lt;strong&gt;코드가 아닌 properties로 값을 주입할 수 있으며&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;&lt;a href=&quot;https://kdkdhoho.github.io/dbcp/&quot;&gt;Connection Pool&lt;/a&gt;, 분산 트랜잭션 기능&lt;/strong&gt;을 지원한다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Connection&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getConnection&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; url&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; username&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; password&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;DataSourceBuilder&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
                 &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;url&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
                 &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;username&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
                 &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;password&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
                 &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;DataSource 구현체는 각 벤더가 제공합니다.&lt;/p&gt;
-&lt;h3&gt;2-3. Connection Pool&lt;/h3&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;DataSource&lt;/code&gt;의 장점 중 하나인, &lt;em&gt;Connection Pool&lt;/em&gt; 에 대해 알아보고 Deep Dive 해보겠습니다.&lt;br&gt;
-(이 부분은 개인적인 궁금증으로 작성했습니다. 꽤나 깊게 파고 들어가니 넘기셔도 좋습니다.)&lt;/p&gt;
-&lt;p&gt;Connection Pool은, 지정된 개수만큼 미리 &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt; 객체들을 만들어놓고 해당 객체를 재사용하기 위해 만들어놓은 저장 공간을 의미합니다.&lt;/p&gt;
-&lt;p&gt;객체를 재사용하는 이유는 &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt; 객체를 생성하고 삭제하는 비용이 비싸기 때문입니다.&lt;br&gt;
-기본적으로 DB와 TCP/IP를 통한 네트워크 통신이 이루어져야 하고 쿼리가 모두 처리되면 해당 Connection 객체는 필요없어지기 때문에 GC에 의해 처리되는데 이때도 GC 비용을 생각해야 합니다.&lt;br&gt;
-따라서 이 비싼 &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt; 객체를 필요한만큼 만들어놓고 재사용하면 비용을 아낄 수 있지 않을까요?&lt;/p&gt;
-&lt;p&gt;H2에서 제공하는 JdbcConnectionPool을 직접 다뤄보며 조금 더 이해해보겠습니다.&lt;/p&gt;
+&lt;p&gt;DataSource 구현체는 각 벤더가 제공하고 있다.
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/f016cdd33e8366147e060486401789ca/0c082/implements-datasource.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 51.17647058823529%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB6klEQVR42nWSWW/TQBSF/VNaAQ3N4n2f8TLOZjtxtqYhkJKCoCWq+P+vhxODUCPBw6fvWpbv3OM7WrdvoGuYGAwM6MQglu0hiCVs14epmzBtH5Yb8jlCJHIk2ZjvMzheDNeXtKAFLCeC5jsOpkqiHEpUpEg8JKEF6RsQng7xx7E7IH0o4aBosaFiC4W0/9Z5bEITYYD9XYWH7RTHXY3jhxq7hUKlXIwTE5PUJg5GrS2M4gGKsIfMu4E0ry6xrqCp0MNpluG0VHhuchyUgw0/WAe3WNN3YRf37jvs3bco/Vsk7g0S+81/0YrAxkMpcc9m2zrBphSYc7oqszErfCxZf0xNLKSOEQ9QEWPzsMzrtOSv7XegDcM+nhqF42aCwzzHnLEqYdA2lmy4ZexdYiCXJhv1UEQ6ck6actJz7Mx7z7rT+txYS3wXL2z0c5mRHD/qGM+VwNM0bGM3ZMbYRcRm9JATDlmfJ0odxrSuL9CUHHMZ33DYfcWn7SO2q0PLbvOZE85QiimCbIkgXSBIGoRnk99u4In6Aq3glk+rEi/c9PfFCMcyxZc6x55xN0EXK/6SIa+DihibcYu21rmcDqRz0/o1mu/aaMYS66ngQuhJjKYIMIoGSP0e76SOLBjwh/OqBP3W50aRcf1PfgFIIFQblkKj1QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;DataSource 구현체들&apos; title=&apos;&apos; src=&apos;/static/f016cdd33e8366147e060486401789ca/ca1dc/implements-datasource.png&apos; srcset=&apos;/static/f016cdd33e8366147e060486401789ca/e7570/implements-datasource.png 170w,
+/static/f016cdd33e8366147e060486401789ca/f46e7/implements-datasource.png 340w,
+/static/f016cdd33e8366147e060486401789ca/ca1dc/implements-datasource.png 680w,
+/static/f016cdd33e8366147e060486401789ca/0c082/implements-datasource.png 804w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;DataSource 구현체들&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;h3&gt;Connection Pool&lt;/h3&gt;
+&lt;p&gt;DataSource의 장점 중 하나인, &lt;em&gt;Connection Pool&lt;/em&gt; 에 대해 알아보고 내부 코드를 살펴보겠다.&lt;br&gt;
+(이 부분은 JDBC를 이해하는 데 반드시 필요한 부분은 아니다. 개인적인 지적 호기심으로 코드를 뜯어본 것이니 관심없으면 안봐도 좋다.)&lt;/p&gt;
+&lt;p&gt;Connection Pool은, 지정된 개수만큼 미리 Connection 객체들을 만들어놓고 해당 객체를 재사용하기 위해 만들어놓은 저장 공간을 의미한다.&lt;br&gt;
+Connection 객체를 재사용하는 이유는 &lt;strong&gt;Connection 객체를 생성하고 삭제하는 비용이 비싸기 때문&lt;/strong&gt;이다.&lt;br&gt;
+기본적으로 DB와 TCP/IP를 통한 네트워크 통신이 이루어져야 하며, 쿼리가 모두 처리되면 해당 Connection 객체는 필요없어지기에 GC에 의해 처리되는데 이때도 GC 비용도 생각해야 한다.&lt;br&gt;
+때문에 이 값비싼 Connection 객체를 재사용하면 성능상 많은 이점을 얻을 수 있다.&lt;/p&gt;
+&lt;p&gt;H2에서 제공하는 JdbcConnectionPool을 직접 살펴보며 조금 더 이해해보겠습니다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Test&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;testJdbcConnectionPool&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;SQLException&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;token class-name&quot;&gt;JdbcConnectionPool&lt;/span&gt; jdbcConnectionPool &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;JdbcConnectionPool&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;H2_URL&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;USER&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;PASSWORD&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
@@ -4096,7 +4112,7 @@ DB 연결 정보를 &lt;strong&gt;코드가 아닌 properties로으로 값을 �
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;JdbcConnectionPool#create(String, String, String)&lt;/code&gt;
-: 주어진 DB 연결 정보를 통해 &lt;code class=&quot;language-text&quot;&gt;DataSource&lt;/code&gt; 객체를 만들고 &lt;code class=&quot;language-text&quot;&gt;JdbcConnectionPool&lt;/code&gt; 객체를 초기화합니다.
+: 주어진 DB 연결 정보를 통해 DataSource 객체를 만들고 JdbcConnectionPool 객체를 초기화한다.
 &lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &apos;&gt;
       &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/a1c684a490b14fc5e23f2ab7cff627b0/0f09e/jdbcconnectionpool-create.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
@@ -4109,15 +4125,15 @@ DB 연결 정보를 &lt;strong&gt;코드가 아닌 properties로으로 값을 �
     &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;JdbcConnectionPool 객체 초기화&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;assertThat(jdbcConnectionPool.getActiveConnections()).isZero();&lt;/code&gt;
-: 초기 생성된 ConnectionPool은 Active 상태인 Connection이 0개 입니다.&lt;/li&gt;
+: 초기 생성된 ConnectionPool은 Active 상태인 Connection이 0개다.&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;jdbcConnectionPool.getConnection()&lt;/code&gt;
-: &lt;code class=&quot;language-text&quot;&gt;JdbcConnectionPool&lt;/code&gt; 객체 내부에 인스턴스 변수로 &lt;code class=&quot;language-text&quot;&gt;AtomicInteger activeConnections&lt;/code&gt;를 가집니다.&lt;br&gt;
-이 변수의 값을 1 증가하고, &lt;code class=&quot;language-text&quot;&gt;volatile int maxConnections&lt;/code&gt; 값과 비교해 이하인 경우에 &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt; 객체를 반환합니다.&lt;br&gt;
-&lt;code class=&quot;language-text&quot;&gt;JDBCConnectionPool&lt;/code&gt;가 가지는 &lt;code class=&quot;language-text&quot;&gt;maxConnections&lt;/code&gt;의 default 값은 10 입니다.&lt;br&gt;
-&lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt; 객체를 반환할 때는 우선적으로 &lt;code class=&quot;language-text&quot;&gt;Queue&amp;lt;PooledConnection&gt; recycledConnections = new ConcurrentLinkedQueue()&lt;/code&gt; &lt;code class=&quot;language-text&quot;&gt;poll()&lt;/code&gt; 하고,&lt;br&gt;
-아무 값이 존재하지 않을 경우엔 &lt;code class=&quot;language-text&quot;&gt;DataSource&lt;/code&gt;에서 &lt;code class=&quot;language-text&quot;&gt;PooledConnection&lt;/code&gt; 객체를 만들어 반환합니다.&lt;br&gt;
-해당 &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt;이 close 되면 &lt;code class=&quot;language-text&quot;&gt;recycledConnections&lt;/code&gt;에 &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt; 객체를 &lt;code class=&quot;language-text&quot;&gt;add()&lt;/code&gt; 해줍니다.&lt;br&gt;
-만약 &lt;code class=&quot;language-text&quot;&gt;recycledConnections&lt;/code&gt;에 재사용할 &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt;이 존재한다면 &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt;을 재사용합니다.
+: &lt;code class=&quot;language-text&quot;&gt;JdbcConnectionPool&lt;/code&gt; 객체 내부에 인스턴스 변수로 &lt;code class=&quot;language-text&quot;&gt;AtomicInteger activeConnections&lt;/code&gt;를 가진다.&lt;br&gt;
+이 변수의 값을 1 증가하고, &lt;code class=&quot;language-text&quot;&gt;volatile int maxConnections&lt;/code&gt; 값과 비교해 이하인 경우에 Connection 객체를 반환한다.&lt;br&gt;
+JDBCConnectionPool가 가지는 &lt;code class=&quot;language-text&quot;&gt;maxConnections&lt;/code&gt;의 default 값은 10 이다.&lt;br&gt;
+Connection 객체를 반환할 때는 우선적으로 &lt;code class=&quot;language-text&quot;&gt;Queue&amp;lt;PooledConnection&gt; recycledConnections = new ConcurrentLinkedQueue()&lt;/code&gt; &lt;code class=&quot;language-text&quot;&gt;recycledConnections.poll()&lt;/code&gt; 하고,&lt;br&gt;
+아무 값이 존재하지 않을 경우엔 DataSource에서 PooledConnection 객체를 만들어 반환한다.&lt;br&gt;
+해당 Connection이 close 되면 &lt;code class=&quot;language-text&quot;&gt;recycledConnections&lt;/code&gt;에 Connection 객체를 &lt;code class=&quot;language-text&quot;&gt;add()&lt;/code&gt; 한다.&lt;br&gt;
+만약 &lt;code class=&quot;language-text&quot;&gt;recycledConnections&lt;/code&gt;에 재사용할 Connection이 존재한다면 Connection을 재사용하다.
 &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 632px; margin-bottom: 16px;&apos;&gt;
       &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/d3c0b99720401fbb801e9e2fe7318b64/afa26/jdbcconnectionpool-getConnection.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 97.6470588235294%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAACsElEQVR42o1U6XqbMBD0c8TmlDgkEOI2sfP1ev93ms6KOHXSpO6PQQJWo93Z49Bbi8E5jNMZ87TCz1fY+Rea5Sfc+gO9H7G6BtuyYjtfiBd4NyLXFZK6QWIdEu7jOEOc5DhEfCw88Hx+hvUTHAlc63d0PXRpUZUVmtrAlCWa0sFVHqowSLsRWT8jI/EbYcKHVgWSTCNKFU788XSKiSSspyjFkdjf9/UYJeH7Sf4fxYbvcYqIZw9JmsNUdfBCPKi1hS072KqjNx2qwqI2DrbxaNoduhBvxb5BE+z4n1AM/RDTK2EWLyfXorMeRjcBYlQXLck6dD3lcD0MNRP9yqIMhGJjaCNQqpKQFRIhldB1iam18G2LaRgwLWdM6xbIOmpbUaun4y7DKcpCmPcIIYuQQiirhH32DnO/4oUZ3sZrwOBmJmgIpJ2fAtRdZu9xeP9BYbAGI7PbuQl5WiAjVF5StzpoV5Qm7FMm8SPZG6F4mPFQrso/P5kskSFKsh3xe3xG9s5DuVEM01SHCwJe9b1BbG7yfEkYEhLnDLPD4tkp1YDBTAHeDvDDHLpomjeuK6Oo/u3h7ca2cVjWZ+TUSBH3noTQH4T6l4Y5wxlch1p6MyvC4eNp74iIeET0aZalpbbtBT1Da1gmhh2iWXspsxqF2ksfenlXh4otaLCwoNf1gvP5isv1O7bLNyzcdxwE/bCE0vmvLAsUy8Z7JoITRIpYkjDNZ/R8H8YVMxPTsv0eJkXKQbPypQ5PQfw9tDBpXnU83vZx+iBk1l3NaeM475q2Dy3WuoHhzezdFjUhWirThaEQsYel5b5KVPCwIaHl6GqbloRjIJUJo00NVVcoWsNyqqDZltrWnNScLFINnxGmeRFGV6E0yrLm7GvDVJGezXlJVhT7SptM7/uEWc8+1OqN8DeacD1cWOZ5YgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
@@ -4135,8 +4151,8 @@ DB 연결 정보를 &lt;strong&gt;코드가 아닌 properties로으로 값을 �
   &lt;/a&gt;
     &lt;/span&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;아래 사진을 통해 &lt;code class=&quot;language-text&quot;&gt;Queue&amp;lt;PooledConnection&gt; recycledConnections&lt;/code&gt;에 &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt; 객체가 존재하는 모습을 확인할 수 있습니다. &lt;/p&gt;
-&lt;p&gt;&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
+&lt;p&gt;아래 사진을 통해 &lt;code class=&quot;language-text&quot;&gt;Queue&amp;lt;PooledConnection&gt; recycledConnections&lt;/code&gt;에 Connection 객체가 존재하는 모습을 확인할 수 있다.
+&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
       &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/5c1d657fed7ea8ebd174b2bcb6b5e399/7bf1f/result-of-recycledConnections.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 41.1764705882353%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABkUlEQVR42kXS607bMBQH8LwHaRLHsR1fkpQ2F9rAGLRQSoO6sok9AJo0aR9gEu//34kL7MNP5+L4OLESFFZDmCmEayBsDWlPYXONwlUoqxmk0mCpPOICnCukjHJGeaqIRMw4EpYRgYBRorWDK2ewBQ1zU1hbwhVTn+e0Zqg2toLKLXKiMgPBNYx0UML4w9LxoEzRwFT4hzzaLJU9bjQF9LuxHkVxipMwRjhJMIkYwighzOcfgjjhsMahbZdouh6zeYeWYkP1rFlgTmqSSQMu6HroQE5vFdOXxclRRDMiHzMaGEUwerwz98kaQ9HCWUJxXLdEZJzuLyEM0STEJDzxos8YIpD1A6rzR5T9AcXy4KM9+wa7eHe2h+n2lO+hmsFLqzvE5QZJ9R+j3ijgpgM3LVJ95HPqtf0atzc7rNcDFpf3qM/v0VzssLjao18d0H7ZkcH3RnW/xZwEXHJIo5DlwkdpJP06BuXyCdfDL2x+/MXq8QWrwwtuvr96259v2D69Ue8VF8MfdJvfmH59xunVM/4BhHT4US3stksAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
   &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;result of recycledConnections&apos; title=&apos;&apos; src=&apos;/static/5c1d657fed7ea8ebd174b2bcb6b5e399/ca1dc/result-of-recycledConnections.png&apos; srcset=&apos;/static/5c1d657fed7ea8ebd174b2bcb6b5e399/e7570/result-of-recycledConnections.png 170w,
@@ -4145,12 +4161,12 @@ DB 연결 정보를 &lt;strong&gt;코드가 아닌 properties로으로 값을 �
 /static/5c1d657fed7ea8ebd174b2bcb6b5e399/7bf1f/result-of-recycledConnections.png 938w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;h3&gt;2-3-1. HikariCP&lt;/h3&gt;
-&lt;p&gt;Spring Boot 2.0 부터 &lt;code class=&quot;language-text&quot;&gt;DataSource&lt;/code&gt;와 그에 상응하는 &lt;code class=&quot;language-text&quot;&gt;Connection Pool&lt;/code&gt;을 기본적으로 &lt;code class=&quot;language-text&quot;&gt;HikariCP&lt;/code&gt; 구현체를 사용합니다.&lt;br&gt;
-&lt;a href=&quot;https://github.com/brettwooldridge/HikariCP&quot;&gt;HikariCP&lt;/a&gt;는 다른 &lt;code class=&quot;language-text&quot;&gt;DataSource&lt;/code&gt; 구현체들에 비해 매우 빠른 속도와 성능을 가지는 Connection Pool 구현체 중 하나입니다.&lt;/p&gt;
-&lt;p&gt;위 코드 상으로는 &lt;code class=&quot;language-text&quot;&gt;ConnectionPool&lt;/code&gt;을 직접 만들고, 그 안에서 &lt;code class=&quot;language-text&quot;&gt;DataSource&lt;/code&gt; 객체를 만들고, &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt; 객체를 만들어 반환해주었습니다.&lt;br&gt;
-하지만 기본적으로 DB 연결 정보만 제공해서 &lt;code class=&quot;language-text&quot;&gt;DataSource&lt;/code&gt; 객체만 만들면 아래와 같이 &lt;code class=&quot;language-text&quot;&gt;HikariDataSource&lt;/code&gt; 객체가 만들어집니다.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+&lt;h3&gt;HikariCP&lt;/h3&gt;
+&lt;p&gt;Spring Boot 2.0 부터 DataSource와 그에 상응하는 &lt;code class=&quot;language-text&quot;&gt;Connection Pool&lt;/code&gt;을 기본적으로 &lt;code class=&quot;language-text&quot;&gt;HikariCP&lt;/code&gt; 구현체를 사용한다.&lt;br&gt;
+&lt;a href=&quot;https://github.com/brettwooldridge/HikariCP&quot;&gt;HikariCP&lt;/a&gt;는 다른 DataSource 구현체들에 비해 매우 빠른 속도와 성능을 가지는 Connection Pool 구현체 중 하나다.&lt;/p&gt;
+&lt;p&gt;위 코드 상으로는 &lt;code class=&quot;language-text&quot;&gt;ConnectionPool&lt;/code&gt;을 직접 만들고, 그 안에서 DataSource 객체를 만들고, Connection 객체를 만들어 반환해주었습니다.&lt;br&gt;
+하지만 기본적으로 DB 연결 정보만 제공해서 DataSource 객체만 만들면 아래와 같이 &lt;code class=&quot;language-text&quot;&gt;HikariDataSource&lt;/code&gt; 객체가 만들어진다.
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
       &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/dc429b6f1c3c01b04495a9d57834aa2b/a84ca/init-hikari-datasource.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 32.35294117647059%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABKklEQVR42k3Qy26CQBQGYJ6iF7DCcBvUgUGuw0KtaRSINsY+QHftprF9/9Xfw0gviy//+c8kszhGLOaYpQpc5BDzBYRIkGYlFkLC8zn8IAJzA81hPvmZr922XUz/MRwWgs9iJDJHU66QiAwR9QGPhOb6kca8EK7Hr31IYjs+feT9Mpgzxd3NLWSSQFUKOZdgUxumeQ/LNLWJZV1zZI1vk/HtYfLHmFU9gqyFUM/kCJ/mqOjA8zHJsOPlAWFOigOi8kj7g+Yte7hpp3NgSLmFUj3quoMiVdVCNT3yukVBGtUhK/eod69oXy54On1ge/7E5jS44PH8hTVl3b2j2L/B4K4HzjxErg89az4C5mqchNRTKdGtG+w2K5R0GpnmdPcl5JIyzSBiiUUs8Q3PYLgvaxo4cgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
@@ -4162,9 +4178,9 @@ DB 연결 정보를 &lt;strong&gt;코드가 아닌 properties로으로 값을 �
     &lt;/span&gt;
     &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;Hikari DataSource 객체 초기화&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;위 사진을 잘 보면, &lt;em&gt;pool&lt;/em&gt; 이 null로 초기화되어 있는데요. 이 객체가 커넥션 풀 객체입니다.&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;그리고 처음 &lt;code class=&quot;language-text&quot;&gt;getConnection()&lt;/code&gt;을 호출하면 아래 메서드를 통해 &lt;em&gt;pool&lt;/em&gt; 이 초기화되고 해당 &lt;code class=&quot;language-text&quot;&gt;HikariPool&lt;/code&gt; 객체에서 &lt;code class=&quot;language-text&quot;&gt;getConnection()&lt;/code&gt; 메서드가 호출되어 최종적으로 &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt; 객체가 반환되는 것입니다.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+&lt;p&gt;위 사진을 잘 보면, Connection Pool이 null로 초기화되어 있는데 이 객체가 바로 커넥션 풀 객체이다.&lt;br&gt;
+그리고 처음 &lt;code class=&quot;language-text&quot;&gt;getConnection()&lt;/code&gt;을 호출하면 아래 메서드를 통해 &lt;code class=&quot;language-text&quot;&gt;pool&lt;/code&gt; 이 초기화되고 해당 &lt;code class=&quot;language-text&quot;&gt;HikariPool&lt;/code&gt; 객체에서 &lt;code class=&quot;language-text&quot;&gt;getConnection()&lt;/code&gt; 메서드가 호출되어 최종적으로 Connection 객체가 반환되는 것이다.
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
       &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/29563ca853e6349c8a57ccab5debf4d2/1745e/init-hikariPool-object.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 90.58823529411765%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsTAAALEwEAmpwYAAACWElEQVR42pWUWXLbMBBEdRCLCwhi406QikhbleQrJ0iqvCW5/yU6TUi0lURSlT9eAaSE5kzPDDZ743CoWxz6HeZ+wq67R1uOGGyNvSmwLzvMzYDRVmiEOpIeaYX+j02UZLDKoK9K7DwPjhPa2kM5B1VY5M4ikTkUyYREqjWEVsgM11whigSi+J1NFGcojEVfOnQ8PBQjpvoBTeXR9z3qtodUFpk0yLmKnEKZQsxAFs7FToICjoKD38EWDZyroRmxUw4yW4Q0JIlTiehc4J/I3gXDlwSqsmLKHmPbwteLqAvvr0Vyjc16YLtN4WyBhilWrkRXtkjTHHfbJPxxy4juojQ8b7neEBQhkogkpKeQZ8Vb+ifynAWRTFewIBk91NCaVtDHKE4vQkEeOMPkjgcLxCJHnOWsqAl7yUJoXcDQY0k7lmJeYpPvn7AiiXt4xvjlBc3hN8rDK+z0hOr+EdXnXyjmHzD+G8rpO/T8DDM/Qk9kfoE7/IS+f2WE9GklIpYRzeMO08NX9MOeng60YGALjfDjDO8/sZX8e5SJDMSndRPTyL+gj5Zt1NYNhnFPIY+OVe/aDuNu4gc8BC2IlsJc4K3Ka2sk7Ld0eV4rt7w/EX+kbd5gRY1SUNqd2iUNLbWsa9us3BSM4mMTa8kZZpUztkaSMVrO6zK7KfeSVV/axtgyjOFVwbdU6U3OcVM0XEh1FOSlINRxn/F3RSHNW0jm5sroncTCrMbLNCSBkOpKSPmY/prutWkJsyzE0tBH36yr4Io6sFwMt8bsomDCNBKKBhjlOR+5FFbBP3/kBXe/WcT2AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
@@ -4176,8 +4192,8 @@ DB 연결 정보를 &lt;strong&gt;코드가 아닌 properties로으로 값을 �
     &lt;/span&gt;
     &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;HikariPool 객체 초기화&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;실제로 디버깅을 통해 HikariPool 내에 존재하는 Pool에 등록된 &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt; 객체와 반환된 &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt; 객체가 동일한 객체임을 확인할 수 있습니다.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+&lt;p&gt;실제로 디버깅을 통해 HikariPool 내에 존재하는 Pool에 등록된 Connection 객체와 반환된 Connection 객체가 동일한 객체임을 확인할 수 있다.
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
       &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/e2944a14381f71de3562a8e66ba857e8/0c139/same-connection.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 66.47058823529413%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAACM0lEQVR42n3S2W7TQBQGYD9L2yyN97HHy8zYjl0vSdu4rQShqkoXHgAVhBCICwQv/nM8SUmqIi4+/WdOohn7jA3T9jE4thkck2E69uG6BXhYIgxKBGy+SU8ioGS0tm0Fh/jUY/5zSniOgOE5JjYszMYTHMwSHLEFJqwmjTamemQLjHxKv8GhW2kHzsbhM+oZMq8RpwWdwBBGCTjnevPR6Ajjv0aY0GHP68l4pE0n41f0hkVRI5IlElVBZTXyeUf1CeKhJystFi/rKJ0jiDKwrWDLcHiNuu6xPF2jWl6jWd0ib98ia97oLPYM66i4RJhdgMkVLN69YswsF6lQkELC9hgshy7IdLThtx0H021fo55pe9QnlOaWYdIfWxWjLWmOQQTXD+CxUKfj+rDJUOv5ximiQSJe4NteTAyLN6iqHs1iDdXQq7ZrlKc3kPUavliBqR6eOIcdLWHHe6K93KuNKX2DIopwdlIiUxmUypGqORhPEXCBMJbwwxSmE9A4Nsz/MI4tH2nIcV7l6ObDhpnexPHptRnXH/10ZtPcXD3D3RzdfzKOTZs29LHIE3RZglLGEEkMTjMb5iXogFRKJKlAlhd0gcOshlkmCOhBgiBEyKNNHYZ0y3EPMb9Cf3WPs8tHdKt7NP0H5Is7hMU7xCe3UN0DRHuHbPm4s3jQRPseanEP2W0YTvURXvMJ+cUXVNe/0Nz8Rk3ZUlbrn1BXPyAuviPtyeobJNUJZXT2FV77GVb19MIfVTeyALBoLdMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
@@ -4190,8 +4206,8 @@ DB 연결 정보를 &lt;strong&gt;코드가 아닌 properties로으로 값을 �
     &lt;/span&gt;
     &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;동일한 Connection 확인 결과&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;그런데 신기한 사실을 발견할 수 있었습니다. 테스트 메서드가 끝나기 전에, &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt; 객체가 총 10개가 만들어지는 것을 확인할 수 있었는데요.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+&lt;p&gt;그런데 신기한 사실을 발견할 수 있었다. 테스트 메서드가 끝나기 전에, Connection 객체가 총 10개가 만들어지는 것을 확인할 수 있었다.
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
       &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/c651dee684f057266a3ac8464ae41969/59080/auto-create-connections.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 77.05882352941177%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAACW0lEQVR42o2Ty3abQAyGeZfm1MaAuTNcZ7hjwE6apIueLPL+b/FXGtvUbTZd/Ecazcw3khDGkzvgm1YP9p+8kXSP3df/L6OoZ2RyRFYOsL0Ynu9DpBlEIpAKAdM0sd/vtXa7R+20/f5PzMjKlmA1qrKBUg3KqoGULUpa50UNkSvEooLIJHKKZQWr1j6rqNotztbo2gbWMUSVprh0CitprOlyTpBcIklLhHFG0BKqGSDrTqvpJtTtiG44ab/teT3AqDMPVjwhzM8Y559o5g8Uwy+o0wfa8yf6y6f2ORZWb4jUO0L5hoD8UL6TfaX4O/zyFVaywpApAY8BDk4IEcfoqwqtVDr9ml4uVY+c2lC3E5qesulnLV53wwJJWSdZhSDO4dA3MCpxhO24MG0Xke9hVjmaMkcUC/hhDOfoY3+wv8q0sTMt0t1aMC2HMiSg5Xg42B7iIMAgC2qwhE1Z2wRz3FDL9SNSjKMXad8PE0RJTv1Nqb859bpARNZQmf8XcKkLDIo+Bm36kaBMU/1hGOC4AQFDLS+IEdD+XQxmGYp7SECTgX6AtSnQq4qyrOjSNYuiqjWMy9sfHF0a22u5f8SxDXggiShEWxVQZYlSNgiTjICZfjm6+VzaY5m61IdzWw+5X7IQ+mAoChrkEv0447RcMM0XzOszxtOK9fIDw7SQVh2b5rM+w3s8jw9Aj4AJ/XbXl1MabB5WhrLG03l7gIeZxRAGDtN8G/DxK5BhMWd4A16zWW4XF8rqZXuEY8v5ZTvD52mw3Q2oqOQNSCXzq1+BzxrWDVcgrznOMQb+BrE19Z3O667zAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
@@ -4203,24 +4219,23 @@ DB 연결 정보를 &lt;strong&gt;코드가 아닌 properties로으로 값을 �
     &lt;/span&gt;
     &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;갑자기 알아서 만들어진 Connnection 객체들&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;이를 이해하기 위해 조금 더 깊이 파보았지만 &lt;code class=&quot;language-text&quot;&gt;DataSourceConfig&lt;/code&gt; 객체에 선언된 &lt;code class=&quot;language-text&quot;&gt;maxPoolSize&lt;/code&gt;가 10으로 설정되어 있다는 정보 말고는 &lt;code class=&quot;language-text&quot;&gt;maxPoolSize&lt;/code&gt; 수 만큼 &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt; 객체를 만들어 저장하는 부분을 찾지 못했습니다..&lt;br&gt;
-(이 부분 어디서 확인할 수 있는지 아시는 분 댓글 부탁드립니다 😭)&lt;/p&gt;
-&lt;p&gt;어찌됐건 결과적으로 Spring Boot를 사용해서 properties에 DB 연결 정보를 입력하면 &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt; 객체를 생성하기 위해 &lt;code class=&quot;language-text&quot;&gt;HikariDataSource&lt;/code&gt; 구현체가 사용되고, 그에 따라 &lt;em&gt;maxPoolSize&lt;/em&gt; 로 설정된 사이즈만큼 &lt;code class=&quot;language-text&quot;&gt;Connection Pool&lt;/code&gt;에 &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt; 객체를 미리 만들어 놓은 다음 &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt; 객체를 재사용하는 것까지 확인할 수 있었습니다.&lt;/p&gt;
-&lt;p&gt;HikariCP에 대한 자세한 이해는 따로 포스팅으로 정리하도록 하겠습니다.&lt;/p&gt;
-&lt;h3&gt;분산 트랜잭션&lt;/h3&gt;
-&lt;p&gt;Connection Pool 처럼 &lt;code class=&quot;language-text&quot;&gt;DataSource&lt;/code&gt; 객체로 만들어진 &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt; 객체는 분산 트랜잭션에 참여할 수 있습니다.&lt;/p&gt;
-&lt;p&gt;분산 트랜잭션은 MSA에서 사용되는 개념이므로 여기선 패스하겠습니다..!&lt;/p&gt;
+&lt;p&gt;이를 이해하기 위해 조금 더 깊이 파보았지만 &lt;code class=&quot;language-text&quot;&gt;DataSourceConfig&lt;/code&gt; 객체에 선언된 &lt;code class=&quot;language-text&quot;&gt;maxPoolSize&lt;/code&gt;가 10으로 설정되어 있다는 정보 말고는 &lt;code class=&quot;language-text&quot;&gt;maxPoolSize&lt;/code&gt; 수 만큼 Connection 객체를 만들어 저장하는 부분을 찾지 못했다..&lt;br&gt;
+(이 부분 어디서 확인할 수 있는지 아시는 분은 댓글 남겨주시면 감사하겠습니다 😭)&lt;/p&gt;
+&lt;p&gt;결과적으로 Spring Boot를 사용해서 properties에 DB 연결 정보를 입력하면 &lt;code class=&quot;language-text&quot;&gt;HikariDataSource&lt;/code&gt; 구현체가 사용되고, 그에 따라 &lt;em&gt;maxPoolSize&lt;/em&gt; 로 설정된 사이즈만큼 Connection Pool에 Connection 객체를 미리 만들어 놓은 다음 Connection 객체를 재사용하는 것까지 확인할 수 있었다.&lt;/p&gt;
+&lt;h3&gt;2-4. 분산 트랜잭션&lt;/h3&gt;
+&lt;p&gt;Connection Pool 처럼 DataSource 객체로 만들어진 Connection 객체는 분산 트랜잭션에 참여할 수 있다.&lt;/p&gt;
+&lt;p&gt;분산 트랜잭션은 MSA에서 사용되는 개념이므로 여기선 패스하겠다..!&lt;/p&gt;
 &lt;h2&gt;3. Statements&lt;/h2&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt; 객체를 통해 DB와 세션을 맺었으면, 이제 쿼리를 날려볼 차례입니다.&lt;br&gt;
-JDBC는 각 벤더 상관없이 SQL 문을 작성할 수 있도록 &lt;code class=&quot;language-text&quot;&gt;Statement&lt;/code&gt; 인터페이스를 제공합니다.&lt;br&gt;
-좀 더 정확히 언급하면, 3종류의 &lt;code class=&quot;language-text&quot;&gt;Statement&lt;/code&gt;가 존재합니다.&lt;/p&gt;
+&lt;p&gt;Connection 객체를 통해 DB와 세션을 맺었으면, 이제 쿼리를 날릴 차례다&lt;br&gt;
+JDBC는 각 DB 종류에 상관없이 SQL 문을 작성할 수 있도록 &lt;code class=&quot;language-text&quot;&gt;Statement&lt;/code&gt; 인터페이스를 제공한다.&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Statement&lt;/code&gt;에는 세 종류가 존재한다.&lt;br&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;Statement&lt;/code&gt;: 순수 문자열로 이루어진 SQL 문입니다. 파라미터가 존재하지 않습니다.&lt;/li&gt;
-&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;PreparedStatement&lt;/code&gt;: SQL 문에 파라미터가 존재할 때 사용됩니다. &lt;code class=&quot;language-text&quot;&gt;Statement&lt;/code&gt; 객체를 상속합니다.&lt;/li&gt;
-&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;CallableStatement&lt;/code&gt;: 입력과 출력에 파라미터를 포함할 수 있는 스토어드 프로시저를 실행할 때 사용됩니다. &lt;code class=&quot;language-text&quot;&gt;PreparedStatement&lt;/code&gt;를 상속합니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;Statement&lt;/code&gt;: 순수 문자열로 이루어진 SQL 문이다. 파라미터가 존재하지 않는다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;PreparedStatement&lt;/code&gt;: SQL 문에 파라미터가 존재할 때 사용한다. &lt;code class=&quot;language-text&quot;&gt;Statement&lt;/code&gt; 객체를 상속한다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;CallableStatement&lt;/code&gt;: 입력과 출력에 파라미터를 포함할 수 있는 스토어드 프로시저를 실행할 때 사용된다. &lt;code class=&quot;language-text&quot;&gt;PreparedStatement&lt;/code&gt;를 상속한다.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;아래 사진은 &lt;code class=&quot;language-text&quot;&gt;Statement&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;PreparedStatement&lt;/code&gt;를 사용하는 예시 코드입니다.&lt;br&gt;
-(&lt;code class=&quot;language-text&quot;&gt;CallableStatment&lt;/code&gt;는 사용해본 적이 없고 잘 사용하지 않는 것 같아 뺐습니다.)&lt;/p&gt;
+&lt;p&gt;아래 사진은 &lt;code class=&quot;language-text&quot;&gt;Statement&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;PreparedStatement&lt;/code&gt;를 사용하는 예시 코드이다.&lt;br&gt;
+(&lt;code class=&quot;language-text&quot;&gt;CallableStatment&lt;/code&gt;는 사용해본 적이 없고 잘 사용하지 않는 것 같아 제외했다.)&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
       &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/3b83ff61f8e1d93d51dbc3868cfdc1e0/91652/statements.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
@@ -4233,25 +4248,35 @@ JDBC는 각 벤더 상관없이 SQL 문을 작성할 수 있도록 &lt;code clas
     &lt;/span&gt;
     &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;Statement와 PreparedStatement&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Statement&lt;/code&gt; 인터페이스에는 다음과 같은 메서드들이 있고, 이 메서드들은 DB에 쿼리를 날려주는 메서드입니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Statement&lt;/code&gt; 인터페이스에는 쿼리를 실행하는 메서드들이 아래와 같이 존재한다.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;execute&lt;/code&gt;: 주어진 SQL 문을 수행하고 그 결과가 &lt;code class=&quot;language-text&quot;&gt;ResultSet&lt;/code&gt;이면 true를, 그렇지 않고 결과값이 없거나 update count 인 경우 false를 반환합니다.&lt;/li&gt;
-&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;executeQuery&lt;/code&gt;: SQL 문을 수행하고 &lt;code class=&quot;language-text&quot;&gt;ResultSet&lt;/code&gt; 객체를 반환합니다.&lt;/li&gt;
-&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;executeUpdate&lt;/code&gt;: SQL 문이 수행되고 처리된 Row의 수를 반환합니다. &lt;code class=&quot;language-text&quot;&gt;INSERT&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;DELETE&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;UPDATE&lt;/code&gt; 문을 수행하는 경우 사용할 수 있습니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;execute&lt;/code&gt;: 쿼리를 수행하고 그 결과가 &lt;code class=&quot;language-text&quot;&gt;ResultSet&lt;/code&gt;이면 true를, 그렇지 않고 결과값이 없거나 update count 인 경우 false를 반환한다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;executeQuery&lt;/code&gt;: 쿼리를 수행하고 &lt;code class=&quot;language-text&quot;&gt;ResultSet&lt;/code&gt; 객체를 반환한다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;executeUpdate&lt;/code&gt;: 쿼리를 수행되고 쿼리가 적용된 Row 수를 반환한다.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;4. ResultSet&lt;/h2&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Statement&lt;/code&gt;의 결과, 즉 쿼리 결과로 &lt;code class=&quot;language-text&quot;&gt;ResultSet&lt;/code&gt; 객체가 반환됩니다.&lt;br&gt;
-&lt;code class=&quot;language-text&quot;&gt;ResultSet&lt;/code&gt; 객체는 조회해온 결과에 접근할 수 있도록 하는 객체입니다.&lt;br&gt;
-쿼리 결과로 2개 이상의 행이 조회될 수 있고, 각 행에 접근할 때 바로 이 &lt;code class=&quot;language-text&quot;&gt;ResultSet&lt;/code&gt;을 통해 접근하게 됩니다.&lt;/p&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;ResultSet&lt;/code&gt;에는 &lt;em&gt;커서&lt;/em&gt; 개념이 적용됩니다.&lt;br&gt;
-쿼리 결과를 조회해오면 처음 커서의 위치는 -1이 됩니다. 그리고 &lt;code class=&quot;language-text&quot;&gt;ResultSet#next()&lt;/code&gt; 메서드를 통해 다음 행에 접근할 수 있습니다.&lt;br&gt;
-행에 접근하면, &lt;code class=&quot;language-text&quot;&gt;ResultSet#get???()&lt;/code&gt; 메서드를 통해 값을 가져올 수 있습니다.&lt;br&gt;
-만약 ID를 가져오려면 &lt;code class=&quot;language-text&quot;&gt;resultSet.getLong(1);&lt;/code&gt;을 호출하거나 &lt;code class=&quot;language-text&quot;&gt;resultSet.getObject(1, Long.class);&lt;/code&gt;를 호출하면 됩니다.&lt;br&gt;
-이때 첫 번째 파라미터로 &lt;code class=&quot;language-text&quot;&gt;columnIndex&lt;/code&gt; 값이 들어가게 되는데 이 값은 &lt;code class=&quot;language-text&quot;&gt;SELECT&lt;/code&gt; 절에 있는 칼럼 순서를 나타냅니다. 여기서 주의할 점은 첫 번째 값이 0으로 시작하는 일반적인 index와 다르게 1부터 시작한다는 점입니다.&lt;/p&gt;
-&lt;p&gt;백문이 불여일타. 직접 코드로 이해해보겠습니다.&lt;/p&gt;
+&lt;p&gt;지금까지 DB와 Connection을 맺고, 쿼리를 수행했으면, 쿼리의 결과를 가져올 차례다.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;ResultSet&lt;/code&gt;는 DB에서 조회해온 결과(데이터)에 접근할 수 있도록 하는 객체이다.&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;ResultSet&lt;/code&gt;에는 &lt;strong&gt;커서 개념&lt;/strong&gt;이 적용된다.&lt;br&gt;
+쿼리 결과를 조회해오면 처음 커서의 위치는 -1이다. 그리고 &lt;code class=&quot;language-text&quot;&gt;ResultSet#next()&lt;/code&gt; 메서드를 통해 다음 행에 접근할 수 있다.&lt;br&gt;
+접근할 행이 존재한다면 &lt;code class=&quot;language-text&quot;&gt;ResultSet#get???()&lt;/code&gt; 메서드를 통해 값을 가져올 수 있다.&lt;br&gt;
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 349px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/032fda1ed4c06ba8d4d655258a24978f/c5d44/get-methods.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 266.47058823529414%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAA1CAYAAABBecueAAAACXBIWXMAAAsTAAALEwEAmpwYAAAGd0lEQVR42pVXaVvaahD119xHJUF2VJA1YU0CuOKKS2+f24qiVm2rVRGV+q/nzpm80VYp0A+vCQInZ2bOnBkmdH+IZqIR0hJBCs8nqFS2KW+WyCxWyB8I0z+TPpqc1mlamyGfHhh5JjQ9SFowRMFIkFKxGGUMk8pVh0oVm+YSKZpPpmkhnRPwcUAn8GeKPxjRQ2QGw+RntgVmVyhVKW8UyXIaVCxbFAhFx2MogHxC/iDlQ8x0Lk4Gh1y1asKswleN30Po+Kw2LmCYc2mEoxSIxzjkGtn1JaraDcrkCmTXFsnh19HZBE35dHnAn3MYyZMvfUCR1BaZC3UKlw7I2rikSvOcSqtfyOb7fKND5bVzKqyckZ5qkS+5w9fdX06LdMbQZh0GjFdJNy8pmm+TkdmiqHNGiwfPVN15JGvniZzdPpnrXTKbXbL53uBrtHJJev6E/MapOnxvXpCe3GDAWIV0/mc09x+ZmQ2K2ifktB7J3ulRZatLpc07Km3ckbl2Q8bqD6pu3VPCuSQt1yZ//kidtgDriaYHeMaAnwQwYneotvtEtT0w7FF5s0s5BgK4lj2iqfShXP35418Ov2aMgYBg2NhDqA/MrEvV7R4VmrdU5/+lF68EYMY4Hh8wVjuVL1e375nVPRkcanb5ikKFEwoVT98AjQA0FMMa57C4fsv560ru0ovfKVY9Z2ad8QA1fhFjwEJmnavsFqW4fse5fBSmuZVrYT1rnZOeO/p7hk7rQcKtbN5LHnMrPwQ4zCFPc1GQw5m8OsYohgxY5yqjujYDg6XJRclzpXFvrN7QVOqzHIDj+HNDihLnoiwd/KTF/b6ECVBUHLpEGuwdZo+H8dVs3ohGA2A5SIdeyMv/PtPqx2fumL6AOcwMaYCEssvXAox7KKDAxfsjoMkhR1SniKg5f+UttyhgUuE8atm2iBtnOjNGyJ5sEBLCLHOHgEmdOydUOFXC7lDA7MjVldIoQA4RjAAGVqnGd6nynH3JxTgkX6Yt7F5bcESnABDCRqW9XFl8TS9dUYYPhA4piUlkj4YApl2GqC6SDXZeQZBTgImc+B4PxX2QW1IflUPkDx+GqCHuitzfyUPkf1woVBoPQRp0WJk5RIfLH35Sff9JmK6IfJ5EQosf+mJrAJTXfPB+gfWowXCTA/2Q7WvftS+XxYNynq7rjaxDq9VTGnXBpf0Gh7xJMYftS5kCPmzzl+HSZRU2DooSLZ/RPBdl1r4YLRuEKubAx1KjAFUWdqg2A0KHkI8v2x4OGFE69AqDA2AwhkngIFyYhCZgx+MxBCjYeEwxBgAa4VCn0+03vjiMoaUYth5E3BA2wgYgHoDJ995kx5wpLsPXQQXNxatw7bEde/NlLkMynniRRxQiJF3xl0MKRQEIzNPzQDDFsMI9jAL9+/soHVYU50Ssytq+lzwCHMAwCFR+zrqgSbZ/17q82TKiKAgZAgYjdAzyiQLBYRA+CiNGm4LJspWlP/Ouw46dHDJTwBL9LGGzbNDfUqid3ovIs+zkyG2GT7h8Qdr82vuixDBT+Mto+iUWMMJu8MCCZYEtzMFU/rjEZoGH4L249ZV8bwG9TvH8D1ZlqWkH2SCPMATM58mFT5JLhI2R+seQY44rbBmdLXeuIGSAIwVzzqUIO/DbXOHCmGMURdxGAWJ8ltlsk7WvMulQFJiDNswcDFUUFMRrO4DidWH9TlgidNgW5kmCwdE9Y009uAok4sqm99KKADXXbt01RTaLHkVKp4ND9joFAsYX3bA9Y3V72tNjRfLqajVZ/0pTmc77EWCk3ZCx14AlTGKJJYSRIEfNEcgFgPhMQ2YP3Kn/KpvX7cubKX2RTpEZoEAoCsJFmDIK1DiQobXrtums/e29sD3ZCCDnzjNYSxkE8gg2XgoWGt8oi+HPnTJYNhxy7NdlSRUFefO2B+QUlYaMIGy3lw8Hb18IOVQ9lqc7avIhPLBCz+IBcV6LXbc5ZmGfKHEfD5NNR/KC4Y2NQexLrR3oYfQy9DepNlisdbI5DF6JX3UIIPFDpT1PRnivtvfq6NArentgLxtqpuCHDyTjtB5e2KHiskQ1XR3C0ZFXsIaw3wB+YcDPsjlE7VMWNlYMMGQmzCzPM7jQZHZ7fTEH2V7TbTlT3khlDBVymdE7FM1+5CqvcZWPeBXhda0F4XJVN2/l3tqGhV3z7s2/TlevSc/yzwv+0Yjjzx3KbNETq/Q//fkTJCLO4kUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;ResultSet에 있는 많은 get 메서드들&apos; title=&apos;&apos; src=&apos;/static/032fda1ed4c06ba8d4d655258a24978f/c5d44/get-methods.png&apos; srcset=&apos;/static/032fda1ed4c06ba8d4d655258a24978f/e7570/get-methods.png 170w,
+/static/032fda1ed4c06ba8d4d655258a24978f/f46e7/get-methods.png 340w,
+/static/032fda1ed4c06ba8d4d655258a24978f/c5d44/get-methods.png 349w&apos; sizes=&apos;(max-width: 349px) 100vw, 349px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;ResultSet에 있는 많은 get 메서드들&lt;/figcaption&gt;
+  &lt;/figure&gt;
+만약 id 칼럼의 데이터를 가져오려면 &lt;code class=&quot;language-text&quot;&gt;resultSet.getLong(1);&lt;/code&gt;을 호출하거나 &lt;code class=&quot;language-text&quot;&gt;resultSet.getObject(1, Long.class);&lt;/code&gt;를 호출하면 됩니다.&lt;br&gt;
+이때 &lt;strong&gt;첫 번째 파라미터로 &lt;code class=&quot;language-text&quot;&gt;columnIndex&lt;/code&gt; 값이 들어가게 되는데 이 값은 &lt;code class=&quot;language-text&quot;&gt;SELECT&lt;/code&gt; 절에 있는 칼럼 순서&lt;/strong&gt;를 나타낸다. 이때 주의할 점은 첫 번째 값이 0으로 시작하는 일반적인 index와 다르게 1부터 시작한다는 점이다.&lt;/p&gt;
+&lt;p&gt;직접 코드로 이해해보자.&lt;/p&gt;
 &lt;h2&gt;5. Connection 부터 ResultSet 까지 직접 코드로 확인해보기&lt;/h2&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Member&lt;/code&gt; 라는 테이블을 만들고 &lt;code class=&quot;language-text&quot;&gt;id&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;name&lt;/code&gt; 필드가 존재하는 상황을 만들고&lt;br&gt;
-&lt;code class=&quot;language-text&quot;&gt;Statement&lt;/code&gt;를 통해 조회해서 값을 꺼내는 코드와 &lt;code class=&quot;language-text&quot;&gt;PreparedStatement&lt;/code&gt;를 통해 쿼리에 파라미터를 삽입하여 조회하는 상황을 코드로 작성하고 테스트로 검증해보겠습니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;id&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;name&lt;/code&gt; 칼럼을 가지는 &lt;code class=&quot;language-text&quot;&gt;Member&lt;/code&gt; 테이블을 만들자.&lt;br&gt;
+그리고 &lt;code class=&quot;language-text&quot;&gt;Statement&lt;/code&gt;를 이용해 데이터를 조회하는 코드와 &lt;code class=&quot;language-text&quot;&gt;PreparedStatement&lt;/code&gt;를 통해 쿼리에 파라미터를 삽입하여 조회하는 상황을 코드로 작성하고 테스트로 검증해보겠다.&lt;/p&gt;
 &lt;h3&gt;5-1. &lt;code class=&quot;language-text&quot;&gt;Statement&lt;/code&gt;를 이용해 결과 조회&lt;/h3&gt;
 &lt;p&gt;&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
       &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/5d1e04dc3e4dfa7bd12abf95170a9902/2876f/using-statement.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
@@ -4262,7 +4287,7 @@ JDBC는 각 벤더 상관없이 SQL 문을 작성할 수 있도록 &lt;code clas
 /static/5d1e04dc3e4dfa7bd12abf95170a9902/2876f/using-statement.png 968w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;값이 잘 들어가있는 것을 확인할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;값이 잘 들어가있는 것을 확인할 수 있다.&lt;/p&gt;
 &lt;h3&gt;5-2. &lt;code class=&quot;language-text&quot;&gt;PreparedStatement&lt;/code&gt;를 이용해 결과 조회&lt;/h3&gt;
 &lt;p&gt;이번엔 성이 &apos;강&apos; 씨인 member를 조회하는 코드를 작성해보겠습니다.&lt;/p&gt;
 &lt;p&gt;&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
@@ -4276,10 +4301,9 @@ JDBC는 각 벤더 상관없이 SQL 문을 작성할 수 있도록 &lt;code clas
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;h2&gt;마치며&lt;/h2&gt;
-&lt;p&gt;지금까지 JDBC를 이해하기 위해 &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;DriverManager&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;DataSource&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;ConnectionPool&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;Statement&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;ResultSet&lt;/code&gt;에 대해 알아보았습니다.&lt;/p&gt;
-&lt;p&gt;최근까지 JPA, Spring Data JPA를 사용하다가 JDBC를 사용해보니, 확실히 쿼리를 실행하고 결과를 받아오기까지 많은 리소스가 들어가지만 DB 연결부터 쿼리 작성, 결과를 추출하기까지 수작업으로 하다보니 JPA가 데이터를 어떻게 가져올 지 그림이 그려지는 것 같습니다.&lt;br&gt;
-JDBC는 데이터 접근 기술의 가장 근본이며 기본이므로 이번 기회에 확실히 이해했으면 좋겠습니다.&lt;/p&gt;
-&lt;p&gt;감사합니다.&lt;/p&gt;
+&lt;p&gt;지금까지 JDBC를 이해하기 위해 &lt;code class=&quot;language-text&quot;&gt;Connection&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;DriverManager&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;DataSource&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;ConnectionPool&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;Statement&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;ResultSet&lt;/code&gt;에 대해 알아보다.&lt;/p&gt;
+&lt;p&gt;항상 JPA, Spring Data JPA를 사용하다가 JDBC를 직접 사용해보니, 쿼리를 실행하고 결과를 받아오기까지 많은 리소스가 들어가지만 DB 연결부터 쿼리 작성, 결과를 추출하기까지 직접 해보니 JPA가 데이터를 어떻게 가져올 지 그림이 그려지는 것 같다.&lt;br&gt;
+JDBC는 데이터 접근 기술의 가장 근본이며 기본이므로 헷갈릴 때마다 다시 보며 공부해야다.&lt;/p&gt;
 &lt;h3&gt;References&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;ul&gt;
@@ -4287,7 +4311,17 @@ JDBC는 데이터 접근 기술의 가장 근본이며 기본이므로 이번 �
 &lt;li&gt;&lt;a href=&quot;https://docs.oracle.com/javase/tutorial/jdbc/basics/processingsqlstatements.html&quot;&gt;https://docs.oracle.com/javase/tutorial/jdbc/basics/processingsqlstatements.html&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/javax/sql/package-summary.html&quot;&gt;https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/javax/sql/package-summary.html&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[[Spring] 스프링 컨테이너, 그리고 IoC/DI]]></title><description><![CDATA[들어가며 이번에는 스프링 애플리케이션의 핵심인 스프링 컨테이너와 스프링의 핵심 프로그래밍 모델 중 하나인 IoC/DI에 대해 학습한 내용을 정리해보겠습니다. 참고로 토비의 스프링 3.1을 통해 학습을 진행했습니다. 1. IoC 컨테이너: Bean…]]></description><link>https://kdkdhoho.github.io/ioc-container-and-di/</link><guid isPermaLink="false">https://kdkdhoho.github.io/ioc-container-and-di/</guid><pubDate>Thu, 07 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn-1&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://dev.mysql.com/doc/refman/8.0/en/innodb-performance-ro-txn.html&quot;&gt;Optimizing InnoDB Read-Only Transactions - MySQL&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;#fnref-1&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</content:encoded></item><item><title><![CDATA[[Spring] 스프링 컨테이너, 그리고 IoC/DI]]></title><description><![CDATA[들어가며 이번에는 스프링 애플리케이션의 핵심인 스프링 컨테이너와 스프링의 핵심 프로그래밍 모델 중 하나인 IoC/DI에 대해 학습한 내용을 정리해보겠습니다. 참고로 토비의 스프링 3.1을 통해 학습을 진행했습니다. 1. IoC 컨테이너: Bean…]]></description><link>https://kdkdhoho.github.io/ioc-container-and-di/</link><guid isPermaLink="false">https://kdkdhoho.github.io/ioc-container-and-di/</guid><pubDate>Thu, 07 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
 &lt;p&gt;이번에는 스프링 애플리케이션의 핵심인 &lt;u&gt;스프링 컨테이너&lt;/u&gt;와 스프링의 핵심 프로그래밍 모델 중 하나인 &lt;u&gt;IoC/DI&lt;/u&gt;에 대해 학습한 내용을 정리해보겠습니다.&lt;/p&gt;
 &lt;p&gt;참고로 &lt;a href=&quot;https://m.yes24.com/Goods/Detail/75738556&quot;&gt;토비의 스프링 3.1&lt;/a&gt;을 통해 학습을 진행했습니다.&lt;/p&gt;
 &lt;h2&gt;1. IoC 컨테이너: Bean Factory와 Application Context&lt;/h2&gt;
