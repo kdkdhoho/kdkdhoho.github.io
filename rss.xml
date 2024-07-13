@@ -1,4 +1,207 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 13 Jul 2024 04:10:56 GMT</lastBuildDate><item><title><![CDATA[[회고] 07.01 ~ 07.07]]></title><description><![CDATA[What I Studied DFS&BFS, 다익스트라 복습 ! Java 쓰레드 정리법 CS 공부할 때 얼추 손으로 정리하고, 블로그에 정리하는 게 더 정리가 잘된다. Java…]]></description><link>https://kdkdhoho.github.io/july-1st/</link><guid isPermaLink="false">https://kdkdhoho.github.io/july-1st/</guid><pubDate>Sun, 07 Jul 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;What I Studied&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 13 Jul 2024 06:53:24 GMT</lastBuildDate><item><title><![CDATA[객체지향 설계 원칙: SOLID]]></title><description><![CDATA[객체지향을 공부하면 빠질 수 없는 내용이 있다.
+바로 SOLID 라고 불리는 객체지향 설계 원칙이다.
+이번 글은 SOLID 원칙이 무엇이고 왜 탄생하게 되었으며 각 원칙은 무엇을 의미하는지 알아보겠다. SOLID 원칙 SOLID…]]></description><link>https://kdkdhoho.github.io/solid/</link><guid isPermaLink="false">https://kdkdhoho.github.io/solid/</guid><pubDate>Sat, 13 Jul 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;객체지향을 공부하면 빠질 수 없는 내용이 있다.&lt;br&gt;
+바로 &lt;em&gt;SOLID&lt;/em&gt; 라고 불리는 객체지향 설계 원칙이다.&lt;br&gt;
+이번 글은 SOLID 원칙이 무엇이고 왜 탄생하게 되었으며 각 원칙은 무엇을 의미하는지 알아보겠다.&lt;/p&gt;
+&lt;h2&gt;SOLID 원칙&lt;/h2&gt;
+&lt;p&gt;SOLID는 객체지향 프로그래밍을 할 때 객체지향의 특징을 잘 살릴 수 있는 설계 원칙이다.&lt;br&gt;
+총 5가지의 원칙이 있으며, 원칙이라는 이름이 붙은만큼 다섯 가지의 원칙을 모든 상황에서 지켜야 하는 것은 아니다. 대부분의 상황에 적절히 사용 가능한 &lt;em&gt;가이드라인&lt;/em&gt;과도 같다.&lt;br&gt;
+다만, SOLID를 생각하며 코드를 설계하고 작성하면 객체지향의 큰 장점인 유연함과 생산성이 향상되는 것을 느낄 수 있을 것이다.&lt;/p&gt;
+&lt;p&gt;이제 다섯 가지 원칙에 대해 알아보자.&lt;/p&gt;
+&lt;h3&gt;SRP: 단일 책임 원칙&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;클래스나 모듈이 변경되는 이유는 단 한가지 때문이어야 한다&lt;/strong&gt;는 원칙이다.&lt;br&gt;
+아래 코드는 백엔드 개발자를 나타내는 객체를 나타내본 코드다.&lt;br&gt;
+메서드를 보면 서버를 구축하고 DB를 설정하며 MainPage를 개발하는 역할을 가진다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;SpringBackendDeveloper&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;deployServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupDatabase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;developMainPage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;보통 백엔드 개발자의 역할은 API 서버와 관련된 일을 수행한다.&lt;br&gt;
+MainPage를 개발하는 것은 &lt;strong&gt;백엔드 개발자의 관심사가 아니다&lt;/strong&gt;.&lt;br&gt;
+아래와 같은 백엔드 개발자가 있다면 MainPage를 수정해야 하는 상황이 생긴 순간, 백엔드 서버와 관련된 일뿐만 아니라 프론트엔드의 책임까지 가지게 되고&lt;br&gt;
+SRP를 위반한다고 할 수 있다.&lt;/p&gt;
+&lt;p&gt;이때, &lt;strong&gt;책임은 상황에 따라 유동적&lt;/strong&gt;일 수 있다.&lt;br&gt;
+요구 사항에 따라, 책임을 나누는 기준에 따라 달라질 수 있다.&lt;br&gt;
+바로 위 코드를 다시 살펴봤을 때, 백엔드 개발자가 MainPage까지 개발하는 것이 책임이라면 SRP를 위반하는 것이 아니게 된다.&lt;br&gt;
+따라서 중요한 것은, &lt;strong&gt;특정 객체의 역할이 무엇인지 잘 정의하는 것&lt;/strong&gt;이다.&lt;/p&gt;
+&lt;h3&gt;OCP: 개방 폐쇄 원칙&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;변경에는 열려있고 수정에는 닫혀 있어야 한다&lt;/strong&gt;는 원칙이다.&lt;br&gt;
+열려있고 닫혀 있다는 표현이 한국어로 표현하면 다소 어색할 수 있는데, 열려있다는 건 허용한다는 의미고 닫혀있다는 건 허용하지 않는다고 이해하면 될 것 같다.&lt;/p&gt;
+&lt;p&gt;아래 코드를 살펴보자.&lt;br&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Boss&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token class-name&quot;&gt;SpringBackendDeveloper&lt;/span&gt; springBackendDeveloper &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;SpringBackendDeveloper&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;developService&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        springBackendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setUpDatabase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        springBackendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;deplyServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Boss&lt;/code&gt; 객체는 &lt;code class=&quot;language-text&quot;&gt;SpringBackendDeveloper&lt;/code&gt; 고용해 서비스 개발에 의존하고 있다.&lt;br&gt;
+그런데 갑자기 Spring이 아니라 Node로 서비스를 마이그레이션 해야 할 상황이 생겼다고 가정해보자.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;Boss&lt;/code&gt;가 의존하는 &lt;code class=&quot;language-text&quot;&gt;SpringBackendDeveloper&lt;/code&gt;을 &lt;code class=&quot;language-text&quot;&gt;NodeBackendDevloper&lt;/code&gt;로 교체하기 위해 모든 코드를 고쳐나가야 할 것이다.&lt;br&gt; &lt;/p&gt;
+&lt;p&gt;이제 아래 코드를 살펴보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BackendDeveloper&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;deployServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupDatabase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;NodeBackendDeveloper&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BackendDeveloper&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;deployServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupDatabase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Boss&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token class-name&quot;&gt;BackendDeveloper&lt;/span&gt; backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Boss&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;BackendDeveloper&lt;/span&gt; backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;backendDeveloper &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;developService&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setupDatabase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;deployServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;BackendDeveloper&lt;/code&gt;라는 인터페이스를 만들고 &lt;code class=&quot;language-text&quot;&gt;NodeBackendDeveloper&lt;/code&gt;가 이를 구현하고 있다.&lt;br&gt;
+동시에 &lt;code class=&quot;language-text&quot;&gt;Boss&lt;/code&gt;는 생성자로 &lt;code class=&quot;language-text&quot;&gt;BackendDeveloper&lt;/code&gt;를 받고, 기존과 동일하게 작업을 요청한다.&lt;br&gt;
+위 코드는 &lt;code class=&quot;language-text&quot;&gt;Boss&lt;/code&gt; 입장에서 봤을 때, &lt;strong&gt;변경에는 열려있고 수정에는 닫혀있는 것&lt;/strong&gt;이다.&lt;/p&gt;
+&lt;p&gt;OCP는 &lt;strong&gt;높은 응집도, 낮은 결합도&lt;/strong&gt;라고도 표현할 수 있다.&lt;br&gt;
+특정 객체의 관심사(&lt;code class=&quot;language-text&quot;&gt;Boss&lt;/code&gt; 입장에서 서비스를 개발하는 것)를 하나의 객체가 모두 담당하고, 관심사가 아닌 것(개발자의 기술스택)과는 느슨하게 연결되어야 한다는 의미다.&lt;/p&gt;
+&lt;h3&gt;ISP: 인터페이스 분리 원칙&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;인터페이스도 관심사에 따라 적절히 분리해야 한다&lt;/strong&gt;는 원칙이다.&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;위의 예시를 계속해서 사용해보자.&lt;br&gt;
+만약 백엔드 개발자 2명과 프론트엔드 개발자 1명을 고용하고 싶다고 가정해보고 적절한 코드를 작성해보았다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FrontendDeveloper&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;developMainPage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Boss&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token class-name&quot;&gt;BackendDeveloper&lt;/span&gt; backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token class-name&quot;&gt;FrontendDeveloper&lt;/span&gt; frontendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Boss&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;BackendDeveloper&lt;/span&gt; backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FrontendDeveloper&lt;/span&gt; frontendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;backendDeveloper &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;frontendDeveloper &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; frontendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;developService&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        frontendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;developMainPage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setupDatabase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;deployServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;화면 개발을 책임지는 &lt;code class=&quot;language-text&quot;&gt;FrontendDeveloper&lt;/code&gt; 인터페이스를 분리해 만들었다.&lt;br&gt;
+그리고 &lt;code class=&quot;language-text&quot;&gt;Boss&lt;/code&gt;는 &lt;code class=&quot;language-text&quot;&gt;BackendDeveloper&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;FrontendDeveloper&lt;/code&gt;를 의존하여 각각에게 적절한 역할을 요청한다.&lt;br&gt;
+만약 풀스택 개발자 1명을 더 데려오고 싶어도 아래와 같이 작성하면 된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FullStackDeveloper&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BackendDeveloper&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FrontendDeveloper&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;deployServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupDatabase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;developMainPage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Boss&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token class-name&quot;&gt;BackendDeveloper&lt;/span&gt; backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token class-name&quot;&gt;FrontendDeveloper&lt;/span&gt; frontendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token class-name&quot;&gt;FullStackDeveloper&lt;/span&gt; fullStackDeveloper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 풀스택 개발자 추가&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Boss&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;BackendDeveloper&lt;/span&gt; backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FrontendDeveloper&lt;/span&gt; frontendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FullStackDeveloper&lt;/span&gt; fullStackDeveloper&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;backendDeveloper &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;frontendDeveloper &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; frontendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fullStackDeveloper &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; fullStackDeveloper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;developService&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        frontendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;developMainPage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        fullStackDeveloper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;developMainPage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setupDatabase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 풀스택 개발자 추가&lt;/span&gt;
+        backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;deployServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        fullStackDeveloper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;deployServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 풀스택 개발자 추가&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;인터페이스를 관심사에 따라 적절히 분리하여 &lt;code class=&quot;language-text&quot;&gt;FullStackDeveloper&lt;/code&gt; 라는 객체가 손쉽게 탄생할 수 있게 되었다.&lt;/p&gt;
+&lt;h3&gt;LSP: 리스코프 치환 원칙&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;하위 타입은 상위 타입을 대체할 수 있어야 한다&lt;/strong&gt;는 원칙이다.&lt;br&gt;
+좀 더 풀어서 설명하면, &lt;strong&gt;상위 타입을 사용하는 클라이언트는 하위 타입이 어떻게 변해도 동일한 동작을 할 것으로 기대하고 보장되어야 한다&lt;/strong&gt;는 것이다. &lt;/p&gt;
+&lt;p&gt;만약 아래와 같은 코드가 있다고 가정해보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;DBA&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BackendDeveloper&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;deployServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupDatabase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;직책(이름)은 DBA인데 정작 &lt;code class=&quot;language-text&quot;&gt;BackendDeveloper&lt;/code&gt;를 상속받아 구현하고 있다.&lt;br&gt;
+만약, &lt;code class=&quot;language-text&quot;&gt;new Boss(new DBA(), ..., ...);&lt;/code&gt; 가 호출된다면 어떻게 될까?&lt;br&gt;
+Boss는 당연히 BackendDeveloper가 수행할 동작들에 대해 기대할 것이다.&lt;br&gt;
+하지만 정작 실행 결과 DBA가 동작을 수행하게 될 것이다.&lt;/p&gt;
+&lt;p&gt;에시가 약간 현실과 괴리감이 있다고 생각할 수 있다.&lt;br&gt;
+하지만 여기서 중요하게 볼 것은 &lt;strong&gt;하위 클래스가 상위 클래스의 동작을 잘 수행하는가?&lt;/strong&gt; 이다.&lt;br&gt;
+또 다른 예시로 Stack과 Vector의 관계가 있다. &lt;sup id=&quot;fnref-1&quot;&gt;&lt;a href=&quot;#fn-1&quot; class=&quot;footnote-ref&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h3&gt;DIP: 의존관계 역전 원칙&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;고수준 모듈은 저수준 모듈의 구현에 의존해서는 안되며, 저수준 모듈이 고수준 모듈에 의존해야 한다&lt;/strong&gt;는 원칙이다.&lt;br&gt;
+말이 조금 어려운데 아래 그림을 통해 이해해보자.
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/6491ff84b1cbec534a282308cd2286df/4c530/dip.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 24.11764705882353%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA30lEQVR42oWP746DIBDEfYy2KmBN/QeIgJ5ie8m9/0vNLduk3y73YcIyv81kp5DqjtE4uMXj0fUQsmGppoW2FrNb4Jxnro398L9USNXCuojjSNB6hrE5IGDSFnZx2Ml//XwjpSdC3P4PrCqBy7VklbWAUHTdvYVsGtzKCpcb+bLm90r/zIVUqIT8qKSMrFooFJbqeB8R1hU+RNYwTngMGgvNIZIX336e+2FEPxlmvE/e4gNndN2AwoWN6x7pxNeekM4X1Z4p0GDddq6aa+/EzvOJcTQUOL93mZ3MErF8yC9jrZRgTmP+mQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;의존관계 역전 원칙&apos; title=&apos;&apos; src=&apos;/static/6491ff84b1cbec534a282308cd2286df/ca1dc/dip.png&apos; srcset=&apos;/static/6491ff84b1cbec534a282308cd2286df/e7570/dip.png 170w,
+/static/6491ff84b1cbec534a282308cd2286df/f46e7/dip.png 340w,
+/static/6491ff84b1cbec534a282308cd2286df/ca1dc/dip.png 680w,
+/static/6491ff84b1cbec534a282308cd2286df/02d09/dip.png 1020w,
+/static/6491ff84b1cbec534a282308cd2286df/4c530/dip.png 1252w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;의존관계 역전 원칙&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&quot;&lt;em&gt;고수준 모듈은 저수준 모듈의 구현에 의존해서는 안되며&lt;/em&gt;&quot; == Boss가 Node, Spring, DjangoBackendDeveloper에 의존해서는 안되며&lt;br&gt;
+&lt;br&gt;
+&quot;&lt;em&gt;저수준 모듈이 고수준 모듈에 의존해야 한다&lt;/em&gt;&quot; == Node, Spring, DjangoBackendDeveloper가 BackendDeveloper에 의존해야 한다.&lt;/p&gt;
+&lt;p&gt;로 이해할 수 있다.&lt;/p&gt;
+&lt;h2&gt;마치며&lt;/h2&gt;
+&lt;p&gt;지금까지 SOLID 원칙에 대해 알아보았다.&lt;br&gt;
+결국 다섯 가지 원칙 모두 &lt;strong&gt;객체의 관심사에 따라 적절히 분리&lt;/strong&gt;하고, 이 과정에서 &lt;strong&gt;추상화를 통해 유연한 설계를 하라&lt;/strong&gt;는 의미와 일맥상통 하는 것 같다. &lt;/p&gt;
+&lt;hr&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn-1&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://jaehee329.tistory.com/27&quot;&gt;Stack보다는 ArrayDeque를 쓰자. Stack과 Vector의 문제점&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;#fnref-1&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</content:encoded></item><item><title><![CDATA[[회고] 07.01 ~ 07.07]]></title><description><![CDATA[What I Studied DFS&BFS, 다익스트라 복습 ! Java 쓰레드 정리법 CS 공부할 때 얼추 손으로 정리하고, 블로그에 정리하는 게 더 정리가 잘된다. Java…]]></description><link>https://kdkdhoho.github.io/july-1st/</link><guid isPermaLink="false">https://kdkdhoho.github.io/july-1st/</guid><pubDate>Sun, 07 Jul 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;What I Studied&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;DFS&amp;#x26;BFS, 다익스트라 복습 !&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://kdkdhoho.github.io/thread-in-jvm&quot;&gt;Java 쓰레드&lt;/a&gt;&lt;/li&gt;
