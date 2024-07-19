@@ -1,6 +1,6 @@
 ---
 title: "[Spring] 스프링 애플리케이션 동작과 동시에 DB에 더미 데이터 삽입하기"
-description: "data.sql, @PostConstructor, @EventListener,  @ApplicationRunner"
+description: "data.sql, @PostConstructor"
 date: 2024-07-14
 tags: ["Spring"]
 ---
