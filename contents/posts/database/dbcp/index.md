@@ -68,6 +68,8 @@ Spring Boot 2.0부터 내장되어 사용되는 DBCP 이다.
 
 ### DBCP 설정 (HikariCP 기준)
 
+#### 개수 관련 설정
+
 - `minimumIdle`
   - Pool에서 유지하는 최소한의 Idle Connection의 수이다.
   - 만약 Idle 상태의 Connection 수가 `mimimumIdle` 값보다 작고, 전체 Connection 수가 `maximumPoolSize`보다 작은 상황이라면, 신속하게 새로운 Connection을 생성하고 Pool에 추가한다.
@@ -77,28 +79,27 @@ Spring Boot 2.0부터 내장되어 사용되는 DBCP 이다.
   - Pool이 가질 수 있는 최대 Connection의 수이다.
   - Idle 상태와 Active 상태의 Connection을 모두 포함한다.
 
+#### 시간 관련 설정
+
 - `maxLifetime`
-  - Pool에서 Connection의 최대 수명 시간이다.
-  - Active인 상태는 절대 종료되지 않으며 Connection이 Pool에 반환된 이후의 시간을 토대로 종료한다.<br>
-    이 특징 떄문에, Active 상태의 Connection이 Pool에 모종의 이유로 Pool에 반환되지 않은 시간이 DB 서버의 `wait_timeout`보다 길어진 이후에 DB로 요청을 보내게 되면, DB는 해당 Connection을 이미 Close 했기 떄문에, 해당 과정에서 예외가 발생할 수 있다. 이는 Connection Leak의 문제가 될 수 있다. 
-  - 풀에서 갑작스레 대량 소멸을 방지하기 위해 Connection 별로 일종의 조치를 취해놓았다.
-  - HikariCP 가 권장하길, DB의 `wait_timeout`보다 몇 초 더 짧게 설정하는 것이 좋다고 한다.<br>
-    이유로는, 만약 `wait_timeout`과 `maxLifetime` 값을 동일하게 설정했다고 가정했을 때, `maxLifetime`에 얼마 남지 않은 시점에 요청을 처리해야 한다면, 해당 Connection이 DB 서버로 요청을 보내는 시간이 포함되는데, 요청이 DB 서버에 도달하기 전에 `wait_timeout` 시간이 지나게 되어 DB 서버 쪽에서 Connection을 끊게 된다면 예외가 발생할 수 있기 때문이다.
+  - Connection Pool에서 Connection의 최대 수명 시간이다.
+  - Active 상태의 Connection은 절대 종료되지 않으며 **Connection이 Pool에 반환된 이후의 시간을 기준으로 Connection을 종료**한다.<br>
+    이 특징 때문에, Active 상태의 Connection이 모종의 이유로 Pool에 반환되지 않음과 동시에 DB의 `wait_timeout` 설정 시간 이후에 요청을 보내게 되면, DB는 이미 해당 Connection을 Close 했기 때문에 예외가 발생할 수 있다. 이는 Connection Leak의 문제가 될 수 있다. 
+  - Connection Pool에서 갑작스런 Connection 대량 소멸을 방지하기 위해 Connection 별로 일종의 조치를 취해놓았다.
+  - HikariCP가 권장하길, DB의 `wait_timeout`보다 몇 초 더 짧게 설정하는 것이 좋다고 한다.<br>
+    이유로는, 만약 `wait_timeout`과 `maxLifetime` 값을 동일하게 설정했다고 가정했을 때, `maxLifetime`에 얼마 남지 않은 시점에 요청을 처리해야 한다면, 해당 Connection이 DB로 요청을 보내는 시간이 포함되게 되는데, 요청이 DB에 도달하기 전에 `wait_timeout` 시간이 지나게 되어 DB 서버 쪽에서 Connection을 끊게 된다면 예외가 발생할 수 있기 때문이다.
 
 - `connectionTimeout`
-  - 서버 사용자가 Pool에서 Connection을 획득하기까지 얼마만큼의 시간을 기다릴 것인지 최대 시간을 정하는 설정이다.
-  - 설정 시간만큼 Connection을 Pool에서 획득하지 못하면 `SQLException`이 발생한다.
+  - 클라이언트가 Connection Pool에서 Connection을 획득하기까지 얼만큼의 시간을 기다릴 지 최대 시간을 정하는 설정이다.
+  - 설정 시간만큼 획득하지 못하면 `SQLException`이 발생한다.
   - 위 설정도 마찬가지로 `wait_timeout` 보다 더 짧은 시간으로 설정해야 한다.<br>
     만약 `connectionTimeout`과 `wait_timeout` 시간이 같다면, 사용자가 Pool에서 `connectionTimeout` 직전에 Connection을 획득했다 하더라도, 실제 DB 서버에 도달하기까지 추가적인 시간이 반드시 존재하고, 만약 도달한 시점에 이미 `wait_timeout` 시간을 넘은 상태라면 예외를 발생하기 때문이다.
 
-## 적절한 파라미터 값 설정하는 방법
+## 적절한 파라미터 값을 설정하는 방법
 
-우선 서버 애플리케이션을 모니터링을 하며 리소스 사용률, 서버 스레드 수, DBCP 정보들을 확인할 수 있어야 한다.
-
-그리고 [nGrinder](https://naver.github.io/ngrinder/)와 같은 부하 테스트 툴을 사용하여 실제로 서버에 부하를 줌으로써 병목 지점을 확인한다.
-
-만약 병목 지점이 생긴다면, 해당 시점 이후의 지표들을 토대로 병목 지점을 유추한다.
-
+우선 서버 애플리케이션을 모니터링을 하며 리소스 사용률, 서버 스레드 수, DBCP 정보들을 확인할 수 있어야 한다.<br>
+그리고 [nGrinder](https://naver.github.io/ngrinder/)와 같은 부하 테스트 툴을 사용하여 실제로 서버에 부하를 줌으로써 병목 지점을 확인한다.<br>
+만약 병목 지점이 생긴다면, 해당 시점 이후의 지표들을 토대로 병목 지점을 유추한다.<br>
 유추되는 지점이 존재한다면 해당 값을 적절히 조절해가며 적절한 설정 값을 찾는 과정을 거친다.
 
 > ### Reference
