@@ -1,4 +1,161 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 30 Jul 2024 07:39:14 GMT</lastBuildDate><item><title><![CDATA[[Java] inner 클래스와 종류에 대해]]></title><description><![CDATA[내부 클래스(inner class) 내부 클래스(inner class…]]></description><link>https://kdkdhoho.github.io/inner-class/</link><guid isPermaLink="false">https://kdkdhoho.github.io/inner-class/</guid><pubDate>Fri, 26 Jul 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;내부 클래스(inner class)&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 02 Aug 2024 14:16:55 GMT</lastBuildDate><item><title><![CDATA[[JDBC] execute(String)과 execute(). executeUpdate(String)와 executeUpdate()의 차이]]></title><description><![CDATA[TL;DR execute(String)와 executeUpdate(String)은 Statement 인터페이스의 메서드이다.
+execute()와 executeUpdate()는 PreparedStatement 인터페이스의 메서드이다.
+Statement…]]></description><link>https://kdkdhoho.github.io/execute-and-executeUpdate-of-jdbc/</link><guid isPermaLink="false">https://kdkdhoho.github.io/execute-and-executeUpdate-of-jdbc/</guid><pubDate>Fri, 02 Aug 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;TL;DR&lt;/h2&gt;
+&lt;p&gt;execute(String)와 executeUpdate(String)은 Statement 인터페이스의 메서드이다.&lt;br&gt;
+execute()와 executeUpdate()는 PreparedStatement 인터페이스의 메서드이다.&lt;br&gt;
+Statement 인터페이스의 두 메서드는 내부적으로 Statement의 구현체만이 실행할 수 있도록 보장되어 있다.&lt;br&gt;
+PreparedStatement 인터페이스는 이름처럼 미리 내부적으로 SQL 문을 만들어 놓고 곧바로 실행하는 식으로 동작한다.&lt;/p&gt;
+&lt;h2&gt;문제 상황&lt;/h2&gt;
+&lt;p&gt;JDBC를 복습 중이었다.&lt;br&gt;
+간단한 Member 테이블을 만들고 DriverManager로 Connection을 맺은 다음, PreparedStatement 인터페이스로 쿼리를 실행하는 것을 테스트 중이었다.&lt;br&gt;
+하지만 이상하게 execute(sql) 와 executeUpdate(sql)를 호출하면 쿼리가 나가지 않았다.&lt;br&gt;
+반대로 execute() 와 executeUpdate()를 호출하면 쿼리가 실행되었다.&lt;br&gt;
+심지어 execute(sql) 와 executeUpdate(sql)를 호출하면 &quot;This method is not allowed for a prepared statement; use a regular statement instead.&quot; 라는 로그가 기록된다.&lt;/p&gt;
+&lt;p&gt;생성한 Member 테이블은 다음과 같다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;create&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;table&lt;/span&gt; member &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    member_id &lt;span class=&quot;token keyword&quot;&gt;varchar&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    money &lt;span class=&quot;token keyword&quot;&gt;integer&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;primary&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;member_id&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;작성한 코드는 다음과 같다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Slf4j&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MemberRepositoryV0&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Member&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Member&lt;/span&gt; member&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; sql &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;INSERT INTO member(member_id, money) VALUES (?, ?)&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;token keyword&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+                &lt;span class=&quot;token class-name&quot;&gt;Connection&lt;/span&gt; conn &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;DbConnectionUtil&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getConnection&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;token class-name&quot;&gt;PreparedStatement&lt;/span&gt; pstmt &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; conn&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;prepareStatement&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;sql&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Current Connection: {}&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; conn&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+            pstmt&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setString&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; member&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getMemberId&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            pstmt&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setInt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; member&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getMoney&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+            pstmt&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 쿼리 실행.&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;//            pstmt.execute(sql); // 실행 X. This method is not allowed for a prepared statement; use a regular statement instead.&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;//            pstmt.executeUpdate(); // 실행.&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;//            pstmt.executeUpdate(sql); // 실행 X. This method is not allowed for a prepared statement; use a regular statement instead.&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;SQLException&lt;/span&gt; e&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getMessage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; member&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;테스트 코드는 다음과 같다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MemberRepositoryV0Test&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Member&lt;/span&gt; member &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Member&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;hi1&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MemberRepositoryV0&lt;/span&gt; memberRepository &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MemberRepositoryV0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Test&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;saveTest&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        memberRepository&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;member&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;원인 분석&lt;/h2&gt;
+&lt;p&gt;일단 execute()는 PreparedStatement 인터페이스에 선언되어 있다.&lt;br&gt;
+반면 execute(String)는 Statement 인터페이스에 선언되어 있다.&lt;/p&gt;
+&lt;p&gt;executeUpdate() 또한 PreparedStatement 인터페이스에,&lt;br&gt;
+executeUpdate(sql)는 Statement 인터페이스에 선언되어 있다.&lt;/p&gt;
+&lt;p&gt;아래와 같이 분류할 수 있겠다.&lt;br&gt;
+Statement - execute(String), executeUpdate(String)&lt;br&gt;
+PreparedStatement - execute(), executeUpdate()&lt;/p&gt;
+&lt;p&gt;PreparedStatement는 Statement를 상속받는다.&lt;br&gt;
+Statement에 대해 먼저 알아보자.&lt;/p&gt;
+&lt;h3&gt;Statement&lt;/h3&gt;
+&lt;p&gt;인터페이스에 대한 설명으로 다음과 같다.&lt;br&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&quot;The object used for executing a static SQL statement and returning the results it produces.&quot;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;정적인 SQL 문을 실행하고 결과를 반환한다고 한다.&lt;/p&gt;
+&lt;p&gt;execute(String)에 대한 설명도 보자.&lt;br&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Executes the given SQL statement, which may return multiple results.
+In some (uncommon) situations, a single SQL statement may return multiple result sets and/ or update counts.
+Normally you can ignore this unless you are (1) executing a stored procedure that you know may return multiple results or
+(2) you are dynamically executing an unknown SQL string.
+The execute method executes an SQL statement and indicates the form of the first result.
+You must then use the methods getResultSet or getUpdateCount to retrieve the result, and getMoreResults to move to any subsequent result(s).
+Note: This method cannot be called on a PreparedStatement or CallableStatement.&lt;br&gt;
+&lt;br&gt;
+Params:&lt;br&gt;
+sql – any SQL statement&lt;br&gt;
+Returns:&lt;br&gt;
+true if the first result is a ResultSet object; false if it is an update count or there are no results&lt;br&gt;
+Throws:&lt;br&gt;
+SQLException – if a database access error occurs, this method is called on a closed Statement, the method is called on a PreparedStatement or CallableStatement&lt;br&gt;
+SQLTimeoutException – when the driver has determined that the timeout value that was specified by the setQueryTimeout method has been exceeded and has at least attempted to cancel the currently running Statement&lt;br&gt;
+See Also:&lt;br&gt;
+getResultSet, getUpdateCount, getMoreResults&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;주어진 SQL 문을 실행하고 그 결과가 ResultSet이면 true, 아니면 false를 반환한다고 한다.&lt;br&gt;
+또한 PreparedStatement 또는 CallableStatement에서는 호출할 수 없다고 한다.&lt;br&gt;
+정말로 그럴까?&lt;br&gt;
+실제로 디버깅으로 살펴본 결과, 아래 사진과 같았다.
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/ec0446ae354845a6dbcaab124c4d8559/83e8e/debug.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 26.47058823529412%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA30lEQVR42m3Q7U6DMBSAYW7HD1YKhRZmgdFCUaMmBDRmP3b/V/GKuCWa+ePJmyYnJyeNrHnlyb4R3JGDOzEMJ0J/JNQTjV0Q1QdCzwiz/LRcSDbvWy9vYWbiYiKqa4dvu3XJ41qPKS0qLymkIpU5d1ITp/+Qf90mOTdCERWmotAVelXkhizN0WaPeWiQSiOSFCGzX9Qm+bbOXsizaOocn+PI3A9Mvmfxnpe1LjzT9YHOj+tXhLORths2zaHHVPWVyJZ7vHNUTUvjHaW1JEohtUbmxXbNLsmuxCLlfievfAEkzaf8/ghkOgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;JdbcStatement#executeInternal(String, Object)&apos; title=&apos;&apos; src=&apos;/static/ec0446ae354845a6dbcaab124c4d8559/ca1dc/debug.png&apos; srcset=&apos;/static/ec0446ae354845a6dbcaab124c4d8559/e7570/debug.png 170w,
+/static/ec0446ae354845a6dbcaab124c4d8559/f46e7/debug.png 340w,
+/static/ec0446ae354845a6dbcaab124c4d8559/ca1dc/debug.png 680w,
+/static/ec0446ae354845a6dbcaab124c4d8559/02d09/debug.png 1020w,
+/static/ec0446ae354845a6dbcaab124c4d8559/83e8e/debug.png 1084w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;JdbcStatement#executeInternal(String, Object)&lt;/figcaption&gt;
+  &lt;/figure&gt;
+메서드를 호출하는 객체는 PreparedStatement이므로 &lt;code class=&quot;language-text&quot;&gt;this&lt;/code&gt;는 JdbcPreparedStatement 임을 확인할 수 있다.&lt;br&gt;
+따라서 해당 조건문에 의해, 메서드를 호출하는 주체가 Statement가 아니면 쿼리를 실행할 수 없는 것이다.&lt;/p&gt;
+&lt;p&gt;executeUpdate(String) 또한 동일한 로직으로 처리된다.
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 554px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/71d3dd8a05c41b729668d80f4ce2102b/b4bb7/img_5.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 37.05882352941176%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAABX0lEQVR42n2RPW/bMBCG9T8SWxIpUqQoS7Jk68N27CZIkCFZ0q1TtwJFgKD5/8PTk4IA7dAOD4kD717eexeF3NGVgUYoncdqhR6+oc8/yb68Yk/f2VQtZdkQQoN3gcrllL6ganY02x1102FswWqdEq1iRaazJcHnOT7UUrwhFBI7J2+a1GhUnqG9JbUSa4MvKuJEc72KRShZxNaiFRkbSLSnLErOfc/N5Z7xcMfN4w/Gp3fhF8cX4es7k9z98xvT7QvH04Vuf2CYztLhjv22lU9qoiQ1KG3FbsFQV7Ttnm034uoj2fSIOT2RdHfYcKDrLjT9A3V7QIlFI/ZVli/1n0Rzm0rntKGgF8GxH5nGI73cwzDRNC1W5pyL/SQRW+tYrH3Ym23+yWJ5PlJl0DKXeUHeWJx1bOpOlrElzMsQ5sWkykqhWgr/RaSl5VlwTrxapTLkD66u10L8F59d/E/wNzFc0a04GcAdAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;Statement#executeUpdate(String)&apos; title=&apos;&apos; src=&apos;/static/71d3dd8a05c41b729668d80f4ce2102b/b4bb7/img_5.png&apos; srcset=&apos;/static/71d3dd8a05c41b729668d80f4ce2102b/e7570/img_5.png 170w,
+/static/71d3dd8a05c41b729668d80f4ce2102b/f46e7/img_5.png 340w,
+/static/71d3dd8a05c41b729668d80f4ce2102b/b4bb7/img_5.png 554w&apos; sizes=&apos;(max-width: 554px) 100vw, 554px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;Statement#executeUpdate(String)&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 507px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/291324dbf80b3c0dcaa539dd05e7580e/f03ec/img_6.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 18.23529411764706%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA7UlEQVR42lXO206DQBSFYV6kHKaFtjB0OAzSAakneqBX1foAPgQXeoP65L/YRKMXX1aykr2zrLWKyWVEEsWkSiOSOwK9JSiPLMqOoNgzy+7xdUuiG7KiQWWGdMxQJph6g0o0aXaFLgzWSirWuaZ6eMF0PevHd8rTcBHt3oj3r9TnT8zTB5vngevzgD70bE891aZDxhmLMGEZpWMqLMebYbtTsnGd0Yaq2VHfHqlvOoqqpaxb8mZc2RyQpsWfpzizGOGv8MSciS2wnR9TLFf4rKSkiEPCZYjjClxvivfHdzdxvPHAGx+4v+xLJ/75Aphuf6GdIPAMAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;Statement#executeUpdateInternal(String, Object)&apos; title=&apos;&apos; src=&apos;/static/291324dbf80b3c0dcaa539dd05e7580e/f03ec/img_6.png&apos; srcset=&apos;/static/291324dbf80b3c0dcaa539dd05e7580e/e7570/img_6.png 170w,
+/static/291324dbf80b3c0dcaa539dd05e7580e/f46e7/img_6.png 340w,
+/static/291324dbf80b3c0dcaa539dd05e7580e/f03ec/img_6.png 507w&apos; sizes=&apos;(max-width: 507px) 100vw, 507px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;Statement#executeUpdateInternal(String, Object)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;반면, PreparedStatement#execute()는 아래 사진처럼 미리 만들어놓은 SQL 문을 곧바로 실행한다.
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/f20247090c5719028cfae37085c8ee27/f27d8/img_4.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 65.88235294117646%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB2klEQVR42pVT2W7bMBD0dySiJB6SKIrUSdNy7ABtARc9YCcB+tICbf//K6ZLOSlSNA/2w4irFTma3R2ufFVj7xxCbdGZCd4OmBsH3/QL+tLA8uJirG5SASUUurbDOAWEzQ7aDeC1Rkb5JOVIMnExVik9qlJjDjOR7TGNHrZ2lGuQE2FG39MrsBAKVcG1I0zTgnNJiktIXoKRuvR6QiKQCk5rlJUBo+QNy5dSryVbCLNcIie0dY3huY/TMMHa9rlc/goXEiY0mEqVqEmhLGoURbn85DbhpFj+xcWEMZA0AOc/od3/QH//E9P7X/AffsPO32DDd1h/PB/KFUEiW9Zz/B9hBHuZ9uQx9wEtWcfaHpp8WHCFnAuwPAe7TcAYQ8LiGpG+TRhf4oS3IxnarzF0PUaa+jx8xP36BB++wm0/owoHqHpGobeQZgehJyKPQzzjH0IhCqw9mdvfYRN2GMmTzh/QbZ7QhSPacILbPMBR3IdHip/QDO+WdpXKkFv0a0JJ5VXo6dqZokEhKghSHNugiujNFCJl4FlGB+l2SU65HDJPaS+1S1ZQNNiVUBoRPCaoX+N6SyUHdL1H40Zo06IyA+rhC+z0CE3lG1Jp1kdoypnhgVQeYcYTdH/AH0Ebei86xp9OAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;PreparedStatement#execute()&apos; title=&apos;&apos; src=&apos;/static/f20247090c5719028cfae37085c8ee27/ca1dc/img_4.png&apos; srcset=&apos;/static/f20247090c5719028cfae37085c8ee27/e7570/img_4.png 170w,
+/static/f20247090c5719028cfae37085c8ee27/f46e7/img_4.png 340w,
+/static/f20247090c5719028cfae37085c8ee27/ca1dc/img_4.png 680w,
+/static/f20247090c5719028cfae37085c8ee27/f27d8/img_4.png 847w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;PreparedStatement#execute()&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;PreparedStatement에 선언된 setXXX() 메서드를 통해 개발자가 인자로 건넨 값이 어떻게 바인딩 되는지 보는 것도 꽤 재밌다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;분석 결과&lt;/h2&gt;
+&lt;p&gt;Statement의 execute(String), executeUpdate(String)은 설명에 나와있듯이 PreparedStatement 또는 CallableStatement에서는 호출할 수 없도록 구현되어 있다.&lt;br&gt;
+PreparedStatement는 이름 그대로 미리 준비해놓은 SQL 문을 곧바로 실행하는 구조이다.&lt;br&gt;
+따라서 pstmt.execute(sql); 와 pstmt.executeUpdate(sql); 을 호출했을 때 쿼리가 나가지 않은 것이었다.&lt;/p&gt;
+&lt;h2&gt;마치며&lt;/h2&gt;
+&lt;p&gt;덕분에 헷갈렸던 execute()와 execute(String), executeUpdate()와 executeUpdate(String)의 차이에 대해 알게 되었다.&lt;br&gt;
+또한 PreparedStatement가 어떻게 값을 바인딩하는 지에 대해서도 알게 되었다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Java] inner 클래스와 종류에 대해]]></title><description><![CDATA[내부 클래스(inner class) 내부 클래스(inner class…]]></description><link>https://kdkdhoho.github.io/inner-class/</link><guid isPermaLink="false">https://kdkdhoho.github.io/inner-class/</guid><pubDate>Fri, 26 Jul 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;내부 클래스(inner class)&lt;/h2&gt;
 &lt;p&gt;내부 클래스(inner class)란, 다른 클래스 안에 정의된 클래스를 의미한다.&lt;br&gt;
 내부 클래스는 &lt;strong&gt;자신을 감싼 외부 클래스에서만 쓰여야 하며, 그 외의 쓰임새가 있다면 별도의 클래스로 만들어야 한다&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;내부 클래스를 선언하는 이유는 &lt;strong&gt;두 클래스가 서로 긴밀한 관계임을 나타내기 위함&lt;/strong&gt;이다.&lt;br&gt;
@@ -10448,125 +10605,7 @@ Weak Generational Hypothesis이란 &lt;strong&gt;대부분의 객체는 잠깐 �
 &lt;p&gt;운영체제 스터디 뿐만 아니라 인성 면접이나, 멘토님들에게 개인적인 질문도 할 수 있었다.&lt;/p&gt;
 &lt;p&gt;면접이나 이력서, 그리고 프로젝트 기반 면접 팁 같은 것들도 얻어갈 수 있었다.&lt;/p&gt;
 &lt;p&gt;취준생인 나에게 투자 대비 효율이 좋았던 스터디라 생각한다.&lt;/p&gt;
-&lt;p&gt;5주 간 함께 해주신 팀원들, 멘토님들 감사합니당 🙇‍♂️&lt;/p&gt;</content:encoded></item><item><title><![CDATA[static을 더 잘 사용하기]]></title><description><![CDATA[이번 글에서는  키워드에 대해 알아보고자 한다.
-그 전에 JVM의 메모리 구조에 대해 먼저 살펴보자. JVM의 메모리 구조  JVM이 사용하는 메모리 공간은 크게 세 공간으로 나뉜다. Heap 영역 new…]]></description><link>https://kdkdhoho.github.io/static-with-memory-structure/</link><guid isPermaLink="false">https://kdkdhoho.github.io/static-with-memory-structure/</guid><pubDate>Wed, 06 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이번 글에서는 &lt;code class=&quot;language-text&quot;&gt;static&lt;/code&gt; 키워드에 대해 알아보고자 한다.&lt;br&gt;
-그 전에 JVM의 메모리 구조에 대해 먼저 살펴보자.&lt;/p&gt;
-&lt;h2&gt;JVM의 메모리 구조&lt;/h2&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/2c8208ed1a173d358aad4b5c8d0ccf01/ee235/memory.jpg&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 75.88235294117648%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAd4gsD//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAEFAl//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAY/Al//xAAZEAEAAgMAAAAAAAAAAAAAAAABABARUXH/2gAIAQEAAT8hezDukgJX/9oADAMBAAIAAwAAABDTz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABoQAAIDAQEAAAAAAAAAAAAAAAERACExQYH/2gAIAQEAAT8QYmkUGj3xQZcMSFkJPfYMup//2Q==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;메모리 구조&apos; title=&apos;&apos; src=&apos;/static/2c8208ed1a173d358aad4b5c8d0ccf01/a22ce/memory.jpg&apos; srcset=&apos;/static/2c8208ed1a173d358aad4b5c8d0ccf01/0b705/memory.jpg 170w,
-/static/2c8208ed1a173d358aad4b5c8d0ccf01/31389/memory.jpg 340w,
-/static/2c8208ed1a173d358aad4b5c8d0ccf01/a22ce/memory.jpg 680w,
-/static/2c8208ed1a173d358aad4b5c8d0ccf01/29373/memory.jpg 1020w,
-/static/2c8208ed1a173d358aad4b5c8d0ccf01/ee235/memory.jpg 1314w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;메모리 구조&lt;/figcaption&gt;
-  &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;JVM이 사용하는 메모리 공간은 크게 세 공간으로 나뉜다.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Heap 영역&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;new 키워드를 사용해 &lt;strong&gt;동적으로 생성한 객체의 인스턴스&lt;/strong&gt;가 담기는 공간이다.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://kdkdhoho.github.io/about-garbage-collection&quot;&gt;Garbage Collector&lt;/a&gt;&lt;/strong&gt;에 의해 관리된다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Stack 영역&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;메서드 콜 스택이나, 지역 변수 혹은 변수 파라미터가 저장되는 공간이다.&lt;/li&gt;
-&lt;li&gt;주로 메서드와 관련이 있으며 메서드가 호출될 때 새로운 영역이 할당되고 반환될 때 영역도 반환된다.&lt;/li&gt;
-&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;StackOverflow&lt;/code&gt;가 발생하는 원인을 메모리 관점에서 생각해보면 알 수 있다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Static 영역&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Code와 Data 영역이 합쳐진 영역이다.&lt;/li&gt;
-&lt;li&gt;우리가 작성한 Class나 정적 변수(클래스 변수)가 이 영역에 저장된다.&lt;/li&gt;
-&lt;li&gt;이 곳에 담긴 데이터들은 프로그램이 종료되기 전까지 유지된다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2&gt;Java의 static 키워드&lt;/h2&gt;
-&lt;p&gt;이제 Java의 static 키워드에 대해 알아보자&lt;/p&gt;
-&lt;p&gt;Java에서 static 키워드를 변수, 메서드, 클래스에 추가할 수 있다.&lt;/p&gt;
-&lt;p&gt;static을 붙여 변수를 생성하거나 메서드나 클래스를 선언하게 되면, &lt;strong&gt;프로그램 실행 시&lt;/strong&gt;에 &lt;strong&gt;딱 한 번 생성&lt;/strong&gt;되어 위 메모리 구조의 &lt;strong&gt;&lt;code class=&quot;language-text&quot;&gt;Static&lt;/code&gt; 영역에 포함&lt;/strong&gt;된다.&lt;/p&gt;
-&lt;p&gt;따라서, 우리가 객체를 생성하지 않고도 static 변수를 참조하거나 메서드를 호출할 수 있는 것이다.&lt;/p&gt;
-&lt;h2&gt;static을 많이 사용하게 된다면?&lt;/h2&gt;
-&lt;p&gt;이러한 static 변수, 메서드, 클래스를 많이 사용하게 되면 어떤 일이 발생할까?&lt;/p&gt;
-&lt;p&gt;결론부터 말하면 &lt;strong&gt;프로그램에 부작용을 초래할 확률이 증가&lt;/strong&gt;한다.&lt;/p&gt;
-&lt;p&gt;메모리 관점에서 생각해보자.&lt;/p&gt;
-&lt;p&gt;운영체제는 메모리에 Java 프로그램의 공간을 내어줄 때 무한정으로 제공하지 않는다.&lt;br&gt;
-따라서 제한된 영역 내에서 프로그램을 실행해야 한다.&lt;/p&gt;
-&lt;p&gt;그런데 Static 영역이 Heap과 Stack 영역에 비해 더 많은 공간을 차지하게 된다면, &lt;code class=&quot;language-text&quot;&gt;StackOverflow&lt;/code&gt;나 &lt;code class=&quot;language-text&quot;&gt;OutOfMemoryError&lt;/code&gt; 가 발생할 확률이 증가한다.&lt;/p&gt;
-&lt;p&gt;아무리 GC가 Heap 영역을 관리해 준다 한들, 사용할 수 있는 공간 자체가 적다면 GC의 역할에도 한계가 있을 것이다.&lt;/p&gt;
-&lt;p&gt;추가로 사용되지 않음에도 static으로 선언되었다는 이유로, 불필요하게 메모리를 차지하게 될 경우도 분명 존재할 것이다.&lt;/p&gt;
-&lt;h2&gt;어느 상황에 static을 사용하면 좋을까?&lt;/h2&gt;
-&lt;p&gt;그렇다면 어느 상황에서 static을 적절히 사용하면 좋을까?&lt;/p&gt;
-&lt;p&gt;단순히 생각해서 객체를 매번 만들 필요가 없는 경우에만 사용하면 좋을 것이다.&lt;/p&gt;
-&lt;p&gt;즉, 프로그램을 실행할 때 딱 한 번만 메모리에 올려놓고 계속해서 사용하는 경우이다.&lt;/p&gt;
-&lt;p&gt;다시 말해, Java 프로그램이 실행되면 딱 한 번만 메모리에 올려놓고 사용하는 경우가 될 것이다.&lt;/p&gt;
-&lt;h3&gt;상수&lt;/h3&gt;
-&lt;p&gt;상수는 변하지 않는 값을 의미한다.&lt;/p&gt;
-&lt;p&gt;이러한 상수는 런타임으로 새로운 변수가 계속해서 만들어질 필요가 없다.&lt;/p&gt;
-&lt;p&gt;가령, 회원가입 시에 1,000 포인트를 기본적으로 제공한다는 예시가 있다고 가정해보자.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Member&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-   &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;WELCOME_POINT&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1_000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 상수&lt;/span&gt;
-   
-   &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Member&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;token comment&quot;&gt;// ...&lt;/span&gt;
-      &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;point &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;WELCOME_POINT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-      &lt;span class=&quot;token comment&quot;&gt;// ...&lt;/span&gt;
-   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;위 코드의 &lt;code class=&quot;language-text&quot;&gt;WELCOME_POINT&lt;/code&gt; 처럼, Member 객체를 만들 때마다 새로 만들어 줄 필요도 없는 값의 경우 사용하면 효율적일 것이다.&lt;/p&gt;
-&lt;h4&gt;번외: 상수의 접근 제어자의 범위를 어떤 기준으로 지정하면 좋을까?&lt;/h4&gt;
-&lt;p&gt;위 예시에서는 &lt;code class=&quot;language-text&quot;&gt;private&lt;/code&gt;로 선언을 했는데, &lt;code class=&quot;language-text&quot;&gt;public&lt;/code&gt;으로 한다면 어떨까?&lt;/p&gt;
-&lt;p&gt;메모리 영역에서 생각해 봤을 때 &lt;code class=&quot;language-text&quot;&gt;Static&lt;/code&gt; 영역으로 올라가고, 이 영역은 같은 프로세스 내의 모든 곳에서 접근이 가능하다.&lt;/p&gt;
-&lt;p&gt;그렇지만 위 상수가 다른 클래스에서 범용적으로 쓰이지 않는 한, 불필요하게 public으로 열어둘 필요는 없어보인다.&lt;/p&gt;
-&lt;p&gt;필요하다면 private으로 선언 후, getter를 통해 값을 반환하는 게 코드를 작성하고 이해하는 데에 훨씬 도움이 될 것이라고 생각한다.&lt;/p&gt;
-&lt;p&gt;최대한 작은 범위로 설정하자.&lt;/p&gt;
-&lt;h3&gt;util성 메서드 (static 메서드)&lt;/h3&gt;
-&lt;p&gt;흔히 &lt;strong&gt;유틸성 클래스&lt;/strong&gt;라고 하는 곳에 존재하는 메서드들에 &lt;code class=&quot;language-text&quot;&gt;static&lt;/code&gt; 키워드를 붙여 사용한다.&lt;/p&gt;
-&lt;p&gt;이는 인스턴스를 만들지 않고도 사용할 수 있고, 어디에서든 호출할 수 있다.&lt;/p&gt;
-&lt;p&gt;다만, 인스턴스로 쓰이는 클래스에 static 메서드가 존재할 수 있는데, 이때 조심해야 할 점이 있다.&lt;/p&gt;
-&lt;p&gt;바로 static 메서드는 재정의가 불가능 하다는 것이다.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 445px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/7db57a8785540b6a4b1764dbf9ef4711/a6969/cannot-extends.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 65.88235294117646%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAABt0lEQVR42p1S2XKjMBD0fyTmsIU5dBlziEBsfMASu5KH/f+P6R1kx4V3qzbZfWhG6hlaI03PdJLAKIGEKwSrBI7jw/OWcNwFXIJjsYR7477CzKFCGcWoUw0Vx8glRy645YyWCKRBlO+hNwUYCzGnA/8uSB/PY/AXDHlRoShfkMkC62SDrDTI8goyzRCTOAuirwXHq4yFns/stcY4HjCuXcstLL5zXSsYhtd3s4Qzkj7mtJ67/rdF/nhDhzq4djZ2uLx3+l+CRgg0WiGKBTIahlEcinPEXE+m/A+CWSwRByF8FoCtQgTh53tOsZzgd/6xduayhCaZ4ud7i3Pf4ONyQhBJLFf8DhaKhzjlWfi4n40DSKizOlVkFRIniwznd5y6HzgcO+wJu/aII+2Pp96i6weba/dHbCl36t/QDxe87tqrDz/b32QlGdigaAZUuzMMoXwdaN+jJJjtG3GXeywol5sGVb1FXtaWf/Dh07OLKFHIqwN02UEXB6Smg9AlxLokg79AbhoIG2uotAaXqUUitM3PVuTD0f2j8PPcA6dE03YkdMK6aLGpB/phTdA2x4WaRHXL3SA0fgGQBIBVIBrXfQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;클래스 상속 시&apos; title=&apos;&apos; src=&apos;/static/7db57a8785540b6a4b1764dbf9ef4711/a6969/cannot-extends.png&apos; srcset=&apos;/static/7db57a8785540b6a4b1764dbf9ef4711/e7570/cannot-extends.png 170w,
-/static/7db57a8785540b6a4b1764dbf9ef4711/f46e7/cannot-extends.png 340w,
-/static/7db57a8785540b6a4b1764dbf9ef4711/a6969/cannot-extends.png 445w&apos; sizes=&apos;(max-width: 445px) 100vw, 445px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;클래스 상속 시&lt;/figcaption&gt;
-  &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 449px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/0ebdd0b4ee34267b671c61130d19ed55/46d70/cannot-implements.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 65.29411764705883%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAABuElEQVR42pVT23abMBDkP2IbBNgIJHEziEswmNg4TU7//3emK+Em7UN77Ic5o9Wi0ax2cfIkwVEKVEpAJgKHOMXO9bF1meWdF6z8IBzGQoiI41RmyEWMLOGQMUcYCSQiA48l3CdEnZ0b0AEfQbBHXbdo2g5HVaFQNSrdoqI9mRfgSiIIObY79n9Bc3t4iG1pHrllwQGM7WGcM39llwXW5SNOnQMXX4G53Tq483fsr3ikZM8Lv8pw/xC28ZMNsYIZdbnJFMI9h04VujxFm0mkQkKo/HlBj1wwFtwd+TCx562NelbMCm62DCKJMLUZ2lKiLgU2/3gv25jfazMd7t+NMmtnR11MOMdwzFFKiaIo8f75E9P5DfNlwTRfMIxnu54vN5znBdfbB0bKj9OM4TThuvwgfKDtT3DCg8A+kjTICrobUVQ99ImS4wo9LGiGG3R/gW5fUesOVTtS7pNy72gM0zndDciPmt6QHJqGGH7ZeOCJQt1fkTcE/Ua40GBryKyGTAsLoY5Iy1eosiPuKS7v+wXNYZTYMTH1v2xc+t1SDNNixQo9o+wW+jAlZLbrK2gtUyQEw9/7OX4B6x19Ik//fAUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;인터페이스 구현 시&apos; title=&apos;&apos; src=&apos;/static/0ebdd0b4ee34267b671c61130d19ed55/46d70/cannot-implements.png&apos; srcset=&apos;/static/0ebdd0b4ee34267b671c61130d19ed55/e7570/cannot-implements.png 170w,
-/static/0ebdd0b4ee34267b671c61130d19ed55/f46e7/cannot-implements.png 340w,
-/static/0ebdd0b4ee34267b671c61130d19ed55/46d70/cannot-implements.png 449w&apos; sizes=&apos;(max-width: 449px) 100vw, 449px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;인터페이스 구현 시&lt;/figcaption&gt;
-  &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;추가로 광범위하게 사용되는 특징을 가진 Util성 메서드인 만큼, 클래스의 변경 가능성이 증가한다는 특징이 있다.&lt;/p&gt;
-&lt;p&gt;가급적 Util성 클래스에 static 메서드를 모아서 사용하도록 하자.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;h2&gt;Reference&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://mangkyu.tistory.com/47&quot;&gt;망나니 개발자 블로그&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.yes24.com/Product/Goods/24259565&quot;&gt;Java의 정석&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://medium.com/att-israel/should-you-avoid-using-static-ae4b58ca1de5&quot;&gt;AT&amp;#x26;T Israel Tech Blog&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[[JSCODE] - OS 면접 스터디 5주차]]></title><description><![CDATA[…]]></description><link>https://kdkdhoho.github.io/os-interview-study-5week/</link><guid isPermaLink="false">https://kdkdhoho.github.io/os-interview-study-5week/</guid><pubDate>Wed, 06 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;가상 주소와 물리 주소(실주소)에 대해 설명해주세요.&lt;/h2&gt;
+&lt;p&gt;5주 간 함께 해주신 팀원들, 멘토님들 감사합니당 🙇‍♂️&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[JSCODE] - OS 면접 스터디 5주차]]></title><description><![CDATA[…]]></description><link>https://kdkdhoho.github.io/os-interview-study-5week/</link><guid isPermaLink="false">https://kdkdhoho.github.io/os-interview-study-5week/</guid><pubDate>Wed, 06 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;가상 주소와 물리 주소(실주소)에 대해 설명해주세요.&lt;/h2&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;가상 주소의 경우 프로세스마다 독립적으로 가지는 주소 공간입니다. 모두 0번지부터 시작합니다.
 물리 주소의 경우 프로세스가 실제 메모리에 올라가는 위치입니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;가상 주소를 물리 주소(실주소)로 어떻게 변환할까요?&lt;/h2&gt;
@@ -10761,7 +10800,125 @@ limit register는 실행하려는 프로세스가 가지는 주소의 전체 범
 
 그런데 이 페이지 테이블은 4byte로 나누고, 실행되는 프로세스가 32비트인 경우, 각 프로세스마다 100만 행의 페이지 테이블을 가진다.
 이때 중요한 점은 컨텍스트 스위칭이 발생할 때 이 페이지 테이블도 함께 초기화된다.
-따라서 효율측면에서 좋지 않다. 따라서 캐싱 기법을 통해 성능을 개선한다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[final 키워드를 사용해 값의 변경을 막아라. 왜?]]></title><description><![CDATA[왜 값의 변경을 막아야 할까?  자동차 경주 피드백 중 하나이다. 왜 이런 피드백이 있는지 알아보자 final 키워드를 붙이면 좋은 점…]]></description><link>https://kdkdhoho.github.io/why-use-final/</link><guid isPermaLink="false">https://kdkdhoho.github.io/why-use-final/</guid><pubDate>Tue, 05 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;왜 값의 변경을 막아야 할까?&lt;/h2&gt;
+따라서 효율측면에서 좋지 않다. 따라서 캐싱 기법을 통해 성능을 개선한다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[static을 더 잘 사용하기]]></title><description><![CDATA[이번 글에서는  키워드에 대해 알아보고자 한다.
+그 전에 JVM의 메모리 구조에 대해 먼저 살펴보자. JVM의 메모리 구조  JVM이 사용하는 메모리 공간은 크게 세 공간으로 나뉜다. Heap 영역 new…]]></description><link>https://kdkdhoho.github.io/static-with-memory-structure/</link><guid isPermaLink="false">https://kdkdhoho.github.io/static-with-memory-structure/</guid><pubDate>Wed, 06 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이번 글에서는 &lt;code class=&quot;language-text&quot;&gt;static&lt;/code&gt; 키워드에 대해 알아보고자 한다.&lt;br&gt;
+그 전에 JVM의 메모리 구조에 대해 먼저 살펴보자.&lt;/p&gt;
+&lt;h2&gt;JVM의 메모리 구조&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/2c8208ed1a173d358aad4b5c8d0ccf01/ee235/memory.jpg&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 75.88235294117648%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAd4gsD//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAEFAl//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAY/Al//xAAZEAEAAgMAAAAAAAAAAAAAAAABABARUXH/2gAIAQEAAT8hezDukgJX/9oADAMBAAIAAwAAABDTz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABoQAAIDAQEAAAAAAAAAAAAAAAERACExQYH/2gAIAQEAAT8QYmkUGj3xQZcMSFkJPfYMup//2Q==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;메모리 구조&apos; title=&apos;&apos; src=&apos;/static/2c8208ed1a173d358aad4b5c8d0ccf01/a22ce/memory.jpg&apos; srcset=&apos;/static/2c8208ed1a173d358aad4b5c8d0ccf01/0b705/memory.jpg 170w,
+/static/2c8208ed1a173d358aad4b5c8d0ccf01/31389/memory.jpg 340w,
+/static/2c8208ed1a173d358aad4b5c8d0ccf01/a22ce/memory.jpg 680w,
+/static/2c8208ed1a173d358aad4b5c8d0ccf01/29373/memory.jpg 1020w,
+/static/2c8208ed1a173d358aad4b5c8d0ccf01/ee235/memory.jpg 1314w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;메모리 구조&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;JVM이 사용하는 메모리 공간은 크게 세 공간으로 나뉜다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Heap 영역&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;new 키워드를 사용해 &lt;strong&gt;동적으로 생성한 객체의 인스턴스&lt;/strong&gt;가 담기는 공간이다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://kdkdhoho.github.io/about-garbage-collection&quot;&gt;Garbage Collector&lt;/a&gt;&lt;/strong&gt;에 의해 관리된다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Stack 영역&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;메서드 콜 스택이나, 지역 변수 혹은 변수 파라미터가 저장되는 공간이다.&lt;/li&gt;
+&lt;li&gt;주로 메서드와 관련이 있으며 메서드가 호출될 때 새로운 영역이 할당되고 반환될 때 영역도 반환된다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;StackOverflow&lt;/code&gt;가 발생하는 원인을 메모리 관점에서 생각해보면 알 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Static 영역&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Code와 Data 영역이 합쳐진 영역이다.&lt;/li&gt;
+&lt;li&gt;우리가 작성한 Class나 정적 변수(클래스 변수)가 이 영역에 저장된다.&lt;/li&gt;
+&lt;li&gt;이 곳에 담긴 데이터들은 프로그램이 종료되기 전까지 유지된다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Java의 static 키워드&lt;/h2&gt;
+&lt;p&gt;이제 Java의 static 키워드에 대해 알아보자&lt;/p&gt;
+&lt;p&gt;Java에서 static 키워드를 변수, 메서드, 클래스에 추가할 수 있다.&lt;/p&gt;
+&lt;p&gt;static을 붙여 변수를 생성하거나 메서드나 클래스를 선언하게 되면, &lt;strong&gt;프로그램 실행 시&lt;/strong&gt;에 &lt;strong&gt;딱 한 번 생성&lt;/strong&gt;되어 위 메모리 구조의 &lt;strong&gt;&lt;code class=&quot;language-text&quot;&gt;Static&lt;/code&gt; 영역에 포함&lt;/strong&gt;된다.&lt;/p&gt;
+&lt;p&gt;따라서, 우리가 객체를 생성하지 않고도 static 변수를 참조하거나 메서드를 호출할 수 있는 것이다.&lt;/p&gt;
+&lt;h2&gt;static을 많이 사용하게 된다면?&lt;/h2&gt;
+&lt;p&gt;이러한 static 변수, 메서드, 클래스를 많이 사용하게 되면 어떤 일이 발생할까?&lt;/p&gt;
+&lt;p&gt;결론부터 말하면 &lt;strong&gt;프로그램에 부작용을 초래할 확률이 증가&lt;/strong&gt;한다.&lt;/p&gt;
+&lt;p&gt;메모리 관점에서 생각해보자.&lt;/p&gt;
+&lt;p&gt;운영체제는 메모리에 Java 프로그램의 공간을 내어줄 때 무한정으로 제공하지 않는다.&lt;br&gt;
+따라서 제한된 영역 내에서 프로그램을 실행해야 한다.&lt;/p&gt;
+&lt;p&gt;그런데 Static 영역이 Heap과 Stack 영역에 비해 더 많은 공간을 차지하게 된다면, &lt;code class=&quot;language-text&quot;&gt;StackOverflow&lt;/code&gt;나 &lt;code class=&quot;language-text&quot;&gt;OutOfMemoryError&lt;/code&gt; 가 발생할 확률이 증가한다.&lt;/p&gt;
+&lt;p&gt;아무리 GC가 Heap 영역을 관리해 준다 한들, 사용할 수 있는 공간 자체가 적다면 GC의 역할에도 한계가 있을 것이다.&lt;/p&gt;
+&lt;p&gt;추가로 사용되지 않음에도 static으로 선언되었다는 이유로, 불필요하게 메모리를 차지하게 될 경우도 분명 존재할 것이다.&lt;/p&gt;
+&lt;h2&gt;어느 상황에 static을 사용하면 좋을까?&lt;/h2&gt;
+&lt;p&gt;그렇다면 어느 상황에서 static을 적절히 사용하면 좋을까?&lt;/p&gt;
+&lt;p&gt;단순히 생각해서 객체를 매번 만들 필요가 없는 경우에만 사용하면 좋을 것이다.&lt;/p&gt;
+&lt;p&gt;즉, 프로그램을 실행할 때 딱 한 번만 메모리에 올려놓고 계속해서 사용하는 경우이다.&lt;/p&gt;
+&lt;p&gt;다시 말해, Java 프로그램이 실행되면 딱 한 번만 메모리에 올려놓고 사용하는 경우가 될 것이다.&lt;/p&gt;
+&lt;h3&gt;상수&lt;/h3&gt;
+&lt;p&gt;상수는 변하지 않는 값을 의미한다.&lt;/p&gt;
+&lt;p&gt;이러한 상수는 런타임으로 새로운 변수가 계속해서 만들어질 필요가 없다.&lt;/p&gt;
+&lt;p&gt;가령, 회원가입 시에 1,000 포인트를 기본적으로 제공한다는 예시가 있다고 가정해보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Member&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;WELCOME_POINT&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1_000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 상수&lt;/span&gt;
+   
+   &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Member&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;// ...&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;point &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;WELCOME_POINT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;// ...&lt;/span&gt;
+   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위 코드의 &lt;code class=&quot;language-text&quot;&gt;WELCOME_POINT&lt;/code&gt; 처럼, Member 객체를 만들 때마다 새로 만들어 줄 필요도 없는 값의 경우 사용하면 효율적일 것이다.&lt;/p&gt;
+&lt;h4&gt;번외: 상수의 접근 제어자의 범위를 어떤 기준으로 지정하면 좋을까?&lt;/h4&gt;
+&lt;p&gt;위 예시에서는 &lt;code class=&quot;language-text&quot;&gt;private&lt;/code&gt;로 선언을 했는데, &lt;code class=&quot;language-text&quot;&gt;public&lt;/code&gt;으로 한다면 어떨까?&lt;/p&gt;
+&lt;p&gt;메모리 영역에서 생각해 봤을 때 &lt;code class=&quot;language-text&quot;&gt;Static&lt;/code&gt; 영역으로 올라가고, 이 영역은 같은 프로세스 내의 모든 곳에서 접근이 가능하다.&lt;/p&gt;
+&lt;p&gt;그렇지만 위 상수가 다른 클래스에서 범용적으로 쓰이지 않는 한, 불필요하게 public으로 열어둘 필요는 없어보인다.&lt;/p&gt;
+&lt;p&gt;필요하다면 private으로 선언 후, getter를 통해 값을 반환하는 게 코드를 작성하고 이해하는 데에 훨씬 도움이 될 것이라고 생각한다.&lt;/p&gt;
+&lt;p&gt;최대한 작은 범위로 설정하자.&lt;/p&gt;
+&lt;h3&gt;util성 메서드 (static 메서드)&lt;/h3&gt;
+&lt;p&gt;흔히 &lt;strong&gt;유틸성 클래스&lt;/strong&gt;라고 하는 곳에 존재하는 메서드들에 &lt;code class=&quot;language-text&quot;&gt;static&lt;/code&gt; 키워드를 붙여 사용한다.&lt;/p&gt;
+&lt;p&gt;이는 인스턴스를 만들지 않고도 사용할 수 있고, 어디에서든 호출할 수 있다.&lt;/p&gt;
+&lt;p&gt;다만, 인스턴스로 쓰이는 클래스에 static 메서드가 존재할 수 있는데, 이때 조심해야 할 점이 있다.&lt;/p&gt;
+&lt;p&gt;바로 static 메서드는 재정의가 불가능 하다는 것이다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 445px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/7db57a8785540b6a4b1764dbf9ef4711/a6969/cannot-extends.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 65.88235294117646%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAABt0lEQVR42p1S2XKjMBD0fyTmsIU5dBlziEBsfMASu5KH/f+P6R1kx4V3qzbZfWhG6hlaI03PdJLAKIGEKwSrBI7jw/OWcNwFXIJjsYR7477CzKFCGcWoUw0Vx8glRy645YyWCKRBlO+hNwUYCzGnA/8uSB/PY/AXDHlRoShfkMkC62SDrDTI8goyzRCTOAuirwXHq4yFns/stcY4HjCuXcstLL5zXSsYhtd3s4Qzkj7mtJ67/rdF/nhDhzq4djZ2uLx3+l+CRgg0WiGKBTIahlEcinPEXE+m/A+CWSwRByF8FoCtQgTh53tOsZzgd/6xduayhCaZ4ud7i3Pf4ONyQhBJLFf8DhaKhzjlWfi4n40DSKizOlVkFRIniwznd5y6HzgcO+wJu/aII+2Pp96i6weba/dHbCl36t/QDxe87tqrDz/b32QlGdigaAZUuzMMoXwdaN+jJJjtG3GXeywol5sGVb1FXtaWf/Dh07OLKFHIqwN02UEXB6Smg9AlxLokg79AbhoIG2uotAaXqUUitM3PVuTD0f2j8PPcA6dE03YkdMK6aLGpB/phTdA2x4WaRHXL3SA0fgGQBIBVIBrXfQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;클래스 상속 시&apos; title=&apos;&apos; src=&apos;/static/7db57a8785540b6a4b1764dbf9ef4711/a6969/cannot-extends.png&apos; srcset=&apos;/static/7db57a8785540b6a4b1764dbf9ef4711/e7570/cannot-extends.png 170w,
+/static/7db57a8785540b6a4b1764dbf9ef4711/f46e7/cannot-extends.png 340w,
+/static/7db57a8785540b6a4b1764dbf9ef4711/a6969/cannot-extends.png 445w&apos; sizes=&apos;(max-width: 445px) 100vw, 445px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;클래스 상속 시&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 449px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/0ebdd0b4ee34267b671c61130d19ed55/46d70/cannot-implements.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 65.29411764705883%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAABuElEQVR42pVT23abMBDkP2IbBNgIJHEziEswmNg4TU7//3emK+Em7UN77Ic5o9Wi0ax2cfIkwVEKVEpAJgKHOMXO9bF1meWdF6z8IBzGQoiI41RmyEWMLOGQMUcYCSQiA48l3CdEnZ0b0AEfQbBHXbdo2g5HVaFQNSrdoqI9mRfgSiIIObY79n9Bc3t4iG1pHrllwQGM7WGcM39llwXW5SNOnQMXX4G53Tq483fsr3ikZM8Lv8pw/xC28ZMNsYIZdbnJFMI9h04VujxFm0mkQkKo/HlBj1wwFtwd+TCx562NelbMCm62DCKJMLUZ2lKiLgU2/3gv25jfazMd7t+NMmtnR11MOMdwzFFKiaIo8f75E9P5DfNlwTRfMIxnu54vN5znBdfbB0bKj9OM4TThuvwgfKDtT3DCg8A+kjTICrobUVQ99ImS4wo9LGiGG3R/gW5fUesOVTtS7pNy72gM0zndDciPmt6QHJqGGH7ZeOCJQt1fkTcE/Ua40GBryKyGTAsLoY5Iy1eosiPuKS7v+wXNYZTYMTH1v2xc+t1SDNNixQo9o+wW+jAlZLbrK2gtUyQEw9/7OX4B6x19Ik//fAUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;인터페이스 구현 시&apos; title=&apos;&apos; src=&apos;/static/0ebdd0b4ee34267b671c61130d19ed55/46d70/cannot-implements.png&apos; srcset=&apos;/static/0ebdd0b4ee34267b671c61130d19ed55/e7570/cannot-implements.png 170w,
+/static/0ebdd0b4ee34267b671c61130d19ed55/f46e7/cannot-implements.png 340w,
+/static/0ebdd0b4ee34267b671c61130d19ed55/46d70/cannot-implements.png 449w&apos; sizes=&apos;(max-width: 449px) 100vw, 449px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;인터페이스 구현 시&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;추가로 광범위하게 사용되는 특징을 가진 Util성 메서드인 만큼, 클래스의 변경 가능성이 증가한다는 특징이 있다.&lt;/p&gt;
+&lt;p&gt;가급적 Util성 클래스에 static 메서드를 모아서 사용하도록 하자.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h2&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://mangkyu.tistory.com/47&quot;&gt;망나니 개발자 블로그&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.yes24.com/Product/Goods/24259565&quot;&gt;Java의 정석&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/att-israel/should-you-avoid-using-static-ae4b58ca1de5&quot;&gt;AT&amp;#x26;T Israel Tech Blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[final 키워드를 사용해 값의 변경을 막아라. 왜?]]></title><description><![CDATA[왜 값의 변경을 막아야 할까?  자동차 경주 피드백 중 하나이다. 왜 이런 피드백이 있는지 알아보자 final 키워드를 붙이면 좋은 점…]]></description><link>https://kdkdhoho.github.io/why-use-final/</link><guid isPermaLink="false">https://kdkdhoho.github.io/why-use-final/</guid><pubDate>Tue, 05 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;왜 값의 변경을 막아야 할까?&lt;/h2&gt;
 &lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 620px; &apos;&gt;
       &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/49858e991f61c277dbd5636c889d2db8/abf7b/why-use-final.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
