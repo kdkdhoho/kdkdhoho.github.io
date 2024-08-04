@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 04 Aug 2024 03:51:43 GMT</lastBuildDate><item><title><![CDATA[EC2 CPU 사용량이 급격히 늘어난 문제 해결]]></title><description><![CDATA[TL;DR 7월 AWS 비용이 지난 달보다 7$가 추가되었다. 원인은 서버 CPU 사용량의 급격하게 증가함에 따라 추가 비용이 발생했던 것이다. 따라서 CPU 사용량이 급격히 추가 비용이 발생하지 않도록 설정을 바꿔줬다.  CPU…]]></description><link>https://kdkdhoho.github.io/log-and-disk/</link><guid isPermaLink="false">https://kdkdhoho.github.io/log-and-disk/</guid><pubDate>Sat, 03 Aug 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;TL;DR&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 04 Aug 2024 05:07:25 GMT</lastBuildDate><item><title><![CDATA[EC2 CPU 사용량이 급격히 늘어난 문제 해결]]></title><description><![CDATA[TL;DR 7월 AWS 비용이 지난 달보다 7$가 추가되었다. 원인은 서버 CPU 사용량의 급격하게 증가함에 따라 추가 비용이 발생했던 것이다. 따라서 CPU 사용량이 급격히 추가 비용이 발생하지 않도록 설정을 바꿔줬다.  CPU…]]></description><link>https://kdkdhoho.github.io/log-and-disk/</link><guid isPermaLink="false">https://kdkdhoho.github.io/log-and-disk/</guid><pubDate>Sat, 03 Aug 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;TL;DR&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;7월 AWS 비용이 지난 달보다 7$가 추가되었다.&lt;/li&gt;
 &lt;li&gt;원인은 서버 CPU 사용량의 급격하게 증가함에 따라 추가 비용이 발생했던 것이다.&lt;/li&gt;
@@ -408,7 +408,10 @@ System CPU Usage는 AWS의 모니터링 결과와 일치했다.&lt;br&gt;
     &lt;span class=&quot;token property&quot;&gt;&quot;max-file&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;5&quot;&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;이번엔 서버 시스템의 로그 설정을 해주자.&lt;/p&gt;
+&lt;p&gt;이번엔 서버 시스템의 로그 설정을 해주자.&lt;sup id=&quot;fnref-1&quot;&gt;&lt;a href=&quot;#fn-1&quot; class=&quot;footnote-ref&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;
+Linux에는 주기적으로 로그를 삭제 및 정리하는 기능의 Logrotate 기능이 있다.&lt;br&gt;
+해당 기능을 설정해주자.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;sudo vim /etc/logrotate.conf&lt;/code&gt; 명령어를 입력하고 아래 값을 입력 &amp;#x26; 저장해주자.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# see &quot;man logrotate&quot; for details
 
 # global options do not affect preceding include directives
@@ -476,7 +479,17 @@ CPU 사용량도 더 줄어듦을 볼 수 있다.&lt;/p&gt;
 &lt;p&gt;돈을 조금 더 썼지만 소중한 경험을 할 수 있었다.&lt;br&gt;
 &lt;strong&gt;시스템을 운영할 때 로그를 잘 남기는 것이 매우 중요&lt;/strong&gt;하다는 것과 &lt;strong&gt;로그를 잘 저장하는 것이 중요&lt;/strong&gt;하다는 것이다.&lt;br&gt;
 또한 모니터링 대시보드를 붙였음에도 잘 사용하고 있지 못하는 것 같다.&lt;br&gt;
-&lt;strong&gt;특정 메트릭에 임계치를 설정해놓고 값을 초과하면 알람을 발생하도록&lt;/strong&gt; 해봐야겠다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[JDBC] execute(String)과 execute(). executeUpdate(String)와 executeUpdate()의 차이]]></title><description><![CDATA[TL;DR execute(String)와 executeUpdate(String)은 Statement 인터페이스의 메서드이다.
+&lt;strong&gt;특정 메트릭에 임계치를 설정해놓고 값을 초과하면 알람을 발생하도록&lt;/strong&gt; 해봐야겠다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn-****1&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.chlux.co.kr/bbs/board.php?bo_table=board02&amp;#x26;wr_id=91&amp;#x26;sca=OS&amp;#x26;page=6&quot;&gt;[Linux] Logrotate 설명 및 설정 방법&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;#fnref-****1&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</content:encoded></item><item><title><![CDATA[[JDBC] execute(String)과 execute(). executeUpdate(String)와 executeUpdate()의 차이]]></title><description><![CDATA[TL;DR execute(String)와 executeUpdate(String)은 Statement 인터페이스의 메서드이다.
 execute()와 executeUpdate()는 PreparedStatement 인터페이스의 메서드이다.
 Statement…]]></description><link>https://kdkdhoho.github.io/execute-and-executeUpdate-of-jdbc/</link><guid isPermaLink="false">https://kdkdhoho.github.io/execute-and-executeUpdate-of-jdbc/</guid><pubDate>Fri, 02 Aug 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;TL;DR&lt;/h2&gt;
 &lt;p&gt;execute(String)와 executeUpdate(String)은 Statement 인터페이스의 메서드이다.&lt;br&gt;
@@ -11083,125 +11096,7 @@ Weak Generational Hypothesis이란 &lt;strong&gt;대부분의 객체는 잠깐 �
 &lt;p&gt;운영체제 스터디 뿐만 아니라 인성 면접이나, 멘토님들에게 개인적인 질문도 할 수 있었다.&lt;/p&gt;
 &lt;p&gt;면접이나 이력서, 그리고 프로젝트 기반 면접 팁 같은 것들도 얻어갈 수 있었다.&lt;/p&gt;
 &lt;p&gt;취준생인 나에게 투자 대비 효율이 좋았던 스터디라 생각한다.&lt;/p&gt;
-&lt;p&gt;5주 간 함께 해주신 팀원들, 멘토님들 감사합니당 🙇‍♂️&lt;/p&gt;</content:encoded></item><item><title><![CDATA[static을 더 잘 사용하기]]></title><description><![CDATA[이번 글에서는  키워드에 대해 알아보고자 한다.
-그 전에 JVM의 메모리 구조에 대해 먼저 살펴보자. JVM의 메모리 구조  JVM이 사용하는 메모리 공간은 크게 세 공간으로 나뉜다. Heap 영역 new…]]></description><link>https://kdkdhoho.github.io/static-with-memory-structure/</link><guid isPermaLink="false">https://kdkdhoho.github.io/static-with-memory-structure/</guid><pubDate>Wed, 06 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이번 글에서는 &lt;code class=&quot;language-text&quot;&gt;static&lt;/code&gt; 키워드에 대해 알아보고자 한다.&lt;br&gt;
-그 전에 JVM의 메모리 구조에 대해 먼저 살펴보자.&lt;/p&gt;
-&lt;h2&gt;JVM의 메모리 구조&lt;/h2&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/2c8208ed1a173d358aad4b5c8d0ccf01/ee235/memory.jpg&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 75.88235294117648%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAd4gsD//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAEFAl//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAY/Al//xAAZEAEAAgMAAAAAAAAAAAAAAAABABARUXH/2gAIAQEAAT8hezDukgJX/9oADAMBAAIAAwAAABDTz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABoQAAIDAQEAAAAAAAAAAAAAAAERACExQYH/2gAIAQEAAT8QYmkUGj3xQZcMSFkJPfYMup//2Q==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;메모리 구조&apos; title=&apos;&apos; src=&apos;/static/2c8208ed1a173d358aad4b5c8d0ccf01/a22ce/memory.jpg&apos; srcset=&apos;/static/2c8208ed1a173d358aad4b5c8d0ccf01/0b705/memory.jpg 170w,
-/static/2c8208ed1a173d358aad4b5c8d0ccf01/31389/memory.jpg 340w,
-/static/2c8208ed1a173d358aad4b5c8d0ccf01/a22ce/memory.jpg 680w,
-/static/2c8208ed1a173d358aad4b5c8d0ccf01/29373/memory.jpg 1020w,
-/static/2c8208ed1a173d358aad4b5c8d0ccf01/ee235/memory.jpg 1314w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;메모리 구조&lt;/figcaption&gt;
-  &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;JVM이 사용하는 메모리 공간은 크게 세 공간으로 나뉜다.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Heap 영역&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;new 키워드를 사용해 &lt;strong&gt;동적으로 생성한 객체의 인스턴스&lt;/strong&gt;가 담기는 공간이다.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://kdkdhoho.github.io/about-garbage-collection&quot;&gt;Garbage Collector&lt;/a&gt;&lt;/strong&gt;에 의해 관리된다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Stack 영역&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;메서드 콜 스택이나, 지역 변수 혹은 변수 파라미터가 저장되는 공간이다.&lt;/li&gt;
-&lt;li&gt;주로 메서드와 관련이 있으며 메서드가 호출될 때 새로운 영역이 할당되고 반환될 때 영역도 반환된다.&lt;/li&gt;
-&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;StackOverflow&lt;/code&gt;가 발생하는 원인을 메모리 관점에서 생각해보면 알 수 있다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Static 영역&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Code와 Data 영역이 합쳐진 영역이다.&lt;/li&gt;
-&lt;li&gt;우리가 작성한 Class나 정적 변수(클래스 변수)가 이 영역에 저장된다.&lt;/li&gt;
-&lt;li&gt;이 곳에 담긴 데이터들은 프로그램이 종료되기 전까지 유지된다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2&gt;Java의 static 키워드&lt;/h2&gt;
-&lt;p&gt;이제 Java의 static 키워드에 대해 알아보자&lt;/p&gt;
-&lt;p&gt;Java에서 static 키워드를 변수, 메서드, 클래스에 추가할 수 있다.&lt;/p&gt;
-&lt;p&gt;static을 붙여 변수를 생성하거나 메서드나 클래스를 선언하게 되면, &lt;strong&gt;프로그램 실행 시&lt;/strong&gt;에 &lt;strong&gt;딱 한 번 생성&lt;/strong&gt;되어 위 메모리 구조의 &lt;strong&gt;&lt;code class=&quot;language-text&quot;&gt;Static&lt;/code&gt; 영역에 포함&lt;/strong&gt;된다.&lt;/p&gt;
-&lt;p&gt;따라서, 우리가 객체를 생성하지 않고도 static 변수를 참조하거나 메서드를 호출할 수 있는 것이다.&lt;/p&gt;
-&lt;h2&gt;static을 많이 사용하게 된다면?&lt;/h2&gt;
-&lt;p&gt;이러한 static 변수, 메서드, 클래스를 많이 사용하게 되면 어떤 일이 발생할까?&lt;/p&gt;
-&lt;p&gt;결론부터 말하면 &lt;strong&gt;프로그램에 부작용을 초래할 확률이 증가&lt;/strong&gt;한다.&lt;/p&gt;
-&lt;p&gt;메모리 관점에서 생각해보자.&lt;/p&gt;
-&lt;p&gt;운영체제는 메모리에 Java 프로그램의 공간을 내어줄 때 무한정으로 제공하지 않는다.&lt;br&gt;
-따라서 제한된 영역 내에서 프로그램을 실행해야 한다.&lt;/p&gt;
-&lt;p&gt;그런데 Static 영역이 Heap과 Stack 영역에 비해 더 많은 공간을 차지하게 된다면, &lt;code class=&quot;language-text&quot;&gt;StackOverflow&lt;/code&gt;나 &lt;code class=&quot;language-text&quot;&gt;OutOfMemoryError&lt;/code&gt; 가 발생할 확률이 증가한다.&lt;/p&gt;
-&lt;p&gt;아무리 GC가 Heap 영역을 관리해 준다 한들, 사용할 수 있는 공간 자체가 적다면 GC의 역할에도 한계가 있을 것이다.&lt;/p&gt;
-&lt;p&gt;추가로 사용되지 않음에도 static으로 선언되었다는 이유로, 불필요하게 메모리를 차지하게 될 경우도 분명 존재할 것이다.&lt;/p&gt;
-&lt;h2&gt;어느 상황에 static을 사용하면 좋을까?&lt;/h2&gt;
-&lt;p&gt;그렇다면 어느 상황에서 static을 적절히 사용하면 좋을까?&lt;/p&gt;
-&lt;p&gt;단순히 생각해서 객체를 매번 만들 필요가 없는 경우에만 사용하면 좋을 것이다.&lt;/p&gt;
-&lt;p&gt;즉, 프로그램을 실행할 때 딱 한 번만 메모리에 올려놓고 계속해서 사용하는 경우이다.&lt;/p&gt;
-&lt;p&gt;다시 말해, Java 프로그램이 실행되면 딱 한 번만 메모리에 올려놓고 사용하는 경우가 될 것이다.&lt;/p&gt;
-&lt;h3&gt;상수&lt;/h3&gt;
-&lt;p&gt;상수는 변하지 않는 값을 의미한다.&lt;/p&gt;
-&lt;p&gt;이러한 상수는 런타임으로 새로운 변수가 계속해서 만들어질 필요가 없다.&lt;/p&gt;
-&lt;p&gt;가령, 회원가입 시에 1,000 포인트를 기본적으로 제공한다는 예시가 있다고 가정해보자.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Member&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-   &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;WELCOME_POINT&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1_000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 상수&lt;/span&gt;
-   
-   &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Member&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;token comment&quot;&gt;// ...&lt;/span&gt;
-      &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;point &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;WELCOME_POINT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-      &lt;span class=&quot;token comment&quot;&gt;// ...&lt;/span&gt;
-   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;위 코드의 &lt;code class=&quot;language-text&quot;&gt;WELCOME_POINT&lt;/code&gt; 처럼, Member 객체를 만들 때마다 새로 만들어 줄 필요도 없는 값의 경우 사용하면 효율적일 것이다.&lt;/p&gt;
-&lt;h4&gt;번외: 상수의 접근 제어자의 범위를 어떤 기준으로 지정하면 좋을까?&lt;/h4&gt;
-&lt;p&gt;위 예시에서는 &lt;code class=&quot;language-text&quot;&gt;private&lt;/code&gt;로 선언을 했는데, &lt;code class=&quot;language-text&quot;&gt;public&lt;/code&gt;으로 한다면 어떨까?&lt;/p&gt;
-&lt;p&gt;메모리 영역에서 생각해 봤을 때 &lt;code class=&quot;language-text&quot;&gt;Static&lt;/code&gt; 영역으로 올라가고, 이 영역은 같은 프로세스 내의 모든 곳에서 접근이 가능하다.&lt;/p&gt;
-&lt;p&gt;그렇지만 위 상수가 다른 클래스에서 범용적으로 쓰이지 않는 한, 불필요하게 public으로 열어둘 필요는 없어보인다.&lt;/p&gt;
-&lt;p&gt;필요하다면 private으로 선언 후, getter를 통해 값을 반환하는 게 코드를 작성하고 이해하는 데에 훨씬 도움이 될 것이라고 생각한다.&lt;/p&gt;
-&lt;p&gt;최대한 작은 범위로 설정하자.&lt;/p&gt;
-&lt;h3&gt;util성 메서드 (static 메서드)&lt;/h3&gt;
-&lt;p&gt;흔히 &lt;strong&gt;유틸성 클래스&lt;/strong&gt;라고 하는 곳에 존재하는 메서드들에 &lt;code class=&quot;language-text&quot;&gt;static&lt;/code&gt; 키워드를 붙여 사용한다.&lt;/p&gt;
-&lt;p&gt;이는 인스턴스를 만들지 않고도 사용할 수 있고, 어디에서든 호출할 수 있다.&lt;/p&gt;
-&lt;p&gt;다만, 인스턴스로 쓰이는 클래스에 static 메서드가 존재할 수 있는데, 이때 조심해야 할 점이 있다.&lt;/p&gt;
-&lt;p&gt;바로 static 메서드는 재정의가 불가능 하다는 것이다.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 445px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/7db57a8785540b6a4b1764dbf9ef4711/a6969/cannot-extends.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 65.88235294117646%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAABt0lEQVR42p1S2XKjMBD0fyTmsIU5dBlziEBsfMASu5KH/f+P6R1kx4V3qzbZfWhG6hlaI03PdJLAKIGEKwSrBI7jw/OWcNwFXIJjsYR7477CzKFCGcWoUw0Vx8glRy645YyWCKRBlO+hNwUYCzGnA/8uSB/PY/AXDHlRoShfkMkC62SDrDTI8goyzRCTOAuirwXHq4yFns/stcY4HjCuXcstLL5zXSsYhtd3s4Qzkj7mtJ67/rdF/nhDhzq4djZ2uLx3+l+CRgg0WiGKBTIahlEcinPEXE+m/A+CWSwRByF8FoCtQgTh53tOsZzgd/6xduayhCaZ4ud7i3Pf4ONyQhBJLFf8DhaKhzjlWfi4n40DSKizOlVkFRIniwznd5y6HzgcO+wJu/aII+2Pp96i6weba/dHbCl36t/QDxe87tqrDz/b32QlGdigaAZUuzMMoXwdaN+jJJjtG3GXeywol5sGVb1FXtaWf/Dh07OLKFHIqwN02UEXB6Smg9AlxLokg79AbhoIG2uotAaXqUUitM3PVuTD0f2j8PPcA6dE03YkdMK6aLGpB/phTdA2x4WaRHXL3SA0fgGQBIBVIBrXfQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;클래스 상속 시&apos; title=&apos;&apos; src=&apos;/static/7db57a8785540b6a4b1764dbf9ef4711/a6969/cannot-extends.png&apos; srcset=&apos;/static/7db57a8785540b6a4b1764dbf9ef4711/e7570/cannot-extends.png 170w,
-/static/7db57a8785540b6a4b1764dbf9ef4711/f46e7/cannot-extends.png 340w,
-/static/7db57a8785540b6a4b1764dbf9ef4711/a6969/cannot-extends.png 445w&apos; sizes=&apos;(max-width: 445px) 100vw, 445px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;클래스 상속 시&lt;/figcaption&gt;
-  &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 449px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/0ebdd0b4ee34267b671c61130d19ed55/46d70/cannot-implements.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 65.29411764705883%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAABuElEQVR42pVT23abMBDkP2IbBNgIJHEziEswmNg4TU7//3emK+Em7UN77Ic5o9Wi0ax2cfIkwVEKVEpAJgKHOMXO9bF1meWdF6z8IBzGQoiI41RmyEWMLOGQMUcYCSQiA48l3CdEnZ0b0AEfQbBHXbdo2g5HVaFQNSrdoqI9mRfgSiIIObY79n9Bc3t4iG1pHrllwQGM7WGcM39llwXW5SNOnQMXX4G53Tq483fsr3ikZM8Lv8pw/xC28ZMNsYIZdbnJFMI9h04VujxFm0mkQkKo/HlBj1wwFtwd+TCx562NelbMCm62DCKJMLUZ2lKiLgU2/3gv25jfazMd7t+NMmtnR11MOMdwzFFKiaIo8f75E9P5DfNlwTRfMIxnu54vN5znBdfbB0bKj9OM4TThuvwgfKDtT3DCg8A+kjTICrobUVQ99ImS4wo9LGiGG3R/gW5fUesOVTtS7pNy72gM0zndDciPmt6QHJqGGH7ZeOCJQt1fkTcE/Ua40GBryKyGTAsLoY5Iy1eosiPuKS7v+wXNYZTYMTH1v2xc+t1SDNNixQo9o+wW+jAlZLbrK2gtUyQEw9/7OX4B6x19Ik//fAUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;인터페이스 구현 시&apos; title=&apos;&apos; src=&apos;/static/0ebdd0b4ee34267b671c61130d19ed55/46d70/cannot-implements.png&apos; srcset=&apos;/static/0ebdd0b4ee34267b671c61130d19ed55/e7570/cannot-implements.png 170w,
-/static/0ebdd0b4ee34267b671c61130d19ed55/f46e7/cannot-implements.png 340w,
-/static/0ebdd0b4ee34267b671c61130d19ed55/46d70/cannot-implements.png 449w&apos; sizes=&apos;(max-width: 449px) 100vw, 449px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;인터페이스 구현 시&lt;/figcaption&gt;
-  &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;추가로 광범위하게 사용되는 특징을 가진 Util성 메서드인 만큼, 클래스의 변경 가능성이 증가한다는 특징이 있다.&lt;/p&gt;
-&lt;p&gt;가급적 Util성 클래스에 static 메서드를 모아서 사용하도록 하자.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;h2&gt;Reference&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://mangkyu.tistory.com/47&quot;&gt;망나니 개발자 블로그&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.yes24.com/Product/Goods/24259565&quot;&gt;Java의 정석&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://medium.com/att-israel/should-you-avoid-using-static-ae4b58ca1de5&quot;&gt;AT&amp;#x26;T Israel Tech Blog&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[[JSCODE] - OS 면접 스터디 5주차]]></title><description><![CDATA[…]]></description><link>https://kdkdhoho.github.io/os-interview-study-5week/</link><guid isPermaLink="false">https://kdkdhoho.github.io/os-interview-study-5week/</guid><pubDate>Wed, 06 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;가상 주소와 물리 주소(실주소)에 대해 설명해주세요.&lt;/h2&gt;
+&lt;p&gt;5주 간 함께 해주신 팀원들, 멘토님들 감사합니당 🙇‍♂️&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[JSCODE] - OS 면접 스터디 5주차]]></title><description><![CDATA[…]]></description><link>https://kdkdhoho.github.io/os-interview-study-5week/</link><guid isPermaLink="false">https://kdkdhoho.github.io/os-interview-study-5week/</guid><pubDate>Wed, 06 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;가상 주소와 물리 주소(실주소)에 대해 설명해주세요.&lt;/h2&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;가상 주소의 경우 프로세스마다 독립적으로 가지는 주소 공간입니다. 모두 0번지부터 시작합니다.
 물리 주소의 경우 프로세스가 실제 메모리에 올라가는 위치입니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;가상 주소를 물리 주소(실주소)로 어떻게 변환할까요?&lt;/h2&gt;
@@ -11396,7 +11291,125 @@ limit register는 실행하려는 프로세스가 가지는 주소의 전체 범
 
 그런데 이 페이지 테이블은 4byte로 나누고, 실행되는 프로세스가 32비트인 경우, 각 프로세스마다 100만 행의 페이지 테이블을 가진다.
 이때 중요한 점은 컨텍스트 스위칭이 발생할 때 이 페이지 테이블도 함께 초기화된다.
-따라서 효율측면에서 좋지 않다. 따라서 캐싱 기법을 통해 성능을 개선한다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[final 키워드를 사용해 값의 변경을 막아라. 왜?]]></title><description><![CDATA[왜 값의 변경을 막아야 할까?  자동차 경주 피드백 중 하나이다. 왜 이런 피드백이 있는지 알아보자 final 키워드를 붙이면 좋은 점…]]></description><link>https://kdkdhoho.github.io/why-use-final/</link><guid isPermaLink="false">https://kdkdhoho.github.io/why-use-final/</guid><pubDate>Tue, 05 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;왜 값의 변경을 막아야 할까?&lt;/h2&gt;
+따라서 효율측면에서 좋지 않다. 따라서 캐싱 기법을 통해 성능을 개선한다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[static을 더 잘 사용하기]]></title><description><![CDATA[이번 글에서는  키워드에 대해 알아보고자 한다.
+그 전에 JVM의 메모리 구조에 대해 먼저 살펴보자. JVM의 메모리 구조  JVM이 사용하는 메모리 공간은 크게 세 공간으로 나뉜다. Heap 영역 new…]]></description><link>https://kdkdhoho.github.io/static-with-memory-structure/</link><guid isPermaLink="false">https://kdkdhoho.github.io/static-with-memory-structure/</guid><pubDate>Wed, 06 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이번 글에서는 &lt;code class=&quot;language-text&quot;&gt;static&lt;/code&gt; 키워드에 대해 알아보고자 한다.&lt;br&gt;
+그 전에 JVM의 메모리 구조에 대해 먼저 살펴보자.&lt;/p&gt;
+&lt;h2&gt;JVM의 메모리 구조&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/2c8208ed1a173d358aad4b5c8d0ccf01/ee235/memory.jpg&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 75.88235294117648%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAd4gsD//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAEFAl//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAY/Al//xAAZEAEAAgMAAAAAAAAAAAAAAAABABARUXH/2gAIAQEAAT8hezDukgJX/9oADAMBAAIAAwAAABDTz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABoQAAIDAQEAAAAAAAAAAAAAAAERACExQYH/2gAIAQEAAT8QYmkUGj3xQZcMSFkJPfYMup//2Q==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;메모리 구조&apos; title=&apos;&apos; src=&apos;/static/2c8208ed1a173d358aad4b5c8d0ccf01/a22ce/memory.jpg&apos; srcset=&apos;/static/2c8208ed1a173d358aad4b5c8d0ccf01/0b705/memory.jpg 170w,
+/static/2c8208ed1a173d358aad4b5c8d0ccf01/31389/memory.jpg 340w,
+/static/2c8208ed1a173d358aad4b5c8d0ccf01/a22ce/memory.jpg 680w,
+/static/2c8208ed1a173d358aad4b5c8d0ccf01/29373/memory.jpg 1020w,
+/static/2c8208ed1a173d358aad4b5c8d0ccf01/ee235/memory.jpg 1314w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;메모리 구조&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;JVM이 사용하는 메모리 공간은 크게 세 공간으로 나뉜다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Heap 영역&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;new 키워드를 사용해 &lt;strong&gt;동적으로 생성한 객체의 인스턴스&lt;/strong&gt;가 담기는 공간이다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://kdkdhoho.github.io/about-garbage-collection&quot;&gt;Garbage Collector&lt;/a&gt;&lt;/strong&gt;에 의해 관리된다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Stack 영역&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;메서드 콜 스택이나, 지역 변수 혹은 변수 파라미터가 저장되는 공간이다.&lt;/li&gt;
+&lt;li&gt;주로 메서드와 관련이 있으며 메서드가 호출될 때 새로운 영역이 할당되고 반환될 때 영역도 반환된다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;StackOverflow&lt;/code&gt;가 발생하는 원인을 메모리 관점에서 생각해보면 알 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Static 영역&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Code와 Data 영역이 합쳐진 영역이다.&lt;/li&gt;
+&lt;li&gt;우리가 작성한 Class나 정적 변수(클래스 변수)가 이 영역에 저장된다.&lt;/li&gt;
+&lt;li&gt;이 곳에 담긴 데이터들은 프로그램이 종료되기 전까지 유지된다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Java의 static 키워드&lt;/h2&gt;
+&lt;p&gt;이제 Java의 static 키워드에 대해 알아보자&lt;/p&gt;
+&lt;p&gt;Java에서 static 키워드를 변수, 메서드, 클래스에 추가할 수 있다.&lt;/p&gt;
+&lt;p&gt;static을 붙여 변수를 생성하거나 메서드나 클래스를 선언하게 되면, &lt;strong&gt;프로그램 실행 시&lt;/strong&gt;에 &lt;strong&gt;딱 한 번 생성&lt;/strong&gt;되어 위 메모리 구조의 &lt;strong&gt;&lt;code class=&quot;language-text&quot;&gt;Static&lt;/code&gt; 영역에 포함&lt;/strong&gt;된다.&lt;/p&gt;
+&lt;p&gt;따라서, 우리가 객체를 생성하지 않고도 static 변수를 참조하거나 메서드를 호출할 수 있는 것이다.&lt;/p&gt;
+&lt;h2&gt;static을 많이 사용하게 된다면?&lt;/h2&gt;
+&lt;p&gt;이러한 static 변수, 메서드, 클래스를 많이 사용하게 되면 어떤 일이 발생할까?&lt;/p&gt;
+&lt;p&gt;결론부터 말하면 &lt;strong&gt;프로그램에 부작용을 초래할 확률이 증가&lt;/strong&gt;한다.&lt;/p&gt;
+&lt;p&gt;메모리 관점에서 생각해보자.&lt;/p&gt;
+&lt;p&gt;운영체제는 메모리에 Java 프로그램의 공간을 내어줄 때 무한정으로 제공하지 않는다.&lt;br&gt;
+따라서 제한된 영역 내에서 프로그램을 실행해야 한다.&lt;/p&gt;
+&lt;p&gt;그런데 Static 영역이 Heap과 Stack 영역에 비해 더 많은 공간을 차지하게 된다면, &lt;code class=&quot;language-text&quot;&gt;StackOverflow&lt;/code&gt;나 &lt;code class=&quot;language-text&quot;&gt;OutOfMemoryError&lt;/code&gt; 가 발생할 확률이 증가한다.&lt;/p&gt;
+&lt;p&gt;아무리 GC가 Heap 영역을 관리해 준다 한들, 사용할 수 있는 공간 자체가 적다면 GC의 역할에도 한계가 있을 것이다.&lt;/p&gt;
+&lt;p&gt;추가로 사용되지 않음에도 static으로 선언되었다는 이유로, 불필요하게 메모리를 차지하게 될 경우도 분명 존재할 것이다.&lt;/p&gt;
+&lt;h2&gt;어느 상황에 static을 사용하면 좋을까?&lt;/h2&gt;
+&lt;p&gt;그렇다면 어느 상황에서 static을 적절히 사용하면 좋을까?&lt;/p&gt;
+&lt;p&gt;단순히 생각해서 객체를 매번 만들 필요가 없는 경우에만 사용하면 좋을 것이다.&lt;/p&gt;
+&lt;p&gt;즉, 프로그램을 실행할 때 딱 한 번만 메모리에 올려놓고 계속해서 사용하는 경우이다.&lt;/p&gt;
+&lt;p&gt;다시 말해, Java 프로그램이 실행되면 딱 한 번만 메모리에 올려놓고 사용하는 경우가 될 것이다.&lt;/p&gt;
+&lt;h3&gt;상수&lt;/h3&gt;
+&lt;p&gt;상수는 변하지 않는 값을 의미한다.&lt;/p&gt;
+&lt;p&gt;이러한 상수는 런타임으로 새로운 변수가 계속해서 만들어질 필요가 없다.&lt;/p&gt;
+&lt;p&gt;가령, 회원가입 시에 1,000 포인트를 기본적으로 제공한다는 예시가 있다고 가정해보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Member&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;WELCOME_POINT&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1_000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 상수&lt;/span&gt;
+   
+   &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Member&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;// ...&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;point &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;WELCOME_POINT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;// ...&lt;/span&gt;
+   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위 코드의 &lt;code class=&quot;language-text&quot;&gt;WELCOME_POINT&lt;/code&gt; 처럼, Member 객체를 만들 때마다 새로 만들어 줄 필요도 없는 값의 경우 사용하면 효율적일 것이다.&lt;/p&gt;
+&lt;h4&gt;번외: 상수의 접근 제어자의 범위를 어떤 기준으로 지정하면 좋을까?&lt;/h4&gt;
+&lt;p&gt;위 예시에서는 &lt;code class=&quot;language-text&quot;&gt;private&lt;/code&gt;로 선언을 했는데, &lt;code class=&quot;language-text&quot;&gt;public&lt;/code&gt;으로 한다면 어떨까?&lt;/p&gt;
+&lt;p&gt;메모리 영역에서 생각해 봤을 때 &lt;code class=&quot;language-text&quot;&gt;Static&lt;/code&gt; 영역으로 올라가고, 이 영역은 같은 프로세스 내의 모든 곳에서 접근이 가능하다.&lt;/p&gt;
+&lt;p&gt;그렇지만 위 상수가 다른 클래스에서 범용적으로 쓰이지 않는 한, 불필요하게 public으로 열어둘 필요는 없어보인다.&lt;/p&gt;
+&lt;p&gt;필요하다면 private으로 선언 후, getter를 통해 값을 반환하는 게 코드를 작성하고 이해하는 데에 훨씬 도움이 될 것이라고 생각한다.&lt;/p&gt;
+&lt;p&gt;최대한 작은 범위로 설정하자.&lt;/p&gt;
+&lt;h3&gt;util성 메서드 (static 메서드)&lt;/h3&gt;
+&lt;p&gt;흔히 &lt;strong&gt;유틸성 클래스&lt;/strong&gt;라고 하는 곳에 존재하는 메서드들에 &lt;code class=&quot;language-text&quot;&gt;static&lt;/code&gt; 키워드를 붙여 사용한다.&lt;/p&gt;
+&lt;p&gt;이는 인스턴스를 만들지 않고도 사용할 수 있고, 어디에서든 호출할 수 있다.&lt;/p&gt;
+&lt;p&gt;다만, 인스턴스로 쓰이는 클래스에 static 메서드가 존재할 수 있는데, 이때 조심해야 할 점이 있다.&lt;/p&gt;
+&lt;p&gt;바로 static 메서드는 재정의가 불가능 하다는 것이다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 445px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/7db57a8785540b6a4b1764dbf9ef4711/a6969/cannot-extends.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 65.88235294117646%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAABt0lEQVR42p1S2XKjMBD0fyTmsIU5dBlziEBsfMASu5KH/f+P6R1kx4V3qzbZfWhG6hlaI03PdJLAKIGEKwSrBI7jw/OWcNwFXIJjsYR7477CzKFCGcWoUw0Vx8glRy645YyWCKRBlO+hNwUYCzGnA/8uSB/PY/AXDHlRoShfkMkC62SDrDTI8goyzRCTOAuirwXHq4yFns/stcY4HjCuXcstLL5zXSsYhtd3s4Qzkj7mtJ67/rdF/nhDhzq4djZ2uLx3+l+CRgg0WiGKBTIahlEcinPEXE+m/A+CWSwRByF8FoCtQgTh53tOsZzgd/6xduayhCaZ4ud7i3Pf4ONyQhBJLFf8DhaKhzjlWfi4n40DSKizOlVkFRIniwznd5y6HzgcO+wJu/aII+2Pp96i6weba/dHbCl36t/QDxe87tqrDz/b32QlGdigaAZUuzMMoXwdaN+jJJjtG3GXeywol5sGVb1FXtaWf/Dh07OLKFHIqwN02UEXB6Smg9AlxLokg79AbhoIG2uotAaXqUUitM3PVuTD0f2j8PPcA6dE03YkdMK6aLGpB/phTdA2x4WaRHXL3SA0fgGQBIBVIBrXfQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;클래스 상속 시&apos; title=&apos;&apos; src=&apos;/static/7db57a8785540b6a4b1764dbf9ef4711/a6969/cannot-extends.png&apos; srcset=&apos;/static/7db57a8785540b6a4b1764dbf9ef4711/e7570/cannot-extends.png 170w,
+/static/7db57a8785540b6a4b1764dbf9ef4711/f46e7/cannot-extends.png 340w,
+/static/7db57a8785540b6a4b1764dbf9ef4711/a6969/cannot-extends.png 445w&apos; sizes=&apos;(max-width: 445px) 100vw, 445px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;클래스 상속 시&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 449px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/0ebdd0b4ee34267b671c61130d19ed55/46d70/cannot-implements.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 65.29411764705883%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAABuElEQVR42pVT23abMBDkP2IbBNgIJHEziEswmNg4TU7//3emK+Em7UN77Ic5o9Wi0ax2cfIkwVEKVEpAJgKHOMXO9bF1meWdF6z8IBzGQoiI41RmyEWMLOGQMUcYCSQiA48l3CdEnZ0b0AEfQbBHXbdo2g5HVaFQNSrdoqI9mRfgSiIIObY79n9Bc3t4iG1pHrllwQGM7WGcM39llwXW5SNOnQMXX4G53Tq483fsr3ikZM8Lv8pw/xC28ZMNsYIZdbnJFMI9h04VujxFm0mkQkKo/HlBj1wwFtwd+TCx562NelbMCm62DCKJMLUZ2lKiLgU2/3gv25jfazMd7t+NMmtnR11MOMdwzFFKiaIo8f75E9P5DfNlwTRfMIxnu54vN5znBdfbB0bKj9OM4TThuvwgfKDtT3DCg8A+kjTICrobUVQ99ImS4wo9LGiGG3R/gW5fUesOVTtS7pNy72gM0zndDciPmt6QHJqGGH7ZeOCJQt1fkTcE/Ua40GBryKyGTAsLoY5Iy1eosiPuKS7v+wXNYZTYMTH1v2xc+t1SDNNixQo9o+wW+jAlZLbrK2gtUyQEw9/7OX4B6x19Ik//fAUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;인터페이스 구현 시&apos; title=&apos;&apos; src=&apos;/static/0ebdd0b4ee34267b671c61130d19ed55/46d70/cannot-implements.png&apos; srcset=&apos;/static/0ebdd0b4ee34267b671c61130d19ed55/e7570/cannot-implements.png 170w,
+/static/0ebdd0b4ee34267b671c61130d19ed55/f46e7/cannot-implements.png 340w,
+/static/0ebdd0b4ee34267b671c61130d19ed55/46d70/cannot-implements.png 449w&apos; sizes=&apos;(max-width: 449px) 100vw, 449px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;인터페이스 구현 시&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;추가로 광범위하게 사용되는 특징을 가진 Util성 메서드인 만큼, 클래스의 변경 가능성이 증가한다는 특징이 있다.&lt;/p&gt;
+&lt;p&gt;가급적 Util성 클래스에 static 메서드를 모아서 사용하도록 하자.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h2&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://mangkyu.tistory.com/47&quot;&gt;망나니 개발자 블로그&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.yes24.com/Product/Goods/24259565&quot;&gt;Java의 정석&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/att-israel/should-you-avoid-using-static-ae4b58ca1de5&quot;&gt;AT&amp;#x26;T Israel Tech Blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[final 키워드를 사용해 값의 변경을 막아라. 왜?]]></title><description><![CDATA[왜 값의 변경을 막아야 할까?  자동차 경주 피드백 중 하나이다. 왜 이런 피드백이 있는지 알아보자 final 키워드를 붙이면 좋은 점…]]></description><link>https://kdkdhoho.github.io/why-use-final/</link><guid isPermaLink="false">https://kdkdhoho.github.io/why-use-final/</guid><pubDate>Tue, 05 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;왜 값의 변경을 막아야 할까?&lt;/h2&gt;
 &lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 620px; &apos;&gt;
       &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/49858e991f61c277dbd5636c889d2db8/abf7b/why-use-final.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
