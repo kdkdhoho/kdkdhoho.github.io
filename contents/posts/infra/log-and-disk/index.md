@@ -238,7 +238,12 @@ System CPU Usage는 AWS의 모니터링 결과와 일치했다.<br>
 }
 ```
 
-이번엔 서버 시스템의 로그 설정을 해주자.
+이번엔 서버 시스템의 로그 설정을 해주자.[^1]
+Linux에는 주기적으로 로그를 삭제 및 정리하는 기능의 Logrotate 기능이 있다.<br>
+해당 기능을 설정해주자.
+
+`sudo vim /etc/logrotate.conf` 명령어를 입력하고 아래 값을 입력 & 저장해주자.
+
 ```text
 # see "man logrotate" for details
 
@@ -290,3 +295,7 @@ CPU 사용량도 더 줄어듦을 볼 수 있다.
 **시스템을 운영할 때 로그를 잘 남기는 것이 매우 중요**하다는 것과 **로그를 잘 저장하는 것이 중요**하다는 것이다.<br>
 또한 모니터링 대시보드를 붙였음에도 잘 사용하고 있지 못하는 것 같다.<br>
 **특정 메트릭에 임계치를 설정해놓고 값을 초과하면 알람을 발생하도록** 해봐야겠다.
+
+---
+
+[^****1]: [[Linux] Logrotate 설명 및 설정 방법](http://www.chlux.co.kr/bbs/board.php?bo_table=board02&wr_id=91&sca=OS&page=6)
