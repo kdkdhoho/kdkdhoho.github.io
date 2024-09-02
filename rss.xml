@@ -1,4 +1,78 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 11 Aug 2024 07:03:58 GMT</lastBuildDate><item><title><![CDATA[[회고] 08.05 ~ 08.11]]></title><description><![CDATA[…]]></description><link>https://kdkdhoho.github.io/august-2st/</link><guid isPermaLink="false">https://kdkdhoho.github.io/august-2st/</guid><pubDate>Sun, 11 Aug 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이번 주는 외적 동기에서 내적 동기로 잘 전이된 것 같다.&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of log4dh]]></title><description><![CDATA[Back to Basic]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 02 Sep 2024 06:46:27 GMT</lastBuildDate><item><title><![CDATA[O(sqrt(N))과 O(log2(N))의 차이]]></title><description><![CDATA[O(sqrt(N))과 O(log2(N))은 비슷해보이지만 차이가 많이 다르다.
+간단히 N을 1부터 1e8까지 증가시키면서 sqrt(N)과 log2(N)을 출력해봐도 알 수 있다. N이 적을 때는 log2(N)이 sqrt(N…]]></description><link>https://kdkdhoho.github.io/difference-sqrtN-and-logN/</link><guid isPermaLink="false">https://kdkdhoho.github.io/difference-sqrtN-and-logN/</guid><pubDate>Mon, 02 Sep 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;O(sqrt(N))과 O(log2(N))은 비슷해보이지만 차이가 많이 다르다.&lt;br&gt;
+간단히 N을 1부터 1e8까지 증가시키면서 sqrt(N)과 log2(N)을 출력해봐도 알 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;kotlin&quot;&gt;&lt;pre class=&quot;language-kotlin&quot;&gt;&lt;code class=&quot;language-kotlin&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; java&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;lang&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Math&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;sqrt
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; kotlin&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;math&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;log
+
+&lt;span class=&quot;token keyword&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;n &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1e8&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toInt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string-literal singleline&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;sqrt(N)=&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;token expression&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;n&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toDouble&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt; log2(N)=&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;token expression&quot;&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;n&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toDouble&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2.0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;N이 적을 때는 log2(N)이 sqrt(N)보다 큰 경우도 있다.&lt;br&gt;
+하지만 그 값이 커지면 커질수록 sqrt(N)과 log2(N)의 차이는 심하게 차이난다.&lt;br&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;N=1 sqrt(N)=1.0 log2(N)=0.0
+N=2 sqrt(N)=1.4142135623730951 log2(N)=1.0
+N=3 sqrt(N)=1.7320508075688772 log2(N)=1.584962500721156
+N=4 sqrt(N)=2.0 log2(N)=2.0
+N=5 sqrt(N)=2.23606797749979 log2(N)=2.321928094887362
+N=6 sqrt(N)=2.449489742783178 log2(N)=2.584962500721156
+N=7 sqrt(N)=2.6457513110645907 log2(N)=2.807354922057604
+N=8 sqrt(N)=2.8284271247461903 log2(N)=3.0
+N=9 sqrt(N)=3.0 log2(N)=3.1699250014423126
+N=10 sqrt(N)=3.1622776601683795 log2(N)=3.3219280948873626
+N=11 sqrt(N)=3.3166247903554 log2(N)=3.4594316186372978
+N=12 sqrt(N)=3.4641016151377544 log2(N)=3.5849625007211565
+N=13 sqrt(N)=3.605551275463989 log2(N)=3.700439718141092
+N=14 sqrt(N)=3.7416573867739413 log2(N)=3.8073549220576037
+N=15 sqrt(N)=3.872983346207417 log2(N)=3.9068905956085187
+N=16 sqrt(N)=4.0 log2(N)=4.0
+N=17 sqrt(N)=4.123105625617661 log2(N)=4.08746284125034
+N=18 sqrt(N)=4.242640687119285 log2(N)=4.169925001442312
+N=19 sqrt(N)=4.358898943540674 log2(N)=4.247927513443585
+N=20 sqrt(N)=4.47213595499958 log2(N)=4.321928094887363
+N=21 sqrt(N)=4.58257569495584 log2(N)=4.392317422778761
+N=22 sqrt(N)=4.69041575982343 log2(N)=4.459431618637297
+N=23 sqrt(N)=4.795831523312719 log2(N)=4.523561956057013
+N=24 sqrt(N)=4.898979485566356 log2(N)=4.584962500721157
+N=25 sqrt(N)=5.0 log2(N)=4.643856189774724
+N=26 sqrt(N)=5.0990195135927845 log2(N)=4.700439718141093
+N=27 sqrt(N)=5.196152422706632 log2(N)=4.754887502163469
+N=28 sqrt(N)=5.291502622129181 log2(N)=4.807354922057604
+N=29 sqrt(N)=5.385164807134504 log2(N)=4.857980995127573
+N=30 sqrt(N)=5.477225575051661 log2(N)=4.906890595608519
+.
+.
+.
+N=30358755 sqrt(N)=5509.877947831513 log2(N)=24.855609291850453
+N=30358756 sqrt(N)=5509.878038577624 log2(N)=24.855609339372
+N=30358757 sqrt(N)=5509.878129323733 log2(N)=24.855609386893544
+N=30358758 sqrt(N)=5509.8782200698415 log2(N)=24.85560943441509
+N=30358759 sqrt(N)=5509.878310815948 log2(N)=24.85560948193663
+N=30358760 sqrt(N)=5509.878401562052 log2(N)=24.85560952945817
+N=30358761 sqrt(N)=5509.878492308156 log2(N)=24.85560957697971
+N=30358762 sqrt(N)=5509.878583054258 log2(N)=24.855609624501252
+N=30358763 sqrt(N)=5509.878673800359 log2(N)=24.855609672022787
+N=30358764 sqrt(N)=5509.878764546458 log2(N)=24.855609719544322
+N=30358765 sqrt(N)=5509.878855292555 log2(N)=24.855609767065854
+N=30358766 sqrt(N)=5509.8789460386515 log2(N)=24.85560981458739
+N=30358767 sqrt(N)=5509.879036784746 log2(N)=24.855609862108917
+N=30358768 sqrt(N)=5509.8791275308395 log2(N)=24.855609909630445
+N=30358769 sqrt(N)=5509.87921827693 log2(N)=24.855609957151973
+N=30358770 sqrt(N)=5509.879309023021 log2(N)=24.855610004673498
+N=30358771 sqrt(N)=5509.879399769109 log2(N)=24.855610052195026
+N=30358772 sqrt(N)=5509.879490515196 log2(N)=24.855610099716543
+N=30358773 sqrt(N)=5509.879581261282 log2(N)=24.855610147238064
+N=30358774 sqrt(N)=5509.879672007366 log2(N)=24.855610194759585
+N=30358775 sqrt(N)=5509.879762753449 log2(N)=24.855610242281106
+N=30358776 sqrt(N)=5509.879853499529 log2(N)=24.85561028980262
+N=30358777 sqrt(N)=5509.879944245609 log2(N)=24.855610337324133&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;값을 기반으로 대충 시간복잡도 그래프를 그려보았다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;img_1.png&quot; alt=&quot;시간복잡도 그래프&quot;&gt;&lt;/p&gt;
+&lt;h2&gt;결론&lt;/h2&gt;
+&lt;p&gt;O(sqrt(N))도 O(N)에 비해 상당히 적은 수인건 분명하다.&lt;br&gt;
+하지만 log2(N)에 비하면 상당히 큰 결과인 것도 분명하다.&lt;/p&gt;
+&lt;p&gt;이 둘의 시간복잡도 차이는 분명하고, 그 차이는 값이 커질 수록 엄청나게 차이나는 것을 확인할 수 있었다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[회고] 08.05 ~ 08.11]]></title><description><![CDATA[…]]></description><link>https://kdkdhoho.github.io/august-2st/</link><guid isPermaLink="false">https://kdkdhoho.github.io/august-2st/</guid><pubDate>Sun, 11 Aug 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이번 주는 외적 동기에서 내적 동기로 잘 전이된 것 같다.&lt;br&gt;
 시작은 저번 주부터인데 오늘까지 내적 동기로 꾸준히 움직였다.&lt;br&gt;
 역시 외적 동기를 가졌을 때보다 훨씬 마음이 편안하고 스트레스도 덜 받는다.&lt;/p&gt;
 &lt;p&gt;우테코를 하고 나서부터 외적 동기보다 내적 동기의 중요성을 알게 되었다.&lt;br&gt;
