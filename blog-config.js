@@ -1,8 +1,8 @@
 module.exports = {
   title: "log4dh",
-  description: "Back to Basic",
+  description: "기본에 충실하게",
   author: "kdkdhoho",
-  siteUrl: "https://kdkdhoho.github.io/",
+  siteUrl: "https://kdkdhoho.github.io",
   links: {
     github: "https://github.com/kdkdhoho",
     blogger: "https://velog.io/@donghokim1998",
