@@ -5,6 +5,39 @@ date: 2024-01-12
 tags: ["git", "github"]
 ---
 
+# 개선된 버전
+
+```shell
+#!/bin/sh
+
+COMMIT_MESSAGE_FILE_PATH=$1
+MESSAGE=$(cat "$COMMIT_MESSAGE_FILE_PATH")
+
+# 빈 메시지 체크
+if [ -z "$MESSAGE" ]; then
+  exit 0
+fi
+
+POSTFIX=""
+
+# 메시지가 ':'로 끝나지 않는 경우 PREFIX 설정
+if [[ "$MESSAGE" != *:* ]]; then
+  echo "Error: 커밋 메시지에 커밋 타입을 작성해주세요." >&2
+  exit 1
+fi
+
+# 메시지에 '#'가 포함되지 않고, 브랜치가 dev나 main이 아닌 경우 POSTFIX 설정
+POSTFIX=""
+CURRENT_BRANCH=$(git branch | grep '\*' | sed 's/\* //')
+if [[ "$MESSAGE" != *#* && "$CURRENT_BRANCH" != "dev" && "$CURRENT_BRANCH" != "main" ]]; then
+  POSTFIX="(#$(git branch | grep '\*' | sed 's/\* //' | sed 's/^.*\///' | sed 's/^\([^-]*-[^-]*\).*/\1/'))"
+fi
+
+# 커밋 메시지 파일에 PREFIX와 POSTFIX 추가
+printf "%s %s" "$MESSAGE" "$POSTFIX" > "$COMMIT_MESSAGE_FILE_PATH"
+
+```
+
 ## 들어가며
 
 이번 글에서는 브랜치 네이밍을 이용해 자동으로 커밋 타입과 이슈 번호를 추가하는 방법에 작성하겠습니다.
