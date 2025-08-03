@@ -1,0 +1,784 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 5.14.5"/><meta name="description" content="synchronized, wait()과 notify(), Lock과 Condition" data-gatsby-head="true"/><meta property="og:title" content="Java Thread 3 - Thread 동기화하기" data-gatsby-head="true"/><meta property="og:description" content="synchronized, wait()과 notify(), Lock과 Condition" data-gatsby-head="true"/><meta property="og:type" content="website" data-gatsby-head="true"/><meta name="twitter:card" content="summary" data-gatsby-head="true"/><meta name="twitter:creator" content="kylemathews" data-gatsby-head="true"/><meta name="twitter:title" content="Java Thread 3 - Thread 동기화하기" data-gatsby-head="true"/><meta name="twitter:description" content="synchronized, wait()과 notify(), Lock과 Condition" data-gatsby-head="true"/><style data-href="/styles.ba0b3f7a6b044d449966.css" data-identity="gatsby-global-css">@font-face{font-display:swap;font-family:Pretendard;font-style:normal;font-weight:400;src:url(/static/pretendard-latin-400-normal-38bed7de46e7b9049cedbede041d23ed.woff2) format("woff2"),url(/static/pretendard-latin-400-normal-303253288b0ba99db532e29a364b0c09.woff) format("woff")}
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{-webkit-text-size-adjust:100%;line-height:1.15}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}[hidden]{display:none}:root{--maxWidth-none:"none";--maxWidth-xs:20rem;--maxWidth-sm:24rem;--maxWidth-md:28rem;--maxWidth-lg:32rem;--maxWidth-xl:36rem;--maxWidth-2xl:42rem;--maxWidth-3xl:48rem;--maxWidth-4xl:56rem;--maxWidth-full:"100%";--maxWidth-wrapper:var(--maxWidth-2xl);--spacing-px:"1px";--spacing-0:0;--spacing-1:0.25rem;--spacing-2:0.5rem;--spacing-3:0.75rem;--spacing-4:1rem;--spacing-5:1.25rem;--spacing-6:1.5rem;--spacing-8:2rem;--spacing-10:2.5rem;--spacing-12:3rem;--spacing-16:4rem;--spacing-20:5rem;--spacing-24:6rem;--spacing-32:8rem;--fontFamily-sans:"Pretendard",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--fontFamily-serif:"Pretendard","Georgia",Cambria,"Times New Roman",Times,serif;--font-body:var(--fontFamily-serif);--font-heading:var(--fontFamily-sans);--fontWeight-normal:400;--fontWeight-bold:700;--fontWeight-black:900;--fontSize-root:16px;--lineHeight-none:1;--lineHeight-tight:1.1;--lineHeight-normal:1.5;--lineHeight-relaxed:1.625;--fontSize-0:0.833rem;--fontSize-1:1rem;--fontSize-2:1.2rem;--fontSize-3:1.44rem;--fontSize-4:1.728rem;--fontSize-5:2.074rem;--fontSize-6:2.488rem;--fontSize-7:2.986rem;--color-primary:#00b02f;--color-text:#2e353f;--color-text-light:#4f5969;--color-heading:#1a202c;--color-heading-black:#000;--color-accent:#d1dce5}*,:after,:before{box-sizing:border-box}html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:var(--fontSize-root);line-height:var(--lineHeight-normal)}body{color:var(--color-text);font-family:var(--font-body);font-size:var(--fontSize-1)}footer{padding:var(--spacing-6) var(--spacing-0)}hr{background:var(--color-accent);border:0;height:1px}h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);letter-spacing:-.025em;line-height:var(--lineHeight-tight);margin-bottom:var(--spacing-6);margin-top:var(--spacing-12)}h2,h3,h4,h5,h6{color:var(--color-heading);font-weight:var(--fontWeight-bold)}h1{color:var(--color-heading-black);font-size:var(--fontSize-6);font-weight:var(--fontWeight-black)}h2{font-size:var(--fontSize-5)}h3{font-size:var(--fontSize-4)}h4{font-size:var(--fontSize-3)}h5{font-size:var(--fontSize-2)}h6{font-size:var(--fontSize-1)}h1>a{color:var(--color-primary);text-decoration:none}h2>a,h3>a,h4>a,h5>a,h6>a{color:inherit;text-decoration:none}p{--baseline-multiplier:0.179;--x-height-multiplier:0.35;line-height:var(--lineHeight-relaxed);margin:var(--spacing-0) var(--spacing-0) var(--spacing-8) var(--spacing-0)}ol,p,ul{padding:var(--spacing-0)}ol,ul{list-style-image:none;list-style-position:outside;margin-bottom:var(--spacing-8);margin-left:var(--spacing-0);margin-right:var(--spacing-0)}ol li,ul li{padding-left:var(--spacing-0)}li>p,ol li,ul li{margin-bottom:calc(var(--spacing-8)/2)}li :last-child{margin-bottom:var(--spacing-0)}li>ul{margin-left:var(--spacing-8);margin-top:calc(var(--spacing-8)/2)}blockquote{border-left:var(--spacing-1) solid var(--color-primary);color:var(--color-text-light);font-size:var(--fontSize-2);font-style:italic;margin-bottom:var(--spacing-8);margin-left:calc(var(--spacing-6)*-1);margin-right:var(--spacing-8);padding:var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-6)}blockquote>:last-child{margin-bottom:var(--spacing-0)}blockquote>ol,blockquote>ul{list-style-position:inside}table{border-collapse:collapse;border-spacing:.25rem;margin-bottom:var(--spacing-8);width:100%}table thead tr th{border-bottom:1px solid var(--color-accent)}a{color:var(--color-primary)}a:focus,a:hover{text-decoration:none}.global-wrapper{margin:var(--spacing-0) auto;max-width:var(--maxWidth-wrapper);padding:var(--spacing-10) var(--spacing-5)}.global-wrapper[data-is-root-path=true] .bio{margin-bottom:var(--spacing-20)}.global-header{margin-bottom:var(--spacing-12);text-align:center}.main-heading{font-size:var(--fontSize-7);margin:0}.post-list-item{margin-bottom:var(--spacing-8);margin-top:var(--spacing-8)}.post-list-item p{margin-bottom:var(--spacing-0)}.post-list-item h2{color:var(--color-heading-black);font-size:var(--fontSize-4);margin-bottom:var(--spacing-2);margin-top:var(--spacing-0)}.post-list-item header{margin-bottom:var(--spacing-4)}.header-link-home{font-family:var(--font-heading);font-size:var(--fontSize-2);font-weight:var(--fontWeight-bold);text-decoration:none}.bio{align-items:center;display:flex;justify-content:center;margin-bottom:var(--spacing-16)}.bio p,.bio-avatar{margin-bottom:var(--spacing-0)}.bio-avatar{border-radius:100%;margin-right:var(--spacing-4);min-width:50px}.blog-post header h1{margin:var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0)}.blog-post header p{font-family:var(--font-heading);font-size:var(--fontSize-2)}.blog-post-nav ul{margin:var(--spacing-0)}.gatsby-highlight{margin-bottom:var(--spacing-8)}@media (max-width:42rem){blockquote{margin-left:var(--spacing-0);padding:var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4)}ol,ul{list-style-position:inside}}code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#000;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5;tab-size:4;text-align:left;text-shadow:0 1px #fff;white-space:pre;word-break:normal;word-spacing:normal}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{background:#b3d4fc;text-shadow:none}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{background:hsla(0,0%,100%,.5);color:#9a6e3a}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="alternate" type="application/rss+xml" title="Gatsby Starter Blog RSS Feed" href="/rss.xml"/><link rel="icon" href="/favicon-32x32.png?v=4a9773549091c227cd2eb82ccd9c5e3a" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><title data-gatsby-head="true">Java Thread 3 - Thread 동기화하기 | 내가 재밌는 일을 하자 !</title></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="global-wrapper" data-is-root-path="false"><header class="global-header"><a class="header-link-home" href="/">내가 재밌는 일을 하자 !</a></header><main><article class="blog-post" itemscope="" itemType="http://schema.org/Article"><header><h1 itemProp="headline">Java Thread 3 - Thread 동기화하기</h1><p>July 06, 2024</p></header><section itemProp="articleBody"><h2>들어가며</h2>
+<p><a href="https://kdkdhoho.github.io/status-and-control-thread-in-java">지난 글</a>에는 쓰레드를 다루기 위해 <strong>쓰레드의 상태</strong>와 <strong>쓰레드의 행동을 제어하는 메서드</strong>들에 대해 알아보았다.</p>
+<p>이번에는 쓰레드의 핵심. 쓰레드의 꽃이라고 생각하는 <strong>쓰레드 동기화</strong>에 대해 알아보자.</p>
+<p>Java에서 쓰레드를 동기화하는 방법에는 3가지가 있다.</p>
+<h2>임계영역과 락, 그리고 모니터</h2>
+<p>쓰레드의 동기화를 알아보기 전에, **임계 영역(Critical Section)**과 <strong>락(Lock)</strong>, 그리고 <strong>모니터(Monitor) 방식</strong>에 대해 간단히 알아보자.</p>
+<h3>임계 영역 (Critical Section)</h3>
+<p><strong>임계 영역</strong>은 <strong>둘 이상의 쓰레드가 동시에 접근해서 안되는 공유 자원에 접근하는 구간 또는 영역</strong>이다.</p>
+<p>아래 코드를 예시로 했을 때, <code class="language-text">Main.increment()</code>가 임계 영역이 된다.<br></p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">MyThread</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span> <span class="token punctuation">{</span>
+    
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">1000</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Main</span><span class="token punctuation">.</span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 임계 영역</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        count<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">{</span>
+        <span class="token class-name">MyThread</span> thread1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">MyThread</span> thread2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        thread1<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        thread2<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        thread1<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        thread2<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Final count: "</span> <span class="token operator">+</span> count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token operator">==</span> <span class="token class-name">Console</span> <span class="token operator">==</span>
+<span class="token class-name">Final</span> count<span class="token operator">:</span> <span class="token number">3995</span></code></pre></div>
+<h3>락 (Lock)</h3>
+<p>락은, <strong>임계 영역에 들어가기 위해 획득해야 하는 것</strong>이다.<br>
+락을 획득한 쓰레드만이 임계 영역에 들어갈 수 있다. 따라서 임계 영역에서 작업이 모두 끝나면 반드시 락을 반환해야 한다.<br>
+그렇지 않으면 다른 쓰레드는 임계 영역에 절대 들어갈 수 없다.</p>
+<p>만약 다른 쓰레드가 이미 먼저 락을 선점했다면, 해당 쓰레드가 락을 반환할 때까지 자신은 무한정 대기해야 한다.</p>
+<br>
+<hr>
+<br>
+<br>
+<p>이제 본격적으로 동기화하는 방법에 대해 알아보자.</p>
+<h3>모니터(Monitor)</h3>
+<p>모니터는 스레드 간의 동기화하는 기법 중 하나다.<br>
+모니터는 상호 배제(Mutual Exclusion)을 지원하고 조건에 따라 스레드를 WAITING 상태로 전환한다.<br>
+모니터의 구성 요소로는 Mutex Lock과 Condition Variable(s)가 있다.<br>
+Mutex Lock은 말 그대로 여러 스레드가 임계 영역에 접근하기 위해 획득을 시도하는 Lock이고 Condition Variable은 WAITING 상태로 전환된 스레드가 대기하는 공간이다. 구현에 따라 Queue나 Pool의 개념으로 구현할 수 있다.</p>
+<p>모니터에 대해 알아본 이유는, JVM이 모든 객체에 대해 모니터 기법으로 동기화 하기 때문이다.<br>
+자바에서 모든 객체는 Lock을 하나씩 가지고 있고 (Mutex Lock), Lock을 획득하기 위해 대기하는 공간인 Waiting Pool (Condition Variable)이 하나씩 존재한다.</p>
+<h2>1. synchronized를 이용한 동기화</h2>
+<p>제일 먼저 가장 쉽고 단순한 방법인 <code class="language-text">synchronized</code> 키워드를 이용한 동기화에 대해 알아보자.</p>
+<p><code class="language-text">synchronized</code> 키워드를 선언하면 JVM이 해당 자원(객체)에 대해 모니터 방식으로 동기화를 제어한다.</p>
+<p><code class="language-text">synchronized</code>를 사용하는 방식으로는 두 가지가 있다.</p>
+<h3>1-1. 메서드 전체를 임계 영역으로 설정</h3>
+<p>아래 코드처럼 메서드 자체에 <code class="language-text">synchronized</code> 키워드를 추가함으로써 <strong>메서드 전체를 임계 영역으로 설정</strong>할 수 있다.<br></p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token comment">// 메서드 전체를 임계 영역으로 지정</span>
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">synchronized</span> <span class="token keyword">void</span> <span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    count<span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>모든 쓰레드는 해당 메서드를 호출한 시점부터 자동으로 Lock을 얻어 작업을 수행하다가 메서드가 종료되면 Lock을 반환한다.</p>
+<blockquote>
+<p>참고)<br>
+Java에서 모든 객체는 고유한 Lock을 하나씩 가진다.<br>
+Lock은 JVM이 소유하고 관리한다.</p>
+</blockquote>
+<h3>1-2. 특정 영역을 임계 영역으로 설정</h3>
+<p>두 번째로, 코드 일부 영역을 블럭 <code class="language-text">{}</code> 으로 감싸고, 블럭 앞에 <code class="language-text">synchronized(참조변수)</code> 키워드를 추가하는 방식이다.</p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">1000</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 특정 영역을 임계 영역으로 지정</span>
+        <span class="token comment">// ⬇️ synchronized 블럭 ⬇️</span>
+        <span class="token keyword">synchronized</span> <span class="token punctuation">(</span><span class="token class-name">Main</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Main</span><span class="token punctuation">.</span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>이때, <strong>참조변수는 Lock을 걸고자하는 객체를 참조</strong>해야 한다.<br>
+이 블럭을 <em>synchronized 블럭</em> 이라고 부르며, 이 블럭의 영역 안으로 들어가면서 쓰레드는 지정된 객체의 Lock을 획득하고, 블럭의 영역을 벗어나면 Lock을 반납한다.</p>
+<h3>synchronized 사용 시 주의점</h3>
+<p>임계 영역의 설정은 멀티쓰레드 프로그램의 성능을 결정한다.<br></p>
+<p><code class="language-text">synchronized</code> 키워드는 동기화를 적용하기 매우 쉬운 방법이지만, Lock을 획득하기 위해 무한정 대기해야 하는 쓰레드들이 무수히 많아지면 프로그램 성능의 악영향을 끼칠 수 있다.
+또한, 임계 영역을 메서드 전체보다는 필요한 영역으로만 최소화하는 것이 프로그램 성능에 영향을 끼친다.<br>
+따라서 synchronized 블럭으로 임계 영역을 최소화할 수 있다면, 메서드 전체에 <code class="language-text">synchronized</code>를 설정하는 것보단 더 나은 선택일 수 있다.<br>
+물론 메서드 전체가 임계 영역이어야 한다면, 그땐 <code class="language-text">synchronized</code> 메서드를 선언하는 것이 나을 수 있다.</p>
+<p>추가로 맨 위에 있는 예시 코드에서 <code class="language-text">int count</code> 변수가 현재는 <code class="language-text">private</code> 으로 설정되어 있지만, <code class="language-text">public</code>으로 열리는 순간 <code class="language-text">count</code> 변수에 직접 접근할 수 있다.<br>
+이때는 <strong>변수 자체에 동기화를 설정</strong>하는 것이 중요하다.<br>
+즉, <code class="language-text">Main.increment()</code> 메서드에만 <code class="language-text">synchronized</code>로 동기화하는 실수를 범해서는 안된다는 의미다.<br></p>
+<h2>2. wait()과 notify()</h2>
+<p><code class="language-text">synchronized</code>를 이용해서 동기화하게 되면, Lock을 얻기 위해 무한정 대기해야하는 상황이 발생할 수 있다.<br>
+이런 상황을 개선하기 위해 고안된 것이 <code class="language-text">wait()</code>과 <code class="language-text">notify()</code> 메서드이다.</p>
+<p>동기화된 임계영역의 코드를 수행하다가, <strong>작업을 더 이상 진행할 상황이 아니면 <code class="language-text">wait()</code> 메서드를 호출해서 획득한 Lock을 반납하고 대기열(Waiting Pool)에서 대기</strong>한다.<br>
+(참고로 이때 쓰레드는 WAITING 상태가 된다.)<br>
+그러면 Lock을 얻기 위해 대기하던 쓰레드 중 하나가 Lock을 획득하여 작업을 수행할 수 있게 된다.<br>
+<strong>나중에 작업을 진행할 수 있는 상황이 오면 <code class="language-text">notify()</code> 메서드를 호출해서 대기열에서 대기 중인 쓰레드가 다시 RUNNABLE 상태로 바뀌게 되고, 마침내 Lock을 얻어 작업을 진행</strong>할 수 있게 된다.</p>
+<blockquote>
+<p><code class="language-text">wait()</code>에 의해 Lock을 반환했다가, 다시 Lock을 얻어서 임계 영역에 진입하는 것을 <em>재진입(reentrance)</em> 이라고 한다.</p>
+</blockquote>
+<p>하지만 대기열에서 대기 중인 쓰레드가 둘 이상인 경우, <strong><code class="language-text">notify()</code> 메서드를 호출하게 되면 단 하나의 쓰레드만이 무작위로 선택되어 RUNNABLE 상태</strong>가 된다.<br>
+<strong>대기열에 있는 모든 쓰레드를 RUNNABLE 상태로 만드는 <code class="language-text">notifyAll()</code></strong> 이라는 메서드도 있지만, <strong>대기열에 있는 모든 쓰레드를 깨울 뿐, 결국 Lock은 단 하나의 쓰레드만이 획득하여 Lock을 획득하지 못한 나머지 쓰레드는 다시 Lock을 얻기 위해 대기해야 한다.</strong></p>
+<p><code class="language-text">wait()</code>과 <code class="language-text">notify()</code>는 특정 객체에 대한 행동이므로 <code class="language-text">Object</code> 클래스에 정의되어있다.</p>
+<p><code class="language-text">wait()</code>은 <code class="language-text">notify()</code>가 호출될 때까지 기다린다.<br>
+<code class="language-text">wait(long timeout)</code>, <code class="language-text">wait(long timeout, int nanos)</code>는 지정된 시간동안만 기다린다.<br>
+즉, 지정 시간이 지난 후 자동으로 <code class="language-text">notify()</code>를 호출하는 것과 동일하다.</p>
+<p><strong>Waiting Pool은 객체마다 존재</strong>한다.<br>
+따라서 <code class="language-text">notifyAll()</code>이 호출된다고 해서 모든 객체의 쓰레드, 그 중에서 Waiting Pool에 있는 쓰레드가 깨워지는 것은 아니라는 점을 기억하자.</p>
+<p><strong><code class="language-text">wait()</code>과 <code class="language-text">notify()</code>는 <em>synchronized 블록</em> 내에서만 사용</strong>할 수 있다.</p>
+<h3>예시 코드 - Producer, Consumer 문제</h3>
+<p>아래 코드는 식당에서 음식(Dish)을 만들어 테이블(Table)에 추가(add)하는 요리사(Cook)와 테이블의 음식을 소비(remove)하는 손님(Customer)을 쓰레드로 구현한 코드이다.</p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">ArrayList</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">// 테이블 쓰레드</span>
+<span class="token keyword">class</span> <span class="token class-name">Table</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> dishNames <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"donut"</span><span class="token punctuation">,</span> <span class="token string">"donut"</span><span class="token punctuation">,</span> <span class="token string">"burger"</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment">// donut이 더 자주 나온다.</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token constant">MAX_FOOD</span> <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span> <span class="token comment">// 테이블에 놓을 수 있는 최대 음식 수</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> dishes <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 테이블에 음식이 가득찼으면, 테이블에 음식을 추가하지 않는다.</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token class-name">String</span> dish<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>dishes<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token constant">MAX_FOOD</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        dishes<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>dish<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Dishes: "</span> <span class="token operator">+</span> dishes<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 지정된 요리와 일치하는 요리를 테이블에서 제거한다.</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">remove</span><span class="token punctuation">(</span><span class="token class-name">String</span> dishName<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> dishes<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>dishName<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>dishes<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                dishes<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">dishNum</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> dishNames<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 요리사 쓰레드</span>
+<span class="token keyword">class</span> <span class="token class-name">Cook</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">Table</span> table<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Cook</span><span class="token punctuation">(</span><span class="token class-name">Table</span> table<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>table <span class="token operator">=</span> table<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 임의의 요리를 하나 선택해서 table에 추가하고 0.001초 대기하는 작업을 무한정 수행한다.</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> table<span class="token punctuation">.</span><span class="token function">dishNum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            table<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token class-name">Table</span><span class="token punctuation">.</span>dishNames<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 손님 쓰레드</span>
+<span class="token keyword">class</span> <span class="token class-name">Customer</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">Table</span> table<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">String</span> food<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Customer</span><span class="token punctuation">(</span><span class="token class-name">Table</span> table<span class="token punctuation">,</span> <span class="token class-name">String</span> food<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>table <span class="token operator">=</span> table<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>food <span class="token operator">=</span> food<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 0.01초 대기 후, table에서 food를 소비한다.</span>
+        <span class="token comment">// 소비 결과에 따라 다른 내용을 출력한다.</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token class-name">String</span> name <span class="token operator">=</span> <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">boolean</span> removed <span class="token operator">=</span> table<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>food<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>removed<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>name <span class="token operator">+</span> <span class="token string">" ate a "</span> <span class="token operator">+</span> food<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>name <span class="token operator">+</span> <span class="token string">" failed to eat."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Table</span> table <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Table</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 여러 객체가 공유하는 객체</span>
+
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Cook</span><span class="token punctuation">(</span>table<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"COOK1"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Customer</span><span class="token punctuation">(</span>table<span class="token punctuation">,</span> <span class="token string">"donut"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"CUSTOMER1"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Customer</span><span class="token punctuation">(</span>table<span class="token punctuation">,</span> <span class="token string">"burger"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"CUSTOMER2"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 0.1초 대기했다가</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 프로그램을 강제 종료한다.</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div>
+<p>이 코드를 실행할 때마다 결과는 다르다. 예외가 발생할 수도, 발생하지 않을 수도 있다.<br>
+최악의 경우엔 <strong>2가지 종류의 예외가 발생</strong>하는데, 하나는 Cook 쓰레드가 Table에 음식을 추가하는 도중에, Customer 쓰레드가 음식을 가져가려 했기 때문에 <code class="language-text">ConcurrentModificationException</code>이고,<br>
+또 하나는, Customer 쓰레드가 Table의 마지막 남은 음식을 가져가는 도중에 다른 Customer 쓰레드가 먼저 음식을 가져가서, 존재하지 않는 음식을 Table에서 remove() 하려고 했기 때문에 발생하는 <code class="language-text">IndexOutOfBoundsException</code>이다.</p>
+<p>이런 예외들이 발생하는 이유는 여러 쓰레드(Cook, Customer)가 공유자원(Table)을 사용하는데도 동기화하지 않았기 때문이다.
+이제 이 코드에 동기화를 추가해보자.<br>
+복잡할 거 없다. <code class="language-text">Table</code> 클래스만 잘 살펴보자.</p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">ArrayList</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">// 테이블 쓰레드</span>
+<span class="token keyword">class</span> <span class="token class-name">Table</span> <span class="token punctuation">{</span>
+
+    <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> dishNames <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"donut"</span><span class="token punctuation">,</span> <span class="token string">"donut"</span><span class="token punctuation">,</span> <span class="token string">"burger"</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment">// donut이 더 자주 나온다.</span>
+    <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token constant">MAX_FOOD</span> <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span> <span class="token comment">// 테이블에 놓을 수 있는 최대 음식 수</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> dishes <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 테이블에 음식이 가득찼으면, 테이블에 음식을 추가하지 않는다.</span>
+    <span class="token keyword">public</span> <span class="token keyword">synchronized</span> <span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token class-name">String</span> dish<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// synchronized 추가</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>dishes<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token constant">MAX_FOOD</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        dishes<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>dish<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Dishes: "</span> <span class="token operator">+</span> dishes<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 지정된 요리와 일치하는 요리를 테이블에서 제거한다.</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">remove</span><span class="token punctuation">(</span><span class="token class-name">String</span> dishName<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">synchronized</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// synchronized 블럭 추가</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>dishes<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 요리가 없으면 생길 때까지 0.5초 대기하는 것을 반복한다.</span>
+                <span class="token class-name">String</span> name <span class="token operator">=</span> <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>name <span class="token operator">+</span> <span class="token string">" is waiting."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                    <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> dishes<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>dishName<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>dishes<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    dishes<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">dishNum</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> dishNames<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 요리사 쓰레드</span>
+<span class="token keyword">class</span> <span class="token class-name">Cook</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">Table</span> table<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Cook</span><span class="token punctuation">(</span><span class="token class-name">Table</span> table<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>table <span class="token operator">=</span> table<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 임의의 요리를 하나 선택해서 table에 추가하고 0.01초 대기하는 작업을 무한정 수행한다.</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> table<span class="token punctuation">.</span><span class="token function">dishNum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            table<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>table<span class="token punctuation">.</span>dishNames<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 손님 쓰레드</span>
+<span class="token keyword">class</span> <span class="token class-name">Customer</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">Table</span> table<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">String</span> food<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Customer</span><span class="token punctuation">(</span><span class="token class-name">Table</span> table<span class="token punctuation">,</span> <span class="token class-name">String</span> food<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>table <span class="token operator">=</span> table<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>food <span class="token operator">=</span> food<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 0.01초 대기 후, table에서 food를 소비한다.</span>
+        <span class="token comment">// 소비 결과에 따라 다른 내용을 출력한다.</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token class-name">String</span> name <span class="token operator">=</span> <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">boolean</span> removed <span class="token operator">=</span> table<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>food<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>removed<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>name <span class="token operator">+</span> <span class="token string">" ate a "</span> <span class="token operator">+</span> food<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>name <span class="token operator">+</span> <span class="token string">" failed to eat."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Table</span> table <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Table</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 여러 객체가 공유하는 객체</span>
+
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Cook</span><span class="token punctuation">(</span>table<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"COOK1"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Customer</span><span class="token punctuation">(</span>table<span class="token punctuation">,</span> <span class="token string">"donut"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"CUSTOMER1"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Customer</span><span class="token punctuation">(</span>table<span class="token punctuation">,</span> <span class="token string">"burger"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"CUSTOMER2"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 5초 후 대기했다가</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 프로그램을 강제 종료한다.</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token operator">==</span> <span class="token class-name">Console</span> <span class="token operator">==</span>
+<span class="token class-name">Dishes</span><span class="token operator">:</span> <span class="token punctuation">[</span>donut<span class="token punctuation">]</span>
+<span class="token constant">CUSTOMER2</span> is waiting<span class="token punctuation">.</span>
+<span class="token constant">CUSTOMER1</span> ate a donut
+<span class="token constant">CUSTOMER2</span> is waiting<span class="token punctuation">.</span>
+<span class="token constant">CUSTOMER2</span> is waiting<span class="token punctuation">.</span>
+<span class="token constant">CUSTOMER2</span> is waiting<span class="token punctuation">.</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">(</span>생략<span class="token punctuation">)</span></code></pre></div>
+<p>Table 쓰레드의 <strong><code class="language-text">add()</code> 메서드에 synchronized 키워드를 추가</strong>했고, <strong><code class="language-text">remove()</code> 메서드 내부에 synchronized 블럭을 추가</strong>했다.<br>
+모두, 공유 자원인 <code class="language-text">List&lt;String> dishes</code>에 접근하는 임계 영역을 <code class="language-text">synchronize</code>를 이용해서 동기화 한 것이다.<br>
+추가로 프로그램 실행 시간을 5초로 늘렸으며, Cook 쓰레드가 음식을 추가하는 주기를 0.001초에서 0.1초로 늘렸다.</p>
+<p>더이상 예외는 발생하지 않는다.<br>
+하지만, "Customer2 is waiting." 이 한번 출력되면 프로그램이 종료될 때까지 무한정 출력된다.<br>
+이유는 바로, <code class="language-text">remove()</code> 메서드에 있다.</p>
+<p>Customer2가 <code class="language-text">remove()</code>을 호출했을 때 synchronized 블럭에 진입했다고 가정하고 실행 흐름을 잘 따라가보자.<br>
+만약 이때 <code class="language-text">dishes.isEmpty()</code>의 결과로 <code class="language-text">true</code>가 반환되었다면, while 문을 반복할 것이다.<br>
+하지만 현재 공유 자원인 Table에 대한 Lock을 가진 채로 무한히 while 문을 돌게 된다.<br>
+때문에 Cook 쓰레드와 Customer1 쓰레드는 LOCK을 획득하기 위해 무한정 대기하고 있는 것이고,<br>Lock을 점유한 Customer2는 무한정 대기하고 있는 것이다.</p>
+<p>이제 <code class="language-text">wait()</code>와 <code class="language-text">notify()</code>를 이용하여 이를 개선해보자.</p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">ArrayList</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">// 테이블 쓰레드</span>
+<span class="token keyword">class</span> <span class="token class-name">Table</span> <span class="token punctuation">{</span>
+
+    <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> dishNames <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"donut"</span><span class="token punctuation">,</span> <span class="token string">"donut"</span><span class="token punctuation">,</span> <span class="token string">"burger"</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment">// donut이 더 자주 나온다.</span>
+    <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token constant">MAX_FOOD</span> <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span> <span class="token comment">// 테이블에 놓을 수 있는 최대 음식 수</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> dishes <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 테이블에 음식이 가득찼으면, 테이블에 음식을 추가하지 않는다.</span>
+    <span class="token keyword">public</span> <span class="token keyword">synchronized</span> <span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token class-name">String</span> dish<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>dishes<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token constant">MAX_FOOD</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" is waiting."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                <span class="token function">wait</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 쓰레드 자신(Cook)을 대기시킨다.</span>
+                <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// 성공적으로 음식을 추가한다</span>
+        dishes<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>dish<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" add "</span> <span class="token operator">+</span> dish<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">notify</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 쓰레드를 깨운다. Customer 쓰레드를 깨우기 위함이다.</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Dishes: "</span> <span class="token operator">+</span> dishes<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 지정된 요리와 일치하는 요리를 테이블에서 제거한다.</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">remove</span><span class="token punctuation">(</span><span class="token class-name">String</span> dishName<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">synchronized</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 음식이 아무것도 없으면</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>dishes<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" is waiting."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                    <span class="token function">wait</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 쓰레드 자신(Customer)을 대기시킨다.</span>
+                    <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> dishes<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>dishName<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>dishes<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        dishes<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 성공적으로 제거하고</span>
+                        <span class="token function">notify</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 쓰레드를 깨운다. Cook 쓰레드를 깨우기 위함이다.</span>
+                        <span class="token keyword">return</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+
+                <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" is waiting."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token function">wait</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 원하는 음식이 없기에, 쓰레드 자신(Customer)을 대기시킨다.</span>
+                    <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 0.5초 딜레이</span>
+                <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">dishNum</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> dishNames<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 요리사 쓰레드</span>
+<span class="token keyword">class</span> <span class="token class-name">Cook</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">Table</span> table<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Cook</span><span class="token punctuation">(</span><span class="token class-name">Table</span> table<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>table <span class="token operator">=</span> table<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 임의의 요리를 하나 선택해서 table에 추가하고 0.01초 대기하는 작업을 무한정 수행한다.</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> table<span class="token punctuation">.</span><span class="token function">dishNum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            table<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>table<span class="token punctuation">.</span>dishNames<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 손님 쓰레드</span>
+<span class="token keyword">class</span> <span class="token class-name">Customer</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">Table</span> table<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">String</span> food<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Customer</span><span class="token punctuation">(</span><span class="token class-name">Table</span> table<span class="token punctuation">,</span> <span class="token class-name">String</span> food<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>table <span class="token operator">=</span> table<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>food <span class="token operator">=</span> food<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                table<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>food<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" ate a "</span> <span class="token operator">+</span> food<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Table</span> table <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Table</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 공유 자원</span>
+
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Cook</span><span class="token punctuation">(</span>table<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"COOK"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Customer</span><span class="token punctuation">(</span>table<span class="token punctuation">,</span> <span class="token string">"donut"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"CUSTOMER1"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Customer</span><span class="token punctuation">(</span>table<span class="token punctuation">,</span> <span class="token string">"burger"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"CUSTOMER2"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2초 대기했다가</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 프로그램을 강제 종료한다.</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><code class="language-text">wait()</code>와 <code class="language-text">notify()</code>를 적절히 배치하여, 예외가 발생하지 않는다.<br>
+또, 하나의 쓰레드가 Lock을 지속적으로 점유하는 문제도 발생하지 않는다.</p>
+<p>하지만 여전히 문제는 존재한다. 바로, <strong>기아 상태</strong>가 발생할 수 있다.</p>
+<h3>기아 상태</h3>
+<p>기아 상태란, <strong>자원을 획득하기 위해 대기하는 쓰레드가 매번 선택받지 못해 영영 대기하게 되는 상태</strong>를 의미한다.</p>
+<p>위 코드에서 Customer 쓰레드가 음식을 성공적으로 먹은 후, 음식을 채워달라고 하기 위해 <code class="language-text">notify()</code> 메서드를 호출하여 대기 중인 Cook 쓰레드를 깨우길 시도한다.
+하지만 <code class="language-text">notify()</code>는 Waiting Pool에 존재하는 쓰레드 중 무작위의 단 하나에게만 신호를 준다고 했다.
+따라서 Customer 쓰레드끼리 서로 깨우고 대기하고를 반복할 수 있다는 것이다.<br>
+최악의 경우 Cook 쓰레드는 영영 대기하게 될 것이고, 이를 기아 상태에 빠졌다고 할 수 있다.</p>
+<p><strong>기아 상태를 해결하기 위해선 <code class="language-text">notifyAll()</code>을 호출</strong>해야 한다.<br>
+만약 <code class="language-text">notifyAll()</code>을 호출했을 때, 바로 다음 차례에 또 다시 Customer 쓰레드가 Lock을 획득했다 하더라도, 해당 Customer 쓰레드는 마찬가지로 먹을 게 없어 다시 Waiting Pool로 돌아갈 것이고<br>
+Cook 쓰레드는 Lock을 얻기 위해 대기하고 있다가 차례가 오면 마침내 Lock을 획득할 수 있게 되어 음식을 추가할 수 있게 될 것이다.</p>
+<h3>참고</h3>
+<p>참고로 위의 테이블, 요리사, 손님 예시는 <a href="https://ko.wikipedia.org/wiki/%EC%83%9D%EC%82%B0%EC%9E%90-%EC%86%8C%EB%B9%84%EC%9E%90_%EB%AC%B8%EC%A0%9C">생산자-소비자 문제</a>와 같다.</p>
+<p>그리고 스레드 동기화 기법 중, <a href="https://ko.wikipedia.org/wiki/%EB%AA%A8%EB%8B%88%ED%84%B0_(%EB%8F%99%EA%B8%B0%ED%99%94)">모니터</a>를 <code class="language-text">wait()</code>, <code class="language-text">notify()</code>, <code class="language-text">notifyAll()</code>로 구현할 수 있다.</p>
+<h2>3. Lock과 Condition을 이용한 동기화</h2>
+<p><code class="language-text">wait()</code>과 <code class="language-text">notify()</code>를 이용해서 Lock을 효율적으로 관리할 수 있었다.
+하지만 <code class="language-text">notify()</code> 특성상, 특정 쓰레드를 찝어서 RUNNABLE 상태로 바꾸기는 불가능했다.
+만약 특정 쓰레드를 꺠울 수 있다면 훨씬 효율적인 멀티쓰레딩 작업이 수행될 것이다.</p>
+<p>앞으로 살펴볼 Lock과 Condition 인터페이스가 이를 가능케 한다.</p>
+<p>Lock 인터페이스에는 다음과 같이 3가지의 종류가 있다.</p>
+<ul>
+<li><code class="language-text">ReentrantLock</code>: 재진입이 가능한 Lock으로, 가장 일반적인 배타 Lock.</li>
+<li><code class="language-text">ReentrantReadWriteLock</code>: 읽기에는 공유적이고, 쓰기에는 배타적인 Lock.</li>
+<li><code class="language-text">StampedLock</code>: ReentrantReadWriteLock에 낙관적 Lock 기능을 추가
+<blockquote>
+<p>StapmedLock은 Lock 인터페이스를 구현하지 않는다.</p>
+</blockquote>
+</li>
+</ul>
+<br>
+<p>세 가지 종류의 Lock 모두, 사용법이 비슷하다.
+따라서 가장 기본적인 ReentrantLock의 사용법에 대해서만 알아보겠다.</p>
+<h3>ReentrantLock</h3>
+<p>우선, ReentrantLock은 아래 있는 두 개의 생성자를 가진다.</p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">ReentrantLock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token class-name">ReentrantLock</span><span class="token punctuation">(</span><span class="token keyword">boolean</span> fair<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p><code class="language-text">fair</code> 값에 <code class="language-text">ture</code>를 인자로 주면, Lock이 풀렸을 때 가장 오래 기다린 쓰레드가 Lock을 획득할 수 있도록 처리한다.<br>
+하지만 공정하게 처리하기 위해선 이를 연산하는 과정이 필요하기 때문에 오버헤드가 발생한다.<br>
+대부분의 경우엔 굳이 공정하게 처리하지 않아도 문제가 되지 않으므로 공정함보단 성능을 택한다.</p>
+<p>다음으론 ReentrantLock의 <code class="language-text">lock()</code> 메서드에 대해 알아보자.</p>
+<p>Lock을 자동으로 획득&#x26;반환하는 <code class="language-text">synchronized</code>와 달리 <strong>Lock 클래스들은 모두 수동으로 Lock을 관리</strong>해야 한다.<br>
+그래도, Lock을 걸고 푸는 것은 간단하다.<br>
+<code class="language-text">void lock()</code>, <code class="language-text">void unlock()</code>, <code class="language-text">boolean isLocked()</code> 메서드를 호출하기만 하면 된다.<br>
+하지만, <strong>반드시 <code class="language-text">lock()</code>을 걸고 해제해줘야 한다</strong>는 것은 잊지 말자.</p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">synchronized</span> <span class="token punctuation">(</span>lock<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 임계 영역</span>
+<span class="token punctuation">}</span>
+
+⬇️ ⬇️ ⬇️ 
+
+lock<span class="token punctuation">.</span><span class="token function">lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 임계 영역</span>
+lock<span class="token punctuation">.</span><span class="token function">unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p>만약, 임계 영역 내에서 예외가 발생하거나 <code class="language-text">return</code>문으로 빠져나오게 되면 Lock이 풀리지 않을 수 있다.<br>
+때문에 <code class="language-text">unlock()</code>은 아래 코드처럼 try-finally 문으로 감싸는 것이 일반적이다.</p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token class-name">Lock</span> lock <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ReentrantLock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+lock<span class="token punctuation">.</span><span class="token function">lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 임계 영역</span>
+<span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+    lock<span class="token punctuation">.</span><span class="token function">unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>이 외에도 <code class="language-text">tryLock()</code>이라는 메서드가 있다.<br>
+<code class="language-text">lock()</code> 메서드를 호출하게 되면 Lock을 획득할 때까지 대기 상태에 빠진다.<br>
+하지만 <code class="language-text">boolean tryLock()</code> 메서드의 경우, Lock 획득을 시도했다가 실패하면 대기하지 않고 바로 false를 반환한다. 반면 획득했을 경우엔 true를 반환한다.</p>
+<p>아니면 <code class="language-text">boolean tryLock(long timeout, TimeUnit unit) throws InterruptedException</code> 메서드를 호출해서 지정된 시간동안만 Lock을 획득하기 위해 대기하도록 할 수 있다.<br>
+이를 이용해 지정된 시간동안 Lock을 얻지 못하면 다시 작업을 시도할 것인지 포기할 것인지를 사용자가 결정할 수 있게 하는 것도 좋은 방법이 될 수 있다.<br>
+그리고 이 메서드는 <code class="language-text">InterruptedException</code>을 발생할 수 있는데, 이는 지정된 시간동안 기다리는 도중에 <code class="language-text">interrupt()</code>에 의해 대기를 취소할 수 있다는 뜻이다.</p>
+<h3>ReentrantLock과 Condition</h3>
+<p>앞서 <code class="language-text">wait()</code>와 <code class="language-text">notify()</code>는 쓰레드 종류 상관없이 Waiting Pool에서 대기하고 그 중에서 하나를 무작위로 깨운다고 했다.<br>
+그럼 만약, Waiting Pool을 쓰레드 타입에 따라 나누어 기다리도록 한다면 이 문제를 간단하게 해결할 수 있지 않을까?<br>
+이를 <code class="language-text">Condition</code> 인터페이스가 지원한다.</p>
+<p><code class="language-text">Condition</code>을 어떻게 사용하는지 코드로 살펴보자.<br>
+아래 코드는 <code class="language-text">wait()</code>와 <code class="language-text">notify()</code>를 학습할 때 사용한 코드에 일부를 추가한 것이다.<br>
+추가한 것으로는, <code class="language-text">ReentrantLock</code>와 Cook 쓰레드를 위한 Condition인 <code class="language-text">conditionforCook</code>, Customer 쓰레드를 위한 Condition인 <code class="language-text">conditionForCustomers</code>를 생성했고<br>
+<code class="language-text">wait()</code>는 <code class="language-text">condition.await()</code>로, <code class="language-text">notify()</code>는 <code class="language-text">condition.signal()</code>로 수정한 게 전부다.</p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">ArrayList</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span>locks<span class="token punctuation">.</span></span><span class="token class-name">Condition</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span>locks<span class="token punctuation">.</span></span><span class="token class-name">Lock</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span>locks<span class="token punctuation">.</span></span><span class="token class-name">ReentrantLock</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">// 테이블 쓰레드</span>
+<span class="token keyword">class</span> <span class="token class-name">Table</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">Lock</span> lock <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ReentrantLock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ReentrantLock 객체 생성</span>
+    <span class="token keyword">private</span> <span class="token class-name">Condition</span> conditionForCook <span class="token operator">=</span> lock<span class="token punctuation">.</span><span class="token function">newCondition</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// lock으로부터 Cook 쓰레드를 위한 Condition 생성</span>
+    <span class="token keyword">private</span> <span class="token class-name">Condition</span> conditionForCustomers <span class="token operator">=</span> lock<span class="token punctuation">.</span><span class="token function">newCondition</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Customer 쓰레드를 위한 Condition 생성</span>
+
+    <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> dishNames <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"donut"</span><span class="token punctuation">,</span> <span class="token string">"donut"</span><span class="token punctuation">,</span> <span class="token string">"burger"</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment">// donut이 더 자주 나온다.</span>
+    <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token constant">MAX_FOOD</span> <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span> <span class="token comment">// 테이블에 놓을 수 있는 최대 음식 수</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> dishes <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 테이블에 음식이 가득찼으면, 테이블에 음식을 추가하지 않는다.</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token class-name">String</span> dish<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// synchronized 제거</span>
+        lock<span class="token punctuation">.</span><span class="token function">lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Lock 획득 시도</span>
+
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>dishes<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token constant">MAX_FOOD</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" is waiting."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                    conditionForCook<span class="token punctuation">.</span><span class="token function">await</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Cook 쓰레드를 Cook Condition에 대기시킨다.</span>
+                    <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token comment">// 성공적으로 음식을 추가한다</span>
+            dishes<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>dish<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" add "</span> <span class="token operator">+</span> dish<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            conditionForCustomers<span class="token punctuation">.</span><span class="token function">signal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Customer 쓰레드를 꺠운다.</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Dishes: "</span> <span class="token operator">+</span> dishes<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span> <span class="token comment">// finally문을 이용해 항상 unlock()을 호출</span>
+            lock<span class="token punctuation">.</span><span class="token function">unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 지정된 요리와 일치하는 요리를 테이블에서 제거한다.</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">remove</span><span class="token punctuation">(</span><span class="token class-name">String</span> dishName<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        lock<span class="token punctuation">.</span><span class="token function">lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 락 획득 시도</span>
+
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 음식이 아무것도 없으면</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>dishes<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" is waiting."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                    <span class="token comment">// lock.unlock(); // 대기시키기 전에 획득한 Lock을 반환해야 하는게 아닌가? 의문이 들 수 있다. 결론은, 반환하지 않아도 된다. JVM이 알아서 Lock을 반환해준다. 자세한 내용은 https://stackoverflow.com/questions/11308768/condition-should-unlock-before-await 를 참고하자.</span>
+                    conditionForCustomers<span class="token punctuation">.</span><span class="token function">await</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Customer 쓰레드를 Customer Condition에 대기시킨다.</span>
+                    <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> dishes<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>dishName<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>dishes<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        dishes<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 성공적으로 제거하고</span>
+                        conditionForCook<span class="token punctuation">.</span><span class="token function">signal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Cook Condition에 대기 중인 쓰레드를 깨운다.</span>
+                        <span class="token keyword">return</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+
+                <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" is waiting."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    conditionForCustomers<span class="token punctuation">.</span><span class="token function">await</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 원하는 음식이 없으므로 Customer Condition에 본인을 대기시킨다.</span>
+                    <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 0.5초 딜레이</span>
+                <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span> <span class="token comment">// finally문을 이용해 항상 unlock()을 호출</span>
+            lock<span class="token punctuation">.</span><span class="token function">unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">dishNum</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> dishNames<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 요리사 쓰레드</span>
+<span class="token keyword">class</span> <span class="token class-name">Cook</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">Table</span> table<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Cook</span><span class="token punctuation">(</span><span class="token class-name">Table</span> table<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>table <span class="token operator">=</span> table<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 임의의 요리를 하나 선택해서 table에 추가하고 0.01초 대기하는 작업을 무한정 수행한다.</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> table<span class="token punctuation">.</span><span class="token function">dishNum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            table<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>table<span class="token punctuation">.</span>dishNames<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 손님 쓰레드</span>
+<span class="token keyword">class</span> <span class="token class-name">Customer</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">Table</span> table<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">String</span> food<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Customer</span><span class="token punctuation">(</span><span class="token class-name">Table</span> table<span class="token punctuation">,</span> <span class="token class-name">String</span> food<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>table <span class="token operator">=</span> table<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>food <span class="token operator">=</span> food<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                table<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>food<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" ate a "</span> <span class="token operator">+</span> food<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Table</span> table <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Table</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 공유 자원</span>
+
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Cook</span><span class="token punctuation">(</span>table<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"COOK"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Customer</span><span class="token punctuation">(</span>table<span class="token punctuation">,</span> <span class="token string">"donut"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"CUSTOMER1"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Customer</span><span class="token punctuation">(</span>table<span class="token punctuation">,</span> <span class="token string">"burger"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"CUSTOMER2"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2초 후 대기했다가</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 프로그램을 강제 종료한다.</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>그 결과, Cook 쓰레드가 깨어나야 할 상황에 Customer 쓰레드가 깨어날 일이 없다.<br>
+자연스레 기아 현상이 해결되었다.</p>
+<h2>4. volatile</h2>
+<p>요즘은 대부분 기본적으로 멀티 코어 프로세서를 사용한다.
+즉, 2개 이상의 코어가 작업을 병렬로 처리한다는 의미다.</p>
+<p>이 코어에는 각각의 캐시가 존재한다.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/ea4c51270f8a5c936fab77cd01ac01c5/ec210/core-has-cache.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 60.12658227848101%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAdxYSD//xAAXEAADAQAAAAAAAAAAAAAAAAAAEBEB/9oACAEBAAEFAtcIv//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAACD/2gAIAQEABj8CX//EABsQAQACAgMAAAAAAAAAAAAAAAEAMRARIUFx/9oACAEBAAE/IUjc28HfsKiGIbx//9oADAMBAAIAAwAAABDwz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABkQAQADAQEAAAAAAAAAAAAAAAEAESExQf/aAAgBAQABPxByFMws7A7DjcRqFiFpsXEWnIFFHk//2Q=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="코어와 메모리"
+        title=""
+        src="/static/ea4c51270f8a5c936fab77cd01ac01c5/828fb/core-has-cache.jpg"
+        srcset="/static/ea4c51270f8a5c936fab77cd01ac01c5/ff44c/core-has-cache.jpg 158w,
+/static/ea4c51270f8a5c936fab77cd01ac01c5/a6688/core-has-cache.jpg 315w,
+/static/ea4c51270f8a5c936fab77cd01ac01c5/828fb/core-has-cache.jpg 630w,
+/static/ea4c51270f8a5c936fab77cd01ac01c5/0ede0/core-has-cache.jpg 945w,
+/static/ea4c51270f8a5c936fab77cd01ac01c5/3ac88/core-has-cache.jpg 1260w,
+/static/ea4c51270f8a5c936fab77cd01ac01c5/ec210/core-has-cache.jpg 1669w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>코어는 메모리에서 읽어온 값을 캐시에 저장하고 저장한 값을 읽어서 작업한다.<br>
+똑같은 값을 다시 읽을 때에는, 캐시에 값이 있는지 체크하고 없을 때만 메모리에서 읽어온다.<br>
+그러다보니 메모리에는 값이 바뀌었는데도 캐시에 저장된 값이 갱신되지 않아서 메모리에 저장된 값이 다른 경우가 발생한다.</p>
+<p>이러한 문제를 해결하기 위해서는 <strong><code class="language-text">volatile</code> 키워드</strong>를 변수에 추가하면 된다.<br>
+<code class="language-text">volatile</code> 키워드는 <strong>코어가 변수의 값을 읽을 때, 캐시가 아닌 메모리에서 읽도록 강제</strong>한다.</p>
+<p>변수에 <code class="language-text">volatile</code> 키워드 말고 <code class="language-text">synchronized</code> 키워드를 붙여도 같은 효과를 얻을 수 있다.<br>
+<strong>쓰레드가 synchronized 블럭으로 들어갈 때와 나올 때, 캐시와 메모리간의 동기화</strong>가 이루어지기 때문이다.</p>
+<p>추가로 <code class="language-text">volatile</code>은 변수의 읽기와 쓰기를 원자화한다.</p>
+<p><strong>JVM은 데이터를 4byte 단위로 처리</strong>한다.<br>
+따라서 <code class="language-text">int</code>나 이보다 작은 데이터 타입은 하나의 명령으로 읽기나 쓰기가 가능하다.<br>
+참고로 <strong>하나의 명령이란 CPU 레벨에서 더 이상 나눌 수 없는 최소한의 작업 단위</strong>를 의미한다.<br>
+다시 말해, 작업 중간에 다른 쓰레드가 끼어 들 수가 없다는 의미다.<br>
+그런데 <strong><code class="language-text">long</code>이나 <code class="language-text">double</code>은 8byte</strong>이다.<br>
+<strong>두 번의 연산이 수행</strong>되어야하고, 이는 곧 <strong>중간에 다른 쓰레드에 의해 방해받을 여지가 있다</strong>는 말이다.<br>
+이를 방지하기 위해 변수에 접근하는 모든 곳에 <code class="language-text">synchronized</code> 키워드를 추가해도 되지만, <strong>간단하게 변수에 <code class="language-text">volatile</code> 키워드를 추가함으로써 해당 변수에 대한 읽기나 쓰기가 원자화할 수 있다.</strong></p>
+<p>마지막으로 <code class="language-text">volatile</code>에 대해 중요한 점은, <code class="language-text">volatile</code>로 여러 쓰레드들의 작업을 동기화하는 건 아니라는 것이다.<br>
+<code class="language-text">volatile</code> 키워드를 추가했으니 더이상 동기화를 신경쓰지 않아도 된다고 생각할 수 있다.<br>
+하지만 <strong><code class="language-text">volatile</code>은 코어가 변수에 접근할 때 항상 메모리에 있는 값을 읽도록 강제하는 것과 해당 변수를 읽기나 쓰기가 원자화 되는 것일 뿐, 여러 쓰레드들이 수행하는 작업에 대한 동기화는 수행되지 않는다.</strong></p>
+<h2>마치며</h2>
+<p>지금까지 Java에서 쓰레드를 생성하고 실행시키고, 멀티쓰레드 프로그램을 작성하기 위해 필요한 쓰레드의 상태, 행동을 제어하는 메서드와 동기화를 제어하는 방법에 대해 알아보았다.</p>
+<p>사실 굉장히 추상적이고 여러 쓰레드간의 흐름을 머리 속으로 그리는 것은 쉽지 않은 일이다.
+그래서 다음엔 지금까지 배운 쓰레드 관련 지식들을 토대로, 여러가지 문제 상황을 만들고 이를 해결해보려고 한다.</p></section><hr/><footer><div class="bio"><div data-gatsby-image-wrapper="" style="width:75px;height:75px" class="gatsby-image-wrapper bio-avatar"><div aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear;background-color:#a89888;width:75px;height:75px;position:relative"></div><picture><source type="image/avif" data-srcset="/static/fdc99851401fabaca2d68d6b9aefa2fe/1cf05/profile_img.avif 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/13b46/profile_img.avif 150w" sizes="75px"/><source type="image/webp" data-srcset="/static/fdc99851401fabaca2d68d6b9aefa2fe/96891/profile_img.webp 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/3554d/profile_img.webp 150w" sizes="75px"/><img data-gatsby-image-ssr="" layout="fixed" data-main-image="" style="opacity:0" sizes="75px" decoding="async" loading="lazy" data-src="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg" data-srcset="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/2e46f/profile_img.jpg 150w" alt="Profile picture"/></picture><noscript><picture><source type="image/avif" srcSet="/static/fdc99851401fabaca2d68d6b9aefa2fe/1cf05/profile_img.avif 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/13b46/profile_img.avif 150w" sizes="75px"/><source type="image/webp" srcSet="/static/fdc99851401fabaca2d68d6b9aefa2fe/96891/profile_img.webp 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/3554d/profile_img.webp 150w" sizes="75px"/><img data-gatsby-image-ssr="" layout="fixed" data-main-image="" style="opacity:0" sizes="75px" decoding="async" loading="lazy" src="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg" srcSet="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/2e46f/profile_img.jpg 150w" alt="Profile picture"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div><p>1. 2025년이 끝나기 전까지 <strong>기본기를 완벽히 정리한다.</strong><br/>2. <strong>내가 좋아하는 것</strong>을 차곡히 기록한다.<br/>3. 절대 조급해하지 않는다.</p></div></footer></article><nav class="blog-post-nav"><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/java/status-and-control-thread-in-java/">← <!-- -->Java Thread 2 - Java Thread의 상태와 행동을 제어하는 방법</a></li><li><a rel="next" href="/retrospection/self-retrospective/2024-july/july-1st/">[회고] 07.01 ~ 07.07<!-- --> →</a></li></ul></nav></main><footer>© <!-- -->2025<!-- -->, Built with<!-- --> <a href="https://www.gatsbyjs.com">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/java/synchronize-threads/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-1945d3884d8cbffa43a3.js\"],\"component---src-pages-404-js\":[\"/component---src-pages-404-js-742f6fa497a17cb36648.js\"],\"component---src-pages-index-js\":[\"/component---src-pages-index-js-de8adbe90b6fc2671c4a.js\"],\"component---src-templates-blog-post-js\":[\"/component---src-templates-blog-post-js-074fd55c7e9ac421df51.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="5878632450cbeeff65b2";</script><script src="/webpack-runtime-29f1a68b4a68092c7ed7.js" async></script><script src="/framework-647153102893cffe9a5c.js" async></script><script src="/app-1945d3884d8cbffa43a3.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 5.14.5"/><meta name="description" content="주의하세요" data-gatsby-head="true"/><meta property="og:title" content="Java에서 컬렉션을 사용할 때 주의할 점" data-gatsby-head="true"/><meta property="og:description" content="주의하세요" data-gatsby-head="true"/><meta property="og:type" content="website" data-gatsby-head="true"/><meta name="twitter:card" content="summary" data-gatsby-head="true"/><meta name="twitter:creator" content="kylemathews" data-gatsby-head="true"/><meta name="twitter:title" content="Java에서 컬렉션을 사용할 때 주의할 점" data-gatsby-head="true"/><meta name="twitter:description" content="주의하세요" data-gatsby-head="true"/><style data-href="/styles.ba0b3f7a6b044d449966.css" data-identity="gatsby-global-css">@font-face{font-display:swap;font-family:Pretendard;font-style:normal;font-weight:400;src:url(/static/pretendard-latin-400-normal-38bed7de46e7b9049cedbede041d23ed.woff2) format("woff2"),url(/static/pretendard-latin-400-normal-303253288b0ba99db532e29a364b0c09.woff) format("woff")}
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{-webkit-text-size-adjust:100%;line-height:1.15}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}[hidden]{display:none}:root{--maxWidth-none:"none";--maxWidth-xs:20rem;--maxWidth-sm:24rem;--maxWidth-md:28rem;--maxWidth-lg:32rem;--maxWidth-xl:36rem;--maxWidth-2xl:42rem;--maxWidth-3xl:48rem;--maxWidth-4xl:56rem;--maxWidth-full:"100%";--maxWidth-wrapper:var(--maxWidth-2xl);--spacing-px:"1px";--spacing-0:0;--spacing-1:0.25rem;--spacing-2:0.5rem;--spacing-3:0.75rem;--spacing-4:1rem;--spacing-5:1.25rem;--spacing-6:1.5rem;--spacing-8:2rem;--spacing-10:2.5rem;--spacing-12:3rem;--spacing-16:4rem;--spacing-20:5rem;--spacing-24:6rem;--spacing-32:8rem;--fontFamily-sans:"Pretendard",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--fontFamily-serif:"Pretendard","Georgia",Cambria,"Times New Roman",Times,serif;--font-body:var(--fontFamily-serif);--font-heading:var(--fontFamily-sans);--fontWeight-normal:400;--fontWeight-bold:700;--fontWeight-black:900;--fontSize-root:16px;--lineHeight-none:1;--lineHeight-tight:1.1;--lineHeight-normal:1.5;--lineHeight-relaxed:1.625;--fontSize-0:0.833rem;--fontSize-1:1rem;--fontSize-2:1.2rem;--fontSize-3:1.44rem;--fontSize-4:1.728rem;--fontSize-5:2.074rem;--fontSize-6:2.488rem;--fontSize-7:2.986rem;--color-primary:#00b02f;--color-text:#2e353f;--color-text-light:#4f5969;--color-heading:#1a202c;--color-heading-black:#000;--color-accent:#d1dce5}*,:after,:before{box-sizing:border-box}html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:var(--fontSize-root);line-height:var(--lineHeight-normal)}body{color:var(--color-text);font-family:var(--font-body);font-size:var(--fontSize-1)}footer{padding:var(--spacing-6) var(--spacing-0)}hr{background:var(--color-accent);border:0;height:1px}h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);letter-spacing:-.025em;line-height:var(--lineHeight-tight);margin-bottom:var(--spacing-6);margin-top:var(--spacing-12)}h2,h3,h4,h5,h6{color:var(--color-heading);font-weight:var(--fontWeight-bold)}h1{color:var(--color-heading-black);font-size:var(--fontSize-6);font-weight:var(--fontWeight-black)}h2{font-size:var(--fontSize-5)}h3{font-size:var(--fontSize-4)}h4{font-size:var(--fontSize-3)}h5{font-size:var(--fontSize-2)}h6{font-size:var(--fontSize-1)}h1>a{color:var(--color-primary);text-decoration:none}h2>a,h3>a,h4>a,h5>a,h6>a{color:inherit;text-decoration:none}p{--baseline-multiplier:0.179;--x-height-multiplier:0.35;line-height:var(--lineHeight-relaxed);margin:var(--spacing-0) var(--spacing-0) var(--spacing-8) var(--spacing-0)}ol,p,ul{padding:var(--spacing-0)}ol,ul{list-style-image:none;list-style-position:outside;margin-bottom:var(--spacing-8);margin-left:var(--spacing-0);margin-right:var(--spacing-0)}ol li,ul li{padding-left:var(--spacing-0)}li>p,ol li,ul li{margin-bottom:calc(var(--spacing-8)/2)}li :last-child{margin-bottom:var(--spacing-0)}li>ul{margin-left:var(--spacing-8);margin-top:calc(var(--spacing-8)/2)}blockquote{border-left:var(--spacing-1) solid var(--color-primary);color:var(--color-text-light);font-size:var(--fontSize-2);font-style:italic;margin-bottom:var(--spacing-8);margin-left:calc(var(--spacing-6)*-1);margin-right:var(--spacing-8);padding:var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-6)}blockquote>:last-child{margin-bottom:var(--spacing-0)}blockquote>ol,blockquote>ul{list-style-position:inside}table{border-collapse:collapse;border-spacing:.25rem;margin-bottom:var(--spacing-8);width:100%}table thead tr th{border-bottom:1px solid var(--color-accent)}a{color:var(--color-primary)}a:focus,a:hover{text-decoration:none}.global-wrapper{margin:var(--spacing-0) auto;max-width:var(--maxWidth-wrapper);padding:var(--spacing-10) var(--spacing-5)}.global-wrapper[data-is-root-path=true] .bio{margin-bottom:var(--spacing-20)}.global-header{margin-bottom:var(--spacing-12);text-align:center}.main-heading{font-size:var(--fontSize-7);margin:0}.post-list-item{margin-bottom:var(--spacing-8);margin-top:var(--spacing-8)}.post-list-item p{margin-bottom:var(--spacing-0)}.post-list-item h2{color:var(--color-heading-black);font-size:var(--fontSize-4);margin-bottom:var(--spacing-2);margin-top:var(--spacing-0)}.post-list-item header{margin-bottom:var(--spacing-4)}.header-link-home{font-family:var(--font-heading);font-size:var(--fontSize-2);font-weight:var(--fontWeight-bold);text-decoration:none}.bio{align-items:center;display:flex;justify-content:center;margin-bottom:var(--spacing-16)}.bio p,.bio-avatar{margin-bottom:var(--spacing-0)}.bio-avatar{border-radius:100%;margin-right:var(--spacing-4);min-width:50px}.blog-post header h1{margin:var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0)}.blog-post header p{font-family:var(--font-heading);font-size:var(--fontSize-2)}.blog-post-nav ul{margin:var(--spacing-0)}.gatsby-highlight{margin-bottom:var(--spacing-8)}@media (max-width:42rem){blockquote{margin-left:var(--spacing-0);padding:var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4)}ol,ul{list-style-position:inside}}code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#000;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5;tab-size:4;text-align:left;text-shadow:0 1px #fff;white-space:pre;word-break:normal;word-spacing:normal}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{background:#b3d4fc;text-shadow:none}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{background:hsla(0,0%,100%,.5);color:#9a6e3a}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="alternate" type="application/rss+xml" title="Gatsby Starter Blog RSS Feed" href="/rss.xml"/><link rel="icon" href="/favicon-32x32.png?v=4a9773549091c227cd2eb82ccd9c5e3a" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><title data-gatsby-head="true">Java에서 컬렉션을 사용할 때 주의할 점 | 내가 재밌는 일을 하자 !</title></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="global-wrapper" data-is-root-path="false"><header class="global-header"><a class="header-link-home" href="/">내가 재밌는 일을 하자 !</a></header><main><article class="blog-post" itemscope="" itemType="http://schema.org/Article"><header><h1 itemProp="headline">Java에서 컬렉션을 사용할 때 주의할 점</h1><p>December 11, 2023</p></header><section itemProp="articleBody"><h2>문제 상황</h2>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">MyList</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> list<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">MyList</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> list<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>list <span class="token operator">=</span> list<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token class-name">String</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> list<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> <span class="token function">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> list<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>인스턴스 필드로 List만을 가지는 일급 컬렉션 객체가 있습니다.</p>
+<p>필드에 <code class="language-text">final</code>  키워드가 존재하기 떄문에 항상 초기화를 해줘야 합니다.</p>
+<p>따라서 객체를 생성하려면 생성자를 List를 항상 주입받아야 합니다.</p>
+<p>이때, 문제가 발생합니다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/164ebf47ea7bb6f704655591acc6ab58/0012b/problem.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 66.45569620253164%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB+0lEQVR42nVSy3KbQBDkQywJFlj2BSwSSDLIsmzZLquSuMpyLkk5hxzz/x/QmV2Egl3KoWtnXzPd0xNECQdLOa4mEYzKUBQGYVYiETmmIcNkyjCd9XDxZBqdMZyPEbAkA+Opf5ywBEoVMIsNVLEAYymiE8IwRhQlPmYxR0jxxYTuwlWb0YcrWrVUqK3FvF6itAsoXSKTBoJnpMDA5BWMseCZupxQqhIskdD0ODcauW1w3e3QdBvosiI20t//gzhBIr6AICbJjp1jGnpJHClXdOYkxf7Oxf063n8+6xEMvZg5A2YRlBCYE7OyqqFNCUk9zVIySxvo3CIvKi/3v6ZE1OA+YeyNEULDlnMYWyEViswgJnQfjlT0b0dOD5NA+yAk13zCUwXnYCZM7+y5DRSz5Oz4gMHts+SIJLte9PPVJ3TJbNV4yUUxJ5dpjEiqW53rpa29bEHOa1MhJvcjmuMwSZFwgUBQj2KqxDMJ6cZDanKLUzVi55jEH1mFQ0x/BpZjBJvtDWzdobv/hueXH/h6/IXVzYHGZ4GCzNF55c1wMMTMYRx/RpAvH7C++45m+4rd4R23z+9Y7t6w2h1RNS2aZo1m1aJaLD8kk9SCSwhM84D28Yi3n3/w5fgb690Luv2RiryiqK9xt3/C/vGAzfYeq3aLNaHd0OCvuov4C4eggRS4E408AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="문제 상황"
+        title=""
+        src="/static/164ebf47ea7bb6f704655591acc6ab58/f058b/problem.png"
+        srcset="/static/164ebf47ea7bb6f704655591acc6ab58/c26ae/problem.png 158w,
+/static/164ebf47ea7bb6f704655591acc6ab58/6bdcf/problem.png 315w,
+/static/164ebf47ea7bb6f704655591acc6ab58/f058b/problem.png 630w,
+/static/164ebf47ea7bb6f704655591acc6ab58/0012b/problem.png 661w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>위 테스트 코드를 보면 MyList 인스턴스를 생성할 때, <code class="language-text">list</code> 라는 List가 생성자 파라미터로 전달됩니다.</p>
+<p>그렇게 <code class="language-text">myList</code> 라는 이름의 인스턴스가 생성된 후, <code class="language-text">list</code>에 "c"를 추가합니다.</p>
+<p>그런데 검증문을 보면, <code class="language-text">myList</code> 인스턴스의 필드에는 <code class="language-text">a, b, c</code>가 존재합니다.</p>
+<p>이 문제는 <code class="language-text">myList</code>가 가지는 필드와, <code class="language-text">list</code> 컬렉션이 <strong>같은 참조 값을 가지기 때문입니다.</strong></p>
+<blockquote>
+<p>참조 값에 대한 내용은 <a href="https://www.youtube.com/watch?v=AjpJS9WrDrs">테코톡 - 히이로의 불변</a> 추천드립니다</p>
+</blockquote>
+<p>결국 객체 내부의 참조값과 외부의 참조값을 끊어주는 작업이 필요합니다.</p>
+<p>이를 <strong>방어적 복사</strong>라고 합니다.</p>
+<h2>방어적 복사 첫 번째 방법: 새로운 객체 할당 (new)</h2>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">MyList</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> list<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">MyList</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> list<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>list <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>메서드 파라미터로 외부의 컬렉션이 들어올 때, <strong>새로운 컬렉션을 만들어</strong> 그 안에 값을 복사하는 방식으로 해결할 수 있습니다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 602px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/52d58f017f6c098321fec6132fc67cf8/32056/defensive_copy.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 72.15189873417721%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAACKUlEQVR42oWT13LbMBBF+R2RKDaQANirGmX1YseJZ/L/H3OzC4rSRH7Iw5nFLoGLLaAltILjC8wcH1WuESc5XFnCVxU8xbZAJGPYM8/sYTvC/iuWH0ZwvICcACEJx3GBtF4jSlsEuoTQg6DrCbhuAM8PH3Dsm+CMbzL4mJAtkwRdWaJqWhRVjSwtoOIMUmpkSiHLSuRFjYTiUaRh2y6eGh6sUKZ0m0JT5pAqRtWu0G+OWLztkFYNRJQgEHogjAlt8MfYC5YfSDhuCBFKEo5oo6ISE3gBt0KYVjiugO0O6xHXo5JN2f9iOS7X/mywjiRyKkfqFCGVJHUCISIoipvSVWLwqN/2zL2ffUKCgREabVUUWHQLzFc98rI2Uw9DhVgq6lsJHecGroAnPZ57DOVV0KG0AxLg9ZQaPpk4mEwd/GAmNjEzTMlnQd5j34fK9ptgTLeXVWuy4ey4PE2lKmoBZxYnhZkw+/Ie46fnCU5EwuLGshC/qUDIhwCLDYJ0iGxEcfZZbBTk4SmdkaA0giJSsMq6Q9102J+u2B3O2OyOBl7zN3nPZCC5M/hmSHc7YhVU3ny1wXzZ4/bxhe3+jKZboiO/na9oMI0h48dMj/p/WNvTGZ+//+D95xcu108cTzecyV7ff6FZLinbAw4UGzKe09/T0V80EFPpr1h53WJ3uuB6+8Tp+mGE9scLukVPWTVY9Ttij+V6a+yaYNu/HbDe0Hq9w2K1NZbjfwGQTqHF93rkKAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="새로운 객체 할당"
+        title=""
+        src="/static/52d58f017f6c098321fec6132fc67cf8/32056/defensive_copy.png"
+        srcset="/static/52d58f017f6c098321fec6132fc67cf8/c26ae/defensive_copy.png 158w,
+/static/52d58f017f6c098321fec6132fc67cf8/6bdcf/defensive_copy.png 315w,
+/static/52d58f017f6c098321fec6132fc67cf8/32056/defensive_copy.png 602w"
+        sizes="(max-width: 602px) 100vw, 602px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<h2>List.copyOf()</h2>
+<p>또 다른 방식으로 <code class="language-text">List.copyOf()</code> 메서드가 있습니다.</p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">MyList</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> list<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">MyList</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> list<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>list <span class="token operator">=</span> <span class="token class-name">List</span><span class="token punctuation">.</span><span class="token function">copyOf</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 574px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/577b2e1b439367077851fa3c67586a65/86389/list_copyof.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 70.25316455696203%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAACRUlEQVR42n1T2W7bQAzUbzSNDx0rabXSWvftM07aNChaGEiRh/7/b0zJtewcLfowIMU1jxnSliN8zOYOpAxQ5Qq2kFh4EZxAwxUhlraH+cJ5h8XSveLjmyWUxIwc4QrEoYSvG4RpDy9pIQJlkm5nS2pq45ZB/gUc+6vg7cw2SVzUcTwUKsIqWSFJUqzSAipeIdYZZBghVQp6VVC8RJqV8Knhx6KWcabRBVFsmgFNOyJtaoRRbCgzuOnSdmE74op/yUEFzx1mZG2indA0epUjjGM4rm8m+B/O+a+wHE8iIipFprF0JQKpIXxF3X0qGILfXcGIjH9GCJesR7H3kLCWtjCTuF4A35foywJ9v0ZR9ajqHlnRQMkYhU5Rlj2ho7d20o9pupNkLIt31vCyfo80zPIKOs3RdiN2+yM2uzsUZYuuGrGtD1iPe7TDiKysaWGpWVoYKkQBDSQCWBctLudx83mOTzczos1SaMgoMZYT39pQvsaDIIL0AwR+CMs8UFLdDsjLhijWqJqeEs5L4eNmOCTJ1U6+K976pCkNYfE9taTZZnfE49MP3H95MjS5QUr0Fd0j3yHbix/rdPrOpu8zFMHqho0p1vYbHI5fsTs8mAbr7QFVN6CoWzNx24/XBlwoodNS9AeQKpmgjbXGwwGn5xf8evmNn6dn7O8eTNGn7yfkVYNhs8fd/SOOD98wrPc0+YimW6MbtsbPaWElXQPboupgcVWd5UY/psmdOcaT+CR2mlXmx3w+nGBAp1NOZ1VOyIvWxP4A7DamUWXHfVoAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="List.copyOf()"
+        title=""
+        src="/static/577b2e1b439367077851fa3c67586a65/86389/list_copyof.png"
+        srcset="/static/577b2e1b439367077851fa3c67586a65/c26ae/list_copyof.png 158w,
+/static/577b2e1b439367077851fa3c67586a65/6bdcf/list_copyof.png 315w,
+/static/577b2e1b439367077851fa3c67586a65/86389/list_copyof.png 574w"
+        sizes="(max-width: 574px) 100vw, 574px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>하지만 이 메서드의 경우, 위 테스트 코드에서 볼 수 있듯이 값을 쓰거나 수정하거나 삭제하는 메서드에 대해서는 <code class="language-text">UnsupportedOperationException</code>을 발생합니다.</p>
+<p>그 이유로는 <code class="language-text">copyOf()</code> 메서드를 까보면 최종적으로 <code class="language-text">ImmutableCollections.ListN&lt;>()</code> 메서드가 호출되는데요.<br>
+<code class="language-text">ImmutableCollections.ListN&lt;E></code>는 <code class="language-text">AbstractImmutableList&lt;E></code>를 상속하고 있으며<br>
+<code class="language-text">AbstractImmutableList&lt;E></code>는 아래와 같이 쓰기 작업에 대해 예외를 던지고 있기 때문입니다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/603b31214448b566070db040479c34da/d67ca/AbstractImmutableList.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 44.30379746835443%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABpUlEQVR42k1SuW4bMRTUh0h78ni897Kk2HDpwnCRv0iVIP9fTYYUZKQYcElw583B05YK1lzwfuy4LwW32zu2j1+4f/7G69cf3D7/Ir7+RAoBL2VFWV6wHT9wXN+wc932O/d3+OXArD1Ol27CMCgEcXDWwUiAMg4iHj5kOBcxTRrdMKMfVUPXTzhfhoZLRVcxtvPTOCnEFPizR44ZwXmEuMDFFdEHxLzzu1DJlfcWlJiQy8ahHj2HVKILidpKkHCG9wZiNby1cFojGAMlBVoyz6vqCPEJlmrrPjgK4OBJWShCzxqarmZ+n6ZZMRfH6YKVKr1IU+LS3pBTRqLy6CPW7QrrM4zSEGMxKoHWFkIRNZpK2iyHwENnEKVeMBjdBuPKI8e0UpW0KISZVkX9qJvdkRiY6aWfcT73T8uKlkko5tuyM4LR75j8xmwLUubKHJXUfEuD5Z3IItu5FnTPUqrlnF1TuXjmRSs6HUi02MJn62U9WuPJuUdRjGSazXcZleiJRpiyNMJMwkiVvuYRD6wkynxfjiXUOCq5tXwNJE4kNfbR9P+E/wCz/gpmZQf6LwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="AbstractImmutableList의 쓰기 작업 메서드들"
+        title=""
+        src="/static/603b31214448b566070db040479c34da/f058b/AbstractImmutableList.png"
+        srcset="/static/603b31214448b566070db040479c34da/c26ae/AbstractImmutableList.png 158w,
+/static/603b31214448b566070db040479c34da/6bdcf/AbstractImmutableList.png 315w,
+/static/603b31214448b566070db040479c34da/f058b/AbstractImmutableList.png 630w,
+/static/603b31214448b566070db040479c34da/d67ca/AbstractImmutableList.png 714w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>추가로 <code class="language-text">List.copyOf()</code>도 새로운 객체가 생성되고 값을 복사하는 <em>방어적 복사</em>가 이루어집니다.</p>
+<p>아래 사진은 <code class="language-text">ImmutableCollections.ListN&lt;>()</code>의 생성자입니다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 606px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/c001ea030157f4fc6f205a04574e4b3e/4d4a2/last_method_of_copyof.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 36.708860759493675%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAABHUlEQVR42pWR207EIBiEeRC3WyinclgoPW3NarLxyvd/oPEHTTS6N158YQJh/hlgl1KQ1gU+WIQYIdWInkt0HUd3Fv+GcZ1g0g7rLpiXK1KaoY1vSD1CDBpKu6aVdej7AaeuJ/hDWD0sy4772zuO2x3aBiipYS2ZEsqQEZkZ6aBqeqEwSANOg/hPTdThrKN6PiaUXOB9xDitCKPHumxYt2fs5UCOC0rYEENuJi09mUtlSbtmWnXdY2fqPXCBnCeUaYYNqSVe1gPX44bb/orj+oJ53VHmjd45t2pPp75Vb+sXVTMhLfw4IdiJpgX6nNwSnHtFaXSrWOHCUCVDaWzTn+g/mint4UxCcpTORMTLDDNGehMyoMti+I15sPfNB79hy8Lyw0JkAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="List.copyOf()의 최종 실행 메서드"
+        title=""
+        src="/static/c001ea030157f4fc6f205a04574e4b3e/4d4a2/last_method_of_copyof.png"
+        srcset="/static/c001ea030157f4fc6f205a04574e4b3e/c26ae/last_method_of_copyof.png 158w,
+/static/c001ea030157f4fc6f205a04574e4b3e/6bdcf/last_method_of_copyof.png 315w,
+/static/c001ea030157f4fc6f205a04574e4b3e/4d4a2/last_method_of_copyof.png 606w"
+        sizes="(max-width: 606px) 100vw, 606px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>가변 인자로 값을 받고 새로운 객체를 만들고 모든 요소에 대해 null 체크를 하며 값을 복사합니다.</p>
+<p>결과적으로 다른 객체가 생성되어 외부 컬렉션과 참조가 끊어집니다.</p>
+<h2>Collections.unmodifiableList()</h2>
+<p>이 메서드를 사용하면 읽기 전용 컬렉션을 만들 수 있습니다.</p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">MyList</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> list<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">MyList</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> list<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>list <span class="token operator">=</span> <span class="token class-name">Collections</span><span class="token punctuation">.</span><span class="token function">unmodifiableList</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 588px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/f4492226d6a8c9c556ae15c6545248be/9bbaf/unmodifiable_list.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 65.18987341772153%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAACPElEQVR42n1S2W7bMBDUd7Q+ROoiRVG3ZFuSD9lxnLiBUQRF0T70/z9juqTtoEbRPoyGXC5Hu7N0vFDA9XzMXQ91qaB0grkXg4UJWKCINViU2j0neL6wuXfM5vwBTijpchDYwzgIIVQBUQwI9AJMlvCIPdWCqwZeUiMIJWYzhukNfwm6ro/plGEy4/g0dZGrGEWikOcV8qKCTlIopRFFEjoKoZKM4jUyOhcy+RC+w4mkhstCaKXAvRBt22MYRqw2W+RNSxVRnNrkvrTtepava+4JMB49wBEytYs81TZJqhw6rRDrDJKq8QJ5TfYeL5o9txAPcFzmW08mU26Zc//mE6fY/OYTw9x45PJ/DuPDQ0ZtmoURNj62RYF+ucKq26Bd9MRraJ2TrwmWdYemWqFd9lS9xmTi4vPE/NSlu6Yo8nDOAluBETXVRCJBKBTStLSiXb+1wkXZYrsY0S3XWA0blHWLLKtuw9HQguwSkoZCAqY6n95jREKMBxZ+IOxEY5VCxjRlmmgolc0x072zOY+iGDISCMkqZ709IM1KbHYHPD2fcTx9IX7Fdn/E4fiCI8X69QhNOYKEjbhldWURJ1cmYQMnpbfWLDpUzRLdsMPp9YK67VBULUqKZfTmUmrLsBFV5Of/4AzjHufLV3z/+Qtvl3ecXt7wcr7g/dsPPJ3OWPSDrX7/dKJKd8jLxv7sisaKJGnxAcd8ira1F8bDM4bNiB21a9o3QmW9QEYiSxrQsDlQFyMJ7y3+3Jtzs/4NK7CL0I1XiYYAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Collections.unmodifiableList()"
+        title=""
+        src="/static/f4492226d6a8c9c556ae15c6545248be/9bbaf/unmodifiable_list.png"
+        srcset="/static/f4492226d6a8c9c556ae15c6545248be/c26ae/unmodifiable_list.png 158w,
+/static/f4492226d6a8c9c556ae15c6545248be/6bdcf/unmodifiable_list.png 315w,
+/static/f4492226d6a8c9c556ae15c6545248be/9bbaf/unmodifiable_list.png 588w"
+        sizes="(max-width: 588px) 100vw, 588px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>하지만 <code class="language-text">List.copyOf()</code>와 비교해서 한 가지 중요한 점이 있습니다.</p>
+<p>아래 테스트 코드처럼, 외부에 존재하는 컬렉션의 값을 수정하면 그대로 <code class="language-text">myList</code>에 반영이 된다는 사실입니다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 623px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/7719f4edf72b9ac56f3e7f95b34595c0/6114d/weekpoint_of_unmodifialeList.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 72.78481012658227%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAACY0lEQVR42n2T3XLaMBCFeZGCJVm2Zcs/2NhAiLENJYQknWlzlXZ60ZlOZ9L3f4CTXSUhKaW9+EZCslbnrA6jsVBQvo96ZqECg7GM4OkYns8k8FQE4RsInTg8Qvn0jfAxnsi/GE2kD+Ep2MggzBeIqxbSlBBRAWUbqHgGmS5oPodMaoeOLITU+HCu4OvEI6V1liLPckzLGbJsiiRJYYxFpDWsMUjTwmHiFB4XHIszBUkdT5QfYr5YYbFsUV0sEEZkT2iHIHuCRxk4PHne7ktBmlBR7gkX4dv94K1HE4b233NO2Yll5SynUUA2M6RZSZBlsheHIfI0g81L5EXl1v5fkBROxIttFUAS4/GzKlZ+qvBfhY4FldIoUoqICFDO5qhqeml6GI6GK0jWJ94J4h0neyOlDXQQQ1H2gihFaFKXR0nZk5TBV4QKj0i6zKEMXfwnx1fmXLG6spq7HiY2R5zksDTyQ3FPeT2jXkYUJd6LaF1QpBipA/g6omB7zxkUFAVJ9hlNr8wxUj59RHBbtA4RhDE0wQc1uVA0shCHOxtglBYN1ttbdB/vaLzBqrtGuzmgHQ4036PffUJPe2XTIUqmTlXM6m0Gk7zBiplRvbpGRQyHB2yIcnmF+vIGTXtAMd+639PFDrbqkeQNHXorwm3hGCW2cJfwfLT9/AtXXx5xff+IPY37+9/ob39iuv6Kqv+Gon1As/mO7uYHbNngol2jH3YYtleu5/m0RkF/1aqew1KfSWGHze6ObO7RkeVhd4u232NNlgda57V62aGsV6SiwMVlj7bb4nK9pfmAVbs5ri1XPZ4A+NHCnIOU/wkAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Collections.unmodifiableList()의 약점"
+        title=""
+        src="/static/7719f4edf72b9ac56f3e7f95b34595c0/6114d/weekpoint_of_unmodifialeList.png"
+        srcset="/static/7719f4edf72b9ac56f3e7f95b34595c0/c26ae/weekpoint_of_unmodifialeList.png 158w,
+/static/7719f4edf72b9ac56f3e7f95b34595c0/6bdcf/weekpoint_of_unmodifialeList.png 315w,
+/static/7719f4edf72b9ac56f3e7f95b34595c0/6114d/weekpoint_of_unmodifialeList.png 623w"
+        sizes="(max-width: 623px) 100vw, 623px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>그 원인은 다음과 같습니다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 347px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/eacd099c673e6432ead11135c93ba4ba/39e45/last_method_of_unmodifiableList.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 39.24050632911392%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABaElEQVR42o2R2W7bMBBF9RlNa4niJm5aSFmL41hyaiBvAfL/X3M7YoM8FAXah4NLcjgczp2idw77lDD3LYY047a9Io4LxjZgO0c85oSJYvI8obcRW9zR+YiScVS1RMXEbyUYUXAuYJWCIlWqgbUeXNBeSBipYJSmtUJJcK7RSA8hDU4VR/nJqay/KJiwYE2PmuAEUyFTKU/nLYQyUI2D1i4X0krmIpqK19pCUtzYgMZ4WNehUO2MsH3AX99hlresljSvlwfW9YqX2z3bMfiAO9nwc4qYYg85JHQd2bA/ME4r1ssNhRCavsowWIN76rAm8my54PqywVPFb08nPH0vczu5vU/Kv7R8+FmwWuEHbeauxX0a0LsBt7RjaM9wocM0XxDTlC8fyRX7E/HFES/Wy4bQJngTMPaRfjUghQXO9ORLSxNf6cEFSnvyy/2TYn99w3h+Rk3DETpANgH8SCZVhKBLB5oG9D/8Ar+X7CASyAE/AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Collections.unmodifiableList()의 최종 실행 메서드"
+        title=""
+        src="/static/eacd099c673e6432ead11135c93ba4ba/39e45/last_method_of_unmodifiableList.png"
+        srcset="/static/eacd099c673e6432ead11135c93ba4ba/c26ae/last_method_of_unmodifiableList.png 158w,
+/static/eacd099c673e6432ead11135c93ba4ba/6bdcf/last_method_of_unmodifiableList.png 315w,
+/static/eacd099c673e6432ead11135c93ba4ba/39e45/last_method_of_unmodifiableList.png 347w"
+        sizes="(max-width: 347px) 100vw, 347px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>파라미터로 넘어오는 외부 컬렉션인 <code class="language-text">list</code>를 아무런 조치없이 그대로 할당하는 것을 볼 수 있습니다.</p>
+<p>따라서, 내부적으로는 값의 변경이 막혀있지만, 외부의 컬렉션과는 같은 레퍼런스를 참조하고 있다는 것을 확인할 수 있습니다.</p></section><hr/><footer><div class="bio"><div data-gatsby-image-wrapper="" style="width:75px;height:75px" class="gatsby-image-wrapper bio-avatar"><div aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear;background-color:#a89888;width:75px;height:75px;position:relative"></div><picture><source type="image/avif" data-srcset="/static/fdc99851401fabaca2d68d6b9aefa2fe/1cf05/profile_img.avif 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/13b46/profile_img.avif 150w" sizes="75px"/><source type="image/webp" data-srcset="/static/fdc99851401fabaca2d68d6b9aefa2fe/96891/profile_img.webp 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/3554d/profile_img.webp 150w" sizes="75px"/><img data-gatsby-image-ssr="" layout="fixed" data-main-image="" style="opacity:0" sizes="75px" decoding="async" loading="lazy" data-src="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg" data-srcset="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/2e46f/profile_img.jpg 150w" alt="Profile picture"/></picture><noscript><picture><source type="image/avif" srcSet="/static/fdc99851401fabaca2d68d6b9aefa2fe/1cf05/profile_img.avif 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/13b46/profile_img.avif 150w" sizes="75px"/><source type="image/webp" srcSet="/static/fdc99851401fabaca2d68d6b9aefa2fe/96891/profile_img.webp 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/3554d/profile_img.webp 150w" sizes="75px"/><img data-gatsby-image-ssr="" layout="fixed" data-main-image="" style="opacity:0" sizes="75px" decoding="async" loading="lazy" src="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg" srcSet="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/2e46f/profile_img.jpg 150w" alt="Profile picture"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div><p>1. 2025년이 끝나기 전까지 <strong>기본기를 완벽히 정리한다.</strong><br/>2. <strong>내가 좋아하는 것</strong>을 차곡히 기록한다.<br/>3. 절대 조급해하지 않는다.</p></div></footer></article><nav class="blog-post-nav"><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/java/garbage-collection/garbage-collection-algorithms/">← <!-- -->Garbage Collection 알고리즘</a></li><li><a rel="next" href="/why-series/why-use-collection-instead-of-array/">배열 대신 컬렉션을 쓴다. 왜?<!-- --> →</a></li></ul></nav></main><footer>© <!-- -->2025<!-- -->, Built with<!-- --> <a href="https://www.gatsbyjs.com">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/java/cautions-for-using-collections-in-Java/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-1945d3884d8cbffa43a3.js\"],\"component---src-pages-404-js\":[\"/component---src-pages-404-js-742f6fa497a17cb36648.js\"],\"component---src-pages-index-js\":[\"/component---src-pages-index-js-de8adbe90b6fc2671c4a.js\"],\"component---src-templates-blog-post-js\":[\"/component---src-templates-blog-post-js-074fd55c7e9ac421df51.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="5878632450cbeeff65b2";</script><script src="/webpack-runtime-29f1a68b4a68092c7ed7.js" async></script><script src="/framework-647153102893cffe9a5c.js" async></script><script src="/app-1945d3884d8cbffa43a3.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>

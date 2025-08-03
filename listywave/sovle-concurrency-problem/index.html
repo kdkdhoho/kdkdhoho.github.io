@@ -1,0 +1,611 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 5.14.5"/><meta name="description" content="들어가며 ListyWave…" data-gatsby-head="true"/><meta property="og:title" content="[ListyWave] 리스트 수정 시, 동시성 이슈 발생 확인 및 해결기" data-gatsby-head="true"/><meta property="og:description" content="들어가며 ListyWave…" data-gatsby-head="true"/><meta property="og:type" content="website" data-gatsby-head="true"/><meta name="twitter:card" content="summary" data-gatsby-head="true"/><meta name="twitter:creator" content="kylemathews" data-gatsby-head="true"/><meta name="twitter:title" content="[ListyWave] 리스트 수정 시, 동시성 이슈 발생 확인 및 해결기" data-gatsby-head="true"/><meta name="twitter:description" content="들어가며 ListyWave…" data-gatsby-head="true"/><style data-href="/styles.ba0b3f7a6b044d449966.css" data-identity="gatsby-global-css">@font-face{font-display:swap;font-family:Pretendard;font-style:normal;font-weight:400;src:url(/static/pretendard-latin-400-normal-38bed7de46e7b9049cedbede041d23ed.woff2) format("woff2"),url(/static/pretendard-latin-400-normal-303253288b0ba99db532e29a364b0c09.woff) format("woff")}
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{-webkit-text-size-adjust:100%;line-height:1.15}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}[hidden]{display:none}:root{--maxWidth-none:"none";--maxWidth-xs:20rem;--maxWidth-sm:24rem;--maxWidth-md:28rem;--maxWidth-lg:32rem;--maxWidth-xl:36rem;--maxWidth-2xl:42rem;--maxWidth-3xl:48rem;--maxWidth-4xl:56rem;--maxWidth-full:"100%";--maxWidth-wrapper:var(--maxWidth-2xl);--spacing-px:"1px";--spacing-0:0;--spacing-1:0.25rem;--spacing-2:0.5rem;--spacing-3:0.75rem;--spacing-4:1rem;--spacing-5:1.25rem;--spacing-6:1.5rem;--spacing-8:2rem;--spacing-10:2.5rem;--spacing-12:3rem;--spacing-16:4rem;--spacing-20:5rem;--spacing-24:6rem;--spacing-32:8rem;--fontFamily-sans:"Pretendard",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--fontFamily-serif:"Pretendard","Georgia",Cambria,"Times New Roman",Times,serif;--font-body:var(--fontFamily-serif);--font-heading:var(--fontFamily-sans);--fontWeight-normal:400;--fontWeight-bold:700;--fontWeight-black:900;--fontSize-root:16px;--lineHeight-none:1;--lineHeight-tight:1.1;--lineHeight-normal:1.5;--lineHeight-relaxed:1.625;--fontSize-0:0.833rem;--fontSize-1:1rem;--fontSize-2:1.2rem;--fontSize-3:1.44rem;--fontSize-4:1.728rem;--fontSize-5:2.074rem;--fontSize-6:2.488rem;--fontSize-7:2.986rem;--color-primary:#00b02f;--color-text:#2e353f;--color-text-light:#4f5969;--color-heading:#1a202c;--color-heading-black:#000;--color-accent:#d1dce5}*,:after,:before{box-sizing:border-box}html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:var(--fontSize-root);line-height:var(--lineHeight-normal)}body{color:var(--color-text);font-family:var(--font-body);font-size:var(--fontSize-1)}footer{padding:var(--spacing-6) var(--spacing-0)}hr{background:var(--color-accent);border:0;height:1px}h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);letter-spacing:-.025em;line-height:var(--lineHeight-tight);margin-bottom:var(--spacing-6);margin-top:var(--spacing-12)}h2,h3,h4,h5,h6{color:var(--color-heading);font-weight:var(--fontWeight-bold)}h1{color:var(--color-heading-black);font-size:var(--fontSize-6);font-weight:var(--fontWeight-black)}h2{font-size:var(--fontSize-5)}h3{font-size:var(--fontSize-4)}h4{font-size:var(--fontSize-3)}h5{font-size:var(--fontSize-2)}h6{font-size:var(--fontSize-1)}h1>a{color:var(--color-primary);text-decoration:none}h2>a,h3>a,h4>a,h5>a,h6>a{color:inherit;text-decoration:none}p{--baseline-multiplier:0.179;--x-height-multiplier:0.35;line-height:var(--lineHeight-relaxed);margin:var(--spacing-0) var(--spacing-0) var(--spacing-8) var(--spacing-0)}ol,p,ul{padding:var(--spacing-0)}ol,ul{list-style-image:none;list-style-position:outside;margin-bottom:var(--spacing-8);margin-left:var(--spacing-0);margin-right:var(--spacing-0)}ol li,ul li{padding-left:var(--spacing-0)}li>p,ol li,ul li{margin-bottom:calc(var(--spacing-8)/2)}li :last-child{margin-bottom:var(--spacing-0)}li>ul{margin-left:var(--spacing-8);margin-top:calc(var(--spacing-8)/2)}blockquote{border-left:var(--spacing-1) solid var(--color-primary);color:var(--color-text-light);font-size:var(--fontSize-2);font-style:italic;margin-bottom:var(--spacing-8);margin-left:calc(var(--spacing-6)*-1);margin-right:var(--spacing-8);padding:var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-6)}blockquote>:last-child{margin-bottom:var(--spacing-0)}blockquote>ol,blockquote>ul{list-style-position:inside}table{border-collapse:collapse;border-spacing:.25rem;margin-bottom:var(--spacing-8);width:100%}table thead tr th{border-bottom:1px solid var(--color-accent)}a{color:var(--color-primary)}a:focus,a:hover{text-decoration:none}.global-wrapper{margin:var(--spacing-0) auto;max-width:var(--maxWidth-wrapper);padding:var(--spacing-10) var(--spacing-5)}.global-wrapper[data-is-root-path=true] .bio{margin-bottom:var(--spacing-20)}.global-header{margin-bottom:var(--spacing-12);text-align:center}.main-heading{font-size:var(--fontSize-7);margin:0}.post-list-item{margin-bottom:var(--spacing-8);margin-top:var(--spacing-8)}.post-list-item p{margin-bottom:var(--spacing-0)}.post-list-item h2{color:var(--color-heading-black);font-size:var(--fontSize-4);margin-bottom:var(--spacing-2);margin-top:var(--spacing-0)}.post-list-item header{margin-bottom:var(--spacing-4)}.header-link-home{font-family:var(--font-heading);font-size:var(--fontSize-2);font-weight:var(--fontWeight-bold);text-decoration:none}.bio{align-items:center;display:flex;justify-content:center;margin-bottom:var(--spacing-16)}.bio p,.bio-avatar{margin-bottom:var(--spacing-0)}.bio-avatar{border-radius:100%;margin-right:var(--spacing-4);min-width:50px}.blog-post header h1{margin:var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0)}.blog-post header p{font-family:var(--font-heading);font-size:var(--fontSize-2)}.blog-post-nav ul{margin:var(--spacing-0)}.gatsby-highlight{margin-bottom:var(--spacing-8)}@media (max-width:42rem){blockquote{margin-left:var(--spacing-0);padding:var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4)}ol,ul{list-style-position:inside}}code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#000;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5;tab-size:4;text-align:left;text-shadow:0 1px #fff;white-space:pre;word-break:normal;word-spacing:normal}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{background:#b3d4fc;text-shadow:none}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{background:hsla(0,0%,100%,.5);color:#9a6e3a}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="alternate" type="application/rss+xml" title="Gatsby Starter Blog RSS Feed" href="/rss.xml"/><link rel="icon" href="/favicon-32x32.png?v=4a9773549091c227cd2eb82ccd9c5e3a" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><title data-gatsby-head="true">[ListyWave] 리스트 수정 시, 동시성 이슈 발생 확인 및 해결기 | 내가 재밌는 일을 하자 !</title></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="global-wrapper" data-is-root-path="false"><header class="global-header"><a class="header-link-home" href="/">내가 재밌는 일을 하자 !</a></header><main><article class="blog-post" itemscope="" itemType="http://schema.org/Article"><header><h1 itemProp="headline">[ListyWave] 리스트 수정 시, 동시성 이슈 발생 확인 및 해결기</h1><p>March 17, 2024</p></header><section itemProp="articleBody"><h2>들어가며</h2>
+<p><a href="https://listywave.com/intro">ListyWave</a> 프로젝트를 진행하며 처음으로 동시성 이슈를 맞이했습니다.<br>
+동시성 이슈 문제를 해결하며 기록했던 내용을 저장하기 위해 작성해보았습니다.<br>
+문제를 해결하는 과정에서 시간의 흐름대로, 의식의 흐름대로 작성하다보니 문장이 다소 정제되지 않았음을 양해부탁드립니다.</p>
+<h2>개요</h2>
+<p>ListyWave는 자신의 취향을 담은 리스트를 큐레이팅하고 공유하는 SNS 서비스이다.</p>
+<p>본 서비스의 요구 사항 중 일부는 다음과 같다.</p>
+<ol>
+<li>리스트에는 콜라보레이터가 존재한다.</li>
+<li>콜라보레이터는 리스트를 함께 만들어 갈 수 있는 회원을 의미한다.</li>
+<li>작성자가 리스트를 만들 때 타 회원을 콜라보레이터로 지정하면, 지정당한 회원은 해당 리스트의 콜라보레이터로 등록된다. 이때 콜라보레이터는 최대 20명까지 등록이 가능하다.</li>
+<li><strong>리스트의 수정 권한은 작성자 또는 콜라보레이터에게만 있다.</strong></li>
+</ol>
+<p>바로 이 4번에 해당하는 요구 사항 때문에 동시성 이슈가 발생했다!</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/201df84c6565468de9b8c9a948fec370/e8950/concurrency-problem-occur.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 18.354430379746837%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA7ElEQVR42i2O226CQBRF+RMTb4DMMDIwFCJCQFTQXtOaJn1oa/3/b1gdaB9W9jkrOSfbOXcNdduz23fsjz1Ne6Qoa5I0R8cGnaQ2U2KTESd3hFHMKtT4QqFESKAifLuLtWatDU5/KHm/vPD8+sGhf8JkJXJtUNoeD0TpmCavyIqGQGrC6ZJk4aPnHnrmYeb+6CaTKU6Qv9GeLuwermz7b6r+i/r+h93jjep0HRn85vhJeb6h0o7CPtu6gs1yRWbJFxabcubahzIiEJYhwwgx1LcEA//uz0dIFeP6EmHb1J6ktey9kM5XNHYu3IBfyo2DLNnOYcgAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="동시성 이슈 문제 발생 파악"
+        title=""
+        src="/static/201df84c6565468de9b8c9a948fec370/f058b/concurrency-problem-occur.png"
+        srcset="/static/201df84c6565468de9b8c9a948fec370/c26ae/concurrency-problem-occur.png 158w,
+/static/201df84c6565468de9b8c9a948fec370/6bdcf/concurrency-problem-occur.png 315w,
+/static/201df84c6565468de9b8c9a948fec370/f058b/concurrency-problem-occur.png 630w,
+/static/201df84c6565468de9b8c9a948fec370/40601/concurrency-problem-occur.png 945w,
+/static/201df84c6565468de9b8c9a948fec370/78612/concurrency-problem-occur.png 1260w,
+/static/201df84c6565468de9b8c9a948fec370/e8950/concurrency-problem-occur.png 2000w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<h2>문제 파악</h2>
+<p>테스트 코드는 다음과 같다</p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Test</span>
+<span class="token keyword">void</span> 리스트_작성자와_20명의_콜라보레이터가_동시에_리스트를_수정한다<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">{</span>
+    <span class="token comment">// given: 동호라는 회원이 리스트를 작성한다. 이때 20명의 회원을 콜라보레이터로 지정한다.</span>
+    <span class="token keyword">var</span> 동호 <span class="token operator">=</span> 회원을_저장한다<span class="token punctuation">(</span>동호<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> 동호_액세스_토큰 <span class="token operator">=</span> 액세스_토큰을_발급한다<span class="token punctuation">(</span>동호<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> 콜라보레이터 <span class="token operator">=</span> 여러_명의_회원을_저장한다<span class="token punctuation">(</span>n명의_회원<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> 콜라보레이터_ID <span class="token operator">=</span> 콜라보레이터<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token class-name">User</span><span class="token operator">::</span><span class="token function">getId</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    리스트_저장_API_호출<span class="token punctuation">(</span>좋아하는_견종_TOP3_생성_요청_데이터<span class="token punctuation">(</span>콜라보레이터_ID<span class="token punctuation">)</span><span class="token punctuation">,</span> 동호_액세스_토큰<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">as</span><span class="token punctuation">(</span><span class="token class-name">ListCreateResponse</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// when: 작성자인 동호와 20명의 콜라보레이터가 동시에 리스트 수정을 요청한다.</span>
+    <span class="token keyword">int</span> executeCount <span class="token operator">=</span> <span class="token number">21</span><span class="token punctuation">;</span>
+    <span class="token class-name">ExecutorService</span> executorService <span class="token operator">=</span> <span class="token class-name">Executors</span><span class="token punctuation">.</span><span class="token function">newFixedThreadPool</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Tomcat의 default Max-Threads 수는 200이다.</span>
+    <span class="token class-name">CountDownLatch</span> latch <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CountDownLatch</span><span class="token punctuation">(</span>executeCount<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> executeCount<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> index <span class="token operator">=</span> i<span class="token punctuation">;</span>
+
+        executorService<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token punctuation">{</span>
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                <span class="token keyword">var</span> 콜라보레이터_ID <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span>콜라보레이터_ID<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                콜라보레이터_ID<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>동호<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">var</span> 수정_요청_데이터 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListCreateRequest</span><span class="token punctuation">(</span>
+                        <span class="token class-name">CategoryType</span><span class="token punctuation">.</span><span class="token function">codeOf</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>index <span class="token operator">%</span> <span class="token class-name">CategoryType</span><span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                        <span class="token class-name">List</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                        콜라보레이터_ID<span class="token punctuation">,</span>
+                        <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                        <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                        <span class="token keyword">new</span> <span class="token class-name">Random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">nextBoolean</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                        <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                        <span class="token class-name">List</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>
+                                <span class="token keyword">new</span> <span class="token class-name">ItemCreateRequest</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                                <span class="token keyword">new</span> <span class="token class-name">ItemCreateRequest</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                                <span class="token keyword">new</span> <span class="token class-name">ItemCreateRequest</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span>
+                        <span class="token punctuation">)</span>
+                <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                리스트_수정_API_호출<span class="token punctuation">(</span>수정_요청_데이터<span class="token punctuation">,</span> 액세스_토큰을_발급한다<span class="token punctuation">(</span>콜라보레이터<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1L</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">fail</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+                latch<span class="token punctuation">.</span><span class="token function">countDown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    latch<span class="token punctuation">.</span><span class="token function">await</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 테스트 스레드는 CountDownLatch의 수가 0이 될 때까지 대기한다.</span>
+    executorService<span class="token punctuation">.</span><span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// then: 생성된 히스토리는 총 20개여야 한다.</span>
+    <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">HistorySearchResponse</span><span class="token punctuation">></span></span> result <span class="token operator">=</span> 히스토리_조회<span class="token punctuation">(</span><span class="token number">1L</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">as</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">TypeRef</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">assertThat</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">hasSize</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>에러 로그를 보자.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/d633d1d48457c7e74b5629c359007d0f/e8950/error-log.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 22.78481012658228%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA8ElEQVR42lWQ3XKDIBBGfZHG+K8goIgKEpNJ08u+/+t83WUynfbizO4wy9kPsvvrGy58JtQcYNcHJnfCLDdoG9ELg0FM6HqJlukk9SNVgbrpUbcDmoRAQ2fZaBYo4yC1hVQOPn5hC0+sxB5fWLcDbguYlw2aZ2lO6RmjmpOkKBtcizrBfSaVgRwNhNTohxEh3OBDxO4PhOPEEe8kJaHdMM1rEnPlO5z2kpf4uBS/kHACI97S3bPwTASShfiA88R+UkKb5jpazIlYll+r1OfvlP+Eg9Bwq4d1e3oeC1TCwVAqMy0YaGlZtX/oUNVdqvyXPyZomX5WhY2PAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="에러 로그 1"
+        title=""
+        src="/static/d633d1d48457c7e74b5629c359007d0f/f058b/error-log.png"
+        srcset="/static/d633d1d48457c7e74b5629c359007d0f/c26ae/error-log.png 158w,
+/static/d633d1d48457c7e74b5629c359007d0f/6bdcf/error-log.png 315w,
+/static/d633d1d48457c7e74b5629c359007d0f/f058b/error-log.png 630w,
+/static/d633d1d48457c7e74b5629c359007d0f/40601/error-log.png 945w,
+/static/d633d1d48457c7e74b5629c359007d0f/78612/error-log.png 1260w,
+/static/d633d1d48457c7e74b5629c359007d0f/e8950/error-log.png 2000w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p><code class="language-text">org.springframework.orm.ObjectOptimisticLockingFailureException: Row was updated or deleted by another transaction (or unsaved-value mapping was incorrect) : [com.listywave.list.application.domain.item.Item#55]</code> 라고 한다.</p>
+<p>에러의 내용은 대충, <strong>값을 수정해서 반영하려고 하는데 이미 다른 트랜잭션에서 수정이 먼저 이루어진 상태</strong>라고 한다.<br>
+그리고 애초에 Exception 이름에서 <strong>비관적 락에 실패</strong>했다고 친절히 알려준다.</p>
+<p>그럼 왜 이런 문제가 발생했는지 분석해보자.</p>
+<p>일단 한 건의 리스트 수정 요청을 처리할 때, mysql의 general_log를 이용해 어떤 쿼리가 호출되는지 따라가보자.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/736847c31d7423ea3e094b1edf11a2dd/e8950/general-log.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 20.88607594936709%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAkElEQVR42m2OWQ6CQBBEuY2yiSyzOAvoBEE/vP9xSnqAcRL8eOlUd6eqEm1nmP4FqZ7o+OMAE+6g9x3bdN0OqGqL4qKQkCGhzAROj+y+PPQoK428lJ6s+HHOOE4pC5DedzQTbWbY4Q03fjy+7W30DZpuQLsEENfGBk1NyDwOS7ewYMilWw+58MSt/iOiuUKGX7awgY2D8plcAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="MySQL 제네럴 로그"
+        title=""
+        src="/static/736847c31d7423ea3e094b1edf11a2dd/f058b/general-log.png"
+        srcset="/static/736847c31d7423ea3e094b1edf11a2dd/c26ae/general-log.png 158w,
+/static/736847c31d7423ea3e094b1edf11a2dd/6bdcf/general-log.png 315w,
+/static/736847c31d7423ea3e094b1edf11a2dd/f058b/general-log.png 630w,
+/static/736847c31d7423ea3e094b1edf11a2dd/40601/general-log.png 945w,
+/static/736847c31d7423ea3e094b1edf11a2dd/78612/general-log.png 1260w,
+/static/736847c31d7423ea3e094b1edf11a2dd/e8950/general-log.png 2000w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>로그인한 유저 데이터 조회 → 수정하려는 리스트 조회 → 해당 리스트의 콜라보레이터 조회 → (새 트랜잭션 생성) 콜라보레이터의 유저 정보 조회 (콜라보레이터 수만큼 나간다) → 기존 콜라보레이터 삭제 → 새 콜라보레이터 저장 (콜라보레이터에 변경이 없어도 삭제, 저장이 일어난다. 객체 동등성 비교에 실패해서 발생한 문제같은데 이 부분도 해결해야겠다) → 리스트의 아이템 조회 → (아이템 순위에 변경이 생겼을 경우) 히스토리 저장 → 히스토리 아이템 저장 → (라벨에 변경이 생겼을 경우) 새로운 라벨 저장 → 리스트 수정 → 기존 아이템 삭제 → 기존 라벨 삭제</p>
+<p>일단 돌아가게끔만 구현했는데 쿼리를 보니 줄일 수 있는 부분들이 꽤 보인다.<br>
+근데 이건 꽤나 큰 공사가 될 것 같으니 이번에는 내용을 포함하지 않겠다.<br>
+그럼 문제를 분석하기 위해 일단 2개의 트랜잭션을 동시에 실행시켜보자.<br>
+근데 웬걸..? 이번엔 데드락이 발생했다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/9963f611b1a8075ce3a65a6771725803/e8950/deadlock-log.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 32.278481012658226%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA7klEQVR42n2QSXKDMBBFuUhsM2MLCZDQxGBS5Uruf6OfbqWSFcniVUta/H5fWS9HLNs7bHzBb58IK831I53n8MJoDwyE1BuU2XHvDcqqRV7Up2QPobCsB5yP8EQIK7HAWo9pMlBqwkiTeQiJuulwvZV4u+SnZGwYlx2eghyH8Tk+YdyByUToOcD6BW3XU1CVwphbXp2SSTLgsNlGqJGMBgOpNM2ZrGZo49JbVd/RdIJmh6JsiSZV/4HvTCb6gepyzQ0hMjuZOchBpwXaUHXtIPoxGfxV9bcy/2GqS7Ws+4YD2IrhQDblxWx2uRb/8gVZf7WtEqiHfwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="데드락 발생 로그"
+        title=""
+        src="/static/9963f611b1a8075ce3a65a6771725803/f058b/deadlock-log.png"
+        srcset="/static/9963f611b1a8075ce3a65a6771725803/c26ae/deadlock-log.png 158w,
+/static/9963f611b1a8075ce3a65a6771725803/6bdcf/deadlock-log.png 315w,
+/static/9963f611b1a8075ce3a65a6771725803/f058b/deadlock-log.png 630w,
+/static/9963f611b1a8075ce3a65a6771725803/40601/deadlock-log.png 945w,
+/static/9963f611b1a8075ce3a65a6771725803/78612/deadlock-log.png 1260w,
+/static/9963f611b1a8075ce3a65a6771725803/e8950/deadlock-log.png 2000w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>다시 한번 로그로 분석을 해보자.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/afec00b64d20f0419e392695c8778aae/e8950/general-log-2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 38.60759493670886%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR42nWRa3LCMAyEc5pCwAQIedoY50mghfsfR9XaUehMJz92VvLY30jryNiJjH2Qvk5B5h7k+zsZ9pr72oy+xpmee9TwNHOUXhypRFNkbw9q2h8CuNKjv1DpYfagsu5Zw9wPXqEP9y55Q2cBAiSPcUkeF1W/1CXXH9i4wOAyAOqdqijCOjjA2MezJXWoKTkZOhw17blWSe1dFO/LVW13BU/IuTTdi1oW3LqnhwMqEPUH9rXN/cM1RVjBcYZt/ybXfNOVM83Lbgk6Kzo6pdarKHue3DA0Wwe62+RhACEzwCSvoupCnnyGTPG7Mr2s+A/YcKi4jGYT54tvYvHPilKvwQD8BWneBo2Qdl4DAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="MySQL 제네럴 로그 2"
+        title=""
+        src="/static/afec00b64d20f0419e392695c8778aae/f058b/general-log-2.png"
+        srcset="/static/afec00b64d20f0419e392695c8778aae/c26ae/general-log-2.png 158w,
+/static/afec00b64d20f0419e392695c8778aae/6bdcf/general-log-2.png 315w,
+/static/afec00b64d20f0419e392695c8778aae/f058b/general-log-2.png 630w,
+/static/afec00b64d20f0419e392695c8778aae/40601/general-log-2.png 945w,
+/static/afec00b64d20f0419e392695c8778aae/78612/general-log-2.png 1260w,
+/static/afec00b64d20f0419e392695c8778aae/e8950/general-log-2.png 2000w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>324번과 325번 트랜잭션이 동시에 리스트 수정 작업을 진행한다.<br>
+그러다가 325번이 rollback 했다.<br>
+위 로그는 보기 힘들다. 어디서 문제가 생겼는지 직접 따라가기엔 많이 복잡해보인다.<br>
+<code class="language-text">SHOW ENGINE INNODB STATUS\G;</code> 명령어로 데드락의 원인을 자세히 파악해보자.<br></p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">------------------------
+LATEST DETECTED DEADLOCK
+------------------------
+2024-03-15 15:02:43 0x16b957000
+*** (1) TRANSACTION: &lt;-- 1번 트랜잭션
+TRANSACTION 1340503, ACTIVE 0 sec starting index read
+mysql tables in use 1, locked 1
+LOCK WAIT 12 lock struct(s), heap size 1128, 4 row lock(s), undo log entries 9
+MySQL thread id 149, OS thread handle 6122909696, query id 7363 localhost 127.0.0.1 root updating
+update list set background_color='1',category_code='1',collect_count=0,description='1',has_collaboration='true',is_public='false',title='1',updated_date='2024-03-15 15:02:43.820187',owner_id=1,view_count=0 where id=1
+
+*** (1) HOLDS THE LOCK(S): &lt;-- 1번 트랜잭션이 space id 655에 S-Lock 걸었다.
+RECORD LOCKS space id 655 page no 4 n bits 72 index PRIMARY of table '***'.`list` trx id 1340503 lock mode S locks rec but not gap
+
+*** (1) WAITING FOR THIS LOCK TO BE GRANTED: &lt;-- 1번 트랜잭션이 space id 655에 X-Lock을 걸기 위해 대기한다.
+RECORD LOCKS space id 655 page no 4 n bits 72 index PRIMARY of table '***'.`list` trx id 1340503 lock_mode X locks rec but not gap waiting
+
+*** (2) TRANSACTION: &lt;-- 2번 트랜잭션
+TRANSACTION 1340504, ACTIVE 0 sec starting index read
+mysql tables in use 1, locked 1
+LOCK WAIT 12 lock struct(s), heap size 1128, 4 row lock(s), undo log entries 9
+MySQL thread id 150, OS thread handle 6125137920, query id 7364 localhost 127.0.0.1 root updating
+update list set background_color='0',category_code='0',collect_count=0,description='0',has_collaboration='true',is_public='false',title='0',updated_date='2024-03-15 15:02:43.820188',owner_id=1,view_count=0 where id=1
+
+*** (2) HOLDS THE LOCK(S): &lt;-- 2번 트랜잭션이 space id 655에 S-Lock을 걸었다.
+RECORD LOCKS space id 655 page no 4 n bits 72 index PRIMARY of table '***'.`list` trx id 1340504 lock mode S locks rec but not gap
+
+*** (2) WAITING FOR THIS LOCK TO BE GRANTED: &lt;-- 2번 트랜잭션이 space id 655에 X-Lock을 걸기 위해 대기 중이다.
+RECORD LOCKS space id 655 page no 4 n bits 72 index PRIMARY of table '***'.`list` trx id 1340504 lock_mode X locks rec but not gap waiting
+
+*** WE ROLL BACK TRANSACTION (2) &lt;-- 2번 트랜잭션 롤백 !</code></pre></div>
+<p>1번이 list 인덱스 레코드에 S-Lock을 가지고, 동일한 레코드에 대해 X-Lock을 취득하기 위해 대기 중이다.<br>
+또 트랜잭션 2번이 동일한 레코드에 S-Lock을 가지고 있고, 동일한 레코드에 대해 X-Lock을 취득하기 위해 대기 중이다.</p>
+<p><a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-locks-set.html">MySQL 공식 문서</a>에 따르면,
+테이블에 외래 키 제약 조건이 정의되어 있는 경우엔 제약 조건을 확인해야 하는 모든 쓰기 작업 (INSERT, UPDATE 또는 DELETE)은 제약 조건을 확인하기 위해 접근하려는 레코드에 S-Lock 을 건다.<br>
+위 정보를 토대로 다시 <em>리스트 수정 flow</em>를 보자. 특히 쓰기 작업만 따로 나열하여 테이블에 접근하는 순서를 살펴보자.</p>
+<ol>
+<li>
+<p><code class="language-text">collaborator</code> 테이블에 insert → list_id를 외래키로 가짐</p>
+</li>
+<li>
+<p><code class="language-text">history</code> 테이블에 insert → list_id를 외래키로 가짐</p>
+</li>
+<li>
+<p><code class="language-text">history_item</code> 테이블에 insert → history_id를 외래키로 가짐</p>
+</li>
+<li>
+<p><code class="language-text">item</code> 테이블에 insert → list_id를 외래키로 가짐</p>
+</li>
+<li>
+<p><code class="language-text">label</code> 테이블에 insert → list_id를 외래키로 가짐</p>
+</li>
+<li>
+<p><code class="language-text">list</code> 테이블에 update</p>
+<p>이 사이에 325 트랜잭션이 rollback !!</p>
+</li>
+<li>
+<p><code class="language-text">item</code> 테이블에 delete → list_id를 외래키로 가짐</p>
+</li>
+<li>
+<p><code class="language-text">label</code> 테이블에 delete → list_id를 외래키로 가짐</p>
+</li>
+</ol>
+<p><code class="language-text">collaborator</code>, <code class="language-text">history</code> , <code class="language-text">item</code> , <code class="language-text">label</code> 테이블에 쓰기 작업을 한다.<br>
+이때, 이 테이블들은 list_id를 외래키로 가진다.<br>
+즉, 트랜잭션은 list_id에 해당하는 list 테이블의 레코드에 S-Lock을 가진다.</p>
+<p>이후 <code class="language-text">list</code> 테이블에 update 쿼리를 날린다. 이때 특정 레코드에 X-Lock을 건다.<br>
+하지만 다른 트랜잭션에서 S-Lock을 보유 중이므로 대기한다.</p>
+<p><strong>위 과정을 또 다른 트랜잭션이 동일하게 수행한다.</strong></p>
+<p>이를 그림으로 그려보면 아래와 같을 것이다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/be4d9863b686898f99f61f2ac5755fca/e8950/drawing-deadlock.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 54.43037974683544%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABw0lEQVR42o1STU8iQRBtvhS9ceNMIoSE7EX/Bj8C/gU/xYvZPUGiYMzC4gGjEo2JMGaB1REQHDPiDjIQ/IDADMOzu5GRKDFU8qamu6rrva4uggVsPB6zD/TRCLVaDbquT/YNw4zzHGpkkYLGu9c0Del0GoPBwIwNh0MOFjMoARlRVsY4DxpNZHb8awtn+39QEq8h5HL4WyzhQhBQvRAgiiIymQxisRharRZIJBKB2+1GIBCAz+eDx+OB1+uF3++Hd20NP9Y38O/3LgYFAS/dLvqUqPfUxfNlEf2mAo2uVVpIURSukoRCIRBCYLPZOFwuFxwOB99jWF5awnW5PLm6LAGvz0BDBvq9L/3jPQyHw/wgK+J0OhEMBrlKtme1WrGyuory1RVP1h+b0E4OYahN81GmBY33f1Oh3W43VTFYLJYPhZUK0HuB0fw/kcF8R52vMJ/PIxqNIpFIIB6Pm55hZ3sbe6kUbn5u4vboANLDA+4bDUjyPWpnp3gUL1Gt15E7P0cymYSqqt+PzZT5tlREnR6UJAnZbJb7O1mGQgna7TYKhQJSlLjT6YCwu7PR+Q7TwuwVmZLZOfxsCw32vObP9m52/Qa0e+gd1VJsgQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="데드락을 그림으로"
+        title=""
+        src="/static/be4d9863b686898f99f61f2ac5755fca/f058b/drawing-deadlock.png"
+        srcset="/static/be4d9863b686898f99f61f2ac5755fca/c26ae/drawing-deadlock.png 158w,
+/static/be4d9863b686898f99f61f2ac5755fca/6bdcf/drawing-deadlock.png 315w,
+/static/be4d9863b686898f99f61f2ac5755fca/f058b/drawing-deadlock.png 630w,
+/static/be4d9863b686898f99f61f2ac5755fca/40601/drawing-deadlock.png 945w,
+/static/be4d9863b686898f99f61f2ac5755fca/78612/drawing-deadlock.png 1260w,
+/static/be4d9863b686898f99f61f2ac5755fca/e8950/drawing-deadlock.png 2000w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<h2>해결</h2>
+<p><code class="language-text">ObjectOptimisticLockingFailureException</code> 이전에 일단 당장 데드락부터 해결해보자.<br>
+데드락을 해결하기 위해선 테이블 접근 순서를 일관되게 하거나(원형 대기 방지) 데드락에 빠진 트랜잭션 중 하나를 작업을 중단하고 재시도(복구)하는 방법이 있겠다.<br>
+하나씩 해보자.</p>
+<h3>테이블 접근 순서 일관성있게 가져가기</h3>
+<p>트랜잭션이 테이블을 접근하는 순서를 일관성있게 해보자.</p>
+<p>현재는 collaborator → item → label → list 순으로 테이블에 접근하며 쓰기 작업을 진행한다.
+현재 데드락이 발생하는 이유가,  위 과정에서 list를 외래키로 가지므로 해당 리스트 레코드에 S-lock을 가지다가 마지막에 list 테이블에 접근할 때 X-Lock을 걸면서 생기는 문제니까,
+가장 먼저 list 테이블에 먼저 X-Lock을 걸어버리면 문제는 해결될 것으로 예상된다.</p>
+<p>한번 테스트 해보자.<br>
+메서드를 아래와 같이 수정했다.</p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Transactional</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token class-name">Long</span> listId<span class="token punctuation">,</span> <span class="token class-name">Long</span> loginUserId<span class="token punctuation">,</span> <span class="token class-name">ListUpdateRequest</span> request<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">validateDuplicateCollaboratorIds</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span><span class="token function">collaboratorIds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token class-name">User</span> loginUser <span class="token operator">=</span> userRepository<span class="token punctuation">.</span><span class="token function">getById</span><span class="token punctuation">(</span>loginUserId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">ListEntity</span> list <span class="token operator">=</span> listRepository<span class="token punctuation">.</span><span class="token function">getById</span><span class="token punctuation">(</span>listId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">Collaborators</span> beforeCollaborators <span class="token operator">=</span> collaboratorService<span class="token punctuation">.</span><span class="token function">findAllByList</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    list<span class="token punctuation">.</span><span class="token function">validateUpdateAuthority</span><span class="token punctuation">(</span>loginUser<span class="token punctuation">,</span> beforeCollaborators<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">boolean</span> hasCollaborator <span class="token operator">=</span> <span class="token operator">!</span>request<span class="token punctuation">.</span><span class="token function">collaboratorIds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">LocalDateTime</span> updatedDate <span class="token operator">=</span> <span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token class-name">Labels</span> newLabels <span class="token operator">=</span> <span class="token function">createLabels</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span><span class="token function">labels</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">Items</span> newItems <span class="token operator">=</span> <span class="token function">createItems</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span><span class="token function">items</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    list<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span><span class="token function">category</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ListTitle</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span><span class="token function">title</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ListDescription</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span><span class="token function">description</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> request<span class="token punctuation">.</span><span class="token function">isPublic</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> request<span class="token punctuation">.</span><span class="token function">backgroundColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> hasCollaborator<span class="token punctuation">,</span> updatedDate<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// list 테이블에 upate</span>
+    listRepository<span class="token punctuation">.</span><span class="token function">saveAndFlush</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    list<span class="token punctuation">.</span><span class="token function">updateLabels</span><span class="token punctuation">(</span>newLabels<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// labels 테이블 update</span>
+    list<span class="token punctuation">.</span><span class="token function">updateItems</span><span class="token punctuation">(</span>newItems<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// items 테이블 update</span>
+
+    <span class="token class-name">Collaborators</span> newCollaborators <span class="token operator">=</span> collaboratorService<span class="token punctuation">.</span><span class="token function">createCollaborators</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span><span class="token function">collaboratorIds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> list<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">updateCollaborators</span><span class="token punctuation">(</span>beforeCollaborators<span class="token punctuation">,</span> newCollaborators<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// collaborators 테이블 update</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>list<span class="token punctuation">.</span><span class="token function">canCreateHistory</span><span class="token punctuation">(</span>newItems<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        historyService<span class="token punctuation">.</span><span class="token function">saveHistory</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span> updatedDate<span class="token punctuation">,</span> request<span class="token punctuation">.</span><span class="token function">isPublic</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// history, history_item 테이블 insert</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>테스트 결과, 기대했던 대로 데드락은 걸리지 않았다.<br>
+하지만 맨 처음 21명이 동시에 수정 요청을 보냈을 때와 똑같이 <code class="language-text">ObjectOptimisticLockingFailureException: Row was updated or deleted by another transaction</code> 을 뱉는다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/fcbfeef83c55a50d42aa6a30ada81dae/e8950/object-optimistic-locking-failure-exception.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 8.860759493670885%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAd0lEQVR42h2KUQ6DIBQEvVArPOABQuJfbbW2Md7/LCPysZmdzQ5nKRw5swXP6l3P5j27KntUVuf4hsDRfr/mx5Q5a+GfIi8z8hbLYg1L6x8RhqgTtc5oo2omxomUKqXMfb/9jnOKiOJ9wtrA42mxErob4xhH6bwAUH5CwEXMosQAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="ObjectOptimisticLockingFailureException 발생"
+        title=""
+        src="/static/fcbfeef83c55a50d42aa6a30ada81dae/f058b/object-optimistic-locking-failure-exception.png"
+        srcset="/static/fcbfeef83c55a50d42aa6a30ada81dae/c26ae/object-optimistic-locking-failure-exception.png 158w,
+/static/fcbfeef83c55a50d42aa6a30ada81dae/6bdcf/object-optimistic-locking-failure-exception.png 315w,
+/static/fcbfeef83c55a50d42aa6a30ada81dae/f058b/object-optimistic-locking-failure-exception.png 630w,
+/static/fcbfeef83c55a50d42aa6a30ada81dae/40601/object-optimistic-locking-failure-exception.png 945w,
+/static/fcbfeef83c55a50d42aa6a30ada81dae/78612/object-optimistic-locking-failure-exception.png 1260w,
+/static/fcbfeef83c55a50d42aa6a30ada81dae/e8950/object-optimistic-locking-failure-exception.png 2000w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>확실히 테이블 접근 순서를 조정하니 데드락은 걸리지 않는 것을 확인할 수 있다.<br>
+하지만 현재 문제는 데드락이 아닌, 동시성 문제다! 근본적인 해결책이 아니다.<br>
+게다가 위 코드는 기존 코드에 비해 복잡성이 높아졌다. 따라서 적용하진 않겠다.</p>
+<p><code class="language-text">ObjectOptimisticLockingFailureException</code>은 <code class="language-text">net.sf.hibernate.StaleObjectStateException.class</code> 가 추상화된 예외이다.<br>
+hibernate가 뱉는 걸로 봐서 JPA 관련 문제인 것 같은데, 그렇다면 <code class="language-text">StaleObjectStateException</code>는 어떨 때 발생할까?<br>
+바로 EntityManager에서 DB에 쿼리를 Flush할 때, 값이 변경되는 Row의 Version 또는 타임스탬프가 불일치하거나, delete or update 쿼리를 날렸지만 DB에 존재하지 않을 때 발생한다고 한다.</p>
+<p>따라서 DB에서 데드락은 해결했지만, JPA 레벨에서 동시성 문제는 여전히 유효하다.<br>
+이제 이를 해결해보자.</p>
+<h2>어떻게 해결할까?</h2>
+<p>해결하기 위해 여러 자료를 찾아본 결과 비관적 락, 낙관적 락, 네임드 락으로 해결할 수 있겠다.</p>
+<h3>비관적 락?</h3>
+<p>비관적 락은 실제 DB Row에 X-Lock을 걸어줌으로써 해결하는 방식이다.<br>
+이 방식을 적용하려면 테이블 접근 순서를 List 테이블부터 X-Lock을 걸도록 코드를 수정하면 된다.
+JPA를 이용해서 비관적 락을 적용하려면 <code class="language-text">@Lock</code>을 추가해주고 <code class="language-text">@Query</code>로 직접 쿼리를 작성해줘야 한다.<br>
+하지만 특정 리스트만 수정하는 것이 아니고 포함되어 있는 많은 데이터도 함께 수정하는 것이므로 오히려 코드 복잡성이 더 증가할 것이다.</p>
+<h3>네임드 락?</h3>
+<p>네임드 락은 MySQL의 <code class="language-text">GET_LOCK()</code> 함수를 이용해 임의의 문자열에 대해 락을 설정하는 방식이다.<br>
+주로 분산환경에서 N대의 WAS가 1대의 DB 서버에 대한 로직을 동기화할 때 유용하게 사용되는 방식이라고 한다.<br>
+또한, 복잡한 로직 자체를 하나의 로직으로 묶을 때에도 유용하다. 이 점에서는 네임드 락도 괜찮은 방식인 것 같다.<br></p>
+<h3>낙관적 락?</h3>
+<p>낙관적 락은 DB에 락을 걸지 않고 롤백이나 예외가 발생할 경우 애플리케이션 레벨에서 재시도 또는 사용자에게 실패를 응답하는 식으로 처리하는 방식이다.<br>
+JPA를 이용해서는 <code class="language-text">@Version</code>을 이용하여 데이터 수정 시점에, 엔티티를 조회한 시점과 수정하는 시점의 버전일 일치하는 지를 비교하고 다를 경우 예외를 뱉는 방식이다.<br>
+그러면 개발자는 해당 예외를 잡아서 처리하는 방식이다.</p>
+<h3>@Version 없는 낙관적 락 방식 선택!</h3>
+<p>현재 상황을 다시 되돌아 봤을 때, 문제의 시작은 작성자와 콜라보레이터의 리스트 동시 수정 행위이다.<br>
+이 행위가 빈번히 일어날 것인지를 생각해봤을 땐 그렇지 않다고 생각한다.<br>
+현재 서비스 홍보를 하지 않은 상태인데다가 콜라보레이터 기능이 활발히 사용되진 않는다.<br>
+게다가 리스트 수정 요청 순서는 지켜질 필요는 없다.</p>
+<p>또한 현재 WAS와 DB를 1대의 서버로만 운영하고 있고 앞으로 증축할 계획은 없다. 분산 서버 환경이라면 네임드락을 사용하면 좋을 것 같다.<br>
+이러한 상황을 토대로 <strong>낙관적 락을 적용함으로써 구현에 소모하는 시간 대비 가장 효율적인 방법으로 해결하는 것</strong>이라고 생각한다.<br>
+이제 낙관적 락 방식으로 이를 해결해보자.</p>
+<p>JPA에서 낙관적 락을 적용하기 위해선 <code class="language-text">@Version</code> 어노테이션을 추가하면 된다고 한다.<br>
+하지만 굳이 <code class="language-text">@Version</code>을 추가하지 않고, <code class="language-text">CannotAcquireLockException</code>을  try-catch로 잡아서 0.3초 후에 재요청을 보내도록 했다.<br>
+왜냐하면 <code class="language-text">@Version</code> 어노테이션을 붙여도 동일하게 예외가 발생하기 때문에, 어찌됐건 예외만 잡아서 다시 요청을 처리하는 식으로 해도 동일하다고 판단했기 때문이다.</p>
+<p>작성한 코드는 아래와 같다.</p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Target</span><span class="token punctuation">(</span><span class="token class-name">ElementType</span><span class="token punctuation">.</span><span class="token constant">METHOD</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Retention</span><span class="token punctuation">(</span><span class="token class-name">RetentionPolicy</span><span class="token punctuation">.</span><span class="token constant">RUNTIME</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token annotation punctuation">@interface</span> <span class="token class-name">Retry</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span></code></pre></div>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Aspect</span>
+<span class="token annotation punctuation">@Component</span>
+<span class="token annotation punctuation">@Order</span><span class="token punctuation">(</span><span class="token class-name">Ordered</span><span class="token punctuation">.</span><span class="token constant">LOWEST_PRECEDENCE</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OptimisticLockRetryAspect</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token constant">MAX_RETRIES</span> <span class="token operator">=</span> <span class="token number">50</span><span class="token punctuation">;</span> <span class="token comment">// 최대 50번 재요청</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token constant">RETRY_DELAY_MS</span> <span class="token operator">=</span> <span class="token number">300</span><span class="token punctuation">;</span> <span class="token comment">// 0.3초 재요청 딜레이</span>
+
+    <span class="token annotation punctuation">@Pointcut</span><span class="token punctuation">(</span><span class="token string">"@annotation(com.listywave.common.annotation.Retry)"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Around</span><span class="token punctuation">(</span><span class="token string">"retry()"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">retryOptimisticLock</span><span class="token punctuation">(</span><span class="token class-name">ProceedingJoinPoint</span> joinPoint<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Throwable</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Exception</span> exceptionHolder <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> attempt <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> attempt <span class="token operator">&lt;</span> <span class="token constant">MAX_RETRIES</span><span class="token punctuation">;</span> attempt<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> joinPoint<span class="token punctuation">.</span><span class="token function">proceed</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">CannotAcquireLockException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                exceptionHolder <span class="token operator">=</span> e<span class="token punctuation">;</span>
+                <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token constant">RETRY_DELAY_MS</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">throw</span> exceptionHolder<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">.</span></code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/10b9ce6dada5df5cec9e9d6ee00c275a/e8950/test-success.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 143.03797468354432%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAdCAYAAACqhkzFAAAACXBIWXMAAAsTAAALEwEAmpwYAAACHUlEQVR42q1VyXbiQAzkPybB+27HKxiwCWESZrK8HOb/P0ajEjQ4CQcvHOp1u3GXS1JJzNKiouc/r/T69kmHv+/UbJ+oqGpK0oLSvKKsWFCc5lSvW9ruflO5WMk53ql4nzzk5PnRGbO8rKnlFz8+/9HL4U0IN+0Fu/2BsnxBaVZSzuQFv18y2bLeUJzkZNkezTXzjBm+WC5qWjePTLan9nHPSp5l3bQ7WaFyWTesaE0rVgq1IAyjB7Idn+7nxoUwjFMCgigR+OEFAV+QlQGSY5hMutmSycoMwyad8UVhlGSkEHM+FLpnXhDLZU23zmqw3t3rsnbxhfAaQOh6oZA4bkAuJ14/KTMtlwzTEWCPs96Ev+40SU3DeU2ziqtbSCoUkE98sDchwoMtUG2l6nu4g0JWuUNYPnJ6IuwW5EdR+hLChzH/BuJJhKiyMjL2wCRCAAoXy7UU4bsHRymEPfDsehF3SfAjj6MILduXPaw014zbFAUh4xzeG0fIPoRVMAxQGNPy5BzPgwkdvtg1s+phhAyMMjZy5rihhHpU6Io6pRgrzvoRcstBCabz7unlNHArMbbnx9KS6OfBvQwVuKgMjbMuBo8vZR0ohKpup6j9YB+iMGGUCuFNOuXYy9ZZ8eRe1gyLlquGIh62k4eDUojWwzo5ZFyA1+BFdMrNBmxRLuX/RTccmo+ZNs6JEBVWYV7LX3+FbBGQabp9laRL+B8tflo5qnQ5FwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="테스트 성공!"
+        title=""
+        src="/static/10b9ce6dada5df5cec9e9d6ee00c275a/f058b/test-success.png"
+        srcset="/static/10b9ce6dada5df5cec9e9d6ee00c275a/c26ae/test-success.png 158w,
+/static/10b9ce6dada5df5cec9e9d6ee00c275a/6bdcf/test-success.png 315w,
+/static/10b9ce6dada5df5cec9e9d6ee00c275a/f058b/test-success.png 630w,
+/static/10b9ce6dada5df5cec9e9d6ee00c275a/40601/test-success.png 945w,
+/static/10b9ce6dada5df5cec9e9d6ee00c275a/78612/test-success.png 1260w,
+/static/10b9ce6dada5df5cec9e9d6ee00c275a/e8950/test-success.png 2000w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>결과는 성공이다!<br>
+히스토리 데이터에 2개가 들어가있는 걸 확인할 수 있다.</p>
+<p>그럼 이제 최대 인원인 21명으로 시도해보자.<br>
+결과는 통과다!</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/15d42852dbfaf7dac998070939b6fb2e/e8950/test-success-2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 15.822784810126581%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAvklEQVR42h3M626CQBCGYW6Ek0JtCrqcXZEtVEoVjYlNa0yTHuL9X8TbZX88yffNTMaKRIrcKvrhwE7r3w50/UCtOtJiTZKXiKw0ORYZQveteqFpd2SlNLOlZu7SAisSOdm6ZjxfeL9+MYxnqs0zq7RkqcVJTlJIqrrVjytcb04QPvKwiPBnoekTzw9wNSuWF57kB6vmk/Z4p9n/oPa/dDp3pztq/GPz+m12eXvD8ULmwQLb9rAdH8edGVOe/AOXWGFiqVWtpAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="테스트 최종 통과!"
+        title=""
+        src="/static/15d42852dbfaf7dac998070939b6fb2e/f058b/test-success-2.png"
+        srcset="/static/15d42852dbfaf7dac998070939b6fb2e/c26ae/test-success-2.png 158w,
+/static/15d42852dbfaf7dac998070939b6fb2e/6bdcf/test-success-2.png 315w,
+/static/15d42852dbfaf7dac998070939b6fb2e/f058b/test-success-2.png 630w,
+/static/15d42852dbfaf7dac998070939b6fb2e/40601/test-success-2.png 945w,
+/static/15d42852dbfaf7dac998070939b6fb2e/78612/test-success-2.png 1260w,
+/static/15d42852dbfaf7dac998070939b6fb2e/e8950/test-success-2.png 2000w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<h2>마치며</h2>
+<p>동시성 문제를 처음 겪고 해결하는 과정에서 굉장히 어려웠다. 그만큼 공부도 많이 했지만 아무래도 쓰레드, 트랜잭션은 낯설기도 하고 디버깅을 찍어보며 직접 실행 순서를 볼 수 없다는 점에서 문제에 접근하고 해결하는 과정이 어려웠다.</p>
+<p>그리고 동시성 문제는 배경 지식과 기본기가 탄탄할 수록 잘 해결될 것 같다.<br>
+덕분에 많은 걸 공부하긴 했지만.. 아직 스스로 탄탄하다고는 말을 못하겠다.<br>
+그래도 문제를 구현하고 이를 로그로 분석하며 해결해본 경험이 진짜 값진 경험이라고 생각한다.<br>
+물론 진짜 이번 주 내내 동시성 문제 해결한다고 애써서 피로도도 많이 쌓이고 너무너무 힘들었지만..!</p>
+<p>또 테이블 접근 순서를 변경했을 때와, 실제로 낙관적 락을 걸었을 때, 그리고 비관적 락으로 처리를 했을 때의 성능 비교를 하지 못한 점이 아쉽다.<br>
+다음에 여유가 된다면 한번 도전해보고 싶다.</p>
+<p>여담으로 처음 문제에 접근할 때 머리가 너무 복잡하고 어디서부터 접근해야할 지 모르겠어서<br>
+서브 모니터에 포스트잇으로 하나씩 붙여가며 Divide and Conquare 방식으로 밑에서부터 하나씩 접근했다.<br>
+스스로 뿌듯하고 자랑하고 싶어 사진으로 남긴다. 🤭</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/5a5bd7af90f263d9b1c8ab800e11798f/e8950/self-celebrate.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 75.31645569620254%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEHklEQVR42kWTe1CUZRTG999KA8TL4rAGysICy/KxuLAILDdBiHW4KiSkkY73W6Kg1thkYQgo4IU0sWASG7tOMxAxBBOYjmmZoRiCuywsu6LgJRtnsqb5deSfvplnvnfO+77Pec45z6tKTrOStDiTlNRM0jOWkpWdS0FBET0/dOJ2DzPmtNHxXavECsnLyyE/P0+wjNy8fLJzclmalY11aRZW+ectW47KoCxkoSmGyIVmoqIXERuXQOoSK5d+usCD++PcuztGV3cXSSnpxFsSSEtdzMuZ6SxZkkZKSjIWSzxx8XEkJFimYio//wB0waEE6fSE6hUUIY5PTqev71cePbzLv/884cLFH4mMthBhjCLaHENiooW42BjM0SYiIxWMRgWTKVJI41H5zNWwICCI+VodAbowFugUDKZEtpe9RcXBw1TW1LF+S6nEIwgJVTCbzYIoIo0RRCgGDAY9en0IiqxjF5lRzVFr8F+gQzM/GMVkoarmMPXHG6iqPcJiaz6bdpTzfrXEjjVQvLIEQ7gyRRgliowR4YSF6QWh/xOGGExk5xVizS6gqGQ9jpEhGcYIE5Mutu3aS0dnBxMTLp4+fSxqDzHTx4/QMIUwgyItMEqb9KI8VBKFExu7CFXprnJcY3bsw4P0XujlWt9VbvRfY3Con82i7twXn3NrsJ+R0du8c+AguQXFrNuwmY2bt5KabuWVomJWlbxO4YoiGZYV1XsVlUxOuBkZuU3P+V6u9/dhs93C6bSz5+13aTrzCf0DvzEweJ2DtfVcunwRhyR3OIbYuHUHPT1d2O035c4NSktLUZ1qPM2TP++LRe7Q2dVFR1cnvw9cx33Hwf7KappaWnCJH+2OW9Q3nODKL5dxSkWjgg3bdnJeRDidQ4yODrBl+zZUywtXUS29OXL0KOV799Ha3ibl3pRDNipkGCc/amJ8fFQu2Gg+e5afr15hzDWMS7Bp+056z3fL/jDjLpu0YiMqD+95aIPCxV9i0MR0Wr9t47ZtYGoQVXVHqRNVd8ZHphI0NjWTU/iaDG8tK1auJj4pjTVr11G2Zzd79u4mITEFlZf3XAKD9FgSkkiW59fW3s6o08HEPTe1x05w5tNzTE66eSAmrz9+ghk+Aag1AXjN9hW7BRKgDZL7wQKd2CcM1bTpM/CfH0hiUgoZmdl0dn+PzT4kCt3UHDlOy7nPePzHJA8fTXD642bUvlrBS8ycpUatVqPRiI/9/QkMlBen00rJHrPw89diio4VG2TRf7NvynPwFxVVh/imtY1n398S++rrL/H10wqZD9Nf9MLT0xPvmTOYM2cWGt+5zJvn+6xkySKHFGOM9CSDyupaGk6e4oMPG1lWtJo3yt6kQdb79h/g1ZI10u8QIZnNc89P54Vp0/DwEFJvrylSHx81/wHCJ8QjFSDzvAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="기념 사진"
+        title=""
+        src="/static/5a5bd7af90f263d9b1c8ab800e11798f/f058b/self-celebrate.png"
+        srcset="/static/5a5bd7af90f263d9b1c8ab800e11798f/c26ae/self-celebrate.png 158w,
+/static/5a5bd7af90f263d9b1c8ab800e11798f/6bdcf/self-celebrate.png 315w,
+/static/5a5bd7af90f263d9b1c8ab800e11798f/f058b/self-celebrate.png 630w,
+/static/5a5bd7af90f263d9b1c8ab800e11798f/40601/self-celebrate.png 945w,
+/static/5a5bd7af90f263d9b1c8ab800e11798f/78612/self-celebrate.png 1260w,
+/static/5a5bd7af90f263d9b1c8ab800e11798f/e8950/self-celebrate.png 2000w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p></section><hr/><footer><div class="bio"><div data-gatsby-image-wrapper="" style="width:75px;height:75px" class="gatsby-image-wrapper bio-avatar"><div aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear;background-color:#a89888;width:75px;height:75px;position:relative"></div><picture><source type="image/avif" data-srcset="/static/fdc99851401fabaca2d68d6b9aefa2fe/1cf05/profile_img.avif 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/13b46/profile_img.avif 150w" sizes="75px"/><source type="image/webp" data-srcset="/static/fdc99851401fabaca2d68d6b9aefa2fe/96891/profile_img.webp 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/3554d/profile_img.webp 150w" sizes="75px"/><img data-gatsby-image-ssr="" layout="fixed" data-main-image="" style="opacity:0" sizes="75px" decoding="async" loading="lazy" data-src="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg" data-srcset="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/2e46f/profile_img.jpg 150w" alt="Profile picture"/></picture><noscript><picture><source type="image/avif" srcSet="/static/fdc99851401fabaca2d68d6b9aefa2fe/1cf05/profile_img.avif 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/13b46/profile_img.avif 150w" sizes="75px"/><source type="image/webp" srcSet="/static/fdc99851401fabaca2d68d6b9aefa2fe/96891/profile_img.webp 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/3554d/profile_img.webp 150w" sizes="75px"/><img data-gatsby-image-ssr="" layout="fixed" data-main-image="" style="opacity:0" sizes="75px" decoding="async" loading="lazy" src="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg" srcSet="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/2e46f/profile_img.jpg 150w" alt="Profile picture"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div><p>1. 2025년이 끝나기 전까지 <strong>기본기를 완벽히 정리한다.</strong><br/>2. <strong>내가 좋아하는 것</strong>을 차곡히 기록한다.<br/>3. 절대 조급해하지 않는다.</p></div></footer></article><nav class="blog-post-nav"><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/database/understanding-transaction-and-concurrency-problem/">← <!-- -->[MySQL] 트랜잭션과 트랜잭션 격리 수준</a></li><li><a rel="next" href="/network/network-book-study/07-https/">7장. 웹을 안전하게 지켜주는 HTTPS<!-- --> →</a></li></ul></nav></main><footer>© <!-- -->2025<!-- -->, Built with<!-- --> <a href="https://www.gatsbyjs.com">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/listywave/sovle-concurrency-problem/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-1945d3884d8cbffa43a3.js\"],\"component---src-pages-404-js\":[\"/component---src-pages-404-js-742f6fa497a17cb36648.js\"],\"component---src-pages-index-js\":[\"/component---src-pages-index-js-de8adbe90b6fc2671c4a.js\"],\"component---src-templates-blog-post-js\":[\"/component---src-templates-blog-post-js-074fd55c7e9ac421df51.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="5878632450cbeeff65b2";</script><script src="/webpack-runtime-29f1a68b4a68092c7ed7.js" async></script><script src="/framework-647153102893cffe9a5c.js" async></script><script src="/app-1945d3884d8cbffa43a3.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
