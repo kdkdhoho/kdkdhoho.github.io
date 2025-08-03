@@ -8,6 +8,7 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
+  pathPrefix: "/",
   siteMetadata: {
     title: `내가 재밌는 일을 하자 !`,
     author: {
