@@ -17,3 +17,6 @@ Kotlin 내장 함수이기에 별도로 `import` 할 필요는 없다.
 
 `split()`과 형변환 메서드를 한 줄에 작성할 수도 있다.  
 `readln().split(" ").map { it.toInt() }`
+
+`readln()` 함수는 느리다.  
+`BufferedReader(InputStreamReader(System.`in`))`를 사용하면 더 빠르게 입력을 받을 수 있다.
