@@ -1,4 +1,52 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[A starter blog demonstrating what Gatsby can do.]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 09 Aug 2025 02:32:57 GMT</lastBuildDate><item><title><![CDATA[두 번째 링글 튜터링 복습]]></title><description><![CDATA[틀린 문장 Well, actually no I don't have enough free time because I have a lot of works. -> Recently I've been so swamped at work that I don't…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/english/second-ringle/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/english/second-ringle/</guid><pubDate>Fri, 08 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;틀린 문장&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[A starter blog demonstrating what Gatsby can do.]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 12 Aug 2025 05:41:31 GMT</lastBuildDate><item><title><![CDATA[어드민 API 서버 분리 고민]]></title><description><![CDATA[개요 목표는 API 서버로부터 어드민 API 서버를 분리하는 것이다. 작업이 필요한 이유는, 어드민 API가 새로 배포될 때마다 사용자용 API 서버 또한 함께 재배포가 이루어져야 한다. 또한, 사용자용 API 서버는 dev 환경과 prod…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/infra/detach-admin-server/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/infra/detach-admin-server/</guid><pubDate>Tue, 12 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;개요&lt;/h1&gt;
+&lt;p&gt;목표는 API 서버로부터 어드민 API 서버를 분리하는 것이다.&lt;/p&gt;
+&lt;p&gt;작업이 필요한 이유는, 어드민 API가 새로 배포될 때마다 사용자용 API 서버 또한 함께 재배포가 이루어져야 한다.&lt;br&gt;
+또한, 사용자용 API 서버는 dev 환경과 prod 환경이 각각 dev, main 브랜치로 분리되어 있는데, 어드민 API 배포를 하려면 main 브랜치로 바로 커밋하거나 dev에서 main을 거쳐야 한다.&lt;/p&gt;
+&lt;h1&gt;실행 계획&lt;/h1&gt;
+&lt;h2&gt;작업 기간&lt;/h2&gt;
+&lt;p&gt;10월까지 케어링 기능 혼자 책임지고 해야 한다.&lt;br&gt;
+10월 배포까지는 약 7주가 남았다.&lt;br&gt;
+7주 동안 부지런히 해야 하는 정도이기에 적어도 이번 주까지만 진행해야 한다.&lt;/p&gt;
+&lt;p&gt;이번 주는 수, 목, 금, 토로 4일정도 소요 가능하다.&lt;/p&gt;
+&lt;h2&gt;작업 방법&lt;/h2&gt;
+&lt;h3&gt;1. 새로 프로젝트를 만들고, 기존 프로젝트에 있는 코드를 모두 그대로 옮긴다.&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;장점
+&lt;ul&gt;
+&lt;li&gt;어렵지 않게 분리할 수 있다.&lt;/li&gt;
+&lt;li&gt;약 2-3일 정도 소요될 것으로 판단되어 기간 내에 작업 가능하다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;단점
+&lt;ul&gt;
+&lt;li&gt;유지보수성이 떨어진다.
+&lt;ul&gt;
+&lt;li&gt;Product, Material 등, Admin에서 사용하는 엔티티가 변경되면 같이 변경해줘야 한다.&lt;br&gt;
+각 엔티티의 변경 가능성이 낮은 편은 아니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2. 각 도메인 단위로 모듈화하여 분리한다.&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;장점&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;유지보수성이 증가한다.&lt;/li&gt;
+&lt;li&gt;추후 각 도메인 시스템 별로 분리하기 용이해진다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;단점&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;패키지 의존성을 분리해야 한다. -&gt; 현재 다소 꼬여있는 상태. 풀어내려면 적지 않은 시간 필요.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;결론&lt;/h1&gt;
+&lt;p&gt;작업 기간과 변경이 되지 않았을 때의 장애의 심각도 등을 따져봤을 때 모듈화는 너무 큰 작업이 될 것으로 판단.&lt;br&gt;
+일단 코드만 최대한 복사해서 옮기는 방식으로 적용.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[두 번째 링글 튜터링 복습]]></title><description><![CDATA[틀린 문장 Well, actually no I don't have enough free time because I have a lot of works. -> Recently I've been so swamped at work that I don't…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/english/second-ringle/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/english/second-ringle/</guid><pubDate>Fri, 08 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;틀린 문장&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;Well, actually no I don&apos;t have enough free time because I have a lot of works.&lt;/li&gt;
 &lt;/ul&gt;
@@ -17700,7 +17748,116 @@ mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span cla
 &lt;p&gt;프로젝트에 TDD를 적용한다고 했을 때, 항상 모든 기능에 대해 테스트 코드를 먼저 작성할 수 없다.&lt;/p&gt;
 &lt;p&gt;물론 구현하려는 기능에 대해 분명하고 확실한 상황이라면 TDD를 적용할 수 있지만, 개발이라는 게 처음 생각한대로 구현하다보면 생각지도 못한 기능을 함께 구현해야 하는 경우가 종종 있다.&lt;/p&gt;
 &lt;p&gt;따라서 TDD를 처음 시도해보려는 사람들이 혹여나 &quot;테스트 코드를 먼저 작성하기 전까지는 기능 구현 안할거야 !!&quot; 라는 생각을 가질 수 있다고 생각한다.&lt;/p&gt;
-&lt;p&gt;본인이 구현하려는 기능이 무엇인지 분명히 아는 선에서, TDD를 적용하는 것이 바람직해보인다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[JUnit과 AssertJ 활용법]]></title><description><![CDATA[이 글의 목적 JUnit과 AssertJ…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/test/using-junit-and-assertJ/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/test/using-junit-and-assertJ/</guid><pubDate>Tue, 28 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;이 글의 목적&lt;/h2&gt;
+&lt;p&gt;본인이 구현하려는 기능이 무엇인지 분명히 아는 선에서, TDD를 적용하는 것이 바람직해보인다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[DB 면접 스터디 2주차]]></title><description><![CDATA[📝 질문 리스트 SQL에 대해서 설명해주세요. C언어와 같은 프로그래밍 언어와 어떤 차이가 있나요? 개발자가 작성한 SQL이 어떤 과정을 통해 실행 되는지 설명해주세요. DML은 무엇인가요? 어떤 구문이 있는지도 설명해주세요. DDL…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/database/interview-study/db-interview-study-2week/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/database/interview-study/db-interview-study-2week/</guid><pubDate>Tue, 28 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;📝 질문 리스트&lt;/h2&gt;
+&lt;h3&gt;SQL에 대해서 설명해주세요. C언어와 같은 프로그래밍 언어와 어떤 차이가 있나요?&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;SQL은 DBMS에게 명령하는 언어입니다.
+
+반면 C언어는 프로그래머가 작성한 코드가 C언어 컴파일러에 의해 기계어로 번역이 됩니다.
+이 기계어는 OS에 의해 코드가 작성된대로 실행됩니다. 
+
+즉, SQL은 DMS에게 요청을 보내는 반면 프로그래밍 언어는 미리 작성된 대로 수행된다는 차이점이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;개발자가 작성한 SQL이 어떤 과정을 통해 실행 되는지 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;크게 나눠 파싱, 최적화, 실행의 단계로 실행됩니다.
+
+DBMS는 개발자가 작성한 SQL문을 파싱하고 문법 오류가 없는지 검사합니다.
+오류가 없다면 파싱한 SQL문을 통해 가장 효율적인 실행 계획을 수립합니다.
+그 다음 최적화된 실행 계획에 따라 쿼리문을 실행합니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;DML은 무엇인가요? 어떤 구문이 있는지도 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;데이터를 조작하는 쿼리문입니다.
+테이블에 저장된 데이터와 관련된 쿼리문으로 이해하고 있습니다.
+
+INSERT, SELECT, UPDATE, DELETE 문이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;DDL은 무엇인가요? 어떤 구문이 있는지도 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;데이터를 정의하는 언어입니다.
+테이블과 관련된 쿼리문으로 이해하고 있습니다.
+
+보통 CREATE, ALTER, DROP, TRUNCATE 문이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;DCL은 무엇인가요? 어떤 구문이 있는지도 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;주로 보안과 관련된 언어업니다.
+
+GRANT, REVOKE, COMMIT, ROLLBACK 문이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;참조 무결성에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;테이블 간의 관계를 정의할 때 반드시 지켜야하는 제약 조건입니다.
+
+외래키를 설정할 때 반드시 관계를 맺으려는 테이블의 기본키 값으로 해야 한다는 것입니다.
+만약 값이 없을 경우 외래키 값은 NULL이 될 수도 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;CASCADE 설정에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;외래키를 참조하고 있는 행에 삭제 또는 변경이 발생할 때, 그에 따라 참조하고 있는 행을 동시에 관리하는 옵션입니다.
+
+UPDATE CASCADE의 경우 참조되는 기본키가 변경될 때, 참조하는 행의 외래키도 함께 변경합니다.
+DELETE CASCADE의 경우 참조되는 기본키의 행이 삭제될 때, 참조하는 행도 함께 삭제한다는 것입니다. &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;VIEW에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;기존 테이블에서 사용자가 필요로한 데이터만을 따로 추출하여 만든 임의의 가상 테이블입니다.
+
+VIEW는 실제로 물리적으로 저장하지 않고 기존 테이블의 데이터를 참조하여 가상으로 생성됩니다.
+이를 통해 대규모거나 복잡한 데이터 조회의 경우 VIEW 테이블로 추출하여 쉽고 빠르게 조회할 수 있습니다.
+
+하지만 VIEW가 참조하고 있는 데이터가 변경될 경우, VIEW도 함께 변경해줘야 한다는 특징이 있습니다. &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;SELECT 절의 처리순서에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;FROM -&gt; WHERE -&gt; GROUP BY -&gt; HAVING -&gt; SELECT -&gt; ORDER BY 순으로 처리됩니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;SELECT ~ FOR UPDATE 구문에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;SELECT 절에 해당하는 행들에 접근할 때 LOCK을 설정하는 구문입니다.
+
+이 구문을 사용하면 해당 행에는 하나의 트랜잭션 만이 값을 변경할 수 있습니다.
+LOCK이 걸린 도중에 다른 트랜잭션이 동일한 행을 수정하려 한다면 LOCK이 해제될 때까지 대기해야합니다.
+이 LOCK은 커밋 또는 롤백을 할 때까지 유지됩니다.
+
+이를 통해 동시성 문제를 해결할 수 있지만, 성능에 악영향을 줄 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;GROUP BY 절에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;GROUP BY 절을 통해 특정 칼럼의 데이터를 그룹화할 수 있습니다.
+
+보통 집계 함수와 함께 사용하여 유의미한 결과를 도출할 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;ORDER BY 절에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;쿼리의 결과를 특정 열을 기준으로 정렬하기 위해 사용하는 절입니다.
+
+기본적으로 오름차순으로 정렬을 하지만 내림차순으로 정렬할 수 있으며,
+정렬의 기준이 되는 열을 2개 이상 설정할 수 있습니다. &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;INNER JOIN과 OUTER JOIN에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;INNER JOIN은 JOIN 하려는 두 테이블의 특정 열을 기준으로 동일한 행들만 반환하는 명령어입니다.
+
+OUTER JOIN은 두 테이블의 동일한 행 뿐만 아니라, 조건에 일치하지 않는 특정 테이블의 행들도 함께 반환하는 명령입니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;LEFT OUTER JOIN, RIGHT OUTER JOIN에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;LEFT OUTER JOIN은 JOIN 시에 왼쪽, 즉 기준이 되는 테이블의 모든 행과, JOIN 조건에 일치하는 행들을 모두 반환합니다.
+
+RIGHT OUTER JOIN은 LEFT와 반대로 오른쪽, 즉 JOIN이 되는 테이블의 모든 행과 JOIN 조건에 일치하는 행들을 모두 반환합니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;CROSS JOIN에 대해서도 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;첫 번째 테이블의 모든 각 행이 두 번째 테이블의 전체 행과 결합하는 방식의 JOIN입니다.
+
+두 테이블의 각 전체 데이터 수를 곱한 크기의 JOIN 결과가 반환됩니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;서브쿼리에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;쿼리문 안에서 실행되는 또 다른 쿼리문입니다.
+
+주로 쿼리문 안에서 추가적인 쿼리문이 필요할 때 사용합니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;DROP, TRUNCATE, DELETE에 각각에 대해 설명해주세요. 어떤차이가 있나요?&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;DROP은 테이블 자체를 삭제하는 명령입니다.
+TRUNCATE는 테이블은 그대로 두고 테이블 안에 있는 모든 데이터를 삭제하는 명령입니다.
+DELETE는 테이블 안에 있는 특정 행을 삭제하는 데 사용합니다.
+
+DROP, TRUNCATE는 롤백을 할 수 없지만 DELETE는 롤백이 가능합니다.
+DROP, TRUNCATE는 빠른 속도로 실행되지만 DELETE는 조건을 비교하는 과정이 필요하기에 시간이 오래 걸릴 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;DISTINCT에 대해서 설명해주세요. 사용해본 경험도 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;쿼리 결과에서 특정 칼럼에 해당하는 데이터의 중복을 제거한 결과를 반환하는 명령어입니다.
+
+셀럽잇 프로젝트에서 음식점 테이블과 비디오 테이블을 음식점 ID로 JOIN하는 과정이 존재했습니다.
+이때 음식점 테이블과 비디오 테이블은 1:다 관계였기에 JOIN 결과로 같은 음식점이 2개 이상 존재하는 상황이 발생했습니다.
+따라서 이때 생기는 중복을 제거하기 위해 사용한 경험이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;SQL Injection 공격이 무엇인지 어떻게 공격을 예방할 수 있는지 설명해 주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;악의적인 사용자가 입력 필드를 통해 서버에 SQL 쿼리를 주입하여 DB에 대한 공격을 시도하는 행위입니다.
+
+이를 방지하기 위해 입력값을 직접 쿼리문에 넣지 않고, 쿼리를 파라미터화하여 공격을 예방할 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;알고 있는 SQL 안티패턴이 있다면 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&apos;SELECT *&apos; 을 사용하는 것입니다.
+
+이는 불필요한 열의 데이터까지 모두 가져오기에 불필요한 오버헤드가 발생할 수 있습니다.
+실제로 셀럽잇 프로젝트에서 음식점 테이블과 행정구역 테이블을 통해 공간 인덱스를 활용하려는 시도에서,
+실수로 SELECT * 을 사용하여 항상 테이블 풀 스캔의 결과가 발생했고
+이를 뒤늦게 발견하여 의도했던 결과가 나오지 않았던 것을 알게 된 경험이 있습니다.
+
+추가로 비효율적인 JOIN, 서브쿼리 남용 등이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;페이지네이션을 구현한다고 했을때 쿼리를 어떻게 작성해야할까요?&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;MySQL을 기준으로 LIMIT과 OFFSET을 통해 구현할 수 있습니다.
+
+OFFSET을 통해 쿼리 결과에서 n번 째부터 LIMIT의 수만큼의 데이터만을 가져옴으로써 페이지네이션을 구현할 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[JUnit과 AssertJ 활용법]]></title><description><![CDATA[이 글의 목적 JUnit과 AssertJ…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/test/using-junit-and-assertJ/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/test/using-junit-and-assertJ/</guid><pubDate>Tue, 28 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;이 글의 목적&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;JUnit과 AssertJ의 학습 테스트 코드를 통해 단위 테스트를 처음 해보려는 사람에게 어떻게 쓰는지 간단한 가이드 라인 제시&lt;/li&gt;
 &lt;li&gt;단위 테스트하면서 잘 사용하지 않는 기능에 대해 나만의 치트 시트 역할&lt;/li&gt;
@@ -18094,116 +18251,7 @@ mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span cla
     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;마치며&lt;/h2&gt;
-&lt;p&gt;더 나은 방법이 있거나 제안이 있다면 언제든 댓글 달아주시면 감사하겠습니다!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[DB 면접 스터디 2주차]]></title><description><![CDATA[📝 질문 리스트 SQL에 대해서 설명해주세요. C언어와 같은 프로그래밍 언어와 어떤 차이가 있나요? 개발자가 작성한 SQL이 어떤 과정을 통해 실행 되는지 설명해주세요. DML은 무엇인가요? 어떤 구문이 있는지도 설명해주세요. DDL…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/database/interview-study/db-interview-study-2week/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/database/interview-study/db-interview-study-2week/</guid><pubDate>Tue, 28 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;📝 질문 리스트&lt;/h2&gt;
-&lt;h3&gt;SQL에 대해서 설명해주세요. C언어와 같은 프로그래밍 언어와 어떤 차이가 있나요?&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;SQL은 DBMS에게 명령하는 언어입니다.
-
-반면 C언어는 프로그래머가 작성한 코드가 C언어 컴파일러에 의해 기계어로 번역이 됩니다.
-이 기계어는 OS에 의해 코드가 작성된대로 실행됩니다. 
-
-즉, SQL은 DMS에게 요청을 보내는 반면 프로그래밍 언어는 미리 작성된 대로 수행된다는 차이점이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;개발자가 작성한 SQL이 어떤 과정을 통해 실행 되는지 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;크게 나눠 파싱, 최적화, 실행의 단계로 실행됩니다.
-
-DBMS는 개발자가 작성한 SQL문을 파싱하고 문법 오류가 없는지 검사합니다.
-오류가 없다면 파싱한 SQL문을 통해 가장 효율적인 실행 계획을 수립합니다.
-그 다음 최적화된 실행 계획에 따라 쿼리문을 실행합니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;DML은 무엇인가요? 어떤 구문이 있는지도 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;데이터를 조작하는 쿼리문입니다.
-테이블에 저장된 데이터와 관련된 쿼리문으로 이해하고 있습니다.
-
-INSERT, SELECT, UPDATE, DELETE 문이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;DDL은 무엇인가요? 어떤 구문이 있는지도 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;데이터를 정의하는 언어입니다.
-테이블과 관련된 쿼리문으로 이해하고 있습니다.
-
-보통 CREATE, ALTER, DROP, TRUNCATE 문이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;DCL은 무엇인가요? 어떤 구문이 있는지도 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;주로 보안과 관련된 언어업니다.
-
-GRANT, REVOKE, COMMIT, ROLLBACK 문이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;참조 무결성에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;테이블 간의 관계를 정의할 때 반드시 지켜야하는 제약 조건입니다.
-
-외래키를 설정할 때 반드시 관계를 맺으려는 테이블의 기본키 값으로 해야 한다는 것입니다.
-만약 값이 없을 경우 외래키 값은 NULL이 될 수도 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;CASCADE 설정에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;외래키를 참조하고 있는 행에 삭제 또는 변경이 발생할 때, 그에 따라 참조하고 있는 행을 동시에 관리하는 옵션입니다.
-
-UPDATE CASCADE의 경우 참조되는 기본키가 변경될 때, 참조하는 행의 외래키도 함께 변경합니다.
-DELETE CASCADE의 경우 참조되는 기본키의 행이 삭제될 때, 참조하는 행도 함께 삭제한다는 것입니다. &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;VIEW에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;기존 테이블에서 사용자가 필요로한 데이터만을 따로 추출하여 만든 임의의 가상 테이블입니다.
-
-VIEW는 실제로 물리적으로 저장하지 않고 기존 테이블의 데이터를 참조하여 가상으로 생성됩니다.
-이를 통해 대규모거나 복잡한 데이터 조회의 경우 VIEW 테이블로 추출하여 쉽고 빠르게 조회할 수 있습니다.
-
-하지만 VIEW가 참조하고 있는 데이터가 변경될 경우, VIEW도 함께 변경해줘야 한다는 특징이 있습니다. &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;SELECT 절의 처리순서에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;FROM -&gt; WHERE -&gt; GROUP BY -&gt; HAVING -&gt; SELECT -&gt; ORDER BY 순으로 처리됩니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;SELECT ~ FOR UPDATE 구문에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;SELECT 절에 해당하는 행들에 접근할 때 LOCK을 설정하는 구문입니다.
-
-이 구문을 사용하면 해당 행에는 하나의 트랜잭션 만이 값을 변경할 수 있습니다.
-LOCK이 걸린 도중에 다른 트랜잭션이 동일한 행을 수정하려 한다면 LOCK이 해제될 때까지 대기해야합니다.
-이 LOCK은 커밋 또는 롤백을 할 때까지 유지됩니다.
-
-이를 통해 동시성 문제를 해결할 수 있지만, 성능에 악영향을 줄 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;GROUP BY 절에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;GROUP BY 절을 통해 특정 칼럼의 데이터를 그룹화할 수 있습니다.
-
-보통 집계 함수와 함께 사용하여 유의미한 결과를 도출할 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;ORDER BY 절에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;쿼리의 결과를 특정 열을 기준으로 정렬하기 위해 사용하는 절입니다.
-
-기본적으로 오름차순으로 정렬을 하지만 내림차순으로 정렬할 수 있으며,
-정렬의 기준이 되는 열을 2개 이상 설정할 수 있습니다. &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;INNER JOIN과 OUTER JOIN에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;INNER JOIN은 JOIN 하려는 두 테이블의 특정 열을 기준으로 동일한 행들만 반환하는 명령어입니다.
-
-OUTER JOIN은 두 테이블의 동일한 행 뿐만 아니라, 조건에 일치하지 않는 특정 테이블의 행들도 함께 반환하는 명령입니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;LEFT OUTER JOIN, RIGHT OUTER JOIN에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;LEFT OUTER JOIN은 JOIN 시에 왼쪽, 즉 기준이 되는 테이블의 모든 행과, JOIN 조건에 일치하는 행들을 모두 반환합니다.
-
-RIGHT OUTER JOIN은 LEFT와 반대로 오른쪽, 즉 JOIN이 되는 테이블의 모든 행과 JOIN 조건에 일치하는 행들을 모두 반환합니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;CROSS JOIN에 대해서도 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;첫 번째 테이블의 모든 각 행이 두 번째 테이블의 전체 행과 결합하는 방식의 JOIN입니다.
-
-두 테이블의 각 전체 데이터 수를 곱한 크기의 JOIN 결과가 반환됩니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;서브쿼리에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;쿼리문 안에서 실행되는 또 다른 쿼리문입니다.
-
-주로 쿼리문 안에서 추가적인 쿼리문이 필요할 때 사용합니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;DROP, TRUNCATE, DELETE에 각각에 대해 설명해주세요. 어떤차이가 있나요?&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;DROP은 테이블 자체를 삭제하는 명령입니다.
-TRUNCATE는 테이블은 그대로 두고 테이블 안에 있는 모든 데이터를 삭제하는 명령입니다.
-DELETE는 테이블 안에 있는 특정 행을 삭제하는 데 사용합니다.
-
-DROP, TRUNCATE는 롤백을 할 수 없지만 DELETE는 롤백이 가능합니다.
-DROP, TRUNCATE는 빠른 속도로 실행되지만 DELETE는 조건을 비교하는 과정이 필요하기에 시간이 오래 걸릴 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;DISTINCT에 대해서 설명해주세요. 사용해본 경험도 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;쿼리 결과에서 특정 칼럼에 해당하는 데이터의 중복을 제거한 결과를 반환하는 명령어입니다.
-
-셀럽잇 프로젝트에서 음식점 테이블과 비디오 테이블을 음식점 ID로 JOIN하는 과정이 존재했습니다.
-이때 음식점 테이블과 비디오 테이블은 1:다 관계였기에 JOIN 결과로 같은 음식점이 2개 이상 존재하는 상황이 발생했습니다.
-따라서 이때 생기는 중복을 제거하기 위해 사용한 경험이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;SQL Injection 공격이 무엇인지 어떻게 공격을 예방할 수 있는지 설명해 주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;악의적인 사용자가 입력 필드를 통해 서버에 SQL 쿼리를 주입하여 DB에 대한 공격을 시도하는 행위입니다.
-
-이를 방지하기 위해 입력값을 직접 쿼리문에 넣지 않고, 쿼리를 파라미터화하여 공격을 예방할 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;알고 있는 SQL 안티패턴이 있다면 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&apos;SELECT *&apos; 을 사용하는 것입니다.
-
-이는 불필요한 열의 데이터까지 모두 가져오기에 불필요한 오버헤드가 발생할 수 있습니다.
-실제로 셀럽잇 프로젝트에서 음식점 테이블과 행정구역 테이블을 통해 공간 인덱스를 활용하려는 시도에서,
-실수로 SELECT * 을 사용하여 항상 테이블 풀 스캔의 결과가 발생했고
-이를 뒤늦게 발견하여 의도했던 결과가 나오지 않았던 것을 알게 된 경험이 있습니다.
-
-추가로 비효율적인 JOIN, 서브쿼리 남용 등이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;페이지네이션을 구현한다고 했을때 쿼리를 어떻게 작성해야할까요?&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;MySQL을 기준으로 LIMIT과 OFFSET을 통해 구현할 수 있습니다.
-
-OFFSET을 통해 쿼리 결과에서 n번 째부터 LIMIT의 수만큼의 데이터만을 가져옴으로써 페이지네이션을 구현할 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[단위 테스트 이해하기]]></title><description><![CDATA[…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/test/unit-test/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/test/unit-test/</guid><pubDate>Mon, 27 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;단위 테스트란?&lt;/h2&gt;
+&lt;p&gt;더 나은 방법이 있거나 제안이 있다면 언제든 댓글 달아주시면 감사하겠습니다!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[단위 테스트 이해하기]]></title><description><![CDATA[…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/test/unit-test/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/test/unit-test/</guid><pubDate>Mon, 27 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;단위 테스트란?&lt;/h2&gt;
 &lt;p&gt;애플리케이션에서 동작하는 &lt;strong&gt;기능 또는 메서드를 실행&lt;/strong&gt;시키는 &lt;strong&gt;독립적인 단위의 테스트&lt;/strong&gt;이다.&lt;/p&gt;
 &lt;p&gt;이때 기능이라는 말이 포함되어있다. 즉, 단위 테스트라고 해서 무조건 메서드만 테스트하는 건 아니다.&lt;/p&gt;
 &lt;h2&gt;왜 단위 테스트를 하나?&lt;/h2&gt;
