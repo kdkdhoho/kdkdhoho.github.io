@@ -1,52 +1,77 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[A starter blog demonstrating what Gatsby can do.]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 12 Aug 2025 05:41:31 GMT</lastBuildDate><item><title><![CDATA[어드민 API 서버 분리 고민]]></title><description><![CDATA[개요 목표는 API 서버로부터 어드민 API 서버를 분리하는 것이다. 작업이 필요한 이유는, 어드민 API가 새로 배포될 때마다 사용자용 API 서버 또한 함께 재배포가 이루어져야 한다. 또한, 사용자용 API 서버는 dev 환경과 prod…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/infra/detach-admin-server/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/infra/detach-admin-server/</guid><pubDate>Tue, 12 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;개요&lt;/h1&gt;
-&lt;p&gt;목표는 API 서버로부터 어드민 API 서버를 분리하는 것이다.&lt;/p&gt;
-&lt;p&gt;작업이 필요한 이유는, 어드민 API가 새로 배포될 때마다 사용자용 API 서버 또한 함께 재배포가 이루어져야 한다.&lt;br&gt;
-또한, 사용자용 API 서버는 dev 환경과 prod 환경이 각각 dev, main 브랜치로 분리되어 있는데, 어드민 API 배포를 하려면 main 브랜치로 바로 커밋하거나 dev에서 main을 거쳐야 한다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[A starter blog demonstrating what Gatsby can do.]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 12 Aug 2025 07:56:46 GMT</lastBuildDate><item><title><![CDATA[어드민 API 서버 분리 고민]]></title><description><![CDATA[개요 현재, 사용자용 API 서버에 어드민에서 사용되는 API가 포함되어 있다. 다시 말해 한 프로젝트 안에 사용자용 API와 어드민용 API가 함께 제공되고 있다. 따라서 어드민용 API…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/infra/detach-admin-server/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/infra/detach-admin-server/</guid><pubDate>Tue, 12 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;개요&lt;/h1&gt;
+&lt;p&gt;현재, 사용자용 API 서버에 어드민에서 사용되는 API가 포함되어 있다.&lt;br&gt;
+다시 말해 한 프로젝트 안에 사용자용 API와 어드민용 API가 함께 제공되고 있다.&lt;br&gt;
+따라서 어드민용 API가 새로 배포될 때마다 사용자용 서버 또한 함께 재배포가 이루어진다.&lt;br&gt;
+또한, dev와 prod 환경이 각각 dev, main 브랜치로 분리되어 있는데, 어드민 API 배포를 하려면 main 브랜치로 바로 커밋하거나 dev에서 main을 거쳐야 하기 때문에 커밋 히스토리 관리가 불편하다는 점이 있다.&lt;/p&gt;
+&lt;p&gt;따라서 어드민용 API 서버를 분리하여 배포가 독립적으로 이루어질 수 있도록 한다.&lt;br&gt;
+그러면 어떻게 분리하면 될까?&lt;/p&gt;
 &lt;h1&gt;실행 계획&lt;/h1&gt;
 &lt;h2&gt;작업 기간&lt;/h2&gt;
-&lt;p&gt;10월까지 케어링 기능 혼자 책임지고 해야 한다.&lt;br&gt;
+&lt;p&gt;10월까지 케어링 기능을 배포해야 한다.&lt;br&gt;
 10월 배포까지는 약 7주가 남았다.&lt;br&gt;
-7주 동안 부지런히 해야 하는 정도이기에 적어도 이번 주까지만 진행해야 한다.&lt;/p&gt;
-&lt;p&gt;이번 주는 수, 목, 금, 토로 4일정도 소요 가능하다.&lt;/p&gt;
+7주 동안 부지런히 해야 하는 정도이기에 늦어도 이번 주까지만 진행해야 한다.&lt;/p&gt;
+&lt;p&gt;이번 주는 수, 목, 금, 토로 약 4일정도 소요 가능한 상황이다.&lt;/p&gt;
 &lt;h2&gt;작업 방법&lt;/h2&gt;
+&lt;p&gt;작업 방법은 두 가지가 있을 것 같다.&lt;/p&gt;
 &lt;h3&gt;1. 새로 프로젝트를 만들고, 기존 프로젝트에 있는 코드를 모두 그대로 옮긴다.&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;장점
-&lt;ul&gt;
-&lt;li&gt;어렵지 않게 분리할 수 있다.&lt;/li&gt;
-&lt;li&gt;약 2-3일 정도 소요될 것으로 판단되어 기간 내에 작업 가능하다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;단점
-&lt;ul&gt;
-&lt;li&gt;유지보수성이 떨어진다.
-&lt;ul&gt;
-&lt;li&gt;Product, Material 등, Admin에서 사용하는 엔티티가 변경되면 같이 변경해줘야 한다.&lt;br&gt;
-각 엔티티의 변경 가능성이 낮은 편은 아니다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li&gt;모듈화와 패키지 분리 작업을 하지 않아도 되기에 공수가 그나마 적게 든다. 대신, 한번에 패키지만 똑 떼서 분리하기엔 불가능하다. 따라서 도메인 단위 혹은 API 단위로 점진적 마이그레이션을 해야 한다.&lt;/li&gt;
+&lt;li&gt;부단히 하면 이번 주까지는 가능할 것으로 보인다.&lt;/li&gt;
+&lt;li&gt;모듈화가 되지 않은 탓에 중복된 코드가 존재하게 된다. 공통으로 사용되는 엔티티의 필드가 변경되면 같이 변경해줘야 한다. 각 엔티티의 변경 가능성이 낮은 편은 아니다.&lt;/li&gt;
+&lt;li&gt;Admin 서버가 분리가 완료되어야, 안전하게 기존 API 서버에서 어드민 관련 로직을 제거하는 작업이 필요하다.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;2. 각 도메인 단위로 모듈화하여 분리한다.&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;장점&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;유지보수성이 증가한다.&lt;/li&gt;
-&lt;li&gt;추후 각 도메인 시스템 별로 분리하기 용이해진다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;단점&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;패키지 의존성을 분리해야 한다. -&gt; 현재 다소 꼬여있는 상태. 풀어내려면 적지 않은 시간 필요.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li&gt;패키지 의존성 분리가 선행되어야 한다. 하지만 현재 신경쓰지 않고 개발하여 많이 꼬여있는 상태일 것이다. 이를 풀어내려면 많은 시간이 필요할 것이다.&lt;/li&gt;
+&lt;li&gt;작업을 마무리한다는 가정하에 확실히 시스템의 독립성, 유지보수성이 증가할 것이다. 다만 해야 하는 작업이 많고 익숙한 작업이 아니라 많은 시간이 소요될 것이다.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1&gt;결론&lt;/h1&gt;
-&lt;p&gt;작업 기간과 변경이 되지 않았을 때의 장애의 심각도 등을 따져봤을 때 모듈화는 너무 큰 작업이 될 것으로 판단.&lt;br&gt;
-일단 코드만 최대한 복사해서 옮기는 방식으로 적용.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[두 번째 링글 튜터링 복습]]></title><description><![CDATA[틀린 문장 Well, actually no I don't have enough free time because I have a lot of works. -> Recently I've been so swamped at work that I don't…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/english/second-ringle/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/english/second-ringle/</guid><pubDate>Fri, 08 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;틀린 문장&lt;/h1&gt;
+&lt;p&gt;작업 기간과 엔티티 동기화가 되지 않았을 때 장애의 심각도를 따져봤을 때 패키지 의존성을 분리하고 모듈화까지는 오버 엔지니어링이라고 판단된다.&lt;br&gt;
+이에 인증부터 시작해서 도메인 단위 하나씩 혹은 API 단위로 하나씩 옮기는 방향으로 점진적 마이그레이션을 진행한다.&lt;br&gt;
+마이그레이션이 끝나면, 기존 프로젝트에서 어드민 관련 코드를 제거한다.&lt;/p&gt;
+&lt;h1&gt;의문&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;점진적 마이그레이션이 최선의 방법일까?&lt;/li&gt;
+&lt;li&gt;점진적 마이그레이션 하는 방법에서 생기는 코드 중복은 어쩔 수 없는 것일까?&lt;/li&gt;
+&lt;li&gt;어드민을 분리하는 작업과 MSA에는 어떤 차이가 있는가?&lt;br&gt;
+3-1. 어드민만 떼고 보면 MSA를 적용했다고 볼 수 있는 것인가?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;의문에 대한 Gemini 답변&lt;/h1&gt;
+&lt;h2&gt;1. 점진적 마이그레이션이 최선의 방법일까?&lt;/h2&gt;
+&lt;p&gt;네, 현재 상황에서는 점진적 마이그레이션이 최선의 방법이라고 판단됩니다.&lt;/p&gt;
+&lt;p&gt;두 가지 방법(전체 이전 vs. 모듈화 후 이전)을 비교했을 때, &apos;전체 이전&apos;은 기존 코드를 그대로 옮기는 방식이므로 공수가 적게 들고, 정해진 시간 안에 작업을 완료할 가능성이 높습니다. 특히 7주라는 촉박한 기간 내에 핵심 기능인 케어링 배포를 병행해야 하는 상황이므로, 안정적인 방식인 점진적 마이그레이션을 선택하는 것이 합리적입니다.&lt;br&gt;
+반면에, &apos;모듈화 후 이전&apos;은 장기적으로 시스템의 유지보수성과 독립성을 높일 수 있지만, 현재 의존성이 복잡하게 꼬여있는 상태에서 모듈화 작업을 진행하려면 예상보다 훨씬 많은 시간이 소요될 수 있습니다. 이는 10월까지 케어링 기능을 배포해야 하는 일정에 차질을 줄 위험이 큽니다.&lt;/p&gt;
+&lt;p&gt;따라서, 우선은 점진적 마이그레이션을 통해 어드민 서버를 분리하여 배포 독립성을 확보하고, 추후에 서비스 안정화 및 여유가 생겼을 때 리팩터링을 통해 코드 중복을 해소하고 모듈화하는 방향을 고려하는 것이 좋습니다.&lt;/p&gt;
+&lt;h2&gt;2. 점진적 마이그레이션 하는 방법에서 생기는 코드 중복은 어쩔 수 없는 것일까?&lt;/h2&gt;
+&lt;p&gt;점진적 마이그레이션 과정에서 일시적으로 발생하는 코드 중복은 피하기 어렵습니다.&lt;br&gt;
+이는 도메인 로직이나 공통으로 사용되는 엔티티와 같은 부분을 두 서버에서 모두 관리하게 되기 때문입니다.&lt;br&gt;
+하지만 이는 다음과 같은 방법으로 최소화하고 관리할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;공통 모듈 분리: 당장 전체 모듈화를 하기 어렵더라도, 양쪽 서버에서 공통으로 사용되는 핵심 코드(예: 엔티티, DTO 등)를 별도의 라이브러리 또는 모듈로 분리하여 관리하는 방법을 고려해볼 수 있습니다. 이를 통해 공통 코드가 변경되었을 때 두 서버의 코드를 모두 수정해야 하는 번거로움을 줄일 수 있습니다. 예를 들어, Maven이나 Gradle과 같은 빌드 도구를 사용해 공통 모듈을 패키징하고, 이를 두 프로젝트에서 의존성으로 추가하여 사용할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;API Gateway 패턴 활용: 어드민 API와 사용자용 API를 분리하면서 API Gateway 패턴을 도입하는 것도 좋은 해결책이 될 수 있습니다. API Gateway를 통해 각 서버의 API를 통합 관리하고, 중복되는 인증 로직이나 로깅 등을 한 곳에서 처리할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;점진적인 리팩터링: 마이그레이션 완료 후, 기존 서버에서 어드민 관련 코드를 제거하는 과정에서 중복된 코드나 로직을 정리하는 리팩터링 작업을 병행하면 좋습니다. 이를 통해 최종적으로 코드 중복을 해소할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;요약하자면, &lt;strong&gt;점진적 마이그레이션 초기에는 코드 중복이 불가피하지만, 공통 모듈 분리, API Gateway 패턴 도입, 그리고 마이그레이션 후의 리팩터링을 통해 이러한 문제를 효과적으로 관리하고 최종적으로는 해결할 수 있습니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;3. 어드민을 분리하는 작업과 MSA에는 어떤 차이가 있는가?&lt;/h2&gt;
+&lt;p&gt;어드민 서버를 분리하는 것은 MSA(Microservices Architecture)로 가는 첫 단계로 볼 수 있습니다.&lt;br&gt;
+둘의 가장 큰 차이점은 분리하는 대상의 규모와 목적에 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;어드민 서버 분리&lt;/strong&gt;&lt;br&gt;
+어드민 서버 분리는 말 그대로 어드민 기능만을 별도의 서버로 분리하는 것입니다. 기존에 하나의 애플리케이션에 사용자용 API와 어드민용 API가 함께 있었는데, 이 중 어드민 기능을 담당하는 부분을 독립적인 프로젝트로 만드는 것입니다.&lt;br&gt;
+목적: 배포의 독립성을 확보하고, 개발 및 운영의 복잡성을 줄이는 데 초점을 맞춥니다.&lt;br&gt;
+규모: 전체 서비스 중 **하나의 기능(어드민)**을 분리하는 비교적 작은 규모의 작업입니다.&lt;br&gt;
+아키텍처: 여전히 하나의 거대한 모놀리식(Monolithic) 아키텍처 안에 어드민 기능만 떨어져 나온 형태에 가깝습니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;MSA(마이크로 서비스 아키텍처)&lt;/strong&gt;&lt;br&gt;
+MSA는 애플리케이션 전체를 여러 개의 작은 독립적인 서비스로 분리하는 아키텍처 방식입니다. 각 서비스는 특정 비즈니스 기능(예: 사용자 관리, 결제, 상품 관리 등)을 담당하며, 자체 데이터베이스를 가질 수 있습니다.&lt;br&gt;
+목적: 대규모 시스템의 복잡성을 관리하고, 개발 팀의 독립성을 보장하며, 특정 서비스의 장애가 전체 시스템에 미치는 영향을 최소화하는 데 있습니다.&lt;br&gt;
+규모: 애플리케이션의 모든 핵심 기능을 서비스 단위로 분리하는 대규모 작업입니다.&lt;br&gt;
+아키텍처: 여러 서비스가 서로 통신하며 전체 애플리케이션을 구성하는 분산 시스템 형태입니다.&lt;/p&gt;
+&lt;h3&gt;3-1. 어드민만 떼고 보면 MSA를 적용했다고 볼 수 있는 것인가?&lt;/h3&gt;
+&lt;p&gt;아닙니다, 기존 모놀리식 프로젝트에서 어드민 기능만 분리했다고 해서 MSA를 적용했다고 보기는 어렵습니다.&lt;/p&gt;
+&lt;p&gt;어드민 분리는 MSA의 첫걸음 또는 부분적인 적용 사례로 볼 수 있지만, MSA의 핵심 원칙을 모두 충족하는 것은 아닙니다.&lt;br&gt;
+MSA는 다음과 같은 특징을 갖습니다.&lt;br&gt;
+독립적인 배포: 각 마이크로 서비스는 독립적으로 개발되고 배포됩니다.&lt;br&gt;
+비즈니스 도메인 중심: 서비스가 특정 비즈니스 기능(예: 주문, 결제, 사용자 관리)을 중심으로 설계됩니다.&lt;br&gt;
+느슨한 결합: 각 서비스가 서로 독립적으로 동작하며, API를 통해 통신합니다.
+자체 데이터베이스: 각 서비스가 자신만의 데이터베이스를 가질 수 있습니다.&lt;/p&gt;
+&lt;p&gt;어드민 분리의 경우, 독립적인 배포라는 한 가지 특징을 만족하지만, 나머지 서비스들은 여전히 하나의 모놀리식 프로젝트에 묶여 있습니다. 따라서 전체 아키텍처가 MSA로 전환된 것이 아니라, 모놀리식 아키텍처의 일부를 분리한 것으로 이해하는 것이 더 정확합니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[두 번째 링글 튜터링 복습]]></title><description><![CDATA[틀린 문장 Well, actually no I don't have enough free time because I have a lot of works. -> Recently I've been so swamped at work that I don't…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/english/second-ringle/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/english/second-ringle/</guid><pubDate>Fri, 08 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;틀린 문장&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;Well, actually no I don&apos;t have enough free time because I have a lot of works.&lt;/li&gt;
 &lt;/ul&gt;
@@ -6189,105 +6214,6 @@ list&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class
 &lt;ol&gt;
 &lt;li id=&quot;fn-1&quot;&gt;&lt;a href=&quot;https://docs.oracle.com/javase/tutorial/java/generics/types.html&quot;&gt;https://docs.oracle.com/javase/tutorial/java/generics/types.html&lt;/a&gt;&lt;a href=&quot;#fnref-1&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</content:encoded></item><item><title><![CDATA[8장. 누가 액세스하고 있는지를 확인하는 인증]]></title><description><![CDATA[들어가며 이번엔 HTTP 표준이 설명하는 여러 가지 인증 방식에 대해 알아보겠다. Basic 인증 이름 그대로 가장 기본적인 인증 방식이다. 클라이언트가 Http Request를 보낼 때  헤더에 ID와 패스워드를 Base6…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/network/network-book-study/08-authentication-of-http/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/network/network-book-study/08-authentication-of-http/</guid><pubDate>Wed, 10 Apr 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
-&lt;p&gt;이번엔 HTTP 표준이 설명하는 여러 가지 인증 방식에 대해 알아보겠다.&lt;/p&gt;
-&lt;h2&gt;Basic 인증&lt;/h2&gt;
-&lt;p&gt;이름 그대로 가장 기본적인 인증 방식이다.&lt;/p&gt;
-&lt;p&gt;클라이언트가 Http Request를 보낼 때 &lt;code class=&quot;language-text&quot;&gt;Authorization&lt;/code&gt; 헤더에 ID와 패스워드를 Base64 형식으로 인코딩 한 값을 담아 보내는 방식이다.&lt;br&gt;
-이때 값 앞에 &lt;code class=&quot;language-text&quot;&gt;&quot;Basic &quot;&lt;/code&gt;을 Prefix로 담아 함께 보내어 Basic 인증임을 나타낸다.&lt;/p&gt;
-&lt;p&gt;Basic 인증은 아래와 같은 요청이 서버로 전달된다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
-Authoization: Basic Z3Vlc3Q35wervc32= &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;가장 단순하며 간편한 인증 방식이다.&lt;br&gt;
-하지만 Base64 형식은 &lt;a href=&quot;https://www.base64decode.org/&quot;&gt;온라인 디코더 사이트&lt;/a&gt;도 있는만큼 매우 위험한 인증 방식이다.&lt;br&gt;
-따라서 잘 사용하진 않는다.&lt;/p&gt;
-&lt;h2&gt;DIGEST 인증&lt;/h2&gt;
-&lt;p&gt;편리하지만 안전하지 않은 Basic 인증을 보완하기 위해 탄생한 기술이다.&lt;br&gt;
-DIGEST 인증에는 &lt;em&gt;챌린지 리스폰스&lt;/em&gt; 방식이 사용되고 있어 패스워드를 그대로 보낼 일은 없다.&lt;/p&gt;
-&lt;p&gt;챌린지 리스폰스 방식은 최초에 상대방에게 인증 요구를 보내고 그 결과로 받은 챌린지 코드를 사용해서 리스폰스 코드를 계산한다.&lt;br&gt;
-이 값을 상대에게 송신하여 인증하는 방법이다.&lt;br&gt;
-리스폰스 코드는 패스워드와 챌린지 코드를 이용해 계산한 결과이다. 이 결과값을 보내기에 패스워드가 통신되는 일은 없다.&lt;/p&gt;
-&lt;p&gt;좀 더 자세히 살펴보면 인증 순서에 따른 요청 및 응답 내용은 아래와 같다.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;클라이언트가 리소스에 접근&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
-Host: listywave.com&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;ol start=&quot;2&quot;&gt;
-&lt;li&gt;서버는 인증이 필요하다는 상태 코드와 함께 패스워드와 챌린지 코드(nonce)를 송신&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;HTTP/1.1 401 Unauthorized
-WWW-Authenticate: Digest realm=&amp;quot;my&amp;quot;, nonce=&amp;quot;MoSq25=sddfAMi217wsnDS&amp;quot;, algorithm=MD5, qop=&amp;quot;auth&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;ol start=&quot;3&quot;&gt;
-&lt;li&gt;클라이언트는 패스워드와 챌린지 코드를 통해 리스폰스 코드를 계산해서 송신&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
-Host: listywave.com
-Authorization: Digest username=&amp;quot;kdkdhoho&amp;quot;, realm=&amp;quot;my&amp;quot;, nonce=&amp;quot;MoSq25=sddfAMi217wsnDS&amp;quot;, uri=&amp;quot;/my&amp;quot;, algorithm=MD5, response=&amp;quot;df563836bnfasf7acfasdfc78&amp;quot;, qop=&amp;quot;auth&amp;quot;, nc=000000001, cnonce=&amp;quot;0827c27c29c271&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;ol start=&quot;4&quot;&gt;
-&lt;li&gt;서버는 인증 성공 시 &lt;code class=&quot;language-text&quot;&gt;200 OK&lt;/code&gt;를 응답하고, 실패했을 경우 다시 &lt;code class=&quot;language-text&quot;&gt;401 Unauthorized&lt;/code&gt;를 응답한다.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;HTTP/1.1 200 OK
-Authentication-Info: rspauth=&amp;quot;fvacacwararact3c5ttcctyct7tcc4t7y&amp;quot;, cnonce=&amp;quot;0827c27c29c271&amp;quot;, nc=000000001, qop=&amp;quot;auth&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;하지만 Digest 방식도 사용상의 문제와 부족한 보안성 때문에 잘 사용하지는 않는다.&lt;/p&gt;
-&lt;h2&gt;SSL 클라이언트 인증&lt;/h2&gt;
-&lt;p&gt;위 두 방식은 사용자 ID와 패스워드를 통해 인증을 진행한다.&lt;br&gt;
-SSL 클라이언트 인증의 경우에는 클라이언트가 &lt;strong&gt;클라이언트 인증서&lt;/strong&gt;를 서버로 전송해 인증한다.&lt;/p&gt;
-&lt;p&gt;클라이언트가 클라이언트 인증서를 서버로 전송하기 위해서는 사전에 미리 가지고 있어야 한다.&lt;br&gt;
-이를 위해선 서버가 미리 증명서를 구매하여 사용자에게 배포를 해야 한다.&lt;br&gt;
-다른 말로 인증을 위한 비용이 상당하다는 것이다.&lt;br&gt;
-따라서 웹 애플리케이션 인증만을 위한 용도로는 사용하지 않고 후술할 Form 방식과 함께 사용되어 2-Factor 인증으로 사용한다.&lt;/p&gt;
-&lt;h2&gt;Form 방식&lt;/h2&gt;
-&lt;p&gt;Form 방식은 HTTP 프로토콜로 스펙이 정의되어 있지는 않다.&lt;br&gt;
-하지만 많은 웹사이트에서 채택 중이며 대부분의 경우 로그인 페이지를 통해 사용자의 인증 정보를 폼에 입력 후 서버로 전송하면, 서버는 해당 값을 토대로 사용자를 식별하고 그에 따른 인증 처리를 하는 방식으로 채택 중이다.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/9c59e807258884b8c8889affd6decef8/d53ff/form-auth-example.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 96.20253164556962%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAABoElEQVR42q2Uy0vEMBDG9+8VD75Q96D4Qj2I4EXUg6y4PmDrPkA8WUU9C4J42IMIorB0VdqmSdM26WfSfeiKbnfVwFeGmeaXyUySDP55ZHr5SUqZKI7jvwM1SI9eYF2BLUC1WoVpmjAMA4yxVHhPGVqWhXq93n+GeuUoihIFQdCWECLRZ1/Lnwp0HAe2bbfBP4lzDt/304GuS+C4Hniosuwi3+fgSl2BUsZg1IXkbxCBq5fQ3m8lRJhk+SOw0TiJ2wcP0wWC+aKH+RLFXJFi5ZhgueIl9kKZYtqg2DI9sOaWPzf9CzDGzT3BWJ4ge0AwqTSxT7BUtjFjuBhXdvaQYFTF105cUNYF+NHlQFmdksJXMd7pkzxpzq+uHldbEyLq7xzKZtp3TxEGcxTDeYaRPYrZI6LqRrBYcTFV8DCUpxhQ8dUTpubEaTUEHl8E1k99bJwybJ4x7FxS5C4odq8ots895eMqzlG6Dtpz4rQt6zo6r8/wHAvEbkjbzmsNpGaB207vd1mvKtRRi9SnpTBqSNtBIBCGsl2iXzXl3x/YfoDvEiq/mkSMcbMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Form 방식의 로그인 페이지 (출처: https://gundogmuseray.medium.com/easy-way-to-stop-worry-about-client-side-auth-with-firebase-and-sveltekit-d17cdcccb663)&quot;
-        title=&quot;&quot;
-        src=&quot;/static/9c59e807258884b8c8889affd6decef8/f058b/form-auth-example.png&quot;
-        srcset=&quot;/static/9c59e807258884b8c8889affd6decef8/c26ae/form-auth-example.png 158w,
-/static/9c59e807258884b8c8889affd6decef8/6bdcf/form-auth-example.png 315w,
-/static/9c59e807258884b8c8889affd6decef8/f058b/form-auth-example.png 630w,
-/static/9c59e807258884b8c8889affd6decef8/40601/form-auth-example.png 945w,
-/static/9c59e807258884b8c8889affd6decef8/d53ff/form-auth-example.png 1068w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h2&gt;세션 및 토큰&lt;/h2&gt;
-&lt;p&gt;HTTP 프로토콜은 Stateless 하다.&lt;br&gt;
-방금 전에 로그인에 성공했지만 다음 요청마다 로그인을 새로 해야 한다.&lt;br&gt;
-이를 개선하기 위해 쿠키[&lt;sup id=&quot;fnref-2&quot;&gt;&lt;a href=&quot;#fn-2&quot; class=&quot;footnote-ref&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;] 가 도입되었고 여기에 세션[&lt;sup id=&quot;fnref-3&quot;&gt;&lt;a href=&quot;#fn-3&quot; class=&quot;footnote-ref&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;]이나 토큰[&lt;sup id=&quot;fnref-4&quot;&gt;&lt;a href=&quot;#fn-4&quot; class=&quot;footnote-ref&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;] 을 이용해 사용자 인증 정보를 유지한다.&lt;/p&gt;
-&lt;p&gt;세션과 토큰은 현재 대부분의 경우 사용 중인 방식이다.&lt;br&gt;
-이 둘을 잘 이해하고 사용할 줄 아는 것은 매우 중요하다는 의미이며 다른 포스팅에서 집중적으로 알아볼 예정이다.&lt;/p&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn-2&quot;&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/HTTP/Cookies&quot;&gt;MDN - 쿠키&lt;/a&gt;&lt;a href=&quot;#fnref-2&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-3&quot;&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/HTTP/Session&quot;&gt;MDN - 세션&lt;/a&gt;&lt;a href=&quot;#fnref-3&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-4&quot;&gt;&lt;a href=&quot;https://opentutorials.org/course/3405/22008&quot;&gt;오픈튜토리얼스 - AccessToken&lt;/a&gt;&lt;a href=&quot;#fnref-4&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
 &lt;/div&gt;</content:encoded></item><item><title><![CDATA[9장. HTTP에 기능을 추가한 프로토콜]]></title><description><![CDATA[들어가며 인터넷이 보급되고 웹 시장이 커져감에 따라 HTTP 프로토콜이 정말 많이 사용되고 있다.
 하지만 본래 HTML 문서를 전송하기 위해 탄생한 HTTP는 발전해가는 웹 시장에 비하면 부족한 기능들이 다수 존재했다.
 그래서 HTTP…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/network/network-book-study/09-advanced-http-protocol/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/network/network-book-study/09-advanced-http-protocol/</guid><pubDate>Wed, 10 Apr 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
@@ -6452,6 +6378,105 @@ HTTP/2.0은 성능 개선이 주된 목표이다. 따라서 &lt;em&gt;SPDY&lt;/e
 &lt;li id=&quot;fn-5&quot;&gt;&lt;a href=&quot;https://developers-kr.googleblog.com/2015/02/hellohttp2.html&quot;&gt;헬로 HTTP/2, 굿바이 SPDY - Google for Developers KR&lt;/a&gt;&lt;a href=&quot;#fnref-5&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
 &lt;li id=&quot;fn-6&quot;&gt;&lt;a href=&quot;https://ko.wikipedia.org/wiki/%EC%9B%B9%EC%86%8C%EC%BC%93&quot;&gt;WebSocket - Wikipedia&lt;/a&gt;&lt;a href=&quot;#fnref-6&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
 &lt;li id=&quot;fn-7&quot;&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/101&quot;&gt;101 Switching Protocols - MDN&lt;/a&gt;&lt;a href=&quot;#fnref-7&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</content:encoded></item><item><title><![CDATA[8장. 누가 액세스하고 있는지를 확인하는 인증]]></title><description><![CDATA[들어가며 이번엔 HTTP 표준이 설명하는 여러 가지 인증 방식에 대해 알아보겠다. Basic 인증 이름 그대로 가장 기본적인 인증 방식이다. 클라이언트가 Http Request를 보낼 때  헤더에 ID와 패스워드를 Base6…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/network/network-book-study/08-authentication-of-http/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/network/network-book-study/08-authentication-of-http/</guid><pubDate>Wed, 10 Apr 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;들어가며&lt;/h2&gt;
+&lt;p&gt;이번엔 HTTP 표준이 설명하는 여러 가지 인증 방식에 대해 알아보겠다.&lt;/p&gt;
+&lt;h2&gt;Basic 인증&lt;/h2&gt;
+&lt;p&gt;이름 그대로 가장 기본적인 인증 방식이다.&lt;/p&gt;
+&lt;p&gt;클라이언트가 Http Request를 보낼 때 &lt;code class=&quot;language-text&quot;&gt;Authorization&lt;/code&gt; 헤더에 ID와 패스워드를 Base64 형식으로 인코딩 한 값을 담아 보내는 방식이다.&lt;br&gt;
+이때 값 앞에 &lt;code class=&quot;language-text&quot;&gt;&quot;Basic &quot;&lt;/code&gt;을 Prefix로 담아 함께 보내어 Basic 인증임을 나타낸다.&lt;/p&gt;
+&lt;p&gt;Basic 인증은 아래와 같은 요청이 서버로 전달된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
+Authoization: Basic Z3Vlc3Q35wervc32= &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;가장 단순하며 간편한 인증 방식이다.&lt;br&gt;
+하지만 Base64 형식은 &lt;a href=&quot;https://www.base64decode.org/&quot;&gt;온라인 디코더 사이트&lt;/a&gt;도 있는만큼 매우 위험한 인증 방식이다.&lt;br&gt;
+따라서 잘 사용하진 않는다.&lt;/p&gt;
+&lt;h2&gt;DIGEST 인증&lt;/h2&gt;
+&lt;p&gt;편리하지만 안전하지 않은 Basic 인증을 보완하기 위해 탄생한 기술이다.&lt;br&gt;
+DIGEST 인증에는 &lt;em&gt;챌린지 리스폰스&lt;/em&gt; 방식이 사용되고 있어 패스워드를 그대로 보낼 일은 없다.&lt;/p&gt;
+&lt;p&gt;챌린지 리스폰스 방식은 최초에 상대방에게 인증 요구를 보내고 그 결과로 받은 챌린지 코드를 사용해서 리스폰스 코드를 계산한다.&lt;br&gt;
+이 값을 상대에게 송신하여 인증하는 방법이다.&lt;br&gt;
+리스폰스 코드는 패스워드와 챌린지 코드를 이용해 계산한 결과이다. 이 결과값을 보내기에 패스워드가 통신되는 일은 없다.&lt;/p&gt;
+&lt;p&gt;좀 더 자세히 살펴보면 인증 순서에 따른 요청 및 응답 내용은 아래와 같다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;클라이언트가 리소스에 접근&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
+Host: listywave.com&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;서버는 인증이 필요하다는 상태 코드와 함께 패스워드와 챌린지 코드(nonce)를 송신&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;HTTP/1.1 401 Unauthorized
+WWW-Authenticate: Digest realm=&amp;quot;my&amp;quot;, nonce=&amp;quot;MoSq25=sddfAMi217wsnDS&amp;quot;, algorithm=MD5, qop=&amp;quot;auth&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;클라이언트는 패스워드와 챌린지 코드를 통해 리스폰스 코드를 계산해서 송신&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
+Host: listywave.com
+Authorization: Digest username=&amp;quot;kdkdhoho&amp;quot;, realm=&amp;quot;my&amp;quot;, nonce=&amp;quot;MoSq25=sddfAMi217wsnDS&amp;quot;, uri=&amp;quot;/my&amp;quot;, algorithm=MD5, response=&amp;quot;df563836bnfasf7acfasdfc78&amp;quot;, qop=&amp;quot;auth&amp;quot;, nc=000000001, cnonce=&amp;quot;0827c27c29c271&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;서버는 인증 성공 시 &lt;code class=&quot;language-text&quot;&gt;200 OK&lt;/code&gt;를 응답하고, 실패했을 경우 다시 &lt;code class=&quot;language-text&quot;&gt;401 Unauthorized&lt;/code&gt;를 응답한다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;HTTP/1.1 200 OK
+Authentication-Info: rspauth=&amp;quot;fvacacwararact3c5ttcctyct7tcc4t7y&amp;quot;, cnonce=&amp;quot;0827c27c29c271&amp;quot;, nc=000000001, qop=&amp;quot;auth&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;하지만 Digest 방식도 사용상의 문제와 부족한 보안성 때문에 잘 사용하지는 않는다.&lt;/p&gt;
+&lt;h2&gt;SSL 클라이언트 인증&lt;/h2&gt;
+&lt;p&gt;위 두 방식은 사용자 ID와 패스워드를 통해 인증을 진행한다.&lt;br&gt;
+SSL 클라이언트 인증의 경우에는 클라이언트가 &lt;strong&gt;클라이언트 인증서&lt;/strong&gt;를 서버로 전송해 인증한다.&lt;/p&gt;
+&lt;p&gt;클라이언트가 클라이언트 인증서를 서버로 전송하기 위해서는 사전에 미리 가지고 있어야 한다.&lt;br&gt;
+이를 위해선 서버가 미리 증명서를 구매하여 사용자에게 배포를 해야 한다.&lt;br&gt;
+다른 말로 인증을 위한 비용이 상당하다는 것이다.&lt;br&gt;
+따라서 웹 애플리케이션 인증만을 위한 용도로는 사용하지 않고 후술할 Form 방식과 함께 사용되어 2-Factor 인증으로 사용한다.&lt;/p&gt;
+&lt;h2&gt;Form 방식&lt;/h2&gt;
+&lt;p&gt;Form 방식은 HTTP 프로토콜로 스펙이 정의되어 있지는 않다.&lt;br&gt;
+하지만 많은 웹사이트에서 채택 중이며 대부분의 경우 로그인 페이지를 통해 사용자의 인증 정보를 폼에 입력 후 서버로 전송하면, 서버는 해당 값을 토대로 사용자를 식별하고 그에 따른 인증 처리를 하는 방식으로 채택 중이다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9c59e807258884b8c8889affd6decef8/d53ff/form-auth-example.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 96.20253164556962%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAABoElEQVR42q2Uy0vEMBDG9+8VD75Q96D4Qj2I4EXUg6y4PmDrPkA8WUU9C4J42IMIorB0VdqmSdM26WfSfeiKbnfVwFeGmeaXyUySDP55ZHr5SUqZKI7jvwM1SI9eYF2BLUC1WoVpmjAMA4yxVHhPGVqWhXq93n+GeuUoihIFQdCWECLRZ1/Lnwp0HAe2bbfBP4lzDt/304GuS+C4Hniosuwi3+fgSl2BUsZg1IXkbxCBq5fQ3m8lRJhk+SOw0TiJ2wcP0wWC+aKH+RLFXJFi5ZhgueIl9kKZYtqg2DI9sOaWPzf9CzDGzT3BWJ4ge0AwqTSxT7BUtjFjuBhXdvaQYFTF105cUNYF+NHlQFmdksJXMd7pkzxpzq+uHldbEyLq7xzKZtp3TxEGcxTDeYaRPYrZI6LqRrBYcTFV8DCUpxhQ8dUTpubEaTUEHl8E1k99bJwybJ4x7FxS5C4odq8ots895eMqzlG6Dtpz4rQt6zo6r8/wHAvEbkjbzmsNpGaB207vd1mvKtRRi9SnpTBqSNtBIBCGsl2iXzXl3x/YfoDvEiq/mkSMcbMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Form 방식의 로그인 페이지 (출처: https://gundogmuseray.medium.com/easy-way-to-stop-worry-about-client-side-auth-with-firebase-and-sveltekit-d17cdcccb663)&quot;
+        title=&quot;&quot;
+        src=&quot;/static/9c59e807258884b8c8889affd6decef8/f058b/form-auth-example.png&quot;
+        srcset=&quot;/static/9c59e807258884b8c8889affd6decef8/c26ae/form-auth-example.png 158w,
+/static/9c59e807258884b8c8889affd6decef8/6bdcf/form-auth-example.png 315w,
+/static/9c59e807258884b8c8889affd6decef8/f058b/form-auth-example.png 630w,
+/static/9c59e807258884b8c8889affd6decef8/40601/form-auth-example.png 945w,
+/static/9c59e807258884b8c8889affd6decef8/d53ff/form-auth-example.png 1068w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;세션 및 토큰&lt;/h2&gt;
+&lt;p&gt;HTTP 프로토콜은 Stateless 하다.&lt;br&gt;
+방금 전에 로그인에 성공했지만 다음 요청마다 로그인을 새로 해야 한다.&lt;br&gt;
+이를 개선하기 위해 쿠키[&lt;sup id=&quot;fnref-2&quot;&gt;&lt;a href=&quot;#fn-2&quot; class=&quot;footnote-ref&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;] 가 도입되었고 여기에 세션[&lt;sup id=&quot;fnref-3&quot;&gt;&lt;a href=&quot;#fn-3&quot; class=&quot;footnote-ref&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;]이나 토큰[&lt;sup id=&quot;fnref-4&quot;&gt;&lt;a href=&quot;#fn-4&quot; class=&quot;footnote-ref&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;] 을 이용해 사용자 인증 정보를 유지한다.&lt;/p&gt;
+&lt;p&gt;세션과 토큰은 현재 대부분의 경우 사용 중인 방식이다.&lt;br&gt;
+이 둘을 잘 이해하고 사용할 줄 아는 것은 매우 중요하다는 의미이며 다른 포스팅에서 집중적으로 알아볼 예정이다.&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn-2&quot;&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/HTTP/Cookies&quot;&gt;MDN - 쿠키&lt;/a&gt;&lt;a href=&quot;#fnref-2&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&quot;fn-3&quot;&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/HTTP/Session&quot;&gt;MDN - 세션&lt;/a&gt;&lt;a href=&quot;#fnref-3&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&quot;fn-4&quot;&gt;&lt;a href=&quot;https://opentutorials.org/course/3405/22008&quot;&gt;오픈튜토리얼스 - AccessToken&lt;/a&gt;&lt;a href=&quot;#fnref-4&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;</content:encoded></item><item><title><![CDATA[[MySQL] 바이너리 로그로 데이터 복구하기]]></title><description><![CDATA[들어가며 며칠 전, 리스티웨이브 프로젝트를 진행하며 특정 조건의 데이터를 모두 삭제 할 일이 있었습니다.
 하지만 실수로 해당 테이블의 데이터가 모두 삭제되는 일이 있었는데요..!
@@ -17748,116 +17773,7 @@ mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span cla
 &lt;p&gt;프로젝트에 TDD를 적용한다고 했을 때, 항상 모든 기능에 대해 테스트 코드를 먼저 작성할 수 없다.&lt;/p&gt;
 &lt;p&gt;물론 구현하려는 기능에 대해 분명하고 확실한 상황이라면 TDD를 적용할 수 있지만, 개발이라는 게 처음 생각한대로 구현하다보면 생각지도 못한 기능을 함께 구현해야 하는 경우가 종종 있다.&lt;/p&gt;
 &lt;p&gt;따라서 TDD를 처음 시도해보려는 사람들이 혹여나 &quot;테스트 코드를 먼저 작성하기 전까지는 기능 구현 안할거야 !!&quot; 라는 생각을 가질 수 있다고 생각한다.&lt;/p&gt;
-&lt;p&gt;본인이 구현하려는 기능이 무엇인지 분명히 아는 선에서, TDD를 적용하는 것이 바람직해보인다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[DB 면접 스터디 2주차]]></title><description><![CDATA[📝 질문 리스트 SQL에 대해서 설명해주세요. C언어와 같은 프로그래밍 언어와 어떤 차이가 있나요? 개발자가 작성한 SQL이 어떤 과정을 통해 실행 되는지 설명해주세요. DML은 무엇인가요? 어떤 구문이 있는지도 설명해주세요. DDL…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/database/interview-study/db-interview-study-2week/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/database/interview-study/db-interview-study-2week/</guid><pubDate>Tue, 28 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;📝 질문 리스트&lt;/h2&gt;
-&lt;h3&gt;SQL에 대해서 설명해주세요. C언어와 같은 프로그래밍 언어와 어떤 차이가 있나요?&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;SQL은 DBMS에게 명령하는 언어입니다.
-
-반면 C언어는 프로그래머가 작성한 코드가 C언어 컴파일러에 의해 기계어로 번역이 됩니다.
-이 기계어는 OS에 의해 코드가 작성된대로 실행됩니다. 
-
-즉, SQL은 DMS에게 요청을 보내는 반면 프로그래밍 언어는 미리 작성된 대로 수행된다는 차이점이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;개발자가 작성한 SQL이 어떤 과정을 통해 실행 되는지 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;크게 나눠 파싱, 최적화, 실행의 단계로 실행됩니다.
-
-DBMS는 개발자가 작성한 SQL문을 파싱하고 문법 오류가 없는지 검사합니다.
-오류가 없다면 파싱한 SQL문을 통해 가장 효율적인 실행 계획을 수립합니다.
-그 다음 최적화된 실행 계획에 따라 쿼리문을 실행합니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;DML은 무엇인가요? 어떤 구문이 있는지도 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;데이터를 조작하는 쿼리문입니다.
-테이블에 저장된 데이터와 관련된 쿼리문으로 이해하고 있습니다.
-
-INSERT, SELECT, UPDATE, DELETE 문이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;DDL은 무엇인가요? 어떤 구문이 있는지도 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;데이터를 정의하는 언어입니다.
-테이블과 관련된 쿼리문으로 이해하고 있습니다.
-
-보통 CREATE, ALTER, DROP, TRUNCATE 문이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;DCL은 무엇인가요? 어떤 구문이 있는지도 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;주로 보안과 관련된 언어업니다.
-
-GRANT, REVOKE, COMMIT, ROLLBACK 문이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;참조 무결성에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;테이블 간의 관계를 정의할 때 반드시 지켜야하는 제약 조건입니다.
-
-외래키를 설정할 때 반드시 관계를 맺으려는 테이블의 기본키 값으로 해야 한다는 것입니다.
-만약 값이 없을 경우 외래키 값은 NULL이 될 수도 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;CASCADE 설정에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;외래키를 참조하고 있는 행에 삭제 또는 변경이 발생할 때, 그에 따라 참조하고 있는 행을 동시에 관리하는 옵션입니다.
-
-UPDATE CASCADE의 경우 참조되는 기본키가 변경될 때, 참조하는 행의 외래키도 함께 변경합니다.
-DELETE CASCADE의 경우 참조되는 기본키의 행이 삭제될 때, 참조하는 행도 함께 삭제한다는 것입니다. &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;VIEW에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;기존 테이블에서 사용자가 필요로한 데이터만을 따로 추출하여 만든 임의의 가상 테이블입니다.
-
-VIEW는 실제로 물리적으로 저장하지 않고 기존 테이블의 데이터를 참조하여 가상으로 생성됩니다.
-이를 통해 대규모거나 복잡한 데이터 조회의 경우 VIEW 테이블로 추출하여 쉽고 빠르게 조회할 수 있습니다.
-
-하지만 VIEW가 참조하고 있는 데이터가 변경될 경우, VIEW도 함께 변경해줘야 한다는 특징이 있습니다. &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;SELECT 절의 처리순서에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;FROM -&gt; WHERE -&gt; GROUP BY -&gt; HAVING -&gt; SELECT -&gt; ORDER BY 순으로 처리됩니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;SELECT ~ FOR UPDATE 구문에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;SELECT 절에 해당하는 행들에 접근할 때 LOCK을 설정하는 구문입니다.
-
-이 구문을 사용하면 해당 행에는 하나의 트랜잭션 만이 값을 변경할 수 있습니다.
-LOCK이 걸린 도중에 다른 트랜잭션이 동일한 행을 수정하려 한다면 LOCK이 해제될 때까지 대기해야합니다.
-이 LOCK은 커밋 또는 롤백을 할 때까지 유지됩니다.
-
-이를 통해 동시성 문제를 해결할 수 있지만, 성능에 악영향을 줄 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;GROUP BY 절에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;GROUP BY 절을 통해 특정 칼럼의 데이터를 그룹화할 수 있습니다.
-
-보통 집계 함수와 함께 사용하여 유의미한 결과를 도출할 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;ORDER BY 절에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;쿼리의 결과를 특정 열을 기준으로 정렬하기 위해 사용하는 절입니다.
-
-기본적으로 오름차순으로 정렬을 하지만 내림차순으로 정렬할 수 있으며,
-정렬의 기준이 되는 열을 2개 이상 설정할 수 있습니다. &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;INNER JOIN과 OUTER JOIN에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;INNER JOIN은 JOIN 하려는 두 테이블의 특정 열을 기준으로 동일한 행들만 반환하는 명령어입니다.
-
-OUTER JOIN은 두 테이블의 동일한 행 뿐만 아니라, 조건에 일치하지 않는 특정 테이블의 행들도 함께 반환하는 명령입니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;LEFT OUTER JOIN, RIGHT OUTER JOIN에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;LEFT OUTER JOIN은 JOIN 시에 왼쪽, 즉 기준이 되는 테이블의 모든 행과, JOIN 조건에 일치하는 행들을 모두 반환합니다.
-
-RIGHT OUTER JOIN은 LEFT와 반대로 오른쪽, 즉 JOIN이 되는 테이블의 모든 행과 JOIN 조건에 일치하는 행들을 모두 반환합니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;CROSS JOIN에 대해서도 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;첫 번째 테이블의 모든 각 행이 두 번째 테이블의 전체 행과 결합하는 방식의 JOIN입니다.
-
-두 테이블의 각 전체 데이터 수를 곱한 크기의 JOIN 결과가 반환됩니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;서브쿼리에 대해서 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;쿼리문 안에서 실행되는 또 다른 쿼리문입니다.
-
-주로 쿼리문 안에서 추가적인 쿼리문이 필요할 때 사용합니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;DROP, TRUNCATE, DELETE에 각각에 대해 설명해주세요. 어떤차이가 있나요?&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;DROP은 테이블 자체를 삭제하는 명령입니다.
-TRUNCATE는 테이블은 그대로 두고 테이블 안에 있는 모든 데이터를 삭제하는 명령입니다.
-DELETE는 테이블 안에 있는 특정 행을 삭제하는 데 사용합니다.
-
-DROP, TRUNCATE는 롤백을 할 수 없지만 DELETE는 롤백이 가능합니다.
-DROP, TRUNCATE는 빠른 속도로 실행되지만 DELETE는 조건을 비교하는 과정이 필요하기에 시간이 오래 걸릴 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;DISTINCT에 대해서 설명해주세요. 사용해본 경험도 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;쿼리 결과에서 특정 칼럼에 해당하는 데이터의 중복을 제거한 결과를 반환하는 명령어입니다.
-
-셀럽잇 프로젝트에서 음식점 테이블과 비디오 테이블을 음식점 ID로 JOIN하는 과정이 존재했습니다.
-이때 음식점 테이블과 비디오 테이블은 1:다 관계였기에 JOIN 결과로 같은 음식점이 2개 이상 존재하는 상황이 발생했습니다.
-따라서 이때 생기는 중복을 제거하기 위해 사용한 경험이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;SQL Injection 공격이 무엇인지 어떻게 공격을 예방할 수 있는지 설명해 주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;악의적인 사용자가 입력 필드를 통해 서버에 SQL 쿼리를 주입하여 DB에 대한 공격을 시도하는 행위입니다.
-
-이를 방지하기 위해 입력값을 직접 쿼리문에 넣지 않고, 쿼리를 파라미터화하여 공격을 예방할 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;알고 있는 SQL 안티패턴이 있다면 설명해주세요.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&apos;SELECT *&apos; 을 사용하는 것입니다.
-
-이는 불필요한 열의 데이터까지 모두 가져오기에 불필요한 오버헤드가 발생할 수 있습니다.
-실제로 셀럽잇 프로젝트에서 음식점 테이블과 행정구역 테이블을 통해 공간 인덱스를 활용하려는 시도에서,
-실수로 SELECT * 을 사용하여 항상 테이블 풀 스캔의 결과가 발생했고
-이를 뒤늦게 발견하여 의도했던 결과가 나오지 않았던 것을 알게 된 경험이 있습니다.
-
-추가로 비효율적인 JOIN, 서브쿼리 남용 등이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;페이지네이션을 구현한다고 했을때 쿼리를 어떻게 작성해야할까요?&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;MySQL을 기준으로 LIMIT과 OFFSET을 통해 구현할 수 있습니다.
-
-OFFSET을 통해 쿼리 결과에서 n번 째부터 LIMIT의 수만큼의 데이터만을 가져옴으로써 페이지네이션을 구현할 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[JUnit과 AssertJ 활용법]]></title><description><![CDATA[이 글의 목적 JUnit과 AssertJ…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/test/using-junit-and-assertJ/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/test/using-junit-and-assertJ/</guid><pubDate>Tue, 28 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;이 글의 목적&lt;/h2&gt;
+&lt;p&gt;본인이 구현하려는 기능이 무엇인지 분명히 아는 선에서, TDD를 적용하는 것이 바람직해보인다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[JUnit과 AssertJ 활용법]]></title><description><![CDATA[이 글의 목적 JUnit과 AssertJ…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/test/using-junit-and-assertJ/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/test/using-junit-and-assertJ/</guid><pubDate>Tue, 28 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;이 글의 목적&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;JUnit과 AssertJ의 학습 테스트 코드를 통해 단위 테스트를 처음 해보려는 사람에게 어떻게 쓰는지 간단한 가이드 라인 제시&lt;/li&gt;
 &lt;li&gt;단위 테스트하면서 잘 사용하지 않는 기능에 대해 나만의 치트 시트 역할&lt;/li&gt;
@@ -18251,7 +18167,116 @@ OFFSET을 통해 쿼리 결과에서 n번 째부터 LIMIT의 수만큼의 데이
     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;마치며&lt;/h2&gt;
-&lt;p&gt;더 나은 방법이 있거나 제안이 있다면 언제든 댓글 달아주시면 감사하겠습니다!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[단위 테스트 이해하기]]></title><description><![CDATA[…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/test/unit-test/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/test/unit-test/</guid><pubDate>Mon, 27 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;단위 테스트란?&lt;/h2&gt;
+&lt;p&gt;더 나은 방법이 있거나 제안이 있다면 언제든 댓글 달아주시면 감사하겠습니다!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[DB 면접 스터디 2주차]]></title><description><![CDATA[📝 질문 리스트 SQL에 대해서 설명해주세요. C언어와 같은 프로그래밍 언어와 어떤 차이가 있나요? 개발자가 작성한 SQL이 어떤 과정을 통해 실행 되는지 설명해주세요. DML은 무엇인가요? 어떤 구문이 있는지도 설명해주세요. DDL…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/database/interview-study/db-interview-study-2week/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/database/interview-study/db-interview-study-2week/</guid><pubDate>Tue, 28 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;📝 질문 리스트&lt;/h2&gt;
+&lt;h3&gt;SQL에 대해서 설명해주세요. C언어와 같은 프로그래밍 언어와 어떤 차이가 있나요?&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;SQL은 DBMS에게 명령하는 언어입니다.
+
+반면 C언어는 프로그래머가 작성한 코드가 C언어 컴파일러에 의해 기계어로 번역이 됩니다.
+이 기계어는 OS에 의해 코드가 작성된대로 실행됩니다. 
+
+즉, SQL은 DMS에게 요청을 보내는 반면 프로그래밍 언어는 미리 작성된 대로 수행된다는 차이점이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;개발자가 작성한 SQL이 어떤 과정을 통해 실행 되는지 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;크게 나눠 파싱, 최적화, 실행의 단계로 실행됩니다.
+
+DBMS는 개발자가 작성한 SQL문을 파싱하고 문법 오류가 없는지 검사합니다.
+오류가 없다면 파싱한 SQL문을 통해 가장 효율적인 실행 계획을 수립합니다.
+그 다음 최적화된 실행 계획에 따라 쿼리문을 실행합니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;DML은 무엇인가요? 어떤 구문이 있는지도 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;데이터를 조작하는 쿼리문입니다.
+테이블에 저장된 데이터와 관련된 쿼리문으로 이해하고 있습니다.
+
+INSERT, SELECT, UPDATE, DELETE 문이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;DDL은 무엇인가요? 어떤 구문이 있는지도 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;데이터를 정의하는 언어입니다.
+테이블과 관련된 쿼리문으로 이해하고 있습니다.
+
+보통 CREATE, ALTER, DROP, TRUNCATE 문이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;DCL은 무엇인가요? 어떤 구문이 있는지도 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;주로 보안과 관련된 언어업니다.
+
+GRANT, REVOKE, COMMIT, ROLLBACK 문이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;참조 무결성에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;테이블 간의 관계를 정의할 때 반드시 지켜야하는 제약 조건입니다.
+
+외래키를 설정할 때 반드시 관계를 맺으려는 테이블의 기본키 값으로 해야 한다는 것입니다.
+만약 값이 없을 경우 외래키 값은 NULL이 될 수도 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;CASCADE 설정에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;외래키를 참조하고 있는 행에 삭제 또는 변경이 발생할 때, 그에 따라 참조하고 있는 행을 동시에 관리하는 옵션입니다.
+
+UPDATE CASCADE의 경우 참조되는 기본키가 변경될 때, 참조하는 행의 외래키도 함께 변경합니다.
+DELETE CASCADE의 경우 참조되는 기본키의 행이 삭제될 때, 참조하는 행도 함께 삭제한다는 것입니다. &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;VIEW에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;기존 테이블에서 사용자가 필요로한 데이터만을 따로 추출하여 만든 임의의 가상 테이블입니다.
+
+VIEW는 실제로 물리적으로 저장하지 않고 기존 테이블의 데이터를 참조하여 가상으로 생성됩니다.
+이를 통해 대규모거나 복잡한 데이터 조회의 경우 VIEW 테이블로 추출하여 쉽고 빠르게 조회할 수 있습니다.
+
+하지만 VIEW가 참조하고 있는 데이터가 변경될 경우, VIEW도 함께 변경해줘야 한다는 특징이 있습니다. &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;SELECT 절의 처리순서에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;FROM -&gt; WHERE -&gt; GROUP BY -&gt; HAVING -&gt; SELECT -&gt; ORDER BY 순으로 처리됩니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;SELECT ~ FOR UPDATE 구문에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;SELECT 절에 해당하는 행들에 접근할 때 LOCK을 설정하는 구문입니다.
+
+이 구문을 사용하면 해당 행에는 하나의 트랜잭션 만이 값을 변경할 수 있습니다.
+LOCK이 걸린 도중에 다른 트랜잭션이 동일한 행을 수정하려 한다면 LOCK이 해제될 때까지 대기해야합니다.
+이 LOCK은 커밋 또는 롤백을 할 때까지 유지됩니다.
+
+이를 통해 동시성 문제를 해결할 수 있지만, 성능에 악영향을 줄 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;GROUP BY 절에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;GROUP BY 절을 통해 특정 칼럼의 데이터를 그룹화할 수 있습니다.
+
+보통 집계 함수와 함께 사용하여 유의미한 결과를 도출할 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;ORDER BY 절에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;쿼리의 결과를 특정 열을 기준으로 정렬하기 위해 사용하는 절입니다.
+
+기본적으로 오름차순으로 정렬을 하지만 내림차순으로 정렬할 수 있으며,
+정렬의 기준이 되는 열을 2개 이상 설정할 수 있습니다. &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;INNER JOIN과 OUTER JOIN에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;INNER JOIN은 JOIN 하려는 두 테이블의 특정 열을 기준으로 동일한 행들만 반환하는 명령어입니다.
+
+OUTER JOIN은 두 테이블의 동일한 행 뿐만 아니라, 조건에 일치하지 않는 특정 테이블의 행들도 함께 반환하는 명령입니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;LEFT OUTER JOIN, RIGHT OUTER JOIN에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;LEFT OUTER JOIN은 JOIN 시에 왼쪽, 즉 기준이 되는 테이블의 모든 행과, JOIN 조건에 일치하는 행들을 모두 반환합니다.
+
+RIGHT OUTER JOIN은 LEFT와 반대로 오른쪽, 즉 JOIN이 되는 테이블의 모든 행과 JOIN 조건에 일치하는 행들을 모두 반환합니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;CROSS JOIN에 대해서도 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;첫 번째 테이블의 모든 각 행이 두 번째 테이블의 전체 행과 결합하는 방식의 JOIN입니다.
+
+두 테이블의 각 전체 데이터 수를 곱한 크기의 JOIN 결과가 반환됩니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;서브쿼리에 대해서 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;쿼리문 안에서 실행되는 또 다른 쿼리문입니다.
+
+주로 쿼리문 안에서 추가적인 쿼리문이 필요할 때 사용합니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;DROP, TRUNCATE, DELETE에 각각에 대해 설명해주세요. 어떤차이가 있나요?&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;DROP은 테이블 자체를 삭제하는 명령입니다.
+TRUNCATE는 테이블은 그대로 두고 테이블 안에 있는 모든 데이터를 삭제하는 명령입니다.
+DELETE는 테이블 안에 있는 특정 행을 삭제하는 데 사용합니다.
+
+DROP, TRUNCATE는 롤백을 할 수 없지만 DELETE는 롤백이 가능합니다.
+DROP, TRUNCATE는 빠른 속도로 실행되지만 DELETE는 조건을 비교하는 과정이 필요하기에 시간이 오래 걸릴 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;DISTINCT에 대해서 설명해주세요. 사용해본 경험도 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;쿼리 결과에서 특정 칼럼에 해당하는 데이터의 중복을 제거한 결과를 반환하는 명령어입니다.
+
+셀럽잇 프로젝트에서 음식점 테이블과 비디오 테이블을 음식점 ID로 JOIN하는 과정이 존재했습니다.
+이때 음식점 테이블과 비디오 테이블은 1:다 관계였기에 JOIN 결과로 같은 음식점이 2개 이상 존재하는 상황이 발생했습니다.
+따라서 이때 생기는 중복을 제거하기 위해 사용한 경험이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;SQL Injection 공격이 무엇인지 어떻게 공격을 예방할 수 있는지 설명해 주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;악의적인 사용자가 입력 필드를 통해 서버에 SQL 쿼리를 주입하여 DB에 대한 공격을 시도하는 행위입니다.
+
+이를 방지하기 위해 입력값을 직접 쿼리문에 넣지 않고, 쿼리를 파라미터화하여 공격을 예방할 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;알고 있는 SQL 안티패턴이 있다면 설명해주세요.&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&apos;SELECT *&apos; 을 사용하는 것입니다.
+
+이는 불필요한 열의 데이터까지 모두 가져오기에 불필요한 오버헤드가 발생할 수 있습니다.
+실제로 셀럽잇 프로젝트에서 음식점 테이블과 행정구역 테이블을 통해 공간 인덱스를 활용하려는 시도에서,
+실수로 SELECT * 을 사용하여 항상 테이블 풀 스캔의 결과가 발생했고
+이를 뒤늦게 발견하여 의도했던 결과가 나오지 않았던 것을 알게 된 경험이 있습니다.
+
+추가로 비효율적인 JOIN, 서브쿼리 남용 등이 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;페이지네이션을 구현한다고 했을때 쿼리를 어떻게 작성해야할까요?&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;MySQL을 기준으로 LIMIT과 OFFSET을 통해 구현할 수 있습니다.
+
+OFFSET을 통해 쿼리 결과에서 n번 째부터 LIMIT의 수만큼의 데이터만을 가져옴으로써 페이지네이션을 구현할 수 있습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[단위 테스트 이해하기]]></title><description><![CDATA[…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/test/unit-test/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/test/unit-test/</guid><pubDate>Mon, 27 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;단위 테스트란?&lt;/h2&gt;
 &lt;p&gt;애플리케이션에서 동작하는 &lt;strong&gt;기능 또는 메서드를 실행&lt;/strong&gt;시키는 &lt;strong&gt;독립적인 단위의 테스트&lt;/strong&gt;이다.&lt;/p&gt;
 &lt;p&gt;이때 기능이라는 말이 포함되어있다. 즉, 단위 테스트라고 해서 무조건 메서드만 테스트하는 건 아니다.&lt;/p&gt;
 &lt;h2&gt;왜 단위 테스트를 하나?&lt;/h2&gt;
