@@ -1,25 +1,11 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
- */
-
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
 module.exports = {
   pathPrefix: "/",
   siteMetadata: {
     title: `내가 재밌는 일을 하자 !`,
     author: {
-      name: `d`,
+      name: `Kim DongHo`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
-    social: {
-      twitter: `kylemathews`,
-      github: `https://github.com/kdkdhoho`
-    },
+    description: `내가 좋아하고 재밌는 일을 기록하자`,
   },
   plugins: [
     `gatsby-plugin-image`,
