@@ -45,12 +45,33 @@ const BlogIndex = ({ data, location }) => {
                   <small>{post.frontmatter.date}</small>
                 </header>
                 <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
+                  {post.frontmatter.description && (
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: post.frontmatter.description,
+                      }}
+                      itemProp="description"
+                    />
+                  )}
+                  {post.frontmatter.tags && (
+                    <p style={{ marginTop: '0.5rem' }}>
+                      {post.frontmatter.tags.map(tag => (
+                        <span
+                          key={tag}
+                          style={{
+                            display: 'inline-block',
+                            backgroundColor: '#e0e0e0',
+                            borderRadius: '0.25rem',
+                            padding: '0.25rem 0.5rem',
+                            marginRight: '0.5rem',
+                            fontSize: '0.8rem',
+                          }}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </p>
+                  )}
                 </section>
               </article>
             </li>
@@ -87,6 +108,7 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          tags
         }
       }
     }
