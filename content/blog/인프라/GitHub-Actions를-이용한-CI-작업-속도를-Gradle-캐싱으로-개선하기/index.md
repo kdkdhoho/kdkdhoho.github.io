@@ -1,8 +1,7 @@
 ---
-title: "[Infra] Github Actions를 이용한 CI 작업 속도를 캐싱으로 개선하기"
-description: "CI 속도를 개선해보자"
+title: "Github Actions를 이용한 CI 작업 속도를 Gradle 캐싱으로 개선하기"
 date: 2024-05-23
-tags: ["infra", "github actions", "ci workflow"]
+tags: ["인프라", "GitHub Actions", "Gradle", "캐싱"]
 ---
 
 ## 들어가며

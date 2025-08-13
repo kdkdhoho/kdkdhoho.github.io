@@ -1,8 +1,8 @@
 ---
-title: "EC2 CPU 사용량이 급격히 늘어난 문제 해결"
+title: "EC2 CPU 사용량이 급격히 늘어난 문제 해결기"
 description: "7$를 지켜라"
 date: 2024-08-03
-tags: ["infra", "ec2"]
+tags: ["인프라", "AWS"]
 ---
 
 ## TL;DR

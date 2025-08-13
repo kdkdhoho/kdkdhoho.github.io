@@ -1,8 +1,7 @@
 ---
-title: "[Infra] Github Actions와 Docker를 이용해 배포 자동화 구축하기"
-description: "Github Actions와 Docker를 이용해 배포 자동화 구축하기"
+title: "Github Actions와 Docker를 이용해 배포 자동화 구축하기"
 date: 2024-05-29
-tags: ["infra", "github actions", "docker", "continuous deploy"]
+tags: ["인프라", "Github Actions", "Docker"]
 ---
 
 ## 들어가며

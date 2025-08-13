@@ -1,8 +1,7 @@
 ---
-title: "[Infra] AWS EC2에 Spring Boot 수작업으로 배포하기"
-description: "AWS EC2에 Spring Boot 수작업으로 배포하기"
+title: "AWS EC2에 Spring Boot 애플리케이션을 수동으로 배포하기"
 date: 2024-01-16
-tags: ["Infra", "EC2", "Deploy"]
+tags: ["인프라", "AWS"]
 ---
 
 ## 들어가며

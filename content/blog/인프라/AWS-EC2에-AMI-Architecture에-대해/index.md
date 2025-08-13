@@ -1,14 +1,13 @@
 ---
-title: "CPU 아키텍처란?"
-description: "EC2 인스턴스 생성할 때 아키텍처 선택하다가 궁금해서 정리해봤습니다"
+title: "AWS EC2에 AMI Architecture에 대해"
+description: "EC2 인스턴스 생성할 때 아키텍처 선택하다가 궁금해서 정리한 글"
 date: 2024-01-16
-tags: [ "operation-system" , "CPU Architecture" ]
+tags: ["AWS", "운영체제"]
 ---
 
 ## 들어가며
 
-[EC2에 스프링 배포하기](https://kdkdhoho.github.io/deploy-spring-boot-in-aws-ec2-manually/) 글을 작성하다가 EC2 인스턴스를 생성할 때 AMI를 설정하게
-됩니다.
+[EC2에 스프링 배포하기](https://kdkdhoho.github.io/deploy-spring-boot-in-aws-ec2-manually/) 글을 작성하다가 EC2 인스턴스를 생성할 때 AMI를 설정하게 됩니다.
 
 이때 선택할 수 있는 아키텍처는 아래와 같이 `x86`과 `Arm` 두 가지로 나뉩니다.
 

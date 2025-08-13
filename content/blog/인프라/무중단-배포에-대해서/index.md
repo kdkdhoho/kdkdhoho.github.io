@@ -1,8 +1,8 @@
 ---
-title: "무중단 배포 이해하기"
-description: "무중단 배포 이해하기"
+title: "무중단 배포에 대해서"
+description: "무중단 배포와 적용하는 이유, 적용 방법의 세 가지 종류에 대해"
 date: 2023-10-20
-tags: ["infra", "zero-downtime-deployment"]
+tags: ["인프라", "무중단 배포"]
 ---
 
 ## 무중단 배포란? 적용하는 이유는?
