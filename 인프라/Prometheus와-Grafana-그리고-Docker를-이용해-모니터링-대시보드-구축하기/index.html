@@ -1,0 +1,758 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 5.14.5"/><meta name="description" content="…" data-gatsby-head="true"/><meta property="og:title" content="Prometheus와 Grafana, 그리고 Docker를 이용해 모니터링 대시보드 구축하기" data-gatsby-head="true"/><meta property="og:description" content="…" data-gatsby-head="true"/><meta property="og:type" content="website" data-gatsby-head="true"/><meta name="twitter:card" content="summary" data-gatsby-head="true"/><meta name="twitter:creator" content="" data-gatsby-head="true"/><meta name="twitter:title" content="Prometheus와 Grafana, 그리고 Docker를 이용해 모니터링 대시보드 구축하기" data-gatsby-head="true"/><meta name="twitter:description" content="…" data-gatsby-head="true"/><style data-href="/styles.150fcf919fb656f4a446.css" data-identity="gatsby-global-css">@font-face{font-display:swap;font-family:Pretendard;font-style:normal;font-weight:400;src:url(/static/pretendard-latin-400-normal-38bed7de46e7b9049cedbede041d23ed.woff2) format("woff2"),url(/static/pretendard-latin-400-normal-303253288b0ba99db532e29a364b0c09.woff) format("woff")}
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{-webkit-text-size-adjust:100%;line-height:1.15}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}[hidden]{display:none}:root{--maxWidth-none:"none";--maxWidth-xs:20rem;--maxWidth-sm:24rem;--maxWidth-md:28rem;--maxWidth-lg:32rem;--maxWidth-xl:36rem;--maxWidth-2xl:42rem;--maxWidth-3xl:48rem;--maxWidth-4xl:56rem;--maxWidth-full:"100%";--maxWidth-wrapper:var(--maxWidth-2xl);--spacing-px:"1px";--spacing-0:0;--spacing-1:0.25rem;--spacing-2:0.5rem;--spacing-3:0.75rem;--spacing-4:1rem;--spacing-5:1.25rem;--spacing-6:1.5rem;--spacing-8:2rem;--spacing-10:2.5rem;--spacing-12:3rem;--spacing-16:4rem;--spacing-20:5rem;--spacing-24:6rem;--spacing-32:8rem;--fontFamily-sans:"Pretendard",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--fontFamily-serif:"Pretendard","Georgia",Cambria,"Times New Roman",Times,serif;--font-body:var(--fontFamily-serif);--font-heading:var(--fontFamily-sans);--fontWeight-normal:400;--fontWeight-bold:700;--fontWeight-black:900;--fontSize-root:16px;--lineHeight-none:1;--lineHeight-tight:1.1;--lineHeight-normal:1.5;--lineHeight-relaxed:1.625;--fontSize-0:0.833rem;--fontSize-1:1rem;--fontSize-2:1.2rem;--fontSize-3:1.44rem;--fontSize-4:1.728rem;--fontSize-5:2.074rem;--fontSize-6:2.488rem;--fontSize-7:2.986rem;--color-primary:#00b02f;--color-text:#2e353f;--color-text-light:#4f5969;--color-heading:#1a202c;--color-heading-black:#000;--color-accent:#d1dce5}*,:after,:before{box-sizing:border-box}html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:var(--fontSize-root);line-height:var(--lineHeight-normal)}body{color:var(--color-text);font-family:var(--font-body);font-size:var(--fontSize-1)}footer{padding:var(--spacing-6) var(--spacing-0)}hr{background:var(--color-accent);border:0;height:1px}h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);letter-spacing:-.025em;line-height:var(--lineHeight-tight);margin-bottom:var(--spacing-6);margin-top:var(--spacing-12)}h2,h3,h4,h5,h6{color:var(--color-heading);font-weight:var(--fontWeight-bold)}h1{color:var(--color-heading-black);font-size:var(--fontSize-6);font-weight:var(--fontWeight-black)}h2{font-size:var(--fontSize-5)}h3{font-size:var(--fontSize-4)}h4{font-size:var(--fontSize-3)}h5{font-size:var(--fontSize-2)}h6{font-size:var(--fontSize-1)}h1>a{color:var(--color-primary);text-decoration:none}h2>a,h3>a,h4>a,h5>a,h6>a{color:inherit;text-decoration:none}p{--baseline-multiplier:0.179;--x-height-multiplier:0.35;line-height:var(--lineHeight-relaxed);margin:var(--spacing-0) var(--spacing-0) var(--spacing-8) var(--spacing-0)}ol,p,ul{padding:var(--spacing-0)}ol,ul{list-style-image:none;list-style-position:outside;margin-bottom:var(--spacing-8);margin-left:var(--spacing-0);margin-right:var(--spacing-0)}ol li,ul li{padding-left:var(--spacing-0)}li>p,ol li,ul li{margin-bottom:calc(var(--spacing-8)/2)}li :last-child{margin-bottom:var(--spacing-0)}li>ul{margin-left:var(--spacing-8);margin-top:calc(var(--spacing-8)/2)}blockquote{border-left:var(--spacing-1) solid var(--color-primary);color:var(--color-text-light);font-size:var(--fontSize-2);font-style:italic;margin-bottom:var(--spacing-8);margin-left:calc(var(--spacing-6)*-1);margin-right:var(--spacing-8);padding:var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-6)}blockquote>:last-child{margin-bottom:var(--spacing-0)}blockquote>ol,blockquote>ul{list-style-position:inside}table{border-collapse:collapse;border-spacing:.25rem;margin-bottom:var(--spacing-8);width:100%}table thead tr th{border-bottom:1px solid var(--color-accent)}a{color:var(--color-primary)}a:focus,a:hover{text-decoration:none}.global-wrapper{margin:var(--spacing-0) auto;max-width:var(--maxWidth-wrapper);padding:var(--spacing-10) var(--spacing-5)}.global-wrapper[data-is-root-path=true] .bio{margin-bottom:var(--spacing-20)}.global-header{margin-bottom:var(--spacing-12);text-align:center}.main-heading{font-size:var(--fontSize-7);margin:0}.post-list-item{margin-top:var(--spacing-12)}.post-list-item p{margin-bottom:var(--spacing-0)}.post-list-item h2{color:var(--color-heading-black);font-size:var(--fontSize-4);margin-bottom:var(--spacing-2);margin-top:var(--spacing-0)}.post-list-item header{margin-bottom:var(--spacing-4)}.header-link-home{font-family:var(--font-heading);font-size:var(--fontSize-2);font-weight:var(--fontWeight-bold);text-decoration:none}.bio{align-items:center;display:flex;justify-content:center;margin-bottom:var(--spacing-16)}.bio p,.bio-avatar{margin-bottom:var(--spacing-0)}.bio-avatar{border-radius:100%;margin-right:var(--spacing-4);min-width:50px}.blog-post header h1{margin:var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0)}.blog-post header p{font-family:var(--font-heading);font-size:var(--fontSize-2)}.blog-post-nav ul{margin:var(--spacing-0)}.gatsby-highlight{margin-bottom:var(--spacing-8)}@media (max-width:42rem){blockquote{margin-left:var(--spacing-0);padding:var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4)}ol,ul{list-style-position:inside}}code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#000;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5;tab-size:4;text-align:left;text-shadow:0 1px #fff;white-space:pre;word-break:normal;word-spacing:normal}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{background:#b3d4fc;text-shadow:none}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{background:hsla(0,0%,100%,.5);color:#9a6e3a}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="alternate" type="application/rss+xml" title="Gatsby Starter Blog RSS Feed" href="/rss.xml"/><link rel="icon" href="/favicon-32x32.png?v=fdc99851401fabaca2d68d6b9aefa2fe" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><title data-gatsby-head="true">Prometheus와 Grafana, 그리고 Docker를 이용해 모니터링 대시보드 구축하기 | 내가 재밌는 일을 하자 !</title></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="global-wrapper" data-is-root-path="false"><header class="global-header"><a class="header-link-home" href="/">내가 재밌는 일을 하자 !</a></header><main><article class="blog-post" itemscope="" itemType="http://schema.org/Article"><header><h1 itemProp="headline">Prometheus와 Grafana, 그리고 Docker를 이용해 모니터링 대시보드 구축하기</h1><p>June 15, 2024</p></header><section itemProp="articleBody"><h2>들어가며</h2>
+<p>서비스를 운영하면서 발생한 장애를 빠르게 대응하고 복구하는 것은 매우 중요하다.<br>
+이를 위해선 <strong>장애의 원인을 빠르게 파악</strong>해야 한다.<br></p>
+<p>문제의 원인을 파악하는 방법에는 애플리케이션의 상태를 전반적으로 관찰 가능한 <strong>모니터링 대시보드</strong>, 사용자의 요청을 한 트랜잭션으로 묶어 파악하는 <strong>APM</strong>, 문제에 대한 상세한 설명이 적힌 <strong>로깅</strong> 등이 있다.</p>
+<p>그 중에서도 <strong>모니터링 대시보드를 Docker, Prometheus, Grafana를 이용해 구축하는 과정</strong>에 대해 작성하겠다.</p>
+<p>설정할 것이 상당히 많지만 단순히 설정하고 연결하고 확인하는 것이 끝이다.<br>
+하나하나 차근차근 진행하면 할 수 있을 것이다.</p>
+<p>개발 환경은 다음과 같다.</p>
+<ul>
+<li>MacOS 14.5 (23F79)</li>
+<li>Spring Boot 3</li>
+<li>Docker 26.1.3</li>
+<li>Nginx 1.18.0</li>
+</ul>
+<h2>모니터링 시스템 아키텍처</h2>
+<p>모든 구축이 완료되면 아래 그림과 같은 모니터링 시스템 아키텍처를 가지게 될 것이다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/0bc2612aa0efcd3183f8105d82ba8d0c/ee515/monitoring-system-architecture.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 55.69620253164557%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABz0lEQVR42m1STW/aQBDl5/Yn9NJ/0GOvPbWHXltVIHEpoSpNqUhTmhBbJsR2ApgGDPZir9f78bK7hsSEjDTSrD3z3sy8aZRlieemlLJuY+28CuGuGF61Z7hLORIGLKkCKdVBbeMlwL0ZoA1TiDcZcv2IqcDvOcUtEXDWAqNY4DoRYOIJtMEYs8F4PEaWZTAEQRgiDHwE9wTb6Q1k5wOS1X8wLo5IpcbKa102OOcWpNlswvd95HmOVquFr18+49fQQzT5C3r1EbfhDX78PEUURWYnh4C8BiilxHq9Rr/fh+u69qMQAlIKnQjM4xST6QzLJAchKc7OBvgz/IeCFiCzOwtm8o52qGqsVawTS1lrZieSJgvvN0i+N5G8ew2yiEBU9d/UPQKaXdZBjVHNXOi9JTSzoy0WC7jOFVJagsxn2I4GSLdUK70bX0/7CNjr9WyBMc/zcHl5gTjhOPVP8H7wBgPvHKPhCKvV0oqTa2UpKkH2olhAI4rZWbvdRhAEKIoC3W4Xnc43OOMp+pMePl28hTe/1hVHF2s7z+qA+w4dx0GaptX9WRJu72tbmvsroU9Qr0DtHAfOxAsjHwryFMvdW6qqm+dOGddTMa1BiYIxPABISkwuKWpaVAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="구축 완료된 모니터링 시스템 아키텍처"
+        title=""
+        src="/static/0bc2612aa0efcd3183f8105d82ba8d0c/f058b/monitoring-system-architecture.png"
+        srcset="/static/0bc2612aa0efcd3183f8105d82ba8d0c/c26ae/monitoring-system-architecture.png 158w,
+/static/0bc2612aa0efcd3183f8105d82ba8d0c/6bdcf/monitoring-system-architecture.png 315w,
+/static/0bc2612aa0efcd3183f8105d82ba8d0c/f058b/monitoring-system-architecture.png 630w,
+/static/0bc2612aa0efcd3183f8105d82ba8d0c/40601/monitoring-system-architecture.png 945w,
+/static/0bc2612aa0efcd3183f8105d82ba8d0c/78612/monitoring-system-architecture.png 1260w,
+/static/0bc2612aa0efcd3183f8105d82ba8d0c/ee515/monitoring-system-architecture.png 1269w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<ul>
+<li>Spring Actuator를 이용해 Application의 메트릭을 웹에 노출한다.<br></li>
+</ul>
+<p>Prometheus는 일정 주기마다 Actuator가 노출한 Endpoint에서 메트릭을 수집 &#x26; 저장한다.<br>
+Grafana를 통해 Prometheus가 수집 &#x26; 저장한 데이터를 한눈에 본다.</p>
+<ul>
+<li>
+<p>Docker를 이용해 Spring, Prometheus, Grafana를 띄운다.<br>
+Prometheus, Grafana는 docker-compose를 이용해 두 컨테이너를 하나의 서비스처럼 동작할 수 있게 한다.</p>
+</li>
+<li>
+<p>외부인이 Spring Actuator나 Prometheus에 접근하는 것을 막기 위해 Docker Network를 구축한다.<br>
+사용자는 8080 포트를 통해 서비스를 이용만 할 수 있게 된다.<br>
+Prometheus가 Spring Actuator의 메트릭을 수집하고 Grafana가 Prometheus를 Datasource로 등록하기 위한 통신은 IP 주소를 입력할 필요없이 컨테이너 이름으로만 접근 및 통신한다.<br>
+개발자는 Grafana에 특정 포트를 통해서만 접근이 가능하다. 물론 인바운드 규칙 등으로 외부인의 접근을 차단한다.</p>
+</li>
+</ul>
+<h2>1. Spring Actuator</h2>
+<p>가장 먼저 <a href="https://docs.spring.io/spring-boot/docs/3.0.5/reference/html/actuator.html">Spring Actuator</a>를 설정해서 애플리케이션의 메트릭을 볼 수 있게 해야 한다.<br>
+메트릭은 <strong>서버 상태와 관련된 데이터</strong>라고 이해하면 된다.</p>
+<p>build.gradle에 <code class="language-text">spring-boot-starter-actuator</code> 의존성을 추가하면 Spring Actuator 기능을 사용할 수 있다.</p>
+<div class="gatsby-highlight" data-language="gradle"><pre class="language-gradle"><code class="language-gradle"><span class="token keyword">dependencies</span> <span class="token punctuation">{</span>
+    <span class="token keyword">implementation</span> <span class="token string">'org.springframework.boot:spring-boot-starter-actuator'</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>의존성을 추가하고 <code class="language-text">localhost:8080/actuator</code>로 접근하면 아래 그림처럼 Endpoint들이 노출된 것을 볼 수 있다.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 562px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/d2cb021355dda97d9555b769675c896e/6e88f/start-actuator.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 65.18987341772153%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAABg0lEQVR42o2TW5LrIAxEvQqDANvg9zPxJE7ykarsf1caiXhiPNd1az5OqUlBW41IdLlccJ5nvN1u+Hq9kNfTNOH9fsfr9YpN02Dbttj3vafrOizLEpMkOSSqqgoZ5xzmef6BDxVF4X9nrLU7nabpIZFSyjuz6el08mYKFEohUUpAIA1cGbFCmvfw2d94Q621/yobclzrLIpUoMokQkLVqTclGeVU7brW/zHkKoTAZVk8zViinXvMl6/ViKjhrQtA7bZzoXH0Izh/Xdf+jjh+nuWYGIuGUDHtEUSsNy0PCDvke+S4z+fTT7eYyLAz1I1E1a7dDbBpptlXbfRmyEgpcRgGf5dVQ5H7DrNuQDBkmlAH6UoS1BAdROahnM9nH5c1T5EnuosEBzEhIIzM8JN5PB4+etrSQx0yiu22aD3HJ6otqi6D4YSGxhjPOI7+n9O01GnXo5vmdxwTEMY0B8+GB5JlmTeM49jD9wn0jID0Lhb8G3NnyN3xk+EFAHzifzaF+g98A3gaX+Sv9cf9AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="start actuator"
+        title=""
+        src="/static/d2cb021355dda97d9555b769675c896e/6e88f/start-actuator.png"
+        srcset="/static/d2cb021355dda97d9555b769675c896e/c26ae/start-actuator.png 158w,
+/static/d2cb021355dda97d9555b769675c896e/6bdcf/start-actuator.png 315w,
+/static/d2cb021355dda97d9555b769675c896e/6e88f/start-actuator.png 562w"
+        sizes="(max-width: 562px) 100vw, 562px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<blockquote>
+<p>💡 엔드포인트를 사용하려면 엔드포인트 활성화, 엔드포인트 노출 두 가지 작업을 모두 수행해야 한다.<br>
+기본적으로 <code class="language-text">shutdown</code>을 제외하고는 대부분의 엔드포인트는 활성화된 상태인데, 이렇게 활성화된 엔드포인트를 HTTP에 노출할 지 JMX에 노출할 지 결정 후 사용하는 것이다.<br></p>
+</blockquote>
+<p>이제 더 많은 Endpoint를 노출하기 위해 <code class="language-text">application.yml</code>에 아래 코드를 추가한다.</p>
+<div class="gatsby-highlight" data-language="yaml"><pre class="language-yaml"><code class="language-yaml"><span class="token key atrule">management</span><span class="token punctuation">:</span>
+  <span class="token key atrule">endpoints</span><span class="token punctuation">:</span>
+    <span class="token key atrule">web</span><span class="token punctuation">:</span>
+      <span class="token key atrule">exposure</span><span class="token punctuation">:</span>
+        <span class="token key atrule">include</span><span class="token punctuation">:</span> <span class="token string">"*"</span> <span class="token comment"># web에 모든 Endpoint를 노출한다.</span>
+<span class="token key atrule">server</span><span class="token punctuation">:</span>
+  <span class="token key atrule">tomcat</span><span class="token punctuation">:</span>
+    <span class="token key atrule">mbeanregistry</span><span class="token punctuation">:</span>
+      <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># tomcat과 관련된 Endpoint를 노출한다.</span></code></pre></div>
+<p>그리고 다시 확인해보면 훨씬 많은 Endpoint가 노출된 것을 확인할 수 있다.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 570px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/ee14b113708b24252473aa38ba28980f/432e7/various-endpoints.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 131.64556962025318%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAaCAYAAAC3g3x9AAAACXBIWXMAAAsTAAALEwEAmpwYAAAC1UlEQVR42n1VWXKrMBDMIV4MktDGbhYDthOnUpXc/1bzZiRhsA356JIIcTM90y29XS4XGIYBrtcr/P7+wvz8/f3t/lbXNRyPR2jb1qFpGsjzHJIkASnlC97oZZZloJS6g17c90q+wv14h3D+ElVxPp8dOecceIxgYZ0Rrfb0jr/CEdJmJj2dTpBmKTAbA7f4T5YBz5hfq7BPGQjDQXCxTSiEf8EYg4+PD+wj9q4rwA4dpOcJyQJ5IHOE+g9C2mitoe97t1K1L3K3nvckU4UEkkwVVnUFSSUQEkSZeKkFoov9vgyoqFLxQH4nnNe2a2EcR6iqEmyDknuULPDHgr8iCeuWZLIISa6qypFl5DVBfY22ybbwPBRjDPz8/MAVZedDCmYoQfZooyr2Entca7bIXq2i4I7nwTZESD4sS5SrLUibgzRIGDE/iMOOL9kypHuFJJk8SOa2qYVIRRAnB2DJu7eKQeTBj+hBroNHNfP9Ezs+JMJxmqBoMzCnI9ipR//FnrQMxnZ+9L58NviDD2kglG2CTjROHmWrzEsjvItlH60k8x3bdF0Hn5+frodOXhbSUQa5TRgOeTLnbhXpRoWzsUky9fGEx1dRo2Q8rizuuUICxX0fdeifCpA7PqQJT9g7kk2V0rQTLpYJ7uGv6KVp6qJHVZoWM300IDB+zocks11JXoN8mK98OPeQQHmmxJRFAaZqQJc1tiJ+rOQ5IfLJNuvThiZMzwd2gBjB+PvSL8Mee6d2sjz7kMz9dfvyh2xrQJ9KRIUyYz/lteTMT15IsX840CAKlNq2HeQW7xlTgM4bjNwqetHGVbB1fFGWabrjMOLNdgSZ4Yckxk/8W+I2R08H+5gAtSOZcLvdMH4XKPCUsVML6XVEothLnA/aPFwFeZBNMQzmfpBMcsk6tFpl8DxUmAK5fes9Yyt6ZBm64MdpBNNglgv8ahov0dsYivMoVZn4Cv8DGzbAkwkX3wcAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="various endpoints"
+        title=""
+        src="/static/ee14b113708b24252473aa38ba28980f/432e7/various-endpoints.png"
+        srcset="/static/ee14b113708b24252473aa38ba28980f/c26ae/various-endpoints.png 158w,
+/static/ee14b113708b24252473aa38ba28980f/6bdcf/various-endpoints.png 315w,
+/static/ee14b113708b24252473aa38ba28980f/432e7/various-endpoints.png 570w"
+        sizes="(max-width: 570px) 100vw, 570px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>하지만 큰 문제가 하나 있다.<br>
+누구든지 뒤에 <code class="language-text">/actuator</code> 만 붙여 접근하면 현재 서버의 메트릭을 볼 수 있다는 점이다.<br>
+보안을 강화하기 위해 일부 엔드포인트만 열어둘 수 있지만, 그럼에도 아무나 볼 수 있는 것은 동일하다.<br>
+보여져도 상관없는 메트릭일지라도 모두에게 오픈하고 싶지는 않다.</p>
+<p>Spring Boot는 이러한 문제를 해결하기 위해 _port_와 _base-path_를 따로 설정할 수 있게 해준다.</p>
+<div class="gatsby-highlight" data-language="yaml"><pre class="language-yaml"><code class="language-yaml"><span class="token comment"># application.yml</span>
+<span class="token key atrule">management</span><span class="token punctuation">:</span>
+  <span class="token key atrule">endpoints</span><span class="token punctuation">:</span>
+    <span class="token key atrule">web</span><span class="token punctuation">:</span>
+      <span class="token key atrule">exposure</span><span class="token punctuation">:</span>
+        <span class="token key atrule">include</span><span class="token punctuation">:</span> <span class="token string">"*"</span>
+  <span class="token key atrule">server</span><span class="token punctuation">:</span>
+    <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">1111</span> <span class="token comment"># port 설정</span>
+    <span class="token key atrule">base-path</span><span class="token punctuation">:</span> new/path <span class="token comment"># base-path 설정</span></code></pre></div>
+<p>위처럼 설정을 추가하면 <code class="language-text">localhost:8080</code>이 아닌 <code class="language-text">localhost:1111/new/path/actuator</code>로 접근해야 볼 수 있다.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 618px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/f1cdd5e3c5ceb405cc2b3d9af149d625/6e6fb/add-port-and-path.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 59.49367088607595%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAABdElEQVR42oWS65KDIAyF+xJbIYjgBbxVa6cz7bTv/15nCVq1287sj88kDB5yCIdpmnC5XPB4PHC/39H3Pa7Xa6Su64j3PsamaSKcZ1kGrfUHB95cFEWkLEvkeR4jY62NGGPmPLfrms70d8E0TWPCnbE4ESE5JhBHAZkwElIsJBskCCQp7t9z4I9SClVVRZvjMEK7FKoOeA3y4ecq4Bb8FlXxRZDFGClltDuOI7qugfE1bDeA0rBR0Rxf+aumzy6jICdsmcX4figNtigJhyQgvRPT9FlnywHfOmTR6TyhbAtkPeNme+Vi+2W92sHWtVo7XQV5qs45DMOAU9vD2ApZ2cyX/x9yYxXk+ztPZwynAVVXQleha/0zd1fs2Nf5ruZo/1h23sVJd6cWpvOwpx5kRGC5KytnzJK/1paara+C/Prbto1DUaTiGyQhNjv0bu0N+mKZF2+3G56PJ9pLeDZnBzPWoHo3jFrMtZfb+2wEVE6xCR7KL60vRejRsDwSAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="add port and path"
+        title=""
+        src="/static/f1cdd5e3c5ceb405cc2b3d9af149d625/6e6fb/add-port-and-path.png"
+        srcset="/static/f1cdd5e3c5ceb405cc2b3d9af149d625/c26ae/add-port-and-path.png 158w,
+/static/f1cdd5e3c5ceb405cc2b3d9af149d625/6bdcf/add-port-and-path.png 315w,
+/static/f1cdd5e3c5ceb405cc2b3d9af149d625/6e6fb/add-port-and-path.png 618w"
+        sizes="(max-width: 618px) 100vw, 618px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>이렇게 설정한 port와 base-path는 내부망에서만 접근하도록 설정하면 된다.</p>
+<h2>2. Prometheus</h2>
+<p>다음으로 Prometheus를 Docker Container에 띄어 실행하고 Spring Actuator의 Endpoint에 접근해 메트릭을 수집해보자.</p>
+<blockquote>
+<p>💡 Prometheus는 메트릭을 주기적으로 수집해 저장하는 오픈소스 소프트웨어이다.<br></p>
+</blockquote>
+<p>그 전에, 미리 수행해야 하는 작업이 있다.<br>
+build.gradle에 <code class="language-text">implementation 'io.micrometer:micrometer-registry-prometheus'</code> 을 추가하는 것이다.</p>
+<p>추가하는 이유는 JDBC를 사용하는 것으로 이해하면 되는데, DB 종류마다 쿼리를 읽고 처리하는 방식이 약간씩 다르지만 JDBC가 DB 계층을 추상화하여 개발자는 DB 종류에 종속되지 않는 것과 같다고 이해하면 된다.</p>
+<p>추상화 작업은 바로 <a href="https://micrometer.io/">Micrometer</a>가 수행해주는데, Micrometer가 Spring Actuator의 메트릭을<br>
+Prometheus가 읽을 수 있도록 변환해주는 것이다.</p>
+<p>의존성 추가 후 애플리케이션을 재실행해보면 <code class="language-text">~/actuator/prometheus</code> Endpoint가 노출된 것을 확인할 수 있다.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/b9eca616cb3976c81eac63f08ed24a6b/fdaf8/actuator-prometheus.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 65.18987341772153%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAABsklEQVR42m2TV44CMRBE5wIEASIz5JyGJHIOH9z/Pr16JdlCo/0o2W7b5arudjCbzWw8HttqtbL5fG69Xs+iKLJ+v2+tVss6nY7Amj0H1s1m0yqVilWrVY9gMpkYpMvlUkSLxULEjMPhUIeKxaJlMhnL5XJCNpv1YxzBfr+38/ls9/vdrterxsvlohhKBoOBdbtdKSmXy14Rc7f+jQVc3O12Ijkej8YDz+dT43a7VZx9FJOCWq1mjUZDI6jX6x6sA0i49Pl8hNfrZY/Hw97vt32/X8UOh4PUYjuVSlk6nfaIrwMOo9IRoQ7bzMHpdJLtdrutIuTzeV38L388KIUQosjljlzebjcB63QAZOQyDEPli8txMk8IAYAMRRCjmBhzRjoBQhQWCgVZBclkUvCEm81GJE4VRI4UktFoJNCLVBPrpVJJSsnrdDrVvrdMJVEJmbMMIZXlEVcgrPM4JFQ53j6ekIMQQAiZI3SPsKZwPEzz0zpYRyX2E4mELPsquxyiggqjyLWQi0PEryEFFAcy1NF3rLFPH+rrrddr2XP9CIiRG6zx7bjIJeZYZR7/w5zhp/wBh1aC2o9zHHAAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="actuator prometheus"
+        title=""
+        src="/static/b9eca616cb3976c81eac63f08ed24a6b/f058b/actuator-prometheus.png"
+        srcset="/static/b9eca616cb3976c81eac63f08ed24a6b/c26ae/actuator-prometheus.png 158w,
+/static/b9eca616cb3976c81eac63f08ed24a6b/6bdcf/actuator-prometheus.png 315w,
+/static/b9eca616cb3976c81eac63f08ed24a6b/f058b/actuator-prometheus.png 630w,
+/static/b9eca616cb3976c81eac63f08ed24a6b/fdaf8/actuator-prometheus.png 674w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<hr>
+<br>
+<p>이제 진짜 Prometheus를 실행해보자.<br>
+환경 구성의 편리함을 위해 <em>docker-compose</em>를 통해 구성한다.<br></p>
+<div class="gatsby-highlight" data-language="yaml"><pre class="language-yaml"><code class="language-yaml"><span class="token comment"># docker-compose.yml</span>
+<span class="token key atrule">name</span><span class="token punctuation">:</span> monitoring
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">prometheus</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> prom/prometheus<span class="token punctuation">:</span>latest
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> prometheus
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"9090:9090"</span></code></pre></div>
+<p>이제 <code class="language-text">docker compose up -d</code> 명령어를 통해 컨테이너를 실행하고 <code class="language-text">localhost:9090</code> 으로 접속 후 확인해보자.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/5304d25d3eb909a03fabe000e0458d76/a13c9/start-prometheus.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 37.34177215189873%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQElEQVR42p3QS0rDUBTG8ezBoq1pb3KbtubRJE2apC9b2wgqojizS9ChIjhwC66jQ7XUF4jg0v5egyMnioMf5+MMDodPOzg5ZbZ/zHZ+SDyYkgxndAs5UW9CkGwTZBNCpZON1dwpZpCM8LsD/KiPG2ZM811meY5mhROk3cFwM6SXYrkx0k0wvD7SiTHtCPGV1U46XYTbK7KwHHTDot5u47QDqoM56+kczfE7WLaPaLiYVpOabCBkE11IKlXzm/GD2tVkoWbbuEGImZ9TnpyhZaMpLa9THNSFSdjtYfsR9ZaLteX9qt5UjzQcrLqBIXS0i4tLHpd3LBYL7u4feHp5ZfX0zHL1+GcPyxVv7x9cXd+oDpM9/HxOEGdKSjtKVNFf0j8LlN5wjBfGaBv7N5SOblmrCEobOqVKjVK5+i/rm4JPKbzvk+NLR58AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="start prometheus"
+        title=""
+        src="/static/5304d25d3eb909a03fabe000e0458d76/f058b/start-prometheus.png"
+        srcset="/static/5304d25d3eb909a03fabe000e0458d76/c26ae/start-prometheus.png 158w,
+/static/5304d25d3eb909a03fabe000e0458d76/6bdcf/start-prometheus.png 315w,
+/static/5304d25d3eb909a03fabe000e0458d76/f058b/start-prometheus.png 630w,
+/static/5304d25d3eb909a03fabe000e0458d76/40601/start-prometheus.png 945w,
+/static/5304d25d3eb909a03fabe000e0458d76/a13c9/start-prometheus.png 1178w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>실행이 성공적으로 된다면, Status -> Targets로 들어가보자.<br>
+현재 Prometheus 스스로의 메트릭을 정상적으로 수집하고 있음을 확인할 수 있다.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/fe6c3e050bd34d514ff7d4c9420c82f2/59822/targets.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 31.645569620253163%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABeElEQVR42k2RzWrbQBRGvW4TUyceaWYkjSxpFFmNFNtECZGKqWgpLqUQ02wcgmkXWXQX8hTZZtdHKF1m1cc7HadQujhcuNzf7xvMzy54t/pENW/wghgdJagwRuoIFUT4uxga1C7v0CZF/UcQZ//Y9Q3evl9xvf3G1WZL27aM2lvEzU+i2ycOvj4Rf/+NWD9Szs5I7ZTRgUD4irEnORSSl3tDXuwPGe7vIacdg8msJ2vXFG/WJPOecX+Ht/2Fd/oFsbjEb67w6hXGviZMjtwXBunwtUHI0BEwdgipkSZnELvCpJghghQvTNGTAp1VpFFMGChi7ZGoV3jjEb53iHbva5MRueFZcYydVpy3S8p6QZy6gfa4oWx6lJ0h81NkWj1rdvKhc7rE2IvPnFw/kK7usR/vCKslvgrIy5pu2VM77c+7JfWiYWILBn5kEVGOjI+Qk+lzVCYhKFxOKaLmkuzmB/nmEdNt0GmJdAt3JkSJddcmfw1xhvmB4Q89obIdje4M0AAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="targets"
+        title=""
+        src="/static/fe6c3e050bd34d514ff7d4c9420c82f2/f058b/targets.png"
+        srcset="/static/fe6c3e050bd34d514ff7d4c9420c82f2/c26ae/targets.png 158w,
+/static/fe6c3e050bd34d514ff7d4c9420c82f2/6bdcf/targets.png 315w,
+/static/fe6c3e050bd34d514ff7d4c9420c82f2/f058b/targets.png 630w,
+/static/fe6c3e050bd34d514ff7d4c9420c82f2/59822/targets.png 916w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>이제 이 수집 대상에 Spring Actuator를 추가하자.<br>
+추가하기 위해 <code class="language-text">prometheus.yml</code> 파일을 생성 후 도커 마운트를 이용할 것이다.</p>
+<ol>
+<li><code class="language-text">prometheus.yml</code> 파일 작성</li>
+</ol>
+<div class="gatsby-highlight" data-language="yaml"><pre class="language-yaml"><code class="language-yaml"><span class="token comment"># prometheus.yml</span>
+<span class="token key atrule">scrape_configs</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">job_name</span><span class="token punctuation">:</span> <span class="token string">"spring application"</span>
+    <span class="token key atrule">metrics_path</span><span class="token punctuation">:</span> <span class="token string">"/new/path/actuator/prometheus"</span>
+    <span class="token key atrule">scrape_interval</span><span class="token punctuation">:</span> 5s
+    <span class="token key atrule">scrape_timeout</span><span class="token punctuation">:</span> 5s
+    <span class="token key atrule">static_configs</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">targets</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"localhost:1111"</span><span class="token punctuation">]</span></code></pre></div>
+<ol start="2">
+<li><code class="language-text">docker-compose.yml</code> 수정</li>
+</ol>
+<div class="gatsby-highlight" data-language="yaml"><pre class="language-yaml"><code class="language-yaml"><span class="token comment"># docker-compose.yml</span>
+<span class="token key atrule">name</span><span class="token punctuation">:</span> monitoring
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">prometheus</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> prom/prometheus<span class="token punctuation">:</span>latest
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> prometheus
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"9090:9090"</span>
+    <span class="token key atrule">user</span><span class="token punctuation">:</span> <span class="token string">"65534:65534"</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span> <span class="token comment"># 추가</span>
+      <span class="token punctuation">-</span> <span class="token string">"./prometheus.yml:/etc/prometheus/prometheus.yml"</span>
+      <span class="token punctuation">-</span> <span class="token string">"./prometheus-data:/prometheus"</span></code></pre></div>
+<p>이후 <code class="language-text">docker compose down</code> -> <code class="language-text">docker compose up -d</code> 명령어로 컨테이너를 다시 띄운다.<br>
+그리고 다시 Targets 화면으로 이동 후 연결 상태를 확인한다.<br></p>
+<p>만약 아래처럼 <code class="language-text">connection refused</code> 에러가 발생했다면 통신에 실패한 것이다.<br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/a3a2a257cdd95cd67d99df5799d92da8/a9965/error-prometheus.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 25.316455696202528%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAABO0lEQVR42j2QS0vDQBRGs5eiWE0zSdrOTCfT2LQmJlZrfeGzPhBduVEUxJ0IbnTj/3GpP/E4ceHi8HHh8t3D9cZbu+wfn6PsgEBnhLYisiVRukmYFLSlIWwrxD8SEXcJYklbG5TpoVQfqfvEJsE7u7jh6fmFq4srosk9wcM3/uMPwd0X/uyTflbgi4glP3AIFprLzDUaNOabpHnO0aHlYLTFtNpB7ZV4qzphXWrWZI+iHWPyE5obt4RhRChatJYXEUI4M03U7f2RZjm6P6DlLFvO2ndZU89eUkzprO7QVEMWdY61GbPhADmcMrp+R528EpfnBO7AIC+pNqesT7YZjyekymI6PWzXsOIwDi/QI3xTIbT7YccQy3pJEaYbyNM3zOUHcTFD1MZ/hprAWemOpnIFpUzIXFpXXJf/Atx1lFyLiW/BAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="error prometheus"
+        title=""
+        src="/static/a3a2a257cdd95cd67d99df5799d92da8/f058b/error-prometheus.png"
+        srcset="/static/a3a2a257cdd95cd67d99df5799d92da8/c26ae/error-prometheus.png 158w,
+/static/a3a2a257cdd95cd67d99df5799d92da8/6bdcf/error-prometheus.png 315w,
+/static/a3a2a257cdd95cd67d99df5799d92da8/f058b/error-prometheus.png 630w,
+/static/a3a2a257cdd95cd67d99df5799d92da8/40601/error-prometheus.png 945w,
+/static/a3a2a257cdd95cd67d99df5799d92da8/a9965/error-prometheus.png 1171w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>보통 올바르지 않은 Host거나, Host를 찾지 못했거나, Host에서 통신을 차단한 경우에 발생한다.</p>
+<p>필자는 Spring은 IDE를 이용해 호스트 자체에서 실행 중인데, Container로 실행 중인 Prometheus가 Spring에 HTTP GET 요청을 보내면서 통신에 실패한 것이다.<br>
+Container에서 호스트로 요청하려면 <code class="language-text">localhost</code> 대신 <code class="language-text">host.docker.internal</code>로 접근해야 한다.<br>
+(<a href="https://docs.docker.com/desktop/networking/#i-want-to-connect-from-a-container-to-a-service-on-the-host">참고 - Docker 공식문서</a>)</p>
+<blockquote>
+<p>⚠️ 만약 EC2 인스턴스 내에서 수행하고 있는데 연결이 안된다면, 인바운드 규칙을 열어두었는지 확인해보자.<br></p>
+</blockquote>
+<p><code class="language-text">prometheus.yml</code>을 올바르게 수정 후 다시 실행하면 아래 그림처럼 성공할 것이다.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/a4c661dd98ce226ee96aa20a04431e0f/0f67e/connect-success.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 30.37974683544304%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABfElEQVR42i2RTW8SURiF5x9oOsCdy5258/3NlDJAS0GpQBSTakzauFBI1FjRGOMvcG9068qdG1cu3fnnHgfSxZNzkndzznuM48Ep8+VD8t4JpuUgVYMlsKRstIMQbWTjLdvDcnykDpDOLTqke8veS6Ux1pfP2H38zKubD8wfLDCnb2m9/I3e/qK1/YO3+0v7yXeyakRRz/CzAVE5JCqGhHmNE/bQUdVQIsv7GMnZY8rVlpP1G9J7V5jjFxxdfkO8+0dr/onO9DWt+govLvDSY+ygwIkaggzlp3TdGOGEB5VejqH85HAwpUfbDugqm66tcfNzlLTQ1l20uEOnbR7Yv8CSCuWG6CDGjzJGZ1OCpMB2A4y0P6GarpHRACuuEY2quKJenCJth3z+nOr6C+5iR7B6j7+8QfbmJHnB7GJJ2R9ysXrEYDxpWmQYIuxzFE8Q6Tkia0jGyH2VLG6SCJzZhmDzk2zzg/D6K87oKTIZorSL48eHsfZppfYRSvMfpLC3AgydUpYAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="connect success"
+        title=""
+        src="/static/a4c661dd98ce226ee96aa20a04431e0f/f058b/connect-success.png"
+        srcset="/static/a4c661dd98ce226ee96aa20a04431e0f/c26ae/connect-success.png 158w,
+/static/a4c661dd98ce226ee96aa20a04431e0f/6bdcf/connect-success.png 315w,
+/static/a4c661dd98ce226ee96aa20a04431e0f/f058b/connect-success.png 630w,
+/static/a4c661dd98ce226ee96aa20a04431e0f/0f67e/connect-success.png 921w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<h2>3. Grafana</h2>
+<p>지금까지 Spring Actuator를 통해 메트릭 Endpoint를 노출했고 Prometheus를 통해 Endpoint에 접근해 메트릭을 수집하도록 설정했다.</p>
+<p>이제는 Grafana를 이용해 Prometheus가 수집한 메트릭을 한눈에 그리고 이쁘게 볼 수 있도록 대시보드를 구축해보자.</p>
+<p>Grafana도 Prometheus와 함께 <em>docker-compose</em>로 구성 및 실행한다.</p>
+<div class="gatsby-highlight" data-language="yaml"><pre class="language-yaml"><code class="language-yaml"><span class="token comment"># docker-compose.yml</span>
+<span class="token key atrule">name</span><span class="token punctuation">:</span> monitoring
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">prometheus</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> prom/prometheus<span class="token punctuation">:</span>latest
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> prometheus
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"9090:9090"</span>
+    <span class="token key atrule">user</span><span class="token punctuation">:</span> <span class="token string">"65534:65534"</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"./prometheus.yml:/etc/prometheus/prometheus.yml"</span>
+      <span class="token punctuation">-</span> <span class="token string">"./data:/prometheus"</span>
+  <span class="token key atrule">grafana</span><span class="token punctuation">:</span> <span class="token comment"># 추가</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> grafana/grafana<span class="token punctuation">:</span>latest
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> grafana
+    <span class="token key atrule">user</span><span class="token punctuation">:</span> <span class="token string">"$UID:$GID"</span>
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"3000:3000"</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"./grafana-data:/var/lib/grafana"</span>
+      <span class="token punctuation">-</span> <span class="token string">"./grafana-logs:/var/log/grafana"</span>
+    <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> prometheus</code></pre></div>
+<p>이번에도 마찬가지로 <code class="language-text">docker compose down</code> -> <code class="language-text">docker compose up -d</code>로 재실행 후 <code class="language-text">localhost:3000</code>으로 접속하면 아래와 같이 로그인 창이 뜰 것이다.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 479px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/7819da0c08b5e0fdad5fa8142b47df47/a9b70/start-grafana.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 100.63291139240506%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAADdElEQVR42o3UTW/cRBwGcH8BEpLN2rt+f9u1vV577bX3JaGhhBdBSwE1UrqwVFFpI6WCAyC4cuPAFYkLcKhUSEGq2kP5gA/PjJ2EgIR6+O3YM57H85/ZXeV6so9FtMQy2sNiuId5aybtYjbYxZTSYA/loMV+oaAJx3L2CRkpu5xYhjNMw7lUtgrRBnMk/pwvmmM1qWXfmLKWuB7zmZRGLWXO1CKY0fzCJGhCh94CJ2WFp+/m+PnNCb5ZlBjzBVlwGZT6jaSl1MESuV9RfSGjSVjDc2b46VaGH97Osa6n+O6gYPkzjLwZQ2YMEGrEgte0ShEsOFhhzI6xf9XAmuG3BwkenSb45PUJHj9MGFghcusmiHOic+wbkpKzrJE7RepWso3tAokzldcDa4oyKvHo2wB/fe/g9NYIjl4hFmNOiSGfG3LeuQEpYy4/dkvEfCDlXlbpPk9rcWm4lHuZDuaIuD3iPot4svEeEu6hCAoZfE5JHLHUAoGZoc6v48Hxlzi59zU+vLHG+ugUR7fv4/b7d/ER3XxnhfWdh1gdnuD+8Ve4w/ba4gZcI5NhgV1CiWwm27kM9CmwMpZTYMDSI0+UdEmW6V7tC8m3CskjZcAPEZizDFHWiF+XlKXGXgXfyBFyPLAmLTFx0jAn8ATRx5W57HOtHErIj8Aeoyr3MS2vSYv5AfJsCduMYPTD/9D/xegPYLMymxUqgZnDMRL0+y5M04dueLDsEJ4Xw7ICdDp9dHb0/9XtmrCMESxzDMXVUy47RTnm6vJ9xEEFu5/wJank8c0u3+xa57gAto7ZsBli8TnB1EdQHH7YeoxoWCBNa4Rhhl7Pg6a50NSGesFpNffdrsPKAjhOwtK5PcxRLK5G7IGh6Qw2YNHO1ja2NzdoU9p8pbG9+Wqr6d/a2IDa6cg5PS1AXwTqPYaZKSYf/Ijp6gnKo8eoVr+j/vhMqlZneOPeHzj47M+27wkqqqUzeV0c/gqDPztN86H01AA6A4vDXzA7foH602et51K1fo73Pn+Bm19w7O4z3j+9is+KUBEotkHR1FAmqzsGl9+Hut3q6Be2t3SWp/LUUwzHb8Hnz8/jd9bjn7IfvwaP91ovgCpWqHV5AKrHdL8J1jw5IKlNq53jpL4Zo6dHNCReGzE0fYAu5wmKOKmuOLGX1bWxw5OWuo1/ZvwNSUtiEsDarNoAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="start grafana"
+        title=""
+        src="/static/7819da0c08b5e0fdad5fa8142b47df47/a9b70/start-grafana.png"
+        srcset="/static/7819da0c08b5e0fdad5fa8142b47df47/c26ae/start-grafana.png 158w,
+/static/7819da0c08b5e0fdad5fa8142b47df47/6bdcf/start-grafana.png 315w,
+/static/7819da0c08b5e0fdad5fa8142b47df47/a9b70/start-grafana.png 479w"
+        sizes="(max-width: 479px) 100vw, 479px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>admin/admin을 입력하면 패스워드를 재설정하라고 뜨는데, 일단 skip 후 계속 진행하자.</p>
+<p>로그인에 성공하면, 설정할 것이 두 가지가 있다.</p>
+<p>첫 번째로, <strong>Datasource 설정</strong>이다.<br>
+Datasource는 화면에 그려줄 데이터를 어디서 가져올 건지 설정하는 것이다.</p>
+<p>설정을 위해 화면 좌측에 메뉴바에서 Connections - Data sources 탭에 들어가서 <code class="language-text">Add data source</code> 버튼을 누른다.<br>
+그리고 prometheus를 찾아 클릭하면 아래 그림처럼 설정 페이지가 뜰 것이다.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/b2a6421a03cea98025f0ef8a2e572d0a/c0ebd/setting-datasource.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 55.69620253164557%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABe0lEQVR42o1Sy07DMBD0V5A2iR2/4iSmKQLEiQsHxJ9wRuL/pWHWrdOCQOIwcrLP2dlVcxrRDwHGRvQmwPpUvgWddrT5Yt+1Bm1vC/bdsKHaJTaNHiq5iGlcMC1HpOmAwSVoNhBIUE2shaRB8dvT68LEnLG8nQ5Q2VoclhX5+Ih5uSsdK66ZVDbGjpxiQjwssDEhplsEEkrzioE+JV2WOfMnFBbCoI62jSfFzw1+Nqv/zV6XVwU/4j6viNROOrcManY9oXHT9KXo4DO0y0zQV4xrE7NJIlCaNLWbOEqCDzON7oxTgCwnpCNcXMnelQXJFJ3hEu1EMEf7rbCShEgNfJwLHIvWLYvYp+27AtGv+jQJGH+ACWspvhW81kuze9vZTbO/9LpAn2W4xCgZQZjJcho6GzoLegbIUgqGb4tqz/bf7lKFMePh6Rl5fYDjGLMmDM+io1bcXL830ET344T+gjqdSsCeQmc94SO+4jO+4d29sJCMP6Aj2n8W/AIJiSvcak+wOAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="setting datasource"
+        title=""
+        src="/static/b2a6421a03cea98025f0ef8a2e572d0a/f058b/setting-datasource.png"
+        srcset="/static/b2a6421a03cea98025f0ef8a2e572d0a/c26ae/setting-datasource.png 158w,
+/static/b2a6421a03cea98025f0ef8a2e572d0a/6bdcf/setting-datasource.png 315w,
+/static/b2a6421a03cea98025f0ef8a2e572d0a/f058b/setting-datasource.png 630w,
+/static/b2a6421a03cea98025f0ef8a2e572d0a/40601/setting-datasource.png 945w,
+/static/b2a6421a03cea98025f0ef8a2e572d0a/c0ebd/setting-datasource.png 1177w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>이제 빨간 경고창이 나타내는 곳에 Prometheus의 URL을 입력하면 된다.<br>
+그리고 맨 아래에 <code class="language-text">Save &amp; test</code> 버튼을 눌러 연결을 확인하자.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/4f6eebab0065fe04f5371b4c45852e0d/bbb77/setting-datasource-success.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 26.58227848101266%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA3klEQVR42pXNy0rEMBgF4D6EOiaZXtIkvSpzbdpOweUwuHYrrgXfwscR3Pp4x0MqOOhqFh/nkPz8f6Qqi2x1h8bvqUPd7dD0HSpmy6z5HrcFRJlDlgaS8/+ZQFGkmgJ6d49m9KhHLjhw2bAPvZ08qnGAGSbkfoTpJxgest0Kzm9Q+C37Gsb34T/drhEttMbC8LrhlTwLFPvSOrJzuvJMQQ6xcyFn85/ibJSoDKnUkKRiGwj2WxFT8pPnkj/vv13IBNF7+ogP/YTj5hkPr584vX2hOrzg5voKcqkhVHqRb2QokRVtcqPNAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="연결 성공 시"
+        title=""
+        src="/static/4f6eebab0065fe04f5371b4c45852e0d/f058b/setting-datasource-success.png"
+        srcset="/static/4f6eebab0065fe04f5371b4c45852e0d/c26ae/setting-datasource-success.png 158w,
+/static/4f6eebab0065fe04f5371b4c45852e0d/6bdcf/setting-datasource-success.png 315w,
+/static/4f6eebab0065fe04f5371b4c45852e0d/f058b/setting-datasource-success.png 630w,
+/static/4f6eebab0065fe04f5371b4c45852e0d/bbb77/setting-datasource-success.png 765w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>만약 연결이 안된다면, URL을 입력할 때 <em>http 혹은 https 스키마를 추가했는지?</em> 혹은 <em>host가 유효한지?</em> 혹은 <em>host에 요청이 가능한지?</em> 등을 확인해보자.</p>
+<p>성공적으로 연결이 됐다면 Data sources 페이지에 아래처럼 뜰 것이다.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/f860b2e34f1834186c789ab006dfd55e/dc61a/result-data-sources.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 20.253164556962027%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAy0lEQVR42nXNPU7DQBCGYd8BkhCvf3Ztr3ed9W8sJygFadLSIK5AwUHg2i9DUoGU4tHMSDPfRF0/M04HhumIKT0qLUiyX6X0hjjRd23jlOb8yfPbF6f3b9qXDyKVV+SFw5iaTHqVSIjSUjWbjWJ1x+M6Zv2UkMrjrTI8rG5z1BUVc+jx7Yw2nkw7IeFlILe9PLG3+R9TNpQ2ULmOotpdZdoSTdaxtCMuzNR+wO0mnCz55UJ9ekUXHlO1IvzRhD39eKTtl+tdNxwkNPADqx5yrG3l8y8AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Datasource 추가 성공"
+        title=""
+        src="/static/f860b2e34f1834186c789ab006dfd55e/f058b/result-data-sources.png"
+        srcset="/static/f860b2e34f1834186c789ab006dfd55e/c26ae/result-data-sources.png 158w,
+/static/f860b2e34f1834186c789ab006dfd55e/6bdcf/result-data-sources.png 315w,
+/static/f860b2e34f1834186c789ab006dfd55e/f058b/result-data-sources.png 630w,
+/static/f860b2e34f1834186c789ab006dfd55e/40601/result-data-sources.png 945w,
+/static/f860b2e34f1834186c789ab006dfd55e/dc61a/result-data-sources.png 1147w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<hr>
+<br>
+<p>이제 두 번째로 설정할 것은, <strong>대시보드 구축</strong>이다.<br>
+대시보드를 직접 하나하나 구축해도 되지만, 감사하게도 <a href="https://grafana.com/grafana/dashboards/">Grafana Labs</a>에서 제공되는 대시보드 템플릿이 매우 다양하게 있다.<br>
+우리는 여기서 제공되는 템플릿을 이용할 것이다.</p>
+<p>왼쪽 메뉴에서 Dashboards 페이지로 이동 후 <code class="language-text">Create Dashboard</code> 버튼 -> <code class="language-text">Import dashboard</code> 버튼을 누르자.<br>
+그리고 가운데 보이는 칸에 "19004"를 입력 후 <code class="language-text">Load</code> 버튼을 누르면 페이지가 이동하는데<br>
+이동한 페이지에서 Data source를 Prometheus로 설정 후 <code class="language-text">Import</code> 버튼을 누르고 아래처럼 뜨면 성공이다!</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/7e6a1a97a85c6f96f4af616a9f0cd4bb/a9965/monitoring-dashboard.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 59.49367088607595%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAACIElEQVR42j1TyXbbMAzUJyR2bEuUxF0ktXjJ0uXSXvr/3zQdQkkOeBRIYAAMRs2aC/rRQdsJg3byPegg32qovsdAazst/sh7kz7E+sHQLO+85C8lorFhhQ0LnE/Qnue0wfBR+5lBCaOJEqyYOLgZxheU+1/48gvaZdh4w8i4thtxPPVoep0J8mDSjEurcXhReD5c8HzsJOB03q3e1bd6dzic8PR03GPOA4415/mMJ1rjw4xY7uh0ZDADXjp0yqIl+PFA/9jKuP3gca5g9GvhYQxQvZX4l5P6tqbjKDeO9W4mZBPQ9YajTHBbhl7oj0aSw5V0XDMLa6HBx1moUaMV4EpJqzQaxcfsMzKJD7RTO2LIJDlNGP2ElUSPmUsrXJqLWOYJ1npcmHwhb72uYEYaEcCrS3gl4ELgK7u88rSvXMqDI705uYv/6P8JaIvGFCdssfK+d2hDgktZzgraBG6o1PbZtqEsdO/Q9pqjsaphdWVkTFcK4rzKW5WUj4WdeYJYsSo36bBqrqeOLgys1rLK4Pw+Qvc1ys7joP2336pRRlW1uNjnyFWYndqB6kXlJL8vCBs16Peq9b2SfiHIF6C2Fj9/T3h7dUjZihIqp00Vp59Wbi6I1S5i2ZDWDaEsInrFZdnILccV+jNuNB7ztmK5Xxm/x/WUXuMCl/H4QFnuwkO1RF3GtCHzLMtDvn1MuN1/fHK3y6QfqQCT5I9yocC4hP+rakhp2zMUqgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="monitoring dashboard"
+        title=""
+        src="/static/7e6a1a97a85c6f96f4af616a9f0cd4bb/f058b/monitoring-dashboard.png"
+        srcset="/static/7e6a1a97a85c6f96f4af616a9f0cd4bb/c26ae/monitoring-dashboard.png 158w,
+/static/7e6a1a97a85c6f96f4af616a9f0cd4bb/6bdcf/monitoring-dashboard.png 315w,
+/static/7e6a1a97a85c6f96f4af616a9f0cd4bb/f058b/monitoring-dashboard.png 630w,
+/static/7e6a1a97a85c6f96f4af616a9f0cd4bb/40601/monitoring-dashboard.png 945w,
+/static/7e6a1a97a85c6f96f4af616a9f0cd4bb/a9965/monitoring-dashboard.png 1171w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>추가적으로 JVM 관련 메트릭만을 따로 확인할 수 있는 대시보드를 만들어보자.<br>
+과정은 위와 동일하지만 Import ID에 "4701" 를 입력하면 된다.</p>
+<h2>4. Docker Network 구성</h2>
+<p>지금까지 성공적으로 대시보드 모니터링을 구축했다.<br>
+하지만 아직까지 <code class="language-text">:111/new/path/actuator</code> 로 접속하면 메트릭을 볼 수 있을 뿐더러, <code class="language-text">:9090</code>로 접속하면 Prometheus를 통해서도 확인할 수 있다.</p>
+<p>이제 이 메트릭을 Docker Network를 이용해 내부망을 통해서만 확인할 수 있게 하고 Grafana만을 외부로 허용하자.</p>
+<p>우선 <code class="language-text">docker network ls</code> 명령어를 입력하면 <em>monitoring_default</em> 네트워크가 존재할 것이다.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 429px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/df684eae0936681bfdf4cef36b7986c1/3d026/docker-network-ls.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 31.645569620253163%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABYUlEQVR42m2P60/aUBjG+684pxO0K8ilF6BcFXphpa1FLEohSCITEo2XyGfjkn1ZsuwP/q2cxGRZ/PDLed7znPfJc6RcwaTR7lNvOlTrFmbDppaiV08pqi1Uo0PF7HJcarCfKfElWxZs9UezVDUtovNEhHa6Pl4QC70Nzh7p4tHBoSp4X97y/13mSBOzVG+5JLMlw9EMz49R9RP20pBoNMX5dk5G1v4J0NhPtZyvCT8cJuTT5tv2o/Fc/Eyq1Xsk0wXR8JJJssDtn3Eol+n2BgRhjKxo7Ox+ZXcvl6Lw6bOSNi/hBxdYdsBBtoiSN8S+qjeRmtaY1eYPty+/WT7/YrJ6w3RvuPr+SpBsOAnW2KMHnItH+vETHX8t/GT9A3+ywehd0x6smN/9pDe8Txu2PKLLFW445yxeYg2m5DVHnG17jFK2KFb6FAyXY90hp9rCd/wZlVaIXDilVPXwogVGM+QvfSnX/EqbyS8AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="docker network ls"
+        title=""
+        src="/static/df684eae0936681bfdf4cef36b7986c1/3d026/docker-network-ls.png"
+        srcset="/static/df684eae0936681bfdf4cef36b7986c1/c26ae/docker-network-ls.png 158w,
+/static/df684eae0936681bfdf4cef36b7986c1/6bdcf/docker-network-ls.png 315w,
+/static/df684eae0936681bfdf4cef36b7986c1/3d026/docker-network-ls.png 429w"
+        sizes="(max-width: 429px) 100vw, 429px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span>
+<em>docker-compose</em>를 통해 컨테이너를 구축함과 동시에 네트워크가 생성된 것이다.<br>
+우리는 이 네트워크에 Spring, Prometheus, Grafana 컨테이너를 포함할 것이다.</p>
+<blockquote>
+<p>💡 참고로 이 네트워크는 docker-compose가 내려가면 사라진다.</p>
+</blockquote>
+<p><code class="language-text">docker-compose.yml</code>을 수정하자. (Spring Container는 따로 추가해주자.)</p>
+<div class="gatsby-highlight" data-language="yaml"><pre class="language-yaml"><code class="language-yaml"><span class="token comment"># docker-compose.yml</span>
+<span class="token key atrule">name</span><span class="token punctuation">:</span> monitoring
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">prometheus</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> prom/prometheus<span class="token punctuation">:</span>latest
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> prometheus
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span> <span class="token comment"># network 추가</span>
+      <span class="token punctuation">-</span> <span class="token string">"monitoring_default"</span>
+    <span class="token comment">#ports: </span>
+    <span class="token comment">#  - "9090:9090" # Prometheus는 더이상 외부에서 접근하지 못한다. </span>
+    <span class="token key atrule">user</span><span class="token punctuation">:</span> <span class="token string">"65534:65534"</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"./prometheus.yml:/etc/prometheus/prometheus.yml"</span>
+      <span class="token punctuation">-</span> <span class="token string">"./data:/prometheus"</span>
+  <span class="token key atrule">grafana</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> grafana/grafana<span class="token punctuation">:</span>latest
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> grafana
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>  <span class="token comment"># network 추가</span>
+      <span class="token punctuation">-</span> <span class="token string">"monitoring_default"</span>
+    <span class="token key atrule">user</span><span class="token punctuation">:</span> <span class="token string">"$UID:$GID"</span>
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"3000:3000"</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"./grafana/data:/var/lib/grafana"</span>
+      <span class="token punctuation">-</span> <span class="token string">"./grafana/logs:/var/log/grafana"</span>
+    <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> prometheus
+
+<span class="token comment"># network 설정</span>
+<span class="token key atrule">networks</span><span class="token punctuation">:</span>
+  <span class="token key atrule">monitoring_default</span><span class="token punctuation">:</span>
+    <span class="token key atrule">external</span><span class="token punctuation">:</span> <span class="token boolean important">true</span></code></pre></div>
+<p><em>monitoring_default</em> 라는 Docker Network에 Prometheus와 Grafana가 추가되었다.<br>
+이제 IP가 아닌 Container name으로 접근할 수 있게 되었다.<br>
+Prometheus와 Grafana 설정도 바꿔주자.</p>
+<ol>
+<li><code class="language-text">prometheus.yml</code></li>
+</ol>
+<div class="gatsby-highlight" data-language="yaml"><pre class="language-yaml"><code class="language-yaml"><span class="token comment"># prometheus.yml</span>
+<span class="token key atrule">scrape_configs</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">job_name</span><span class="token punctuation">:</span> <span class="token string">"spring application"</span>
+    <span class="token key atrule">metrics_path</span><span class="token punctuation">:</span> <span class="token string">"/new/path/actuator/actuator"</span>
+    <span class="token key atrule">scrape_interval</span><span class="token punctuation">:</span> 5s
+    <span class="token key atrule">scrape_timeout</span><span class="token punctuation">:</span> 5s
+    <span class="token key atrule">static_configs</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">targets</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"spring:1111"</span><span class="token punctuation">]</span> <span class="token comment"># 변경</span></code></pre></div>
+<ol start="2">
+<li>Grafana - Data sources</li>
+</ol>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/1327ccabd698f29d5ba1c512c382abd5/af192/new-setting-data-source.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 89.24050632911393%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsTAAALEwEAmpwYAAACR0lEQVR42p1U2XLbMAzUR6TWxUvUTR12fChpGmfSSaedyXP//1e2AGXFTRP3etghCYJLYAEyaNwadTug7a5hixb9uMewPvi5I1s3bGl/DWNrVM2Asu4hlEUizLsIVFYiVLl3CmOJVGYeUaIgdQ5N+8oU3iZ14W18ME71uwisyvC9sei6DfbTvcd0+4Dd4Q5ZXmMVCe/IFyy4ROYJDUV2tBoNpcPpuX5Oc9wcfJpRIn9L8IYwJUJVOjpckW6NT/FqleBDmHgJ/oXMEyasjSmhLZERoSCNFGml/kKv1zCnCIXG3djiadrhy36HMstR1AOKqvNVZVJ2vFTVMGZdSeM4JUgEXN2mdsgp5YLS1VTRhG4TMvcF+RCmfnwDsnOBCrpUZxVMewdbjRShtHDDnhY9FKVt8ob6bqTibH2rzHqmb7GaNR42NyjKDuXmG9phYsKMUlIUvj7hrNnSk2fYlzlntvSr909SAqXMGnH35/QyLEWXl+0JzutY+NH5Nb8exqIv+/HZjM55G2nvNWQjg514g9tnsV2q8iV7sIQv/PPLT2kta/t/fRjxgm8kRKQjr1/gbWectX4fgSRCFQvIKPXgeUYbM9RP0LAE+acItybD82HC18MNnm8/4aGnryyOMYgUfSoweMxzxk4KiAtNPhNqQ/2zR339EdU4oaC5rkdEWYNIV4gz+iAMjYbG3GEt6X3TO7/6pS+XXynolcGj6/G03uJxWOPzsMHRDZjyErdFhWPb4b5xeGgdjk2HrVRYrYggFK8QRvNH8gP/rPAihRzNHQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="new setting data source"
+        title=""
+        src="/static/1327ccabd698f29d5ba1c512c382abd5/f058b/new-setting-data-source.png"
+        srcset="/static/1327ccabd698f29d5ba1c512c382abd5/c26ae/new-setting-data-source.png 158w,
+/static/1327ccabd698f29d5ba1c512c382abd5/6bdcf/new-setting-data-source.png 315w,
+/static/1327ccabd698f29d5ba1c512c382abd5/f058b/new-setting-data-source.png 630w,
+/static/1327ccabd698f29d5ba1c512c382abd5/af192/new-setting-data-source.png 645w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<hr>
+<br>
+<p>이제 <code class="language-text">:9090</code> 으로 접속이 불가능하며 그라파나로만 접속이 가능하게 되었다.<br>
+성공적으로 연결이 된 것도 그라파나를 통해 확인하자.</p>
+<p>물론 그라파나로의 연결도 인바운드 규칙 등을 이용해 특정 IP에서만 접속할 수 있도록 설정하여 보안을 강화하자.</p>
+<h2>마치며</h2>
+<p>지금까지 Docker, Prometheus, Grafana를 이용해 Spring Application 모니터링 대시보드 구축에 대해 작성해보았다.</p>
+<p>꽤 까다로운 작업이었지만 모니터링 대시보드를 통해 서비스 운영이 원활해질 것을 기대한다.</p></section><hr/><footer><div class="bio"><div data-gatsby-image-wrapper="" style="width:75px;height:75px" class="gatsby-image-wrapper bio-avatar"><div aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear;background-color:#a89888;width:75px;height:75px;position:relative"></div><picture><source type="image/avif" data-srcset="/static/fdc99851401fabaca2d68d6b9aefa2fe/1cf05/profile_img.avif 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/13b46/profile_img.avif 150w" sizes="75px"/><source type="image/webp" data-srcset="/static/fdc99851401fabaca2d68d6b9aefa2fe/96891/profile_img.webp 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/3554d/profile_img.webp 150w" sizes="75px"/><img data-gatsby-image-ssr="" layout="fixed" data-main-image="" style="opacity:0" sizes="75px" decoding="async" loading="lazy" data-src="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg" data-srcset="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/2e46f/profile_img.jpg 150w" alt="Profile picture"/></picture><noscript><picture><source type="image/avif" srcSet="/static/fdc99851401fabaca2d68d6b9aefa2fe/1cf05/profile_img.avif 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/13b46/profile_img.avif 150w" sizes="75px"/><source type="image/webp" srcSet="/static/fdc99851401fabaca2d68d6b9aefa2fe/96891/profile_img.webp 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/3554d/profile_img.webp 150w" sizes="75px"/><img data-gatsby-image-ssr="" layout="fixed" data-main-image="" style="opacity:0" sizes="75px" decoding="async" loading="lazy" src="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg" srcSet="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/2e46f/profile_img.jpg 150w" alt="Profile picture"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div><p>1. 2025년이 끝나기 전까지 <strong>기본기를 완벽히 정리한다.</strong><br/>2. <strong>내가 좋아하는 것</strong>을 차곡히 기록한다.<br/>3. 하루하루는 치열하게, 인생은 흘러가는대로~</p></div></footer></article><nav class="blog-post-nav"><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/인프라/Github-Actions와-Docker를-이용해-배포-자동화-구축하기/">← <!-- -->Github Actions와 Docker를 이용해 배포 자동화 구축하기</a></li><li><a rel="next" href="/retrospection/self-retrospective/2024-june/june-3rd/">[회고] 06.10 ~ 06.16<!-- --> →</a></li></ul></nav></main><footer>© <!-- -->2025<!-- -->, Built with<!-- --> <a href="https://www.gatsbyjs.com">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/인프라/Prometheus와-Grafana-그리고-Docker를-이용해-모니터링-대시보드-구축하기/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-a29690a7bf189f1cf85e.js\"],\"component---src-pages-404-js\":[\"/component---src-pages-404-js-742f6fa497a17cb36648.js\"],\"component---src-pages-index-js\":[\"/component---src-pages-index-js-ff8bc5a85d1e64ff4ea7.js\"],\"component---src-templates-blog-post-js\":[\"/component---src-templates-blog-post-js-074fd55c7e9ac421df51.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="c09800dbde9c649cdbc7";</script><script src="/webpack-runtime-ea7ee03bdf623bfa7154.js" async></script><script src="/framework-647153102893cffe9a5c.js" async></script><script src="/app-a29690a7bf189f1cf85e.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
