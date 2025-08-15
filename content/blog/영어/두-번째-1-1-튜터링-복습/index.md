@@ -1,5 +1,5 @@
 ---
-title: "두 번째 링글 튜터링 복습"
+title: "두 번째 1:1 튜터링 복습"
 description: ""
 date: 2025-08-08
 tags: ["English", "링글"]

@@ -3,6 +3,7 @@ title: "링글 1:1 튜터링 복습"
 description: "처음치곤 나쁘지 않을지도?"
 date: 2025-07-31
 tags: ["Ringle", "영어"]
+series: "링글 튜터링 복습"
 ---
 
 # 틀린 문장
