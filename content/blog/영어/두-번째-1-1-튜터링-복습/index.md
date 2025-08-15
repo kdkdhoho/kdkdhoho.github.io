@@ -1,8 +1,8 @@
 ---
 title: "두 번째 1:1 튜터링 복습"
-description: ""
+description: "새로운 단어를 알게 되었고 전치사 실수가 잦았다"
 date: 2025-08-08
-tags: ["English", "링글"]
+tags: ["링글", "영어"]
 series: "링글 튜터링 복습"
 ---
 
