@@ -1,0 +1,1499 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 5.14.5"/><meta name="description" content="Google Cloud Skills Boost에서 학습한 클라우드 컴퓨팅의 핵심 개념과 GCP의 주요 서비스들을 정리했습니다. 클라우드의 5가지 특징부터 IaaS/PaaS/SaaS, GCP 아키텍처, 주요 컴퓨팅 서비스까지 실무에 필요한 기초 지식을 담았습니다." data-gatsby-head="true"/><meta property="og:title" content="Google Cloud Computing Foundations: 클라우드 컴퓨팅 기초" data-gatsby-head="true"/><meta property="og:description" content="Google Cloud Skills Boost에서 학습한 클라우드 컴퓨팅의 핵심 개념과 GCP의 주요 서비스들을 정리했습니다. 클라우드의 5가지 특징부터 IaaS/PaaS/SaaS, GCP 아키텍처, 주요 컴퓨팅 서비스까지 실무에 필요한 기초 지식을 담았습니다." data-gatsby-head="true"/><meta property="og:type" content="website" data-gatsby-head="true"/><meta name="twitter:card" content="summary" data-gatsby-head="true"/><meta name="twitter:creator" content="" data-gatsby-head="true"/><meta name="twitter:title" content="Google Cloud Computing Foundations: 클라우드 컴퓨팅 기초" data-gatsby-head="true"/><meta name="twitter:description" content="Google Cloud Skills Boost에서 학습한 클라우드 컴퓨팅의 핵심 개념과 GCP의 주요 서비스들을 정리했습니다. 클라우드의 5가지 특징부터 IaaS/PaaS/SaaS, GCP 아키텍처, 주요 컴퓨팅 서비스까지 실무에 필요한 기초 지식을 담았습니다." data-gatsby-head="true"/><style data-href="/styles.150fcf919fb656f4a446.css" data-identity="gatsby-global-css">@font-face{font-display:swap;font-family:Pretendard;font-style:normal;font-weight:400;src:url(/static/pretendard-latin-400-normal-38bed7de46e7b9049cedbede041d23ed.woff2) format("woff2"),url(/static/pretendard-latin-400-normal-303253288b0ba99db532e29a364b0c09.woff) format("woff")}
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{-webkit-text-size-adjust:100%;line-height:1.15}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}[hidden]{display:none}:root{--maxWidth-none:"none";--maxWidth-xs:20rem;--maxWidth-sm:24rem;--maxWidth-md:28rem;--maxWidth-lg:32rem;--maxWidth-xl:36rem;--maxWidth-2xl:42rem;--maxWidth-3xl:48rem;--maxWidth-4xl:56rem;--maxWidth-full:"100%";--maxWidth-wrapper:var(--maxWidth-2xl);--spacing-px:"1px";--spacing-0:0;--spacing-1:0.25rem;--spacing-2:0.5rem;--spacing-3:0.75rem;--spacing-4:1rem;--spacing-5:1.25rem;--spacing-6:1.5rem;--spacing-8:2rem;--spacing-10:2.5rem;--spacing-12:3rem;--spacing-16:4rem;--spacing-20:5rem;--spacing-24:6rem;--spacing-32:8rem;--fontFamily-sans:"Pretendard",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--fontFamily-serif:"Pretendard","Georgia",Cambria,"Times New Roman",Times,serif;--font-body:var(--fontFamily-serif);--font-heading:var(--fontFamily-sans);--fontWeight-normal:400;--fontWeight-bold:700;--fontWeight-black:900;--fontSize-root:16px;--lineHeight-none:1;--lineHeight-tight:1.1;--lineHeight-normal:1.5;--lineHeight-relaxed:1.625;--fontSize-0:0.833rem;--fontSize-1:1rem;--fontSize-2:1.2rem;--fontSize-3:1.44rem;--fontSize-4:1.728rem;--fontSize-5:2.074rem;--fontSize-6:2.488rem;--fontSize-7:2.986rem;--color-primary:#00b02f;--color-text:#2e353f;--color-text-light:#4f5969;--color-heading:#1a202c;--color-heading-black:#000;--color-accent:#d1dce5}*,:after,:before{box-sizing:border-box}html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:var(--fontSize-root);line-height:var(--lineHeight-normal)}body{color:var(--color-text);font-family:var(--font-body);font-size:var(--fontSize-1)}footer{padding:var(--spacing-6) var(--spacing-0)}hr{background:var(--color-accent);border:0;height:1px}h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);letter-spacing:-.025em;line-height:var(--lineHeight-tight);margin-bottom:var(--spacing-6);margin-top:var(--spacing-12)}h2,h3,h4,h5,h6{color:var(--color-heading);font-weight:var(--fontWeight-bold)}h1{color:var(--color-heading-black);font-size:var(--fontSize-6);font-weight:var(--fontWeight-black)}h2{font-size:var(--fontSize-5)}h3{font-size:var(--fontSize-4)}h4{font-size:var(--fontSize-3)}h5{font-size:var(--fontSize-2)}h6{font-size:var(--fontSize-1)}h1>a{color:var(--color-primary);text-decoration:none}h2>a,h3>a,h4>a,h5>a,h6>a{color:inherit;text-decoration:none}p{--baseline-multiplier:0.179;--x-height-multiplier:0.35;line-height:var(--lineHeight-relaxed);margin:var(--spacing-0) var(--spacing-0) var(--spacing-8) var(--spacing-0)}ol,p,ul{padding:var(--spacing-0)}ol,ul{list-style-image:none;list-style-position:outside;margin-bottom:var(--spacing-8);margin-left:var(--spacing-0);margin-right:var(--spacing-0)}ol li,ul li{padding-left:var(--spacing-0)}li>p,ol li,ul li{margin-bottom:calc(var(--spacing-8)/2)}li :last-child{margin-bottom:var(--spacing-0)}li>ul{margin-left:var(--spacing-8);margin-top:calc(var(--spacing-8)/2)}blockquote{border-left:var(--spacing-1) solid var(--color-primary);color:var(--color-text-light);font-size:var(--fontSize-2);font-style:italic;margin-bottom:var(--spacing-8);margin-left:calc(var(--spacing-6)*-1);margin-right:var(--spacing-8);padding:var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-6)}blockquote>:last-child{margin-bottom:var(--spacing-0)}blockquote>ol,blockquote>ul{list-style-position:inside}table{border-collapse:collapse;border-spacing:.25rem;margin-bottom:var(--spacing-8);width:100%}table thead tr th{border-bottom:1px solid var(--color-accent)}a{color:var(--color-primary)}a:focus,a:hover{text-decoration:none}.global-wrapper{margin:var(--spacing-0) auto;max-width:var(--maxWidth-wrapper);padding:var(--spacing-10) var(--spacing-5)}.global-wrapper[data-is-root-path=true] .bio{margin-bottom:var(--spacing-20)}.global-header{margin-bottom:var(--spacing-12);text-align:center}.main-heading{font-size:var(--fontSize-7);margin:0}.post-list-item{margin-top:var(--spacing-12)}.post-list-item p{margin-bottom:var(--spacing-0)}.post-list-item h2{color:var(--color-heading-black);font-size:var(--fontSize-4);margin-bottom:var(--spacing-2);margin-top:var(--spacing-0)}.post-list-item header{margin-bottom:var(--spacing-4)}.header-link-home{font-family:var(--font-heading);font-size:var(--fontSize-2);font-weight:var(--fontWeight-bold);text-decoration:none}.bio{align-items:center;display:flex;justify-content:center;margin-bottom:var(--spacing-16)}.bio p,.bio-avatar{margin-bottom:var(--spacing-0)}.bio-avatar{border-radius:100%;margin-right:var(--spacing-4);min-width:50px}.blog-post header h1{margin:var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0)}.blog-post header p{font-family:var(--font-heading);font-size:var(--fontSize-2)}.blog-post-nav ul{margin:var(--spacing-0)}.gatsby-highlight{margin-bottom:var(--spacing-8)}@media (max-width:42rem){blockquote{margin-left:var(--spacing-0);padding:var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4)}ol,ul{list-style-position:inside}}code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#000;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5;tab-size:4;text-align:left;text-shadow:0 1px #fff;white-space:pre;word-break:normal;word-spacing:normal}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{background:#b3d4fc;text-shadow:none}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{background:hsla(0,0%,100%,.5);color:#9a6e3a}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="alternate" type="application/rss+xml" title="Gatsby Starter Blog RSS Feed" href="/rss.xml"/><link rel="icon" href="/favicon-32x32.png?v=fdc99851401fabaca2d68d6b9aefa2fe" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><title data-gatsby-head="true">Google Cloud Computing Foundations: 클라우드 컴퓨팅 기초 | 내가 재밌는 일을 하자 !</title></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="global-wrapper" data-is-root-path="false"><header class="global-header"><a class="header-link-home" href="/">내가 재밌는 일을 하자 !</a></header><main><article class="blog-post" itemscope="" itemType="http://schema.org/Article"><header><h1 itemProp="headline">Google Cloud Computing Foundations: 클라우드 컴퓨팅 기초</h1><p>August 17, 2025</p></header><section itemProp="articleBody"><h2>클라우드 컴퓨팅의 핵심 특징</h2>
+<p>클라우드 컴퓨팅은 다음 5가지 핵심 특징을 가집니다:</p>
+<ol>
+<li><strong>온디맨드 셀프서비스</strong>: 사용자가 필요할 때 언제든지 컴퓨팅 리소스를 직접 프로비저닝할 수 있습니다.</li>
+<li><strong>광대역 네트워크 접근</strong>: 인터넷을 통해 어디서든 리소스에 접근할 수 있습니다.</li>
+<li><strong>리소스 풀링</strong>: 제공자가 대규모 리소스 풀을 운영하며, 사용자는 물리적 위치를 알 필요 없이 리소스를 할당받습니다.</li>
+<li><strong>신속한 탄력성</strong>: 수요에 따라 리소스를 자동으로 확장하거나 축소할 수 있습니다.</li>
+<li><strong>종량제 서비스</strong>: 사용한 만큼만 비용을 지불합니다.</li>
+</ol>
+<h2>클라우드 서비스 모델 비교</h2>
+<h3>IaaS (Infrastructure as a Service)</h3>
+<ul>
+<li><strong>정의</strong>: 가상화된 컴퓨팅 리소스(CPU, 메모리, 스토리지, 네트워크)를 제공</li>
+<li><strong>특징</strong>: 운영체제부터 애플리케이션까지 사용자가 직접 관리</li>
+<li><strong>예시</strong>: AWS EC2, Google Compute Engine, Azure Virtual Machines</li>
+</ul>
+<h3>PaaS (Platform as a Service)</h3>
+<ul>
+<li><strong>정의</strong>: 애플리케이션 개발과 배포를 위한 플랫폼 환경 제공</li>
+<li><strong>특징</strong>: 인프라 관리 없이 코드 개발에만 집중 가능</li>
+<li><strong>예시</strong>: Google App Engine, Heroku, AWS Elastic Beanstalk</li>
+</ul>
+<h3>SaaS (Software as a Service)</h3>
+<ul>
+<li><strong>정의</strong>: 완성된 소프트웨어를 웹 브라우저를 통해 제공</li>
+<li><strong>특징</strong>: 설치나 관리 없이 바로 사용 가능</li>
+<li><strong>예시</strong>: Gmail, Google Workspace, Salesforce</li>
+</ul>
+<h1>GCP 아키텍처</h1>
+<p>세 가지 계층이 있다.</p>
+<ol>
+<li>
+<p>Network/Security<br>
+기반이 되는 계층.</p>
+</li>
+<li>
+<p>Computing/Storage
+GCP는 컴퓨팅과 스토리지를 분리해서 필요에 따라 독립적으로 확장 가능</p>
+</li>
+<li>
+<p>빅데이터 및 머신러닝
+최상위 계층</p>
+</li>
+</ol>
+<p>Google Cloud는 100개 이상의 콘텐츠 캐싱 노드를 전 세계에 활용하여 애플리케이션을 사용자에게 최고의 처리량과 최저 지연 시간을 제공할 수 있도록 설계됨.
+가장 빠른 응답 시간을 제공하는 위치에서 사용자 요청에 응답한다.
+GCP는 북미, 남미, 유럽, 아시아, 호주 등 5개 주요 지역에 분산되어 있다.
+GCP를 사용할 때 어디에 배치할 것인지는 가용성, 내구성, 지연시간 같은 애플리케이션 품질에 영향을 미치기 때문에 적절히 선택을 잘 해야 한다.</p>
+<h2>Region과 Zone 개념</h2>
+<p><strong>Region (지역)</strong></p>
+<ul>
+<li>독립적인 지리적 영역 (예: 런던 <code class="language-text">europe-west2</code>)</li>
+<li>하나의 Region은 여러 개의 Zone으로 구성</li>
+<li>지역별 데이터 보호 법규 및 지연 시간 최적화</li>
+</ul>
+<p><strong>Zone (가용영역)</strong></p>
+<ul>
+<li>리소스가 실제로 배포되는 물리적 위치</li>
+<li>단일 장애 지점(Single Point of Failure) 방지</li>
+<li>하나의 Zone에 문제가 생기면 해당 Zone의 모든 리소스 영향</li>
+</ul>
+<p><strong>고가용성 전략</strong></p>
+<ul>
+<li>다중 Zone 배포로 장애 대응</li>
+<li>다중 Region 배포로 재해 대응 및 글로벌 서비스 제공</li>
+</ul>
+<h2>Google Cloud 리소스 계층 구조</h2>
+<p>Google Cloud 리소스는 4단계의 계층 구조로 구성되어 있습니다. 이 구조는 효율적인 리소스 관리와 접근 권한 제어에 필수적입니다.</p>
+<ol>
+<li>
+<p>리소스 (Resources)
+가장 기본 단위로, VM, Cloud Storage, BigQuery 테이블 등 실제 서비스들을 의미합니다.<br>
+모든 리소스는 하나의 프로젝트에 속해야 합니다.</p>
+</li>
+<li>
+<p>프로젝트 (Projects)
+리소스 관리의 기본 단위입니다.<br>
+API 관리, 요금 청구, 사용자 추가 등 모든 서비스 활성화와 관리가 프로젝트 단위로 이루어집니다.<br>
+각 프로젝트는 고유한 프로젝트 ID, 프로젝트 이름, 프로젝트 번호를 가집니다.</p>
+</li>
+</ol>
+<ul>
+<li>프로젝트 ID: 한 번 생성하면 변경할 수 없는 고유 식별자입니다.</li>
+<li>프로젝트 이름: 사용자가 지정하며, 언제든지 변경 가능하고 고유할 필요는 없습니다.</li>
+<li>프로젝트 번호: Google Cloud가 각 프로젝트에 할당하는 고유한 번호입니다. 주로 Google 내부에서 리소스를 추적하기 위해 사용됩니다.</li>
+</ul>
+<ol start="3">
+<li>
+<p>폴더 (Folders)
+프로젝트들을 조직적으로 그룹화하는 데 사용됩니다.<br>
+부서별, 팀별로 프로젝트를 묶어 관리할 수 있으며, 관리 권한을 위임하여 팀이 독립적으로 작업할 수 있도록 돕습니다.</p>
+</li>
+<li>
+<p>조직 노드 (Organization Node)
+계층 구조의 최상위에 위치합니다.<br>
+회사나 조직 전체의 모든 폴더, 프로젝트, 리소스를 포괄하는 최상위 노드입니다. 폴더를 사용하려면 반드시 조직 노드가 있어야 합니다.</p>
+</li>
+</ol>
+<h2>🛠️ 프로젝트 관리 도구: Resource Manager</h2>
+<p>Resource Manager는 프로젝트를 효율적으로 관리하기 위한 API 도구입니다.<br>
+이 도구를 사용하면 계정과 연결된 프로젝트 목록을 확인하고, 프로젝트를 생성, 업데이트, 삭제하거나 심지어 복구할 수도 있습니다.<br>
+RPC API 또는 REST API를 통해 액세스 가능합니다.</p>
+<h1>Google Cloud Billing</h1>
+<ul>
+<li>결제 계정은 프로젝트 단위로 설정된다.<br>
+프로젝트를 생성할 때 결제 계정을 연결해야 하고, 결제 계정에는 결제 수단을 포함한 모든 결제 정보가 포함된다.</li>
+<li>하나의 결제 계정은 하나 이상의 프로젝트에 연결될 수 있다.</li>
+<li>결제 계정에는 매달 또는 특정 한도에 도달할 때마다 자동으로 요금이 청구된다.</li>
+<li>하위 결제 계정을 사용하면 프로젝트 별로 분리할 수 있다.</li>
+</ul>
+<h2>비용 관리 도구</h2>
+<p>예상치 못한 과한 요금이 부과되는 것을 막기 위해 아래 도구들을 제공한다.</p>
+<h3>1. Budgets</h3>
+<p>결제 계정 또는 프로젝트 수준에서 설정 가능하다.<br>
+고정된 금액이나, 이전 달 지출의 특정 비율 같은 다른 측정 기준에 연결할 수도 있다.</p>
+<h3>2. Alerts</h3>
+<p>비용이 예상 한도에 가까워지면 알림을 받을 수 있다.</p>
+<h3>3. Reports</h3>
+<p>Google Cloud Console에 있고, 프로젝트나 서비스 별로 지출을 모니터링 할 수 있게 한다.</p>
+<h3>4. Quotas (할당량)</h3>
+<p>실수 또는 악의적인 공격으로 인한 리소스의 과도한 사용을 방지하기 위한 장치다.<br>
+프로젝트 수준에서 적용하며 두 가지 유형이 있다.</p>
+<ol>
+<li>
+<p>Rate Quotas
+특정 시간 후에 재설정되는 할당량이다.<br>
+예를 들어, GKE 서비스는 기본적으로 각 Google Cloud 프로젝트에서 100초마다 API를 1,000회 호출할 수 있는 할당량을 적용한다.<br>
+따라서 100초가 지나면 한도는 재설정된다.</p>
+</li>
+<li>
+<p>Allocation Quotas
+프로젝트에서 보유할 수 있는 리소스의 개수를 관리한다.<br>
+예를 들어, 각 Google Cloud 프로젝트는 기본적으로 최대 5개의 VPC 네트워크를 가질 수 있는 할당량이 있다.</p>
+</li>
+</ol>
+<p>모든 프로젝트는 default로 세팅된 할당량이 있지만, Google Cloud 지원팀에 요청하여 일부 할당량을 조정할 수 있다.</p>
+<h1>Cloud SDK (Software Development Kit)</h1>
+<p>Google Cloud에는 SDK가 존재한다.<br>
+사용자가 로컬 PC에서 Google Cloud Command Line 도구를 실행할 수 있도록 해주는 도구 모음이다.<br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 491px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/1437bb02f5f6bf05c7d554958dcf5620/13566/google-cloud-sdk-example.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 41.77215189873418%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABEklEQVR42tWOy07CUBRF+zk+YkuQYt8U1BIMUVJLy23x0Q4c6cCBH2mjkDg0hgFEsdb6C9tTWhMwmjh1sLLPvjtZudx0OsNtfIfx+AEjIo7v8fg0QZJmeJ4neHl9W2GepGW+U2ZEkXlPsw9wV9c3ODxmcIMQDjuDMzhFv0x2EsH1Q3hBRIR0ny/whhEczwfz+3A9FwPm4ch2EF1cgrPdAPy2Cs1sQ2lY2NFakI09iIoJvdmGrO2i0epApS3f8002LEiKhKbBQ5arMPQq+IoAc7+bC4dY5+sQaiqJlRL1W1+iVmSxa9R1unVsViR0uja4nuOTUFwR5PcXP0kX7yQWlvqGUId10CuEa1vi7z/6A/9L+AmYwDfsgSnuaQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Configure the Google Cloud SDK"
+        title=""
+        src="/static/1437bb02f5f6bf05c7d554958dcf5620/13566/google-cloud-sdk-example.png"
+        srcset="/static/1437bb02f5f6bf05c7d554958dcf5620/c26ae/google-cloud-sdk-example.png 158w,
+/static/1437bb02f5f6bf05c7d554958dcf5620/6bdcf/google-cloud-sdk-example.png 315w,
+/static/1437bb02f5f6bf05c7d554958dcf5620/13566/google-cloud-sdk-example.png 491w"
+        sizes="(max-width: 491px) 100vw, 491px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>명령어로 Google Cloud에 호스팅된 리소스와 애플리케이션을 관리할 수 있다.</p>
+<h2>SDK에 포함된 주요 명령줄 도구</h2>
+<ul>
+<li><code class="language-text">gcloud CLI</code>: Google Cloud의 리소스를 위한 주된 CLI이다. 반복적인 작업을 스크립트로 작성하여 한 번에 실행하거나, 여러 작업을 순차적으로 자동화를 하는 데 사용할 수 있는 강력한 도구이다. 예를 들어, 여러 개의 서버를 동일한 설정으로 한 번에 생성하는 작업을 손쉽게 처리할 수 있다. Console에서 제공하지 않는 세부적인 옵션 설정이나 복잡한 구성이 가능하며, 숙련된 개발자나 시스템 관리자에게 높은 유연성을 제공한다. 다만, 다양한 명령어와 옵션을 익혀야 하므로 초보자가 바로 사용하기에는 적합하지 않다. Google Cloud Platform 입문 또는 초보자는 가급적 Console을 이용하여 GCP의 핵심 서비스 등에 친숙해지는 것이 좋겠다.</li>
+<li><code class="language-text">gsuitil</code>: Cloud Storage에 접근할 수 있도록 한다.</li>
+<li><code class="language-text">bq</code>: BigQuery를 위한 명령줄 도구이다.</li>
+</ul>
+<h2>설치</h2>
+<p>_cloud.google.com/sdk_에 접속해 다운로드한다.<br>
+SDK를 설치하면 모든 도구는 <code class="language-text">bin</code> 디렉터리 아래에 위치한다.</p>
+<p>설치가 완료된 후, <code class="language-text">gcloud init</code> 명령어를 실행하여 환경을 설정해야 한다.<br>
+로그인 자격 증명, 기본 프로젝트, 기본 리전 및 영역 같은 정보를 입력하라는 메시지가 표시된다.</p>
+<h2>Google Cloud Shell</h2>
+<p>Cloud Shell은 브라우저를 통해서 클라우드 리소스에 직접 Command Line으로 접속할 수 있는 도구이다.</p>
+<h2>특징</h2>
+<ul>
+<li>Debian 기반 가상 머신이다.</li>
+<li>5GB의 영구적인 홈 디렉터리를 제공한다.</li>
+<li>Google Cloud SDK의 <code class="language-text">gcloud</code> 명령어와 다른 유틸리티가 항상 설치되어 있고, 최신 상태이며, 인증이 이미 되어 있는 상태다.</li>
+<li>Shell 내부에 코드 편집기가 존재한다.<br>
+이를 이용해 Cloud Shell 내 파일을 실시간으로 편집할 수 있다.
+물론, Cloud Shell 명령 프롬프트에서 텍스트 편집기(Vim)를 사용하는 것도 가능하다.</li>
+</ul>
+<h2>접근 방법</h2>
+<p>_console.cloud.google.com_에 접속한다.<br>
+우측 상단 계정 정보 쪽에 <strong>Cloud Shell 활성화</strong> 아이콘을 클릭하면 창 하단에 터미널이 열린다.<br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/5a53cdeb1afd4420f766568102d27d05/081d5/cloud-shell.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 38.60759493670886%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAyklEQVR42uWPy46DMAxF8xnTkg52wqOUPBiohCiU6f//1K0bIbUrFrOdxZHtG/vaUc4FEFuYyqM4R3DpoE85DkctnPB10FuuYeWNTJ36bVGhqhtk+hs5MYytkMmcmqYZt3nBsv7ivj6w3NdUz/Mo2oJxGhFCQOs82taJyRllWSdsUeIiWt9fJYa0QHVdRIxRxAuuQ4v+p8EwdPC+gXM1vHsZFHKBgbXyE2bwhjESiUCUS01JU/zR8AnRG2Yjwzu8Fm252m38A//Q8AkXjuO99bp1OQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Cloud Shell을 활성화 한 모습"
+        title=""
+        src="/static/5a53cdeb1afd4420f766568102d27d05/f058b/cloud-shell.png"
+        srcset="/static/5a53cdeb1afd4420f766568102d27d05/c26ae/cloud-shell.png 158w,
+/static/5a53cdeb1afd4420f766568102d27d05/6bdcf/cloud-shell.png 315w,
+/static/5a53cdeb1afd4420f766568102d27d05/f058b/cloud-shell.png 630w,
+/static/5a53cdeb1afd4420f766568102d27d05/40601/cloud-shell.png 945w,
+/static/5a53cdeb1afd4420f766568102d27d05/78612/cloud-shell.png 1260w,
+/static/5a53cdeb1afd4420f766568102d27d05/081d5/cloud-shell.png 1264w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<details>
+<summary><strong>Cloud Shell 실습</strong></summary>
+<p>Cloud Shell에서 <code class="language-text">gcloud</code> 명령어를 다양하게 이용해본다.<br>
+<code class="language-text">gcloud</code>에 대한 전체 문서는 Google Cloud에서 <a href="https://cloud.google.com/sdk/gcloud">gcloud CLI 개요 가이드</a>를 참고하면 된다.</p>
+<p><code class="language-text">gcloud auth list</code>를 입력하면 활성 계정 이름 목록을 출력한다.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">Credentialed Accounts
+
+ACTIVE: *
+ACCOUNT: student-01-089f9dde3b42@qwiklabs.net
+
+To <span class="token builtin class-name">set</span> the active account, run:
+    $ gcloud config <span class="token builtin class-name">set</span> account <span class="token variable"><span class="token variable">`</span>ACCOUNT<span class="token variable">`</span></span></code></pre></div>
+<p><code class="language-text">gcloud config list project</code>를 입력하면 프로젝트 ID 목록을 출력한다.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell"><span class="token punctuation">[</span>core<span class="token punctuation">]</span>
+project <span class="token operator">=</span> qwiklabs-gcp-01-907c6d53cdcf
+
+Your active configuration is: <span class="token punctuation">[</span>cloudshell-5742<span class="token punctuation">]</span></code></pre></div>
+<p>영역 내에 상주하는 리소스를 영역별 리소스라고 합니다. 가상 머신 인스턴스와 영구 디스크는 영역에 상주합니다.<br>
+가상 머신 인스턴스와 영구 디스크를 연결하려면 두 리소스가 동일한 영역에 있어야 합니다. 마찬가지로 어떠한 고정 IP 주소를 인스턴스에 할당하려면 해당 인스턴스가 그 고정 IP 주소와 동일한 리전에 있어야 합니다.</p>
+<p>가상 머신 인스턴스의 Region을 _europe-west1_로 설정합니다.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">student_01_089f9dde3b42@cloudshell:~ <span class="token punctuation">(</span>qwiklabs-gcp-01-907c6d53cdcf<span class="token punctuation">)</span>$ gcloud config <span class="token builtin class-name">set</span> compute/region europe-west1
+Updated property <span class="token punctuation">[</span>compute/region<span class="token punctuation">]</span>.</code></pre></div>
+<p>프로젝트 region 설정을 봅니다.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">student_01_089f9dde3b42@cloudshell:~ <span class="token punctuation">(</span>qwiklabs-gcp-01-907c6d53cdcf<span class="token punctuation">)</span>$ gcloud config get-value compute/region
+Your active configuration is: <span class="token punctuation">[</span>cloudshell-5742<span class="token punctuation">]</span>
+europe-west1</code></pre></div>
+<p>Zone을 <em>europe-west1-d</em> 로 설정합니다.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">student_01_089f9dde3b42@cloudshell:~ <span class="token punctuation">(</span>qwiklabs-gcp-01-907c6d53cdcf<span class="token punctuation">)</span>$ gcloud config <span class="token builtin class-name">set</span> compute/zone europe-west1-d
+Updated property <span class="token punctuation">[</span>compute/zone<span class="token punctuation">]</span>.</code></pre></div>
+<p>프로젝트의 Zone 설정을 확인합니다.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">gcloud config get-value compute/zone</code></pre></div>
+<p>프로젝트 ID를 확인합니다.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">student_01_089f9dde3b42@cloudshell:~ <span class="token punctuation">(</span>qwiklabs-gcp-01-907c6d53cdcf<span class="token punctuation">)</span>$ gcloud config get-value project
+Your active configuration is: <span class="token punctuation">[</span>cloudshell-5742<span class="token punctuation">]</span>
+qwiklabs-gcp-01-907c6d53cdcf</code></pre></div>
+<p>프로젝트 세부 정보를 확인합니다.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">student_01_089f9dde3b42@cloudshell:~ <span class="token punctuation">(</span>qwiklabs-gcp-01-907c6d53cdcf<span class="token punctuation">)</span>$ gcloud compute project-info describe <span class="token parameter variable">--project</span> <span class="token variable"><span class="token variable">$(</span>gcloud config get-value project<span class="token variable">)</span></span>
+Your active configuration is: <span class="token punctuation">[</span>cloudshell-5742<span class="token punctuation">]</span>
+cloudArmorTier: CA_STANDARD
+commonInstanceMetadata:
+  fingerprint: <span class="token assign-left variable">STE4YvZu4pM</span><span class="token operator">=</span>
+  items:
+  - key: google-compute-default-zone
+    value: europe-west1-d
+  - key: google-compute-default-region
+    value: europe-west1
+  - key: ssh-keys
+    value: student-01-089f9dde3b42:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDTn0QN7ZHMq16Gmw6OzsH7kjKV+XZDbkNMk0WsoS7wR8cQ8JCw4dceXSiNqzdBHAKXZlUveOBri1PeOEElZB4lVqERJA3Pgq+ZS1t800To47zm8jmMvIicz1QRq4LeI4ZDbMrFj0s2friL27YfZDlZjP4HieXhxU1uDpWHxShIVvnqcIEwVMpq7hIcSfTEvfOKqWn5z5FC02p9dQWi/xg9sbF5ZAqPRBWru9of97udU49oOuJ1/KAAfGT5p8Mkto80hXL3qLsiRiob14/x6ZzMDC7RwkrcaoVepbdTltpE99nxS0TbcHL3epm0pFa6aJu1pM5/6WIME2CQ7K5lRlfP
+      student-01-089f9dde3b42@qwiklabs.net
+  - key: enable-oslogin
+    value: <span class="token string">'true'</span>
+  kind: compute<span class="token comment">#metadata</span>
+creationTimestamp: <span class="token string">'2025-08-04T02:35:57.106-07:00'</span>
+defaultNetworkTier: PREMIUM
+defaultServiceAccount: <span class="token number">33823803467</span>-compute@developer.gserviceaccount.com
+id: <span class="token string">'1311219287636951059'</span>
+kind: compute<span class="token comment">#project</span>
+name: qwiklabs-gcp-01-907c6d53cdcf
+quotas:
+- limit: <span class="token number">1000.0</span>
+  metric: SNAPSHOTS
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">5.0</span>
+  metric: NETWORKS
+  usage: <span class="token number">1.0</span>
+- limit: <span class="token number">100.0</span>
+  metric: FIREWALLS
+  usage: <span class="token number">4.0</span>
+- limit: <span class="token number">100.0</span>
+  metric: IMAGES
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">8.0</span>
+  metric: STATIC_ADDRESSES
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">200.0</span>
+  metric: ROUTES
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">15.0</span>
+  metric: FORWARDING_RULES
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">50.0</span>
+  metric: TARGET_POOLS
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">75.0</span>
+  metric: HEALTH_CHECKS
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">4.0</span>
+  metric: IN_USE_ADDRESSES
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">50.0</span>
+  metric: TARGET_INSTANCES
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">10.0</span>
+  metric: TARGET_HTTP_PROXIES
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">10.0</span>
+  metric: URL_MAPS
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">50.0</span>
+  metric: BACKEND_SERVICES
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">100.0</span>
+  metric: INSTANCE_TEMPLATES
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">5.0</span>
+  metric: TARGET_VPN_GATEWAYS
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">10.0</span>
+  metric: VPN_TUNNELS
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">3.0</span>
+  metric: BACKEND_BUCKETS
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">10.0</span>
+  metric: ROUTERS
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">10.0</span>
+  metric: TARGET_SSL_PROXIES
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">10.0</span>
+  metric: TARGET_HTTPS_PROXIES
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">10.0</span>
+  metric: SSL_CERTIFICATES
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">100.0</span>
+  metric: SUBNETWORKS
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">10.0</span>
+  metric: TARGET_TCP_PROXIES
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">12.0</span>
+  metric: CPUS_ALL_REGIONS
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">0.0</span>
+  metric: SECURITY_POLICIES
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">0.0</span>
+  metric: SECURITY_POLICY_RULES
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">1000.0</span>
+  metric: XPN_SERVICE_PROJECTS
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">20.0</span>
+  metric: PACKET_MIRRORINGS
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">100.0</span>
+  metric: NETWORK_ENDPOINT_GROUPS
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">6.0</span>
+  metric: INTERCONNECTS
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">10.0</span>
+  metric: SSL_POLICIES
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">5000.0</span>
+  metric: GLOBAL_INTERNAL_ADDRESSES
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">5.0</span>
+  metric: VPN_GATEWAYS
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">100.0</span>
+  metric: MACHINE_IMAGES
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">0.0</span>
+  metric: SECURITY_POLICY_CEVAL_RULES
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">0.0</span>
+  metric: GPUS_ALL_REGIONS
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">5.0</span>
+  metric: EXTERNAL_VPN_GATEWAYS
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">1.0</span>
+  metric: PUBLIC_ADVERTISED_PREFIXES
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">10.0</span>
+  metric: PUBLIC_DELEGATED_PREFIXES
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">128.0</span>
+  metric: STATIC_BYOIP_ADDRESSES
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">10.0</span>
+  metric: NETWORK_FIREWALL_POLICIES
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">15.0</span>
+  metric: INTERNAL_TRAFFIC_DIRECTOR_FORWARDING_RULES
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">15.0</span>
+  metric: GLOBAL_EXTERNAL_MANAGED_FORWARDING_RULES
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">50.0</span>
+  metric: GLOBAL_INTERNAL_MANAGED_BACKEND_SERVICES
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">50.0</span>
+  metric: GLOBAL_EXTERNAL_MANAGED_BACKEND_SERVICES
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">50.0</span>
+  metric: GLOBAL_EXTERNAL_PROXY_LB_BACKEND_SERVICES
+  usage: <span class="token number">0.0</span>
+- limit: <span class="token number">100.0</span>
+  metric: GLOBAL_INTERNAL_TRAFFIC_DIRECTOR_BACKEND_SERVICES
+  usage: <span class="token number">0.0</span>
+selfLink: https://www.googleapis.com/compute/v1/projects/qwiklabs-gcp-01-907c6d53cdcf
+vmDnsSetting: ZONAL_ONLY
+xpnProjectStatus: UNSPECIFIED_XPN_PROJECT_STATUS</code></pre></div>
+<h3>환경 변수 설정</h3>
+<p>환경 변수를 설정하면 API 또는 실행 파일이 포함된 스크립트를 작성할 때 유용하다.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell"><span class="token comment"># 프로젝트 ID를 저장한다.</span>
+student_01_089f9dde3b42@cloudshell:~ <span class="token punctuation">(</span>qwiklabs-gcp-01-907c6d53cdcf<span class="token punctuation">)</span>$ <span class="token builtin class-name">export</span> <span class="token assign-left variable">PROJECT_ID</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>gcloud config get-value project<span class="token variable">)</span></span>
+Your active configuration is: <span class="token punctuation">[</span>cloudshell-5742<span class="token punctuation">]</span>
+
+<span class="token comment"># 프로젝트 Region을 저장한다.</span>
+student_01_089f9dde3b42@cloudshell:~ <span class="token punctuation">(</span>qwiklabs-gcp-01-907c6d53cdcf<span class="token punctuation">)</span>$ <span class="token builtin class-name">export</span> <span class="token assign-left variable">ZONE</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>gcloud config get-value compute/zone<span class="token variable">)</span></span>
+Your active configuration is: <span class="token punctuation">[</span>cloudshell-5742<span class="token punctuation">]</span>
+
+<span class="token comment"># 저장된 변수를 확인한다.</span>
+student_01_089f9dde3b42@cloudshell:~ <span class="token punctuation">(</span>qwiklabs-gcp-01-907c6d53cdcf<span class="token punctuation">)</span>$ <span class="token builtin class-name">echo</span> <span class="token parameter variable">-e</span> <span class="token string">"PROJECT ID: <span class="token variable">$PROJECT_ID</span><span class="token entity" title="\n">\n</span>ZONE: <span class="token variable">$ZONE</span>"</span>
+PROJECT ID: qwiklabs-gcp-01-907c6d53cdcf
+ZONE: europe-west1-d</code></pre></div>
+<h3><code class="language-text">gcloud</code>로 가상 머신 만들기</h3>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">student_01_089f9dde3b42@cloudshell:~ <span class="token punctuation">(</span>qwiklabs-gcp-01-907c6d53cdcf<span class="token punctuation">)</span>$ gcloud compute instances create gcelab2 --machine-type e2-medium <span class="token parameter variable">--zone</span> <span class="token variable">$ZONE</span>
+Created <span class="token punctuation">[</span>https://www.googleapis.com/compute/v1/projects/qwiklabs-gcp-01-907c6d53cdcf/zones/europe-west1-d/instances/gcelab2<span class="token punctuation">]</span>.
+NAME: gcelab2
+ZONE: europe-west1-d
+MACHINE_TYPE: e2-medium
+PREEMPTIBLE: 
+INTERNAL_IP: <span class="token number">10.132</span>.0.2
+EXTERNAL_IP: <span class="token number">34.14</span>.0.66
+STATUS: RUNNING</code></pre></div>
+<ul>
+<li><code class="language-text">gcloud compute</code>: Compute Engine API보다 간단하게 리소스를 관리할 수 있는 명령어다.</li>
+<li><code class="language-text">instances create</code>: 새 인스턴스를 생성한다.</li>
+<li><code class="language-text">gcelab2</code>: VM의 이름이다.</li>
+<li><code class="language-text">--machine-type</code>: 머신 유형을 _ec2-medium_으로 설정한다.</li>
+<li><code class="language-text">--zone</code>: VM이 생성되는 위치를 지정한다. 생략하면, <code class="language-text">gcloud</code>가 기본 속성을 기준으로 개발자가 원하는 영역을 추론한다. <code class="language-text">machine type</code> 및 <code class="language-text">image</code> 같은 기타 필수 인스턴스 설정은
+<code class="language-text">create</code> 명령어에서 지정되지 않은 경우 기본값으로 설정된다.</li>
+</ul>
+<p>이제 프로젝트에서 이용할 수 있는 컴퓨팅 인스턴스를 조회한다.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">student_01_089f9dde3b42@cloudshell:~ <span class="token punctuation">(</span>qwiklabs-gcp-01-907c6d53cdcf<span class="token punctuation">)</span>$ gcloud compute instances list
+NAME: gcelab2
+ZONE: europe-west1-d
+MACHINE_TYPE: e2-medium
+PREEMPTIBLE: 
+INTERNAL_IP: <span class="token number">10.132</span>.0.2
+EXTERNAL_IP: <span class="token number">34.14</span>.0.66
+STATUS: RUNNING</code></pre></div>
+<p>한 프로젝트에 여러 리소스가 배포되어 있는 경우가 많은데, 다음과 같이 필터링도 가능하다.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">student_01_089f9dde3b42@cloudshell:~ <span class="token punctuation">(</span>qwiklabs-gcp-01-907c6d53cdcf<span class="token punctuation">)</span>$ gcloud compute instances list <span class="token parameter variable">--filter</span><span class="token operator">=</span><span class="token string">"name=('gcelab2')"</span>
+NAME: gcelab2
+ZONE: europe-west1-d
+MACHINE_TYPE: e2-medium
+PREEMPTIBLE: 
+INTERNAL_IP: <span class="token number">10.132</span>.0.2
+EXTERNAL_IP: <span class="token number">34.14</span>.0.66
+STATUS: RUNNING</code></pre></div>
+<h3>방화벽</h3>
+<p>방화벽 규칙을 나열한다.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">student_01_089f9dde3b42@cloudshell:~ <span class="token punctuation">(</span>qwiklabs-gcp-01-907c6d53cdcf<span class="token punctuation">)</span>$ gcloud compute firewall-rules list
+NAME: default-allow-icmp
+NETWORK: default
+DIRECTION: INGRESS
+PRIORITY: <span class="token number">65534</span>
+ALLOW: icmp
+DENY: 
+DISABLED: False
+
+NAME: default-allow-internal
+NETWORK: default
+DIRECTION: INGRESS
+PRIORITY: <span class="token number">65534</span>
+ALLOW: tcp:0-65535,udp:0-65535,icmp
+DENY: 
+DISABLED: False
+
+NAME: default-allow-rdp
+NETWORK: default
+DIRECTION: INGRESS
+PRIORITY: <span class="token number">65534</span>
+ALLOW: tcp:3389
+DENY: 
+DISABLED: False
+
+NAME: default-allow-ssh
+NETWORK: default
+DIRECTION: INGRESS
+PRIORITY: <span class="token number">65534</span>
+ALLOW: tcp:22
+DENY: 
+DISABLED: False
+
+To show all fields of the firewall, please show <span class="token keyword">in</span> JSON format: <span class="token parameter variable">--format</span><span class="token operator">=</span>json
+To show all fields <span class="token keyword">in</span> table format, please see the examples <span class="token keyword">in</span> --help.</code></pre></div>
+<p>인스턴스와 마찬가지로 필터링도 가능하다.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">student_01_089f9dde3b42@cloudshell:~ <span class="token punctuation">(</span>qwiklabs-gcp-01-907c6d53cdcf<span class="token punctuation">)</span>$ gcloud compute firewall-rules list <span class="token parameter variable">--filter</span><span class="token operator">=</span><span class="token string">"network='default'"</span>
+NAME: default-allow-icmp
+NETWORK: default
+DIRECTION: INGRESS
+PRIORITY: <span class="token number">65534</span>
+ALLOW: icmp
+DENY: 
+DISABLED: False
+
+NAME: default-allow-internal
+NETWORK: default
+DIRECTION: INGRESS
+PRIORITY: <span class="token number">65534</span>
+ALLOW: tcp:0-65535,udp:0-65535,icmp
+DENY: 
+DISABLED: False
+
+NAME: default-allow-rdp
+NETWORK: default
+DIRECTION: INGRESS
+PRIORITY: <span class="token number">65534</span>
+ALLOW: tcp:3389
+DENY: 
+DISABLED: False
+
+NAME: default-allow-ssh
+NETWORK: default
+DIRECTION: INGRESS
+PRIORITY: <span class="token number">65534</span>
+ALLOW: tcp:22
+DENY: 
+DISABLED: False
+
+To show all fields of the firewall, please show <span class="token keyword">in</span> JSON format: <span class="token parameter variable">--format</span><span class="token operator">=</span>json
+To show all fields <span class="token keyword">in</span> table format, please see the examples <span class="token keyword">in</span> --help.</code></pre></div>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">student_01_089f9dde3b42@cloudshell:~ <span class="token punctuation">(</span>qwiklabs-gcp-01-907c6d53cdcf<span class="token punctuation">)</span>$ gcloud compute firewall-rules list <span class="token parameter variable">--filter</span><span class="token operator">=</span><span class="token string">"NETWORK:'default' AND ALLOW:'icmp'"</span>
+NAME: default-allow-icmp
+NETWORK: default
+DIRECTION: INGRESS
+PRIORITY: <span class="token number">65534</span>
+ALLOW: icmp
+DENY: 
+DISABLED: False
+
+NAME: default-allow-internal
+NETWORK: default
+DIRECTION: INGRESS
+PRIORITY: <span class="token number">65534</span>
+ALLOW: tcp:0-65535,udp:0-65535,icmp
+DENY: 
+DISABLED: False
+
+To show all fields of the firewall, please show <span class="token keyword">in</span> JSON format: <span class="token parameter variable">--format</span><span class="token operator">=</span>json
+To show all fields <span class="token keyword">in</span> table format, please see the examples <span class="token keyword">in</span> --help.</code></pre></div>
+<h3>VM 인스턴스에 연결하기</h3>
+<p><code class="language-text">gcloud compute ssh</code> 명령어는 SSH에 래퍼 기능을 제공하여 인증 및 인스턴스 이름과 IP 주소의 매핑을 처리해준다.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">student_01_089f9dde3b42@cloudshell:~ <span class="token punctuation">(</span>qwiklabs-gcp-01-907c6d53cdcf<span class="token punctuation">)</span>$ gcloud compute <span class="token function">ssh</span> gcelab2 <span class="token parameter variable">--zone</span> <span class="token variable">$ZONE</span>
+WARNING: The private SSH key <span class="token function">file</span> <span class="token keyword">for</span> gcloud does not exist.
+WARNING: The public SSH key <span class="token function">file</span> <span class="token keyword">for</span> gcloud does not exist.
+WARNING: You <span class="token keyword">do</span> not have an SSH key <span class="token keyword">for</span> gcloud.
+WARNING: SSH keygen will be executed to generate a key.
+This tool needs to create the directory <span class="token punctuation">[</span>/home/student_01_089f9dde3b42/.ssh<span class="token punctuation">]</span> before being able to generate SSH keys.
+
+Do you want to <span class="token builtin class-name">continue</span> <span class="token punctuation">(</span>Y/n<span class="token punctuation">)</span>?   Y
+
+Generating public/private rsa key pair.
+Enter passphrase <span class="token punctuation">(</span>empty <span class="token keyword">for</span> no passphrase<span class="token punctuation">)</span>: 
+Enter same passphrase again: 
+Your identification has been saved <span class="token keyword">in</span> /home/student_01_089f9dde3b42/.ssh/google_compute_engine
+Your public key has been saved <span class="token keyword">in</span> /home/student_01_089f9dde3b42/.ssh/google_compute_engine.pub
+The key fingerprint is:
+SHA256:mz/YE9l5hrwxGMmLpt0HL4BkvYYUJIeyiRcvSFx9W7c student_01_089f9dde3b42@cs-345001820397-default
+The key<span class="token string">'s randomart image is:
++---[RSA 3072]----+
+|. ..ooo          |
+| oo .+.. . .     |
+|.o *  .oo....    |
+|o = . +.. +E     |
+| . . + oSo B o   |
+|      o *o* B o  |
+|       =o= + *   |
+|      . o.* +    |
+|          .=     |
++----[SHA256]-----+
+Warning: Permanently added '</span>compute.5944440869083800602<span class="token string">' (ED25519) to the list of known hosts.
+Linux gcelab2 6.1.0-37-cloud-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.140-1 (2025-05-22) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Creating directory '</span>/home/student-01-089f9dde3b42'.
+student-01-089f9dde3b42@gcelab2:~$ <span class="token function">sudo</span> <span class="token function">apt</span> update <span class="token operator">&amp;&amp;</span> <span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> <span class="token parameter variable">-y</span> nginx</code></pre></div>
+<h3>방화벽 업데이트</h3>
+<p>VM 같은 컴퓨팅 리소스를 사용할 때는 관련 방화벽 규칙을 이해하는 것이 중요하다.<br>
+방화벽 규칙을 조회해보면 NETWORK가 default 뿐이다.<br>
+이 default 네트워크에 <em>gcelab2</em> VM이 위치한다.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">student_01_089f9dde3b42@cloudshell:~ <span class="token punctuation">(</span>qwiklabs-gcp-01-907c6d53cdcf<span class="token punctuation">)</span>$ gcloud compute firewall-rules list
+NAME: default-allow-icmp
+NETWORK: default
+DIRECTION: INGRESS
+PRIORITY: <span class="token number">65534</span>
+ALLOW: icmp
+DENY: 
+DISABLED: False
+
+NAME: default-allow-internal
+NETWORK: default
+DIRECTION: INGRESS
+PRIORITY: <span class="token number">65534</span>
+ALLOW: tcp:0-65535,udp:0-65535,icmp
+DENY: 
+DISABLED: False
+
+NAME: default-allow-rdp
+NETWORK: default
+DIRECTION: INGRESS
+PRIORITY: <span class="token number">65534</span>
+ALLOW: tcp:3389
+DENY: 
+DISABLED: False
+
+NAME: default-allow-ssh
+NETWORK: default
+DIRECTION: INGRESS
+PRIORITY: <span class="token number">65534</span>
+ALLOW: tcp:22
+DENY: 
+DISABLED: False</code></pre></div>
+<p><em>gcelab2</em> VM에서 실행 중인 Nginx 서비스에 액세스를 시도해보자.<br>
+적절한 방화벽 규칙이 없으면 VM 과의 통신에 실패한다.<br>
+Nginx 웹서버는 TCP:80 포트에서 통신이 이뤄진다.<br>
+통신이 제대로 되려면 <strong>gcelab2 VM에 태그를 추가</strong>하고 <strong>http 트래픽에 대한 방화벽 규칙을 추가</strong>해야 한다.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell"><span class="token comment"># 태그 추가</span>
+student_01_089f9dde3b42@cloudshell:~ <span class="token punctuation">(</span>qwiklabs-gcp-01-907c6d53cdcf<span class="token punctuation">)</span>$ gcloud compute instances add-tags gcelab2 <span class="token parameter variable">--tags</span> http-server,https-server
+Updated <span class="token punctuation">[</span>https://www.googleapis.com/compute/v1/projects/qwiklabs-gcp-01-907c6d53cdcf/zones/europe-west1-d/instances/gcelab2<span class="token punctuation">]</span>.
+
+<span class="token comment"># HTTP 트래픽에 대한 방화벽 규칙 추가</span>
+student_01_089f9dde3b42@cloudshell:~ <span class="token punctuation">(</span>qwiklabs-gcp-01-907c6d53cdcf<span class="token punctuation">)</span>$ gcloud compute firewall-rules create default-allow-http <span class="token parameter variable">--direction</span><span class="token operator">=</span>INGRESS <span class="token parameter variable">--priority</span><span class="token operator">=</span><span class="token number">1000</span> <span class="token parameter variable">--network</span><span class="token operator">=</span>default <span class="token parameter variable">--action</span><span class="token operator">=</span>ALLOW <span class="token parameter variable">--rules</span><span class="token operator">=</span>tcp:80 --source-ranges<span class="token operator">=</span><span class="token number">0.0</span>.0.0/0 --target-tags<span class="token operator">=</span>http-server
+Creating firewall<span class="token punctuation">..</span>.working<span class="token punctuation">..</span>Created <span class="token punctuation">[</span>https://www.googleapis.com/compute/v1/projects/qwiklabs-gcp-01-907c6d53cdcf/global/firewalls/default-allow-http<span class="token punctuation">]</span>.      
+Creating firewall<span class="token punctuation">..</span>.done.                                                                                                                                    
+NAME: default-allow-http
+NETWORK: default
+DIRECTION: INGRESS
+PRIORITY: <span class="token number">1000</span>
+ALLOW: tcp:80
+DENY: 
+DISABLED: False</code></pre></div>
+<p>제대로 적용이 되었는 지 조회해본다.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">student_01_089f9dde3b42@cloudshell:~ <span class="token punctuation">(</span>qwiklabs-gcp-01-907c6d53cdcf<span class="token punctuation">)</span>$ gcloud compute firewall-rules list <span class="token parameter variable">--filter</span><span class="token operator">=</span>ALLOW:<span class="token string">'80'</span>
+NAME: default-allow-http
+NETWORK: default
+DIRECTION: INGRESS
+PRIORITY: <span class="token number">1000</span>
+ALLOW: tcp:80
+DENY: 
+DISABLED: False</code></pre></div>
+<p>VM에 HTTP 통신을 시도해본다.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">student_01_089f9dde3b42@cloudshell:~ <span class="token punctuation">(</span>qwiklabs-gcp-01-907c6d53cdcf<span class="token punctuation">)</span>$ <span class="token function">curl</span> http://<span class="token variable"><span class="token variable">$(</span>gcloud compute instances list <span class="token parameter variable">--filter</span><span class="token operator">=</span>name:gcelab2 <span class="token parameter variable">--format</span><span class="token operator">=</span><span class="token string">'value(EXTERNAL_IP)'</span><span class="token variable">)</span></span>
+<span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE html<span class="token operator">></span>
+<span class="token operator">&lt;</span>html<span class="token operator">></span>
+<span class="token operator">&lt;</span>head<span class="token operator">></span>
+<span class="token operator">&lt;</span>title<span class="token operator">></span>Welcome to nginx<span class="token operator">!</span><span class="token operator">&lt;</span>/title<span class="token operator">></span>
+<span class="token operator">&lt;</span>style<span class="token operator">></span>
+html <span class="token punctuation">{</span> color-scheme: light dark<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+body <span class="token punctuation">{</span> width: 35em<span class="token punctuation">;</span> margin: <span class="token number">0</span> auto<span class="token punctuation">;</span>
+font-family: Tahoma, Verdana, Arial, sans-serif<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token operator">&lt;</span>/style<span class="token operator">></span>
+<span class="token operator">&lt;</span>/head<span class="token operator">></span>
+<span class="token operator">&lt;</span>body<span class="token operator">></span>
+<span class="token operator">&lt;</span>h<span class="token operator"><span class="token file-descriptor important">1</span>></span>Welcome to nginx<span class="token operator">!</span><span class="token operator">&lt;</span>/h<span class="token operator"><span class="token file-descriptor important">1</span>></span>
+<span class="token operator">&lt;</span>p<span class="token operator">></span>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+
+<span class="token operator">&lt;</span>p<span class="token operator">></span>For online documentation and support please refer to
+<span class="token operator">&lt;</span>a <span class="token assign-left variable">href</span><span class="token operator">=</span><span class="token string">"http://nginx.org/"</span><span class="token operator">></span>nginx.org<span class="token operator">&lt;</span>/a<span class="token operator">></span>.<span class="token operator">&lt;</span>br/<span class="token operator">></span>
+Commercial support is available at
+<span class="token operator">&lt;</span>a <span class="token assign-left variable">href</span><span class="token operator">=</span><span class="token string">"http://nginx.com/"</span><span class="token operator">></span>nginx.com<span class="token operator">&lt;</span>/a<span class="token operator">></span>.<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+
+<span class="token operator">&lt;</span>p<span class="token operator">></span><span class="token operator">&lt;</span>em<span class="token operator">></span>Thank you <span class="token keyword">for</span> using nginx.<span class="token operator">&lt;</span>/em<span class="token operator">></span><span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/body<span class="token operator">></span>
+<span class="token operator">&lt;</span>/html<span class="token operator">></span></code></pre></div>
+<h3>시스템 로그 보기</h3>
+<p>로그 보기는 프로젝트의 작업을 이해하는 데 필수적이다.<br>
+<code class="language-text">gcloud</code>를 이용해 Google Cloud에서 사용 가능한 다양한 로그에 액세스 가능하다.</p>
+<p>시스템에서 사용 가능한 로그를 확인한다.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">student_01_089f9dde3b42@cloudshell:~ <span class="token punctuation">(</span>qwiklabs-gcp-01-907c6d53cdcf<span class="token punctuation">)</span>$ gcloud logging logs list
+NAME: projects/qwiklabs-gcp-01-907c6d53cdcf/logs/GCEGuestAgent
+NAME: projects/qwiklabs-gcp-01-907c6d53cdcf/logs/GCEGuestAgentManager
+NAME: projects/qwiklabs-gcp-01-907c6d53cdcf/logs/OSConfigAgent
+NAME: projects/qwiklabs-gcp-01-907c6d53cdcf/logs/cloudaudit.googleapis.com%2Factivity
+NAME: projects/qwiklabs-gcp-01-907c6d53cdcf/logs/cloudaudit.googleapis.com%2Fdata_access
+NAME: projects/qwiklabs-gcp-01-907c6d53cdcf/logs/compute.googleapis.com%2Fshielded_vm_integrity
+NAME: projects/qwiklabs-gcp-01-907c6d53cdcf/logs/diagnostic-log
+NAME: projects/qwiklabs-gcp-01-907c6d53cdcf/logs/google_metadata_script_runner
+NAME: projects/qwiklabs-gcp-01-907c6d53cdcf/logs/ping</code></pre></div>
+<p>컴퓨팅 리소스와 관련된 로그를 본다.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">student_01_089f9dde3b42@cloudshell:~ <span class="token punctuation">(</span>qwiklabs-gcp-01-907c6d53cdcf<span class="token punctuation">)</span>$ gcloud logging logs list <span class="token parameter variable">--filter</span><span class="token operator">=</span><span class="token string">"compute"</span>
+NAME: projects/qwiklabs-gcp-01-907c6d53cdcf/logs/compute.googleapis.com%2Fshielded_vm_integrity</code></pre></div>
+<p><em>gce_insatnce</em> 리소스 유형과 관련된 로그를 조회한다.</p>
+<details>
+    <summary>코드 보기</summary>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">student_01_089f9dde3b42@cloudshell:~ <span class="token punctuation">(</span>qwiklabs-gcp-01-907c6d53cdcf<span class="token punctuation">)</span>$ gcloud logging <span class="token builtin class-name">read</span> <span class="token string">"resource.type=gce_instance"</span> <span class="token parameter variable">--limit</span> <span class="token number">5</span>
+---
+insertId: <span class="token parameter variable">-9pk0i1d36vc</span>
+labels:
+compute.googleapis.com/root_trigger_id: 4683f437-3c93-48ef-a83d-3edff5ccb757
+logName: projects/qwiklabs-gcp-01-907c6d53cdcf/logs/cloudaudit.googleapis.com%2Factivity
+operation:
+id: operation-1755340535858-63c7911198566-5fd41356-88a70984
+last: <span class="token boolean">true</span>
+producer: compute.googleapis.com
+protoPayload:
+<span class="token string">'@type'</span><span class="token builtin class-name">:</span> type.googleapis.com/google.cloud.audit.AuditLog
+authenticationInfo:
+principalEmail: student-01-089f9dde3b42@qwiklabs.net
+principalSubject: user:student-01-089f9dde3b42@qwiklabs.net
+methodName: v1.compute.instances.setTags
+request:
+<span class="token string">'@type'</span><span class="token builtin class-name">:</span> type.googleapis.com/compute.instances.setTags
+requestMetadata:
+callerIp: <span class="token number">35.194</span>.169.115
+callerSuppliedUserAgent: google-cloud-sdk gcloud/533.0.0 command/gcloud.compute.instances.add-tags
+invocation-id/db793877f75a43b0a83bb3b2e638cbe5 environment/devshell environment-version/None
+client-os/LINUX client-os-ver/6.6.97 client-pltf-arch/x86_64 interactive/True
+from-script/False python/3.12.10 term/screen <span class="token punctuation">(</span>Linux <span class="token number">6.6</span>.97+<span class="token punctuation">)</span>,gzip<span class="token punctuation">(</span>gfe<span class="token punctuation">)</span>
+destinationAttributes: <span class="token punctuation">{</span><span class="token punctuation">}</span>
+requestAttributes: <span class="token punctuation">{</span><span class="token punctuation">}</span>
+resourceName: projects/qwiklabs-gcp-01-907c6d53cdcf/zones/europe-west1-d/instances/gcelab2
+serviceName: compute.googleapis.com
+receiveTimestamp: <span class="token string">'2025-08-16T10:35:39.416705715Z'</span>
+resource:
+labels:
+instance_id: <span class="token string">'5944440869083800602'</span>
+project_id: qwiklabs-gcp-01-907c6d53cdcf
+zone: europe-west1-d
+type: gce_instance
+severity: NOTICE
+timestamp: <span class="token string">'2025-08-16T10:35:38.958670Z'</span>
+---
+insertId: <span class="token parameter variable">-j4fqq2e12kx4</span>
+labels:
+compute.googleapis.com/root_trigger_id: 4683f437-3c93-48ef-a83d-3edff5ccb757
+logName: projects/qwiklabs-gcp-01-907c6d53cdcf/logs/cloudaudit.googleapis.com%2Factivity
+operation:
+first: <span class="token boolean">true</span>
+id: operation-1755340535858-63c7911198566-5fd41356-88a70984
+producer: compute.googleapis.com
+protoPayload:
+<span class="token string">'@type'</span><span class="token builtin class-name">:</span> type.googleapis.com/google.cloud.audit.AuditLog
+authenticationInfo:
+principalEmail: student-01-089f9dde3b42@qwiklabs.net
+principalSubject: user:student-01-089f9dde3b42@qwiklabs.net
+authorizationInfo:
+
+- granted: <span class="token boolean">true</span>
+  permission: compute.instances.setTags
+  permissionType: ADMIN_WRITE
+  resource: projects/qwiklabs-gcp-01-907c6d53cdcf/zones/europe-west1-d/instances/gcelab2
+  resourceAttributes:
+  name: projects/qwiklabs-gcp-01-907c6d53cdcf/zones/europe-west1-d/instances/gcelab2
+  service: compute
+  type: compute.instances
+  methodName: v1.compute.instances.setTags
+  request:
+  <span class="token string">'@type'</span><span class="token builtin class-name">:</span> type.googleapis.com/compute.instances.setTags
+  fingerprint: �e�J�<span class="token operator">|</span>�<span class="token comment">#</span>
+  tags:
+    - http-server
+    - https-server
+      requestMetadata:
+      callerIp: <span class="token number">35.194</span>.169.115
+      callerSuppliedUserAgent: google-cloud-sdk gcloud/533.0.0 command/gcloud.compute.instances.add-tags
+      invocation-id/db793877f75a43b0a83bb3b2e638cbe5 environment/devshell environment-version/None
+      client-os/LINUX client-os-ver/6.6.97 client-pltf-arch/x86_64 interactive/True
+      from-script/False python/3.12.10 term/screen <span class="token punctuation">(</span>Linux <span class="token number">6.6</span>.97+<span class="token punctuation">)</span>,gzip<span class="token punctuation">(</span>gfe<span class="token punctuation">)</span>
+      destinationAttributes: <span class="token punctuation">{</span><span class="token punctuation">}</span>
+      requestAttributes:
+      auth: <span class="token punctuation">{</span><span class="token punctuation">}</span>
+      time: <span class="token string">'2025-08-16T10:35:36.154748Z'</span>
+      resourceLocation:
+      currentLocations:
+    - europe-west1-d
+      resourceName: projects/qwiklabs-gcp-01-907c6d53cdcf/zones/europe-west1-d/instances/gcelab2
+      response:
+      <span class="token string">'@type'</span><span class="token builtin class-name">:</span> type.googleapis.com/operation
+      id: <span class="token string">'167053005140385815'</span>
+      insertTime: <span class="token string">'2025-08-16T03:35:36.111-07:00'</span>
+      name: operation-1755340535858-63c7911198566-5fd41356-88a70984
+      operationType: setTags
+      progress: <span class="token string">'0'</span>
+      selfLink: https://www.googleapis.com/compute/v1/projects/qwiklabs-gcp-01-907c6d53cdcf/zones/europe-west1-d/operations/operation-1755340535858-63c7911198566-5fd41356-88a70984
+      selfLinkWithId: https://www.googleapis.com/compute/v1/projects/qwiklabs-gcp-01-907c6d53cdcf/zones/europe-west1-d/operations/167053005140385815
+      startTime: <span class="token string">'2025-08-16T03:35:36.125-07:00'</span>
+      status: RUNNING
+      targetId: <span class="token string">'5944440869083800602'</span>
+      targetLink: https://www.googleapis.com/compute/v1/projects/qwiklabs-gcp-01-907c6d53cdcf/zones/europe-west1-d/instances/gcelab2
+      user: student-01-089f9dde3b42@qwiklabs.net
+      zone: https://www.googleapis.com/compute/v1/projects/qwiklabs-gcp-01-907c6d53cdcf/zones/europe-west1-d
+      serviceName: compute.googleapis.com
+      receiveTimestamp: <span class="token string">'2025-08-16T10:35:36.766798090Z'</span>
+      resource:
+      labels:
+      instance_id: <span class="token string">'5944440869083800602'</span>
+      project_id: qwiklabs-gcp-01-907c6d53cdcf
+      zone: europe-west1-d
+      type: gce_instance
+      severity: NOTICE
+      timestamp: <span class="token string">'2025-08-16T10:35:35.913839Z'</span>
+
+---
+insertId: m7z0yvf2c8me1
+jsonPayload:
+localTimestamp: <span class="token string">'2025-08-16T10:19:03.9151Z'</span>
+message: <span class="token operator">|</span>
+Currently present IP routes:
+default via <span class="token number">10.132</span>.0.1 dev ens4 proto dhcp src <span class="token number">10.132</span>.0.2 metric <span class="token number">100</span>
+<span class="token number">10.132</span>.0.1 dev ens4 proto dhcp scope <span class="token function">link</span> src <span class="token number">10.132</span>.0.2 metric <span class="token number">100</span>
+<span class="token number">169.254</span>.169.254 via <span class="token number">10.132</span>.0.1 dev ens4 proto dhcp src <span class="token number">10.132</span>.0.2 metric <span class="token number">100</span>
+omitempty: null
+labels:
+instance_name: gcelab2
+logName: projects/qwiklabs-gcp-01-907c6d53cdcf/logs/GCEGuestAgent
+receiveTimestamp: <span class="token string">'2025-08-16T10:19:04.229479099Z'</span>
+resource:
+labels:
+instance_id: <span class="token string">'5944440869083800602'</span>
+project_id: qwiklabs-gcp-01-907c6d53cdcf
+zone: europe-west1-d
+type: gce_instance
+severity: INFO
+sourceLocation:
+file: common.go
+function: github.com/GoogleCloudPlatform/guest-agent/google_guest_agent/network/manager.logInterfaceState
+line: <span class="token string">'77'</span>
+timestamp: <span class="token string">'2025-08-16T10:19:03.915135249Z'</span>
+---
+insertId: m7z0yvf2c8me0
+jsonPayload:
+localTimestamp: <span class="token string">'2025-08-16T10:19:03.9113Z'</span>
+message: <span class="token string">'Interface(ens4), State: {Index:2 MTU:1460 Name:ens4 HardwareAddr:42:01:0a:84:00:02
+Flags:up|broadcast|multicast|running}, Addresses: [10.132.0.2/32 fe80::4001:aff:fe84:2/64]'</span>
+omitempty: null
+labels:
+instance_name: gcelab2
+logName: projects/qwiklabs-gcp-01-907c6d53cdcf/logs/GCEGuestAgent
+receiveTimestamp: <span class="token string">'2025-08-16T10:19:04.229479099Z'</span>
+resource:
+labels:
+instance_id: <span class="token string">'5944440869083800602'</span>
+project_id: qwiklabs-gcp-01-907c6d53cdcf
+zone: europe-west1-d
+type: gce_instance
+severity: INFO
+sourceLocation:
+file: common.go
+function: github.com/GoogleCloudPlatform/guest-agent/google_guest_agent/network/manager.logInterfaceState
+line: <span class="token string">'69'</span>
+timestamp: <span class="token string">'2025-08-16T10:19:03.911345279Z'</span>
+---
+insertId: m7z0yvf2c8mdz
+jsonPayload:
+localTimestamp: <span class="token string">'2025-08-16T10:19:03.9112Z'</span>
+message: <span class="token string">'Interface(lo), State: {Index:1 MTU:65536 Name:lo HardwareAddr: Flags:up|loopback|running},
+Addresses: [127.0.0.1/8 ::1/128]'</span>
+omitempty: null
+labels:
+instance_name: gcelab2
+logName: projects/qwiklabs-gcp-01-907c6d53cdcf/logs/GCEGuestAgent
+receiveTimestamp: <span class="token string">'2025-08-16T10:19:04.229479099Z'</span>
+resource:
+labels:
+instance_id: <span class="token string">'5944440869083800602'</span>
+project_id: qwiklabs-gcp-01-907c6d53cdcf
+zone: europe-west1-d
+type: gce_instance
+severity: INFO
+sourceLocation:
+file: common.go
+function: github.com/GoogleCloudPlatform/guest-agent/google_guest_agent/network/manager.logInterfaceState
+line: <span class="token string">'69'</span>
+timestamp: <span class="token string">'2025-08-16T10:19:03.911228683Z'</span></code></pre></div>
+</details>
+<p>특정 VM의 로그를 읽는다.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">gcloud logging <span class="token builtin class-name">read</span> <span class="token string">"resource.type=gce_instance AND labels.instance_name='gcelab2'"</span> <span class="token parameter variable">--limit</span> <span class="token number">5</span></code></pre></div>
+</details>
+<h2>Google Cloud API</h2>
+<p>Google Cloud API는 Google Cloud의 핵심이다.<br>
+서비스와 마찬가지로 비즈니스 관리에서 머신러닝까지, 전 분야의 API를 Google Cloud 프로젝트와 애플리케이션에 손쉽게 통합할 수 있다.<br>
+쉽게 말해, Cloud Storage API를 활용해서 특정 Storage에 객체를 저장하는 경우 Google Cloud API를 사용한다고 볼 수 있다.</p>
+<p>Google Cloud API를 사용하기 위해선 <strong>탐색 메뉴 > API 및 서비스 > 라이브러리</strong>에서 원하는 서비스를 검색해 접근한다.<br>
+그리고 <strong>Enable</strong> 버튼을 누르고 브라우저를 뒤로 이동하면 아래와 같이 <strong>API Enabled</strong> 라고 표시가 뜰 것이다.<br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 487px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/a926d48d3488c1b3ef4a28cb94d8f60c/7b439/google-cloud-api-enabled-example.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 45.56962025316456%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABXUlEQVR42o2RW07CUBCGuws3QHx0K27BxEX4oMY1uAITXoxxDz4oxEvwARAC3hLA2pYWhLZQei7zO5wWjEaRk/ydybT9zj8zFhZHRABpk0opobUGEUEIuawJIfDfseYPap0DxQ1QeR+KmY2HGkpXl7i7uUaZY6vZwH2lgmq1th5wcrKD8a6F8HATpCTsoUDrLUb9dYC2HeHFmaDrJ9xA5nqhP4GyfYHxUQFp5dQUoxlhOCGOwDghhByngrDOMUAoAUpGJiWeo9f34bguhh8j9H0fQeDD8zz4wYDf9eFwHsXxCuDcvpHKyzoX8XKUWYhU0uSKo1KK21/R8hJqELwUW6D8NEOJ5YcMVIRUEmbc9jTVWS5TA15coPMLrB888/H2sYOtgx4Ke12c3YYM0mjaKR7dlBcmMYhS1N02jyKAbb+j0+kizkdg/Wa7xz89e5nCRLODzJ2QX8pMfI9z4CeTnrEbs9gKwQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Dialogflow API를 활성화 한 모습"
+        title=""
+        src="/static/a926d48d3488c1b3ef4a28cb94d8f60c/7b439/google-cloud-api-enabled-example.png"
+        srcset="/static/a926d48d3488c1b3ef4a28cb94d8f60c/c26ae/google-cloud-api-enabled-example.png 158w,
+/static/a926d48d3488c1b3ef4a28cb94d8f60c/6bdcf/google-cloud-api-enabled-example.png 315w,
+/static/a926d48d3488c1b3ef4a28cb94d8f60c/7b439/google-cloud-api-enabled-example.png 487w"
+        sizes="(max-width: 487px) 100vw, 487px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>그리고 특정 리소스의 자세한 API 명세는 <a href="https://developers.google.com/apis-explorer">Google APIs Explorer</a>에서 확인할 수 있다.</p>
+<h1>Google Cloud Mobile App</h1>
+<p>Google Cloud Mobile App을 사용하면 모바일 기기에서 직접 Google Cloud에서 실행 중인 서비스를 관리할 수 있다.</p>
+<h2>주요 기능</h2>
+<ul>
+<li>Compute Engine: 인스턴스를 시작, 중지, SSH로 연결, 각 인스턴스의 로그를 확인 가능</li>
+<li>Cloud SQL: Cloud SQL 인스턴스를 중지하고 시작할 수 있다.</li>
+<li>App Engine: 배포된 애플리케이션의 오류를 확인하고 배포를 롤백하고, 트래픽 분할을 변경할 수 있다.</li>
+<li>결제: 프로젝트에 대한 최신 결제 정보와 예산 초과 시 알림을 제공한다.</li>
+<li>모니터링: CPU/네트워크 사용량, 초당 요청 수, 서버 오류 등 주요 지표를 보여주는 커스텀 그래프 설정 가능</li>
+<li>알림 및 사고 관리</li>
+</ul>
+<h1>Google Cloud Compute Services</h1>
+<p>Google Cloud에는 다양한 용도에 맞는 여러 컴퓨팅 서비스가 존재한다.</p>
+<h2>1. Compute Engine</h2>
+<ul>
+<li>애플리케이션에 전용 리소스가 필요한 일반적인 작업에 적합하다.</li>
+<li>가상 머신 VM을 생성하고 실행할 수 있게 해준다.</li>
+<li>수 천개의 가상 CPU를 빠르고 일관된 성능으로 실행할 수 있도록 설계되었다.</li>
+<li>각 가상 머신은 완전한 운영 체제 기능을 포함한다. 따라서 필요한 CPU, 메모리, 디스크 및 운영체제를 지정하여 물리적 서버처럼 구성할 수 있다.</li>
+<li>웹 서버 호스팅, 애플리케이션 호스팅, 애플리케이션 백엔드 등 모든 컴퓨팅 작업에 사용할 수 있다.</li>
+<li>가격 및 요금 구조
+<ul>
+<li>사용료는 최소 1분 단위로 초당 청구된다.</li>
+<li>Sustained-use discounts: 한 달에 25%이상 실행된 경우, 추가로 실행되는 매분마다 자동으로 할인이 적용된다.</li>
+<li>Committed-use discounts: 1년 또느 3년 단위로 약정을 걸고, vCPU 및 메모리를 구매할 수 있다. 정가보다 최대 57% 할인받을 수 있다.</li>
+<li>Preemptible VMs: 일반 VM과 달리 Google Compute Engine이 리소스가 필요할 때 작업을 중단할 수 있는 권한을 가진다. 최대 90%까지 비용을 절감받을 수 있다. 다만, 작업이 중단 및 재시작이 가능하도록 구성되어야 한다.</li>
+</ul>
+</li>
+</ul>
+<h2>2. App Engine</h2>
+<ul>
+<li>
+<p>인프라 관리에 신경 쓸 필요없이 애플리케이션을 실행할 수 있도록 하는 완전 관리형 서버리스 플랫폼이다.<br>
+시장 출시 시간을 단축하고, 서버, 클러스터, 인프라 관리에 대한 걱정 없이 코드 작성에만 집중하고자 할 때 적합하다.</p>
+</li>
+<li>
+<p>프로젝트 위치에서 <code class="language-text">gcloud app deploy</code>만 치면 바로 배포가 이뤄진다.</p>
+</li>
+<li>
+<p>다만, 특정 언어 (Python, Java, PHP, Go, Node.js, and Ruby) 만 지원된다.</p>
+</li>
+<li>
+<p>작동 방식</p>
+<ul>
+<li>사용자는 앱을 개발한다</li>
+<li>App Engine은 수요에 따라 서버르 자동을 프로비저닝하고 애플리케이션 인스턴스를 확장한다.</li>
+<li>개발자는 코드를 업로드하기만 하면, App Engine이 앱의 가용성을 관리한다.</li>
+<li>App Engine은 NoSQL 데이터 스토어, Memcache, 로드 밸런싱, 상태 확인, 애플리케이션 로깅, 사용자 인증 API 등 내장된 서비스와 API를 제공한다.</li>
+</ul>
+</li>
+<li>
+<p>SDK</p>
+<ul>
+<li>로컬 머신에서 앱을 개발, 배포, 관리하는 데 도움이 되는 SDK를 제공한다.</li>
+<li>모든 API 및 라이브러리, App Engine 서비스를 에뮬레이트하는 시뮬레이션된 보안 샌드박스 환경, 그리고 클라우드에 애플리케이션을 업로드하고 버전을 관리하는 배포 도구가 포함되어 있다.</li>
+<li>SDK는 로컬에서 애플리케이션을 관리하고, Google Cloud 콘솔은 프로덕션 환경의 애플리케이션을 관리한다.</li>
+<li>Google Cloud 콘솔의 GUI를 이용해 애플리케이션을 생성하고, 도메인 이름을 구성하고, 라이브 버전을 변경하고, 로그를 검토하는 등의 작업을 할 수 있다.</li>
+</ul>
+</li>
+<li>
+<p>App Engine 환경: Standard vs Flexible</p>
+<p>App Engine에는 두 가지 환경이 있다.</p>
+<ol>
+<li>Standard</li>
+</ol>
+<ul>
+<li>Google에 모든 것을 위임하는 환경이다.</li>
+<li>Google 인프라에서 실행되는 컨테이너 인스턴스를 기반으로 한다.</li>
+<li>대부분의 애플리케이션에 표준 환경의 런타임과 라이브러리만으로 충분할 수 있다.</li>
+<li>주요 특징
+<ul>
+<li>쿼리, 정렬, 트랜잭션을 지원하는 영구 스토리지</li>
+<li>오토스케일링 및 로드 밸런싱</li>
+<li>요청 범위를 벗어난 작업을 수행하는 비동기 작업 큐</li>
+<li>특정 시간 또는 주기적 간격으로 이벤트를 트리거하는 예약된 작업</li>
+<li>다른 Google Cloud 서비스 및 API와의 통합</li>
+<li>VM에 SSH 접속이 불가하다.</li>
+</ul>
+</li>
+<li>요구 사항
+<ul>
+<li>지정된 버전의 언어를 사용해야 한다.</li>
+<li>애플리케이션은 런타임에 따라 달라지는 샌드박스 제약 조건을 따라야 한다.</li>
+</ul>
+</li>
+<li>워크플로우
+<ul>
+<li>웹 애플리케이션을 로컬에서 개발 및 테스트한다.</li>
+<li>SDK를 사용해 App Engine에 애플리케이션을 배포한다.</li>
+<li>App Engine이 애플리케이션을 확장하고 서비스를 제공한다.</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>Flexible
+<ul>
+<li>애플리케이션 배포에 있어 일부만 Google에 위임하는 것이다.</li>
+<li>Standard의 샌드박스 모델이 너무 제한적이게 느껴지는 경우, 애플리케이션이 실행될 컨테이너 유형을 직접 지정할 수 있다.</li>
+<li>애플리케이션은 Docker 컨테이너 내에서 Google Cloud의 Compute Engine VM에서 실행된다. 이 경우 App Engine이 Compute Engine 머신을 대신 관리해준다.</li>
+<li>주요 특징
+<ul>
+<li>인스턴스 상태를 확인하고 필요시 복구 가능하며, 프로젝트 내 다른 인스턴스와 함께 배치된다.</li>
+<li>운영 체제에 호환 가능한 중요한 업데이트가 자동으로 적용된다.</li>
+<li>VM 인스턴스가 주간 단위로 다시 시작되며, 이 과정에서 필요한 운영 체제 및 보안 업데이트가 적용된다.</li>
+<li>사용자는 Dockerfile을 사용해 런타임과 운영 체제를 맞춤 설정할 수 있다.</li>
+<li>마이크로서비스, SQL/NoSQL 데이터베이스, 트래픽 분할, 로깅, 보안 스캐닝 등 다양한 기능을 지원한다.</li>
+<li>VM에 SSH 접속이 가능하다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3>GKE와의 비교</h3>
+<ul>
+<li>App Engine Standard: 웹 및 모바일 애플리케이션의 배포 및 확장에 대해 최대한 서비스에 제어권을 넘기고 싶은 경우 적합하다</li>
+<li>Google Kubernetes Engine (GKE): 쿠버네티스의 완전한 유연성을 가질 수 있다.</li>
+<li>App Engine Flexible: 두 환경의 중간이다.</li>
+</ul>
+<h2>3. Cloud Functions</h2>
+<ul>
+<li><strong>특정 이벤트에 따라 코드를 실행하는 서버리스 서비스</strong>다.
+예를 들어, 사용자가 이미지를 업로드 할 때, 해당 이미지를 특정 형식으로 변환하거나 썸네일을 만드는 등의 처리가 필요할 수 있다.<br>
+이런 기능을 애플리케이션에 통합하면, 이벤트가 발생하는 빈도에 상관없이 항상 컴퓨팅 리소스를 준비해둬야 한다.
+Cloud Functions을 이용하면 필요한 이미지 조작 작업만 수행하는 단일 목적 함수를 작성할 수 있고, 새로운 이미지가 업로드 될 때마다 자동으로 실행되도록 할 수 있는 것이다.</li>
+<li>특징
+<ul>
+<li>경량(lightweight), Event Driven, async 컴퓨팅 솔루션이다.</li>
+<li>서버나 런타임 환경을 관리할 필요 없다.</li>
+<li>Cloud Functions들을 사용해 작은 단위의 비즈니스 로직으로 애플리케이션을 구성할 수 있으며, 작고 단일 목적의 함수를 생성할 수 있다.</li>
+</ul>
+</li>
+<li>비용 및 기술
+<ul>
+<li>코드가 실행되는 동안에만 100ms 단위로 요금이 청구된다.</li>
+<li>각 Cloud Functions는 JavaScript, Node.js, Python 또는 Go로 작성된다.</li>
+<li>Cloud Storage 및 Pub/Sub의 이벤트로 비동기적으로 Functions을 트리거하거나, HTTP 호출을 통해 동기적으로 실행할 수 있다.</li>
+</ul>
+</li>
+</ul>
+<details>
+<summary><strong>Cloud Functions 실습</strong></summary>
+<ol>
+<li>Cloud Shell에서 다음 명령어를 실행하여 기본 리전을 설정합니다.</li>
+</ol>
+<p><code class="language-text">gcloud config set run/region us-east1</code></p>
+<ol start="2">
+<li>함수 코드용 디렉터리를 만듭니다.</li>
+</ol>
+<p><code class="language-text">mkdir gcf_hello_world &amp;&amp; cd $_</code></p>
+<ol start="3">
+<li>수정할 index.js를 만들고 엽니다.</li>
+</ol>
+<p><code class="language-text">nano index.js</code></p>
+<ol start="4">
+<li>다음을 index.js 파일에 복사합니다.</li>
+</ol>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> functions <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@google-cloud/functions-framework'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Register a CloudEvent callback with the Functions Framework that will</span>
+<span class="token comment">// be executed when the Pub/Sub trigger topic receives a message.</span>
+functions<span class="token punctuation">.</span><span class="token function">cloudEvent</span><span class="token punctuation">(</span><span class="token string">'helloPubSub'</span><span class="token punctuation">,</span> <span class="token parameter">cloudEvent</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token comment">// The Pub/Sub message is passed as the CloudEvent's data payload.</span>
+  <span class="token keyword">const</span> base64name <span class="token operator">=</span> cloudEvent<span class="token punctuation">.</span>data<span class="token punctuation">.</span>message<span class="token punctuation">.</span>data<span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> name <span class="token operator">=</span> base64name
+    <span class="token operator">?</span> Buffer<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>base64name<span class="token punctuation">,</span> <span class="token string">'base64'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token operator">:</span> <span class="token string">'World'</span><span class="token punctuation">;</span>
+
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Hello, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">!</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<ol start="5">
+<li>package.json을 만들고 엽니다.</li>
+</ol>
+<p><code class="language-text">vim package.json</code></p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"gcf_hello_world"</span><span class="token punctuation">,</span>
+  <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"1.0.0"</span><span class="token punctuation">,</span>
+  <span class="token property">"main"</span><span class="token operator">:</span> <span class="token string">"index.js"</span><span class="token punctuation">,</span>
+  <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"start"</span><span class="token operator">:</span> <span class="token string">"node index.js"</span><span class="token punctuation">,</span>
+    <span class="token property">"test"</span><span class="token operator">:</span> <span class="token string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"dependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"@google-cloud/functions-framework"</span><span class="token operator">:</span> <span class="token string">"^3.0.0"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<ol start="6">
+<li>패키지 종속 항목 설치</li>
+</ol>
+<p><code class="language-text">npm install</code></p>
+<ol start="7">
+<li>Function 배포하기</li>
+</ol>
+<p>Cloud Run Functions는 이벤트 기반이므로 트리거 유형을 지정해야 한다.<br>
+새 Function을 배포할 때 <code class="language-text">--trigger-topic</code>, <code class="language-text">--trigger-bucket</code>, 또는 <code class="language-text">--trigger-http</code>는 일반적인 트리거 이벤트이다.<br>
+만약, 기존 Function을 업데이트 하는 경우, 별도로 지정하지 않는 한 기존 트리거를 유지한다.</p>
+<p>이번에는 <code class="language-text">--trigger-topic</code>을 <code class="language-text">cf_demo</code>로 설정한다.</p>
+<p><em>node-js-pubsub-function</em> 함수를 <em>cf-demo</em> 라는 이름의 Pub/Sub에 배포한다.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">student_00_436954939807@cloudshell:~/gcf_hello_world <span class="token punctuation">(</span>qwiklabs-gcp-00-e0b9cc1807b6<span class="token punctuation">)</span>$ gcloud functions deploy nodejs-pubsub-function   <span class="token parameter variable">--gen2</span>   <span class="token parameter variable">--runtime</span><span class="token operator">=</span>nodejs20   <span class="token parameter variable">--region</span><span class="token operator">=</span>us-east1   <span class="token parameter variable">--source</span><span class="token operator">=</span>.   --entry-point<span class="token operator">=</span>helloPubSub   --trigger-topic cf-demo   --stage-bucket qwiklabs-gcp-00-e0b9cc1807b6-bucket   --service-account cloudfunctionsa@qwiklabs-gcp-00-e0b9cc1807b6.iam.gserviceaccount.com   --allow-unauthenticated
+Service account <span class="token punctuation">[</span>service-646306552450@gcp-sa-pubsub.iam.gserviceaccount.com<span class="token punctuation">]</span> is missing the role <span class="token punctuation">[</span>roles/iam.serviceAccountTokenCreator<span class="token punctuation">]</span>.
+Pub/Sub needs this role to create identity tokens. For <span class="token function">more</span> details, please see https://cloud.google.com/pubsub/docs/push<span class="token comment">#authentication</span>
+
+Bind the role <span class="token punctuation">[</span>roles/iam.serviceAccountTokenCreator<span class="token punctuation">]</span> to <span class="token function">service</span> account 
+<span class="token punctuation">[</span>service-646306552450@gcp-sa-pubsub.iam.gserviceaccount.com<span class="token punctuation">]</span>? <span class="token punctuation">(</span>Y/n<span class="token punctuation">)</span>?  n
+
+WARNING: Manual binding of above role may be necessary.
+
+Preparing function<span class="token punctuation">..</span>.done.                                                                                                      
+X  Updating <span class="token keyword">function</span> <span class="token punctuation">(</span>may take a <span class="token keyword">while</span><span class="token punctuation">)</span><span class="token punctuation">..</span>.                                                                                      
+  OK <span class="token punctuation">[</span>Build<span class="token punctuation">]</span> Logs are available at <span class="token punctuation">[</span>https://console.cloud.google.com/cloud-build/builds<span class="token punctuation">;</span><span class="token assign-left variable">region</span><span class="token operator">=</span>us-east1/87ea6ec0-35e1-4ac0-a3ab-
+  5529fa7a48db?project<span class="token operator">=</span><span class="token number">646306552450</span><span class="token punctuation">]</span>                                                                                            
+     <span class="token punctuation">[</span>Service<span class="token punctuation">]</span>                                                                                                                  
+  OK <span class="token punctuation">[</span>Trigger<span class="token punctuation">]</span>                                                                                                                  
+  <span class="token builtin class-name">.</span>  <span class="token punctuation">[</span>ArtifactRegistry<span class="token punctuation">]</span>                                                                                                         
+  <span class="token builtin class-name">.</span>  <span class="token punctuation">[</span>Healthcheck<span class="token punctuation">]</span>                                                                                                              
+  <span class="token builtin class-name">.</span>  <span class="token punctuation">[</span>Triggercheck<span class="token punctuation">]</span>                                                                                                             
+Completed with warnings:                                                                                                        
+  <span class="token punctuation">[</span>WARNING<span class="token punctuation">]</span> Cloud Run <span class="token function">service</span> projects/qwiklabs-gcp-00-e0b9cc1807b6/locations/us-east1/services/nodejs-pubsub-function <span class="token keyword">for</span> the <span class="token keyword">function</span> was not found. The <span class="token function">service</span> was redeployed with default values.
+You can view your <span class="token keyword">function</span> <span class="token keyword">in</span> the Cloud Console here: https://console.cloud.google.com/functions/details/us-east1/nodejs-pubsub-function?project<span class="token operator">=</span>qwiklabs-gcp-00-e0b9cc1807b6
+
+buildConfig:
+  automaticUpdatePolicy: <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  build: projects/646306552450/locations/us-east1/builds/87ea6ec0-35e1-4ac0-a3ab-5529fa7a48db
+  dockerRegistry: ARTIFACT_REGISTRY
+  dockerRepository: projects/qwiklabs-gcp-00-e0b9cc1807b6/locations/us-east1/repositories/gcf-artifacts
+  entryPoint: helloPubSub
+  runtime: nodejs20
+  serviceAccount: projects/qwiklabs-gcp-00-e0b9cc1807b6/serviceAccounts/646306552450-compute@developer.gserviceaccount.com
+  source:
+    storageSource:
+      bucket: gcf-v2-sources-646306552450-us-east1
+      generation: <span class="token string">'1755417814598219'</span>
+      object: nodejs-pubsub-function/function-source.zip
+  sourceProvenance:
+    resolvedStorageSource:
+      bucket: gcf-v2-sources-646306552450-us-east1
+      generation: <span class="token string">'1755417814598219'</span>
+      object: nodejs-pubsub-function/function-source.zip
+createTime: <span class="token string">'2025-08-17T08:02:04.698179942Z'</span>
+environment: GEN_2
+eventTrigger:
+  eventType: google.cloud.pubsub.topic.v1.messagePublished
+  pubsubTopic: projects/qwiklabs-gcp-00-e0b9cc1807b6/topics/cf-demo
+  retryPolicy: RETRY_POLICY_DO_NOT_RETRY
+  serviceAccountEmail: cloudfunctionsa@qwiklabs-gcp-00-e0b9cc1807b6.iam.gserviceaccount.com
+  trigger: projects/qwiklabs-gcp-00-e0b9cc1807b6/locations/us-east1/triggers/nodejs-pubsub-function-218661
+  triggerRegion: us-east1
+labels:
+  deployment-tool: cli-gcloud
+name: projects/qwiklabs-gcp-00-e0b9cc1807b6/locations/us-east1/functions/nodejs-pubsub-function
+satisfiesPzi: <span class="token boolean">true</span>
+serviceConfig:
+  allTrafficOnLatestRevision: <span class="token boolean">true</span>
+  availableCpu: <span class="token string">'0.1666'</span>
+  availableMemory: 256M
+  environmentVariables:
+    LOG_EXECUTION_ID: <span class="token string">'true'</span>
+  ingressSettings: ALLOW_ALL
+  maxInstanceCount: <span class="token number">5</span>
+  maxInstanceRequestConcurrency: <span class="token number">1</span>
+  revision: nodejs-pubsub-function-00001-xoj
+  service: projects/qwiklabs-gcp-00-e0b9cc1807b6/locations/us-east1/services/nodejs-pubsub-function
+  serviceAccountEmail: cloudfunctionsa@qwiklabs-gcp-00-e0b9cc1807b6.iam.gserviceaccount.com
+  timeoutSeconds: <span class="token number">60</span>
+  uri: https://nodejs-pubsub-function-rng6uhzvqa-ue.a.run.app
+state: ACTIVE
+updateTime: <span class="token string">'2025-08-17T08:04:26.568452137Z'</span>
+url: https://us-east1-qwiklabs-gcp-00-e0b9cc1807b6.cloudfunctions.net/nodejs-pubsub-function</code></pre></div>
+<ol start="8">
+<li>Function 상태 확인하기</li>
+</ol>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">student_00_436954939807@cloudshell:~/gcf_hello_world <span class="token punctuation">(</span>qwiklabs-gcp-00-e0b9cc1807b6<span class="token punctuation">)</span>$ gcloud functions describe nodejs-pubsub-function <span class="token punctuation">\</span>
+  <span class="token parameter variable">--region</span><span class="token operator">=</span>us-east1 
+buildConfig:
+  automaticUpdatePolicy: <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  build: projects/646306552450/locations/us-east1/builds/87ea6ec0-35e1-4ac0-a3ab-5529fa7a48db
+  dockerRegistry: ARTIFACT_REGISTRY
+  dockerRepository: projects/qwiklabs-gcp-00-e0b9cc1807b6/locations/us-east1/repositories/gcf-artifacts
+  entryPoint: helloPubSub
+  runtime: nodejs20
+  serviceAccount: projects/qwiklabs-gcp-00-e0b9cc1807b6/serviceAccounts/646306552450-compute@developer.gserviceaccount.com
+  source:
+    storageSource:
+      bucket: gcf-v2-sources-646306552450-us-east1
+      generation: <span class="token string">'1755417814598219'</span>
+      object: nodejs-pubsub-function/function-source.zip
+  sourceProvenance:
+    resolvedStorageSource:
+      bucket: gcf-v2-sources-646306552450-us-east1
+      generation: <span class="token string">'1755417814598219'</span>
+      object: nodejs-pubsub-function/function-source.zip
+createTime: <span class="token string">'2025-08-17T08:02:04.698179942Z'</span>
+environment: GEN_2
+eventTrigger:
+  eventType: google.cloud.pubsub.topic.v1.messagePublished
+  pubsubTopic: projects/qwiklabs-gcp-00-e0b9cc1807b6/topics/cf-demo
+  retryPolicy: RETRY_POLICY_DO_NOT_RETRY
+  serviceAccountEmail: cloudfunctionsa@qwiklabs-gcp-00-e0b9cc1807b6.iam.gserviceaccount.com
+  trigger: projects/qwiklabs-gcp-00-e0b9cc1807b6/locations/us-east1/triggers/nodejs-pubsub-function-218661
+  triggerRegion: us-east1
+labels:
+  deployment-tool: cli-gcloud
+name: projects/qwiklabs-gcp-00-e0b9cc1807b6/locations/us-east1/functions/nodejs-pubsub-function
+satisfiesPzi: <span class="token boolean">true</span>
+serviceConfig:
+  allTrafficOnLatestRevision: <span class="token boolean">true</span>
+  availableCpu: <span class="token string">'0.1666'</span>
+  availableMemory: 256M
+  environmentVariables:
+    LOG_EXECUTION_ID: <span class="token string">'true'</span>
+  ingressSettings: ALLOW_ALL
+  maxInstanceCount: <span class="token number">5</span>
+  maxInstanceRequestConcurrency: <span class="token number">1</span>
+  revision: nodejs-pubsub-function-00001-xoj
+  service: projects/qwiklabs-gcp-00-e0b9cc1807b6/locations/us-east1/services/nodejs-pubsub-function
+  serviceAccountEmail: cloudfunctionsa@qwiklabs-gcp-00-e0b9cc1807b6.iam.gserviceaccount.com
+  timeoutSeconds: <span class="token number">60</span>
+  uri: https://nodejs-pubsub-function-rng6uhzvqa-ue.a.run.app
+state: ACTIVE
+updateTime: <span class="token string">'2025-08-17T08:04:26.568452137Z'</span>
+url: https://us-east1-qwiklabs-gcp-00-e0b9cc1807b6.cloudfunctions.net/nodejs-pubsub-function</code></pre></div>
+<ol start="9">
+<li>Functions 테스트하기</li>
+</ol>
+<p>이제 Functions이 이벤트를 감지한 후, 클라우드 로그에 메시지를 기록하는 지 테스트해본다.<br>
+일부 데이터로 Pub/Sub을 호출한다.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">student_00_436954939807@cloudshell:~/gcf_hello_world <span class="token punctuation">(</span>qwiklabs-gcp-00-e0b9cc1807b6<span class="token punctuation">)</span>$ gcloud pubsub topics publish cf-demo <span class="token parameter variable">--message</span><span class="token operator">=</span><span class="token string">"Cloud Function Gen2"</span>
+messageIds:
+- <span class="token string">'15930997933580430'</span></code></pre></div>
+<ol start="10">
+<li>로그 보기</li>
+</ol>
+<p>로그를 확인하여 로그 기록에서 내 메시지를 확인한다.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">student_00_436954939807@cloudshell:~/gcf_hello_world <span class="token punctuation">(</span>qwiklabs-gcp-00-e0b9cc1807b6<span class="token punctuation">)</span>$ gcloud functions logs <span class="token builtin class-name">read</span> nodejs-pubsub-function <span class="token punctuation">\</span>
+  <span class="token parameter variable">--region</span><span class="token operator">=</span>us-east1 
+LEVEL: 
+NAME: nodejs-pubsub-function
+EXECUTION_ID: fejl2rjtayvk
+TIME_UTC: <span class="token number">2025</span>-08-17 08:06:23.947
+LOG: Hello, Cloud Function Gen2<span class="token operator">!</span>
+
+
+LEVEL: I
+NAME: nodejs-pubsub-function
+EXECUTION_ID: 
+TIME_UTC: <span class="token number">2025</span>-08-17 08:06:23.786
+LOG: 
+
+LEVEL: I
+NAME: nodejs-pubsub-function
+EXECUTION_ID: 
+TIME_UTC: <span class="token number">2025</span>-08-17 08:04:15.177
+LOG: Default STARTUP TCP probe succeeded after <span class="token number">1</span> attempt <span class="token keyword">for</span> container <span class="token string">"worker"</span> on port <span class="token number">8080</span>.
+
+LEVEL: I
+NAME: nodejs-pubsub-function
+EXECUTION_ID: 
+TIME_UTC: <span class="token number">2025</span>-08-17 08:04:14.224
+LOG: Starting new instance. Reason: DEPLOYMENT_ROLLOUT - Instance started due to traffic shifting between revisions due to deployment, traffic <span class="token function">split</span> adjustment, or deployment health check.</code></pre></div>
+</details>
+<h2>4. Google Kubernetes Engine(GKE)</h2>
+<p>GKE를 이해하기 위해선 컨테이너와 Docker, k8s에 대한 간단한 이해가 필요하다.</p>
+<h3>컨테이너</h3>
+<p>컨테이너는 애플리케이션과 그 실행에 필요한 모든 것을 하나의 패키지로 묶는 기술이다.<br>
+쉽게 말해, 가상 머신(VM)이 컴퓨터 전체를 복사하는 무거운 기술이라면, 컨테이너는 운영체제만 가상화해서 애플리케이션을 담는 가볍고 빠른 박스다.<br>
+이 박스는 VM처럼 무겁지 않아 몇 초 만에 수십, 수백 개를 띄울 수 있다.</p>
+<p>컨테이너를 사용함으로써 다음과 같은 이점을 누릴 수 있다.</p>
+<ul>
+<li>뛰어난 이식성<br>
+컨테이너는 어떤 환경(로컬 PC, 클라우드, 온프레미스 서버)에서든 동일하게 작동한다.</li>
+<li>빠른 확장성<br>
+VM처럼 OS를 부팅할 필요가 없어, 사용량이 급증할 때 컨테이너를 빠르게 늘려 대응할 수 있다.</li>
+<li>효율적인 리소스 사용<br>
+VM과 달리 OS를 여러 개 띄울 필요가 없어, 메모리와 CPU를 훨씬 효율적으로 사용할 수 있다.</li>
+<li>MSA에 최적화
+큰 애플리케이션을 여러 개의 작은 컨테이너로 나눠 개발하고 배포할 수 있다. 이는 개발, 배포, 확장을 훨씬 유연하게 만든다.</li>
+</ul>
+<h3>Docker와 k8s</h3>
+<p>Docker는 컨테이너를 만들고, 실행하고, 관리하는 데 가장 널리 쓰이는 기술이다.<br>
+개발자가 애플리케이션을 컨테이너로 패키징하는 과정을 쉽게 만들어준다.</p>
+<p>하지만 컨테이너가 수십, 수백 개를 운영해야 한다면 이는 쉽지 않다.<br>
+이때 k8s가 필요하다.<br>
+k8s는 컨테이너를 자동으로 관리하고 조율하는 <strong>컨테이너 오케스트레이션 도구</strong>이다.</p>
+<p>자동으로 컨테이너를 배포 및 확장하며, 문제가 생긴 컨테이너를 자동으로 재시작한다.<br>
+또한 들어오는 트래픽을 컨테이너들에게 분산하며, 버전 업데이트(롤아웃)와 이전 버전으로의 복구(롤백)를 쉽게 해준다.</p>
+<h3>GKE</h3>
+<p>GKE는 Google이 제공하는 <strong>완전 관리형 쿠버네티스 서비스</strong>이다.<br>
+복잡한 k8s 클러스터 관리를 대신 해준다.</p>
+<p>이로 인해 다음과 같은 이점을 얻을 수 있다.</p>
+<ul>
+<li>운영 부담 감소<br>
+클러스터 노드(VM) 관리, 업그레이드, 보안 패치 등 귀찮은 작업을 Google이 알아서 대신 해준다.</li>
+<li>뛰어난 확장성<br>
+Google 인프라 위에서 동작하므로 원하는 만큼 컨테이너를 쉽게 늘릴 수 있다.</li>
+</ul>
+<details>
+<summary><strong>GKE 실습</strong></summary>
+<ol>
+<li>클러스터 만들기</li>
+</ol>
+<p>클러스터는 1개 이상의 클러스터 마스터 머신과 노드로 구성됩니다.<br>
+노드란 k8s 프로세스를 실행하는 Compute Engine VM 인스턴스입니다.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">student_01_8e069d81e0e1@cloudshell:~ <span class="token punctuation">(</span>qwiklabs-gcp-01-6d432b5b6ab6<span class="token punctuation">)</span>$ gcloud container clusters create --machine-type<span class="token operator">=</span>e2-medium <span class="token parameter variable">--zone</span><span class="token operator">=</span>us-central1-c lab-cluster
+Note: The Kubelet <span class="token builtin class-name">readonly</span> port <span class="token punctuation">(</span><span class="token number">10255</span><span class="token punctuation">)</span> is now deprecated. Please update your workloads to use the recommended alternatives. See https://cloud.google.com/kubernetes-engine/docs/how-to/disable-kubelet-readonly-port <span class="token keyword">for</span> ways to check usage and <span class="token keyword">for</span> migration instructions.
+Note: Your Pod address range <span class="token punctuation">(</span><span class="token variable"><span class="token variable">`</span>--cluster-ipv4-cidr<span class="token variable">`</span></span><span class="token punctuation">)</span> can accommodate at <span class="token function">most</span> <span class="token number">1008</span> node<span class="token punctuation">(</span>s<span class="token punctuation">)</span>.
+Creating cluster lab-cluster <span class="token keyword">in</span> us-central1-c<span class="token punctuation">..</span>. Cluster is being health-checked <span class="token punctuation">(</span>Kubernetes Control Plane is healthy<span class="token punctuation">)</span><span class="token punctuation">..</span>.done.                               
+Created <span class="token punctuation">[</span>https://container.googleapis.com/v1/projects/qwiklabs-gcp-01-6d432b5b6ab6/zones/us-central1-c/clusters/lab-cluster<span class="token punctuation">]</span>.
+To inspect the contents of your cluster, go to: https://console.cloud.google.com/kubernetes/workload_/gcloud/us-central1-c/lab-cluster?project<span class="token operator">=</span>qwiklabs-gcp-01-6d432b5b6ab6
+kubeconfig entry generated <span class="token keyword">for</span> lab-cluster.
+NAME: lab-cluster
+LOCATION: us-central1-c
+MASTER_VERSION: <span class="token number">1.33</span>.2-gke.1240000
+MASTER_IP: <span class="token number">34.122</span>.166.185
+MACHINE_TYPE: e2-medium
+NODE_VERSION: <span class="token number">1.33</span>.2-gke.1240000
+NUM_NODES: <span class="token number">3</span>
+STATUS: RUNNING
+STACK_TYPE: IPV4</code></pre></div>
+<p>Google Cloud Console에서 아래 사진처럼 클러스터가 생성된 것을 확인할 수 있다.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/4a4aad37afc25842f9b815d841a6108a/6bff2/created-cluster-in-console.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 35.44303797468354%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAABN0lEQVR42o1Ra2+DMBDj///AqeomVm1tGQUS8iBv8ExYt687ybpLlLuznebWDTi/tng5nXE6v6G9fEBpg5QSUs5YN8DFFZmFjxvzCp9WxLyh8K6UwjfbLxptLIZhxDBOddDiPHwI+LzeIIRAiAmjCph0wnsfIG1BL3OFDwneB+SygnsrGs0hQsijOUTskbnVWlOhtULOEVJ7zNohZFSmxhU451gXsq1tx8BlsZilwMLmbTv2bJTSy0hmmYwjppnDXYKyAUIqGLNQ6opn7H1PNDv1+7jgMUduA6ynTwUYphn9qHAdPNq7RtstuHxZiFljohrnPVzwNaeUq/RI35vrw+I+2OrRLsURKa9QSqHrOjKStY4xkJmhpxHqJ+++T7TLs96zo/dN4sHQp13ynwQcv8YfPWz4f3wD/koe2ea4DPkAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Google Cloud Console에서 클러스터가 생성된 것을 확인"
+        title=""
+        src="/static/4a4aad37afc25842f9b815d841a6108a/f058b/created-cluster-in-console.png"
+        srcset="/static/4a4aad37afc25842f9b815d841a6108a/c26ae/created-cluster-in-console.png 158w,
+/static/4a4aad37afc25842f9b815d841a6108a/6bdcf/created-cluster-in-console.png 315w,
+/static/4a4aad37afc25842f9b815d841a6108a/f058b/created-cluster-in-console.png 630w,
+/static/4a4aad37afc25842f9b815d841a6108a/40601/created-cluster-in-console.png 945w,
+/static/4a4aad37afc25842f9b815d841a6108a/6bff2/created-cluster-in-console.png 957w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<ol start="2">
+<li>클러스터의 사용자 인증 정보 얻기</li>
+</ol>
+<p>클러스터를 만든 후, 클러스터와 상호작용하려면 사용자 인증 정보가 필요합니다.<br>
+클러스터에 인증합니다.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">student_01_8e069d81e0e1@cloudshell:~ <span class="token punctuation">(</span>qwiklabs-gcp-01-6d432b5b6ab6<span class="token punctuation">)</span>$ gcloud container clusters get-credentials lab-cluster
+Fetching cluster endpoint and auth data.
+kubeconfig entry generated <span class="token keyword">for</span> lab-cluster.</code></pre></div>
+<ol start="3">
+<li>클러스터에 애플리케이션 배포</li>
+</ol>
+<p>이제 클러스터에 컨테이너화된 애플리케이션을 배포합니다.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">student_01_8e069d81e0e1@cloudshell:~ <span class="token punctuation">(</span>qwiklabs-gcp-01-6d432b5b6ab6<span class="token punctuation">)</span>$ kubectl create deployment hello-server <span class="token parameter variable">--image</span><span class="token operator">=</span>gcr.io/google-samples/hello-app:1.0
+deployment.apps/hello-server created</code></pre></div>
+<p>마찬가지로 Console에서도 확인 가능하다.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/6e7e8eda1b424a96ebd03234da5c67ec/5bf79/deployed-application-to-cluster.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 31.645569620253163%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABOUlEQVR42j2QCY7bMAxFc/8LtpNlptnsRNZqWYsl26+KUZTAB0GCfwEP3Utyuvzw6/eRr+OF6+2BnyZSSpRSWDeY0kqpG1Nemeva5oVcVpblg8q2bf9xCCFhjMW5kZTzLpLzzLPr0dYSc0FPFT1GHsIT5m2fbaikuexYPq7/6uCcQ0rJMMgmlPdlLTPeGLxWeDVQw0gcNdFp1hwaJpY0kb0jh0xNM8yZrYU5pBgZnSGGiZZ5F1ysQd7e6JdhGhTq0eOFZhIS/exwr4EgLdk4VmepRu19lYLDVRRuItLrgk8wNrMkFe9h4Kksd1M49oGzmHnoTO9XvkXi/M5cPjxlMD5gY2q8JihMRNmIj+3RFXILmd8v1OVE9/PEtl8OtxOzfGHvV3x3J4mOqt6Mzxvyz3dLKOnbrfg68xcv6stMmjMPdQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="클러스터에 배포된 모습"
+        title=""
+        src="/static/6e7e8eda1b424a96ebd03234da5c67ec/f058b/deployed-application-to-cluster.png"
+        srcset="/static/6e7e8eda1b424a96ebd03234da5c67ec/c26ae/deployed-application-to-cluster.png 158w,
+/static/6e7e8eda1b424a96ebd03234da5c67ec/6bdcf/deployed-application-to-cluster.png 315w,
+/static/6e7e8eda1b424a96ebd03234da5c67ec/f058b/deployed-application-to-cluster.png 630w,
+/static/6e7e8eda1b424a96ebd03234da5c67ec/40601/deployed-application-to-cluster.png 945w,
+/static/6e7e8eda1b424a96ebd03234da5c67ec/5bf79/deployed-application-to-cluster.png 966w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<ol start="4">
+<li>클러스터 삭제</li>
+</ol>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">gcloud container clusters delete lab-cluster <span class="token parameter variable">--zone</span><span class="token operator">=</span>us-central1-c</code></pre></div>
+</details>
+<h2>5. Cloud Run</h2>
+<p>완전 관리형 서버리스 플랫폼으로, 확장성이 뛰어난 컨테이너 기반 애플리케이션을 개발하고 배포할 수 있다.</p>
+<p>Cloud Run은 코드를 컨테이너에 담아서 <strong>서버없이</strong> 실행하게 해주는 서비스다.<br>
+Google이 알아서 모든 인프라를 관리해주기 때문에, 개발자는 여기에 신경쓰지 않아도 된다.<br>
+코드를 컨테이너 이미지로 만들어 배포하기에 어떤 언어나 프레임워크든 상관없다.</p>
+<p>트래픽이 없으면 컨테이너를 0개까지 줄이고, 요청이 들어오면 순식간에 필요한만큼 늘려준다.<br>
+컨테이너가 요청을 처리하는 동안에만 요금이 부과된다. 100ms 단위로 요금이 부과되므로 유휴 상태인 서버 비용을 지불할 필요가 없다.</p>
+<h3>Cloud Run 개발 워크플로우</h3>
+<ol>
+<li>
+<p>컨테이너 기반 워크플로우 (직접 컨테이너 이미지 만들기)</p>
+<ol>
+<li>애플리케이션을 개발한다.</li>
+<li>작성한 코드를 Docker 같은 툴로 컨테이너 이미지로 만든다.</li>
+<li>완성된 이미지를 Cloud Run에 배포한다. 배포가 완료되면 고유한 HTTPS URL이 생성되고, 이 URL로 앱이 접근할 수 있다.</li>
+</ol>
+</li>
+<li>
+<p>소스 코드 기반 워크플로우 (Cloud Run이 알아서 처리)</p>
+<ol>
+<li>애플리케이션을 개발한다.</li>
+<li>소스 코드를 바로 Cloud Run에 배포한다. Cloud Run이 알아서 <strong>Buildpacks</strong> 라는 오픈소스 프로젝트를 사용해 소스 코드를 컨테이너 이미지로 자동 빌드하고, 배포까지 완료한다.</li>
+</ol>
+</li>
+</ol>
+<p>이로 인해 다음과 같은 장점을 누릴 수 있다.</p>
+<ul>
+<li>배포 간소화</li>
+<li>보안 및 인증서 관리</li>
+<li>다양한 언어 지원</li>
+<li>비용 효율성</li>
+</ul>
+<p>만약 간단한 웹 API나 백엔드 서비스, 또는 이벤트 기반 함수를 배포하고 싶다면 Cloud Run이 적합한 선택이겠다.</p>
+<h1>Auto Scaling을 통한 유연한 애플리케이션 구축</h1>
+<p>Compute Engine에는 가상 CPU 및 메모리 양과 같은 인스턴스에 가장 적합한 속성을 선택할 수 있다.</p>
+<p>Google Cloud에는 Autoscaling 기능이 있는데, 애플리케이션의 부하 지표에 따라 VM을 자동으로 추가하거나 삭제할 수 있는 Compute Engine의 기능이다.<br>
+이를 위해 로드 밸런싱이 필요한데, Google의 VPC가 여러 종류의 로드 밸런싱을 지원한다.</p>
+<p>VM의 최대 사양은 머신 제품군에 따라 다르며, 사용자에게 할당된 할당량(Quota)에 따라서도 제한된다.<br>
+이 할당량은 Zone에 따라 달라진다.</p>
+<p>현재 사용 가능한 VM 머신 유형에 대한 사양은 _cloud.google.com/compute/docs/machine-type_에서 확인 가능하다.</p></section><hr/><footer><div class="bio"><div data-gatsby-image-wrapper="" style="width:75px;height:75px" class="gatsby-image-wrapper bio-avatar"><div aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear;background-color:#a89888;width:75px;height:75px;position:relative"></div><picture><source type="image/avif" data-srcset="/static/fdc99851401fabaca2d68d6b9aefa2fe/1cf05/profile_img.avif 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/13b46/profile_img.avif 150w" sizes="75px"/><source type="image/webp" data-srcset="/static/fdc99851401fabaca2d68d6b9aefa2fe/96891/profile_img.webp 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/3554d/profile_img.webp 150w" sizes="75px"/><img data-gatsby-image-ssr="" layout="fixed" data-main-image="" style="opacity:0" sizes="75px" decoding="async" loading="lazy" data-src="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg" data-srcset="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/2e46f/profile_img.jpg 150w" alt="Profile picture"/></picture><noscript><picture><source type="image/avif" srcSet="/static/fdc99851401fabaca2d68d6b9aefa2fe/1cf05/profile_img.avif 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/13b46/profile_img.avif 150w" sizes="75px"/><source type="image/webp" srcSet="/static/fdc99851401fabaca2d68d6b9aefa2fe/96891/profile_img.webp 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/3554d/profile_img.webp 150w" sizes="75px"/><img data-gatsby-image-ssr="" layout="fixed" data-main-image="" style="opacity:0" sizes="75px" decoding="async" loading="lazy" src="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg" srcSet="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/2e46f/profile_img.jpg 150w" alt="Profile picture"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div><p>1. 2025년이 끝나기 전까지 <strong>기본기를 완벽히 정리한다.</strong><br/>2. <strong>내가 좋아하는 것</strong>을 차곡히 기록한다.<br/>3. 하루하루는 치열하게, 인생은 흘러가는대로~</p></div></footer></article><nav class="blog-post-nav"><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/플러터/안드로이드-기기에서-웹뷰를-통해-로컬에-띄운-웹앱에-접속하기/">← <!-- -->안드로이드 기기에서 웹뷰를 통해 로컬에 띄운 웹앱에 접속하기</a></li><li></li></ul></nav></main><footer>© <!-- -->2025<!-- -->, Built with<!-- --> <a href="https://www.gatsbyjs.com">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/창구-AI-스터디-잼/1-Google-Cloud-Computing-Foundations-Cloud-Computing-Fundamentals/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-a29690a7bf189f1cf85e.js\"],\"component---src-pages-404-js\":[\"/component---src-pages-404-js-742f6fa497a17cb36648.js\"],\"component---src-pages-index-js\":[\"/component---src-pages-index-js-ff8bc5a85d1e64ff4ea7.js\"],\"component---src-templates-blog-post-js\":[\"/component---src-templates-blog-post-js-074fd55c7e9ac421df51.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="c09800dbde9c649cdbc7";</script><script src="/webpack-runtime-ea7ee03bdf623bfa7154.js" async></script><script src="/framework-647153102893cffe9a5c.js" async></script><script src="/app-a29690a7bf189f1cf85e.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
