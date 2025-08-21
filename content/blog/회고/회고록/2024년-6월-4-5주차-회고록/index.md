@@ -1,8 +1,7 @@
 ---
-title: "[회고] 06.17 ~ 06.30"
-description: "셀프 회고"
+title: "2024년 6월 4, 5주차 회고록"
 date: 2024-06-30
-tags: ["retrospective"]
+tags: ["회고"]
 ---
 
 > Note) <br>

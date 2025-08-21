@@ -1,9 +1,8 @@
 ---
-title: "[ListyWave] 1, 2주차 회고"
-description: "ListyWave 프로젝트를 회고해보자"
+title: "ListyWave 프로젝트 1, 2주차 회고록"
+description: "ListyWave 프로젝트를 진행하며 작성한 회고록입니다."
 date: 2024-02-04
-tags: ["ListyWave", "retrospective"]
-series: "ListyWave Project 회고"
+tags: ["ListyWave", "회고록"]
 ---
 
 ## 들어가며

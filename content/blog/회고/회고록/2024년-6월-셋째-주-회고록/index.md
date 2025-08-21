@@ -1,13 +1,12 @@
 ---
-title: "[회고] 06.10 ~ 06.16"
-description: "셀프 회고"
+title: "2024년 6월 셋째 주 회고록 "
 date: 2024-06-16
-tags: ["retrospective"]
+tags: ["회고"]
 ---
 
 ## What I Studied
 
-- [프로메테우스, 그라파나를 도커에서 띄우기](https://kdkdhoho.github.io/build-monitoring-system/)
+- 프로메테우스, 그라파나를 도커에서 띄우기 [(바로가기 링크)](https://kdkdhoho.github.io/build-monitoring-system/)
   - 컨테이너-컨테이너, 컨테이너-호스트 간의 통신
   - 도커 네트워크
 - 이분탐색
