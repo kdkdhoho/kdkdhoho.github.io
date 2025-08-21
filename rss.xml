@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[내가 좋아하고 재밌는 일을 기록하자]]></description><link>http://github.com/dylang/node-rss</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 21 Aug 2025 06:05:19 GMT</lastBuildDate><item><title><![CDATA[macOS와 Linux의 File System 대소문자 구분으로 인해 발생한 문제 해결]]></title><description><![CDATA[발생한 문제 React 프로젝트 배포 자동화를 위해 GitHub Actions를 이용하고 있었다. 그런데 이상하게 계속 빌드 단계()에서 실패했다. 에러 메시지는 "Module not found: Error: Can't resolve '../pages…]]></description><link>null/git-github/macOS와-Linux의-File-System-대소문자-구분으로-인해-발생한-문제-해결/</link><guid isPermaLink="false">null/git-github/macOS와-Linux의-File-System-대소문자-구분으로-인해-발생한-문제-해결/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h1 id=&quot;발생한-문제&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B0%9C%EC%83%9D%ED%95%9C-%EB%AC%B8%EC%A0%9C&quot; aria-label=&quot;발생한 문제 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;발생한 문제&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[내가 좋아하고 재밌는 일을 기록하자]]></description><link>http://github.com/dylang/node-rss</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 21 Aug 2025 07:36:26 GMT</lastBuildDate><item><title><![CDATA[macOS와 Linux의 File System 대소문자 구분으로 인해 발생한 문제 해결]]></title><description><![CDATA[발생한 문제 React 프로젝트 배포 자동화를 위해 GitHub Actions를 이용하고 있었다. 그런데 이상하게 계속 빌드 단계()에서 실패했다. 에러 메시지는 "Module not found: Error: Can't resolve '../pages…]]></description><link>null/git-github/macOS와-Linux의-File-System-대소문자-구분으로-인해-발생한-문제-해결/</link><guid isPermaLink="false">null/git-github/macOS와-Linux의-File-System-대소문자-구분으로-인해-발생한-문제-해결/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h1 id=&quot;발생한-문제&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B0%9C%EC%83%9D%ED%95%9C-%EB%AC%B8%EC%A0%9C&quot; aria-label=&quot;발생한 문제 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;발생한 문제&lt;/h1&gt;
 &lt;p&gt;React 프로젝트 배포 자동화를 위해 GitHub Actions를 이용하고 있었다.&lt;br&gt;
 그런데 이상하게 계속 빌드 단계(&lt;code class=&quot;language-text&quot;&gt;CI=false npm run build&lt;/code&gt;)에서 실패했다.&lt;br&gt;
 에러 메시지는 &quot;&lt;em&gt;Module not found: Error: Can&apos;t resolve &apos;../pages/market/ProductDetail&apos; in &apos;/home/runner/work/pharmpick-market-react/pharmpick-market-react/src/router&apos;&lt;/em&gt;&quot; 였다.&lt;br&gt;
@@ -1923,7 +1923,45 @@ Kotlin 내장 함수이기에 별도로 &lt;code class=&quot;language-text&quot;
 지금은 직접 실행해서 테스트하진 않고 테스트 코드로서 수행하고 있지만, 서버 개발에 처음 입문했을 때 그 쾌감으로 시작하여 꾸준히 몰입하게 되었다.&lt;/p&gt;
 &lt;p&gt;실제로 요즘 Flutter랑 React 이용해서 클라이언트 개발도 하고 있지만, 확실히 서버 개발을 할 때가 몰입이 훨씬 잘된다.&lt;br&gt;
 아무래도 자신이 있거나 상대적으로 잘하는 분야라서 더 그럴 수 있지만&lt;br&gt;
-그만큼 서버 개발을 할 때에는 더 재밌다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[링글 1:1 튜터링 복습]]></title><description><![CDATA[틀린 문장 I services army there -> I did my military service there Seoul is so many people, so it's hard to live to me, so I think Cheonan is…]]></description><link>null/영어/첫-번째-1-1-튜터링-복습/</link><guid isPermaLink="false">null/영어/첫-번째-1-1-튜터링-복습/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h1 id=&quot;틀린-문장&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%8B%80%EB%A6%B0-%EB%AC%B8%EC%9E%A5&quot; aria-label=&quot;틀린 문장 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;틀린 문장&lt;/h1&gt;
+그만큼 서버 개발을 할 때에는 더 재밌다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[스타트업에서 6개월 근무 후 작성하는 회고록]]></title><description><![CDATA[…]]></description><link>null/회고/회고록/스타트업에서-일한-지-6개월-차-되는-시점에-작성하는-회고록/</link><guid isPermaLink="false">null/회고/회고록/스타트업에서-일한-지-6개월-차-되는-시점에-작성하는-회고록/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h1 id=&quot;나는-왜-스타트업에서-일하고-있을까&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%82%98%EB%8A%94-%EC%99%9C-%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85%EC%97%90%EC%84%9C-%EC%9D%BC%ED%95%98%EA%B3%A0-%EC%9E%88%EC%9D%84%EA%B9%8C&quot; aria-label=&quot;나는 왜 스타트업에서 일하고 있을까 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;나는 왜 스타트업에서 일하고 있을까?&lt;/h1&gt;
+&lt;p&gt;나는 그 회사만의 서비스를 운영하는 조직에서 일하고 싶었다.&lt;br&gt;
+그리고 실제 고객의 피드백에 귀기울이며 그 피드백을 바탕으로 의사결정하고, 프로덕트를 만들어가고 싶었다.&lt;br&gt;
+그런 곳이라면 모든 조직원이 책임감을 가지고 일할 것이라 생각했고, 실력있는 구성원들만 있을 것이라 생각들었다. 게다가 제품과 서비스의 성장을 보면서 더 큰 동기부여를 얻고 더 재밌을 것 같았기 때문이다.&lt;/p&gt;
+&lt;p&gt;사실 첫 취업은 가산디지털단지에 위치한 중소 SI로 했다.&lt;br&gt;
+그곳에서 나름 큰 규모의 프로젝트를 통해 하나하나 배워가던 중, 대학 동기가 같이 일해볼 생각없냐고 물어봐주었고 이것저것 확인해보니 내가 즐겁게 일할 수 있는 환경이라는 판단이 들어 여기로 오게 되었다.&lt;/p&gt;
+&lt;h1 id=&quot;그동안-배운-것들은-어떤-것들이-있을까&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B7%B8%EB%8F%99%EC%95%88-%EB%B0%B0%EC%9A%B4-%EA%B2%83%EB%93%A4%EC%9D%80-%EC%96%B4%EB%96%A4-%EA%B2%83%EB%93%A4%EC%9D%B4-%EC%9E%88%EC%9D%84%EA%B9%8C&quot; aria-label=&quot;그동안 배운 것들은 어떤 것들이 있을까 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;그동안 배운 것들은 어떤 것들이 있을까?&lt;/h1&gt;
+&lt;h2 id=&quot;1-개발의-시야가-넓어졌다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%EA%B0%9C%EB%B0%9C%EC%9D%98-%EC%8B%9C%EC%95%BC%EA%B0%80-%EB%84%93%EC%96%B4%EC%A1%8C%EB%8B%A4&quot; aria-label=&quot;1 개발의 시야가 넓어졌다 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 개발의 시야가 넓어졌다.&lt;/h2&gt;
+&lt;p&gt;이전까지는 백엔드 개발&quot;만&quot; 했다.&lt;br&gt;
+클라이언트 개발은 정말 1도 모르는 수준이었다.&lt;br&gt;
+그런데 이곳에서 Flutter로 앱을 개발하고, React로 어드민 페이지와 웹뷰를 개발하면서 클라이언트 개발은 어떤 관심사를 가져야 하는 지에 대해 잘 알게 되었다.&lt;/p&gt;
+&lt;p&gt;우테코 때부터 종종 들려왔던 &quot;상태 관리&quot;가 너무너무너무너무 중요하고 사실상 클라이언트 개발의 가장 큰 관심사라고 생각든다.&lt;br&gt;
+UI 개발은 요즘 워낙 편리한 도구들이 많기도 하고 Flutter의 경우에는 위젯 시스템이 너무 잘되어 있어서 금방 구현할 수 있지만, 상태 관리를 어떻게 설계하고 관리하냐에 따라 구현 난이도, 프로젝트의 유연함이 결정되는 것을 느끼게 되었다.&lt;/p&gt;
+&lt;p&gt;그리고 백엔드만 개발했을 때에는, 화면과 API를 1:1로 대응하면서 각 API에는 화면에 필요한 데이터를 담아서 응답하는 식으로만 생각했다면 요즘은 백엔드가 범용성 있는 API를 제공하고 클라이언트에서는 해당 값을 통해 필요한 값들을 이용해 클라이언트 영역을 개발하는 것이 더 유연하고, 실용성 있는 방식이라고 생각이 든다.&lt;/p&gt;
+&lt;p&gt;그래도 아직은 백엔드 개발이 더 재밌게 느껴진다. 그래서 맘같아선 백엔드 쪽만 집중해서 하고 싶은데 그럴 수 없는 상황이라 아쉬울 따름이다.&lt;/p&gt;
+&lt;h2 id=&quot;2-프로덕트를-바라보는-시야가-조금은-생긴-것-같다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-%ED%94%84%EB%A1%9C%EB%8D%95%ED%8A%B8%EB%A5%BC-%EB%B0%94%EB%9D%BC%EB%B3%B4%EB%8A%94-%EC%8B%9C%EC%95%BC%EA%B0%80-%EC%A1%B0%EA%B8%88%EC%9D%80-%EC%83%9D%EA%B8%B4-%EA%B2%83-%EA%B0%99%EB%8B%A4&quot; aria-label=&quot;2 프로덕트를 바라보는 시야가 조금은 생긴 것 같다 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. 프로덕트를 바라보는 시야가 조금은 생긴 것 같다.&lt;/h2&gt;
+&lt;p&gt;그 전까지는 사용자 피드백, 지표를 통해 프로덕트를 만들어가야 한다고 말로만 듣고 그렇게 이해하고 있었지, 그래서 어떻게 해야 되는 지는 몰랐다.&lt;br&gt;
+그래서 그냥 기획과 디자인이 내려오면 이걸 왜 해야 되는지는 생각하지 않고 어떻게 해야 될 지를 우선적으로 생각했던 것 같다.&lt;br&gt;
+내가 맡은 역할이 개발자였으며, 실제로 전문적으로 기획하시는 분과 일해본 경험이 없기 때문에, 모두 개발자인 사람들이랑만 프로젝트를 진행해서 그랬던 것 같기도 하다.&lt;/p&gt;
+&lt;p&gt;아니. 사실 우아한테크코스에서 진행한 프로젝트에서 교육받아서 머리로는 알고 있었다.&lt;br&gt;
+근데 막상 입사 후, 맡은 일들을 쳐내다보니 그런 생각을 하지 못했던 것 같다.&lt;/p&gt;
+&lt;p&gt;실무에서 일해보니 Google Analytics와 Firebase Analytics를 통해 지표를 신경쓰고 있었으며, 카카오톡 CS 채널을 통해 사용자 피드백을 받고 이를 중요하게 생각하는 대표님의 말을 들으며 간략하게나마 사용자 지표를 통해 일하고 있는 느낌을 받았다.&lt;/p&gt;
+&lt;p&gt;솔직히.. VoC를 더 공격적으로 수집하고, 데이터 기반 의사 결정과 일정 수립이 이루어졌으면 하는 바람이 있지만, 나보다 훨씬 많이 고민했을 경영진의 판단이 있을거라 생각한다.&lt;/p&gt;
+&lt;h2 id=&quot;3-회사-생활&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-%ED%9A%8C%EC%82%AC-%EC%83%9D%ED%99%9C&quot; aria-label=&quot;3 회사 생활 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. 회사 생활&lt;/h2&gt;
+&lt;p&gt;인원수로는 이제야 5명이 된 조직이지만, 조직 내에서 어떤 행동을 취해야 할 지에 대해 배운 것 같다.&lt;br&gt;
+확실히 그동안 해왔던 프로젝트처럼 생각하면 절대 안될 것 같다.&lt;/p&gt;
+&lt;p&gt;회사는 회사인걸로.&lt;/p&gt;
+&lt;p&gt;특히 기존처럼 팀 프로젝트이면 몰라도 내가 회사의 모든 내용을 알 수는 없다.&lt;br&gt;
+그리고 알 필요도 없더라.&lt;/p&gt;
+&lt;h1 id=&quot;힘든-점은-어떤-것들이-있었을까&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%9E%98%EB%93%A0-%EC%A0%90%EC%9D%80-%EC%96%B4%EB%96%A4-%EA%B2%83%EB%93%A4%EC%9D%B4-%EC%9E%88%EC%97%88%EC%9D%84%EA%B9%8C&quot; aria-label=&quot;힘든 점은 어떤 것들이 있었을까 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;힘든 점은 어떤 것들이 있었을까?&lt;/h1&gt;
+&lt;p&gt;가장 기억에 남는 것은 두 가지가 있다.&lt;br&gt;
+두 내용에 대해 이곳에 자세히 적을 순 없겠지만, 그 두 사건을 통해서 많은 걸 느끼게 된 계기가 되었다.&lt;br&gt;
+그리고 두 사건을 통해 회사 생활을 하는 노하우에 대해 조금은 알게 된 것 같다.&lt;/p&gt;
+&lt;p&gt;그래도 일은 즐겁다!&lt;/p&gt;
+&lt;h1 id=&quot;그래서-앞으로는-어떻게-할까&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B7%B8%EB%9E%98%EC%84%9C-%EC%95%9E%EC%9C%BC%EB%A1%9C%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%95%A0%EA%B9%8C&quot; aria-label=&quot;그래서 앞으로는 어떻게 할까 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;그래서 앞으로는 어떻게 할까?&lt;/h1&gt;
+&lt;p&gt;딱히 &apos;~~하자!&apos; 라고 할 건 없는 것 같다.&lt;br&gt;
+지금도 나름대로 열심히 잘 하고 있다고 생각이 든다.&lt;br&gt;
+그래서 그냥 지금처럼 지치지말고 즐기면서 일하고 싶다.&lt;/p&gt;
+&lt;p&gt;다만 한 가지 있다면, 스스로의 학습 목표에 대해서 잘 지키는 시간들이 되었으면 한다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[링글 1:1 튜터링 복습]]></title><description><![CDATA[틀린 문장 I services army there -> I did my military service there Seoul is so many people, so it's hard to live to me, so I think Cheonan is…]]></description><link>null/영어/첫-번째-1-1-튜터링-복습/</link><guid isPermaLink="false">null/영어/첫-번째-1-1-튜터링-복습/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h1 id=&quot;틀린-문장&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%8B%80%EB%A6%B0-%EB%AC%B8%EC%9E%A5&quot; aria-label=&quot;틀린 문장 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;틀린 문장&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;I services army there -&gt; &lt;strong&gt;I did my military service there&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Seoul is so many people, so it&apos;s hard to live to me, so I think Cheonan is the best. -&gt; &lt;strong&gt;Seoul is so crowded, which makes it tough to live in. It feels a bit too hectic for me.&lt;/strong&gt;&lt;/li&gt;
@@ -2317,7 +2355,7 @@ N=30358777 sqrt(N)=5509.879944245609 log2(N)=24.855610337324133&lt;/code&gt;&lt;
 &lt;h2 id=&quot;결론&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B2%B0%EB%A1%A0&quot; aria-label=&quot;결론 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;결론&lt;/h2&gt;
 &lt;p&gt;O(sqrt(N))도 O(N)에 비해 상당히 적은 수인건 분명하다.&lt;br&gt;
 하지만 log2(N)에 비하면 상당히 큰 결과인 것도 분명하다.&lt;/p&gt;
-&lt;p&gt;이 둘의 시간복잡도 차이는 분명하고, 그 차이는 값이 커질 수록 엄청나게 차이나는 것을 확인할 수 있었다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[회고] 08.05 ~ 08.11]]></title><description><![CDATA[…]]></description><link>null/retrospection/self-retrospective/2024-august/august-2st/</link><guid isPermaLink="false">null/retrospection/self-retrospective/2024-august/august-2st/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;p&gt;이번 주는 외적 동기에서 내적 동기로 잘 전이된 것 같다.&lt;br&gt;
+&lt;p&gt;이 둘의 시간복잡도 차이는 분명하고, 그 차이는 값이 커질 수록 엄청나게 차이나는 것을 확인할 수 있었다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[2024년 8월 둘 째주 회고록]]></title><description><![CDATA[…]]></description><link>null/회고/회고록/2024년-8월-둘-째주-회고록/</link><guid isPermaLink="false">null/회고/회고록/2024년-8월-둘-째주-회고록/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;p&gt;이번 주는 외적 동기에서 내적 동기로 잘 전이된 것 같다.&lt;br&gt;
 시작은 저번 주부터인데 오늘까지 내적 동기로 꾸준히 움직였다.&lt;br&gt;
 역시 외적 동기를 가졌을 때보다 훨씬 마음이 편안하고 스트레스도 덜 받는다.&lt;/p&gt;
 &lt;p&gt;우테코를 하고 나서부터 외적 동기보다 내적 동기의 중요성을 알게 되었다.&lt;br&gt;
@@ -2328,7 +2366,7 @@ N=30358777 sqrt(N)=5509.879944245609 log2(N)=24.855610337324133&lt;/code&gt;&lt;
 비유를 하자면 자전거를 처음 배울 때 균형을 잃지 않고 쭉 나아가라고 뒤에서 잡아주는 역할이 필요한데, 회고가 그 역할이라 생각한다.&lt;br&gt;
 그러다 균형을 잡게 되고 방향을 잡게 되면 역할은 더 이상 필요하지 않게 된다.&lt;br&gt;
 현재의 나를 되돌아봤을 때 균형과 방향을 잘 잡은 것 같다. 그냥 이대로 쭉 나아가는 데 집중하는 것이 중요해보인다.&lt;/p&gt;
-&lt;p&gt;밑밥을 많이 깔았지만, 회고는 매주 강박적으로 하기보다 필요에 의해 작성하는 것으로 하겠다!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[회고] 07.29 ~ 08.04]]></title><description><![CDATA[…]]></description><link>null/retrospection/self-retrospective/2024-august/august-1st/</link><guid isPermaLink="false">null/retrospection/self-retrospective/2024-august/august-1st/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;p&gt;이번 주는 취업과 관련해서 많은 생각을 했던 한 주였다.&lt;br&gt;
+&lt;p&gt;밑밥을 많이 깔았지만, 회고는 매주 강박적으로 하기보다 필요에 의해 작성하는 것으로 하겠다!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[2024년 8월 첫 째주 회고록]]></title><description><![CDATA[…]]></description><link>null/회고/회고록/2024년-8월-첫-째주-회고록/</link><guid isPermaLink="false">null/회고/회고록/2024년-8월-첫-째주-회고록/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;p&gt;이번 주는 취업과 관련해서 많은 생각을 했던 한 주였다.&lt;br&gt;
 취업에 대한 실패와 두려움을 겪었다.&lt;br&gt;
 그래도 실패와 두려움으로 인해 목표가 생겼고 이번 한 주 동안 목표를 재수립해 실천했다.&lt;br&gt;
 사실 이번 한 주 내내 앞으로 지속가능하고 체계적인 취업 준비를 계획하고 설계하려고 했지만 생각보다 사흘만에 모두 끝나게 되었다.&lt;br&gt;
@@ -3655,8 +3693,8 @@ PreparedStatement는 이름 그대로 미리 준비해놓은 SQL 문을 곧바�
 &lt;li&gt;자바의 정석&lt;/li&gt;
 &lt;li&gt;이펙티브 자바&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://inpa.tistory.com/entry/JAVA-%E2%98%95-%EC%9E%90%EB%B0%94%EC%9D%98-%EB%82%B4%EB%B6%80-%ED%81%B4%EB%9E%98%EC%8A%A4%EB%8A%94-static-%EC%9C%BC%EB%A1%9C-%EC%84%A0%EC%96%B8%ED%95%98%EC%9E%90#inner_%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98_%EB%AC%B8%EC%A0%9C%EC%A0%90&quot;&gt;https://inpa.tistory.com/entry/JAVA-%E2%98%95-%EC%9E%90%EB%B0%94%EC%9D%98-%EB%82%B4%EB%B6%80-%ED%81%B4%EB%9E%98%EC%8A%A4%EB%8A%94-static-%EC%9C%BC%EB%A1%9C-%EC%84%A0%EC%96%B8%ED%95%98%EC%9E%90#inner_%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98_%EB%AC%B8%EC%A0%9C%EC%A0%90&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[회고] 07.08 ~ 07.23]]></title><description><![CDATA[7월 8일부터 23일까지 했던 것들과 느낀 점들을 정리하고, 이를 기반으로 앞으로의 방향성을 잡기 위한 회고록 면접 7월 11일, 16일, 22일, 23일 면접을 봤다.
-때문에…]]></description><link>null/retrospection/self-retrospective/2024-july/july-2nd-3rd-4th/</link><guid isPermaLink="false">null/retrospection/self-retrospective/2024-july/july-2nd-3rd-4th/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;p&gt;7월 8일부터 23일까지 했던 것들과 느낀 점들을 정리하고, 이를 기반으로 앞으로의 방향성을 잡기 위한 회고록&lt;/p&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[2024년 7월 회고록]]></title><description><![CDATA[7월 8일부터 23일까지 했던 것들과 느낀 점들을 정리하고, 이를 기반으로 앞으로의 방향성을 잡기 위한 회고록 면접 7월 11일, 16일, 22일, 23일 면접을 봤다.
+때문에…]]></description><link>null/회고/회고록/2024년-7월-회고록/</link><guid isPermaLink="false">null/회고/회고록/2024년-7월-회고록/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;p&gt;7월 8일부터 23일까지 했던 것들과 느낀 점들을 정리하고, 이를 기반으로 앞으로의 방향성을 잡기 위한 회고록&lt;/p&gt;
 &lt;h2 id=&quot;면접&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A9%B4%EC%A0%91&quot; aria-label=&quot;면접 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;면접&lt;/h2&gt;
 &lt;p&gt;7월 11일, 16일, 22일, 23일 면접을 봤다.&lt;br&gt;
 때문에 7월은 면접을 위한 시간으로 가득했다고 과언이 아니다.&lt;br&gt;
@@ -4149,7 +4187,7 @@ Boss는 당연히 BackendDeveloper가 수행할 동작들에 대해 기대할 �
 &lt;ol&gt;
 &lt;li id=&quot;fn-1&quot;&gt;&lt;a href=&quot;https://jaehee329.tistory.com/27&quot;&gt;Stack보다는 ArrayDeque를 쓰자. Stack과 Vector의 문제점&lt;/a&gt;&lt;a href=&quot;#fnref-1&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</content:encoded></item><item><title><![CDATA[[회고] 07.01 ~ 07.07]]></title><description><![CDATA[What I Studied DFS&BFS, 다익스트라 복습 ! Java 쓰레드 정리법 CS 공부할 때 얼추 손으로 정리하고, 블로그에 정리하는 게 더 정리가 잘된다. Java…]]></description><link>null/retrospection/self-retrospective/2024-july/july-1st/</link><guid isPermaLink="false">null/retrospection/self-retrospective/2024-july/july-1st/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;what-i-studied&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#what-i-studied&quot; aria-label=&quot;what i studied permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What I Studied&lt;/h2&gt;
+&lt;/div&gt;</content:encoded></item><item><title><![CDATA[2024년 7월 첫 째주 회고록]]></title><description><![CDATA[What I Studied DFS&BFS, 다익스트라 복습 ! Java 쓰레드 정리법 CS 공부할 때 얼추 손으로 정리하고, 블로그에 정리하는 게 더 정리가 잘된다. Java…]]></description><link>null/회고/회고록/2024년-7월-첫-째주-회고록/</link><guid isPermaLink="false">null/회고/회고록/2024년-7월-첫-째주-회고록/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;what-i-studied&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#what-i-studied&quot; aria-label=&quot;what i studied permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What I Studied&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;DFS&amp;#x26;BFS, 다익스트라 복습 !&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://kdkdhoho.github.io/thread-in-jvm&quot;&gt;Java 쓰레드&lt;/a&gt;&lt;/li&gt;
@@ -5970,9 +6008,9 @@ java&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;base&lt;span c
 &lt;p&gt;일부는 group이 system인 쓰레드, daemon으로 동작 중인 쓰레드가 있는 것도 확인할 수 있다.&lt;/p&gt;
 &lt;h2 id=&quot;다음으로&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8B%A4%EC%9D%8C%EC%9C%BC%EB%A1%9C&quot; aria-label=&quot;다음으로 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;다음으로&lt;/h2&gt;
 &lt;p&gt;지금까지 Java에서 쓰레드를 구현하고 실행하는 방법, Main 쓰레드, 쓰레드의 우선순위, 쓰레드 그룹, 데몬 쓰레드에 대해 알아보았다.&lt;br&gt;
-다음으로 쓰레드의 상태와 쓰레드의 행동을 제어하는 메서드들에 대해 알아보겠다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[회고] 06.17 ~ 06.30]]></title><description><![CDATA[Note) 
+다음으로 쓰레드의 상태와 쓰레드의 행동을 제어하는 메서드들에 대해 알아보겠다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[2024년 6월 4, 5주차 회고록]]></title><description><![CDATA[Note) 
 6.17 ~ 6.30 기간에는 총 세 군데의 코딩테스트를 보았다.
-그 중에서 한 곳은, 일주일에 걸친 과제테스트라서 학습은 잘 하지 못했다. What I Studied 커피 끊으니까…]]></description><link>null/retrospection/self-retrospective/2024-june/june-4th-and-5th/</link><guid isPermaLink="false">null/retrospection/self-retrospective/2024-june/june-4th-and-5th/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;blockquote&gt;
+그 중에서 한 곳은, 일주일에 걸친 과제테스트라서 학습은 잘 하지 못했다. What I Studied 커피 끊으니까…]]></description><link>null/회고/회고록/2024년-6월-4-5주차-회고록/</link><guid isPermaLink="false">null/회고/회고록/2024년-6월-4-5주차-회고록/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;Note) &lt;br&gt;
 6.17 ~ 6.30 기간에는 총 세 군데의 코딩테스트를 보았다.&lt;br&gt;
 그 중에서 한 곳은, 일주일에 걸친 과제테스트라서 학습은 잘 하지 못했다.&lt;br&gt;&lt;/p&gt;
@@ -6006,9 +6044,9 @@ java&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;base&lt;span c
 &lt;li&gt;코테&amp;#x26;과테 본다고 코테 공부를 거의 못했다.&lt;br&gt;
 앞으로 면접이 있어 마찬가지로 할 시간이 부족하겠지만, 놓지는 말자.&lt;br&gt;
 하루에 한 문제라도 풀자.&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[회고] 06.10 ~ 06.16]]></title><description><![CDATA[What I Studied 프로메테우스, 그라파나를 도커에서 띄우기 컨테이너-컨테이너, 컨테이너-호스트 간의 통신 도커 네트워크 이분탐색 목표의 중요성 Keep 주, 월 단위의 목표를 설정하고 목표를 달성하는 데 정진하자. Problem & Try…]]></description><link>null/retrospection/self-retrospective/2024-june/june-3rd/</link><guid isPermaLink="false">null/retrospection/self-retrospective/2024-june/june-3rd/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;what-i-studied&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#what-i-studied&quot; aria-label=&quot;what i studied permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What I Studied&lt;/h2&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[2024년 6월 셋째 주 회고록 ]]></title><description><![CDATA[What I Studied 프로메테우스, 그라파나를 도커에서 띄우기 (바로가기 링크) 컨테이너-컨테이너, 컨테이너-호스트 간의 통신 도커 네트워크 이분탐색 목표의 중요성 Keep…]]></description><link>null/회고/회고록/2024년-6월-셋째-주-회고록/</link><guid isPermaLink="false">null/회고/회고록/2024년-6월-셋째-주-회고록/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;what-i-studied&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#what-i-studied&quot; aria-label=&quot;what i studied permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What I Studied&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://kdkdhoho.github.io/build-monitoring-system/&quot;&gt;프로메테우스, 그라파나를 도커에서 띄우기&lt;/a&gt;
+&lt;li&gt;프로메테우스, 그라파나를 도커에서 띄우기 &lt;a href=&quot;https://kdkdhoho.github.io/build-monitoring-system/&quot;&gt;(바로가기 링크)&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;컨테이너-컨테이너, 컨테이너-호스트 간의 통신&lt;/li&gt;
 &lt;li&gt;도커 네트워크&lt;/li&gt;
@@ -12540,9 +12578,9 @@ mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span cla
 &lt;p&gt;이러한 쿼리라면 옵티마이저는 first_name 칼럼의 인덱스와 birth_date 칼럼의 히스토그램 정보를 사용할까?&lt;br&gt;
 MySQL 8.0부터는 인덱스된 칼럼을 검색 조건으로 사용하는 경우 그 칼럼의 히스토그램은 사용하지 않고 인덱스 다이브를 통해 직접 수집한 정보를 활용한다.&lt;br&gt;
 이는 실제 검색 조건의 대상 값으로 직접 샘플링을 실행하는 것이므로 항상 히스토그램보다 더 정확한 결과를 기대할 수 있기 때문이다.&lt;/p&gt;
-&lt;p&gt;그래서 MySQL 8.0 버전부터는 히스토그램을 주로 인덱스되지 않은 칼럼에 대한 데이터 분포도를 참조하는 용도로 사용된다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[ListyWave] 3~6주차 회고]]></title><description><![CDATA[들어가며 ListyWave 프로젝트의 공식 일정이 모두 끝이 났다.
+&lt;p&gt;그래서 MySQL 8.0 버전부터는 히스토그램을 주로 인덱스되지 않은 칼럼에 대한 데이터 분포도를 참조하는 용도로 사용된다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[ListyWave 프로젝트 3~6주차 회고록]]></title><description><![CDATA[들어가며 ListyWave 프로젝트의 공식 일정이 모두 끝이 났다.
 최종 발표는 매우 뜨거운 반응을 낳으며 성황리에 끝이 났다. 그간 최종 일자에 쫓겨 개발 일정을 진행하다보니 회고 쓸 여유도 없었다.
-나흘을 푹 쉬고 내일부터 다시 Next Step…]]></description><link>null/retrospection/listywave-retrospection/3-6-weeks/</link><guid isPermaLink="false">null/retrospection/listywave-retrospection/3-6-weeks/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;들어가며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0&quot; aria-label=&quot;들어가며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가며&lt;/h2&gt;
+나흘을 푹 쉬고 내일부터 다시 Next Step…]]></description><link>null/회고/리스티웨이브-프로젝트-회고록/3-6-주차/</link><guid isPermaLink="false">null/회고/리스티웨이브-프로젝트-회고록/3-6-주차/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;들어가며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0&quot; aria-label=&quot;들어가며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가며&lt;/h2&gt;
 &lt;p&gt;ListyWave 프로젝트의 공식 일정이 모두 끝이 났다.&lt;br&gt;
 최종 발표는 매우 뜨거운 반응을 낳으며 성황리에 끝이 났다.&lt;/p&gt;
 &lt;p&gt;그간 최종 일자에 쫓겨 개발 일정을 진행하다보니 회고 쓸 여유도 없었다.&lt;br&gt;
@@ -12896,7 +12934,7 @@ Enum을 통해 같은 주제에 대해 다양한 데이터를 나열하고 그 �
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://m.yes24.com/Goods/Detail/15894097&quot;&gt;그림으로 배우는 Http &amp;#x26; Network Basic&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[[ListyWave] 1, 2주차 회고]]></title><description><![CDATA[들어가며 이 글은 ListyWave…]]></description><link>null/retrospection/listywave-retrospection/1-2-weeks/</link><guid isPermaLink="false">null/retrospection/listywave-retrospection/1-2-weeks/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;들어가며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0&quot; aria-label=&quot;들어가며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가며&lt;/h2&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[ListyWave 프로젝트 1, 2주차 회고록]]></title><description><![CDATA[들어가며 이 글은 ListyWave…]]></description><link>null/회고/리스티웨이브-프로젝트-회고록/1-2-주차/</link><guid isPermaLink="false">null/회고/리스티웨이브-프로젝트-회고록/1-2-주차/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;들어가며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0&quot; aria-label=&quot;들어가며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가며&lt;/h2&gt;
 &lt;p&gt;이 글은 ListyWave 프로젝트를 진행하며 한 주를 되돌아보는 회고록입니다.&lt;/p&gt;
 &lt;h2 id=&quot;프로젝트를-하게-된-계기는요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%A5%BC-%ED%95%98%EA%B2%8C-%EB%90%9C-%EA%B3%84%EA%B8%B0%EB%8A%94%EC%9A%94&quot; aria-label=&quot;프로젝트를 하게 된 계기는요 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;프로젝트를 하게 된 계기는요&lt;/h2&gt;
 &lt;p&gt;우테코가 끝나고 개인 공부를 쭈욱 해오면서 개인 사이드 프로젝트를 진행하고 싶다는 생각이 들었습니다.
@@ -14182,6 +14220,257 @@ HTTP 메시지는 ASCII로 인코딩된 동일한 구조의 텍스트입니다.&
 &lt;li&gt;&lt;a href=&quot;https://m.yes24.com/Goods/Detail/15894097&quot;&gt;그림으로 배우는 Http &amp;#x26; Network Basic&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/HTTP/Overview&quot;&gt;HTTP 개요 - MDN&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[AWS EC2에 AMI Architecture에 대해]]></title><description><![CDATA[들어가며 EC2에 스프링 배포하기 글을 작성하다가 EC2 인스턴스를 생성할 때 AMI…]]></description><link>null/인프라/AWS-EC2에-AMI-Architecture에-대해/</link><guid isPermaLink="false">null/인프라/AWS-EC2에-AMI-Architecture에-대해/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;들어가며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0&quot; aria-label=&quot;들어가며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가며&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://kdkdhoho.github.io/deploy-spring-boot-in-aws-ec2-manually/&quot;&gt;EC2에 스프링 배포하기&lt;/a&gt; 글을 작성하다가 EC2 인스턴스를 생성할 때 AMI를 설정하게 됩니다.&lt;/p&gt;
+&lt;p&gt;이때 선택할 수 있는 아키텍처는 아래와 같이 &lt;code class=&quot;language-text&quot;&gt;x86&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;Arm&lt;/code&gt; 두 가지로 나뉩니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9843ebbaabdcd7dad49a3a5a7d016291/108f8/type_of_cpu_architecture.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 94.30379746835443%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAADCklEQVR42n1U226bQBDl/x/6A/2EPrcvVZU+VJYSRUmaqlUcG+MLtoO5L7DsguF0ZjC2m4eudDTDYuZy5oydPM/xMn3FlLDwPHjeEnPXxfR1hvncFd91F4L5bA5v5aM0DY5tg6Zp0BKstYK6ruEYa5Bl+QAKnislfppl57vRyl2uUBsLYwwMBWG0bQs+HNSJ4wTL9Qb7twDrzRa7/Ru2J2y2O3n2ya79Ldn9Gfzbjb8TPziEyCmRpWodpUqUZYWu73HsOnSE43GwXde/s/zueEJHlQ0+V9g0rVhHU995XiBOMoRhhCxNkabkRwkhRkL3UThYY4b2rgNccCQODRzOkKtCOClri6w0VPrlowGN2Evl/4JjsOXfOOwkaS4T2kUZ3G2EhCrm0xMNgmv/Cnh3z4Gdyh6xjXIccg1VFMizBJXWiKhdfubJHsIQRVkKBayCOEmgKy0BuRO+54DCYdl0eFnTVONCWtbGChf2JAmtB5+TNKQ95pElFEQhDbFHUjVYHzLkNVFDPFLAHq8LFwFl3WcaHr2sdUVy2UOlCeJwKcEUSSOdzYieDIFK8LRz0VPAgIb3dogRxqkMxqnbDgVVWdgOmiori/JSoRnUz2TXmqwZ7jiBNrW0zLzx0MbhiLBd18NyuRLw6nEQ5nyc4qg3nvKoQ763thGemV9NSUTYWaYwmy+wom2Z0b5uaCPiJBXIEGgDWPiKpMW+og6KggPUEriQ54LeK7lzOLIQTm2ZcUepZX7J4Cqu9dY018I+njeJq+fvnYxIZlRURUFVDNk1VTVkrqrqVKESbq9P31MwwqhJ4TB9vENw+wPVrwfkP++hHm4R+mtEtIKagkVxjANNmAOzjP53JGB0N4G38aHow5bL9uaIp38QkAy4da7UJ14TSiC7TkIfz+ffn/Bx8gFP2zt5Zp06wfMj7knY8wOtHF3uVyvYnQ9tW1gztDhMeuCOuRpPqmMExQ6VLc9b46TfvmB98xXh5Dual2eYyQ30do2aytf1MDDmlP+VRlSnQVpDSWh1TT1os6gq/AWOSLMkUPzCwwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img.png&quot;
+        title=&quot;&quot;
+        src=&quot;/static/9843ebbaabdcd7dad49a3a5a7d016291/f058b/type_of_cpu_architecture.png&quot;
+        srcset=&quot;/static/9843ebbaabdcd7dad49a3a5a7d016291/c26ae/type_of_cpu_architecture.png 158w,
+/static/9843ebbaabdcd7dad49a3a5a7d016291/6bdcf/type_of_cpu_architecture.png 315w,
+/static/9843ebbaabdcd7dad49a3a5a7d016291/f058b/type_of_cpu_architecture.png 630w,
+/static/9843ebbaabdcd7dad49a3a5a7d016291/108f8/type_of_cpu_architecture.png 777w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;문득, 이 둘의 차이에 대해 궁금해져 학습하고 정리해봤습니다.&lt;/p&gt;
+&lt;h2 id=&quot;amazon-machine-image&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#amazon-machine-image&quot; aria-label=&quot;amazon machine image permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Amazon Machine Image?&lt;/h2&gt;
+&lt;p&gt;우선 Amazon Machine Image에 대해 알아보겠습니다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/AMIs.html&quot;&gt;공식 문서&lt;/a&gt;에 따르면 다음과 같습니다.&lt;br&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;인스턴스를 시작하는 데 필요한 정보를 제공하는 AWS에서 지원하는 이미지다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;즉, 운영체제를 &apos;도커의 이미지&apos; 처럼 EC2 인스턴스에 설치하는 것으로 이해하면 되겠습니다.&lt;/p&gt;
+&lt;h2 id=&quot;아키텍처&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98&quot; aria-label=&quot;아키텍처 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;아키텍처?&lt;/h2&gt;
+&lt;p&gt;그럼 여기서의 아키텍처는 무엇을 의미하며 64비트(x86), 그리고 64비트(Arm)은 각각 무엇을 의미하는걸까요?&lt;/p&gt;
+&lt;p&gt;이것들은 모두 &lt;em&gt;CPU 아키텍처&lt;/em&gt; 를 의미하는 것입니다.&lt;/p&gt;
+&lt;p&gt;CPU 아키텍처란, 간단히 말해 CPU를 만드는 설계 방법입니다.&lt;/p&gt;
+&lt;p&gt;이 CPU를 만드는 회사는 다양하고 각 회사마다 CPU를 만드는 방법이 조금씩 다른데요.&lt;/p&gt;
+&lt;p&gt;가장 유명한 CPU 제조 회사인 &lt;a href=&quot;https://www.intel.com/content/www/us/en/homepage.html&quot;&gt;Intel&lt;/a&gt; 사가 만드는 CPU의 아키텍처는 &lt;code class=&quot;language-text&quot;&gt;x86&lt;/code&gt; 라고 부릅니다.&lt;br&gt;
+그리고 타사인 &lt;a href=&quot;https://www.ARM.com/&quot;&gt;ARM&lt;/a&gt; 사가 만드는 CPU의 아키텍처가 바로 &lt;code class=&quot;language-text&quot;&gt;Arm&lt;/code&gt; 입니다.&lt;/p&gt;
+&lt;p&gt;이 두 CPU 아키텍처에는 큰 차이가 있습니다.&lt;/p&gt;
+&lt;h2 id=&quot;x86-vs-arm&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#x86-vs-arm&quot; aria-label=&quot;x86 vs arm permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;x86 vs Arm&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;center&quot;&gt;아키텍처&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;지원 OS&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;타겟&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;에너지 사용량&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;발열&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;비용&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;트랜지스터 수&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;x86&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;윈도우, 리눅스, 맥 등&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;PC&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;높음&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;높음&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;높음&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;많음&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;Arm&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;리눅스 계열 등&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;스마트폰, 저전력 PC&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;낮음&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;낮음&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;낮음&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;적음&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;x86은 CPU 내에 상대적으로 더 많은 트랜지스터가 존재합니다.&lt;br&gt;
+따라서 &lt;strong&gt;처리 성능은 뛰어납니다.&lt;/strong&gt; 하지만 그만큼 &lt;strong&gt;에너지 사용량이 높고 발열량이 높습니다.&lt;/strong&gt;&lt;br&gt;
+그에 따라 &lt;strong&gt;비용도 상대적으로 비쌉니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Arm은 x86에 비해 &lt;strong&gt;더 싸고 발열도 낮습니다.&lt;/strong&gt;&lt;br&gt;
+본래 Arm의 설계 목적은 스마트폰 같이 소형 전자 장치에 들어갈 CPU를 목적으로 설계되었습니다.&lt;br&gt;
+따라서 더 작고, 배터리 수명이 길고, &lt;strong&gt;저비용&lt;/strong&gt;에 초점을 맞춰 설계합니다.&lt;/p&gt;
+&lt;h2 id=&quot;그럼-어떤-아키텍처를-선택하면-좋을까&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B7%B8%EB%9F%BC-%EC%96%B4%EB%96%A4-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98%EB%A5%BC-%EC%84%A0%ED%83%9D%ED%95%98%EB%A9%B4-%EC%A2%8B%EC%9D%84%EA%B9%8C&quot; aria-label=&quot;그럼 어떤 아키텍처를 선택하면 좋을까 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;그럼 어떤 아키텍처를 선택하면 좋을까?&lt;/h2&gt;
+&lt;p&gt;목적은 클라우딩 컴퓨터인 EC2에 들어갈 아키텍처를 선택하는 것입니다.&lt;/p&gt;
+&lt;p&gt;클라우딩 컴퓨터는 &quot;저비용에 고효율&quot;을 가지는 대표적인 기술입니다.&lt;br&gt;
+또한 물리적 자원이 아니다보니 CPU 발열을 냉각시켜야 하는 제약이 존재하지 않습니다.&lt;/p&gt;
+&lt;p&gt;추가로 아래 사진을 보시겠습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9677eb3ba68ba08cd27a7caa1c3faaf7/d69c4/x86.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 44.93670886075949%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABt0lEQVR42k1S2Y7TQBD0//8Ob/ACAoknJJbsCkECm8RXfM3tOXwV3d7NipZaPT3yVFdVO0spwVkHYRwujYQPEdu2YV3Xt3o/35MjWYP+y0f0D99hng6Qj48wXz8jiwSolMboRozWotMjGkqpHbQ20DTMGItpmrGsGwapMVOdYkR3OuJ2PEFec/iqwtaUyHwIKPIrzOjREhBnJSyUlgjBw0sFMQwYlKJvEs51D+UCDZioDxB0jiuw4iWylCLiqHYmnTQYLAN7OD+C2buOAIRAmonhssB7j4XO0zxBaIuiFTTM4h6ZEBJFWaOqa5RlSfIMRmLrKFOa6OFCHr54yX57H5CIXSTJvY34U/X4W7Z4JubXVhIgScrzgkAr5EW11/Ml36sjXzlZ3kzAPEiRr5b9JqYqLPh5qfHw+xmH4xmH0wWZc26fPO8yZswkixfA/T2ZHcfrgvcIxNDEhRh2+PZ0xI9X0Kzve/T9AMvbpC03Tbv3kpgrXgRZIK1AmD3+D5asCTAfDPJOoRgsKh2RSXp0u7U7K5ZmCZR95Xvu123Fh1/v8On0/u0f3AFJ1RgTDVqQlo1yRfQS/wCHYrFAv71bqwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;x86 선택&quot;
+        title=&quot;&quot;
+        src=&quot;/static/9677eb3ba68ba08cd27a7caa1c3faaf7/f058b/x86.png&quot;
+        srcset=&quot;/static/9677eb3ba68ba08cd27a7caa1c3faaf7/c26ae/x86.png 158w,
+/static/9677eb3ba68ba08cd27a7caa1c3faaf7/6bdcf/x86.png 315w,
+/static/9677eb3ba68ba08cd27a7caa1c3faaf7/f058b/x86.png 630w,
+/static/9677eb3ba68ba08cd27a7caa1c3faaf7/40601/x86.png 945w,
+/static/9677eb3ba68ba08cd27a7caa1c3faaf7/d69c4/x86.png 1002w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/951e3b6feb548223f570d84276c5151c/58bb7/arm.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 46.202531645569614%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABtElEQVR42mVSyW7bMBDV//9Lr73lErTHJmiK1E3i2HGslbIoijup5XVIN0CLEngYUsIM38LCWgdrLXouUbIRIc5Y142wZizLtW7b9ge0BxC8Q397A3Z/B717hNjtIL/eolDaQEwSxuiMdiQIi1FoTGKCVNf/8zxjoYvYIHINMYIfj2AvrxDnErapAdagGPgA1rUQxoFNBg1XqAaJaRpgrIG9DGg7BiElhLJ4ay4YpckDJ1LHjYdbtsw6rcISK28lRmLBBUF7DATrLEIIsAOHUppYXaWnb8uyICaGk8o2XUaV7cgDm6bDuaxRlhXKqiKJKkOTFZH8jNT84adzDtoYOO/hg8dFBbzWAw4Vw6HucepGFB3JqZs2o0qoG5zez2haBkNDNbGLOaglh5cu0lrnvfArfp0aPDwf8WN/wsPLG4VCDcnw1JRqYpJqDoHYJXzI+Xt5YinDgj2x+/b4jO9PR9zv9iiqqoYQAlKSVDK+Joacc8JI6VLKkkAexzX+O5AkT35BOSi89wIVhVlyg4KxPjeHEDMEPZV0HumSGGb42eHzz0/4crj5b6DxAW5e4emt5uo1fgM837EQuIVrAgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Arm 선택&quot;
+        title=&quot;&quot;
+        src=&quot;/static/951e3b6feb548223f570d84276c5151c/f058b/arm.png&quot;
+        srcset=&quot;/static/951e3b6feb548223f570d84276c5151c/c26ae/arm.png 158w,
+/static/951e3b6feb548223f570d84276c5151c/6bdcf/arm.png 315w,
+/static/951e3b6feb548223f570d84276c5151c/f058b/arm.png 630w,
+/static/951e3b6feb548223f570d84276c5151c/40601/arm.png 945w,
+/static/951e3b6feb548223f570d84276c5151c/58bb7/arm.png 985w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;x86을 선택하면 기본적으로 &lt;em&gt;t2.micro&lt;/em&gt; 타입이 설정됩니다.&lt;br&gt;
+반면, Arm을 선택하면 &lt;em&gt;t4g.micro&lt;/em&gt; 타입이 설정됩니다.&lt;/p&gt;
+&lt;p&gt;이 두 인스턴스 타입의 차이에 대해 알아보겠습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/899f2eb6a20b94228f8ec15706290ba9/c54b3/type_of_t2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 43.67088607594937%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABk0lEQVR42k1R2W7CMBDM//9K3yu1L0WVekIPQFRAD0QbAnFuyGHHgemOVVAtWTueWe+ux16cZuDKigLGGNiuQxCGCKMYKo6dtlguUVYV6qYRLsH/ZdoWq/UaG6XQWQsv979hkggmjU+7/Ys2T51WrH5QqxBF4CNZLqBjBS08Y5ulqCKFKgzQVqUUvOvBjp9gXvtoh310w0cY2c3LA+xoAMuz4G48QH5/DdW7EL4vdwYuUgt7l4hvrqDPz+BlkxHM1xz6cwb9MYNZvKORczWfON6dP6eCZ8gmQ0TDgeRNT1o1f8O6fws1ekYtQ3lK3q7FO3rRigfdfu+8pF/E9JQ6tVx8Zj4xeeqN1lhvNogisYAehvIBLQuKwLiXROJyt3OYRjdS3ErDLMuwkcvE5KlT833f8bznpWkKK2Jd19AsKslM2klBYk5byQ9Ty/PcTUjuuJnL6VhHHwt20omXWfhwOLhIkXgvzyJmDpskSeIweUauY0Pme0EQOKIsy5PAuN1uHeYExHwBm9MicsfNHFpRiL+c8Bc+g6w2juJ2iwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;t2 유형&quot;
+        title=&quot;&quot;
+        src=&quot;/static/899f2eb6a20b94228f8ec15706290ba9/f058b/type_of_t2.png&quot;
+        srcset=&quot;/static/899f2eb6a20b94228f8ec15706290ba9/c26ae/type_of_t2.png 158w,
+/static/899f2eb6a20b94228f8ec15706290ba9/6bdcf/type_of_t2.png 315w,
+/static/899f2eb6a20b94228f8ec15706290ba9/f058b/type_of_t2.png 630w,
+/static/899f2eb6a20b94228f8ec15706290ba9/c54b3/type_of_t2.png 727w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/23a6fc7da7254cdc9b2b4164f830e083/ef916/type_of_t4g.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 40.50632911392405%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABoUlEQVR42i1Sy27bMBDU/39LLz30UhTooWnTJG7TNK5THxxYsB3rRb0o8aXHdJaoAIJD7uwsNbuJ1hpKKUzThGVZ0Pc95KvrGlVVxfuiKNC2LYwx2O12MZbnecQS67oO+/0eZVkiGayFItnPM9cC4z2mFdDGoh8MwrqiH8d4nogH7i5MCCxeNQ0cC0puySKGWsmoKpTpEaFr4/Jtjbnv/uMGi+5hqhK2VhG7RiEIR3eoTmnk2LpC9nqAVnyh/vgexdfPsI93sE/3MD9u4Z4eYH8RP36HJ+7ub6A33+CfN9APN7y/g/+9QfXlU8Tjz1tk1Og+vKPgfovy7xb+dMT0doI/p1iyC8IljXdrfsFwPMCkB+I32PQ1xpbsjHr/B4F8fz6ifNlieHmmh/Ss4P97euKXFZZ+iIeOu6U/Mxuk6c3gfMQj+W4ih1h1tIC+Cy9XTeQklp2rygJTCJi5gndYKRacg6cQWw8zDLBmBCSZDQoUFU7b1JiIhavEZ3ISafn1eo0j4RgYJYHCch4oJGMjoyTjJVh2iQlHxsSyqJyzLIuxf6LoX0y+Y07AAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;t4g 유형&quot;
+        title=&quot;&quot;
+        src=&quot;/static/23a6fc7da7254cdc9b2b4164f830e083/f058b/type_of_t4g.png&quot;
+        srcset=&quot;/static/23a6fc7da7254cdc9b2b4164f830e083/c26ae/type_of_t4g.png 158w,
+/static/23a6fc7da7254cdc9b2b4164f830e083/6bdcf/type_of_t4g.png 315w,
+/static/23a6fc7da7254cdc9b2b4164f830e083/f058b/type_of_t4g.png 630w,
+/static/23a6fc7da7254cdc9b2b4164f830e083/ef916/type_of_t4g.png 815w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;두 타입 모두 프리티어이면서 동일한 AMI에서 설정되는 인스턴스 타입임에도 불구하고, CPU 아키텍처의 차이에 따라 성능과 비용의 차이가 있음을 확인할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;결론적으로, 저비용 고효율을 위해서라면 &lt;code class=&quot;language-text&quot;&gt;Arm 아키텍처&lt;/code&gt;를 선택하는 것이 바람직해보입니다.&lt;/p&gt;
+&lt;h2 id=&quot;64비트는-무엇이지&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#64%EB%B9%84%ED%8A%B8%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%B4%EC%A7%80&quot; aria-label=&quot;64비트는 무엇이지 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;64비트는 무엇이지?&lt;/h2&gt;
+&lt;p&gt;그런데 64비트는 무엇일까요?&lt;/p&gt;
+&lt;p&gt;여기서의 &apos;비트&apos;는 CPU가 가지는 &lt;em&gt;레지스터&lt;/em&gt;의 크기를 의미합니다.&lt;/p&gt;
+&lt;p&gt;CPU가 프로그램 명령어를 처리하기 위해 자체적으로 저장소를 가집니다.&lt;br&gt;
+이 저장소를 레지스터라고 합니다.&lt;br&gt;
+레지스터는 용량은 매우 작은 대신 속도는 매우 빠른 특징을 가집니다.&lt;/p&gt;
+&lt;p&gt;따라서 저장소의 크기가 클수록 더 많은 데이터를 이용해 CPU가 명령어를 처리하는 능력이 향상됩니다.&lt;/p&gt;
+&lt;p&gt;참고로 32비트도 존재합니다만 64비트와의 차이는 다음과 같습니다.&lt;br&gt;
+32비트는 2^32 = 4,294,967,296 bit ≒ &lt;strong&gt;4GB&lt;/strong&gt;&lt;br&gt;
+64비트는 2^64 = 18,446,744,073,709,551,616 bit ≒ &lt;strong&gt;16EB&lt;/strong&gt; (= 4GB x 4GB)&lt;/p&gt;
+&lt;p&gt;현대의 많은 CPU는 대부분 64비트로 생산되고 있습니다.&lt;/p&gt;
+&lt;h2 id=&quot;마치며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A7%88%EC%B9%98%EB%A9%B0&quot; aria-label=&quot;마치며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;마치며&lt;/h2&gt;
+&lt;p&gt;지금까지 CPU 아키텍처를 선택하는 데에 있어 필요한 정보들을 알아보았습니다.&lt;/p&gt;
+&lt;p&gt;처음 접한 내용이다보니 틀리거나 빠진 내용이 있을 수 있습니다.&lt;br&gt;
+만약 정보의 수정이 필요하다면 언제든 댓글 남겨주시길 바랍니다.&lt;/p&gt;
+&lt;p&gt;감사합니다.&lt;/p&gt;
+&lt;h3 id=&quot;reference&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#reference&quot; aria-label=&quot;reference permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Reference&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.redhat.com/en/topics/linux/Arm-vs-x86&quot;&gt;AMR vs x86 - Red Hat 공식문서&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://velog.io/@480/%EC%9D%B4%EC%A0%9C%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%8F%84-CPU-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98%EB%A5%BC-%EA%B5%AC%EB%B6%84%ED%95%B4%EC%95%BC-%ED%95%A9%EB%8B%88%EB%8B%A4&quot;&gt;https://velog.io/@480/이제는-개발자도-CPU-아키텍처를-구분해야-합니다&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.e-focus.co.kr/news/articleView.html?idxno=2638858&quot;&gt;CPU 32비트와 64비트 차이, 모르고 사용하면 낭비다 - 이포커스&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://dev.to/aws-builders/data-points-you-need-to-know-about-Arm-for-your-application-code-migration-5c0f&quot;&gt;https://dev.to/aws-builders/data-points-you-need-to-know-about-Arm-for-your-application-code-migration-5c0f&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://youtu.be/ndXKHgFIIL4&quot;&gt;https://youtu.be/ndXKHgFIIL4&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[AWS EC2에 Spring Boot 애플리케이션을 수동으로 배포하기]]></title><description><![CDATA[들어가며 이번 글은 AWS EC2 인스턴스를 생성하고 수작업으로 Spring Boot…]]></description><link>null/인프라/AWS-EC2에-Spring-Boot-애플리케이션을-수동으로-배포하기/</link><guid isPermaLink="false">null/인프라/AWS-EC2에-Spring-Boot-애플리케이션을-수동으로-배포하기/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;들어가며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0&quot; aria-label=&quot;들어가며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가며&lt;/h2&gt;
 &lt;p&gt;이번 글은 AWS EC2 인스턴스를 생성하고 수작업으로 Spring Boot를 실행시키는 방법을 정리한 글입니다.&lt;/p&gt;
 &lt;p&gt;개발 환경은 &lt;code class=&quot;language-text&quot;&gt;MacOS&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;Warp(Terminal)&lt;/code&gt; 입니다.&lt;/p&gt;
@@ -14887,257 +15176,6 @@ clone이 완료되면 &lt;code class=&quot;language-text&quot;&gt;ls&lt;/code&gt
 &lt;li&gt;&lt;a href=&quot;https://www.lesstif.com/lpt/ssh-unprotected-private-key-file-80249001.html&quot;&gt;SSH 접속 시 UNPROTECTED PRIVATE KEY FILE! 에러 해결&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://aws.amazon.com/ko/ec2/instance-types/&quot;&gt;EC2 인스턴스 유형&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[AWS EC2에 AMI Architecture에 대해]]></title><description><![CDATA[들어가며 EC2에 스프링 배포하기 글을 작성하다가 EC2 인스턴스를 생성할 때 AMI…]]></description><link>null/인프라/AWS-EC2에-AMI-Architecture에-대해/</link><guid isPermaLink="false">null/인프라/AWS-EC2에-AMI-Architecture에-대해/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;들어가며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0&quot; aria-label=&quot;들어가며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가며&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://kdkdhoho.github.io/deploy-spring-boot-in-aws-ec2-manually/&quot;&gt;EC2에 스프링 배포하기&lt;/a&gt; 글을 작성하다가 EC2 인스턴스를 생성할 때 AMI를 설정하게 됩니다.&lt;/p&gt;
-&lt;p&gt;이때 선택할 수 있는 아키텍처는 아래와 같이 &lt;code class=&quot;language-text&quot;&gt;x86&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;Arm&lt;/code&gt; 두 가지로 나뉩니다.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/9843ebbaabdcd7dad49a3a5a7d016291/108f8/type_of_cpu_architecture.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 94.30379746835443%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAADCklEQVR42n1U226bQBDl/x/6A/2EPrcvVZU+VJYSRUmaqlUcG+MLtoO5L7DsguF0ZjC2m4eudDTDYuZy5oydPM/xMn3FlLDwPHjeEnPXxfR1hvncFd91F4L5bA5v5aM0DY5tg6Zp0BKstYK6ruEYa5Bl+QAKnislfppl57vRyl2uUBsLYwwMBWG0bQs+HNSJ4wTL9Qb7twDrzRa7/Ru2J2y2O3n2ya79Ldn9Gfzbjb8TPziEyCmRpWodpUqUZYWu73HsOnSE43GwXde/s/zueEJHlQ0+V9g0rVhHU995XiBOMoRhhCxNkabkRwkhRkL3UThYY4b2rgNccCQODRzOkKtCOClri6w0VPrlowGN2Evl/4JjsOXfOOwkaS4T2kUZ3G2EhCrm0xMNgmv/Cnh3z4Gdyh6xjXIccg1VFMizBJXWiKhdfubJHsIQRVkKBayCOEmgKy0BuRO+54DCYdl0eFnTVONCWtbGChf2JAmtB5+TNKQ95pElFEQhDbFHUjVYHzLkNVFDPFLAHq8LFwFl3WcaHr2sdUVy2UOlCeJwKcEUSSOdzYieDIFK8LRz0VPAgIb3dogRxqkMxqnbDgVVWdgOmiori/JSoRnUz2TXmqwZ7jiBNrW0zLzx0MbhiLBd18NyuRLw6nEQ5nyc4qg3nvKoQ763thGemV9NSUTYWaYwmy+wom2Z0b5uaCPiJBXIEGgDWPiKpMW+og6KggPUEriQ54LeK7lzOLIQTm2ZcUepZX7J4Cqu9dY018I+njeJq+fvnYxIZlRURUFVDNk1VTVkrqrqVKESbq9P31MwwqhJ4TB9vENw+wPVrwfkP++hHm4R+mtEtIKagkVxjANNmAOzjP53JGB0N4G38aHow5bL9uaIp38QkAy4da7UJ14TSiC7TkIfz+ffn/Bx8gFP2zt5Zp06wfMj7knY8wOtHF3uVyvYnQ9tW1gztDhMeuCOuRpPqmMExQ6VLc9b46TfvmB98xXh5Dual2eYyQ30do2aytf1MDDmlP+VRlSnQVpDSWh1TT1os6gq/AWOSLMkUPzCwwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;img.png&quot;
-        title=&quot;&quot;
-        src=&quot;/static/9843ebbaabdcd7dad49a3a5a7d016291/f058b/type_of_cpu_architecture.png&quot;
-        srcset=&quot;/static/9843ebbaabdcd7dad49a3a5a7d016291/c26ae/type_of_cpu_architecture.png 158w,
-/static/9843ebbaabdcd7dad49a3a5a7d016291/6bdcf/type_of_cpu_architecture.png 315w,
-/static/9843ebbaabdcd7dad49a3a5a7d016291/f058b/type_of_cpu_architecture.png 630w,
-/static/9843ebbaabdcd7dad49a3a5a7d016291/108f8/type_of_cpu_architecture.png 777w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;문득, 이 둘의 차이에 대해 궁금해져 학습하고 정리해봤습니다.&lt;/p&gt;
-&lt;h2 id=&quot;amazon-machine-image&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#amazon-machine-image&quot; aria-label=&quot;amazon machine image permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Amazon Machine Image?&lt;/h2&gt;
-&lt;p&gt;우선 Amazon Machine Image에 대해 알아보겠습니다.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/AMIs.html&quot;&gt;공식 문서&lt;/a&gt;에 따르면 다음과 같습니다.&lt;br&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;인스턴스를 시작하는 데 필요한 정보를 제공하는 AWS에서 지원하는 이미지다.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;즉, 운영체제를 &apos;도커의 이미지&apos; 처럼 EC2 인스턴스에 설치하는 것으로 이해하면 되겠습니다.&lt;/p&gt;
-&lt;h2 id=&quot;아키텍처&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98&quot; aria-label=&quot;아키텍처 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;아키텍처?&lt;/h2&gt;
-&lt;p&gt;그럼 여기서의 아키텍처는 무엇을 의미하며 64비트(x86), 그리고 64비트(Arm)은 각각 무엇을 의미하는걸까요?&lt;/p&gt;
-&lt;p&gt;이것들은 모두 &lt;em&gt;CPU 아키텍처&lt;/em&gt; 를 의미하는 것입니다.&lt;/p&gt;
-&lt;p&gt;CPU 아키텍처란, 간단히 말해 CPU를 만드는 설계 방법입니다.&lt;/p&gt;
-&lt;p&gt;이 CPU를 만드는 회사는 다양하고 각 회사마다 CPU를 만드는 방법이 조금씩 다른데요.&lt;/p&gt;
-&lt;p&gt;가장 유명한 CPU 제조 회사인 &lt;a href=&quot;https://www.intel.com/content/www/us/en/homepage.html&quot;&gt;Intel&lt;/a&gt; 사가 만드는 CPU의 아키텍처는 &lt;code class=&quot;language-text&quot;&gt;x86&lt;/code&gt; 라고 부릅니다.&lt;br&gt;
-그리고 타사인 &lt;a href=&quot;https://www.ARM.com/&quot;&gt;ARM&lt;/a&gt; 사가 만드는 CPU의 아키텍처가 바로 &lt;code class=&quot;language-text&quot;&gt;Arm&lt;/code&gt; 입니다.&lt;/p&gt;
-&lt;p&gt;이 두 CPU 아키텍처에는 큰 차이가 있습니다.&lt;/p&gt;
-&lt;h2 id=&quot;x86-vs-arm&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#x86-vs-arm&quot; aria-label=&quot;x86 vs arm permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;x86 vs Arm&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&quot;center&quot;&gt;아키텍처&lt;/th&gt;
-&lt;th align=&quot;center&quot;&gt;지원 OS&lt;/th&gt;
-&lt;th align=&quot;center&quot;&gt;타겟&lt;/th&gt;
-&lt;th align=&quot;center&quot;&gt;에너지 사용량&lt;/th&gt;
-&lt;th align=&quot;center&quot;&gt;발열&lt;/th&gt;
-&lt;th align=&quot;center&quot;&gt;비용&lt;/th&gt;
-&lt;th align=&quot;center&quot;&gt;트랜지스터 수&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td align=&quot;center&quot;&gt;x86&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;윈도우, 리눅스, 맥 등&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;PC&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;높음&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;높음&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;높음&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;많음&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;center&quot;&gt;Arm&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;리눅스 계열 등&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;스마트폰, 저전력 PC&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;낮음&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;낮음&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;낮음&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;적음&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;x86은 CPU 내에 상대적으로 더 많은 트랜지스터가 존재합니다.&lt;br&gt;
-따라서 &lt;strong&gt;처리 성능은 뛰어납니다.&lt;/strong&gt; 하지만 그만큼 &lt;strong&gt;에너지 사용량이 높고 발열량이 높습니다.&lt;/strong&gt;&lt;br&gt;
-그에 따라 &lt;strong&gt;비용도 상대적으로 비쌉니다.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Arm은 x86에 비해 &lt;strong&gt;더 싸고 발열도 낮습니다.&lt;/strong&gt;&lt;br&gt;
-본래 Arm의 설계 목적은 스마트폰 같이 소형 전자 장치에 들어갈 CPU를 목적으로 설계되었습니다.&lt;br&gt;
-따라서 더 작고, 배터리 수명이 길고, &lt;strong&gt;저비용&lt;/strong&gt;에 초점을 맞춰 설계합니다.&lt;/p&gt;
-&lt;h2 id=&quot;그럼-어떤-아키텍처를-선택하면-좋을까&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B7%B8%EB%9F%BC-%EC%96%B4%EB%96%A4-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98%EB%A5%BC-%EC%84%A0%ED%83%9D%ED%95%98%EB%A9%B4-%EC%A2%8B%EC%9D%84%EA%B9%8C&quot; aria-label=&quot;그럼 어떤 아키텍처를 선택하면 좋을까 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;그럼 어떤 아키텍처를 선택하면 좋을까?&lt;/h2&gt;
-&lt;p&gt;목적은 클라우딩 컴퓨터인 EC2에 들어갈 아키텍처를 선택하는 것입니다.&lt;/p&gt;
-&lt;p&gt;클라우딩 컴퓨터는 &quot;저비용에 고효율&quot;을 가지는 대표적인 기술입니다.&lt;br&gt;
-또한 물리적 자원이 아니다보니 CPU 발열을 냉각시켜야 하는 제약이 존재하지 않습니다.&lt;/p&gt;
-&lt;p&gt;추가로 아래 사진을 보시겠습니다.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/9677eb3ba68ba08cd27a7caa1c3faaf7/d69c4/x86.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 44.93670886075949%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABt0lEQVR42k1S2Y7TQBD0//8Ob/ACAoknJJbsCkECm8RXfM3tOXwV3d7NipZaPT3yVFdVO0spwVkHYRwujYQPEdu2YV3Xt3o/35MjWYP+y0f0D99hng6Qj48wXz8jiwSolMboRozWotMjGkqpHbQ20DTMGItpmrGsGwapMVOdYkR3OuJ2PEFec/iqwtaUyHwIKPIrzOjREhBnJSyUlgjBw0sFMQwYlKJvEs51D+UCDZioDxB0jiuw4iWylCLiqHYmnTQYLAN7OD+C2buOAIRAmonhssB7j4XO0zxBaIuiFTTM4h6ZEBJFWaOqa5RlSfIMRmLrKFOa6OFCHr54yX57H5CIXSTJvY34U/X4W7Z4JubXVhIgScrzgkAr5EW11/Ml36sjXzlZ3kzAPEiRr5b9JqYqLPh5qfHw+xmH4xmH0wWZc26fPO8yZswkixfA/T2ZHcfrgvcIxNDEhRh2+PZ0xI9X0Kzve/T9AMvbpC03Tbv3kpgrXgRZIK1AmD3+D5asCTAfDPJOoRgsKh2RSXp0u7U7K5ZmCZR95Xvu123Fh1/v8On0/u0f3AFJ1RgTDVqQlo1yRfQS/wCHYrFAv71bqwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;x86 선택&quot;
-        title=&quot;&quot;
-        src=&quot;/static/9677eb3ba68ba08cd27a7caa1c3faaf7/f058b/x86.png&quot;
-        srcset=&quot;/static/9677eb3ba68ba08cd27a7caa1c3faaf7/c26ae/x86.png 158w,
-/static/9677eb3ba68ba08cd27a7caa1c3faaf7/6bdcf/x86.png 315w,
-/static/9677eb3ba68ba08cd27a7caa1c3faaf7/f058b/x86.png 630w,
-/static/9677eb3ba68ba08cd27a7caa1c3faaf7/40601/x86.png 945w,
-/static/9677eb3ba68ba08cd27a7caa1c3faaf7/d69c4/x86.png 1002w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/951e3b6feb548223f570d84276c5151c/58bb7/arm.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 46.202531645569614%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABtElEQVR42mVSyW7bMBDV//9Lr73lErTHJmiK1E3i2HGslbIoijup5XVIN0CLEngYUsIM38LCWgdrLXouUbIRIc5Y142wZizLtW7b9ge0BxC8Q397A3Z/B717hNjtIL/eolDaQEwSxuiMdiQIi1FoTGKCVNf/8zxjoYvYIHINMYIfj2AvrxDnErapAdagGPgA1rUQxoFNBg1XqAaJaRpgrIG9DGg7BiElhLJ4ay4YpckDJ1LHjYdbtsw6rcISK28lRmLBBUF7DATrLEIIsAOHUppYXaWnb8uyICaGk8o2XUaV7cgDm6bDuaxRlhXKqiKJKkOTFZH8jNT84adzDtoYOO/hg8dFBbzWAw4Vw6HucepGFB3JqZs2o0qoG5zez2haBkNDNbGLOaglh5cu0lrnvfArfp0aPDwf8WN/wsPLG4VCDcnw1JRqYpJqDoHYJXzI+Xt5YinDgj2x+/b4jO9PR9zv9iiqqoYQAlKSVDK+Joacc8JI6VLKkkAexzX+O5AkT35BOSi89wIVhVlyg4KxPjeHEDMEPZV0HumSGGb42eHzz0/4crj5b6DxAW5e4emt5uo1fgM837EQuIVrAgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Arm 선택&quot;
-        title=&quot;&quot;
-        src=&quot;/static/951e3b6feb548223f570d84276c5151c/f058b/arm.png&quot;
-        srcset=&quot;/static/951e3b6feb548223f570d84276c5151c/c26ae/arm.png 158w,
-/static/951e3b6feb548223f570d84276c5151c/6bdcf/arm.png 315w,
-/static/951e3b6feb548223f570d84276c5151c/f058b/arm.png 630w,
-/static/951e3b6feb548223f570d84276c5151c/40601/arm.png 945w,
-/static/951e3b6feb548223f570d84276c5151c/58bb7/arm.png 985w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;x86을 선택하면 기본적으로 &lt;em&gt;t2.micro&lt;/em&gt; 타입이 설정됩니다.&lt;br&gt;
-반면, Arm을 선택하면 &lt;em&gt;t4g.micro&lt;/em&gt; 타입이 설정됩니다.&lt;/p&gt;
-&lt;p&gt;이 두 인스턴스 타입의 차이에 대해 알아보겠습니다.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/899f2eb6a20b94228f8ec15706290ba9/c54b3/type_of_t2.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 43.67088607594937%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABk0lEQVR42k1R2W7CMBDM//9K3yu1L0WVekIPQFRAD0QbAnFuyGHHgemOVVAtWTueWe+ux16cZuDKigLGGNiuQxCGCKMYKo6dtlguUVYV6qYRLsH/ZdoWq/UaG6XQWQsv979hkggmjU+7/Ys2T51WrH5QqxBF4CNZLqBjBS08Y5ulqCKFKgzQVqUUvOvBjp9gXvtoh310w0cY2c3LA+xoAMuz4G48QH5/DdW7EL4vdwYuUgt7l4hvrqDPz+BlkxHM1xz6cwb9MYNZvKORczWfON6dP6eCZ8gmQ0TDgeRNT1o1f8O6fws1ekYtQ3lK3q7FO3rRigfdfu+8pF/E9JQ6tVx8Zj4xeeqN1lhvNogisYAehvIBLQuKwLiXROJyt3OYRjdS3ErDLMuwkcvE5KlT833f8bznpWkKK2Jd19AsKslM2klBYk5byQ9Ty/PcTUjuuJnL6VhHHwt20omXWfhwOLhIkXgvzyJmDpskSeIweUauY0Pme0EQOKIsy5PAuN1uHeYExHwBm9MicsfNHFpRiL+c8Bc+g6w2juJ2iwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;t2 유형&quot;
-        title=&quot;&quot;
-        src=&quot;/static/899f2eb6a20b94228f8ec15706290ba9/f058b/type_of_t2.png&quot;
-        srcset=&quot;/static/899f2eb6a20b94228f8ec15706290ba9/c26ae/type_of_t2.png 158w,
-/static/899f2eb6a20b94228f8ec15706290ba9/6bdcf/type_of_t2.png 315w,
-/static/899f2eb6a20b94228f8ec15706290ba9/f058b/type_of_t2.png 630w,
-/static/899f2eb6a20b94228f8ec15706290ba9/c54b3/type_of_t2.png 727w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/23a6fc7da7254cdc9b2b4164f830e083/ef916/type_of_t4g.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 40.50632911392405%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABoUlEQVR42i1Sy27bMBDU/39LLz30UhTooWnTJG7TNK5THxxYsB3rRb0o8aXHdJaoAIJD7uwsNbuJ1hpKKUzThGVZ0Pc95KvrGlVVxfuiKNC2LYwx2O12MZbnecQS67oO+/0eZVkiGayFItnPM9cC4z2mFdDGoh8MwrqiH8d4nogH7i5MCCxeNQ0cC0puySKGWsmoKpTpEaFr4/Jtjbnv/uMGi+5hqhK2VhG7RiEIR3eoTmnk2LpC9nqAVnyh/vgexdfPsI93sE/3MD9u4Z4eYH8RP36HJ+7ub6A33+CfN9APN7y/g/+9QfXlU8Tjz1tk1Og+vKPgfovy7xb+dMT0doI/p1iyC8IljXdrfsFwPMCkB+I32PQ1xpbsjHr/B4F8fz6ifNlieHmmh/Ss4P97euKXFZZ+iIeOu6U/Mxuk6c3gfMQj+W4ih1h1tIC+Cy9XTeQklp2rygJTCJi5gndYKRacg6cQWw8zDLBmBCSZDQoUFU7b1JiIhavEZ3ISafn1eo0j4RgYJYHCch4oJGMjoyTjJVh2iQlHxsSyqJyzLIuxf6LoX0y+Y07AAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;t4g 유형&quot;
-        title=&quot;&quot;
-        src=&quot;/static/23a6fc7da7254cdc9b2b4164f830e083/f058b/type_of_t4g.png&quot;
-        srcset=&quot;/static/23a6fc7da7254cdc9b2b4164f830e083/c26ae/type_of_t4g.png 158w,
-/static/23a6fc7da7254cdc9b2b4164f830e083/6bdcf/type_of_t4g.png 315w,
-/static/23a6fc7da7254cdc9b2b4164f830e083/f058b/type_of_t4g.png 630w,
-/static/23a6fc7da7254cdc9b2b4164f830e083/ef916/type_of_t4g.png 815w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;두 타입 모두 프리티어이면서 동일한 AMI에서 설정되는 인스턴스 타입임에도 불구하고, CPU 아키텍처의 차이에 따라 성능과 비용의 차이가 있음을 확인할 수 있습니다.&lt;/p&gt;
-&lt;p&gt;결론적으로, 저비용 고효율을 위해서라면 &lt;code class=&quot;language-text&quot;&gt;Arm 아키텍처&lt;/code&gt;를 선택하는 것이 바람직해보입니다.&lt;/p&gt;
-&lt;h2 id=&quot;64비트는-무엇이지&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#64%EB%B9%84%ED%8A%B8%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%B4%EC%A7%80&quot; aria-label=&quot;64비트는 무엇이지 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;64비트는 무엇이지?&lt;/h2&gt;
-&lt;p&gt;그런데 64비트는 무엇일까요?&lt;/p&gt;
-&lt;p&gt;여기서의 &apos;비트&apos;는 CPU가 가지는 &lt;em&gt;레지스터&lt;/em&gt;의 크기를 의미합니다.&lt;/p&gt;
-&lt;p&gt;CPU가 프로그램 명령어를 처리하기 위해 자체적으로 저장소를 가집니다.&lt;br&gt;
-이 저장소를 레지스터라고 합니다.&lt;br&gt;
-레지스터는 용량은 매우 작은 대신 속도는 매우 빠른 특징을 가집니다.&lt;/p&gt;
-&lt;p&gt;따라서 저장소의 크기가 클수록 더 많은 데이터를 이용해 CPU가 명령어를 처리하는 능력이 향상됩니다.&lt;/p&gt;
-&lt;p&gt;참고로 32비트도 존재합니다만 64비트와의 차이는 다음과 같습니다.&lt;br&gt;
-32비트는 2^32 = 4,294,967,296 bit ≒ &lt;strong&gt;4GB&lt;/strong&gt;&lt;br&gt;
-64비트는 2^64 = 18,446,744,073,709,551,616 bit ≒ &lt;strong&gt;16EB&lt;/strong&gt; (= 4GB x 4GB)&lt;/p&gt;
-&lt;p&gt;현대의 많은 CPU는 대부분 64비트로 생산되고 있습니다.&lt;/p&gt;
-&lt;h2 id=&quot;마치며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A7%88%EC%B9%98%EB%A9%B0&quot; aria-label=&quot;마치며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;마치며&lt;/h2&gt;
-&lt;p&gt;지금까지 CPU 아키텍처를 선택하는 데에 있어 필요한 정보들을 알아보았습니다.&lt;/p&gt;
-&lt;p&gt;처음 접한 내용이다보니 틀리거나 빠진 내용이 있을 수 있습니다.&lt;br&gt;
-만약 정보의 수정이 필요하다면 언제든 댓글 남겨주시길 바랍니다.&lt;/p&gt;
-&lt;p&gt;감사합니다.&lt;/p&gt;
-&lt;h3 id=&quot;reference&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#reference&quot; aria-label=&quot;reference permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Reference&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.redhat.com/en/topics/linux/Arm-vs-x86&quot;&gt;AMR vs x86 - Red Hat 공식문서&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://velog.io/@480/%EC%9D%B4%EC%A0%9C%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%8F%84-CPU-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98%EB%A5%BC-%EA%B5%AC%EB%B6%84%ED%95%B4%EC%95%BC-%ED%95%A9%EB%8B%88%EB%8B%A4&quot;&gt;https://velog.io/@480/이제는-개발자도-CPU-아키텍처를-구분해야-합니다&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.e-focus.co.kr/news/articleView.html?idxno=2638858&quot;&gt;CPU 32비트와 64비트 차이, 모르고 사용하면 낭비다 - 이포커스&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://dev.to/aws-builders/data-points-you-need-to-know-about-Arm-for-your-application-code-migration-5c0f&quot;&gt;https://dev.to/aws-builders/data-points-you-need-to-know-about-Arm-for-your-application-code-migration-5c0f&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://youtu.be/ndXKHgFIIL4&quot;&gt;https://youtu.be/ndXKHgFIIL4&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[[git&github] IntelliJ에서 커밋 메시지 작성 시, 자동으로 커밋 타입과 이슈 번호 추가하기]]></title><description><![CDATA[…]]></description><link>null/git-github/add-feat-and-issue-number-automatically/</link><guid isPermaLink="false">null/git-github/add-feat-and-issue-number-automatically/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h1 id=&quot;개선된-버전&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%9C%EC%84%A0%EB%90%9C-%EB%B2%84%EC%A0%84&quot; aria-label=&quot;개선된 버전 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;개선된 버전&lt;/h1&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token shebang important&quot;&gt;#!/bin/sh&lt;/span&gt;
 
@@ -15756,7 +15794,90 @@ This is tmpPage.html
 &lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/donghokim1998/post/27ab1cd6-6895-4364-ad84-62bb6d187fb0/image.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;코드 상으로는 같은 &quot;tmpPage&quot; 를 반환합니다.
 하지만 @ResponseBody 가 붙지 않은 메서드인, &lt;code class=&quot;language-text&quot;&gt;justController()&lt;/code&gt;의 경우 Spring 내의 &lt;a href=&quot;https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ViewResolver.html&quot;&gt;ViewResolver&lt;/a&gt;에 의해 view로 변환이 됩니다.&lt;/p&gt;
-&lt;p&gt;반면 &lt;code class=&quot;language-text&quot;&gt;restController()&lt;/code&gt;의 경우 문자열 &quot;tmpPage&quot;이 그대로 Body에 반환되는 것을 확인할 수 있습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[MySQL의 격리 수준]]></title><description><![CDATA[들어가며 MySQL에는…]]></description><link>null/database/real-mysql-book-study/05-isolation-level-of-MySQL/</link><guid isPermaLink="false">null/database/real-mysql-book-study/05-isolation-level-of-MySQL/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;들어가며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0&quot; aria-label=&quot;들어가며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가며&lt;/h2&gt;
+&lt;p&gt;반면 &lt;code class=&quot;language-text&quot;&gt;restController()&lt;/code&gt;의 경우 문자열 &quot;tmpPage&quot;이 그대로 Body에 반환되는 것을 확인할 수 있습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[InnoDB 스토리지 엔진의 락]]></title><description><![CDATA[Lock에는 MySQL 엔진이 관리하는 Lock과 InnoDB 스토리지 엔진이 관리하는 락이 있다. 이번에는 InnoDB 스토리지 엔진이 관리하는 Lock에 대해 알아보자. 레코드 락 InnoDB 엔진이 관리하는 락 중에서 핵심이다. 다른 DBMS…]]></description><link>null/database/real-mysql-book-study/05-lock-of-innodb-storage-engine/</link><guid isPermaLink="false">null/database/real-mysql-book-study/05-lock-of-innodb-storage-engine/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;p&gt;Lock에는 MySQL 엔진이 관리하는 Lock과 InnoDB 스토리지 엔진이 관리하는 락이 있다.&lt;/p&gt;
+&lt;p&gt;이번에는 InnoDB 스토리지 엔진이 관리하는 Lock에 대해 알아보자.&lt;/p&gt;
+&lt;h2 id=&quot;레코드-락&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A0%88%EC%BD%94%EB%93%9C-%EB%9D%BD&quot; aria-label=&quot;레코드 락 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;레코드 락&lt;/h2&gt;
+&lt;p&gt;InnoDB 엔진이 관리하는 락 중에서 핵심이다.&lt;/p&gt;
+&lt;p&gt;다른 DBMS의 레코드 락과 동일하지만 한 가지 중요한 차이는 &lt;strong&gt;레코드 자체가 아니라 인덱스의 레코드를 잠근다는 것이다.&lt;/strong&gt;&lt;br&gt;
+따로 생성한 세컨더리 인덱스 뿐만 아니라 PK 인덱스도 마찬가지다.&lt;br&gt;
+다만, PK 인덱스는 갭 락을 걸지 않고 레코드 락만 걸지만 세컨더리 인덱스에서는 넥스트 키 락 또는 갭 락을 이용한다.&lt;/p&gt;
+&lt;h2 id=&quot;갭-락&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%AD-%EB%9D%BD&quot; aria-label=&quot;갭 락 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;갭 락&lt;/h2&gt;
+&lt;p&gt;갭 락은 &lt;strong&gt;레코드와 해당 레코드와 바로 인접한 레코드 사이 간격을 잠그는 것을 의미&lt;/strong&gt;한다.&lt;/p&gt;
+&lt;p&gt;갭 락의 역할은 &lt;strong&gt;레코드와 레코드 사이에 새로운 레코드가 INSERT 되는 것을 막기 위함&lt;/strong&gt;이다.&lt;/p&gt;
+&lt;p&gt;갭 락 그 자체보다는 넥스트 키 락의 일부로 자주 사용된다.&lt;/p&gt;
+&lt;h2 id=&quot;넥스트-키-락&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%84%A5%EC%8A%A4%ED%8A%B8-%ED%82%A4-%EB%9D%BD&quot; aria-label=&quot;넥스트 키 락 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;넥스트 키 락&lt;/h2&gt;
+&lt;p&gt;레코드 락과 갭 락을 합쳐놓은 형태의 잠금이다.&lt;/p&gt;
+&lt;p&gt;갭 락이나 넥스트 키 락의 주목적은, 바이너리 로그에 기록되는 쿼리가 Slave 서버에서 실행될 때 Master 서버에서 만들어 낸 결과와 동일한 결과를 만들어내도록 보장하는 것이다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.linux.co.kr/bbs/board.php?bo_table=lecture&amp;#x26;wr_id=5775&quot;&gt;바이너리 로그?&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;auto-increment-락&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#auto-increment-%EB%9D%BD&quot; aria-label=&quot;auto increment 락 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Auto Increment 락&lt;/h2&gt;
+&lt;p&gt;MySQL에는 테이블에 INSERT 할 때, 자동 증가하는 숫자를 넣어주는 &lt;code class=&quot;language-text&quot;&gt;AUTO_INCREMENT&lt;/code&gt; 칼럼 속성이 존재한다.&lt;/p&gt;
+&lt;p&gt;보통 ID 칼럼에 사용하곤 하는데, 테이블에 동시에 여러 건의 INSERT가 발생하는 경우 저장되는 각 레코드의 ID 값은 중복되지 않고 순서대로 증가하는 값이 자동으로 저장된다.&lt;/p&gt;
+&lt;p&gt;InnoDB 스토리지 엔진에서는 이 작업을 위해 내부적으로 &lt;strong&gt;AUTO_INCREMENT 락&lt;/strong&gt; 이라고 하는 테이블 수준의 잠금을 사용한다.&lt;/p&gt;
+&lt;p&gt;어쩌면 당연하게 새로운 레코드를 저장하는 쿼리, INSERT, REPLACE 쿼리에서만 작동한다.&lt;/p&gt;
+&lt;p&gt;해당 락은, &lt;strong&gt;트랜잭션과 상관없이 INSERT 혹은 REPLACE 쿼리에서 AUTO_INCREMENT 값을 가져올 때만 락이 걸렸다가 즉시 해제한다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;AUTO_INCREMENT 락은 테이블 당 하나만 존재한다.&lt;br&gt;
+따라서 2개 이상의 INSERT 쿼리가 동시에 실행되는 경우, 하나의 쿼리가 해당 테이블에 AUTO_INCREMENT 락을 걸면 나머지 쿼리는 락이 해제될 때까지 기다려야 한다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;참고로 AUTO_INCREMENT 칼럼에 값을 명시적으로 넣어준 쿼리가 실행되어도 AUTO_INCREMENT 락은 수행된다. 그 이유는, AUTO_INCREMENT 속성이 걸린 칼럼에 값이 명시적으로 담겨져
+INSERT 되면, AUTO_INCREMENT 값을 재설정하는 작업이 수행되기 떄문이다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;AUTO_INCREMENT 락은 명시적으로 획득하고 해제하는 방법은 없다.&lt;br&gt;
+그리고 아주 짧은 시간동안 존재하는 락이기 때문에 대부분 문제가 잘 되지 않는다.&lt;/p&gt;
+&lt;p&gt;지금까지는 MySQL 5.0 이하 버전에서 사용되던 방식이다.&lt;br&gt;
+MySQL 5.1 이상부터는 &lt;code class=&quot;language-text&quot;&gt;innodb_autoinc_lock_mode&lt;/code&gt; 시스템 변수를 이용해 작동 방식을 변경할 수 있다.&lt;/p&gt;
+&lt;h3 id=&quot;innodb_autoinc_lock_mode--0&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#innodb_autoinc_lock_mode--0&quot; aria-label=&quot;innodb_autoinc_lock_mode  0 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;innodb_autoinc_lock_mode = 0&lt;/h3&gt;
+&lt;p&gt;위에서 설명된 방식 그대로 사용한다.&lt;/p&gt;
+&lt;h3 id=&quot;innodb_autoinc_lock_mode--1&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#innodb_autoinc_lock_mode--1&quot; aria-label=&quot;innodb_autoinc_lock_mode  1 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;innodb_autoinc_lock_mode = 1&lt;/h3&gt;
+&lt;p&gt;MySQL 서버가 INSERT 되는 레코드의 수를 정확히 예측할 수 있을 때에는 AUTO_INCREMENT 락을 걸지 않고, 훨씬 빠른 래치(뮤텍스)를 이용한다.&lt;/p&gt;
+&lt;p&gt;락이 존재하는 타이밍이 존재하긴 하지만 AUTO_INCREMNET 락보다는 훨씬 빠르게 테이블에 락을 걸고 해제하게 된다.&lt;/p&gt;
+&lt;p&gt;다만, _INSERT 되는 레코드의 수를 정확히 예측할 수 있어야 한다_는 전제 조건이 있기 때문에 이 조건을 만족하지 못하면 AUTO_INCREMENT를 사용한다.&lt;/p&gt;
+&lt;p&gt;대량의 INSERT 쿼리가 처리될 때는, InnoDB 스토리지 엔진이 AUTO_INCREMENT 값을 한 번에 여러 값을 할당받아서 사용한다.&lt;br&gt;
+하지만 이때 할당받은 값을 모두 사용하지 못하게 되면 폐기하게 되어, 그 다음 INSERT 쿼리에서 AUTO_INCREMENT 값은 중간 값이 누락된 값이 저장될 수 있다.&lt;/p&gt;
+&lt;p&gt;위 설정에서는 하나의 INSERT 쿼리로 저장되는 레코드는 연속된 자동 증가 값을 가진다는 특징을 가진다.&lt;br&gt;
+따라서 이 설정 모드를 &lt;em&gt;연속 모드&lt;/em&gt; 라고도 한다.&lt;/p&gt;
+&lt;h3 id=&quot;innodb_autoinc_lock_mode--2&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#innodb_autoinc_lock_mode--2&quot; aria-label=&quot;innodb_autoinc_lock_mode  2 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;innodb_autoinc_lock_mode = 2&lt;/h3&gt;
+&lt;p&gt;해당 설정은 AUTO_INCREMENT 락을 걸지 않고 가벼운 래치(뮤텍스)를 사용한다.&lt;/p&gt;
+&lt;p&gt;이 설정에서는 &lt;strong&gt;대량 INSERT 문장이 실행되는 중에도 다른 커넥션에서 INSERT를 수행할 수 있다.&lt;/strong&gt;&lt;br&gt;
+결과적으로 동시 처리 성능이 높아진다.&lt;/p&gt;
+&lt;p&gt;하지만 자동 증가 값이 연속되는 것은 보장할 수 없다. 단지 유니크한 값만 생성한다는 것만 보장한다.&lt;br&gt;
+하나의 INSERT 쿼리로 저장할 때에도 순서는 보장할 수 없다. 따라서 &lt;em&gt;인터리빙 모드&lt;/em&gt; 라고도 한다.&lt;/p&gt;
+&lt;p&gt;위 설정에서 &lt;strong&gt;STATEMENT 포맷의 바이너리 로그를 사용하는 Replication 에서는 Master와 Slave의 AUTO_INCREMENT 값이 달라질 수 있다.&lt;/strong&gt;&lt;br&gt;
+STATEMENT 포맷의 바이너리 로그를 사용한다면 mode 값을 1로 설정하자.&lt;/p&gt;
+&lt;h2 id=&quot;인덱스와-innodb의-잠금&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B8%EB%8D%B1%EC%8A%A4%EC%99%80-innodb%EC%9D%98-%EC%9E%A0%EA%B8%88&quot; aria-label=&quot;인덱스와 innodb의 잠금 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;인덱스와 InnoDB의 잠금&lt;/h2&gt;
+&lt;p&gt;레코드 락에서 언급한대로 InnoDB는 &lt;strong&gt;레코드 자체가 아니라 인덱스의 레코드를 잠근다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;이 말은 즉슨, &lt;strong&gt;SELECT나 UPDATE, DELETE 처럼 변경해야 할 레코드를 찾기 위해 인덱스를 타고 검색하게 되는데, 이 과정에서 조건에 해당하는 레코드를 전부 잠근다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;MySQL의 InnoDB에서 인덱스 설계가 중요한 이유 또한 이것이다.&lt;/p&gt;
+&lt;h3 id=&quot;레코드-수준의-잠금-확인-및-해제&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A0%88%EC%BD%94%EB%93%9C-%EC%88%98%EC%A4%80%EC%9D%98-%EC%9E%A0%EA%B8%88-%ED%99%95%EC%9D%B8-%EB%B0%8F-%ED%95%B4%EC%A0%9C&quot; aria-label=&quot;레코드 수준의 잠금 확인 및 해제 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;레코드 수준의 잠금 확인 및 해제&lt;/h3&gt;
+&lt;p&gt;MySQL 8.0부터는 performance_schema의 data_locks와 data_lock_waits 테이블을 통해 확인할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# 현재 프로세스의 목록을 조회한다.&lt;/span&gt;
+mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;SHOW&lt;/span&gt; PROCESSLIST&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# performance_schema의 data_locks와 data_lock_waits 테이블을 통해 잠금 대기 순서를 조회한다.&lt;/span&gt;
+mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; 
+    r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_id waiting_trx_id&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 
+    r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_mysql_thread_id waiting_thread&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 
+    r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_query waiting_query&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 
+    b&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_id blocking_trx_id&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    b&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_mysql_thread_id blocking_thread&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 
+    b&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_query blocking_query 
+    &lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; performance_schema&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data_lock_watis w
+    &lt;span class=&quot;token keyword&quot;&gt;JOIN&lt;/span&gt; information_schema&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innodb_trx b
+    &lt;span class=&quot;token keyword&quot;&gt;ON&lt;/span&gt; b&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_id &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; w&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;blocking_engine_transaction_id
+    &lt;span class=&quot;token keyword&quot;&gt;JOIN&lt;/span&gt; infromation_schema&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innodb_trx r
+    &lt;span class=&quot;token keyword&quot;&gt;ON&lt;/span&gt; r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_id &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; w&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;requesting_engine_transaction_id&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    
+&lt;span class=&quot;token comment&quot;&gt;# 각 스레드가 어떤 잠금을 가지는지 상세하게 조회한다.&lt;/span&gt;
+mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; performance_schema&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data_locks\G&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;문제가 되는 잠금이 있다면 &lt;code class=&quot;language-text&quot;&gt;mysql&gt; KILL {thread_id}&lt;/code&gt; 를 통해 스레드를 강제 종료하자.&lt;/p&gt;
+&lt;h3 id=&quot;reference&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#reference&quot; aria-label=&quot;reference permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Reference&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/doc/refman/8.0/en/example-auto-increment.html&quot;&gt;https://dev.mysql.com/doc/refman/8.0/en/example-auto-increment.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://product.kyobobook.co.kr/detail/S000001766482&quot;&gt;https://product.kyobobook.co.kr/detail/S000001766482&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[MySQL의 격리 수준]]></title><description><![CDATA[들어가며 MySQL에는…]]></description><link>null/database/real-mysql-book-study/05-isolation-level-of-MySQL/</link><guid isPermaLink="false">null/database/real-mysql-book-study/05-isolation-level-of-MySQL/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;들어가며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0&quot; aria-label=&quot;들어가며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가며&lt;/h2&gt;
 &lt;p&gt;MySQL에는 4가지의 격리 수준이 존재한다.&lt;/p&gt;
 &lt;p&gt;격리 수준에 따라 같은 상황, 그리고 같은 쿼리라 하더라도 결과가 매번 달라질 수 있다.&lt;br&gt;
 이로 인해 정합성 문제가 발생할 수 있다.&lt;/p&gt;
@@ -16166,89 +16287,6 @@ MySQL은 주로 _Repeatable Read_를 사용한다.&lt;/p&gt;
 &lt;h3 id=&quot;reference&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#reference&quot; aria-label=&quot;reference permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Reference&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://product.kyobobook.co.kr/detail/S000001766482&quot;&gt;https://product.kyobobook.co.kr/detail/S000001766482&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[InnoDB 스토리지 엔진의 락]]></title><description><![CDATA[Lock에는 MySQL 엔진이 관리하는 Lock과 InnoDB 스토리지 엔진이 관리하는 락이 있다. 이번에는 InnoDB 스토리지 엔진이 관리하는 Lock에 대해 알아보자. 레코드 락 InnoDB 엔진이 관리하는 락 중에서 핵심이다. 다른 DBMS…]]></description><link>null/database/real-mysql-book-study/05-lock-of-innodb-storage-engine/</link><guid isPermaLink="false">null/database/real-mysql-book-study/05-lock-of-innodb-storage-engine/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;p&gt;Lock에는 MySQL 엔진이 관리하는 Lock과 InnoDB 스토리지 엔진이 관리하는 락이 있다.&lt;/p&gt;
-&lt;p&gt;이번에는 InnoDB 스토리지 엔진이 관리하는 Lock에 대해 알아보자.&lt;/p&gt;
-&lt;h2 id=&quot;레코드-락&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A0%88%EC%BD%94%EB%93%9C-%EB%9D%BD&quot; aria-label=&quot;레코드 락 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;레코드 락&lt;/h2&gt;
-&lt;p&gt;InnoDB 엔진이 관리하는 락 중에서 핵심이다.&lt;/p&gt;
-&lt;p&gt;다른 DBMS의 레코드 락과 동일하지만 한 가지 중요한 차이는 &lt;strong&gt;레코드 자체가 아니라 인덱스의 레코드를 잠근다는 것이다.&lt;/strong&gt;&lt;br&gt;
-따로 생성한 세컨더리 인덱스 뿐만 아니라 PK 인덱스도 마찬가지다.&lt;br&gt;
-다만, PK 인덱스는 갭 락을 걸지 않고 레코드 락만 걸지만 세컨더리 인덱스에서는 넥스트 키 락 또는 갭 락을 이용한다.&lt;/p&gt;
-&lt;h2 id=&quot;갭-락&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%AD-%EB%9D%BD&quot; aria-label=&quot;갭 락 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;갭 락&lt;/h2&gt;
-&lt;p&gt;갭 락은 &lt;strong&gt;레코드와 해당 레코드와 바로 인접한 레코드 사이 간격을 잠그는 것을 의미&lt;/strong&gt;한다.&lt;/p&gt;
-&lt;p&gt;갭 락의 역할은 &lt;strong&gt;레코드와 레코드 사이에 새로운 레코드가 INSERT 되는 것을 막기 위함&lt;/strong&gt;이다.&lt;/p&gt;
-&lt;p&gt;갭 락 그 자체보다는 넥스트 키 락의 일부로 자주 사용된다.&lt;/p&gt;
-&lt;h2 id=&quot;넥스트-키-락&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%84%A5%EC%8A%A4%ED%8A%B8-%ED%82%A4-%EB%9D%BD&quot; aria-label=&quot;넥스트 키 락 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;넥스트 키 락&lt;/h2&gt;
-&lt;p&gt;레코드 락과 갭 락을 합쳐놓은 형태의 잠금이다.&lt;/p&gt;
-&lt;p&gt;갭 락이나 넥스트 키 락의 주목적은, 바이너리 로그에 기록되는 쿼리가 Slave 서버에서 실행될 때 Master 서버에서 만들어 낸 결과와 동일한 결과를 만들어내도록 보장하는 것이다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.linux.co.kr/bbs/board.php?bo_table=lecture&amp;#x26;wr_id=5775&quot;&gt;바이너리 로그?&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;auto-increment-락&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#auto-increment-%EB%9D%BD&quot; aria-label=&quot;auto increment 락 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Auto Increment 락&lt;/h2&gt;
-&lt;p&gt;MySQL에는 테이블에 INSERT 할 때, 자동 증가하는 숫자를 넣어주는 &lt;code class=&quot;language-text&quot;&gt;AUTO_INCREMENT&lt;/code&gt; 칼럼 속성이 존재한다.&lt;/p&gt;
-&lt;p&gt;보통 ID 칼럼에 사용하곤 하는데, 테이블에 동시에 여러 건의 INSERT가 발생하는 경우 저장되는 각 레코드의 ID 값은 중복되지 않고 순서대로 증가하는 값이 자동으로 저장된다.&lt;/p&gt;
-&lt;p&gt;InnoDB 스토리지 엔진에서는 이 작업을 위해 내부적으로 &lt;strong&gt;AUTO_INCREMENT 락&lt;/strong&gt; 이라고 하는 테이블 수준의 잠금을 사용한다.&lt;/p&gt;
-&lt;p&gt;어쩌면 당연하게 새로운 레코드를 저장하는 쿼리, INSERT, REPLACE 쿼리에서만 작동한다.&lt;/p&gt;
-&lt;p&gt;해당 락은, &lt;strong&gt;트랜잭션과 상관없이 INSERT 혹은 REPLACE 쿼리에서 AUTO_INCREMENT 값을 가져올 때만 락이 걸렸다가 즉시 해제한다.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;AUTO_INCREMENT 락은 테이블 당 하나만 존재한다.&lt;br&gt;
-따라서 2개 이상의 INSERT 쿼리가 동시에 실행되는 경우, 하나의 쿼리가 해당 테이블에 AUTO_INCREMENT 락을 걸면 나머지 쿼리는 락이 해제될 때까지 기다려야 한다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;참고로 AUTO_INCREMENT 칼럼에 값을 명시적으로 넣어준 쿼리가 실행되어도 AUTO_INCREMENT 락은 수행된다. 그 이유는, AUTO_INCREMENT 속성이 걸린 칼럼에 값이 명시적으로 담겨져
-INSERT 되면, AUTO_INCREMENT 값을 재설정하는 작업이 수행되기 떄문이다.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;AUTO_INCREMENT 락은 명시적으로 획득하고 해제하는 방법은 없다.&lt;br&gt;
-그리고 아주 짧은 시간동안 존재하는 락이기 때문에 대부분 문제가 잘 되지 않는다.&lt;/p&gt;
-&lt;p&gt;지금까지는 MySQL 5.0 이하 버전에서 사용되던 방식이다.&lt;br&gt;
-MySQL 5.1 이상부터는 &lt;code class=&quot;language-text&quot;&gt;innodb_autoinc_lock_mode&lt;/code&gt; 시스템 변수를 이용해 작동 방식을 변경할 수 있다.&lt;/p&gt;
-&lt;h3 id=&quot;innodb_autoinc_lock_mode--0&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#innodb_autoinc_lock_mode--0&quot; aria-label=&quot;innodb_autoinc_lock_mode  0 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;innodb_autoinc_lock_mode = 0&lt;/h3&gt;
-&lt;p&gt;위에서 설명된 방식 그대로 사용한다.&lt;/p&gt;
-&lt;h3 id=&quot;innodb_autoinc_lock_mode--1&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#innodb_autoinc_lock_mode--1&quot; aria-label=&quot;innodb_autoinc_lock_mode  1 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;innodb_autoinc_lock_mode = 1&lt;/h3&gt;
-&lt;p&gt;MySQL 서버가 INSERT 되는 레코드의 수를 정확히 예측할 수 있을 때에는 AUTO_INCREMENT 락을 걸지 않고, 훨씬 빠른 래치(뮤텍스)를 이용한다.&lt;/p&gt;
-&lt;p&gt;락이 존재하는 타이밍이 존재하긴 하지만 AUTO_INCREMNET 락보다는 훨씬 빠르게 테이블에 락을 걸고 해제하게 된다.&lt;/p&gt;
-&lt;p&gt;다만, _INSERT 되는 레코드의 수를 정확히 예측할 수 있어야 한다_는 전제 조건이 있기 때문에 이 조건을 만족하지 못하면 AUTO_INCREMENT를 사용한다.&lt;/p&gt;
-&lt;p&gt;대량의 INSERT 쿼리가 처리될 때는, InnoDB 스토리지 엔진이 AUTO_INCREMENT 값을 한 번에 여러 값을 할당받아서 사용한다.&lt;br&gt;
-하지만 이때 할당받은 값을 모두 사용하지 못하게 되면 폐기하게 되어, 그 다음 INSERT 쿼리에서 AUTO_INCREMENT 값은 중간 값이 누락된 값이 저장될 수 있다.&lt;/p&gt;
-&lt;p&gt;위 설정에서는 하나의 INSERT 쿼리로 저장되는 레코드는 연속된 자동 증가 값을 가진다는 특징을 가진다.&lt;br&gt;
-따라서 이 설정 모드를 &lt;em&gt;연속 모드&lt;/em&gt; 라고도 한다.&lt;/p&gt;
-&lt;h3 id=&quot;innodb_autoinc_lock_mode--2&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#innodb_autoinc_lock_mode--2&quot; aria-label=&quot;innodb_autoinc_lock_mode  2 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;innodb_autoinc_lock_mode = 2&lt;/h3&gt;
-&lt;p&gt;해당 설정은 AUTO_INCREMENT 락을 걸지 않고 가벼운 래치(뮤텍스)를 사용한다.&lt;/p&gt;
-&lt;p&gt;이 설정에서는 &lt;strong&gt;대량 INSERT 문장이 실행되는 중에도 다른 커넥션에서 INSERT를 수행할 수 있다.&lt;/strong&gt;&lt;br&gt;
-결과적으로 동시 처리 성능이 높아진다.&lt;/p&gt;
-&lt;p&gt;하지만 자동 증가 값이 연속되는 것은 보장할 수 없다. 단지 유니크한 값만 생성한다는 것만 보장한다.&lt;br&gt;
-하나의 INSERT 쿼리로 저장할 때에도 순서는 보장할 수 없다. 따라서 &lt;em&gt;인터리빙 모드&lt;/em&gt; 라고도 한다.&lt;/p&gt;
-&lt;p&gt;위 설정에서 &lt;strong&gt;STATEMENT 포맷의 바이너리 로그를 사용하는 Replication 에서는 Master와 Slave의 AUTO_INCREMENT 값이 달라질 수 있다.&lt;/strong&gt;&lt;br&gt;
-STATEMENT 포맷의 바이너리 로그를 사용한다면 mode 값을 1로 설정하자.&lt;/p&gt;
-&lt;h2 id=&quot;인덱스와-innodb의-잠금&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B8%EB%8D%B1%EC%8A%A4%EC%99%80-innodb%EC%9D%98-%EC%9E%A0%EA%B8%88&quot; aria-label=&quot;인덱스와 innodb의 잠금 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;인덱스와 InnoDB의 잠금&lt;/h2&gt;
-&lt;p&gt;레코드 락에서 언급한대로 InnoDB는 &lt;strong&gt;레코드 자체가 아니라 인덱스의 레코드를 잠근다.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;이 말은 즉슨, &lt;strong&gt;SELECT나 UPDATE, DELETE 처럼 변경해야 할 레코드를 찾기 위해 인덱스를 타고 검색하게 되는데, 이 과정에서 조건에 해당하는 레코드를 전부 잠근다.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;MySQL의 InnoDB에서 인덱스 설계가 중요한 이유 또한 이것이다.&lt;/p&gt;
-&lt;h3 id=&quot;레코드-수준의-잠금-확인-및-해제&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A0%88%EC%BD%94%EB%93%9C-%EC%88%98%EC%A4%80%EC%9D%98-%EC%9E%A0%EA%B8%88-%ED%99%95%EC%9D%B8-%EB%B0%8F-%ED%95%B4%EC%A0%9C&quot; aria-label=&quot;레코드 수준의 잠금 확인 및 해제 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;레코드 수준의 잠금 확인 및 해제&lt;/h3&gt;
-&lt;p&gt;MySQL 8.0부터는 performance_schema의 data_locks와 data_lock_waits 테이블을 통해 확인할 수 있다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# 현재 프로세스의 목록을 조회한다.&lt;/span&gt;
-mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;SHOW&lt;/span&gt; PROCESSLIST&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;token comment&quot;&gt;# performance_schema의 data_locks와 data_lock_waits 테이블을 통해 잠금 대기 순서를 조회한다.&lt;/span&gt;
-mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; 
-    r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_id waiting_trx_id&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 
-    r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_mysql_thread_id waiting_thread&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 
-    r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_query waiting_query&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 
-    b&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_id blocking_trx_id&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    b&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_mysql_thread_id blocking_thread&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 
-    b&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_query blocking_query 
-    &lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; performance_schema&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data_lock_watis w
-    &lt;span class=&quot;token keyword&quot;&gt;JOIN&lt;/span&gt; information_schema&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innodb_trx b
-    &lt;span class=&quot;token keyword&quot;&gt;ON&lt;/span&gt; b&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_id &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; w&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;blocking_engine_transaction_id
-    &lt;span class=&quot;token keyword&quot;&gt;JOIN&lt;/span&gt; infromation_schema&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innodb_trx r
-    &lt;span class=&quot;token keyword&quot;&gt;ON&lt;/span&gt; r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_id &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; w&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;requesting_engine_transaction_id&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    
-&lt;span class=&quot;token comment&quot;&gt;# 각 스레드가 어떤 잠금을 가지는지 상세하게 조회한다.&lt;/span&gt;
-mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; performance_schema&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data_locks\G&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;문제가 되는 잠금이 있다면 &lt;code class=&quot;language-text&quot;&gt;mysql&gt; KILL {thread_id}&lt;/code&gt; 를 통해 스레드를 강제 종료하자.&lt;/p&gt;
-&lt;h3 id=&quot;reference&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#reference&quot; aria-label=&quot;reference permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Reference&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/doc/refman/8.0/en/example-auto-increment.html&quot;&gt;https://dev.mysql.com/doc/refman/8.0/en/example-auto-increment.html&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://product.kyobobook.co.kr/detail/S000001766482&quot;&gt;https://product.kyobobook.co.kr/detail/S000001766482&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[[MySQL] DATETIME vs TIMESTAMP]]></title><description><![CDATA[들어가며 최근 개인 프로젝트를 시작하면서 ERD 설계를 진행했습니다. 이때, 작성 날짜나 시작 날짜 같은 날짜에 대한 값을 저장할 칼럼이 필요했고 해당 칼럼의 자료형을 결정하는 과정에서 DATETIME과 TIMESTAMP…]]></description><link>null/database/compare-of-datetime-and-timestamp/</link><guid isPermaLink="false">null/database/compare-of-datetime-and-timestamp/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;들어가며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0&quot; aria-label=&quot;들어가며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가며&lt;/h2&gt;
@@ -16706,7 +16744,7 @@ DDL의 경우에만 묵시적 테이블 락을 획득한다.&lt;/li&gt;
 &lt;li&gt;테이블을 변경하는 작업의 경우 원본 이름과 변경될 이름 두 개 모두 한꺼번에 Lock을 획득한다.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[2023년 회고록]]></title><description><![CDATA[2024년을 시작하는 오늘, 지난 한 해를 되돌아보고 올 한 해를 어떻게 보낼 지 미리 생각해보려고 한다. 우아한테크코스 2월부터 11월까지 진행했던 우아한테크코스가 사실상 202…]]></description><link>null/retrospection/2023-retrospection/</link><guid isPermaLink="false">null/retrospection/2023-retrospection/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;p&gt;2024년을 시작하는 오늘, 지난 한 해를 되돌아보고 올 한 해를 어떻게 보낼 지 미리 생각해보려고 한다.&lt;/p&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[2023년 회고록]]></title><description><![CDATA[2024년을 시작하는 오늘, 지난 한 해를 되돌아보고 올 한 해를 어떻게 보낼 지 미리 생각해보려고 한다. 우아한테크코스 2월부터 11월까지 진행했던 우아한테크코스가 사실상 202…]]></description><link>null/회고/2023년-회고록/</link><guid isPermaLink="false">null/회고/2023년-회고록/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;p&gt;2024년을 시작하는 오늘, 지난 한 해를 되돌아보고 올 한 해를 어떻게 보낼 지 미리 생각해보려고 한다.&lt;/p&gt;
 &lt;h2 id=&quot;우아한테크코스&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BD%94%EC%8A%A4&quot; aria-label=&quot;우아한테크코스 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;우아한테크코스&lt;/h2&gt;
 &lt;p&gt;2월부터 11월까지 진행했던 우아한테크코스가 사실상 2023년에서 가장 핵심이며 유일한 이야깃거리다.&lt;/p&gt;
 &lt;p&gt;때문에 우테코에서 경험했던 것들에 대해 적어보고자 한다.&lt;/p&gt;
@@ -21936,8 +21974,8 @@ Streams.toList()는 JDK 17에 추가됐습니다. &lt;a href=&quot;https://www.b
 &lt;ol&gt;
 &lt;li&gt;메모리 사용량이 증가한다.&lt;br&gt;
 Varargs는 곧, 배열이다. Varargs를 사용하는 메서드는 호출될 때마다 매번 새로운 배열을 생성해야 하기 때문이다.&lt;/li&gt;
-&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[키스소프트 현장실습 회고]]></title><description><![CDATA[드디어 2학기 현장실습이 끝이 났다.
-2022년 08월 29일부터 12월 15일까지, 총 75일 간의 내 첫 사회 생활이 끝이 났다. 끝이 난 지 일주일이 지났지만 이제서야 작성하는 이유는, 그동안 SSAFY…]]></description><link>null/retrospection/kissoft-retrospection/</link><guid isPermaLink="false">null/retrospection/kissoft-retrospection/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;p&gt;드디어 2학기 현장실습이 끝이 났다.
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[4학년 2학기 현장실습 회고]]></title><description><![CDATA[드디어 2학기 현장실습이 끝이 났다.
+2022년 08월 29일부터 12월 15일까지, 총 75일 간의 내 첫 사회 생활이 끝이 났다. 끝이 난 지 일주일이 지났지만 이제서야 작성하는 이유는, 그동안 SSAFY…]]></description><link>null/회고/4학년-2학기-현장실습-회고/</link><guid isPermaLink="false">null/회고/4학년-2학기-현장실습-회고/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;p&gt;드디어 2학기 현장실습이 끝이 났다.
 2022년 08월 29일부터 12월 15일까지, 총 75일 간의 내 첫 사회 생활이 끝이 났다.&lt;/p&gt;
 &lt;p&gt;끝이 난 지 일주일이 지났지만 이제서야 작성하는 이유는, 그동안 SSAFY  면접과 우아한테크코스 프리코스 최종 코딩테스트를 마무리하고 쉬기 바빠 이제서야 작성한다. 😅&lt;/p&gt;
 &lt;p&gt;약 3-4개월 간의 치열했던 현장 실습을 회고해보자.&lt;/p&gt;
