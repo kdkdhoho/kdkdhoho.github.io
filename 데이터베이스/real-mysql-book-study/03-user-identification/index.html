@@ -1,0 +1,786 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 5.14.5"/><meta name="description" content="Real MySQL 8.0 - Part 3. 사용자 식별" data-gatsby-head="true"/><meta property="og:title" content="MySQL에서의 사용자 식별에 대해" data-gatsby-head="true"/><meta property="og:description" content="Real MySQL 8.0 - Part 3. 사용자 식별" data-gatsby-head="true"/><meta property="og:type" content="website" data-gatsby-head="true"/><meta name="twitter:card" content="summary" data-gatsby-head="true"/><meta name="twitter:creator" content="" data-gatsby-head="true"/><meta name="twitter:title" content="MySQL에서의 사용자 식별에 대해" data-gatsby-head="true"/><meta name="twitter:description" content="Real MySQL 8.0 - Part 3. 사용자 식별" data-gatsby-head="true"/><style data-href="/styles.4bf6bf70f543a2e73c8e.css" data-identity="gatsby-global-css">@font-face{font-display:swap;font-family:Pretendard;font-style:normal;font-weight:400;src:url(/static/pretendard-latin-400-normal-38bed7de46e7b9049cedbede041d23ed.woff2) format("woff2"),url(/static/pretendard-latin-400-normal-303253288b0ba99db532e29a364b0c09.woff) format("woff")}
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{-webkit-text-size-adjust:100%;line-height:1.15}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}[hidden]{display:none}:root{--maxWidth-none:"none";--maxWidth-xs:20rem;--maxWidth-sm:24rem;--maxWidth-md:28rem;--maxWidth-lg:32rem;--maxWidth-xl:36rem;--maxWidth-2xl:42rem;--maxWidth-3xl:48rem;--maxWidth-4xl:56rem;--maxWidth-full:"100%";--maxWidth-wrapper:var(--maxWidth-2xl);--maxWidth-wrapper-large:64rem;--spacing-px:"1px";--spacing-0:0;--spacing-1:0.25rem;--spacing-2:0.5rem;--spacing-3:0.75rem;--spacing-4:1rem;--spacing-5:1.25rem;--spacing-6:1.5rem;--spacing-8:2rem;--spacing-10:2.5rem;--spacing-12:3rem;--spacing-16:4rem;--spacing-20:5rem;--spacing-24:6rem;--spacing-32:8rem;--fontFamily-sans:"Pretendard",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--fontFamily-serif:"Pretendard","Georgia",Cambria,"Times New Roman",Times,serif;--font-body:var(--fontFamily-serif);--font-heading:var(--fontFamily-sans);--fontWeight-normal:400;--fontWeight-bold:700;--fontWeight-black:900;--fontSize-root:16px;--lineHeight-none:1;--lineHeight-tight:1.1;--lineHeight-normal:1.5;--lineHeight-relaxed:1.625;--fontSize-0:0.833rem;--fontSize-1:1rem;--fontSize-2:1.2rem;--fontSize-3:1.44rem;--fontSize-4:1.728rem;--fontSize-5:2.074rem;--fontSize-6:2.488rem;--fontSize-7:2.986rem;--color-primary:#00b02f;--color-text:#2e353f;--color-text-light:#4f5969;--color-heading:#1a202c;--color-heading-black:#000;--color-accent:#d1dce5;--color-bg:#fff;--color-bg-secondary:#f8fafc;--color-border:#e2e8f0;--color-card-bg:linear-gradient(145deg,#fff,#f8fafc)}[data-theme=dark]{--color-text:#d1d5db;--color-text-light:#9ca3af;--color-heading:#f9fafb;--color-heading-black:#fff;--color-accent:#4b5563;--color-bg:#1f2937;--color-bg-secondary:#374151;--color-border:#4b5563;--color-card-bg:linear-gradient(145deg,#374151,#4b5563)}*,:after,:before{box-sizing:border-box}html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:var(--fontSize-root);line-height:var(--lineHeight-normal)}body{background-color:var(--color-bg);color:var(--color-text);font-family:var(--font-body);font-size:var(--fontSize-1);transition:all .3s ease-in-out}@keyframes fadeInUp{0%{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}@keyframes pulse{0%,to{opacity:1}50%{opacity:.7}}.global-wrapper,.post-list-item{animation:fadeInUp .6s ease-out}.post-list-item{animation-fill-mode:both}.post-list-item:first-child{animation-delay:.1s}.post-list-item:nth-child(2){animation-delay:.2s}.post-list-item:nth-child(3){animation-delay:.3s}.post-list-item:nth-child(4){animation-delay:.4s}.post-list-item:nth-child(5){animation-delay:.5s}.post-list-item:nth-child(6){animation-delay:.6s}footer{padding:var(--spacing-6) var(--spacing-0)}hr{background:var(--color-accent);border:0;height:1px}h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);letter-spacing:-.025em;line-height:var(--lineHeight-tight);margin-bottom:var(--spacing-6);margin-top:var(--spacing-12)}h2,h3,h4,h5,h6{color:var(--color-heading);font-weight:var(--fontWeight-bold)}h1{color:var(--color-heading-black);font-size:var(--fontSize-6);font-weight:var(--fontWeight-black)}h2{font-size:var(--fontSize-5)}h3{font-size:var(--fontSize-4)}h4{font-size:var(--fontSize-3)}h5{font-size:var(--fontSize-2)}h6{font-size:var(--fontSize-1)}h1>a{color:var(--color-primary);text-decoration:none}h2>a,h3>a,h4>a,h5>a,h6>a{color:inherit;text-decoration:none}p{--baseline-multiplier:0.179;--x-height-multiplier:0.35;line-height:var(--lineHeight-relaxed);margin:var(--spacing-0) var(--spacing-0) var(--spacing-8) var(--spacing-0)}ol,p,ul{padding:var(--spacing-0)}ol,ul{list-style-image:none;list-style-position:outside;margin-bottom:var(--spacing-8);margin-left:var(--spacing-0);margin-right:var(--spacing-0)}ol li,ul li{padding-left:var(--spacing-0)}li>p,ol li,ul li{margin-bottom:calc(var(--spacing-8)/2)}li :last-child{margin-bottom:var(--spacing-0)}li>ul{margin-left:var(--spacing-8);margin-top:calc(var(--spacing-8)/2)}blockquote{border-left:var(--spacing-1) solid var(--color-primary);color:var(--color-text-light);font-size:var(--fontSize-2);font-style:italic;margin-bottom:var(--spacing-8);margin-left:calc(var(--spacing-6)*-1);margin-right:var(--spacing-8);padding:var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-6)}blockquote>:last-child{margin-bottom:var(--spacing-0)}blockquote>ol,blockquote>ul{list-style-position:inside}table{border-collapse:collapse;border-spacing:.25rem;margin-bottom:var(--spacing-8);width:100%}table thead tr th{border-bottom:1px solid var(--color-accent)}a{color:var(--color-primary)}a:focus,a:hover{text-decoration:none}.blog-post-layout{margin:0 auto;max-width:768px;position:relative}.blog-post,.blog-post-container{width:100%}.global-wrapper{margin:var(--spacing-0) auto;max-width:var(--maxWidth-wrapper-large);padding:var(--spacing-10) var(--spacing-5)}@media (min-width:1024px){.global-wrapper{padding:var(--spacing-10) var(--spacing-8)}}.global-wrapper[data-is-root-path=true] .bio{margin-bottom:var(--spacing-20)}.global-header{margin-bottom:var(--spacing-12);text-align:center}.main-heading{-webkit-text-fill-color:transparent;animation:gradient 3s ease-in-out infinite;background:linear-gradient(135deg,var(--color-primary),#00d435,var(--color-primary));-webkit-background-clip:text;background-clip:text;background-size:200% auto;font-size:var(--fontSize-7);font-weight:var(--fontWeight-black);letter-spacing:-.02em;margin:0;position:relative}@keyframes gradient{0%,to{background-position:0 50%}50%{background-position:100% 50%}}.main-heading:hover{transform:scale(1.05);transition:transform .3s ease}.posts-grid{display:grid;gap:var(--spacing-8);grid-template-columns:1fr;list-style:none;margin:0;padding:0}@media (min-width:768px){.posts-grid{gap:var(--spacing-10);grid-template-columns:repeat(2,1fr)}}@media (min-width:1400px){.posts-grid{gap:var(--spacing-12);grid-template-columns:repeat(3,1fr)}}.post-list-item{background:var(--color-card-bg);border:1px solid var(--color-border);border-radius:16px;display:flex;flex-direction:column;height:100%;margin-bottom:0;min-height:280px;overflow:hidden;padding:var(--spacing-8);position:relative;transition:all .3s cubic-bezier(.4,0,.2,1)}.post-list-item:before{background:linear-gradient(90deg,var(--color-primary),#00d435);content:"";height:4px;left:0;opacity:0;position:absolute;right:0;top:0;transition:opacity .3s ease}.post-list-item:hover{border-color:var(--color-primary);box-shadow:0 12px 32px rgba(0,176,47,.15);transform:translateY(-4px)}.post-list-item:hover:before{opacity:1}.post-list-item p{line-height:var(--lineHeight-relaxed);margin-bottom:var(--spacing-0)}.post-list-item h2{color:var(--color-heading-black);font-size:var(--fontSize-4);font-weight:var(--fontWeight-black);line-height:var(--lineHeight-tight);margin-bottom:var(--spacing-3);margin-top:var(--spacing-0)}.post-list-item h2 a{color:inherit;display:inline-block;position:relative;text-decoration:none;transition:all .3s cubic-bezier(.4,0,.2,1)}.post-list-item h2 a:after{background:linear-gradient(90deg,var(--color-primary),#00d435);border-radius:2px;bottom:-4px;content:"";height:3px;left:0;position:absolute;transition:width .3s ease-out;width:0}.post-list-item h2 a:hover{-webkit-text-fill-color:transparent;background:linear-gradient(135deg,var(--color-primary),#00d435);-webkit-background-clip:text;background-clip:text;transform:translateY(-2px)}.post-list-item h2 a:hover mark,.post-list-item h2 a:hover span mark,[data-theme=dark] .post-list-item h2 a:hover mark,[data-theme=dark] .post-list-item h2 a:hover span mark{-webkit-text-fill-color:#fff!important;background:var(--color-primary)!important;-webkit-background-clip:initial!important;background-clip:initial!important;color:#fff!important}.post-list-item h2 a:hover:after{width:100%}.post-list-item header{flex-shrink:0;margin-bottom:var(--spacing-4)}.post-list-item header small{color:var(--color-text-light);font-size:var(--fontSize-0);font-weight:500}.post-list-item section{display:flex;flex:1 1;flex-direction:column;justify-content:space-between}.post-list-item section p{flex:1 1;margin-bottom:var(--spacing-4)}.post-tags{margin-top:var(--spacing-4)}.post-tag{background-color:#f1f5f9;border:1px solid #e2e8f0;border-radius:20px;color:var(--color-text-light);display:inline-block;font-size:var(--fontSize-0);font-weight:500;margin-bottom:var(--spacing-1);margin-right:var(--spacing-2);padding:var(--spacing-1) var(--spacing-3);transition:all .2s ease-in-out}.post-tag:hover{background-color:var(--color-primary);border-color:var(--color-primary);color:#fff}.header-link-home{font-family:var(--font-heading);font-size:var(--fontSize-2);font-weight:var(--fontWeight-bold);text-decoration:none}.bio{align-items:center;display:flex;justify-content:center;margin-bottom:var(--spacing-16)}.bio p,.bio-avatar{margin-bottom:var(--spacing-0)}.bio-avatar{border-radius:100%;margin-right:var(--spacing-4);min-width:50px}.blog-post header h1{margin:var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0)}.blog-post header p{font-family:var(--font-heading),serif;font-size:var(--fontSize-2)}.post-date{margin-bottom:var(--spacing-2)}.scroll-progress{background:linear-gradient(90deg,var(--color-primary),#00d435);height:3px;left:0;position:fixed;top:0;transition:width .25s ease-out;width:0;z-index:1000}.blog-post-nav{background:var(--color-card-bg);border:1px solid var(--color-border);border-radius:16px;margin-top:var(--spacing-16);padding:var(--spacing-8)}.blog-post-nav ul{display:flex;flex-wrap:wrap;gap:var(--spacing-6);justify-content:space-between;list-style:none;margin:var(--spacing-0);padding:0}.blog-post-nav li{flex:1 1;min-width:0}.blog-post-nav a{background:var(--color-bg);border:2px solid var(--color-border);border-radius:12px;color:var(--color-text);display:block;overflow:hidden;padding:var(--spacing-4) var(--spacing-6);position:relative;text-decoration:none;transition:all .3s ease}.blog-post-nav a:hover{border-color:var(--color-primary);box-shadow:0 6px 20px rgba(0,176,47,.15);transform:translateY(-2px)}.blog-post-nav a:before{color:var(--color-text-light);content:attr(rel);display:block;font-size:var(--fontSize-0);letter-spacing:.5px;margin-bottom:var(--spacing-1);text-transform:uppercase}.blog-post header{border-bottom:3px solid var(--color-accent);margin-bottom:var(--spacing-12);padding-bottom:var(--spacing-8);position:relative;text-align:center}.blog-post header:after{background:linear-gradient(90deg,var(--color-primary),#00d435);border-radius:2px;bottom:-3px;content:"";height:3px;left:50%;position:absolute;transform:translateX(-50%);width:60px}.blog-post header h1{-webkit-text-fill-color:transparent;background:linear-gradient(135deg,var(--color-heading-black),var(--color-primary));-webkit-background-clip:text;background-clip:text;font-size:var(--fontSize-6);font-weight:var(--fontWeight-black);letter-spacing:-.02em;line-height:var(--lineHeight-tight);margin:var(--spacing-0) var(--spacing-0) var(--spacing-6) var(--spacing-0);position:relative}.blog-post header h1:before{-webkit-text-fill-color:transparent;background:rgba(0,176,47,.1);-webkit-background-clip:text;background-clip:text;content:attr(itemProp);left:2px;position:absolute;top:2px;z-index:-1}.gatsby-highlight{border-radius:12px;margin-bottom:var(--spacing-8);overflow:hidden}@media (max-width:42rem){.global-wrapper{padding:var(--spacing-6) var(--spacing-4)}.main-heading{font-size:var(--fontSize-5)}.posts-grid{gap:var(--spacing-6)}.post-list-item{padding:var(--spacing-6)}.post-list-item h2{font-size:var(--fontSize-3)}.blog-post-nav{padding:var(--spacing-6)}.blog-post-nav ul{flex-direction:column;gap:var(--spacing-4)}.blog-post-nav a{padding:var(--spacing-4);text-align:center}blockquote{margin-left:var(--spacing-0);padding:var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4)}ol,ul{list-style-position:inside}.blog-post header{text-align:left}.bio{flex-direction:column;text-align:center}.bio-avatar{margin-bottom:var(--spacing-4);margin-right:0}}@media (min-width:43rem) and (max-width:64rem){.global-wrapper{padding:var(--spacing-8) var(--spacing-6)}.posts-grid{gap:var(--spacing-8);grid-template-columns:repeat(2,1fr)}.post-list-item{padding:var(--spacing-6)}.main-heading{font-size:var(--fontSize-6)}}@media (min-width:80rem){.global-wrapper{max-width:1400px}.posts-grid{gap:var(--spacing-16);grid-template-columns:repeat(3,1fr)}.post-list-item{min-height:320px}}.toc-container{background:var(--color-bg-secondary);border:1px solid var(--color-border);border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,.1);height:fit-content;left:calc(50% + var(--maxWidth-2xl)/2 + 2rem);max-height:calc(100vh - 4rem);overflow-y:auto;padding:1.5rem;position:fixed;top:2rem;width:280px;z-index:100}@media (min-width:1400px){.toc-container{left:calc(50% + var(--maxWidth-2xl)/2 + 3rem);width:320px}}@media (max-width:1200px){.blog-post-layout{max-width:100%;padding:0 1rem}.toc-container{background:var(--color-card-bg);margin:var(--spacing-8) 0;position:static;width:100%}}@media (max-width:768px){.toc-container{margin:var(--spacing-6) 0;padding:var(--spacing-6)}}.toc-title{border-bottom:2px solid var(--color-primary);color:var(--color-heading);font-size:1rem;font-weight:700;margin-bottom:1rem;padding-bottom:.5rem}.toc-container ul{list-style:none;margin-bottom:0;padding-left:0}.toc-container>ul>li{margin-bottom:.55rem}.toc-container ul ul li{margin-bottom:.5rem}.toc-container ul li a{border-radius:4px;color:var(--color-text-light);display:block;font-size:.875rem;line-height:1.1;padding:.1rem 0;text-decoration:none;transition:all .2s ease-in-out}.toc-container ul li a:hover{background-color:rgba(0,176,47,.05);color:var(--color-primary);padding-left:.5rem}.toc-container ul li a.active{background-color:rgba(0,176,47,.1);color:var(--color-primary);font-weight:600;padding-left:.5rem}.toc-container ul ul{margin-top:.25rem;padding-left:1rem}.toc-container .toc-content{font-size:.875rem;line-height:1.5}.toc-container .toc-content>ul{margin:0}.toc-container .toc-content ul li{margin:.25rem 0;position:relative}.toc-container .toc-content ul ul li{border-left:1px solid var(--color-border);padding-left:1rem}.toc-container .toc-content ul ul li:last-child{border-left:1px solid transparent}.toc-container .toc-content ul ul li:before{color:var(--color-text-light);content:"└";font-size:.75rem;left:-.5rem;position:absolute}.tags-container{margin-top:var(--spacing-4)}.tag,.tags-container{margin-bottom:var(--spacing-2)}.tag{background:linear-gradient(135deg,#f1f5f9,#e2e8f0);border:1px solid #cbd5e1;border-radius:20px;color:var(--color-primary);display:inline-block;font-size:var(--fontSize-0);font-weight:600;margin-right:var(--spacing-2);overflow:hidden;padding:var(--spacing-2) var(--spacing-4);position:relative;transition:all .3s cubic-bezier(.4,0,.2,1)}.tag:before{background:linear-gradient(90deg,transparent,hsla(0,0%,100%,.6),transparent);content:"";height:100%;left:-100%;position:absolute;top:0;transition:left .5s;width:100%}.tag:hover{background:linear-gradient(135deg,var(--color-primary),#00d435);border-color:var(--color-primary);box-shadow:0 4px 12px rgba(0,176,47,.3);color:#fff;cursor:pointer;transform:translateY(-2px)}.tag:hover:before{left:100%}.top-buttons{display:flex;gap:var(--spacing-3);position:fixed;right:var(--spacing-6);top:var(--spacing-6);z-index:1000}.theme-toggle{align-items:center;background:var(--color-bg);border:2px solid var(--color-border);border-radius:50%;box-shadow:0 4px 12px rgba(0,0,0,.1);cursor:pointer;display:flex;height:50px;justify-content:center;transition:all .3s cubic-bezier(.4,0,.2,1);width:50px}.theme-toggle:hover{border-color:var(--color-primary);box-shadow:0 6px 20px rgba(0,176,47,.2);transform:scale(1.1) rotate(10deg)}.theme-toggle:active{transform:scale(.95)}.theme-toggle-icon{font-size:20px;transition:transform .3s ease}.theme-toggle:hover .theme-toggle-icon{transform:rotate(20deg)}[data-theme=dark] .theme-toggle{box-shadow:0 4px 12px rgba(0,0,0,.3)}[data-theme=dark] .theme-toggle:hover{box-shadow:0 6px 20px rgba(0,176,47,.4)}.search-container{position:relative}.search-toggle{align-items:center;background:var(--color-bg);border:2px solid var(--color-border);border-radius:50%;box-shadow:0 4px 12px rgba(0,0,0,.1);cursor:pointer;display:flex;font-size:18px;height:50px;justify-content:center;transition:all .3s cubic-bezier(.4,0,.2,1);width:50px}.search-toggle:hover{border-color:var(--color-primary);box-shadow:0 6px 20px rgba(0,176,47,.2);transform:scale(1.1)}.search-toggle:active{transform:scale(.95)}.search-dropdown{animation:slideDown .2s ease-out;background:var(--color-bg);border:2px solid var(--color-border);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.15);overflow:hidden;position:absolute;right:0;top:60px;width:350px}@keyframes slideDown{0%{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}.search-input{background:var(--color-bg);border:none;border-bottom:1px solid var(--color-border);color:var(--color-text);font-size:var(--fontSize-1);outline:none;padding:var(--spacing-4);width:100%}.search-input::placeholder{color:var(--color-text-light)}.search-results{max-height:350px;overflow-y:auto}.search-results-header{align-items:center;background:var(--color-bg-secondary);border-bottom:1px solid var(--color-border);display:flex;font-size:var(--fontSize-0);justify-content:space-between;padding:var(--spacing-3) var(--spacing-4)}.search-results-header span{color:var(--color-heading);font-weight:600}.search-results-header small{color:var(--color-text-light);font-size:calc(var(--fontSize-0)*.85)}.search-result-item{border-bottom:1px solid var(--color-border);cursor:pointer;padding:var(--spacing-4);position:relative;transition:all .2s ease}.search-result-item:hover{background:var(--color-bg-secondary);border-left:3px solid var(--color-primary);padding-left:calc(var(--spacing-4) - 3px);transform:translateX(4px)}.search-result-item:last-child{border-bottom:none}.search-result-item:active{transform:translateX(2px)}.search-result-item h4{color:var(--color-heading);font-size:var(--fontSize-1);line-height:var(--lineHeight-tight);margin:0 0 var(--spacing-2) 0}.search-result-item p{color:var(--color-text-light);font-size:var(--fontSize-0);line-height:var(--lineHeight-normal);margin:0 0 var(--spacing-1) 0}.search-result-item small{color:var(--color-text-light);font-size:calc(var(--fontSize-0)*.9)}.search-no-results{color:var(--color-text-light);padding:var(--spacing-8);text-align:center}.search-no-results span{display:block;font-size:2rem;margin-bottom:var(--spacing-3)}.search-no-results p{color:var(--color-text);font-size:var(--fontSize-1);font-weight:500;margin:0 0 var(--spacing-2) 0}.search-no-results small{color:var(--color-text-light);font-size:var(--fontSize-0)}[data-theme=dark] .search-toggle{box-shadow:0 4px 12px rgba(0,0,0,.3)}[data-theme=dark] .search-toggle:hover{box-shadow:0 6px 20px rgba(0,176,47,.4)}[data-theme=dark] .search-dropdown{box-shadow:0 12px 32px rgba(0,0,0,.4)}.search-page{margin:0 auto;max-width:var(--maxWidth-wrapper-large)}.search-page-header{margin-bottom:var(--spacing-12);padding:var(--spacing-8) 0;text-align:center}.search-page-header h1{-webkit-text-fill-color:transparent;background:linear-gradient(135deg,var(--color-heading-black),var(--color-primary));-webkit-background-clip:text;background-clip:text;font-size:var(--fontSize-6);margin-bottom:var(--spacing-6)}.search-page-input-container{align-items:center;display:flex;gap:var(--spacing-3);margin:0 auto;max-width:600px}.search-page-input{background:var(--color-bg);border:2px solid var(--color-border);border-radius:50px;color:var(--color-text);flex:1 1;font-size:var(--fontSize-1);outline:none;padding:var(--spacing-4) var(--spacing-6);transition:all .3s ease}.search-page-input:focus{border-color:var(--color-primary);box-shadow:0 0 0 3px rgba(0,176,47,.1)}.search-page-input::placeholder{color:var(--color-text-light)}.search-page-button{background:linear-gradient(135deg,var(--color-primary),#00d435);border:none;border-radius:50px;color:#fff;cursor:pointer;font-size:var(--fontSize-1);font-weight:600;padding:var(--spacing-4) var(--spacing-8);transition:all .3s ease;white-space:nowrap}.search-page-button:hover{box-shadow:0 6px 20px rgba(0,176,47,.3);transform:translateY(-2px)}.search-page-button:active{transform:translateY(0)}.search-results-header-section{align-items:center;display:flex;flex-wrap:wrap;gap:var(--spacing-4);justify-content:center;margin-bottom:var(--spacing-8);position:relative}.search-results-title{color:var(--color-heading);font-size:var(--fontSize-4);margin:0;text-align:center}.search-sort-container{align-items:center;display:flex;gap:var(--spacing-2);position:absolute;right:0;top:50%;transform:translateY(-50%)}.search-sort-container label{color:var(--color-text-light);font-size:var(--fontSize-0);font-weight:500}.search-sort-select{background:var(--color-bg);border:1px solid var(--color-border);border-radius:8px;color:var(--color-text);cursor:pointer;font-size:var(--fontSize-0);outline:none;padding:var(--spacing-2) var(--spacing-3);transition:all .2s ease}.search-sort-select:focus{border-color:var(--color-primary);box-shadow:0 0 0 2px rgba(0,176,47,.1)}.search-page-placeholder{color:var(--color-text-light);padding:var(--spacing-16) var(--spacing-8);text-align:center}.search-page-placeholder span{display:block;font-size:4rem;margin-bottom:var(--spacing-6)}.search-page-placeholder h3{color:var(--color-heading);font-size:var(--fontSize-4);margin-bottom:var(--spacing-4)}.search-page-placeholder p{font-size:var(--fontSize-1);margin-bottom:var(--spacing-2)}.search-no-results-page{padding:var(--spacing-16) var(--spacing-8);text-align:center}.search-no-results-page span{display:block;font-size:4rem;margin-bottom:var(--spacing-6)}.search-no-results-page h3{color:var(--color-heading);font-size:var(--fontSize-4);margin-bottom:var(--spacing-4)}.search-no-results-page p{color:var(--color-text-light);font-size:var(--fontSize-1);margin-bottom:var(--spacing-6)}.search-no-results-page ul{list-style:none;margin:0 auto;max-width:400px;padding:0;text-align:left}.search-no-results-page li{color:var(--color-text-light);padding:var(--spacing-2) 0;padding-left:var(--spacing-6);position:relative}.search-no-results-page li:before{content:"💡";left:0;position:absolute}mark{border-radius:4px;color:#fff;font-weight:600;padding:.05em}[data-theme=dark] mark,mark{background:linear-gradient(135deg,var(--color-primary),#00d435)}[data-theme=dark] mark{color:var(--color-bg)}.post-list-item:hover mark{color:#000!important}.post-list-item:hover mark,[data-theme=dark] .post-list-item:hover mark{background:hsla(0,0%,100%,.95)!important;border:1px solid #ccc!important}[data-theme=dark] .post-list-item:hover mark{color:var(--color-primary)!important}@media (max-width:42rem){.top-buttons{gap:var(--spacing-2)}.search-toggle,.theme-toggle{font-size:16px;height:45px;width:45px}.search-dropdown{right:-100px;width:280px}.search-page-header{padding:var(--spacing-6) var(--spacing-4)}.search-page-header h1{font-size:var(--fontSize-5)}.search-page-input-container{flex-direction:column;gap:var(--spacing-4)}.search-page-button{align-self:stretch}.search-results-header-section{align-items:center;flex-direction:column;padding:0 var(--spacing-4);position:static;text-align:center}.search-results-title{font-size:var(--fontSize-3);margin-bottom:var(--spacing-4)}.search-sort-container{justify-content:center;position:static;transform:none}.search-no-results-page,.search-page-placeholder{padding:var(--spacing-12) var(--spacing-4)}}code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#000;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5;tab-size:4;text-align:left;text-shadow:0 1px #fff;white-space:pre;word-break:normal;word-spacing:normal}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{background:#b3d4fc;text-shadow:none}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{background:hsla(0,0%,100%,.5);color:#9a6e3a}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><style type="text/css">
+    .anchor-header.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor-header.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor-header svg,
+    h2 .anchor-header svg,
+    h3 .anchor-header svg,
+    h4 .anchor-header svg,
+    h5 .anchor-header svg,
+    h6 .anchor-header svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor-header svg,
+    h2:hover .anchor-header svg,
+    h3:hover .anchor-header svg,
+    h4:hover .anchor-header svg,
+    h5:hover .anchor-header svg,
+    h6:hover .anchor-header svg,
+    h1 .anchor-header:focus svg,
+    h2 .anchor-header:focus svg,
+    h3 .anchor-header:focus svg,
+    h4 .anchor-header:focus svg,
+    h5 .anchor-header:focus svg,
+    h6 .anchor-header:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 100)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="alternate" type="application/rss+xml" title="Gatsby Starter Blog RSS Feed" href="/rss.xml"/><link rel="icon" href="/favicon-32x32.png?v=fdc99851401fabaca2d68d6b9aefa2fe" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><title data-gatsby-head="true">MySQL에서의 사용자 식별에 대해 | 내가 재밌는 일을 하자 !</title></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="global-wrapper" data-is-root-path="false"><div class="top-buttons"><div class="search-container"><button class="search-toggle" aria-label="검색" title="검색">🔍</button></div><button class="theme-toggle" aria-label="다크 모드로 전환" title="다크 모드로 전환"><span class="theme-toggle-icon">🌙</span></button></div><header class="global-header"><a class="header-link-home" href="/">내가 재밌는 일을 하자 !</a></header><main><div class="blog-post-layout"><div class="blog-post-container"><article class="blog-post" itemscope="" itemType="http://schema.org/Article"><header><h1>MySQL에서의 사용자 식별에 대해</h1><p class="post-date">2023년 12월 4일</p><p><div class="tags-container"><span class="tag">#<!-- -->database</span></div></p></header><section itemProp="articleBody"><h2 id="들어가며" style="position:relative;"><a href="#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0" aria-label="들어가며 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>들어가며</h2>
+<p>MySQL에서의 계정 식별 방식, 권한, 역할에 대한 기본적인 내용을 알아보자</p>
+<h2 id="왜-알아야-할까" style="position:relative;"><a href="#%EC%99%9C-%EC%95%8C%EC%95%84%EC%95%BC-%ED%95%A0%EA%B9%8C" aria-label="왜 알아야 할까 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>왜 알아야 할까?</h2>
+<p>데이터베이스 서버의 <strong>보안</strong>을 위해 !</p>
+<blockquote>
+<p><del>괜히 보안떄문에 퇴근이 늦어지면 안되니까</del></p>
+</blockquote>
+<h2 id="1-사용자-식별-방법" style="position:relative;"><a href="#1-%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%8B%9D%EB%B3%84-%EB%B0%A9%EB%B2%95" aria-label="1 사용자 식별 방법 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. 사용자 식별 방법</h2>
+<p><strong>사용자 아이디</strong> 뿐만 아니라 **접속 지점(호스트명이나 도메인 또는 IP주소)**도 함께 확인한다.<br>
+예시) <code class="language-text">root@localhost</code></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 257px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/5581f515ced6d59fbdfbc24ea69eb826/96e35/example.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 58.86075949367089%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAAB30lEQVR42lWTWXLbQAxEeZVUObY27vtOiRRFy0lcie9/FgQPFF32B4qcAdBooDFOlA5StTfphjcJok6CuJOmf5WyuYkXtlJUV+nOb3LyK/HV3+t/mPTma/q7pMXFzuTwdZLsLK0eKgXwo1ZiPdftIkU9a/AoaT4aaKiFkpzYu8RKgthK44jJ1V/UV/GCRpyDW1oAFQB7OWTyvE/NvLCRUoHrFrb15z0xu2P+eQbj6FXy9JKIA2qcDVJ3i9A+jpNfW4uRtpA9GLhBrb5SXL+2mC2OO1/bhzHgDizycpKTBuwO+aNaaWcKYDAMNGEDOriFxWEw/QZIlawc1SYbapJfrHUYusqeUczLX2U6GQB+mANADjOEFGaAtAKL8fouw/hbLtMfub1+WKKrQcP4y3ztcDdRpvndlCZu1P+ymU2wb4AknxWs06QNAJbeF0B8sJmXf0aAdcH/4ym0EbFyP3cG2BggSf1FK+v3qi3ChmLs4HL/WNdKZ1Upo/0pV0Xjh+KpzZUZGyAzZHbsUV5NtnMovs0lStYNOOr8nvfrSgG4ClOYKBSmmLXMYtMeLQRxbw6Gzj1i2eLq8AGlEwrT8gZiX2WHiAbIAUMQVON5AUJr4QOYp4nasEUQ5vX1AayW2d1/MSyLzJrchi8AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="예시 사진"
+        title=""
+        src="/static/5581f515ced6d59fbdfbc24ea69eb826/96e35/example.png"
+        srcset="/static/5581f515ced6d59fbdfbc24ea69eb826/c26ae/example.png 158w,
+/static/5581f515ced6d59fbdfbc24ea69eb826/96e35/example.png 257w"
+        sizes="(max-width: 257px) 100vw, 257px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>따라서 계정의 HOST와 다른 지점에서 접속하면 실패한다.</p>
+<blockquote>
+<p>💡 계정을 언급할 때는 <strong>항상 아이디와 호스트를 함께</strong> 명시하자 !</p>
+</blockquote>
+<h3 id="1-1-만약-모든-지점에서-접속을-허용하고-싶다면" style="position:relative;"><a href="#1-1-%EB%A7%8C%EC%95%BD-%EB%AA%A8%EB%93%A0-%EC%A7%80%EC%A0%90%EC%97%90%EC%84%9C-%EC%A0%91%EC%86%8D%EC%9D%84-%ED%97%88%EC%9A%A9%ED%95%98%EA%B3%A0-%EC%8B%B6%EB%8B%A4%EB%A9%B4" aria-label="1 1 만약 모든 지점에서 접속을 허용하고 싶다면 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1-1. 만약 모든 지점에서 접속을 허용하고 싶다면</h3>
+<hr>
+<p>계정의 HOST를 <code class="language-text">%</code> 로 설정하자. (와일드카드 느낌)</p>
+<h3 id="1-2-계정의-host를-이용해-보안을-신경-쓴-사례" style="position:relative;"><a href="#1-2-%EA%B3%84%EC%A0%95%EC%9D%98-host%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%B4-%EB%B3%B4%EC%95%88%EC%9D%84-%EC%8B%A0%EA%B2%BD-%EC%93%B4-%EC%82%AC%EB%A1%80" aria-label="1 2 계정의 host를 이용해 보안을 신경 쓴 사례 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1-2. 계정의 HOST를 이용해 보안을 신경 쓴 사례</h3>
+<hr>
+<p><strong>[상황]</strong><br>
+주어진 자원: 1대의 MySQL 서버, 1대의 개발용 서버 1대, 1대의 운영용 서버 1대</p>
+<p>개발용, 운영용 서버에서 1대의 MySQL 서버로 요청을 보낸다.
+MySQL 서버에는 개발용, 운영용 데이터베이스를 따로 구축하여 관리하고 있었다.</p>
+<p>아래는 이해를 돕기 위한 사진이다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/fd96d0893b7eef402149691c1ac35089/60b8f/infra_architecture.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.9620253164557%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABoklEQVR42p2SS28TMRSF84/Z8U/YsOMfoCDEBqlEzQIVtQtaoKFpk8xkEjIvz2SeHo/94ZnmBRsiLFm+vtc+9/j4DEzboLXGGENrV60N2saG/xsDMX6DM73n6WHCbHKHO58ym/6kKXOwzVAS2+18QF0mtGUGcsv4TrAJttBk6DrHyAJTZRgbnw24710qGH5bMAnSXebIypQ2Z/R5gFmaEG0CnEDw6vYFn5ZDq2FXantde8BqewTscrv4UD+RZLAefSS5vGAWl1x+/cD15IZC8ueFU8B/MfzlLCwZRa1aRj8k80CdlPeAKcae6XZKrEjvx4Rxwmq5JIoiVqs1Wf6s82A2X7DZ+MgW3t16TLtP+VvDjqF+ZtjGLsXjFUnoE60dEt9DrF2qNNr9sm7xPA/XF7z+/pILd7i7qw9PrtOQRMREsaASm0MjqRQir+hca6xbesC9x5bhlvc3b/k8+ULZHPXvWeUC1TTUUtJmEUUtuXr0ybxrlDtCdQT2gJ3PqDNSIYj8lDCIkcW2z5ludpaR5VFW+/y2SAjDgCpyQDz17PpzwG+nk1LPDBB9IgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="인프라 아키텍처의 일부"
+        title=""
+        src="/static/fd96d0893b7eef402149691c1ac35089/f058b/infra_architecture.png"
+        srcset="/static/fd96d0893b7eef402149691c1ac35089/c26ae/infra_architecture.png 158w,
+/static/fd96d0893b7eef402149691c1ac35089/6bdcf/infra_architecture.png 315w,
+/static/fd96d0893b7eef402149691c1ac35089/f058b/infra_architecture.png 630w,
+/static/fd96d0893b7eef402149691c1ac35089/40601/infra_architecture.png 945w,
+/static/fd96d0893b7eef402149691c1ac35089/60b8f/infra_architecture.png 1217w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p><strong>[문제]</strong><br>
+혹여나 실수로 인해 개발용 서버에서 운영용 DB에 쿼리를 날리거나, 그 반대의 상황을 막고자 했다.</p>
+<p><strong>[해결]</strong><br>
+계정을 각 환경에 맞는 서버로 나누어 생성 및 관리를 함으로써 의도치 않은 상황을 예방했다.<br>
+(<code class="language-text">'celuveat_prod'@{ec2_prod_ip}</code>, <code class="language-text">'celuveat_dev'@{ec2_dev_ip}</code>)</p>
+<h3 id="1-3-계정-식별에서-주의할-점-아이디는-같고-호스트가-다른-경우" style="position:relative;"><a href="#1-3-%EA%B3%84%EC%A0%95-%EC%8B%9D%EB%B3%84%EC%97%90%EC%84%9C-%EC%A3%BC%EC%9D%98%ED%95%A0-%EC%A0%90-%EC%95%84%EC%9D%B4%EB%94%94%EB%8A%94-%EA%B0%99%EA%B3%A0-%ED%98%B8%EC%8A%A4%ED%8A%B8%EA%B0%80-%EB%8B%A4%EB%A5%B8-%EA%B2%BD%EC%9A%B0" aria-label="1 3 계정 식별에서 주의할 점 아이디는 같고 호스트가 다른 경우 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1-3. 계정 식별에서 주의할 점: 아이디는 같고 호스트가 다른 경우</h3>
+<hr>
+<p>만약 <code class="language-text">user</code> 이라는 계정이 두 개가 있다.<br>
+한 계정의 HOST는 <code class="language-text">192.168.1.01</code>이고 나머지는 <code class="language-text">%</code>라고 가정해보자.<br>
+(<code class="language-text">'user'@'192.168.1.01'</code>, <code class="language-text">'user'@'%'</code>)</p>
+<p>이때 클라이언트의 IP가 <code class="language-text">192.168.1.01</code>인 곳에서 <code class="language-text">user</code> 계정으로 접속을 시도하면 어떻게 될까?<br>
+그리고 <code class="language-text">192.168.1.01</code>이 아닌 곳에서 <code class="language-text">user</code> 계정으로 접속을 시도하면 어떻게 될까?</p>
+<p>정답은, <code class="language-text">user@192.168.1.01</code> 계정으로 로그인을 시도한다.<br>
+MySQL은 기본적으로 <strong>더 좁은 범위의 HOST 계정으로 인증을 시도</strong>하기 때문이다.</p>
+<blockquote>
+<p>애초에 이런 식으로 설정하는 경우는 가급적 자제하는 게 좋아보인다.<br>
+만약 불가피한 경우에는 <code class="language-text">--host</code> 속성으로 계정을 명시해 접속 시도할 수 있을 것이다.</p>
+</blockquote>
+<p>이때 주의할 점은, 인증에 실패했다고 더 넓은 범위의 계정으로 접속을 시도하지 않는다.</p>
+<h3 id="1-4-실험1-만약-localhost와-현재-ip-주소로-설정한다면" style="position:relative;"><a href="#1-4-%EC%8B%A4%ED%97%981-%EB%A7%8C%EC%95%BD-localhost%EC%99%80-%ED%98%84%EC%9E%AC-ip-%EC%A3%BC%EC%86%8C%EB%A1%9C-%EC%84%A4%EC%A0%95%ED%95%9C%EB%8B%A4%EB%A9%B4" aria-label="1 4 실험1 만약 localhost와 현재 ip 주소로 설정한다면 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1-4. 실험1: 만약 <code class="language-text">localhost</code>와 현재 IP 주소로 설정한다면?</h3>
+<hr>
+<p><code class="language-text">create user 'kdkdhoho'@localhost identified by abc;</code> 명령어와<br>
+<code class="language-text">create user 'kdkdhoho'@'192.168.0.9' identified by 123;</code> 명령어로 상황을 세팅해보자.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 262px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/e38f0ebf53c61e4c8722ea1bb539ea25/8ff13/test_environment.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 68.9873417721519%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAACgklEQVR42lVU2W4aQRDcj7ExsOx9X+zJbRC5HNlSJFuKbSVSeEj+X5WuBlvJQ2mbmZ7qqxrDD+eI0x5psYDjVwjjFnE2IBG4wVy/hGnnZzs/+0VpJ/bZJ5UzP2owtVIYUdLqZZR0cP252qHYcdaLU62PAgliucU7CQlJQB8mwGRC4ZlaGYyZk4ljj7xcKenYTDCZpYJEH3phjaJao6o3+oD3zJY+YzPVM9peUOudYbu5PGqQFEs48ngqzsREYEs5PAslYCjlvt2ZiuyC828GVkItRfpoTSO4kpVtxnCYnXwjv1SkUvq8GPSe5/Y7aY6ZU/xP2DkhfmUZnvIC37wAz0WF+yDBY5ziMUrwYLv42fX4s9niWXyekgyvtoXxOMRoGmM0iXAt4HDYJmMnhIeiRdAfUQ5HtNsvSNpbuPkKZiQ9DRoUyw/ob7+i292h3N7hIYgxG3m4EqKrm0AQaoZKWDoxniWbl7rFqR/wox3w2nS4tz18njn6+NT3+L3e4KWq8b2scZqLGoTAjxvk1UonToVwOIYpU87SFkO9wmbYY9XvsGg3iDgsaXoSVFi2W+zXUoH45XGNxeKAdjig6fcoZfqBELvip4SWEIaip7zZohHHuj+gENt0S5l0IVNuUHV7DOuPSERaRLc8qqSoz2vp5bnkSw9ndqr6mwtJJ1GJut2pkCkL26s0k/X2k5Kw+WHcvffu5jIY520ojldoQ6l6iptrlMo2kNCjDi/rmJdLTFXMiYqZcrEEtlRCmz4qG1d0xqjcZ6qd5LZXIhOhv+11JmQkZPO5zwzCfpGYGtQA8mW2xsSMJJtSH5HMvWTFnWV0nnFX+dsXm2vKPwH2jqX+CxL+BSWs0R0KbX6jAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="실험 환경"
+        title=""
+        src="/static/e38f0ebf53c61e4c8722ea1bb539ea25/8ff13/test_environment.png"
+        srcset="/static/e38f0ebf53c61e4c8722ea1bb539ea25/c26ae/test_environment.png 158w,
+/static/e38f0ebf53c61e4c8722ea1bb539ea25/8ff13/test_environment.png 262w"
+        sizes="(max-width: 262px) 100vw, 262px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>그리고 kdkdhoho 계정으로 로그인을 시도했을 때, 성공하는 계정을 보자.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 572px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/0b8a311a99a0bb7c0634d217ded1515a/a805e/after_test.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 39.87341772151899%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABTklEQVR42mVRWU7DMBD1YShtUidpEi9ZnZUAggsgFQnB/c/wmLEbVImPp5lx7LdMxNxvMGqAKR3kWRMMsqSCjA1SaRCdFB4IB65Hrtr3XB+j/xDfbsRH43DtRnz2AV/jiivVHzdh0z1SElRmgrIzLiSc01zoEVnhCPQ971CoEcmlg2i7Z0zTG5x7wTC8Yl7e0Xabn42dYJsn6GrxZIGkR0YEMm1wkhaRrDxiwulsIYLahIIc5PSAH/HjQEBnavxzkVxa33M0jr3HPNJ6Qm8g+KGpFx+lNOxo9ZVdcTX16nsWMlQtzRyf48qs9a6YcIeoKV7dbsiJ0O+J4AlvEZUN5LtgXg7eva5mImzu3AWnoqDITMaRzrQXvsTKTMARucZJ7c/SPOyP74Y19OEnkQiL8S5FrgdUekFbrDjEGhFF4BjRbcmRDPPe7/Pe34Md/gLesQM9N8jTJgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="로그인 결과"
+        title=""
+        src="/static/0b8a311a99a0bb7c0634d217ded1515a/a805e/after_test.png"
+        srcset="/static/0b8a311a99a0bb7c0634d217ded1515a/c26ae/after_test.png 158w,
+/static/0b8a311a99a0bb7c0634d217ded1515a/6bdcf/after_test.png 315w,
+/static/0b8a311a99a0bb7c0634d217ded1515a/a805e/after_test.png 572w"
+        sizes="(max-width: 572px) 100vw, 572px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>HOST를 <code class="language-text">localhost</code>로 설정한 계정으로 로그인이 성공한다.</p>
+<h3 id="1-5-실험2-실험1에-이-추가된다면" style="position:relative;"><a href="#1-5-%EC%8B%A4%ED%97%982-%EC%8B%A4%ED%97%981%EC%97%90-%EC%9D%B4-%EC%B6%94%EA%B0%80%EB%90%9C%EB%8B%A4%EB%A9%B4" aria-label="1 5 실험2 실험1에 이 추가된다면 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1-5. 실험2: 실험1에 <code class="language-text">%</code>이 추가된다면?</h3>
+<hr>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 298px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/7e3ea946639547c7aa85555f51c7efff/ca501/test2_environment.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 64.55696202531645%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAACdUlEQVR42m1TyW4TQRD1pyDs2ONZPItn9UzPYs/iJBjDgQsSuQUFgRCBAAqruMABCAfEjQt3JA4JEIlNgg97VHVigSGHmu55U/Wmuuu9lusXGIkGwajEwEoQjiqKEqYjEMYVvGAM3YwRiylsN5MxSmos6rxwcow1sqbFBVFcw/FyWMNUJriE8TvjblBQYoogKuG4i5zj70TM+dpgBItyeG3xI6DCbDKDYSfoaQEUPYRGXdlUlI7PIKTClb6HTt9HVw3Qo32XQtF8GFaMFcWVwVhLuAIXDAtNR0HdVjClddruoe6oWO8bmGsDnNdNzA0HG16I0IygWgIG/ZA7546ZqKf6Mlpjw8OjzS1s332MnZ37uLG9i5u37uH2nYfY3X2Cp89e4NXea1zfeYCZFyNTbZw+7rJPJ+F7WyKM+jbePX+Jw++/sH9wiI+fv+DT4Vcc0Pr+w77cf/vxE3tv3iLVhjLaWiiPqxonEJZ2iLkbwuap0vHjIIepU0J7gF7HRDoao0hKpPkqNooKomvglOKj03UkwX+Ewo6wORLYalaxVTa4Ml3DpTDGTLNwMUxwtZ7iGmNpgctpjjLK4dBks3wNPq0GSW2JUKfJOlGFhKYZU2TVHBbJpk33ZJLWkslZifE+ytchinUUpAjXH2NgCxlLhAMiDEljk3KGggir+hyJuYBCSS7JpiKyuiGMCPk75/PdsUxOPDInsDhFtgpB95RRESufJ8iSYDewSzhZNSKJ80AU0qvOgv5XNkPqwiGCI0cI2MNMuoAxdoR0hZ9LzKTjsRF08yhY1KzHJcI//mxkwcJ+vLJf43QqrejTtdiELRzxdyzImPA3bwK/3PUJStUAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="실험2 환경"
+        title=""
+        src="/static/7e3ea946639547c7aa85555f51c7efff/ca501/test2_environment.png"
+        srcset="/static/7e3ea946639547c7aa85555f51c7efff/c26ae/test2_environment.png 158w,
+/static/7e3ea946639547c7aa85555f51c7efff/ca501/test2_environment.png 298w"
+        sizes="(max-width: 298px) 100vw, 298px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>만약 위와 같이 <code class="language-text">kdkdhoho@%</code> 계정이 추가된다면 어떤 계정으로 접속하게 될까?<br>
+(참고로 위 계정의 암호는 <code class="language-text">xyz</code>)</p>
+<p>아마 예상하기 쉽겠지만 <code class="language-text">localhost</code>로만 접속이 가능하다.</p>
+<blockquote>
+<p>💡결론: HOST의 범위는 <code class="language-text">localhost</code> &#x3C; 지정 IP &#x3C; <code class="language-text">%</code> 인 것 같다.<br>
+참고) 추가 실험 결과, <code class="language-text">127.0.0.1</code>도 <code class="language-text">localhost</code>에 순위가 밀린다.</p>
+</blockquote>
+<h2 id="2-사용자-계정-관리" style="position:relative;"><a href="#2-%EC%82%AC%EC%9A%A9%EC%9E%90-%EA%B3%84%EC%A0%95-%EA%B4%80%EB%A6%AC" aria-label="2 사용자 계정 관리 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. 사용자 계정 관리</h2>
+<h3 id="2-1-시스템-계정과-일반-계정" style="position:relative;"><a href="#2-1-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B3%84%EC%A0%95%EA%B3%BC-%EC%9D%BC%EB%B0%98-%EA%B3%84%EC%A0%95" aria-label="2 1 시스템 계정과 일반 계정 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2-1. 시스템 계정과 일반 계정</h3>
+<p>MySQL 8.0부터는 <code class="language-text">SYSTEM_USER</code> <strong>권한</strong>을 가지고 있냐에 따라 <code class="language-text">시스템 계정</code>과 <code class="language-text">일반 계정</code>으로 구분된다.</p>
+<blockquote>
+<p><code class="language-text">SYSTEM_USER</code> 권한은 <code class="language-text">ALL PRIVILEGES</code> 안에 포함된다.</p>
+</blockquote>
+<h3 id="2-2-두-계정의-차이" style="position:relative;"><a href="#2-2-%EB%91%90-%EA%B3%84%EC%A0%95%EC%9D%98-%EC%B0%A8%EC%9D%B4" aria-label="2 2 두 계정의 차이 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2-2. 두 계정의 차이</h3>
+<h4 id="시스템-계정" style="position:relative;"><a href="#%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B3%84%EC%A0%95" aria-label="시스템 계정 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>시스템 계정</h4>
+<ul>
+<li>MySQL</li>
+<li>시스템 계정과 일반 계정을 관리(생성, 삭제, 변경) 할 수 있다.</li>
+<li>DB 서버 관리와 관련된 작업은 시스템 계정으로만 수행할 수 있다.
+<ul>
+<li>계정 관리</li>
+<li>Connection(세션) 강제 종료</li>
+</ul>
+</li>
+<li>DBA를 위한 계정</li>
+</ul>
+<h4 id="일반-계정" style="position:relative;"><a href="#%EC%9D%BC%EB%B0%98-%EA%B3%84%EC%A0%95" aria-label="일반 계정 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>일반 계정</h4>
+<ul>
+<li>시스템 계정을 관리할 수 없다.</li>
+<li>개발자나 응용 프로그램을 위한 계정</li>
+</ul>
+<h3 id="2-3-내장된-계정들" style="position:relative;"><a href="#2-3-%EB%82%B4%EC%9E%A5%EB%90%9C-%EA%B3%84%EC%A0%95%EB%93%A4" aria-label="2 3 내장된 계정들 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2-3. 내장된 계정들</h3>
+<p>MySQL 서버에는 다음과 같은 내장된 계정들이 존재한다. (<code class="language-text">root@localhost</code> 제외)</p>
+<ul>
+<li><code class="language-text">mysql.sys@localhost</code>: 8.0부터 기본으로 내장된 <strong>sys 스키마의 객체들의 DEFINER</strong>로 사용하는 계정
+<blockquote>
+<p>sys 스키마: Performance Schema를 편하게 볼 수 있도록 별도로 만든 뷰의 모음</p>
+</blockquote>
+</li>
+<li><code class="language-text">mysql.session@localhost</code>: <strong>MySQL 플러그인이 서버로 접근</strong>할 때 사용하는 계정</li>
+<li><code class="language-text">mysql.infoschema@localhost</code>: <strong>information_schema에 정의된 뷰의 DEFINER</strong>로 사용하는 계정
+<blockquote>
+<p>information_schema: DB의 메타 정보(테이블 칼럼, 인덱스 등의 스키마 정보)의 모음</p>
+</blockquote>
+</li>
+</ul>
+<p>위 세 계정은 처음부터 잠겨있는 상태이다. <code class="language-text">account_locked</code> 칼럼을 통해 확인할 수 있다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 588px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/bef3e9fcba25b7f226316048daea12ed/9bbaf/account_lock.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 18.9873417721519%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAoklEQVR42oVPWRKCMAzlNCKUvbSlLGV3dMb7X+eZRH8dPjJp0rwt0naF9Tsas6DWM1q7oW6pu5XeK4zb0fUn/PiQuWwmMMZ0GyodBFO3QfB5NSJisCo8DYMsLB3ykSp6It0I+BVz/kBB/7fEIE7t34qm+YVuODGEJ6omiNtlf8P1hzi4K4dYWSSZE5FLQo7DTthhmnuJygL6F493XEyWldeEH/ssgIx7l+YpAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="계정 잠김 확인"
+        title=""
+        src="/static/bef3e9fcba25b7f226316048daea12ed/9bbaf/account_lock.png"
+        srcset="/static/bef3e9fcba25b7f226316048daea12ed/c26ae/account_lock.png 158w,
+/static/bef3e9fcba25b7f226316048daea12ed/6bdcf/account_lock.png 315w,
+/static/bef3e9fcba25b7f226316048daea12ed/9bbaf/account_lock.png 588w"
+        sizes="(max-width: 588px) 100vw, 588px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<h2 id="3-계정-생성" style="position:relative;"><a href="#3-%EA%B3%84%EC%A0%95-%EC%83%9D%EC%84%B1" aria-label="3 계정 생성 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. 계정 생성</h2>
+<p><code class="language-text">CREATE USER</code> 명령으로 계정을 생성할 수 있다.<br>
+<code class="language-text">GRANT</code> 명령으로 권한 부여를 할 수 있다.</p>
+<blockquote>
+<p>5.7v 까지는 <code class="language-text">GRANT</code> 명령으로 생성과 동시에 권한 부여를 할 수 있었다.</p>
+</blockquote>
+<h3 id="3-1-다양한-옵션-설정" style="position:relative;"><a href="#3-1-%EB%8B%A4%EC%96%91%ED%95%9C-%EC%98%B5%EC%85%98-%EC%84%A4%EC%A0%95" aria-label="3 1 다양한 옵션 설정 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3-1. 다양한 옵션 설정</h3>
+<p>계정을 생성할 때, 아래와 같은 다양한 옵션들을 설정할 수 있다.</p>
+<ul>
+<li>인증 방식과 비밀번호</li>
+<li>비밀번호 관련 옵션(유효 기간, 이력 개수, 재사용 불가 기간)</li>
+<li>기본 역할(Role)</li>
+<li>SSL 옵션</li>
+<li>계정 잠금 여부</li>
+</ul>
+<p>위 옵션을 모두 적용한 임의의 쿼리문을 통해 하나씩 살펴보자.</p>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">USER</span> <span class="token string">'user'</span><span class="token variable">@'{HOST}'</span>
+    IDENTIFIED <span class="token keyword">WITH</span> <span class="token string">'mysql_native_password'</span> <span class="token keyword">BY</span> <span class="token string">'password'</span>
+    <span class="token keyword">REQUIRE</span> NONE
+    PASSWORD EXPIRE <span class="token keyword">INTERVAL</span> <span class="token number">30</span> <span class="token keyword">DAY</span>
+    ACCOUNT <span class="token keyword">UNLOCK</span>
+    PASSWORD HISTORY <span class="token keyword">DEFAULT</span>
+    PASSWORD REUSE <span class="token keyword">INTERVAL</span> <span class="token keyword">DEFAULT</span>
+    PASSWORD <span class="token keyword">REQUIRE</span> <span class="token keyword">CURRENT</span> <span class="token keyword">DEFAULT</span><span class="token punctuation">;</span></code></pre></div>
+<h3 id="3-2-identified-with" style="position:relative;"><a href="#3-2-identified-with" aria-label="3 2 identified with permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3-2. IDENTIFIED WITH</h3>
+<p>계정 인증 방식과 비밀번호를 설정한다.<br>
+예) <code class="language-text">IDENTIFIED WITH {계정 인증 방식} BY {비밀번호}</code></p>
+<p>계정 인증 방식은 플러그인 형태로 제공되며, 아래 4가지 방식이 가장 대표적이다.</p>
+<ul>
+<li><code class="language-text">Native Pluggable Authentication</code>: v5.7까지 기본으로 사용되던 방식이다. 단순하게 비밀번호에 대한 해시(SHA-1 알고리즘) 값을 저장하고, 클러이언트가 보낸 값과 해시값이 일치하는지 비교한다.</li>
+<li><code class="language-text">Caching SHA-2 Pluggable Authentication</code>: v8.0의 기본 인증 방식. 암호화 해시값 생성을 위해 SHA-2(256비트) 알고리즘을 사용한다. <code class="language-text">Native</code> 방식은 입력과 해시값이 매번 동일하지만, <code class="language-text">SHA-2</code> 방식은 내부적으로 Salt 키를 활용해 수천 번의 해시 계산을 수행해 계산을 만들고 결국 동일한 입력일지라도 매번 결과가 달라진다. 이는 속도가 매우 느린 점을 고려하여, MySQL 서버는 해시 결과값을 메모리에 캐시해서 사용한다. 따라서 이름에 <code class="language-text">Caching</code>이 포함되었다. 이 방식을 사용하려면 SSL/TLS 또는 RSA 키페어를 반드시 사용해야하고, 이를 위해 접속할 때 SSL 옵션을 활성화해야 한다.</li>
+<li>PAM Pluggable Authentication</li>
+<li>LDAP Pluggable Authentication</li>
+</ul>
+<p>이때, <code class="language-text">IDENTIFIED BY {비밀 번호}</code>만 입력한다면 MySQL 서버의 기본 인증 방식으로 사용된다.</p>
+<blockquote>
+<p>MySQL 5.7에서 8.0으로 넘어오면서 기본 인증 방식의 변경으로 인해, SSL/TLS 또는 RSA 키페어가 필요해질 수 있다.
+따라서 보안 수준은 낮아지더라도, 하위 호환성을 고려하면 <code class="language-text">Native</code> 인증 방식으로 계정을 생성해야 할 수 있다.<br>
+<br>
+MySQL 8.0에서 <code class="language-text">Native Authentication</code>을 기본 인증 방식으로 설정하려면 다음과 같이 설정을 변경하거나 my.cnf 설정 파일에 추가하면 된다.<br>
+<code class="language-text">SET GLOBAL default_authentication_plugin="mysql_native_password</code></p>
+</blockquote>
+<h3 id="3-2-require" style="position:relative;"><a href="#3-2-require" aria-label="3 2 require permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3-2. REQUIRE</h3>
+<p>서버에 접속할 때 암호화된 SSL/TLS 채널을 사용할지 여부를 설정한다.</p>
+<p>DEFAULT 값은 비암호화 채널로 설정된다.</p>
+<p>하지만 <code class="language-text">REQUIRE</code> 옵션을 <code class="language-text">SSL</code>로 설정하지 않아도, <code class="language-text">Caching SHA-2 Authentication</code> 인증 방식을 사용하여 계정을 생성하면 해당 계정으로 접속할 때 암호화된 채널만으로 서버에 접속하게 된다.</p>
+<h3 id="3-3-password-expire" style="position:relative;"><a href="#3-3-password-expire" aria-label="3 3 password expire permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3-3. PASSWORD EXPIRE</h3>
+<p>비밀번호의 유효 기간을 설정한다.</p>
+<p>DEFAULT 값은 <code class="language-text">default_password_lifetime</code> 시스템 변수에 저장된 기간으로 유효 기간이 설정된다.</p>
+<blockquote>
+<p>스프링 접근용 계정에 유효 기간을 설정하면 큰일이 날 수 있다!</p>
+</blockquote>
+<p>설정 가능한 옵션은 다음과 같다.</p>
+<ul>
+<li><code class="language-text">PASSWORD EXPIRE</code>: 계정 생성과 동시에 비밀번호의 만료 처리</li>
+<li><code class="language-text">PASSWORD EXPIRE NEVER</code>: 비밀번호의 만료 기간 없음</li>
+<li><code class="language-text">PASSWORD EXPIRE DEFAULT</code></li>
+<li><code class="language-text">PASSWORD EXPIRE INTERVAL n DAY</code>: 유효기간을 오늘부터 n일로 설정</li>
+</ul>
+<h3 id="3-4-password-history" style="position:relative;"><a href="#3-4-password-history" aria-label="3 4 password history permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3-4. PASSWORD HISTORY</h3>
+<p>비밀번호 이력을 얼마나 저장할 지에 대한 옵션이다.</p>
+<p>설정 가능한 옵션은 다음과 같다.</p>
+<ul>
+<li><code class="language-text">PASSWORD HISTORY DEFAULT</code>: <code class="language-text">password_history</code> 시스템 변수에 저장된 개수만큼 비밀번호 이력을 저장하며, 저장된 이력에 남아있는 비밀번호는 재사용할 수 없다.</li>
+<li><code class="language-text">PASSWORD HISTORY n</code>: 최근 사용한 n개의 비밀번호를 저장한다.</li>
+</ul>
+<blockquote>
+<p>시스템 변수에 저장된 값으로 DEFAULT 값이 설정된다고 한다.
+만약 설정하지도 않았으면 어떻게 될까?
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/1ae14cb4550398eb8810e56a94588c1b/cdef6/dont-setting.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 19.62025316455696%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA20lEQVR42h1Q127EMAzLvxS4pPE5w3vGcZIbRdH//xxW5weCEq1BuZN6xywypKmNBeXanRRvWOQG408oypOrKLYgmYJM2Oze4p0gVWm985rRrbKALxFxe2NaE9gUkMoPQn41LDS4Zw5mcuDMQJsdSm0YRwNOtYev4NzhTjNceKDz6QUXH22I8VfbVOov6vnXeFoSvnqF9W5wG4jtgZkcfbSee+zxwkD6wCx8fKKz4YKiIu2OduJEtj9LQn4jpGc740bFmluIUcLLDCci5m8JQdpJ38DofSS3xp34B0J8g48wlJPCAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="시스템 변수에도 설정하지 않았을 때.png"
+        title=""
+        src="/static/1ae14cb4550398eb8810e56a94588c1b/f058b/dont-setting.png"
+        srcset="/static/1ae14cb4550398eb8810e56a94588c1b/c26ae/dont-setting.png 158w,
+/static/1ae14cb4550398eb8810e56a94588c1b/6bdcf/dont-setting.png 315w,
+/static/1ae14cb4550398eb8810e56a94588c1b/f058b/dont-setting.png 630w,
+/static/1ae14cb4550398eb8810e56a94588c1b/40601/dont-setting.png 945w,
+/static/1ae14cb4550398eb8810e56a94588c1b/cdef6/dont-setting.png 1163w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span>
+위와 같이 <code class="language-text">NULL</code> 값으로 존재한다.</p>
+</blockquote>
+<h3 id="3-5-password-reuse-interval" style="position:relative;"><a href="#3-5-password-reuse-interval" aria-label="3 5 password reuse interval permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3-5. PASSWORD REUSE INTERVAL</h3>
+<p>한 번 사용했던 비밀번호의 재사용 금지 기간을 설정한다.</p>
+<p>기본적으로 <code class="language-text">password_reuse_interval</code> 시스템 변수에 저장된 기간으로 설정된다.</p>
+<p>설정 가능한 옵션은 다음과 같다.</p>
+<ul>
+<li><code class="language-text">PASSWORD REUSE INTERVAL DEFAULT</code></li>
+<li><code class="language-text">PASSWORD REUSE INTERVAL n DAY</code>: n일 이후에 비밀번호를 재사용할 수 있다.</li>
+</ul>
+<h3 id="3-6-password-require" style="position:relative;"><a href="#3-6-password-require" aria-label="3 6 password require permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3-6. PASSWORD REQUIRE</h3>
+<p>비밀번호가 만료되어 새로운 비밀번호로 변경할 때 현재 비밀번호를 필요로 할지 말지를 결정한다.</p>
+<p>기본적으로 <code class="language-text">password_require_current</code> 시스템 변수의 값으로 설정된다.</p>
+<p>설정 가능한 옵션은 다음과 같다.</p>
+<ul>
+<li><code class="language-text">PASSWORD REQUIRE CURRENT</code>: 비밀번호를 변경할 때 현재 비밀번호를 먼저 입력하도록 한다.</li>
+<li><code class="language-text">PASSWORD REQUIRE OPTIONAL</code>: 비밀번호를 변경할 때 현재 비밀번호를 입력하지 않아도 되도록 설정한다.</li>
+<li><code class="language-text">PASSWORD REQUIRE DEFAULT</code></li>
+</ul>
+<h3 id="3-7-account-lock--unlock" style="position:relative;"><a href="#3-7-account-lock--unlock" aria-label="3 7 account lock  unlock permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3-7. ACCOUNT LOCK / UNLOCK</h3>
+<p>계정을 사용하지 못하게 한다.</p>
+<ul>
+<li><code class="language-text">ACCOUNT LOCK</code>: 계정을 사용하지 못하게 잠금</li>
+<li><code class="language-text">ACCOUNT UNLOCK</code>: 잠긴 계정을 다시 사용 가능 상태로 잠금 해제</li>
+</ul>
+<h2 id="4-비밀번호-관리" style="position:relative;"><a href="#4-%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8-%EA%B4%80%EB%A6%AC" aria-label="4 비밀번호 관리 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. 비밀번호 관리</h2>
+<h3 id="4-1-고수준-비밀번호" style="position:relative;"><a href="#4-1-%EA%B3%A0%EC%88%98%EC%A4%80-%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8" aria-label="4 1 고수준 비밀번호 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4-1. 고수준 비밀번호</h3>
+<p>비밀번호의 규칙을 강제할 수 있는 방법이 있다.</p>
+<p><code class="language-text">validate_password</code> 컴포넌트를 활용하면 된다.</p>
+<p>이는 크게 중요하지 않은 부분인 것 같아 pass</p>
+<h3 id="4-2-비밀번호-이중화" style="position:relative;"><a href="#4-2-%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8-%EC%9D%B4%EC%A4%91%ED%99%94" aria-label="4 2 비밀번호 이중화 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4-2. 비밀번호 이중화</h3>
+<p><strong>[문제]</strong><br>
+스프링이 DB 서버의 하나의 계정을 사용중이다.<br>
+근데 만약 계정의 비밀번호를 바꾼다면 서비스에 장애가 발생할 것이다.<br>
+이로 인해 결국 하나의 암호를 몇 년 동안 사용하게 될 수도 있다.</p>
+<p><strong>[해결책]</strong><br>
+이를 해결하기 위해 비밀번호로 2개의 값을 <strong>동시에</strong> 사용할 수 있도록 하는 기능이 존재한다.</p>
+<p><strong>[설명]</strong><br>
+2개의 비밀번호는 Primary, Secondary로 구분된다.</p>
+<p>가장 최근 설정한 비밀번호는 Primary, 기존 비밀번호는 Secondary가 된다.</p>
+<p>이중 비밀번호를 사용하려면 다음과 같이 기존 비밀번호 변경 문법에 <code class="language-text">RETAIN CURRENT PASSWORD</code> 옵션만 추가하면 된다.</p>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- 비밀번호를 "abcd"로 설정</span>
+mysql<span class="token operator">></span> <span class="token keyword">ALTER</span> <span class="token keyword">USER</span> <span class="token string">'root'</span><span class="token variable">@'localhost'</span> IDENTIFIED <span class="token keyword">BY</span> <span class="token string">'abcd'</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 비밀번호를 "1234"로 변경하면서 기존 비밀번호 "abcd"를 세컨더리 비밀번호로 설정</span>
+mysql<span class="token operator">></span> <span class="token keyword">ALTER</span> <span class="token keyword">USER</span> <span class="token string">'root'</span><span class="token variable">@'localhost'</span> IDENTIFIED <span class="token keyword">BY</span> <span class="token string">'1234'</span> RETAIN <span class="token keyword">CURRENT</span> PASSWORD<span class="token punctuation">;</span></code></pre></div>
+<p>그리고 root 계정으로 접속을 시도할 때 비밀번호를 "abcd" 또는 "1234"로 해도 접근이 가능하다.</p>
+<p>이렇게 설정한 후, 스프링의 접속 설정을 새로운 비밀번호로 변경하고 배포 및 재시작한다.</p>
+<p>이제 기존 비밀번호은 Secondary 비밀번호는 보안을 위해 삭제해주자.</p>
+<h2 id="5-권한" style="position:relative;"><a href="#5-%EA%B6%8C%ED%95%9C" aria-label="5 권한 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. 권한</h2>
+<p>v5.7까지 <strong>글로벌 권한</strong>과 <strong>객체 권한</strong>으로 구분됐다.</p>
+<ul>
+<li><strong>글로벌 권한</strong>: DB 혹은 테이블 이외의 객체에 적용되는 권한
+<ul>
+<li><code class="language-text">GRANT</code> 명령에서 특정 객체를 명시하지 말아야 한다.</li>
+</ul>
+</li>
+<li><strong>객체 권한</strong>: DB나 테이블을 제어하는 데 필요한 권한
+<ul>
+<li><code class="language-text">GRANT</code> 명령으로 권한을 부여할 때 반드시 특정 객체를 명시해야 한다.</li>
+</ul>
+</li>
+<li><strong>ALL or (ALL PRIVILEGES)</strong>: 글로벌과 객체 권한 두 가지 용도로 사용할 수 있다.
+<ul>
+<li>특정 객체에 ALL 권한이 부여되면 해당 객체에 적용될 수 있는 모든 권한을 부여한다.</li>
+<li>글로벌로 ALL이 사용되면 글로벌 수준의 모든 권한이 부여된다.</li>
+</ul>
+</li>
+</ul>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/5a0c95883b63de041d1d81328ee06418/ca12d/static_privilege_1.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 75.9493670886076%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAACJklEQVR42lVUa5ObMAzk//+7tpPep+tN8+BlDIHwCBij7gqbo5nRGLC1Wu3KSZqmkcpaKUojwzjKuq6yLIs4t+DZHeG4+kW8d7JtXkRWrO4Iwbdt2yQpylKu15u03QvRy9/bTa63u7Svl9imlhrRPFG0MvLn61MuHxf5dfmpYWwu3cvK4/Elvz9+iK1LSYjqvVdmXJ/PJzZqMHTKlDHPs7ynScqykLLIZRh6GadBJsSyvFGsEGNymfGsgPzF9QVmjzSVylRIHI5CXGsUqm0tFhKN0yghRaXi+dWtkvQAuN8fqF4qaAQsoWmeo6WuUzAyNkhiFEWh57u21Zy+7yXPMlnQScLqPMzYGfYKxES26jd/tM9vBFKwUIgGKSByeObQMLbcgWGGai0SYrHdeaesCVpVFd5n3Wf0IJEi531myCQoGRgWWo3fYvAMNTTGYLUwZFKNFbAPgG+YojPmlkB/1zCFhisAIoMzIFlydgnWQkPujzAly3KVKNmH1IdhRcuYxxvm0MJN6sR3ukfGVWW1ZX6fZw75piTIlkYp4AT72QIP7Y4N2nKKiqxKANUQDFmELKkhO4kjpYAwiroGwFrpb4E+x4Yss6BLvI6x5bp5Hhp7vyogXQ4tfw82Y8Qm57IoynCnd8PWoCHZU8Pv+77uGoLERFOi8Az+YrXzDYn7vJZsdwx/Ii4YRxKP9DQ25zmc9M6a/4BiUDey5F3enxu032gO9ebY/AP29oY+HKCmtQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="정적 권한 1.png"
+        title=""
+        src="/static/5a0c95883b63de041d1d81328ee06418/f058b/static_privilege_1.png"
+        srcset="/static/5a0c95883b63de041d1d81328ee06418/c26ae/static_privilege_1.png 158w,
+/static/5a0c95883b63de041d1d81328ee06418/6bdcf/static_privilege_1.png 315w,
+/static/5a0c95883b63de041d1d81328ee06418/f058b/static_privilege_1.png 630w,
+/static/5a0c95883b63de041d1d81328ee06418/ca12d/static_privilege_1.png 647w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/791f88bf569ff378a44994f1d2b08b7f/7527b/static_privilege_2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 86.70886075949367%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsTAAALEwEAmpwYAAACNklEQVR42nWTi26jMBBF8//fV22126ZRQkowAYJ5hBAMs3NMTYiiIo2A8fj4zsMbY2I5Z4lUjRWTnuT4vZemtVJVhdgqV8vka/ch/z7e5XP7V+I4kqoudY+RP+9vcjjs5No10na1f2+ccxKevu/FWiu3203wj+PozVaVlJeL3LrO+6dxkv7WS3SIxCSpXK+ddLo2TZNshmHwHwGYJInkeb7AsLIspShUrS2XgwAcj0cxxkiWZZKYRO73+zMQR6Vq+McCsG1bVXFd/lnjf7fbidXD2GMUWNf1A4hxOoEh5WlSgPpRjnmYh056SOMVJqeT1j71UFS/pHwpCg/FDwAwwfiCat6o3u/3HhrH2tjz+TVllLEAADh+1gs9xJZ2aRj+pmkUdPIw6giM2JcuJ4nRgNQrYCOBF+0wXaY5IXXqFWu6URR56KzeyYZU8jxTuvPBqdYDiHNzavhQiOpQglHtovBvBbEfC93fBKmPlDOvCAgq8OVZPqtUSK2p0hhGC2VA2I8BfUqZLhHI4qzSeSBzhsLgR3mhBzCzxAxueChcN2UGZk/zho+ir1PGn5qzjsvZ7xvuvwCpBZuXWv3cCHx02Kv5iSeTgzaEBoZ0X4CMArXiCUqapvWdZ+1JoY7Xdvvlu7y+91rDZyC1CfUjAB8qaNC6+DSNmaXbTsdlUbhuCmkx+WwOt4Jvin9SI32e0Y1LTLiyC5CU/F3UgHkm5xHpw43QAS/UB6CpG68I1aXenEzHya2uKMD/pwQlDJ8ATBoAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="정적 권한 2.png"
+        title=""
+        src="/static/791f88bf569ff378a44994f1d2b08b7f/f058b/static_privilege_2.png"
+        srcset="/static/791f88bf569ff378a44994f1d2b08b7f/c26ae/static_privilege_2.png 158w,
+/static/791f88bf569ff378a44994f1d2b08b7f/6bdcf/static_privilege_2.png 315w,
+/static/791f88bf569ff378a44994f1d2b08b7f/f058b/static_privilege_2.png 630w,
+/static/791f88bf569ff378a44994f1d2b08b7f/7527b/static_privilege_2.png 754w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>v8.0부터는 아래의 동적 권한이 추가됐다.</p>
+<blockquote>
+<p>정적 권한: MySQL 서버의 소스코드에 고정적으로 명시돼 있는 권한
+동적 권한: MySQL 서버의 컴포넌트나 플러그인이 설치되면 그때 등록되는 권한</p>
+</blockquote>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 435px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/02737b5e81b290100a00f98e52b5321a/330eb/dynamic_privilege.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 177.21518987341773%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAjCAYAAACU9ioYAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEsUlEQVR42nWW2Y7jRgxF9f9flJcgC+YhQYI8BDNIZ6a9yNp3u73Im8zwsFSyHCQGCmVLLPKS95Ll4M/Pf8inT99LUUSSlZHkVSJlnc5WLHm5sZUVa0mype4r+eXXH+WHn76T337/WYpyLak+ZwVtW8ly8VXKIpOqzqWuC9luG2m7Sr/nUpaJ7Pdb6fuj9OejnMeVZZGkiQbKY8nSSN8f9PlJgsP+IJuQF4W0bStN3ajDrXRdp85wWsv1ehU+j8dDl9t5jn1VVbY/hoc9D3a7raabq8Nc+F7XatA00qlRmqZyvpzN8Ha7yf1+13WTYbhLXZVml2eZIjvrs8HeBV3XSpLEejiR3Xb3jKrG7Le7d/RcHC5Ll1GqZ899b0F5F3x8fGg9tH5laahAyrPT8ShHXf925h0WRWEry1JL39sGREmSRB26eqWJpnnuxX9c3R7mxC9+Uw63EgnDtYGxGn7sdg5hVZvDRlOFjCzNDO1yuTSSHo9hQshBzuAMp+v12tInWIAxB40M0KoB8CEBdi+XywshfOcgDuM4NgDYYGsp77VeqaZMPfI8k80mlNPpNLKGk+E/a0jtwjA04oaZTQDlpRJCukQFLQe0epYawhvU8InySYpHOH8XIJXFYmGOjByNWOROl7keev/2biK/z52qDgkOQoD4dyyVzV4yPYyjfNwxAjXfIQ2d+QO30SE2URQZwheHW0UIdJjFIfWEORAU6vR6xfBuRfdE4YBsVqu1yc3Iuzpigv1+b/Vomtb6GUdt2xhCnn/9+rdqrJvq6NMuilIJ3FjvT+hBCKOr1crgm7Z0ETnUgYEceA9xRPcyYifgWu0IegU58gIhB9AeEYsRFen4FvQ6nGuRydJqRlEUW0PMCbNeDhV6qp2B40RbDzIqLfpfb29CSfggFe+Y75BBVqXamkMTvSI8HA4TW804YTbRxlouVqSk9qaO/cHLxaWPpJbLlRF4NULOziEIYJm2o24gO2oZeM7qVTI7lQ67Gw7ay7p33dZSJqCT05gyfQsZvFhpRGpCK3l5IBs/ZaZaDY5lEGZZLner38gykTPrjMKcUcvFcmF1hZjPX74o+m6qoW89nsWx6yzfduZwr3cK0ZjApI5BP3bG5eKnzetgELtTGlmtQwPy4vB06sd5WE2p+ztiGB4v6c6dUnNfw+vYJabDXg+/63CA6VgNNhvHOIcwvIwtN1+MNEM43pZznQYnTW9Cx4DQ9P1U9uP+VdhuOFBDVAEprnvGXqZewEbQtB07vxE805wgnvH/S9kPjamX3bQuLBrdEoaREQVJSMNr8CXlqtG7ZDORMhsOvb4Ix4nthiqTBykV1g3LmcNnzyJsJEYtXxxizAscAZ+I6G+jJL2/L2zaPHv12ctolonNHHUOx5TpFBxmY/28Qz8kqI2/hGg70h2UKAZzoucareW8viMphRWf+tHLURyZfNxFP0x/M+ZsIy2EXSrSx6hVh1BTAiEXkZNPbumgy296QeVZYXutDvh4SVE7Jk2kgckKtOf+7MYXesIAVpneh8PRJg2yoTW5AiiNR8F1gA7TNB/Lldt5msDuZeq3232YVKidRzEX97z93Phy/x9hm2box39g/wCkXnExuGuJngAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="동적 권한.png"
+        title=""
+        src="/static/02737b5e81b290100a00f98e52b5321a/330eb/dynamic_privilege.png"
+        srcset="/static/02737b5e81b290100a00f98e52b5321a/c26ae/dynamic_privilege.png 158w,
+/static/02737b5e81b290100a00f98e52b5321a/6bdcf/dynamic_privilege.png 315w,
+/static/02737b5e81b290100a00f98e52b5321a/330eb/dynamic_privilege.png 435w"
+        sizes="(max-width: 435px) 100vw, 435px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<h3 id="5-1-사용자에게-권한-부여하기" style="position:relative;"><a href="#5-1-%EC%82%AC%EC%9A%A9%EC%9E%90%EC%97%90%EA%B2%8C-%EA%B6%8C%ED%95%9C-%EB%B6%80%EC%97%AC%ED%95%98%EA%B8%B0" aria-label="5 1 사용자에게 권한 부여하기 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5-1. 사용자에게 권한 부여하기</h3>
+<p>기본적으로 <code class="language-text">GRANT</code> 명령을 사용한다.</p>
+<p>이때, 부여하려는 권한의 특성에 따라 <code class="language-text">GRANT</code> 명령의 <code class="language-text">ON</code> 절에 명시되는 객체의 내용이 바뀌어야 한다.</p>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- 권한 부여하는 문법의 기본적인 틀</span>
+<span class="token comment">-- 부여하려는 권한을 추가한다. "," 를 구분자로 하여 여러 개를 동시에 명령할 수 있다.</span>
+mysql<span class="token operator">></span> <span class="token keyword">GRANT</span> {권한} <span class="token keyword">ON</span> db<span class="token punctuation">.</span><span class="token keyword">table</span> <span class="token keyword">TO</span> <span class="token string">'user'</span><span class="token variable">@'host'</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 참고: GRANT OPTION 권한은 마지막에 WITH GRANT OPTION을 추가한다.</span>
+mysql<span class="token operator">></span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span> <span class="token keyword">ON</span> db<span class="token punctuation">.</span><span class="token keyword">table</span> <span class="token keyword">TO</span> <span class="token string">'user'</span><span class="token variable">@'host'</span> <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 글로벌 권한은 ON 절에 항상 *.* 을 사용한다.</span>
+<span class="token comment">-- *.*은 모든 DB의 객체를 포함해 MySQL 서버 전체를 의미한다.</span>
+mysql<span class="token operator">></span> <span class="token keyword">GRANT</span> SUPER <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">'user'</span><span class="token variable">@'localhost'</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- DB 권한은 특정 DB에 대해서만 권한을 부여하거나 서버에 존재하는 모든 DB에 대해 권한을 부여할 수 있다.</span>
+<span class="token comment">-- 여기서 DB라 함은 DB 내부에 존재하는 테이블뿐만 아니라 스토어드 프로그램들도 모두 포함이다.</span>
+<span class="token comment">-- 하지만 DB 권한만 부여하는 경우 employees.department와 같이 테이블까지 명시할 수 없다.</span>
+mysql<span class="token operator">></span> <span class="token keyword">GRANT</span> EVENT <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">'user'</span><span class="token variable">@'localhost'</span><span class="token punctuation">;</span>
+mysql<span class="token operator">></span> <span class="token keyword">GRANT</span> EVENT <span class="token keyword">ON</span> employees<span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">'user'</span><span class="token variable">@'localhost'</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 테이블 권한은 서버의 모든 DB에 대해, 특정 DB의 모든 오브젝트에 대해, 특정 DB의 특정 테이블에 대해서 권한을 부여할 수 있다.</span>
+mysql<span class="token operator">></span> <span class="token keyword">GRANT</span> <span class="token keyword">SELECT</span><span class="token punctuation">,</span><span class="token keyword">INSERT</span><span class="token punctuation">,</span><span class="token keyword">UPDATE</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">'user'</span><span class="token variable">@'localhost'</span><span class="token punctuation">;</span>
+mysql<span class="token operator">></span> <span class="token keyword">GRANT</span> <span class="token keyword">SELECT</span><span class="token punctuation">,</span><span class="token keyword">INSERT</span><span class="token punctuation">,</span><span class="token keyword">UPDATE</span> <span class="token keyword">ON</span> employees<span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">'user'</span><span class="token variable">@'localhost'</span><span class="token punctuation">;</span>
+mysql<span class="token operator">></span> <span class="token keyword">GRANT</span> <span class="token keyword">SELECT</span><span class="token punctuation">,</span><span class="token keyword">INSERT</span><span class="token punctuation">,</span><span class="token keyword">UPDATE</span> <span class="token keyword">ON</span> employees<span class="token punctuation">.</span>department <span class="token keyword">TO</span> <span class="token string">'user'</span><span class="token variable">@'localhost'</span><span class="token punctuation">;</span></code></pre></div>
+<h3 id="5-2-실제-권한을-사용한-사례" style="position:relative;"><a href="#5-2-%EC%8B%A4%EC%A0%9C-%EA%B6%8C%ED%95%9C%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%9C-%EC%82%AC%EB%A1%80" aria-label="5 2 실제 권한을 사용한 사례 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5-2. 실제 권한을 사용한 사례</h3>
+<p>우아한테크코스 프로젝트 요구사항 중, 운영 DB 서버를 <code class="language-text">DROP</code>하지 못하도록 하는 요구사항이 있었다.</p>
+<p>이를 <code class="language-text">celuveat_prod</code> 계정의 권한에서 <code class="language-text">DROP</code>을 제거하는 식으로 요구사항을 만족했다.</p>
+<h3 id="5-3-권한-확인하기" style="position:relative;"><a href="#5-3-%EA%B6%8C%ED%95%9C-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0" aria-label="5 3 권한 확인하기 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5-3. 권한 확인하기</h3>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment"># 사용자별 권한 확인</span>
+mysql<span class="token operator">></span> <span class="token keyword">SHOW</span> GRANTS <span class="token keyword">FOR</span> <span class="token string">'사용자계정'</span><span class="token variable">@'호스트'</span><span class="token punctuation">;</span>
+<span class="token comment"># 접속된 계정 권한 확인</span>
+mysql<span class="token operator">></span> <span class="token keyword">SHOW</span> GRANTS <span class="token keyword">FOR</span> <span class="token keyword">CURRENT_USER</span><span class="token punctuation">;</span></code></pre></div>
+<h3 id="5-4-권한-해제하기" style="position:relative;"><a href="#5-4-%EA%B6%8C%ED%95%9C-%ED%95%B4%EC%A0%9C%ED%95%98%EA%B8%B0" aria-label="5 4 권한 해제하기 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5-4. 권한 해제하기</h3>
+<p>권한을 빼앗고 싶을 경우가 있을 것이다.</p>
+<p>그럴 땐 아래 명령어를 이용하면 된다.</p>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">REVOKE</span> 권한<span class="token number">1</span><span class="token punctuation">,</span> 권한<span class="token number">2</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">ON</span> 데이터베이스<span class="token punctuation">.</span>테이블 <span class="token keyword">FROM</span> <span class="token string">'사용자'</span><span class="token variable">@'호스트'</span><span class="token punctuation">;</span></code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 540px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/c558e4af8ef3dff3a32c950deb7c2ecb/07484/before_revoke.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 26.58227848101266%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAABCElEQVR42jWMyVLCUBBF8zUWxRR4eXlTBgIqCOpCrVJQFsho6cqNv3/sBF2cukN33ci4CcaMSYUQrsiyKcZOmqzTCusum7uxY5z4mtp7f0W/H2h3LJ1/uo6oryvS/AblrxnIkJJHLaO+usWWc2wxR4cZRrQV51z0wh9ectZ0rf5Ze8mIaKYDu3LE2gU2ecmby3i1gbXPWGrLS+oaluasq9rLfSU8K81DrHiME56EhbJEx+GQn9yztZavouBdJZy859M7djplbwybgWIr/T5JOMrfwXkO0n+IP2fHSfL3oEfkdcGdLZgqxzzNGu7DmIXJmcSGvK0o20OKhtqrRuvc9B3phEq876b8ArYkqlqUnlC6AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="권한 해제 전"
+        title=""
+        src="/static/c558e4af8ef3dff3a32c950deb7c2ecb/07484/before_revoke.png"
+        srcset="/static/c558e4af8ef3dff3a32c950deb7c2ecb/c26ae/before_revoke.png 158w,
+/static/c558e4af8ef3dff3a32c950deb7c2ecb/6bdcf/before_revoke.png 315w,
+/static/c558e4af8ef3dff3a32c950deb7c2ecb/07484/before_revoke.png 540w"
+        sizes="(max-width: 540px) 100vw, 540px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 515px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/36900f8212c87f5b6173bf2f67551269/fbdcb/after_revoke.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 37.34177215189873%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAABaUlEQVR42i2Q3XKbMBSE8zKNYxtCCkgCBEgIHNudeFI77dRJm870qu//BF+P1Fzs7J4fLcu56ccjwR14GzzvfuHVOn5PC+8u8FNwlTr2fom+qJavpeEs/PxZc6lbXoxN/Yu2nB8UN8oEdDNT6olKtLGP1GZGffRK5aniTAeKaiQrerb3HdvCshH+dKcSbiOv9YehmRJs/0jXLTTtLHWgFAMtZka00lPqxZ04b2XPNIEsb8kF28yw3ohh/Lp1X2gkWUyku11K6eYTY3jCykmsO6YdJUarrTwUg4i7aCRJH2pPLrxayy/X5cDBH/F2YXF7Qr/QG4/VDqscgyQfpB6ayA7XBsYmYsKLLnODKrqUNBnuleXv0zPfxpk/xxOvYc9LP3GxEyeZRR1xnXYJP9zC1e94Ww6pPlvP93akEuPbdMNqYIoJKotXI64e2HWBOSape3SmMLLc5DqxySL/hxY09w2maNnIDVcbzT8xD+1FCvHwGAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="권한 해제 후"
+        title=""
+        src="/static/36900f8212c87f5b6173bf2f67551269/fbdcb/after_revoke.png"
+        srcset="/static/36900f8212c87f5b6173bf2f67551269/c26ae/after_revoke.png 158w,
+/static/36900f8212c87f5b6173bf2f67551269/6bdcf/after_revoke.png 315w,
+/static/36900f8212c87f5b6173bf2f67551269/fbdcb/after_revoke.png 515w"
+        sizes="(max-width: 515px) 100vw, 515px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<h2 id="6-역할role" style="position:relative;"><a href="#6-%EC%97%AD%ED%95%A0role" aria-label="6 역할role permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. 역할(Role)</h2>
+<p>v8.0부터 권한을 묶어 역할(Role)을 사용할 수 있게 됐다.</p>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- 역할 생성</span>
+mysql<span class="token operator">></span> <span class="token keyword">CREATE</span> ROLE role_emp_read<span class="token punctuation">,</span> role_emp_write<span class="token punctuation">;</span>
+
+<span class="token comment">-- 역할에 권한 부여</span>
+mysql<span class="token operator">></span> <span class="token keyword">GRANT</span> <span class="token keyword">SELECT</span> <span class="token keyword">ON</span> employees<span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> role_emp_read<span class="token punctuation">;</span>
+mysql<span class="token operator">></span> <span class="token keyword">GRANT</span> <span class="token keyword">INSERT</span><span class="token punctuation">,</span> <span class="token keyword">UPDATE</span><span class="token punctuation">,</span> <span class="token keyword">DELETE</span> <span class="token keyword">ON</span> employees<span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> role_emp_write<span class="token punctuation">;</span>
+
+<span class="token comment">-- 계정 생성</span>
+mysql<span class="token operator">></span> <span class="token keyword">CREATE</span> <span class="token keyword">USER</span> reader<span class="token variable">@localhost</span> IDENTIFIED <span class="token keyword">BY</span> <span class="token string">'abcd'</span><span class="token punctuation">;</span>
+mysql<span class="token operator">></span> <span class="token keyword">CREATE</span> <span class="token keyword">USER</span> writer<span class="token variable">@localhost</span> IDENTIFIED <span class="token keyword">BY</span> <span class="token string">'1234'</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 계정에 역할 부여</span>
+mysql<span class="token operator">></span> <span class="token keyword">GRANT</span> role_emp_reader <span class="token keyword">TO</span> reader<span class="token variable">@localhost</span><span class="token punctuation">;</span>
+mysql<span class="token operator">></span> <span class="token keyword">GRANT</span> role_emp_writer <span class="token keyword">TO</span> writer<span class="token variable">@localhost</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 역할 활성화</span>
+<span class="token comment">-- 주의! 계정이 로그아웃됐다가 로그인하면 역할이 비활성화된다. 아래 명령어를 통해 활성화를 시켜주자.</span>
+<span class="token comment">-- 자동으로 활성화를 시켜주려면 activate_all_roles_on_login 시스템 변수를 ON 으로 설정해주자.</span>
+mysql<span class="token operator">></span> <span class="token keyword">SET</span> ROLE role_emp_reader<span class="token punctuation">;</span>
+mysql<span class="token operator">></span> <span class="token keyword">SET</span> ROLE role_emp_writer<span class="token punctuation">;</span></code></pre></div></section><hr/><footer><div class="bio"><div data-gatsby-image-wrapper="" style="width:75px;height:75px" class="gatsby-image-wrapper bio-avatar"><div aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear;background-color:#a89888;width:75px;height:75px;position:relative"></div><picture><source type="image/avif" data-srcset="/static/fdc99851401fabaca2d68d6b9aefa2fe/1cf05/profile_img.avif 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/13b46/profile_img.avif 150w" sizes="75px"/><source type="image/webp" data-srcset="/static/fdc99851401fabaca2d68d6b9aefa2fe/96891/profile_img.webp 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/3554d/profile_img.webp 150w" sizes="75px"/><img data-gatsby-image-ssr="" layout="fixed" data-main-image="" style="opacity:0" sizes="75px" decoding="async" loading="lazy" data-src="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg" data-srcset="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/2e46f/profile_img.jpg 150w" alt="Profile picture"/></picture><noscript><picture><source type="image/avif" srcSet="/static/fdc99851401fabaca2d68d6b9aefa2fe/1cf05/profile_img.avif 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/13b46/profile_img.avif 150w" sizes="75px"/><source type="image/webp" srcSet="/static/fdc99851401fabaca2d68d6b9aefa2fe/96891/profile_img.webp 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/3554d/profile_img.webp 150w" sizes="75px"/><img data-gatsby-image-ssr="" layout="fixed" data-main-image="" style="opacity:0" sizes="75px" decoding="async" loading="lazy" src="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg" srcSet="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/2e46f/profile_img.jpg 150w" alt="Profile picture"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div><p>1. 2025년이 끝나기 전까지 <strong>기본기를 완벽히 정리한다.</strong><br/>2. <strong>내가 좋아하는 것</strong>을 차곡히 기록한다.<br/>3. 하루하루는 치열하게, 인생은 흘러가는대로~</p></div></footer></article></div><aside class="toc-container"><h3 class="toc-title">목차</h3><div class="toc-content"><ul>
+<li>
+<p><a href="#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0">들어가며</a></p>
+</li>
+<li>
+<p><a href="#%EC%99%9C-%EC%95%8C%EC%95%84%EC%95%BC-%ED%95%A0%EA%B9%8C">왜 알아야 할까?</a></p>
+</li>
+<li>
+<p><a href="#1-%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%8B%9D%EB%B3%84-%EB%B0%A9%EB%B2%95">1. 사용자 식별 방법</a></p>
+<ul>
+<li><a href="#1-1-%EB%A7%8C%EC%95%BD-%EB%AA%A8%EB%93%A0-%EC%A7%80%EC%A0%90%EC%97%90%EC%84%9C-%EC%A0%91%EC%86%8D%EC%9D%84-%ED%97%88%EC%9A%A9%ED%95%98%EA%B3%A0-%EC%8B%B6%EB%8B%A4%EB%A9%B4">1-1. 만약 모든 지점에서 접속을 허용하고 싶다면</a></li>
+<li><a href="#1-2-%EA%B3%84%EC%A0%95%EC%9D%98-host%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%B4-%EB%B3%B4%EC%95%88%EC%9D%84-%EC%8B%A0%EA%B2%BD-%EC%93%B4-%EC%82%AC%EB%A1%80">1-2. 계정의 HOST를 이용해 보안을 신경 쓴 사례</a></li>
+<li><a href="#1-3-%EA%B3%84%EC%A0%95-%EC%8B%9D%EB%B3%84%EC%97%90%EC%84%9C-%EC%A3%BC%EC%9D%98%ED%95%A0-%EC%A0%90-%EC%95%84%EC%9D%B4%EB%94%94%EB%8A%94-%EA%B0%99%EA%B3%A0-%ED%98%B8%EC%8A%A4%ED%8A%B8%EA%B0%80-%EB%8B%A4%EB%A5%B8-%EA%B2%BD%EC%9A%B0">1-3. 계정 식별에서 주의할 점: 아이디는 같고 호스트가 다른 경우</a></li>
+<li><a href="#1-4-%EC%8B%A4%ED%97%981-%EB%A7%8C%EC%95%BD-localhost%EC%99%80-%ED%98%84%EC%9E%AC-ip-%EC%A3%BC%EC%86%8C%EB%A1%9C-%EC%84%A4%EC%A0%95%ED%95%9C%EB%8B%A4%EB%A9%B4">1-4. 실험1: 만약 <code class="language-text">localhost</code>와 현재 IP 주소로 설정한다면?</a></li>
+<li><a href="#1-5-%EC%8B%A4%ED%97%982-%EC%8B%A4%ED%97%981%EC%97%90-%EC%9D%B4-%EC%B6%94%EA%B0%80%EB%90%9C%EB%8B%A4%EB%A9%B4">1-5. 실험2: 실험1에 <code class="language-text">%</code>이 추가된다면?</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#2-%EC%82%AC%EC%9A%A9%EC%9E%90-%EA%B3%84%EC%A0%95-%EA%B4%80%EB%A6%AC">2. 사용자 계정 관리</a></p>
+<ul>
+<li>
+<p><a href="#2-1-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B3%84%EC%A0%95%EA%B3%BC-%EC%9D%BC%EB%B0%98-%EA%B3%84%EC%A0%95">2-1. 시스템 계정과 일반 계정</a></p>
+</li>
+<li>
+<p><a href="#2-2-%EB%91%90-%EA%B3%84%EC%A0%95%EC%9D%98-%EC%B0%A8%EC%9D%B4">2-2. 두 계정의 차이</a></p>
+<ul>
+<li><a href="#%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B3%84%EC%A0%95">시스템 계정</a></li>
+<li><a href="#%EC%9D%BC%EB%B0%98-%EA%B3%84%EC%A0%95">일반 계정</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#2-3-%EB%82%B4%EC%9E%A5%EB%90%9C-%EA%B3%84%EC%A0%95%EB%93%A4">2-3. 내장된 계정들</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#3-%EA%B3%84%EC%A0%95-%EC%83%9D%EC%84%B1">3. 계정 생성</a></p>
+<ul>
+<li><a href="#3-1-%EB%8B%A4%EC%96%91%ED%95%9C-%EC%98%B5%EC%85%98-%EC%84%A4%EC%A0%95">3-1. 다양한 옵션 설정</a></li>
+<li><a href="#3-2-identified-with">3-2. IDENTIFIED WITH</a></li>
+<li><a href="#3-2-require">3-2. REQUIRE</a></li>
+<li><a href="#3-3-password-expire">3-3. PASSWORD EXPIRE</a></li>
+<li><a href="#3-4-password-history">3-4. PASSWORD HISTORY</a></li>
+<li><a href="#3-5-password-reuse-interval">3-5. PASSWORD REUSE INTERVAL</a></li>
+<li><a href="#3-6-password-require">3-6. PASSWORD REQUIRE</a></li>
+<li><a href="#3-7-account-lock--unlock">3-7. ACCOUNT LOCK / UNLOCK</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#4-%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8-%EA%B4%80%EB%A6%AC">4. 비밀번호 관리</a></p>
+<ul>
+<li><a href="#4-1-%EA%B3%A0%EC%88%98%EC%A4%80-%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8">4-1. 고수준 비밀번호</a></li>
+<li><a href="#4-2-%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8-%EC%9D%B4%EC%A4%91%ED%99%94">4-2. 비밀번호 이중화</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#5-%EA%B6%8C%ED%95%9C">5. 권한</a></p>
+<ul>
+<li><a href="#5-1-%EC%82%AC%EC%9A%A9%EC%9E%90%EC%97%90%EA%B2%8C-%EA%B6%8C%ED%95%9C-%EB%B6%80%EC%97%AC%ED%95%98%EA%B8%B0">5-1. 사용자에게 권한 부여하기</a></li>
+<li><a href="#5-2-%EC%8B%A4%EC%A0%9C-%EA%B6%8C%ED%95%9C%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%9C-%EC%82%AC%EB%A1%80">5-2. 실제 권한을 사용한 사례</a></li>
+<li><a href="#5-3-%EA%B6%8C%ED%95%9C-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0">5-3. 권한 확인하기</a></li>
+<li><a href="#5-4-%EA%B6%8C%ED%95%9C-%ED%95%B4%EC%A0%9C%ED%95%98%EA%B8%B0">5-4. 권한 해제하기</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#6-%EC%97%AD%ED%95%A0role">6. 역할(Role)</a></p>
+</li>
+</ul></div></aside></div><nav class="blog-post-nav"><ul><li><a rel="이전 글" href="/why-series/why-seperate-domain-and-view/">Domain과 View를 분리한다. 왜?</a></li><li><a rel="다음 글" href="/why-series/why-use-final/">final 키워드를 사용해 값의 변경을 막아라. 왜?</a></li></ul></nav></main><footer style="text-align:center;padding:var(--spacing-12) 0;margin-top:var(--spacing-16);border-top:1px solid var(--color-border);color:var(--color-text-light);font-size:var(--fontSize-0)">© <!-- -->2025<!-- --> kdkdhoho. Built with<!-- --> <a href="https://www.gatsbyjs.com" style="color:var(--color-primary);text-decoration:none;font-weight:500">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/데이터베이스/real-mysql-book-study/03-user-identification/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-47f031f2ceb0019662ea.js\"],\"component---src-pages-404-js\":[\"/component---src-pages-404-js-8fe22ac8e65b50194c16.js\"],\"component---src-pages-index-js\":[\"/component---src-pages-index-js-54c3b9751cd04b668b54.js\"],\"component---src-pages-search-js\":[\"/component---src-pages-search-js-c4751f05f6f25b584bbc.js\"],\"component---src-templates-blog-post-js\":[\"/component---src-templates-blog-post-js-76ba1df29747bd8b2657.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="422a0d088d697675178c";</script><script src="/webpack-runtime-c65889e3493a4af2c4aa.js" async></script><script src="/framework-647153102893cffe9a5c.js" async></script><script src="/app-47f031f2ceb0019662ea.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>

@@ -1,0 +1,1177 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 5.14.5"/><meta name="description" content="10. 실행 계획" data-gatsby-head="true"/><meta property="og:title" content="MySQL의 실행 계획에 대해 알아보자" data-gatsby-head="true"/><meta property="og:description" content="10. 실행 계획" data-gatsby-head="true"/><meta property="og:type" content="website" data-gatsby-head="true"/><meta name="twitter:card" content="summary" data-gatsby-head="true"/><meta name="twitter:creator" content="" data-gatsby-head="true"/><meta name="twitter:title" content="MySQL의 실행 계획에 대해 알아보자" data-gatsby-head="true"/><meta name="twitter:description" content="10. 실행 계획" data-gatsby-head="true"/><style data-href="/styles.4bf6bf70f543a2e73c8e.css" data-identity="gatsby-global-css">@font-face{font-display:swap;font-family:Pretendard;font-style:normal;font-weight:400;src:url(/static/pretendard-latin-400-normal-38bed7de46e7b9049cedbede041d23ed.woff2) format("woff2"),url(/static/pretendard-latin-400-normal-303253288b0ba99db532e29a364b0c09.woff) format("woff")}
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{-webkit-text-size-adjust:100%;line-height:1.15}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}[hidden]{display:none}:root{--maxWidth-none:"none";--maxWidth-xs:20rem;--maxWidth-sm:24rem;--maxWidth-md:28rem;--maxWidth-lg:32rem;--maxWidth-xl:36rem;--maxWidth-2xl:42rem;--maxWidth-3xl:48rem;--maxWidth-4xl:56rem;--maxWidth-full:"100%";--maxWidth-wrapper:var(--maxWidth-2xl);--maxWidth-wrapper-large:64rem;--spacing-px:"1px";--spacing-0:0;--spacing-1:0.25rem;--spacing-2:0.5rem;--spacing-3:0.75rem;--spacing-4:1rem;--spacing-5:1.25rem;--spacing-6:1.5rem;--spacing-8:2rem;--spacing-10:2.5rem;--spacing-12:3rem;--spacing-16:4rem;--spacing-20:5rem;--spacing-24:6rem;--spacing-32:8rem;--fontFamily-sans:"Pretendard",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--fontFamily-serif:"Pretendard","Georgia",Cambria,"Times New Roman",Times,serif;--font-body:var(--fontFamily-serif);--font-heading:var(--fontFamily-sans);--fontWeight-normal:400;--fontWeight-bold:700;--fontWeight-black:900;--fontSize-root:16px;--lineHeight-none:1;--lineHeight-tight:1.1;--lineHeight-normal:1.5;--lineHeight-relaxed:1.625;--fontSize-0:0.833rem;--fontSize-1:1rem;--fontSize-2:1.2rem;--fontSize-3:1.44rem;--fontSize-4:1.728rem;--fontSize-5:2.074rem;--fontSize-6:2.488rem;--fontSize-7:2.986rem;--color-primary:#00b02f;--color-text:#2e353f;--color-text-light:#4f5969;--color-heading:#1a202c;--color-heading-black:#000;--color-accent:#d1dce5;--color-bg:#fff;--color-bg-secondary:#f8fafc;--color-border:#e2e8f0;--color-card-bg:linear-gradient(145deg,#fff,#f8fafc)}[data-theme=dark]{--color-text:#d1d5db;--color-text-light:#9ca3af;--color-heading:#f9fafb;--color-heading-black:#fff;--color-accent:#4b5563;--color-bg:#1f2937;--color-bg-secondary:#374151;--color-border:#4b5563;--color-card-bg:linear-gradient(145deg,#374151,#4b5563)}*,:after,:before{box-sizing:border-box}html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:var(--fontSize-root);line-height:var(--lineHeight-normal)}body{background-color:var(--color-bg);color:var(--color-text);font-family:var(--font-body);font-size:var(--fontSize-1);transition:all .3s ease-in-out}@keyframes fadeInUp{0%{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}@keyframes pulse{0%,to{opacity:1}50%{opacity:.7}}.global-wrapper,.post-list-item{animation:fadeInUp .6s ease-out}.post-list-item{animation-fill-mode:both}.post-list-item:first-child{animation-delay:.1s}.post-list-item:nth-child(2){animation-delay:.2s}.post-list-item:nth-child(3){animation-delay:.3s}.post-list-item:nth-child(4){animation-delay:.4s}.post-list-item:nth-child(5){animation-delay:.5s}.post-list-item:nth-child(6){animation-delay:.6s}footer{padding:var(--spacing-6) var(--spacing-0)}hr{background:var(--color-accent);border:0;height:1px}h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);letter-spacing:-.025em;line-height:var(--lineHeight-tight);margin-bottom:var(--spacing-6);margin-top:var(--spacing-12)}h2,h3,h4,h5,h6{color:var(--color-heading);font-weight:var(--fontWeight-bold)}h1{color:var(--color-heading-black);font-size:var(--fontSize-6);font-weight:var(--fontWeight-black)}h2{font-size:var(--fontSize-5)}h3{font-size:var(--fontSize-4)}h4{font-size:var(--fontSize-3)}h5{font-size:var(--fontSize-2)}h6{font-size:var(--fontSize-1)}h1>a{color:var(--color-primary);text-decoration:none}h2>a,h3>a,h4>a,h5>a,h6>a{color:inherit;text-decoration:none}p{--baseline-multiplier:0.179;--x-height-multiplier:0.35;line-height:var(--lineHeight-relaxed);margin:var(--spacing-0) var(--spacing-0) var(--spacing-8) var(--spacing-0)}ol,p,ul{padding:var(--spacing-0)}ol,ul{list-style-image:none;list-style-position:outside;margin-bottom:var(--spacing-8);margin-left:var(--spacing-0);margin-right:var(--spacing-0)}ol li,ul li{padding-left:var(--spacing-0)}li>p,ol li,ul li{margin-bottom:calc(var(--spacing-8)/2)}li :last-child{margin-bottom:var(--spacing-0)}li>ul{margin-left:var(--spacing-8);margin-top:calc(var(--spacing-8)/2)}blockquote{border-left:var(--spacing-1) solid var(--color-primary);color:var(--color-text-light);font-size:var(--fontSize-2);font-style:italic;margin-bottom:var(--spacing-8);margin-left:calc(var(--spacing-6)*-1);margin-right:var(--spacing-8);padding:var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-6)}blockquote>:last-child{margin-bottom:var(--spacing-0)}blockquote>ol,blockquote>ul{list-style-position:inside}table{border-collapse:collapse;border-spacing:.25rem;margin-bottom:var(--spacing-8);width:100%}table thead tr th{border-bottom:1px solid var(--color-accent)}a{color:var(--color-primary)}a:focus,a:hover{text-decoration:none}.blog-post-layout{margin:0 auto;max-width:768px;position:relative}.blog-post,.blog-post-container{width:100%}.global-wrapper{margin:var(--spacing-0) auto;max-width:var(--maxWidth-wrapper-large);padding:var(--spacing-10) var(--spacing-5)}@media (min-width:1024px){.global-wrapper{padding:var(--spacing-10) var(--spacing-8)}}.global-wrapper[data-is-root-path=true] .bio{margin-bottom:var(--spacing-20)}.global-header{margin-bottom:var(--spacing-12);text-align:center}.main-heading{-webkit-text-fill-color:transparent;animation:gradient 3s ease-in-out infinite;background:linear-gradient(135deg,var(--color-primary),#00d435,var(--color-primary));-webkit-background-clip:text;background-clip:text;background-size:200% auto;font-size:var(--fontSize-7);font-weight:var(--fontWeight-black);letter-spacing:-.02em;margin:0;position:relative}@keyframes gradient{0%,to{background-position:0 50%}50%{background-position:100% 50%}}.main-heading:hover{transform:scale(1.05);transition:transform .3s ease}.posts-grid{display:grid;gap:var(--spacing-8);grid-template-columns:1fr;list-style:none;margin:0;padding:0}@media (min-width:768px){.posts-grid{gap:var(--spacing-10);grid-template-columns:repeat(2,1fr)}}@media (min-width:1400px){.posts-grid{gap:var(--spacing-12);grid-template-columns:repeat(3,1fr)}}.post-list-item{background:var(--color-card-bg);border:1px solid var(--color-border);border-radius:16px;display:flex;flex-direction:column;height:100%;margin-bottom:0;min-height:280px;overflow:hidden;padding:var(--spacing-8);position:relative;transition:all .3s cubic-bezier(.4,0,.2,1)}.post-list-item:before{background:linear-gradient(90deg,var(--color-primary),#00d435);content:"";height:4px;left:0;opacity:0;position:absolute;right:0;top:0;transition:opacity .3s ease}.post-list-item:hover{border-color:var(--color-primary);box-shadow:0 12px 32px rgba(0,176,47,.15);transform:translateY(-4px)}.post-list-item:hover:before{opacity:1}.post-list-item p{line-height:var(--lineHeight-relaxed);margin-bottom:var(--spacing-0)}.post-list-item h2{color:var(--color-heading-black);font-size:var(--fontSize-4);font-weight:var(--fontWeight-black);line-height:var(--lineHeight-tight);margin-bottom:var(--spacing-3);margin-top:var(--spacing-0)}.post-list-item h2 a{color:inherit;display:inline-block;position:relative;text-decoration:none;transition:all .3s cubic-bezier(.4,0,.2,1)}.post-list-item h2 a:after{background:linear-gradient(90deg,var(--color-primary),#00d435);border-radius:2px;bottom:-4px;content:"";height:3px;left:0;position:absolute;transition:width .3s ease-out;width:0}.post-list-item h2 a:hover{-webkit-text-fill-color:transparent;background:linear-gradient(135deg,var(--color-primary),#00d435);-webkit-background-clip:text;background-clip:text;transform:translateY(-2px)}.post-list-item h2 a:hover mark,.post-list-item h2 a:hover span mark,[data-theme=dark] .post-list-item h2 a:hover mark,[data-theme=dark] .post-list-item h2 a:hover span mark{-webkit-text-fill-color:#fff!important;background:var(--color-primary)!important;-webkit-background-clip:initial!important;background-clip:initial!important;color:#fff!important}.post-list-item h2 a:hover:after{width:100%}.post-list-item header{flex-shrink:0;margin-bottom:var(--spacing-4)}.post-list-item header small{color:var(--color-text-light);font-size:var(--fontSize-0);font-weight:500}.post-list-item section{display:flex;flex:1 1;flex-direction:column;justify-content:space-between}.post-list-item section p{flex:1 1;margin-bottom:var(--spacing-4)}.post-tags{margin-top:var(--spacing-4)}.post-tag{background-color:#f1f5f9;border:1px solid #e2e8f0;border-radius:20px;color:var(--color-text-light);display:inline-block;font-size:var(--fontSize-0);font-weight:500;margin-bottom:var(--spacing-1);margin-right:var(--spacing-2);padding:var(--spacing-1) var(--spacing-3);transition:all .2s ease-in-out}.post-tag:hover{background-color:var(--color-primary);border-color:var(--color-primary);color:#fff}.header-link-home{font-family:var(--font-heading);font-size:var(--fontSize-2);font-weight:var(--fontWeight-bold);text-decoration:none}.bio{align-items:center;display:flex;justify-content:center;margin-bottom:var(--spacing-16)}.bio p,.bio-avatar{margin-bottom:var(--spacing-0)}.bio-avatar{border-radius:100%;margin-right:var(--spacing-4);min-width:50px}.blog-post header h1{margin:var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0)}.blog-post header p{font-family:var(--font-heading),serif;font-size:var(--fontSize-2)}.post-date{margin-bottom:var(--spacing-2)}.scroll-progress{background:linear-gradient(90deg,var(--color-primary),#00d435);height:3px;left:0;position:fixed;top:0;transition:width .25s ease-out;width:0;z-index:1000}.blog-post-nav{background:var(--color-card-bg);border:1px solid var(--color-border);border-radius:16px;margin-top:var(--spacing-16);padding:var(--spacing-8)}.blog-post-nav ul{display:flex;flex-wrap:wrap;gap:var(--spacing-6);justify-content:space-between;list-style:none;margin:var(--spacing-0);padding:0}.blog-post-nav li{flex:1 1;min-width:0}.blog-post-nav a{background:var(--color-bg);border:2px solid var(--color-border);border-radius:12px;color:var(--color-text);display:block;overflow:hidden;padding:var(--spacing-4) var(--spacing-6);position:relative;text-decoration:none;transition:all .3s ease}.blog-post-nav a:hover{border-color:var(--color-primary);box-shadow:0 6px 20px rgba(0,176,47,.15);transform:translateY(-2px)}.blog-post-nav a:before{color:var(--color-text-light);content:attr(rel);display:block;font-size:var(--fontSize-0);letter-spacing:.5px;margin-bottom:var(--spacing-1);text-transform:uppercase}.blog-post header{border-bottom:3px solid var(--color-accent);margin-bottom:var(--spacing-12);padding-bottom:var(--spacing-8);position:relative;text-align:center}.blog-post header:after{background:linear-gradient(90deg,var(--color-primary),#00d435);border-radius:2px;bottom:-3px;content:"";height:3px;left:50%;position:absolute;transform:translateX(-50%);width:60px}.blog-post header h1{-webkit-text-fill-color:transparent;background:linear-gradient(135deg,var(--color-heading-black),var(--color-primary));-webkit-background-clip:text;background-clip:text;font-size:var(--fontSize-6);font-weight:var(--fontWeight-black);letter-spacing:-.02em;line-height:var(--lineHeight-tight);margin:var(--spacing-0) var(--spacing-0) var(--spacing-6) var(--spacing-0);position:relative}.blog-post header h1:before{-webkit-text-fill-color:transparent;background:rgba(0,176,47,.1);-webkit-background-clip:text;background-clip:text;content:attr(itemProp);left:2px;position:absolute;top:2px;z-index:-1}.gatsby-highlight{border-radius:12px;margin-bottom:var(--spacing-8);overflow:hidden}@media (max-width:42rem){.global-wrapper{padding:var(--spacing-6) var(--spacing-4)}.main-heading{font-size:var(--fontSize-5)}.posts-grid{gap:var(--spacing-6)}.post-list-item{padding:var(--spacing-6)}.post-list-item h2{font-size:var(--fontSize-3)}.blog-post-nav{padding:var(--spacing-6)}.blog-post-nav ul{flex-direction:column;gap:var(--spacing-4)}.blog-post-nav a{padding:var(--spacing-4);text-align:center}blockquote{margin-left:var(--spacing-0);padding:var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4)}ol,ul{list-style-position:inside}.blog-post header{text-align:left}.bio{flex-direction:column;text-align:center}.bio-avatar{margin-bottom:var(--spacing-4);margin-right:0}}@media (min-width:43rem) and (max-width:64rem){.global-wrapper{padding:var(--spacing-8) var(--spacing-6)}.posts-grid{gap:var(--spacing-8);grid-template-columns:repeat(2,1fr)}.post-list-item{padding:var(--spacing-6)}.main-heading{font-size:var(--fontSize-6)}}@media (min-width:80rem){.global-wrapper{max-width:1400px}.posts-grid{gap:var(--spacing-16);grid-template-columns:repeat(3,1fr)}.post-list-item{min-height:320px}}.toc-container{background:var(--color-bg-secondary);border:1px solid var(--color-border);border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,.1);height:fit-content;left:calc(50% + var(--maxWidth-2xl)/2 + 2rem);max-height:calc(100vh - 4rem);overflow-y:auto;padding:1.5rem;position:fixed;top:2rem;width:280px;z-index:100}@media (min-width:1400px){.toc-container{left:calc(50% + var(--maxWidth-2xl)/2 + 3rem);width:320px}}@media (max-width:1200px){.blog-post-layout{max-width:100%;padding:0 1rem}.toc-container{background:var(--color-card-bg);margin:var(--spacing-8) 0;position:static;width:100%}}@media (max-width:768px){.toc-container{margin:var(--spacing-6) 0;padding:var(--spacing-6)}}.toc-title{border-bottom:2px solid var(--color-primary);color:var(--color-heading);font-size:1rem;font-weight:700;margin-bottom:1rem;padding-bottom:.5rem}.toc-container ul{list-style:none;margin-bottom:0;padding-left:0}.toc-container>ul>li{margin-bottom:.55rem}.toc-container ul ul li{margin-bottom:.5rem}.toc-container ul li a{border-radius:4px;color:var(--color-text-light);display:block;font-size:.875rem;line-height:1.1;padding:.1rem 0;text-decoration:none;transition:all .2s ease-in-out}.toc-container ul li a:hover{background-color:rgba(0,176,47,.05);color:var(--color-primary);padding-left:.5rem}.toc-container ul li a.active{background-color:rgba(0,176,47,.1);color:var(--color-primary);font-weight:600;padding-left:.5rem}.toc-container ul ul{margin-top:.25rem;padding-left:1rem}.toc-container .toc-content{font-size:.875rem;line-height:1.5}.toc-container .toc-content>ul{margin:0}.toc-container .toc-content ul li{margin:.25rem 0;position:relative}.toc-container .toc-content ul ul li{border-left:1px solid var(--color-border);padding-left:1rem}.toc-container .toc-content ul ul li:last-child{border-left:1px solid transparent}.toc-container .toc-content ul ul li:before{color:var(--color-text-light);content:"└";font-size:.75rem;left:-.5rem;position:absolute}.tags-container{margin-top:var(--spacing-4)}.tag,.tags-container{margin-bottom:var(--spacing-2)}.tag{background:linear-gradient(135deg,#f1f5f9,#e2e8f0);border:1px solid #cbd5e1;border-radius:20px;color:var(--color-primary);display:inline-block;font-size:var(--fontSize-0);font-weight:600;margin-right:var(--spacing-2);overflow:hidden;padding:var(--spacing-2) var(--spacing-4);position:relative;transition:all .3s cubic-bezier(.4,0,.2,1)}.tag:before{background:linear-gradient(90deg,transparent,hsla(0,0%,100%,.6),transparent);content:"";height:100%;left:-100%;position:absolute;top:0;transition:left .5s;width:100%}.tag:hover{background:linear-gradient(135deg,var(--color-primary),#00d435);border-color:var(--color-primary);box-shadow:0 4px 12px rgba(0,176,47,.3);color:#fff;cursor:pointer;transform:translateY(-2px)}.tag:hover:before{left:100%}.top-buttons{display:flex;gap:var(--spacing-3);position:fixed;right:var(--spacing-6);top:var(--spacing-6);z-index:1000}.theme-toggle{align-items:center;background:var(--color-bg);border:2px solid var(--color-border);border-radius:50%;box-shadow:0 4px 12px rgba(0,0,0,.1);cursor:pointer;display:flex;height:50px;justify-content:center;transition:all .3s cubic-bezier(.4,0,.2,1);width:50px}.theme-toggle:hover{border-color:var(--color-primary);box-shadow:0 6px 20px rgba(0,176,47,.2);transform:scale(1.1) rotate(10deg)}.theme-toggle:active{transform:scale(.95)}.theme-toggle-icon{font-size:20px;transition:transform .3s ease}.theme-toggle:hover .theme-toggle-icon{transform:rotate(20deg)}[data-theme=dark] .theme-toggle{box-shadow:0 4px 12px rgba(0,0,0,.3)}[data-theme=dark] .theme-toggle:hover{box-shadow:0 6px 20px rgba(0,176,47,.4)}.search-container{position:relative}.search-toggle{align-items:center;background:var(--color-bg);border:2px solid var(--color-border);border-radius:50%;box-shadow:0 4px 12px rgba(0,0,0,.1);cursor:pointer;display:flex;font-size:18px;height:50px;justify-content:center;transition:all .3s cubic-bezier(.4,0,.2,1);width:50px}.search-toggle:hover{border-color:var(--color-primary);box-shadow:0 6px 20px rgba(0,176,47,.2);transform:scale(1.1)}.search-toggle:active{transform:scale(.95)}.search-dropdown{animation:slideDown .2s ease-out;background:var(--color-bg);border:2px solid var(--color-border);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.15);overflow:hidden;position:absolute;right:0;top:60px;width:350px}@keyframes slideDown{0%{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}.search-input{background:var(--color-bg);border:none;border-bottom:1px solid var(--color-border);color:var(--color-text);font-size:var(--fontSize-1);outline:none;padding:var(--spacing-4);width:100%}.search-input::placeholder{color:var(--color-text-light)}.search-results{max-height:350px;overflow-y:auto}.search-results-header{align-items:center;background:var(--color-bg-secondary);border-bottom:1px solid var(--color-border);display:flex;font-size:var(--fontSize-0);justify-content:space-between;padding:var(--spacing-3) var(--spacing-4)}.search-results-header span{color:var(--color-heading);font-weight:600}.search-results-header small{color:var(--color-text-light);font-size:calc(var(--fontSize-0)*.85)}.search-result-item{border-bottom:1px solid var(--color-border);cursor:pointer;padding:var(--spacing-4);position:relative;transition:all .2s ease}.search-result-item:hover{background:var(--color-bg-secondary);border-left:3px solid var(--color-primary);padding-left:calc(var(--spacing-4) - 3px);transform:translateX(4px)}.search-result-item:last-child{border-bottom:none}.search-result-item:active{transform:translateX(2px)}.search-result-item h4{color:var(--color-heading);font-size:var(--fontSize-1);line-height:var(--lineHeight-tight);margin:0 0 var(--spacing-2) 0}.search-result-item p{color:var(--color-text-light);font-size:var(--fontSize-0);line-height:var(--lineHeight-normal);margin:0 0 var(--spacing-1) 0}.search-result-item small{color:var(--color-text-light);font-size:calc(var(--fontSize-0)*.9)}.search-no-results{color:var(--color-text-light);padding:var(--spacing-8);text-align:center}.search-no-results span{display:block;font-size:2rem;margin-bottom:var(--spacing-3)}.search-no-results p{color:var(--color-text);font-size:var(--fontSize-1);font-weight:500;margin:0 0 var(--spacing-2) 0}.search-no-results small{color:var(--color-text-light);font-size:var(--fontSize-0)}[data-theme=dark] .search-toggle{box-shadow:0 4px 12px rgba(0,0,0,.3)}[data-theme=dark] .search-toggle:hover{box-shadow:0 6px 20px rgba(0,176,47,.4)}[data-theme=dark] .search-dropdown{box-shadow:0 12px 32px rgba(0,0,0,.4)}.search-page{margin:0 auto;max-width:var(--maxWidth-wrapper-large)}.search-page-header{margin-bottom:var(--spacing-12);padding:var(--spacing-8) 0;text-align:center}.search-page-header h1{-webkit-text-fill-color:transparent;background:linear-gradient(135deg,var(--color-heading-black),var(--color-primary));-webkit-background-clip:text;background-clip:text;font-size:var(--fontSize-6);margin-bottom:var(--spacing-6)}.search-page-input-container{align-items:center;display:flex;gap:var(--spacing-3);margin:0 auto;max-width:600px}.search-page-input{background:var(--color-bg);border:2px solid var(--color-border);border-radius:50px;color:var(--color-text);flex:1 1;font-size:var(--fontSize-1);outline:none;padding:var(--spacing-4) var(--spacing-6);transition:all .3s ease}.search-page-input:focus{border-color:var(--color-primary);box-shadow:0 0 0 3px rgba(0,176,47,.1)}.search-page-input::placeholder{color:var(--color-text-light)}.search-page-button{background:linear-gradient(135deg,var(--color-primary),#00d435);border:none;border-radius:50px;color:#fff;cursor:pointer;font-size:var(--fontSize-1);font-weight:600;padding:var(--spacing-4) var(--spacing-8);transition:all .3s ease;white-space:nowrap}.search-page-button:hover{box-shadow:0 6px 20px rgba(0,176,47,.3);transform:translateY(-2px)}.search-page-button:active{transform:translateY(0)}.search-results-header-section{align-items:center;display:flex;flex-wrap:wrap;gap:var(--spacing-4);justify-content:center;margin-bottom:var(--spacing-8);position:relative}.search-results-title{color:var(--color-heading);font-size:var(--fontSize-4);margin:0;text-align:center}.search-sort-container{align-items:center;display:flex;gap:var(--spacing-2);position:absolute;right:0;top:50%;transform:translateY(-50%)}.search-sort-container label{color:var(--color-text-light);font-size:var(--fontSize-0);font-weight:500}.search-sort-select{background:var(--color-bg);border:1px solid var(--color-border);border-radius:8px;color:var(--color-text);cursor:pointer;font-size:var(--fontSize-0);outline:none;padding:var(--spacing-2) var(--spacing-3);transition:all .2s ease}.search-sort-select:focus{border-color:var(--color-primary);box-shadow:0 0 0 2px rgba(0,176,47,.1)}.search-page-placeholder{color:var(--color-text-light);padding:var(--spacing-16) var(--spacing-8);text-align:center}.search-page-placeholder span{display:block;font-size:4rem;margin-bottom:var(--spacing-6)}.search-page-placeholder h3{color:var(--color-heading);font-size:var(--fontSize-4);margin-bottom:var(--spacing-4)}.search-page-placeholder p{font-size:var(--fontSize-1);margin-bottom:var(--spacing-2)}.search-no-results-page{padding:var(--spacing-16) var(--spacing-8);text-align:center}.search-no-results-page span{display:block;font-size:4rem;margin-bottom:var(--spacing-6)}.search-no-results-page h3{color:var(--color-heading);font-size:var(--fontSize-4);margin-bottom:var(--spacing-4)}.search-no-results-page p{color:var(--color-text-light);font-size:var(--fontSize-1);margin-bottom:var(--spacing-6)}.search-no-results-page ul{list-style:none;margin:0 auto;max-width:400px;padding:0;text-align:left}.search-no-results-page li{color:var(--color-text-light);padding:var(--spacing-2) 0;padding-left:var(--spacing-6);position:relative}.search-no-results-page li:before{content:"💡";left:0;position:absolute}mark{border-radius:4px;color:#fff;font-weight:600;padding:.05em}[data-theme=dark] mark,mark{background:linear-gradient(135deg,var(--color-primary),#00d435)}[data-theme=dark] mark{color:var(--color-bg)}.post-list-item:hover mark{color:#000!important}.post-list-item:hover mark,[data-theme=dark] .post-list-item:hover mark{background:hsla(0,0%,100%,.95)!important;border:1px solid #ccc!important}[data-theme=dark] .post-list-item:hover mark{color:var(--color-primary)!important}@media (max-width:42rem){.top-buttons{gap:var(--spacing-2)}.search-toggle,.theme-toggle{font-size:16px;height:45px;width:45px}.search-dropdown{right:-100px;width:280px}.search-page-header{padding:var(--spacing-6) var(--spacing-4)}.search-page-header h1{font-size:var(--fontSize-5)}.search-page-input-container{flex-direction:column;gap:var(--spacing-4)}.search-page-button{align-self:stretch}.search-results-header-section{align-items:center;flex-direction:column;padding:0 var(--spacing-4);position:static;text-align:center}.search-results-title{font-size:var(--fontSize-3);margin-bottom:var(--spacing-4)}.search-sort-container{justify-content:center;position:static;transform:none}.search-no-results-page,.search-page-placeholder{padding:var(--spacing-12) var(--spacing-4)}}code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#000;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5;tab-size:4;text-align:left;text-shadow:0 1px #fff;white-space:pre;word-break:normal;word-spacing:normal}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{background:#b3d4fc;text-shadow:none}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{background:hsla(0,0%,100%,.5);color:#9a6e3a}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><style type="text/css">
+    .anchor-header.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor-header.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor-header svg,
+    h2 .anchor-header svg,
+    h3 .anchor-header svg,
+    h4 .anchor-header svg,
+    h5 .anchor-header svg,
+    h6 .anchor-header svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor-header svg,
+    h2:hover .anchor-header svg,
+    h3:hover .anchor-header svg,
+    h4:hover .anchor-header svg,
+    h5:hover .anchor-header svg,
+    h6:hover .anchor-header svg,
+    h1 .anchor-header:focus svg,
+    h2 .anchor-header:focus svg,
+    h3 .anchor-header:focus svg,
+    h4 .anchor-header:focus svg,
+    h5 .anchor-header:focus svg,
+    h6 .anchor-header:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 100)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="alternate" type="application/rss+xml" title="Gatsby Starter Blog RSS Feed" href="/rss.xml"/><link rel="icon" href="/favicon-32x32.png?v=fdc99851401fabaca2d68d6b9aefa2fe" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><title data-gatsby-head="true">MySQL의 실행 계획에 대해 알아보자 | 내가 재밌는 일을 하자 !</title></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="global-wrapper" data-is-root-path="false"><div class="top-buttons"><div class="search-container"><button class="search-toggle" aria-label="검색" title="검색">🔍</button></div><button class="theme-toggle" aria-label="다크 모드로 전환" title="다크 모드로 전환"><span class="theme-toggle-icon">🌙</span></button></div><header class="global-header"><a class="header-link-home" href="/">내가 재밌는 일을 하자 !</a></header><main><div class="blog-post-layout"><div class="blog-post-container"><article class="blog-post" itemscope="" itemType="http://schema.org/Article"><header><h1>MySQL의 실행 계획에 대해 알아보자</h1><p class="post-date">2024년 3월 5일</p><p><div class="tags-container"><span class="tag">#<!-- -->database</span></div></p></header><section itemProp="articleBody"><h2 id="들어가며" style="position:relative;"><a href="#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0" aria-label="들어가며 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>들어가며</h2>
+<p>MySQL에서 쿼리가 실행되는 과정 중에, 주어진 쿼리를 효율적으로 실행하기 위해 어떻게 실행할 지 계획을 짜는 과정이 포함된다.<br>
+이 과정을 <strong>옵티마이저</strong>가 수행한다. 하지만 <u>옵티마이저는 만능이 아니다.</u></p>
+<p>개발자가 의도하는 대로 옵티마이저가 계획을 잘 수립했는지 확인하기 위해서는 <code class="language-text">EXPLAIN</code> 명령어를 통해 현재의 실행 계획을 확인할 수 있어야 한다.<br>
+또한 옵티마이저가 어떤 정보를 토대로 실행 계획을 수립하는지에 대해 이해할 필요가 있다.</p>
+<p>따라서 이번 장에서는 <u>MySQL 서버의 실행 계획에 가장 큰 영향을 미치는 통계 정보에 대해 간략히 살펴보고 실행 계획을 읽는 순서와 출력되는 키워드, 그리고 알고리즘에 대해 살펴보자</u>.</p>
+<h2 id="통계-정보" style="position:relative;"><a href="#%ED%86%B5%EA%B3%84-%EC%A0%95%EB%B3%B4" aria-label="통계 정보 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>통계 정보</h2>
+<h3 id="개요" style="position:relative;"><a href="#%EA%B0%9C%EC%9A%94" aria-label="개요 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>개요</h3>
+<p>MySQL에서 통계 정보는, 다음과 같은 내용들이 포함된다.</p>
+<ul>
+<li><strong>테이블 크기 및 인덱스 통계</strong>: 각 테이블의 레코드 수, 데이터 크기, 인덱스 크기와 같은 정보</li>
+<li><strong>쿼리 실행 통계</strong>: 쿼리 실행 시간, 횟수, 사용된 인덱스, 스캔 횟수 등과 같은 정보</li>
+<li><strong>인덱스 효율성</strong>: 각 인덱스의 사용률, 중복 키 수, 인덱스 히트 등과 같은 정보</li>
+<li><strong>잠금 및 워터마크 통계</strong>: 발생한 락의 수, 워터마크 정보 (공간 사용량) 과 같은 정보</li>
+</ul>
+<p>전반적으로 <u>테이블, 인덱스, 쿼리와 관련되어 수치화할 수 있는 정보들이 통계 정보에 포함</u>된다.</p>
+<p>MySQL 5.7 버전 전까지는 개괄적인 정보를 가지고 실행 계획을 수립했다. 이로 인해 실행 계획의 정확도가 떨어지는 경우가 많았다.<br>
+MySQL 8.0 버전부터는 <strong>인덱스되지 않은 칼럼들에 대해서 데이터 분포도를 수집해서 저장하는 히스토그램 정보</strong>가 도입됐다.</p>
+<p>이 히스토그램 정보는 다시 언급하지만 <strong>인덱스되지 않은 칼럼들에 대해 데이터 분포도를 수집해 저장하는 정보이다.</strong><br></p>
+<blockquote>
+<p>데이터 분포도란, 특정 칼럼에 어떤 데이터 값이 얼만큼 존재하는 지에 대한 정보이다.<br>
+즉, <strong>히스토그램 정보란 인덱스되지 않은 칼럼에 어떤 값들이 얼만큼 존재하는지에 대한 정보</strong>이다.</p>
+</blockquote>
+<p>따라서, 기존의 <strong>테이블이나 인덱스의 통계 정보와 다른 정보로 봐야한다.</strong></p>
+<h3 id="테이블-및-인덱스-통계-정보" style="position:relative;"><a href="#%ED%85%8C%EC%9D%B4%EB%B8%94-%EB%B0%8F-%EC%9D%B8%EB%8D%B1%EC%8A%A4-%ED%86%B5%EA%B3%84-%EC%A0%95%EB%B3%B4" aria-label="테이블 및 인덱스 통계 정보 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>테이블 및 인덱스 통계 정보</h3>
+<p>가장 먼저 테이블 및 인덱스의 통계 정보에 대해 알아보자.</p>
+<p>Cost 기반 최적화에서 가장 중요한 것이 바로 이 <strong>통계 정보</strong>이다.<br>
+만약 1억 건의 레코드가 저장된 테이블의 통계 정보가 갱신되지 않아 레코드가 10건 미만인 것처럼 돼 있다면 옵티마이저는 Table Full Scan을 실행할 것이다.</p>
+<h4 id="mysql-56-버전부터" style="position:relative;"><a href="#mysql-56-%EB%B2%84%EC%A0%84%EB%B6%80%ED%84%B0" aria-label="mysql 56 버전부터 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MySQL 5.6 버전부터</h4>
+<p>MySQL 5.5 버전 전까지는 각 테이블의 통계 정보가 <u>메모리에만 관리</u>되었고 <code class="language-text">SHOW INDEX</code> 명령으로만 테이블의 인덱스 칼럼의 분포도를 볼 수 있었다. 중요한 점은 <u>통계 정보가 메모리에서만 관리되었기에 서버 재부팅 시에는 그동안 수집했던 통계 정보가 모두 날라가게 되는 문제</u>가 있었다.</p>
+<p>이러한 문제를 해결하기 위해 5.6 버전 부터는 통계 정보를 영구적으로 관리할 수 있도록 개선되었다.</p>
+<h4 id="통계-정보를-영구적으로-관리하도록-설정하는-방법" style="position:relative;"><a href="#%ED%86%B5%EA%B3%84-%EC%A0%95%EB%B3%B4%EB%A5%BC-%EC%98%81%EA%B5%AC%EC%A0%81%EC%9C%BC%EB%A1%9C-%EA%B4%80%EB%A6%AC%ED%95%98%EB%8F%84%EB%A1%9D-%EC%84%A4%EC%A0%95%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95" aria-label="통계 정보를 영구적으로 관리하도록 설정하는 방법 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>통계 정보를 영구적으로 관리하도록 설정하는 방법</h4>
+<p>설정 방법은 테이블을 생성할 때 <u><code class="language-text">STATS_PERSISTENT</code> 옵션</u>을 통해 설정할 수 있다.<br></p>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment"># 예시 쿼리</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> users <span class="token punctuation">(</span>
+    id <span class="token keyword">BIGINT</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token keyword">AUTO_INCREMENT</span><span class="token punctuation">,</span>
+    name <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span> STATS_PERSISTENT<span class="token operator">=</span>{ <span class="token number">0</span> <span class="token operator">|</span> <span class="token number">1</span> <span class="token operator">|</span> <span class="token keyword">DEFAULT</span> }<span class="token punctuation">;</span></code></pre></div>
+<ul>
+<li>
+<p>STATS_PERSISTENT = 0</p>
+<ul>
+<li>테이블의 통계 정보를 5.5 버전 이전 방식대로 관리한다. (인메모리 방식)</li>
+</ul>
+</li>
+<li>
+<p>STATS_PERSISTENT = 1</p>
+<ul>
+<li>테이블의 통계 정보를 mysql 데이터베이스의 innodb_index_stats 테이블과 innodb_table_stats 테이블에 저장한다.</li>
+</ul>
+</li>
+<li>
+<p>STATS_PERSISTENT = DEFAULT</p>
+<ul>
+<li><code class="language-text">STATS_PERSISTENT</code> 옵션을 설정하지 않은 것과 동일하다.</li>
+<li>테이블의 통계 정보를 영구적으로 관리할 것인지에 대한 결정은 <code class="language-text">innodb_stats_persistente</code> 시스템 변수에 따라 결정된다.</li>
+<li><code class="language-text">innodb_stats_persistence</code> 시스템 변수의 default 값은 ON이다. 결국, 모든 설정의 default 값은 테이블의 통계 정보를 영구적으로 관리하게 된다.</li>
+</ul>
+</li>
+</ul>
+<p><code class="language-text">ALTER TABLE users STATS_PERSISTENT=?</code> 명령어로 이미 만들어진 테이블에 설정을 변경할 수 있다.</p>
+<h4 id="통계-정보를-확인하는-방법" style="position:relative;"><a href="#%ED%86%B5%EA%B3%84-%EC%A0%95%EB%B3%B4%EB%A5%BC-%ED%99%95%EC%9D%B8%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95" aria-label="통계 정보를 확인하는 방법 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>통계 정보를 확인하는 방법</h4>
+<p>그리고 <code class="language-text">SELECT * FROM innodb_index_stats;</code> 명령어로 인덱스 통계 정보를 확인할 수 있고<br>
+<code class="language-text">SELECT * FROM innodb_table_stats</code> 명령어로 테이블 통계 정보를 확인할 수 있다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/89bbde42d0573a176f9ab07218bff572/fe9e8/index-stats.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 45.56962025316456%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB1UlEQVR42k1R2W7TUBT011Q0cfZ4t2P7ekni2ClNE0CFqG02kVL6wgdUqqqyBIrEUh7gX4dzj2nFw8j3zjkzd86xoukhNCOEbkbo0tmwIrS7PhotF822h44W0NljlLyHVqdHtbL+0LtfNaDWLSjSpKKaMO2EvyIq4PYGsJyUzUVcIBA5bLcPx+uzuNXuQW3YxKXca9oxGzeJV2SC/YrOhtJcig0r5mSaIeCHI+YsJ4FJfK3hUBIbas1mIwmpk/0yMSd8QoYOJQhFQciR9g/RH04ezRK6/5+w3nR4PPmITCnNyoQPhjS/RQLPH5JBQS8KdORuaa/SVCRjqqecvNZ0S1BSTk2TaUbEmnLkjoe9vSZMk36M7kOIDK6bwHEi6IYPPxgw5Nm0Qqiqhmq1i0qlC8MIYJiUriP36qDeMKF4yTF0cYzkYINwtEQ2u4DIl+gNThGMFsimbzAkxOMNovEadjqHnZSISSN5ka8Q/tMo+ckNsrPPODr/jvHqDi8uf2H+7jfhD2YXP/Hs7T2eX95jev6De4rVF8ZoscNk+w1HW9Ktv7JWQsleXaH/8hqTzQ6jk1vMtlRcfEBx9p4xfX3HOFzvcLD8hOH85hGSe7r6SHyJ/PQWfwH3D0nW6yWVrQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="인덱스 통계 정보"
+        title=""
+        src="/static/89bbde42d0573a176f9ab07218bff572/f058b/index-stats.png"
+        srcset="/static/89bbde42d0573a176f9ab07218bff572/c26ae/index-stats.png 158w,
+/static/89bbde42d0573a176f9ab07218bff572/6bdcf/index-stats.png 315w,
+/static/89bbde42d0573a176f9ab07218bff572/f058b/index-stats.png 630w,
+/static/89bbde42d0573a176f9ab07218bff572/40601/index-stats.png 945w,
+/static/89bbde42d0573a176f9ab07218bff572/fe9e8/index-stats.png 1146w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<ul>
+<li>stat_name 칼럼
+<ul>
+<li><code class="language-text">n_diff_pfx%</code>: 해당 인덱스가 가지는 유니크한 값의 수
+<ul>
+<li><code class="language-text">comment</code> 테이블의 <code class="language-text">n_diff_pfx01</code>: list_id 칼럼의 외래키 인덱스가 가지는 유니크한 값의 수</li>
+</ul>
+</li>
+<li><code class="language-text">n_leaf_pages</code>: 인덱스의 리프 노드 페이지 수
+<ul>
+<li><code class="language-text">comment</code> 테이블의 <code class="language-text">n_leaf_pages</code>: list_id 칼럼의 외래키 인덱스가 가지는 리프 노드 페이지의 수</li>
+</ul>
+</li>
+<li><code class="language-text">size</code>: 인덱스 트리의 전체 페이지 수
+<ul>
+<li><code class="language-text">comment</code> 테이블의 <code class="language-text">size</code>: list_id 칼럼의 외래키 인덱스가 가지는 전체 페이지의 수</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/defbcb80070171cd3827fe82f0c83b36/e1031/table-stats.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 33.54430379746836%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAABRklEQVR42l1R2VLDMAzMz0DbHM5tJ3bupkdoKS3wwEOHGeD/v2Gx1AnT4WEt7VqWLMkx9R6FHhml2UCVI2SxRiZ7eEEB1y8QJTXCuEaStRYN4rRljUB+nDZ8F8YVHBFpuJ5ErnqbaEBsg0ozwtQ7LkA6JclkxwV8UcK3Nk5rBKH+4764FXby+g1CHtBPV6wPn1DNK3Yv35jOP9ievtDtryi6d1TjB0J1RFQ8syUt0SfmM1RzsT9MWiy9EqZ5gq4mRGmPYXO2uKAfz1Y/IJUjlN5i5dtuAsM2yQd4omI+I856OF5Q4mGR8gxpBq6n0A1H9BZNN3HbND9q+XGZYbHK2VLs0pXM7zWHDiL0sNAbiNBwQkLdTjxLERmkeWc7kVjZgpSIFkELIz6DNIcOeqDsZqUa2KcfUaGbX4G68IXmBDP+c0IQGvwCzhzm2n5ZljQAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="테이블 통계 정보"
+        title=""
+        src="/static/defbcb80070171cd3827fe82f0c83b36/f058b/table-stats.png"
+        srcset="/static/defbcb80070171cd3827fe82f0c83b36/c26ae/table-stats.png 158w,
+/static/defbcb80070171cd3827fe82f0c83b36/6bdcf/table-stats.png 315w,
+/static/defbcb80070171cd3827fe82f0c83b36/f058b/table-stats.png 630w,
+/static/defbcb80070171cd3827fe82f0c83b36/e1031/table-stats.png 803w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<ul>
+<li><code class="language-text">n_rows</code>: 테이블의 전체 레코드 수</li>
+<li><code class="language-text">clustered_index_size</code>: 프라이머리 키의 크기 (InnoDB 페이지 개수)
+<ul>
+<li><code class="language-text">innodb_index_stats</code>에서 <code class="language-text">comment</code> 테이블의 <code class="language-text">PRIMARY</code> 인덱스에서 <code class="language-text">size</code>랑 동일한 값이다.</li>
+</ul>
+</li>
+<li><code class="language-text">sum_of_other_index_sizes</code>: 프라이머리 키를 제외한 인덱스의 크기 (InnoDB 페이지 개수)
+<ul>
+<li><code class="language-text">PRIMARY</code> 인덱스를 제외한 인덱스의 전체 페이지 수</li>
+<li>테이블의 <code class="language-text">STATS_AUTO_RECALC</code> 옵션에 따라 0으로 보일 수 있다. 이때는 <code class="language-text">ANALYZE TABLE {database}.{table};</code> 명령어로 통계값을 재계산하면 된다.</li>
+</ul>
+</li>
+</ul>
+<h4 id="통계-정보를-자동으로-갱신하거나-끄거나" style="position:relative;"><a href="#%ED%86%B5%EA%B3%84-%EC%A0%95%EB%B3%B4%EB%A5%BC-%EC%9E%90%EB%8F%99%EC%9C%BC%EB%A1%9C-%EA%B0%B1%EC%8B%A0%ED%95%98%EA%B1%B0%EB%82%98-%EB%81%84%EA%B1%B0%EB%82%98" aria-label="통계 정보를 자동으로 갱신하거나 끄거나 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>통계 정보를 자동으로 갱신하거나 끄거나</h4>
+<p><code class="language-text">innodb_stats_auto_recalc</code> 시스템 변수를 ON 혹은 OFF로 설정함에 따라 통계 정보를 자동으로 갱신하거나 끌 수 있다.<br>
+default 값은 ON으로 설정되어 있다.</p>
+<p>테이블에 따라 통계 정보를 자동으로 수집할 지 여부를 설정할 수 있다.</p>
+<ul>
+<li><code class="language-text">STATS_AUTO_RECALC</code>=0: <code class="language-text">ANALYZE TABLE</code> 명령으로만 갱신한다. 즉, 수동으로 갱신한다.</li>
+<li><code class="language-text">STATS_AUTO_RECALC</code>=1: 자동 수집한다.</li>
+<li><code class="language-text">STATS_AUTO_RECALC</code>=DEFAULT: 따로 STATS_AUTO_RECALC 옵션을 설정하지 않은 것과 같다. <code class="language-text">innodb_stats_auto_recalc</code> 시스템 변수 값에 따라 결정된다.</li>
+</ul>
+<p>이 통계 정보를 수집하거나 갱신할 때 얼마만큼의 데이터 샘플을 가져올 것인지를 정하는 옵션도 존재한다.</p>
+<ul>
+<li>
+<p><code class="language-text">innodb_stats_trasient_sample_pages</code></p>
+<ul>
+<li>default 값은 8이다.</li>
+<li><strong>자동으로</strong> 통계 정보 수집이 실행될 때 8개 페이지만 임의로 샘플링해서 분석하고 그 결과를 통계 정보로 활용한다.</li>
+</ul>
+</li>
+<li>
+<p><code class="language-text">innodb_stats_persistent_sample_pages</code></p>
+<ul>
+<li>default 값은 20이다.</li>
+<li><strong>ANALYZE TABLE</strong> 명령을 통해 수동으로 통계 정보 수집이 실행될 때 20개의 페이지만 임의로 샘플링하여 분석하고 그 결과를 영구적인 통계 정보 테이블에 저장하고 활용한다.</li>
+</ul>
+</li>
+</ul>
+<p>만약, 영구적인 통계 정보를 사용하고 있다면 <code class="language-text">innodb_stats_persistent_sample_pages</code> 값을 높게 설정하여 MySQL 서버의 점검이나 사용량이 많지 않은 시간대를 활용해 더 정확한 통계 정보를 수집할 수 있다.<br>
+하지만 물론 그만큼 더 많은 시간이 소요된다.</p>
+<h3 id="히스토그램" style="position:relative;"><a href="#%ED%9E%88%EC%8A%A4%ED%86%A0%EA%B7%B8%EB%9E%A8" aria-label="히스토그램 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>히스토그램</h3>
+<p>MySQL에서 <u><strong>히스토그램 정보란 인덱스되지 않은 칼럼에 어떤 값들이 얼만큼 존재하는지에 대한 정보</strong></u>다.</p>
+<p>아래 그림은 히스토그램 정보 이해를 돕는 예시 사진이다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/90a885145dc5496fd7f3ecc7948fb505/43300/histogram-example.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 79.11392405063292%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAIAAACZeshMAAAACXBIWXMAAAsSAAALEgHS3X78AAAC4UlEQVR42j2Ru47bRhSG+Q4p4odwlaRawDBgJHHlwnBnb+ltUrvwJVIkkkuJFEdDcngdzo3Di0hJK628a6yBJEXezEdSYODHwSnmO+f/zxj//vewP3TbrVSKcB4wgRlfMo4xNsPAEmzJSwRi1D8JlYVLMyePrWg5MnaHTqq4rtOqOlYhQykjIYKLi19evPhdayIYViKQHJ8lGOLUZfksjUyjH0RZ4r4vLfv926tLKcO6TrSOf/r58fPnT/su1xWpT9IqqmR4HMSQKL0ydQxdZ1m22O3U69cvf3z0A6XLFgCdAPzs2cW6p12Tgto6+c6DtMSCukZZBmnqAfzu3R+//vaE87Driq7LLy9fXV29GQa6ajPQmW8q0uj4JFJxZAhBwDYtMVQpyXrNIMIwlFBXK9q2edOkcAvI0jZJW//vAmpdRUbTZFWVCBEpFcNTAEBArtd8GI6DTnwG9ehoVay6Ag4BccAObI7Aebcq2462TdEclZ2nfF9+JqEHR5uBrfuyP40wksQnxAVG60zrvK7hWlldZ00D/dHUeXOt066FN0ml4PJxQmY0940ocqNoDkBVQTBYAquoUglgjIVhMKMUK0kqSZo62wx8u+a7rdxtBTSG505nzhjegXlKg6LAWYbyAkMvZAzbmhYMl5uNgB+53eu7Q3P/ubk71Ie9Nkg0R+jaccb29djzzDCcY+xEoQtxshQl8SImXp76RY44C6UgShDJIyWiVqdwsJjxeDL9aFqjyeSjZY1sezydfgLZ1mg6+TD96705+TC7HvueiZEdIHuJbOSZebIwtC7ajvu+g/F8sXAQmkPvupbn2XPXtKw/bfMTCGC0MJe+FWInBne+xQsM/1ze7FqpCqlKytOCJgWN84KkGQ6w67nm3BnPnZHvTpa+GQUOCWcp8eJwplhopMly1eu7L/v7h8Pt3c3Xv++//nP/5WF/e+j7QVVVrnhc8WNUreJVW6x7drOR+63ab9U3Xnw0LuktMPAAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="히스토그램 예시"
+        title=""
+        src="/static/90a885145dc5496fd7f3ecc7948fb505/f058b/histogram-example.png"
+        srcset="/static/90a885145dc5496fd7f3ecc7948fb505/c26ae/histogram-example.png 158w,
+/static/90a885145dc5496fd7f3ecc7948fb505/6bdcf/histogram-example.png 315w,
+/static/90a885145dc5496fd7f3ecc7948fb505/f058b/histogram-example.png 630w,
+/static/90a885145dc5496fd7f3ecc7948fb505/40601/histogram-example.png 945w,
+/static/90a885145dc5496fd7f3ecc7948fb505/78612/histogram-example.png 1260w,
+/static/90a885145dc5496fd7f3ecc7948fb505/43300/histogram-example.png 2694w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<h4 id="히스토그램-정보-수집하기" style="position:relative;"><a href="#%ED%9E%88%EC%8A%A4%ED%86%A0%EA%B7%B8%EB%9E%A8-%EC%A0%95%EB%B3%B4-%EC%88%98%EC%A7%91%ED%95%98%EA%B8%B0" aria-label="히스토그램 정보 수집하기 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>히스토그램 정보 수집하기</h4>
+<p>MySQL 8.0 버전부터 히스토그램 정보는 <strong>칼럼 단위로 관리된다.</strong><br>
+이는 자동으로 수집하진 않고 <u><code class="language-text">ANALYZE TABLE ... UPDATE HISTOGRAM</code></u> 명령을 통해 수동으로 수집 및 관리할 수 있다.</p>
+<p>수집한 히스토그램 정보는 시스템 딕셔너리에 함께 저장되고 MySQL 서버가 시작될 때 딕셔너리에 저장된 히스토그램 정보를 <code class="language-text">information_schema</code> 데이터베이스의 <code class="language-text">column_statistics</code> 테이블로 로드한다.<br>
+따라서 실제 수집된 히스토그램 정보는 <code class="language-text">information_schema.column_statistics</code> 테이블을 SELECT해서 조회할 수 있다.</p>
+<p>실제로 히스토그램 정보를 수집하고 결과를 조회해보자.<br>
+<del>조회 결과는 우리가 봤을 땐 유용하지 않아보인다.</del></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/313027f47ac215f61627fc126f07af64/8f1fd/histogram-select-result.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 21.51898734177215%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAoUlEQVR42k1QWxKDIBDzVp1WReRtrSLe/y7pBkbbj52EJBsYOuN2THrFqBYo/YaaFryGUKcfo2AUTBhkeG5a83rxqA8q1czj6dBZKfTxgAu5YkgFIZaKPhyiFcR03jozcTlvn17bO2F9/hVeY/1eg05MBsi5TE7Np1ZylTteGtqDuNs1kmHcBpbzC4iz3aDnFbP5wJALUuOZfBJP/3Fm+GVfKgyRXUrB1gYAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="히스토그램 조회 결과"
+        title=""
+        src="/static/313027f47ac215f61627fc126f07af64/f058b/histogram-select-result.png"
+        srcset="/static/313027f47ac215f61627fc126f07af64/c26ae/histogram-select-result.png 158w,
+/static/313027f47ac215f61627fc126f07af64/6bdcf/histogram-select-result.png 315w,
+/static/313027f47ac215f61627fc126f07af64/f058b/histogram-select-result.png 630w,
+/static/313027f47ac215f61627fc126f07af64/40601/histogram-select-result.png 945w,
+/static/313027f47ac215f61627fc126f07af64/78612/histogram-select-result.png 1260w,
+/static/313027f47ac215f61627fc126f07af64/8f1fd/histogram-select-result.png 2528w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<details>
+  <summary>조회 결과 이쁘게 보기</summary>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">SCHEMA_NAME: dev
+ TABLE_NAME: item
+COLUMN_NAME: title
+  HISTOGRAM: {
+  "buckets": [
+    [
+      "base64:type254:MQ==",
+      "base64:type254:Mw==",
+      0.010752688172043012,
+      4
+    ],
+    [
+      "base64:type254:QSBIYXRmdWwgb2YgRHJlYW1z",
+      "base64:type254:QUogTWl0Y2hlbGwgLSBMaWtlIFN0cmFuZ2VycyBEbw==",
+      0.021505376344086023,
+      4
+    ],
+    [
+      "base64:type254:QWxsIG9mIG15IGxpZmUgLSDrsJXsm5A=",
+      "base64:type254:QmVnaW4gQWdhaW4gKDIwMTMp",
+      0.03225806451612903,
+      4
+    ],
+    [
+      "base64:type254:Q2llbG8=",
+      "base64:type254:REFZNiAtIO2VnCDtjpjsnbTsp4DqsIAg65CgIOyImCDsnojqsow=",
+      0.043010752688172046,
+      4
+    ],
+    [
+      "base64:type254:RGVzdGlubw==",
+      "base64:type254:RXNwZXJhbnph",
+      0.053763440860215055,
+      4
+    ],
+    [
+      "base64:type254:RXN0cmVsbGE=",
+      "base64:type254:Rm9yIGEgTW9tZW50",
+      0.06451612903225806,
+      4
+    ],
+    [
+      "base64:type254:SSBGZWVsIFByZXR0eQ==",
+      "base64:type254:SkFYIC0gUmluZyBQb3A=",
+      0.07526881720430108,
+      4
+    ],
+    [
+      "base64:type254:SmVmZiBCZXJuYXQgLSBNYWtlIFVwIFlvdXIgTWluZA==",
+      "base64:type254:TGEgTGEgTGFuZCAoMjAxNik=",
+      0.08602150537634409,
+      4
+    ],
+    [
+      "base64:type254:THV6",
+      "base64:type254:Tm9zdGFsZ2lh",
+      0.0967741935483871,
+      4
+    ],
+    [
+      "base64:type254:T29tcGEgTG9vbXBh",
+      "base64:type254:UmFkaW9oZWFkIC0gQ3JlZXA=",
+      0.10752688172043011,
+      4
+    ],
+    [
+      "base64:type254:UmVkIHZlbHZldC0ga25vY2sga25vY2s=",
+      "base64:type254:UnV0aCBCLiAtIFNsb3cgRmFkZQ==",
+      0.11827956989247312,
+      4
+    ],
+    [
+      "base64:type254:U2NydWIgU2NydWI=",
+      "base64:type254:U3dlZXQgVG9vdGg=",
+      0.12903225806451613,
+      4
+    ],
+    [
+      "base64:type254:VklWSVotTWFuaWFj",
+      "base64:type254:WW91J3ZlIE5ldmVyIEhhZCBDaG9jb2xhdGUgTGlrZSBUaGlz",
+      0.13978494623655913,
+      4
+    ],
+    [
+      "base64:type254:WlVIQUlSIC0gTXkgRmF2b3VyaXRlIE11c2U=",
+      "base64:type254:6rCA64GUIOyalOqwgCDrk7Eg7Jq064+Z",
+      0.15053763440860216,
+      4
+    ],
+    [
+      "base64:type254:6rCA7JW87ISx",
+      "base64:type254:6rCA7J2EIOuplOuwgCDqvYMg7ZWEIOustOugtQ==",
+      0.16129032258064516,
+      3
+    ],
+    [
+      "base64:type254:6rCA7J2EIOygnOyjvA==",
+      "base64:type254:6rCT64Kc7J+B7J20IOuVjA==",
+      0.17204301075268819,
+      4
+    ],
+    [
+      "base64:type254:6rCV7ZWY64qY",
+      "base64:type254:6rCk65+s66as7ZiE64yA",
+      0.18010752688172044,
+      3
+    ],
+    [
+      "base64:type254:6rKo7Jq4",
+      "base64:type254:6rK967O16raB",
+      0.19086021505376344,
+      3
+    ],
+    [
+      "base64:type254:6rK97KO8IOuMgOumieybkA==",
+      "base64:type254:6rOg7Iqk7Yq4IOybjA==",
+      0.20161290322580644,
+      4
+    ],
+    [
+      "base64:type254:6rOo65OgIOumrO2KuOumrOuyhA==",
+      "base64:type254:6rWt7KCc6rCk65+s66as",
+      0.21236559139784947,
+      4
+    ],
+    [
+      "base64:type254:6raM7KeA7Jqw",
+      "base64:type254:6re4656R7ZW465OcIO2ZjeywqO2WpQ==",
+      0.22311827956989247,
+      4
+    ],
+    [
+      "base64:type254:6re4656c65OcIOu2gOuLpO2OmOyKpO2KuCDtmLjthZQ=",
+      "base64:type254:6re47ZW0LCDsmrDrpqzripQ=",
+      0.23387096774193547,
+      4
+    ],
+    [
+      "base64:type254:6riI7JqU7J287JeQIOunm+yeiOuKlOqxsOuekSDsiKDtlZzsnpQ=",
+      "base64:type254:6rmA7Jyk7JWEIC0g6r+I",
+      0.2446236559139785,
+      4
+    ],
+    [
+      "base64:type254:6rmA7ZWY64qYIOyYhg==",
+      "base64:type254:64KY64qU",
+      0.2553763440860215,
+      4
+    ],
+    [
+      "base64:type254:64KY7ZiE64uY7J20IOumrOyKpO2KuCDsl7Tsi6ztnogg66eM65Ok7JeI64qU642wIERCIOy0iOq4\nsO2ZlCDtlojsnYQg65WMIOOFnOOFnA==",
+      "base64:type254:64Ko67aA",
+      0.26344086021505375,
+      3
+    ],
+    [
+      "base64:type254:64Ko7J6Q7Lmc6rWs",
+      "base64:type254:64Ku7JeQIOyCsOyxhe2VmOq4sA==",
+      0.27419354838709675,
+      3
+    ],
+    [
+      "base64:type254:64Ku7J6g7J6Q6riw",
+      "base64:type254:64Sk7J2067KE",
+      0.2849462365591398,
+      4
+    ],
+    [
+      "base64:type254:64W47IOB7ZiE",
+      "base64:type254:64iE7JuM7IScIOuEt+2UjOumreyKpCDrs7TquLA=",
+      0.2956989247311828,
+      4
+    ],
+    [
+      "base64:type254:64iE7JuM7IScIOyHvOy4oOuztOq4sA==",
+      "base64:type254:64uM7YWQ64+EIOyKpOychOy5mA==",
+      0.3064516129032258,
+      4
+    ],
+    [
+      "base64:type254:64uk7IucIOunjOuCnCDshLjqs4QgLSDshozrhYDsi5zrjIA=",
+      "base64:type254:64us65+s6rWs7Yq4IOq/iCDrsLHtmZTsoJA=",
+      0.3172043010752688,
+      4
+    ],
+    [
+      "base64:type254:64yA66a866+47Iig6rSA",
+      "base64:type254:64yE7Iqk7Jyg67CcIOuFuOuemO2LgOqzoCDsg6Tsm4w=",
+      0.3279569892473118,
+      4
+    ],
+    [
+      "base64:type254:642UIOq4gOuhnOumrA==",
+      "base64:type254:64+M64u07KeR",
+      0.3387096774193548,
+      4
+    ],
+    [
+      "base64:type254:65GQ7YyQ67CY7J2EIOuoueyngA==",
+      "base64:type254:65OEMg==",
+      0.34946236559139787,
+      4
+    ],
+    [
+      "base64:type254:65OEMw==",
+      "base64:type254:65+w",
+      0.3602150537634409,
+      4
+    ],
+    [
+      "base64:type254:66CI67KI7YG066Gc",
+      "base64:type254:66Gk7ZWY6riw",
+      0.3709677419354839,
+      4
+    ],
+    [
+      "base64:type254:66W07IS465287ZWM",
+      "base64:type254:66as7Iqk7Yuw7Juo7J2067iMIHZlcjIg6rWs7IOB7ZWY6riw",
+      0.3817204301075269,
+      4
+    ],
+    [
+      "base64:type254:66as7JWh7Yq4IOu3sOuztOuLpCDrqoXrj5nshLHri7kg67ew",
+      "base64:type254:66eI7J207JWE7Yq4IOuupOyngOyXhA==",
+      0.3924731182795699,
+      4
+    ],
+    [
+      "base64:type254:66eI7Lm066GxIOuTsSDsm5DrjbDsnbQg7YG0656Y7Iqk",
+      "base64:type254:66eb7J6I64qUIOydjOyLneqzvCDtlajqu5gg7ZWcIOq4iOyalOydvCDsoIDrhYE=",
+      0.4032258064516129,
+      4
+    ],
+    [
+      "base64:type254:66el67aB",
+      "base64:type254:66mU7J20IOyYhg==",
+      0.41397849462365593,
+      4
+    ],
+    [
+      "base64:type254:66mY7YOI66as7Iqk7Yq4",
+      "base64:type254:66qF7YOc7Ja07J6lIOyyreudvOyngeyYgeygkA==",
+      0.42473118279569894,
+      4
+    ],
+    [
+      "base64:type254:66qo7Lm067KI",
+      "base64:type254:66yY7Zal",
+      0.43548387096774194,
+      4
+    ],
+    [
+      "base64:type254:66y066aOIOychCDslYTqsIDrlYw=",
+      "base64:type254:66y8IOuniOyLnOq4sA==",
+      0.44623655913978494,
+      4
+    ],
+    [
+      "base64:type254:66y86rCQIO2EsO2KuOumsCDsgqzsp4Q=",
+      "base64:type254:67CV67CV7J2064uYIOyeheunmyDrp57stpTquLA=",
+      0.45698924731182794,
+      4
+    ],
+    [
+      "base64:type254:67CV7KCV66+8",
+      "base64:type254:67Ck7JaR6rCxIC0gQUkg7Jik7ZiB",
+      0.46774193548387094,
+      4
+    ],
+    [
+      "base64:type254:67Ck7JeQIO2UvOuKlCDqvYM=",
+      "base64:type254:67Cx7JeU65Oc",
+      0.478494623655914,
+      4
+    ],
+    [
+      "base64:type254:67KE6rGw656p",
+      "base64:type254:67Kg7Yq464Ko",
+      0.489247311827957,
+      4
+    ],
+    [
+      "base64:type254:67O0642U7L2c66as",
+      "base64:type254:67SE",
+      0.5,
+      3
+    ],
+    [
+      "base64:type254:67SJ66qF64+ZIOyYqOyynOy5vOq1reyImA==",
+      "base64:type254:67mE7Iqk7L2U7IKs7J207Yq4656p",
+      0.510752688172043,
+      4
+    ],
+    [
+      "base64:type254:67mE7Jik64qU64KgIOyasOyCsCDslYjqsIDsp4Dqs6Ag64KY7Jio6rG4IOyVjOyVmOydhCDrlYw=",
+      "base64:type254:67mg64uI67O07YuA",
+      0.521505376344086,
+      4
+    ],
+    [
+      "base64:type254:67mo6rCE67iU65+tIOuWoeuztuydtA==",
+      "base64:type254:7IKw7LGF6rCU64uk7JmA7IScIOuwnCDqvKzsp4jtlZwg7IOB7YOc66GcIOyLoOuCmOyEnCDtmZjt\nlZjqsowg7JuD7J2EIOuVjA==",
+      0.532258064516129,
+      4
+    ],
+    [
+      "base64:type254:7IK07J247J6Q44WH64Kc6rCQ",
+      "base64:type254:7ISc656N67CR7JeQ7IScIOyJrOuKlCDsgqzsp4Q=",
+      0.543010752688172,
+      4
+    ],
+    [
+      "base64:type254:7ISc7Jq47Iiy",
+      "base64:type254:7ISd7LSMIO2YuOyImOqzteybkA==",
+      0.553763440860215,
+      4
+    ],
+    [
+      "base64:type254:7ISg7Jqw7KCV7JWEIC0g64+E66ed6rCA7J6Q",
+      "base64:type254:7IS47J6R8J+RgA==",
+      0.5645161290322581,
+      4
+    ],
+    [
+      "base64:type254:7IWU7YuA656c65OcIOyJveuPhQ==",
+      "base64:type254:7Iah7J20IOywjOqwnOuniOydhA==",
+      0.5752688172043011,
+      4
+    ],
+    [
+      "base64:type254:7Ie87ZWR6rCA6riwIQ==",
+      "base64:type254:7Iqk7Juo6420",
+      0.5860215053763441,
+      4
+    ],
+    [
+      "base64:type254:7Iqk7JyE7Iqk",
+      "base64:type254:7Iqs6riw66Gc7Jq0IOydmOyCrOyDne2ZnA==",
+      0.5967741935483871,
+      4
+    ],
+    [
+      "base64:type254:7Iqs65287J2065Oc67CV7Iqk",
+      "base64:type254:7Iuc67CU",
+      0.6075268817204301,
+      4
+    ],
+    [
+      "base64:type254:7Iuc7Jik",
+      "base64:type254:7Iux6rCA7Y+s66W0",
+      0.6182795698924731,
+      4
+    ],
+    [
+      "base64:type254:7I2o64uI64Sk7KeR",
+      "base64:type254:7JWE66qs65Oc",
+      0.6290322580645161,
+      4
+    ],
+    [
+      "base64:type254:7JWE66y066asIOuoueyWtOuPhCDsgrQg7JWI7LCM64qUIOuKpeugpQ==",
+      "base64:type254:7JWE7J2067mE",
+      0.6397849462365591,
+      4
+    ],
+    [
+      "base64:type254:7JWF7IS47IKs66asIOuztOq0gO2VqA==",
+      "base64:type254:7JWg7ZSM66+87Yq4",
+      0.6505376344086021,
+      4
+    ],
+    [
+      "base64:type254:7JaR7JaR7J6F7JWU66eJ6rWt7IiY",
+      "base64:type254:7Ja065SU7IScIOuwpe2SgCDrrLvtnojqs6Ag64KY7YOA64Ks7J2EIOuVjA==",
+      0.6612903225806451,
+      4
+    ],
+    [
+      "base64:type254:7Ja065ScIOq3uOumrCDrsJTsgpAg6rCA64qU6rCA",
+      "base64:type254:7Ja86rW0IOywjOu2gOuQkOydhCDrlLA=",
+      0.6720430107526881,
+      4
+    ],
+    [
+      "base64:type254:7Ja867mh7IO3",
+      "base64:type254:7JeQ7L2U67Cx",
+      0.6827956989247311,
+      4
+    ],
+    [
+      "base64:type254:7JeQ7ZS87IaM65Oc",
+      "base64:type254:7Jes66aEIOyViOuPmTI=",
+      0.6935483870967742,
+      4
+    ],
+    [
+      "base64:type254:7Jes7J6Q7JWE7J2065Ok",
+      "base64:type254:7JiB7Ja0IOyekOqyqeymnSDrlLDquLA=",
+      0.7043010752688172,
+      4
+    ],
+    [
+      "base64:type254:7JiI67uk7Ja0",
+      "base64:type254:7Jqp7IKwIC0g65Sw7Yyh",
+      0.7150537634408602,
+      4
+    ],
+    [
+      "base64:type254:7Jqp7IKwIC0g67Kg7J207Luk66as66y07J20",
+      "base64:type254:7JuQ7Jqw",
+      0.7258064516129032,
+      4
+    ],
+    [
+      "base64:type254:7JuQ7KeA7J2YIO2VmOujqA==",
+      "base64:type254:7JyE7Iuc66as7Iqk7Yq4IO2VmOuCmCDsgqzquLAv7Ie87ZWR6rCA6riw",
+      0.7365591397849462,
+      4
+    ],
+    [
+      "base64:type254:7JyE7Iuc67KE7YK3",
+      "base64:type254:7J2E7KeA6rmQ6rmQ",
+      0.7473118279569892,
+      4
+    ],
+    [
+      "base64:type254:7J2E7KeA66GcIOyImOygnOu5hA==",
+      "base64:type254:7J2066Cl7IScIOyTsOq4sA==",
+      0.7580645161290323,
+      4
+    ],
+    [
+      "base64:type254:7J2067KIIOyDneydgCDsspjsnYzsnbTrnbw=",
+      "base64:type254:7J217Iqk7Yq466CJ7IWY",
+      0.7688172043010753,
+      4
+    ],
+    [
+      "base64:type254:7J247ZSM6528",
+      "base64:type254:7J6E6rG07JqwIOyYhg==",
+      0.7795698924731183,
+      4
+    ],
+    [
+      "base64:type254:7J6Q6riw67O064ukIO2BsCDsnbjtmJUg7JeF6rOgIOyeiOydhCDrlYw=",
+      "base64:type254:7J6g",
+      0.7903225806451613,
+      4
+    ],
+    [
+      "base64:type254:7KCE7ISgIOusvOyWtOucr+uKlCDsgqzsp4Q=",
+      "base64:type254:7KCV7KCE6riwIOydvOyWtOuCrOydhCDrlYw=",
+      0.8010752688172043,
+      4
+    ],
+    [
+      "base64:type254:7KCk64Sk7J287IO1L+uvuOyaqeyLpCDqsIDquLA=",
+      "base64:type254:7KKL7JWE7ZWY64qUIOyCrOuejOunjOuCmOq4sA==",
+      0.8118279569892473,
+      4
+    ],
+    [
+      "base64:type254:7KO866eI65Ox",
+      "base64:type254:7KeA7ZWY7LKgIOqwhOuwnOydmCDssKjsnbTroZwg64aT7LOk7J2EIOuVjA==",
+      0.8225806451612904,
+      4
+    ],
+    [
+      "base64:type254:7KeE64+X6rCc",
+      "base64:type254:7LKc64yA7KCE6riI",
+      0.8333333333333334,
+      4
+    ],
+    [
+      "base64:type254:7LKt6528IOugiOydtA==",
+      "base64:type254:7LWc7JWgIOu5teynkeydtCDqsJHsnpDquLAg7Zy066y07J24IOqxuCDslYzslZjsnYQg65WM",
+      0.8440860215053764,
+      4
+    ],
+    [
+      "base64:type254:7LWc7Jyg66asIC0g7Iiy",
+      "base64:type254:7Lm07Y6YIOyImOyasA==",
+      0.8548387096774194,
+      4
+    ],
+    [
+      "base64:type254:7LqQ7KCc",
+      "base64:type254:7L2c",
+      0.8655913978494624,
+      4
+    ],
+    [
+      "base64:type254:7L+g67KE7YOA7L2U",
+      "base64:type254:7YGs66a87ZSEIOy8gOydtO2BrA==",
+      0.8763440860215054,
+      4
+    ],
+    [
+      "base64:type254:7YG065287Jqw7Iqk",
+      "base64:type254:7YKk7JWE64iEIOumrOu4jOyKpA==",
+      0.8870967741935484,
+      4
+    ],
+    [
+      "base64:type254:7YKs65+s7J2YIOuztOuUlOqwgOuTnA==",
+      "base64:type254:7YOs67KE66aw7KaIIO2VuOuTnO2BrOumvA==",
+      0.8978494623655914,
+      4
+    ],
+    [
+      "base64:type254:7YSw66+464SQ",
+      "base64:type254:7Yag66eI7Yag",
+      0.9086021505376344,
+      4
+    ],
+    [
+      "base64:type254:7Yag7Iqk",
+      "base64:type254:7Yqc67iM",
+      0.9193548387096774,
+      4
+    ],
+    [
+      "base64:type254:7YuI7Luk7ZS8",
+      "base64:type254:7Y+t7ZKN7J2YIOyLnOqwhA==",
+      0.9301075268817204,
+      4
+    ],
+    [
+      "base64:type254:7Y+06528IOydteyKpO2UhOugiOyKpA==",
+      "base64:type254:7ZSE656A7Iuc7IqkIOunpeuPhOuovOuTnA==",
+      0.9408602150537635,
+      4
+    ],
+    [
+      "base64:type254:7ZSE66CJ7LKY65Oc",
+      "base64:type254:7ZSE66Gg7Yq4",
+      0.9516129032258065,
+      4
+    ],
+    [
+      "base64:type254:7ZSE66as7KaM67iM66CI7J207YGs",
+      "base64:type254:7ZWZ6rOg7J6sIOqwpOufrOumrA==",
+      0.9623655913978495,
+      4
+    ],
+    [
+      "base64:type254:7ZWc7KCV7ISg",
+      "base64:type254:7ZWg7J287J20IOyCsOuNlOuvuOyngOunjCDssrTroKXsnbQg7JeG7J2EIOuVjA==",
+      0.9731182795698925,
+      4
+    ],
+    [
+      "base64:type254:7ZWo7Y+JIOutie2LsOq4sCDtj6ztla3thrXqs6jrsYXsnbQ=",
+      "base64:type254:7ZW0IOuWoOyeiOydhOuVjCDsgrDssYXtlZjquLA=",
+      0.978494623655914,
+      2
+    ],
+    [
+      "base64:type254:7ZW07J247Ja07Iuc7J6l",
+      "base64:type254:7ZW07J247Ja07Iuc7J6l",
+      0.9811827956989247,
+      1
+    ],
+    [
+      "base64:type254:7ZeI66i8IOuwgOufrCDsnZjsnpA=",
+      "base64:type254:7ZeI66i8IOuwgOufrCDsnZjsnpA=",
+      0.9838709677419355,
+      1
+    ],
+    [
+      "base64:type254:7ZmN7JewIC0g7JWI7JiI7J2A",
+      "base64:type254:7ZmN7JewIC0g7JWI7JiI7J2A",
+      0.9865591397849462,
+      1
+    ],
+    [
+      "base64:type254:7ZmN7L2U7L2U66Gc7Iqk7Iuc",
+      "base64:type254:7ZmN7L2U7L2U66Gc7Iqk7Iuc",
+      0.989247311827957,
+      1
+    ],
+    [
+      "base64:type254:7ZmU7J207Yq466Gk",
+      "base64:type254:7ZmU7J207Yq466Gk",
+      0.9919354838709677,
+      1
+    ],
+    [
+      "base64:type254:7ZmU7LC97ZWc64KgIO2VnOqwleyXkOyEnCDsgrDssYXtlaAg65WM",
+      "base64:type254:7ZmU7LC97ZWc64KgIO2VnOqwleyXkOyEnCDsgrDssYXtlaAg65WM",
+      0.9946236559139785,
+      1
+    ],
+    [
+      "base64:type254:7ZuE7ZSM7ZG47ZSE",
+      "base64:type254:7ZuE7ZSM7ZG47ZSE",
+      0.9973118279569892,
+      1
+    ],
+    [
+      "base64:type254:7Z6Z7KeA66Gc7JeQ7IScIOyngO2VmOyyoOyXrSDssL7quLA=",
+      "base64:type254:7Z6Z7KeA66Gc7JeQ7IScIOyngO2VmOyyoOyXrSDssL7quLA=",
+      1,
+      1
+    ]
+  ],
+  "data-type": "string",
+  "null-values": 0,
+  "collation-id": 255,
+  "last-updated": "2024-03-05 06:25:28.540987",
+  "sampling-rate": 1,
+  "histogram-type": "equi-height",
+  "number-of-buckets-specified": 100
+}
+1 row in set (0.00 sec)</code></pre></div>
+</details>
+<h4 id="히스토그램-종류" style="position:relative;"><a href="#%ED%9E%88%EC%8A%A4%ED%86%A0%EA%B7%B8%EB%9E%A8-%EC%A2%85%EB%A5%98" aria-label="히스토그램 종류 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>히스토그램 종류</h4>
+<p>히스토그램에는 두 종류가 있다.</p>
+<ul>
+<li>Singleton(싱글톤 히스토그램)
+<ul>
+<li>칼럼값 개별로 레코드 건수를 관리한다.
+<blockquote>
+<p>칼럼값: 특정 칼럼이 가지는 고유 값</p>
+</blockquote>
+</li>
+<li>Value-Based 히스토그램 또는 도수 분포라고도 한다.</li>
+</ul>
+</li>
+</ul>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/7d990bc881df5addfb2624c1b2cd6bb5/93582/singleton-histogram.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 54.43037974683544%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACR0lEQVR42mWSy2sTURTGBwTd+Urjsi0kdSUIQcUu2o1VFHQhxLoI0UIL1ZVL6aJKqKaJySSZyWsemffkOTGCWtSFgiAi/lOf59w06cLFx805957f+c6ZSL///sRoHCB67+PoyxCjyEYYtuG6dViWAttW6KwKdewKOhapU6F8DbpegkmyODZlWCTp158fiAg4jFxMPvjodjX4flOATHNaaFKBQY85NowywWvI5V4im32EnZ0MWq0iQWV09DKkb98/QjMqws1w0IHnNYQ7lufR6anHMZ0Uc4NeT0M6fR+x+Hkkk8tQlLdwHTLAwKOvYxpBpc5VeqjPgY6jQmuXyVUVNj12jsXAft/A480HuBg7i0RyEc3GIbpBEx41lT59HgqYQS4ZGAQt+HT57PlT3L13C9vbGbHTWd7z64giC5nMQ8QWzpHDJTTqefQEUIEUjT1UKgdQ1Px8f+xydTWF02dO4dr1q1MY5QXQnQKfZNOI08grl5dRV/Lod6mp34A0Gtm01LJwOHMS0uXtO+uIX7qAtfWb0xzfhS2xjvHYxtbWprhPrixBqb2h/evo0b0UBG0Ui6/FYrmQC/jc2FjDQpyBN+ZAlk+/JxMXu7tZJBKLSKWuiNrh0BQuJX7Uar2DocvTZF/HYGCiXM5hb+8FNXslPgLvdyaO+a9TKOwLd9ywS7CQViLx3thlGGriyzpOXYjjbqjTeA416vyn0cgS4Fkz5rAkVT1EqZSDpsnI5/chywfgnKoWaJRD8Zgdz8RTnGgKH/RNAeNp/wGtCUg5ruvCOwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="싱글톤 히스토그램"
+        title=""
+        src="/static/7d990bc881df5addfb2624c1b2cd6bb5/f058b/singleton-histogram.png"
+        srcset="/static/7d990bc881df5addfb2624c1b2cd6bb5/c26ae/singleton-histogram.png 158w,
+/static/7d990bc881df5addfb2624c1b2cd6bb5/6bdcf/singleton-histogram.png 315w,
+/static/7d990bc881df5addfb2624c1b2cd6bb5/f058b/singleton-histogram.png 630w,
+/static/7d990bc881df5addfb2624c1b2cd6bb5/40601/singleton-histogram.png 945w,
+/static/7d990bc881df5addfb2624c1b2cd6bb5/78612/singleton-histogram.png 1260w,
+/static/7d990bc881df5addfb2624c1b2cd6bb5/93582/singleton-histogram.png 1524w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<ul>
+<li>Equi-Height(높이 균형 히스토그램)
+<ul>
+<li>칼럼값의 범위를 균등한 개수로 구분해서 관리한다.</li>
+<li>Height-Balanced 히스토그램이라고도 한다.</li>
+</ul>
+</li>
+</ul>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/904dcb1be86dea06d64837a6a1f6f384/3f0c1/equi-height-histogram.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 43.0379746835443%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB30lEQVR42j1S2ZLaQAz0R6cqIYRrsQFf2Pi2wSfmMqxZjk3lIf/W6XF296FLGo3U6pFGiqIldrsEdR1/IMJ2G3YQ/n4f43BIOrvbRR2Efzys0ZzWOIh7EasDbEsPkmFMWRyhLENUVdj5nxCEAnnuIk0d1F0TkRcw3yfBf9SVj9BXkac2JNueoyh8JgRfhMJmmUciD+u1jcDXEQQGMpLmGYlJ2Jw2OJ9SXF8L3K4l2kuG1yaFpCgDFq2QJDbCwEQSW4gigSVjFgo2Ek26Zx43aFh0ueS4tiR6q/C413i8bfG41bjzzCfLUJQhZPkXhG9ZczgrFY6jwnV1+J4B3yc8HS5jEZWKphsqLziKbLNCQdXFh3KpLGNMJn2Mxj+JHoajHsbiTDsY/sCY8TH94eA7Bv1veJn0MJ8NoS3GsDh/Q53ApNUXI4SeBulwzGGacxhfmFGlCt2YQdNlaJqMBYunL33IhDLtY0HCJUlMfQp7qcB3VZjaBCmVS+11jyyPkWYxkjREGDmEiyBcwfMtWLYGnYVC1SeZRjWWKcOxZnC51JDjcOwZcu5C2u054NsZt2eL9tbg/t7iz98nnr+vuD/OOF8qfpU1t+uh2HBW6apDVXj8exFO/KMXLur1nKFtMvwDP4fyHIwuPxYAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="높이 균형 히스토그램"
+        title=""
+        src="/static/904dcb1be86dea06d64837a6a1f6f384/f058b/equi-height-histogram.png"
+        srcset="/static/904dcb1be86dea06d64837a6a1f6f384/c26ae/equi-height-histogram.png 158w,
+/static/904dcb1be86dea06d64837a6a1f6f384/6bdcf/equi-height-histogram.png 315w,
+/static/904dcb1be86dea06d64837a6a1f6f384/f058b/equi-height-histogram.png 630w,
+/static/904dcb1be86dea06d64837a6a1f6f384/40601/equi-height-histogram.png 945w,
+/static/904dcb1be86dea06d64837a6a1f6f384/78612/equi-height-histogram.png 1260w,
+/static/904dcb1be86dea06d64837a6a1f6f384/3f0c1/equi-height-histogram.png 2657w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<h4 id="히스토그램-이해하기-️" style="position:relative;"><a href="#%ED%9E%88%EC%8A%A4%ED%86%A0%EA%B7%B8%EB%9E%A8-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-%EF%B8%8F" aria-label="히스토그램 이해하기 ️ permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>히스토그램 이해하기 ⭐️</h4>
+<p>히스토그램은 <u>버킷 (Bucket) 단위로 구분되어 레코드 건수나 칼럼값의 범위가 관리</u>된다.</p>
+<p>싱글톤 히스토그램은 레코드 값별로 버킷이 할당되며, 높이 균형 히스토그램에서는 개수가 균등한 칼럼값의 범위별로 하나의 버킷이 할당된다.</p>
+<p>싱글톤 히스토그램은 각 버킷이 칼럼의 값과 발생 빈도의 비율 값을 가진다.<br>
+높이 균형 히스토그램은 각 버킷이 범위 시작 값과 마지막 값, 그리고 발생 빈도율과 각 버킷에 포함되는 유니크한 값의 개수를 가진다.</p>
+<p>위 사진을 다시 보면, 싱글톤 히스토그램은 성별을 나타내는 <code class="language-text">gender</code> 칼럼에 대한 히스토그램 정보이고<br>
+높이 균형 히스토그램은 채용일을 나타내는 <code class="language-text">hire_date</code> 칼럼에 대한 히스토그램 정보이다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/90a885145dc5496fd7f3ecc7948fb505/43300/histogram-example.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 79.11392405063292%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAIAAACZeshMAAAACXBIWXMAAAsSAAALEgHS3X78AAAC4UlEQVR42j2Ru47bRhSG+Q4p4odwlaRawDBgJHHlwnBnb+ltUrvwJVIkkkuJFEdDcngdzo3Di0hJK628a6yBJEXezEdSYODHwSnmO+f/zxj//vewP3TbrVSKcB4wgRlfMo4xNsPAEmzJSwRi1D8JlYVLMyePrWg5MnaHTqq4rtOqOlYhQykjIYKLi19evPhdayIYViKQHJ8lGOLUZfksjUyjH0RZ4r4vLfv926tLKcO6TrSOf/r58fPnT/su1xWpT9IqqmR4HMSQKL0ydQxdZ1m22O3U69cvf3z0A6XLFgCdAPzs2cW6p12Tgto6+c6DtMSCukZZBmnqAfzu3R+//vaE87Driq7LLy9fXV29GQa6ajPQmW8q0uj4JFJxZAhBwDYtMVQpyXrNIMIwlFBXK9q2edOkcAvI0jZJW//vAmpdRUbTZFWVCBEpFcNTAEBArtd8GI6DTnwG9ehoVay6Ag4BccAObI7Aebcq2462TdEclZ2nfF9+JqEHR5uBrfuyP40wksQnxAVG60zrvK7hWlldZ00D/dHUeXOt066FN0ml4PJxQmY0940ocqNoDkBVQTBYAquoUglgjIVhMKMUK0kqSZo62wx8u+a7rdxtBTSG505nzhjegXlKg6LAWYbyAkMvZAzbmhYMl5uNgB+53eu7Q3P/ubk71Ie9Nkg0R+jaccb29djzzDCcY+xEoQtxshQl8SImXp76RY44C6UgShDJIyWiVqdwsJjxeDL9aFqjyeSjZY1sezydfgLZ1mg6+TD96705+TC7HvueiZEdIHuJbOSZebIwtC7ajvu+g/F8sXAQmkPvupbn2XPXtKw/bfMTCGC0MJe+FWInBne+xQsM/1ze7FqpCqlKytOCJgWN84KkGQ6w67nm3BnPnZHvTpa+GQUOCWcp8eJwplhopMly1eu7L/v7h8Pt3c3Xv++//nP/5WF/e+j7QVVVrnhc8WNUreJVW6x7drOR+63ab9U3Xnw0LuktMPAAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="histogram example"
+        title=""
+        src="/static/90a885145dc5496fd7f3ecc7948fb505/f058b/histogram-example.png"
+        srcset="/static/90a885145dc5496fd7f3ecc7948fb505/c26ae/histogram-example.png 158w,
+/static/90a885145dc5496fd7f3ecc7948fb505/6bdcf/histogram-example.png 315w,
+/static/90a885145dc5496fd7f3ecc7948fb505/f058b/histogram-example.png 630w,
+/static/90a885145dc5496fd7f3ecc7948fb505/40601/histogram-example.png 945w,
+/static/90a885145dc5496fd7f3ecc7948fb505/78612/histogram-example.png 1260w,
+/static/90a885145dc5496fd7f3ecc7948fb505/43300/histogram-example.png 2694w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>싱글톤 히스토그램은 <code class="language-text">ENUM('M', 'F')</code> 타입인 gender 칼럼이 가질 수 있는 2개의 값에 대해 누적된 레코드 건수의 비율을 나타낸다.<br>
+이처럼 <u>싱글톤 히스토그램은 주로 코드 값과 같이 유니크한 값의 개수가 상대적으로 적은 경우 사용</u>된다.<br>
+위 사진에서는 값이 'M'인 레코드 비율은 약 0.5998이며, 값이 'F'인 레코드의 비율은 1로 표시되고 있다. 하지만 <strong>히스토그램의 모든 레코드 건수 비율은 누적으로 표시</strong>된다. 다시 말해, 그래프의 x축이 커질수록 그 값이 누적된다는 말이다.<br>
+따라서 값이 'M'인 레코드의 비율은 '1 - 0.5998' 로 계산해야 한다.</p>
+<p><u>높이 균형 히스토그램은 칼럼값의 각 범위에 대해 레코드 건수 비율이 누적으로 표시</u>된다.<br>
+그래서 히스토그램의 버킷 범위가 뒤로 갈수록 비율이 높아지는 것처럼 보이지만, 사실 범위별로 비율이 같은 수준에서 <code class="language-text">hire_date</code> 칼럼의 범위가 선택된 것이다.<br>
+그래프의 기울기가 일정한 것을 통해 모든 범위에 대한 레코드 건수 비율이 모두 비슷한 값을 가진다는 것을 눈치챌 수 있다.</p>
+<p>추가로 <code class="language-text">information_schema.column_statistics</code> 테이블의 HISTOGRAM 칼럼이 가지는 나머지 필드들은 다음과 같은 정보를 가진다.</p>
+<ul>
+<li>
+<p><code class="language-text">sampling-rate</code></p>
+<ul>
+<li>히스토그램 정보를 수집하기 위해 스캔한 페이지의 비율이다.</li>
+<li>이 비율이 높을 수록 정확한 결과를 얻을 수 있지만 그만큼 더 많은 리소스를 사용한다.</li>
+<li>default로, <code class="language-text">histogram_generation_max_mem_size</code> 시스템 변수에 설정된 메모리 크기에 맞게 샘플링된다.</li>
+<li>이 값은 20MB로 초기화돠어 있다.</li>
+</ul>
+</li>
+<li>
+<p><code class="language-text">histogram-type</code></p>
+<ul>
+<li>히스토그램의 종류이다.</li>
+</ul>
+</li>
+<li>
+<p><code class="language-text">number-of-buckets-specified</code></p>
+<ul>
+<li>히스토그램을 생성할 때 설정했던 버킷의 개수이다.</li>
+<li>히스토그램을 생성할 때 별도로 버킷의 수를 지정하지 않았다면 기본적으로 100개의 버킷이 사용된다.</li>
+<li>버킷은 최대 1024개 설정할 수 있지만 일반적으로 100개의 버킷이면 충분한 것으로 알려져있다.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>주의 🚨<br>
+MySQL 8.0.19 미만 버전까지는 히스토그램 생성 시 <code class="language-text">sampling-rate</code>, <code class="language-text">histogram_generation_max_mem_size</code> 시스템 변수 크기와 상관없이 풀 스캔을 통해 데이터 페이지를 샘플링하여 히스토그램을 생성했다.<br>
+하지만 MySQL 8.0.19 버전부터 InnoDB 스토리지 엔진 자체적으로 샘플링 알고리즘을 구현했으며, 더이상 풀 스캔을 통해 히스토그램을 생성하지 않는다.<br>
+따라서 MySQL 8.0.18 버전까지는 히스토그램 생성 시 주의가 필요하다.</p>
+</blockquote>
+<h4 id="히스토그램-삭제하기" style="position:relative;"><a href="#%ED%9E%88%EC%8A%A4%ED%86%A0%EA%B7%B8%EB%9E%A8-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0" aria-label="히스토그램 삭제하기 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>히스토그램 삭제하기</h4>
+<p>생성한 히스토그램은 <code class="language-text">ANALYZE TABLE {database}.{table} DROP HISTOGRAM ON {columns}</code> 다음과 같이 삭제할 수 있다.</p>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment"># 예시</span>
+mysql<span class="token operator">></span> <span class="token keyword">ANALYZE</span> <span class="token keyword">TABLE</span> employees<span class="token punctuation">.</span>employees <span class="token keyword">DROP</span> HISTOGRAM <span class="token keyword">ON</span> gender<span class="token punctuation">,</span> hire_date<span class="token punctuation">;</span></code></pre></div>
+<p>히스토그램 삭제는 데이터를 참조하지 않고 딕셔너리 내용만 삭제하기 때문에 다른 쿼리 처리 성능을 해치지 않는다.</p>
+<h4 id="히스토그램은-있지만-옵티마이저가-사용하지-않게-하기" style="position:relative;"><a href="#%ED%9E%88%EC%8A%A4%ED%86%A0%EA%B7%B8%EB%9E%A8%EC%9D%80-%EC%9E%88%EC%A7%80%EB%A7%8C-%EC%98%B5%ED%8B%B0%EB%A7%88%EC%9D%B4%EC%A0%80%EA%B0%80-%EC%82%AC%EC%9A%A9%ED%95%98%EC%A7%80-%EC%95%8A%EA%B2%8C-%ED%95%98%EA%B8%B0" aria-label="히스토그램은 있지만 옵티마이저가 사용하지 않게 하기 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>히스토그램은 있지만 옵티마이저가 사용하지 않게 하기</h4>
+<p>히스토그램을 삭제하지 않고 옵티마이저가 히스토그램을 사용하지 않게 하려면 아래 쿼리를 참고하자</p>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment"># 모든 쿼리에 적용</span>
+mysql<span class="token operator">></span> <span class="token keyword">SET</span> <span class="token keyword">GLOBAL</span> optimizer_switch<span class="token operator">=</span><span class="token string">'condition_fanout_filter=off'</span><span class="token punctuation">;</span>
+
+<span class="token comment"># 현재 커넥션에서 실행되는 쿼리만 적용</span>
+mysql<span class="token operator">></span> <span class="token keyword">SET</span> <span class="token keyword">SESSION</span> optimizer_switch<span class="token operator">=</span><span class="token string">'condition_fanout_filter=off'</span><span class="token punctuation">;</span>
+
+<span class="token comment"># 현재 쿼리에만 적용</span>
+mysql<span class="token operator">></span> <span class="token keyword">SELECT</span> <span class="token comment">/*+ SET_VAR(optimizer_switch='condition_fanout_filter=off') */</span> <span class="token operator">*</span>
+       <span class="token keyword">FROM</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></code></pre></div>
+<h4 id="히스토그램의-용도" style="position:relative;"><a href="#%ED%9E%88%EC%8A%A4%ED%86%A0%EA%B7%B8%EB%9E%A8%EC%9D%98-%EC%9A%A9%EB%8F%84" aria-label="히스토그램의 용도 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>히스토그램의 용도</h4>
+<p>히스토그램은 특정 칼럼이 가지는 모든 값에 대한 분포도 정보를 가지지는 않지만 각 버킷 별로 레코드의 건수나 유니크한 값의 개수 정보를 가지므로 훨씬 정확한 예측을 할 수 있다.</p>
+<p>히스토그램 정보가 없으면 옵티마이저는 데이터가 균등하게 분포되어 있을 것으로 예측한다. 하지만 히스토그램 정보가 있으면 특정 범위의 데이터가 많고 적음을 어느정도 미리 유추할 수 있게 된다.</p>
+<h3 id="히스토그램과-인덱스" style="position:relative;"><a href="#%ED%9E%88%EC%8A%A4%ED%86%A0%EA%B7%B8%EB%9E%A8%EA%B3%BC-%EC%9D%B8%EB%8D%B1%EC%8A%A4" aria-label="히스토그램과 인덱스 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>히스토그램과 인덱스</h3>
+<p>옵티마이저가 쿼리 실행 계획을 수립할 때 사용 가능한 인덱스들로부터 조건절에 일치하는 레코드 건수를 대략 파악하고 최종적으로 가장 나은 실행 계획을 선택한다.<br>
+이때 조건절에 일치하는 레코드 건수를 예측하기 위해 옵티마이저는 실제 인덱스의 B-Tree를 샘플링해서 살펴본다.<br>
+이를 <strong>인덱스 다이브</strong>(Index Dive)라고 표현한다.</p>
+<p>일반적으로 검색 조건으로 많이 사용되는 칼럼은 인덱스로 설정한다.<br>
+그런데 이렇게 인덱스로 설정한 칼럼에 대해 히스토그램 정보를 수집해두는 것이 좋을까?<br>
+아래 쿼리를 통해 알아보자.</p>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment"># 참고: first_name 칼럼만 인덱스로 설정되어 있다.</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword">FROM</span> employees
+<span class="token keyword">WHERE</span> first_name<span class="token operator">=</span><span class="token string">'Tonny'</span> <span class="token operator">AND</span> birth_date <span class="token operator">BETWEEN</span> <span class="token string">'1954-01-01'</span> <span class="token operator">AND</span> <span class="token string">'1955-01-01'</span><span class="token punctuation">;</span></code></pre></div>
+<p>이러한 쿼리라면 옵티마이저는 first_name 칼럼의 인덱스와 birth_date 칼럼의 히스토그램 정보를 사용할까?<br>
+MySQL 8.0부터는 인덱스된 칼럼을 검색 조건으로 사용하는 경우 그 칼럼의 히스토그램은 사용하지 않고 인덱스 다이브를 통해 직접 수집한 정보를 활용한다.<br>
+이는 실제 검색 조건의 대상 값으로 직접 샘플링을 실행하는 것이므로 항상 히스토그램보다 더 정확한 결과를 기대할 수 있기 때문이다.</p>
+<p>그래서 MySQL 8.0 버전부터는 히스토그램을 주로 인덱스되지 않은 칼럼에 대한 데이터 분포도를 참조하는 용도로 사용된다.</p></section><hr/><footer><div class="bio"><div data-gatsby-image-wrapper="" style="width:75px;height:75px" class="gatsby-image-wrapper bio-avatar"><div aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear;background-color:#a89888;width:75px;height:75px;position:relative"></div><picture><source type="image/avif" data-srcset="/static/fdc99851401fabaca2d68d6b9aefa2fe/1cf05/profile_img.avif 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/13b46/profile_img.avif 150w" sizes="75px"/><source type="image/webp" data-srcset="/static/fdc99851401fabaca2d68d6b9aefa2fe/96891/profile_img.webp 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/3554d/profile_img.webp 150w" sizes="75px"/><img data-gatsby-image-ssr="" layout="fixed" data-main-image="" style="opacity:0" sizes="75px" decoding="async" loading="lazy" data-src="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg" data-srcset="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/2e46f/profile_img.jpg 150w" alt="Profile picture"/></picture><noscript><picture><source type="image/avif" srcSet="/static/fdc99851401fabaca2d68d6b9aefa2fe/1cf05/profile_img.avif 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/13b46/profile_img.avif 150w" sizes="75px"/><source type="image/webp" srcSet="/static/fdc99851401fabaca2d68d6b9aefa2fe/96891/profile_img.webp 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/3554d/profile_img.webp 150w" sizes="75px"/><img data-gatsby-image-ssr="" layout="fixed" data-main-image="" style="opacity:0" sizes="75px" decoding="async" loading="lazy" src="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg" srcSet="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/2e46f/profile_img.jpg 150w" alt="Profile picture"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div><p>1. 2025년이 끝나기 전까지 <strong>기본기를 완벽히 정리한다.</strong><br/>2. <strong>내가 좋아하는 것</strong>을 차곡히 기록한다.<br/>3. 하루하루는 치열하게, 인생은 흘러가는대로~</p></div></footer></article></div><aside class="toc-container"><h3 class="toc-title">목차</h3><div class="toc-content"><ul>
+<li>
+<p><a href="#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0">들어가며</a></p>
+</li>
+<li>
+<p><a href="#%ED%86%B5%EA%B3%84-%EC%A0%95%EB%B3%B4">통계 정보</a></p>
+<ul>
+<li>
+<p><a href="#%EA%B0%9C%EC%9A%94">개요</a></p>
+</li>
+<li>
+<p><a href="#%ED%85%8C%EC%9D%B4%EB%B8%94-%EB%B0%8F-%EC%9D%B8%EB%8D%B1%EC%8A%A4-%ED%86%B5%EA%B3%84-%EC%A0%95%EB%B3%B4">테이블 및 인덱스 통계 정보</a></p>
+<ul>
+<li><a href="#mysql-56-%EB%B2%84%EC%A0%84%EB%B6%80%ED%84%B0">MySQL 5.6 버전부터</a></li>
+<li><a href="#%ED%86%B5%EA%B3%84-%EC%A0%95%EB%B3%B4%EB%A5%BC-%EC%98%81%EA%B5%AC%EC%A0%81%EC%9C%BC%EB%A1%9C-%EA%B4%80%EB%A6%AC%ED%95%98%EB%8F%84%EB%A1%9D-%EC%84%A4%EC%A0%95%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95">통계 정보를 영구적으로 관리하도록 설정하는 방법</a></li>
+<li><a href="#%ED%86%B5%EA%B3%84-%EC%A0%95%EB%B3%B4%EB%A5%BC-%ED%99%95%EC%9D%B8%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95">통계 정보를 확인하는 방법</a></li>
+<li><a href="#%ED%86%B5%EA%B3%84-%EC%A0%95%EB%B3%B4%EB%A5%BC-%EC%9E%90%EB%8F%99%EC%9C%BC%EB%A1%9C-%EA%B0%B1%EC%8B%A0%ED%95%98%EA%B1%B0%EB%82%98-%EB%81%84%EA%B1%B0%EB%82%98">통계 정보를 자동으로 갱신하거나 끄거나</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#%ED%9E%88%EC%8A%A4%ED%86%A0%EA%B7%B8%EB%9E%A8">히스토그램</a></p>
+<ul>
+<li><a href="#%ED%9E%88%EC%8A%A4%ED%86%A0%EA%B7%B8%EB%9E%A8-%EC%A0%95%EB%B3%B4-%EC%88%98%EC%A7%91%ED%95%98%EA%B8%B0">히스토그램 정보 수집하기</a></li>
+<li><a href="#%ED%9E%88%EC%8A%A4%ED%86%A0%EA%B7%B8%EB%9E%A8-%EC%A2%85%EB%A5%98">히스토그램 종류</a></li>
+<li><a href="#%ED%9E%88%EC%8A%A4%ED%86%A0%EA%B7%B8%EB%9E%A8-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-%EF%B8%8F">히스토그램 이해하기 ⭐️</a></li>
+<li><a href="#%ED%9E%88%EC%8A%A4%ED%86%A0%EA%B7%B8%EB%9E%A8-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0">히스토그램 삭제하기</a></li>
+<li><a href="#%ED%9E%88%EC%8A%A4%ED%86%A0%EA%B7%B8%EB%9E%A8%EC%9D%80-%EC%9E%88%EC%A7%80%EB%A7%8C-%EC%98%B5%ED%8B%B0%EB%A7%88%EC%9D%B4%EC%A0%80%EA%B0%80-%EC%82%AC%EC%9A%A9%ED%95%98%EC%A7%80-%EC%95%8A%EA%B2%8C-%ED%95%98%EA%B8%B0">히스토그램은 있지만 옵티마이저가 사용하지 않게 하기</a></li>
+<li><a href="#%ED%9E%88%EC%8A%A4%ED%86%A0%EA%B7%B8%EB%9E%A8%EC%9D%98-%EC%9A%A9%EB%8F%84">히스토그램의 용도</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#%ED%9E%88%EC%8A%A4%ED%86%A0%EA%B7%B8%EB%9E%A8%EA%B3%BC-%EC%9D%B8%EB%8D%B1%EC%8A%A4">히스토그램과 인덱스</a></p>
+</li>
+</ul>
+</li>
+</ul></div></aside></div><nav class="blog-post-nav"><ul><li><a rel="이전 글" href="/test/oauth-test/">Spring Boot에서 Rest Assured로 인수 테스트할 때 OAuth 로그인 처리하기</a></li><li><a rel="다음 글" href="/네트워크/네트워크-책-스터디/06-http-header/">6장. HTTP 헤더</a></li></ul></nav></main><footer style="text-align:center;padding:var(--spacing-12) 0;margin-top:var(--spacing-16);border-top:1px solid var(--color-border);color:var(--color-text-light);font-size:var(--fontSize-0)">© <!-- -->2025<!-- --> kdkdhoho. Built with<!-- --> <a href="https://www.gatsbyjs.com" style="color:var(--color-primary);text-decoration:none;font-weight:500">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/데이터베이스/real-mysql-book-study/10-execute-plain/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-47f031f2ceb0019662ea.js\"],\"component---src-pages-404-js\":[\"/component---src-pages-404-js-8fe22ac8e65b50194c16.js\"],\"component---src-pages-index-js\":[\"/component---src-pages-index-js-54c3b9751cd04b668b54.js\"],\"component---src-pages-search-js\":[\"/component---src-pages-search-js-c4751f05f6f25b584bbc.js\"],\"component---src-templates-blog-post-js\":[\"/component---src-templates-blog-post-js-76ba1df29747bd8b2657.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="422a0d088d697675178c";</script><script src="/webpack-runtime-c65889e3493a4af2c4aa.js" async></script><script src="/framework-647153102893cffe9a5c.js" async></script><script src="/app-47f031f2ceb0019662ea.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
