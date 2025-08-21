@@ -1,9 +1,8 @@
 ---
-title: "[JSCODE] - OS 면접 스터디 2주차"
-description: "[JSCODE] - OS 면접 스터디 2주차"
+title: "운영체제 인터뷰 스터디 2주차"
+description: "JSCODE를 통해 진행한 OS 면접 스터디 2주차 정리입니다."
 date: 2023-11-16
-update: 2023-12-01
-tags: ["operating-system", "interview"]
+tags: ["운영체제"]
 series: "운영체제 면접 스터디"
 ---
 
