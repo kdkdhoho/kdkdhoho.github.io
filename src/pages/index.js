@@ -25,59 +25,48 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Bio />
-      <ol style={{ listStyle: `none` }}>
+      <div className="posts-grid">
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
 
           return (
-            <li key={post.fields.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.frontmatter.date}</small>
-                </header>
-                <section>
-                  {post.frontmatter.description && (
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: post.frontmatter.description,
-                      }}
-                      itemProp="description"
-                    />
-                  )}
-                  {post.frontmatter.tags && (
-                    <p style={{ marginTop: '0.5rem' }}>
-                      {post.frontmatter.tags.map(tag => (
-                        <span
-                          key={tag}
-                          style={{
-                            display: 'inline-block',
-                            backgroundColor: '#e0e0e0',
-                            borderRadius: '0.25rem',
-                            padding: '0.25rem 0.5rem',
-                            marginRight: '0.5rem',
-                            fontSize: '0.8rem',
-                          }}
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </p>
-                  )}
-                </section>
-              </article>
-            </li>
+            <article
+              key={post.fields.slug}
+              className="post-list-item"
+              itemScope
+              itemType="http://schema.org/Article"
+            >
+              <header>
+                <h2>
+                  <Link to={post.fields.slug} itemProp="url">
+                    <span itemProp="headline">{title}</span>
+                  </Link>
+                </h2>
+                <small>{post.frontmatter.date}</small>
+              </header>
+              <section>
+                {post.frontmatter.description && (
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: post.frontmatter.description,
+                    }}
+                    itemProp="description"
+                  />
+                )}
+                {post.frontmatter.tags && (
+                  <div className="post-tags">
+                    {post.frontmatter.tags.map(tag => (
+                      <span key={tag} className="post-tag">
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </section>
+            </article>
           )
         })}
-      </ol>
+      </div>
     </Layout>
   )
 }
@@ -105,7 +94,7 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
+          date(formatString: "YYYY년 M월 D일")
           title
           description
           tags

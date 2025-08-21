@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import TableOfContents from "../components/toc"
 
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
@@ -11,47 +12,75 @@ const BlogPostTemplate = ({
 }) => {
   const siteTitle = site.siteMetadata?.title || `Title`
 
+  React.useEffect(() => {
+    const progressBar = document.createElement('div')
+    progressBar.className = 'scroll-progress'
+    document.body.appendChild(progressBar)
+
+    const updateProgress = () => {
+      const scrollTop = window.pageYOffset
+      const docHeight = document.body.scrollHeight - window.innerHeight
+      const scrollPercent = (scrollTop / docHeight) * 100
+      progressBar.style.width = scrollPercent + '%'
+    }
+
+    window.addEventListener('scroll', updateProgress)
+    
+    return () => {
+      window.removeEventListener('scroll', updateProgress)
+      if (document.body.contains(progressBar)) {
+        document.body.removeChild(progressBar)
+      }
+    }
+  }, [])
+
   return (
     <Layout location={location} title={siteTitle}>
-      <article
-        className="blog-post"
-        itemScope
-        itemType="http://schema.org/Article"
-      >
-        <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
-        </header>
-        <section
-          dangerouslySetInnerHTML={{ __html: post.html }}
-          itemProp="articleBody"
-        />
-        <hr />
-        <footer>
-          <Bio />
-        </footer>
-      </article>
+      <div className="blog-post-layout">
+        <div className="blog-post-container">
+          <article
+            className="blog-post"
+            itemScope
+            itemType="http://schema.org/Article"
+          >
+            <header>
+              <h1>{post.frontmatter.title}</h1>
+              <p className="post-date">{post.frontmatter.date}</p>
+              <p>{post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
+                <div className="tags-container">
+                  {post.frontmatter.tags.map(tag => (
+                    <span key={tag} className="tag">
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              )}</p>
+            </header>
+            <section
+              dangerouslySetInnerHTML={{ __html: post.html }}
+              itemProp="articleBody"
+            />
+            <hr />
+            <footer>
+              <Bio />
+            </footer>
+          </article>
+        </div>
+        {post.tableOfContents && <TableOfContents tableOfContents={post.tableOfContents} />}
+      </div>
       <nav className="blog-post-nav">
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
+        <ul>
           <li>
             {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
+              <Link to={previous.fields.slug} rel="이전 글">
+                {previous.frontmatter.title}
               </Link>
             )}
           </li>
           <li>
             {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
+              <Link to={next.fields.slug} rel="다음 글">
+                {next.frontmatter.title}
               </Link>
             )}
           </li>
@@ -87,10 +116,12 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       html
+      tableOfContents
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "YYYY년 M월 D일")
         description
+        tags
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {
