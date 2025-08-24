@@ -77,5 +77,3 @@ The app I’m currently developing offers many features related to health supple
   When I used Instagram, I realized it is real time sink.
 - account for: (비율·부분을) 차지하다, (이유·원인을) 설명하다
 - I have a heavy workload at the moment.: 업무량이 많다는 상황을 그대로 전달함으로서 바쁘다는 표현을 formal하게
-
-# 총평
