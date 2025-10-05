@@ -49,203 +49,183 @@
         }
       }
     })
-  </script><link rel="alternate" type="application/rss+xml" title="Gatsby Starter Blog RSS Feed" href="/rss.xml"/><link rel="icon" href="/favicon-32x32.png?v=fdc99851401fabaca2d68d6b9aefa2fe" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><title data-gatsby-head="true">객체지향 설계 원칙: SOLID | 내가 재밌는 일을 하자 !</title></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="global-wrapper" data-is-root-path="false"><div class="top-buttons"><div class="search-container"><button class="search-toggle" aria-label="검색" title="검색">🔍</button></div><button class="theme-toggle" aria-label="다크 모드로 전환" title="다크 모드로 전환"><span class="theme-toggle-icon">🌙</span></button></div><header class="global-header"><a class="header-link-home" href="/">내가 재밌는 일을 하자 !</a></header><main><div class="blog-post-layout"><div class="blog-post-container"><article class="blog-post" itemscope="" itemType="http://schema.org/Article"><header><h1>객체지향 설계 원칙: SOLID</h1><p class="post-date">2024년 7월 13일</p><p><div class="tags-container"><span class="tag">#<!-- -->oop</span><span class="tag">#<!-- -->solid</span></div></p></header><section itemProp="articleBody"><p>객체지향을 공부하면 빠질 수 없는 내용이 있다.<br>
-바로 <em>SOLID</em> 라고 불리는 객체지향 설계 원칙이다.<br>
-이번 글은 SOLID 원칙이 무엇이고 왜 탄생하게 되었으며 각 원칙은 무엇을 의미하는지 알아보겠다.</p>
+  </script><link rel="alternate" type="application/rss+xml" title="Gatsby Starter Blog RSS Feed" href="/rss.xml"/><link rel="icon" href="/favicon-32x32.png?v=fdc99851401fabaca2d68d6b9aefa2fe" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=fdc99851401fabaca2d68d6b9aefa2fe"/><title data-gatsby-head="true">객체지향 설계 원칙: SOLID | 내가 재밌는 일을 하자 !</title></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="global-wrapper" data-is-root-path="false"><div class="top-buttons"><div class="search-container"><button class="search-toggle" aria-label="검색" title="검색">🔍</button></div><button class="theme-toggle" aria-label="다크 모드로 전환" title="다크 모드로 전환"><span class="theme-toggle-icon">🌙</span></button></div><header class="global-header"><a class="header-link-home" href="/">내가 재밌는 일을 하자 !</a></header><main><div class="blog-post-layout"><div class="blog-post-container"><article class="blog-post" itemscope="" itemType="http://schema.org/Article"><header><h1>객체지향 설계 원칙: SOLID</h1><p class="post-date">2024년 7월 13일</p><p><div class="tags-container"><span class="tag">#<!-- -->oop</span><span class="tag">#<!-- -->solid</span></div></p></header><section itemProp="articleBody"><h2 id="들어가며" style="position:relative;"><a href="#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0" aria-label="들어가며 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>들어가며</h2>
+<p>SOLID 원칙은 <strong>객체지향 디자인 패턴의 근본</strong>이다.</p>
+<p>객체지향 프로그래밍으로 소프트웨어를 설계할 때 권장하는 다섯 가지 원칙이다.
+이 원칙을 준수하며 소프트웨어 설계를 하면 <strong>유지보수성, 이해성, 유연성이 뛰어난 소프트웨어가 알아서 만들어진다</strong>.</p>
+<blockquote>
+<p>[!info] TMI
+SOLID 원칙은 로버트 C. 마틴(Robert C. Martin)의 디자인 원칙과 디자인 패턴 논문에서 처음 소개됐다.
+이후 마이클 페더스(Michael Feathers)가 발전시켜 현재의 SOLID라는 약어를 제안하게 됐다.</p>
+</blockquote>
 <h2 id="solid-원칙" style="position:relative;"><a href="#solid-%EC%9B%90%EC%B9%99" aria-label="solid 원칙 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SOLID 원칙</h2>
-<p>SOLID는 객체지향 프로그래밍을 할 때 객체지향의 특징을 잘 살릴 수 있는 설계 원칙이다.<br>
-총 5가지의 원칙이 있으며, 원칙이라는 이름이 붙은만큼 다섯 가지의 원칙을 모든 상황에서 지켜야 하는 것은 아니다. 대부분의 상황에 적절히 사용 가능한 <em>가이드라인</em>과도 같다.<br>
-다만, SOLID를 생각하며 코드를 설계하고 작성하면 객체지향의 큰 장점인 유연함과 생산성이 향상되는 것을 느낄 수 있을 것이다.</p>
-<p>이제 다섯 가지 원칙에 대해 알아보자.</p>
-<h3 id="srp-단일-책임-원칙" style="position:relative;"><a href="#srp-%EB%8B%A8%EC%9D%BC-%EC%B1%85%EC%9E%84-%EC%9B%90%EC%B9%99" aria-label="srp 단일 책임 원칙 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SRP: 단일 책임 원칙</h3>
-<p><strong>클래스나 모듈이 변경되는 이유는 단 한가지 때문이어야 한다</strong>는 원칙이다.<br>
-아래 코드는 백엔드 개발자를 나타내는 객체를 나타내본 코드다.<br>
-메서드를 보면 서버를 구축하고 DB를 설정하며 MainPage를 개발하는 역할을 가진다.</p>
-<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SpringBackendDeveloper</span> <span class="token punctuation">{</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">deployServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setupDatabase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">developMainPage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token punctuation">}</span>
+<p>SOLID는 다섯 용어의 앞 글자를 따서 지은 용어이다.
+각 용어 순서대로 하나씩 살펴보자.</p>
+<h2 id="1-srpsingle-responsibility-principle-단일-책임-원칙" style="position:relative;"><a href="#1-srpsingle-responsibility-principle-%EB%8B%A8%EC%9D%BC-%EC%B1%85%EC%9E%84-%EC%9B%90%EC%B9%99" aria-label="1 srpsingle responsibility principle 단일 책임 원칙 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. SRP(Single Responsibility Principle): 단일 책임 원칙</h2>
+<blockquote>
+<p>주관적 중요도: ⭐️⭐️⭐️⭐️</p>
+</blockquote>
+<p>각 클래스나 모듈은 하나의 책임만 가져야 한다.
+<strong>클래스나 모듈이 변경되는 이유는 단 한 가지 때문이어야 한다</strong>는 의미이다.</p>
+<p>아래는 예제 코드이다.
+백엔드 개발자를 의미하는 클래스인데, 서버를 구축하고 DB를 설정하며 MainPage를 개발하는 역할을 가진다.</p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SpringBackendDeveloper</span> <span class="token punctuation">{</span>  
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">deployServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setupDatabase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">developMainPage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre></div>
-<p>보통 백엔드 개발자의 역할은 API 서버와 관련된 일을 수행한다.<br>
-MainPage를 개발하는 것은 <strong>백엔드 개발자의 관심사가 아니다</strong>.<br>
-아래와 같은 백엔드 개발자가 있다면 MainPage를 수정해야 하는 상황이 생긴 순간, 백엔드 서버와 관련된 일뿐만 아니라 프론트엔드의 책임까지 가지게 되고<br>
-SRP를 위반한다고 할 수 있다.</p>
-<p>이때, <strong>책임은 상황에 따라 유동적</strong>일 수 있다.<br>
-요구 사항에 따라, 책임을 나누는 기준에 따라 달라질 수 있다.<br>
-바로 위 코드를 다시 살펴봤을 때, 백엔드 개발자가 MainPage까지 개발하는 것이 책임이라면 SRP를 위반하는 것이 아니게 된다.<br>
-따라서 중요한 것은, <strong>특정 객체의 역할이 무엇인지 잘 정의하는 것</strong>이다.</p>
-<h3 id="ocp-개방-폐쇄-원칙" style="position:relative;"><a href="#ocp-%EA%B0%9C%EB%B0%A9-%ED%8F%90%EC%87%84-%EC%9B%90%EC%B9%99" aria-label="ocp 개방 폐쇄 원칙 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>OCP: 개방 폐쇄 원칙</h3>
-<p><strong>변경에는 열려있고 수정에는 닫혀 있어야 한다</strong>는 원칙이다.<br>
-열려있고 닫혀 있다는 표현이 한국어로 표현하면 다소 어색할 수 있는데, 열려있다는 건 허용한다는 의미고 닫혀있다는 건 허용하지 않는다고 이해하면 될 것 같다.</p>
-<p>아래 코드를 살펴보자.<br></p>
+<p>보통의 경우 백엔드 개발자에게 메인 페이지 개발의 책임을 부여하진 않는다.
+따라서 이런 경우 SRP를 위반하고 있다고 볼 수 있다.</p>
+<p>물론 상황에 따라 백엔드 개발자가 메인 페이지를 개발할 수는 있다.
+이런 경우엔 SRP를 위반한다고 볼 수 없다.</p>
+<p>따라서 SRP에서 의미하는 책임은, 어디서부터 어디까지 부여하냐에 따라 달라질 수 있다.</p>
+<h2 id="2-ocpopen-closed-principle-개방-폐쇄-원칙" style="position:relative;"><a href="#2-ocpopen-closed-principle-%EA%B0%9C%EB%B0%A9-%ED%8F%90%EC%87%84-%EC%9B%90%EC%B9%99" aria-label="2 ocpopen closed principle 개방 폐쇄 원칙 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. OCP(Open-Closed Principle): 개방 폐쇄 원칙</h2>
+<blockquote>
+<p>주관적 중요도: ⭐️⭐️⭐️⭐️⭐️</p>
+</blockquote>
+<p><strong>구조 확장 및 변경에는 열려있고, 코드 수정에는 닫혀 있어야 한다</strong>는 원칙이다.
+다섯 가지 원칙 중에서 가장 중요하게 생각하는 원칙이다.</p>
+<p>예제 코드를 살펴보자.</p>
 <div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Boss</span> <span class="token punctuation">{</span>
-
     <span class="token class-name">SpringBackendDeveloper</span> springBackendDeveloper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SpringBackendDeveloper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">developService</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">developService</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
         springBackendDeveloper<span class="token punctuation">.</span><span class="token function">setUpDatabase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         springBackendDeveloper<span class="token punctuation">.</span><span class="token function">deplyServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre></div>
-<p><code class="language-text">Boss</code> 객체는 <code class="language-text">SpringBackendDeveloper</code> 고용해 서비스 개발에 의존하고 있다.<br>
-그런데 갑자기 Spring이 아니라 Node로 서비스를 마이그레이션 해야 할 상황이 생겼다고 가정해보자.<br>
-<code class="language-text">Boss</code>가 의존하는 <code class="language-text">SpringBackendDeveloper</code>을 <code class="language-text">NodeBackendDevloper</code>로 교체하기 위해 모든 코드를 고쳐나가야 할 것이다.<br></p>
-<p>이제 아래 코드를 살펴보자.</p>
-<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">BackendDeveloper</span> <span class="token punctuation">{</span>
-
-    <span class="token keyword">void</span> <span class="token function">deployServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>  </code></pre></div>
+<p>Client 코드인 <code class="language-text">Boss</code> 객체는 <code class="language-text">SpringBackendDeveloper</code> 에 의존한다.
+그런데 갑자기 Spring에서 Node로 서비스를 마이그레이션 해야 할 상황이 생겼다고 가정해보자.<br><br>
+<code class="language-text">Boss</code>가 의존하는 <code class="language-text">SpringBackendDeveloper</code>을 <code class="language-text">NodeBackendDevloper</code>로 교체하기 위해 모든 코드를 수정해야 한다.</p>
+<p>구조를 변경하려고 하니 Client인 <code class="language-text">Boss</code> 객체에도 코드 수정이 이뤄지고 있다.
+OCP를 잘 지키고 있지 못한다.</p>
+<p>이제 OCP를 잘 지키는 코드를 보자.</p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">BackendDeveloper</span> <span class="token punctuation">{</span>  
+    <span class="token keyword">void</span> <span class="token function">deployServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
     <span class="token keyword">void</span> <span class="token function">setupDatabase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">NodeBackendDeveloper</span> <span class="token keyword">implements</span> <span class="token class-name">BackendDeveloper</span> <span class="token punctuation">{</span>
-
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SpringBackendDeveloper</span> <span class="token keyword">implements</span> <span class="token class-name">BackendDeveloper</span> <span class="token punctuation">{</span>
     <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">deployServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token punctuation">}</span>
-
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">deployServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
     <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setupDatabase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token punctuation">}</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setupDatabase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Boss</span> <span class="token punctuation">{</span>
-
-    <span class="token class-name">BackendDeveloper</span> backendDeveloper<span class="token punctuation">;</span>
-
-    <span class="token keyword">public</span> <span class="token class-name">Boss</span><span class="token punctuation">(</span><span class="token class-name">BackendDeveloper</span> backendDeveloper<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>backendDeveloper <span class="token operator">=</span> backendDeveloper<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">developService</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        backendDeveloper<span class="token punctuation">.</span><span class="token function">setupDatabase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        backendDeveloper<span class="token punctuation">.</span><span class="token function">deployServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre></div>
-<p><code class="language-text">BackendDeveloper</code>라는 인터페이스를 만들고 <code class="language-text">NodeBackendDeveloper</code>가 이를 구현하고 있다.<br>
-동시에 <code class="language-text">Boss</code>는 생성자로 <code class="language-text">BackendDeveloper</code>를 받고, 기존과 동일하게 작업을 요청한다.<br>
-위 코드는 <code class="language-text">Boss</code> 입장에서 봤을 때, <strong>변경에는 열려있고 수정에는 닫혀있는 것</strong>이다.</p>
-<p>OCP는 <strong>높은 응집도, 낮은 결합도</strong>라고도 표현할 수 있다.<br>
-특정 객체의 관심사(<code class="language-text">Boss</code> 입장에서 서비스를 개발하는 것)를 하나의 객체가 모두 담당하고, 관심사가 아닌 것(개발자의 기술스택)과는 느슨하게 연결되어야 한다는 의미다.</p>
-<h3 id="isp-인터페이스-분리-원칙" style="position:relative;"><a href="#isp-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4-%EB%B6%84%EB%A6%AC-%EC%9B%90%EC%B9%99" aria-label="isp 인터페이스 분리 원칙 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ISP: 인터페이스 분리 원칙</h3>
-<p><strong>인터페이스도 관심사에 따라 적절히 분리해야 한다</strong>는 원칙이다.<br></p>
-<p>위의 예시를 계속해서 사용해보자.<br>
-만약 백엔드 개발자 2명과 프론트엔드 개발자 1명을 고용하고 싶다고 가정해보고 적절한 코드를 작성해보았다.</p>
-<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">FrontendDeveloper</span> <span class="token punctuation">{</span>
-
-    <span class="token keyword">void</span> <span class="token function">developMainPage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Boss</span> <span class="token punctuation">{</span>
-
-    <span class="token class-name">BackendDeveloper</span> backendDeveloper<span class="token punctuation">;</span>
-    <span class="token class-name">FrontendDeveloper</span> frontendDeveloper<span class="token punctuation">;</span>
-
-    <span class="token keyword">public</span> <span class="token class-name">Boss</span><span class="token punctuation">(</span><span class="token class-name">BackendDeveloper</span> backendDeveloper<span class="token punctuation">,</span> <span class="token class-name">FrontendDeveloper</span> frontendDeveloper<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>backendDeveloper <span class="token operator">=</span> backendDeveloper<span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>frontendDeveloper <span class="token operator">=</span> frontendDeveloper<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">developService</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        frontendDeveloper<span class="token punctuation">.</span><span class="token function">developMainPage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        backendDeveloper<span class="token punctuation">.</span><span class="token function">setupDatabase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        backendDeveloper<span class="token punctuation">.</span><span class="token function">deployServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre></div>
-<p>화면 개발을 책임지는 <code class="language-text">FrontendDeveloper</code> 인터페이스를 분리해 만들었다.<br>
-그리고 <code class="language-text">Boss</code>는 <code class="language-text">BackendDeveloper</code>와 <code class="language-text">FrontendDeveloper</code>를 의존하여 각각에게 적절한 역할을 요청한다.<br>
-만약 풀스택 개발자 1명을 더 데려오고 싶어도 아래와 같이 작성하면 된다.</p>
-<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">FullStackDeveloper</span> <span class="token keyword">implements</span> <span class="token class-name">BackendDeveloper</span><span class="token punctuation">,</span> <span class="token class-name">FrontendDeveloper</span> <span class="token punctuation">{</span>
-
+  
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">NodeBackendDeveloper</span> <span class="token keyword">implements</span> <span class="token class-name">BackendDeveloper</span> <span class="token punctuation">{</span>  
     <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">deployServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token punctuation">}</span>
-
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">deployServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
     <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setupDatabase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">developMainPage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setupDatabase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>  
+  
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Boss</span> <span class="token punctuation">{</span>
-
-    <span class="token class-name">BackendDeveloper</span> backendDeveloper<span class="token punctuation">;</span>
-    <span class="token class-name">FrontendDeveloper</span> frontendDeveloper<span class="token punctuation">;</span>
-    <span class="token class-name">FullStackDeveloper</span> fullStackDeveloper<span class="token punctuation">;</span> <span class="token comment">// 풀스택 개발자 추가</span>
-
-    <span class="token keyword">public</span> <span class="token class-name">Boss</span><span class="token punctuation">(</span><span class="token class-name">BackendDeveloper</span> backendDeveloper<span class="token punctuation">,</span> <span class="token class-name">FrontendDeveloper</span> frontendDeveloper<span class="token punctuation">,</span> <span class="token class-name">FullStackDeveloper</span> fullStackDeveloper<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>backendDeveloper <span class="token operator">=</span> backendDeveloper<span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>frontendDeveloper <span class="token operator">=</span> frontendDeveloper<span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>fullStackDeveloper <span class="token operator">=</span> fullStackDeveloper<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
+	<span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">BackendDeveloper</span> backendDeveloper<span class="token punctuation">;</span>
+	
+	<span class="token keyword">public</span> <span class="token class-name">Boss</span><span class="token punctuation">(</span><span class="token class-name">BackendDevloper</span> backendDeveloper<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">this</span><span class="token punctuation">.</span>backendDeveloper <span class="token operator">=</span> backendDeveloper<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">developService</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        frontendDeveloper<span class="token punctuation">.</span><span class="token function">developMainPage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        fullStackDeveloper<span class="token punctuation">.</span><span class="token function">developMainPage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        backendDeveloper<span class="token punctuation">.</span><span class="token function">setupDatabase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 풀스택 개발자 추가</span>
-        backendDeveloper<span class="token punctuation">.</span><span class="token function">deployServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        fullStackDeveloper<span class="token punctuation">.</span><span class="token function">deployServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 풀스택 개발자 추가</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre></div>
-<p>인터페이스를 관심사에 따라 적절히 분리하여 <code class="language-text">FullStackDeveloper</code> 라는 객체가 손쉽게 탄생할 수 있게 되었다.</p>
-<h3 id="lsp-리스코프-치환-원칙" style="position:relative;"><a href="#lsp-%EB%A6%AC%EC%8A%A4%EC%BD%94%ED%94%84-%EC%B9%98%ED%99%98-%EC%9B%90%EC%B9%99" aria-label="lsp 리스코프 치환 원칙 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>LSP: 리스코프 치환 원칙</h3>
-<p><strong>하위 타입은 상위 타입을 대체할 수 있어야 한다</strong>는 원칙이다.<br>
-좀 더 풀어서 설명하면, <strong>상위 타입을 사용하는 클라이언트는 하위 타입이 어떻게 변해도 동일한 동작을 할 것으로 기대하고 보장되어야 한다</strong>는 것이다.</p>
+	    backendDeveloper<span class="token punctuation">.</span><span class="token function">setupDatabase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	    backendDeveloper<span class="token punctuation">.</span><span class="token function">deployServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>  </code></pre></div>
+<p>이번에는 Client인 <code class="language-text">Boss</code> 객체가 <code class="language-text">BackendDeveloper</code> 라는 Interface를 의존한다.
+그리고 생성자를 통해 외부로부터 구체적인 <code class="language-text">BackendDeveloper</code> 를 주입받는다.</p>
+<p>이러한 구조에서는 더이상 BackendDeveloper가 어떤 기술 스택을 사용하든 상관없이, 그리고 중간에 변경이 되어도 전혀 영향을 받지 않으며 본인의 로직을 수행할 수 있게 된다.</p>
+<p>즉, <strong>구조 변경에는 열려있고 코드 수정에는 닫혀있는 구조</strong>가 되는 것이다.</p>
+<h2 id="3-lspliskov-substitution-principle-리스코프-치환-원칙" style="position:relative;"><a href="#3-lspliskov-substitution-principle-%EB%A6%AC%EC%8A%A4%EC%BD%94%ED%94%84-%EC%B9%98%ED%99%98-%EC%9B%90%EC%B9%99" aria-label="3 lspliskov substitution principle 리스코프 치환 원칙 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. LSP(Liskov Substitution Principle): 리스코프 치환 원칙</h2>
+<blockquote>
+<p>주관적 중요도: ⭐️⭐️⭐️⭐️</p>
+</blockquote>
+<p><strong>하위 타입은 상위 타입을 대체할 수 있어야 한다</strong>는 원칙이다.
+쉽게 생각하면, 상위 타입의 동작을 하위 타입에서도 그대로 동작한다는 것이다.</p>
 <p>만약 아래와 같은 코드가 있다고 가정해보자.</p>
-<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DBA</span> <span class="token keyword">implements</span> <span class="token class-name">BackendDeveloper</span> <span class="token punctuation">{</span>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span><span class="token class-name">UnsupportedOperationException</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DBA</span> <span class="token keyword">implements</span> <span class="token class-name">BackendDeveloper</span> <span class="token punctuation">{</span>  
+	<span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">deployServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">throws</span> <span class="token class-name">UnsupportedOperationException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
     
     <span class="token annotation punctuation">@Override</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setupDatabase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>  </code></pre></div>
+<p><code class="language-text">BackendDeveloper</code> Interface를 구현하는 DBA 클래스이다.
+만약, <code class="language-text">Boss</code> 객체가 의존하는 <code class="language-text">BackendDeveloper</code> 자리에 <code class="language-text">DBA</code> 객체가 주입되면 어떻게 될까?</p>
+<p>DBA이지만 백엔드 개발자의 역할을 충실히 수행하면 문제되진 않겠지만, 순정 DBA라면 <code class="language-text">deployServer()</code> 메서드의 동작을 충실히 수행하긴 어려울 것이다.</p>
+<h2 id="4-ispinterface-segregation-principal-인터페이스-분리-원칙" style="position:relative;"><a href="#4-ispinterface-segregation-principal-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4-%EB%B6%84%EB%A6%AC-%EC%9B%90%EC%B9%99" aria-label="4 ispinterface segregation principal 인터페이스 분리 원칙 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. ISP(Interface Segregation Principal) 인터페이스 분리 원칙</h2>
+<blockquote>
+<p>주관적 중요도: ⭐️⭐️⭐️⭐️</p>
+</blockquote>
+<p><strong>클래스는 자신이 사용하지 않을 메서드를 구현하도록 강요받지 않아야 한다는 원칙</strong>이다.</p>
+<p>예제 코드를 살펴보자.
+아래는 위 예제 코드에서 살펴본 DBA 클래스이다.</p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DBA</span> <span class="token keyword">implements</span> <span class="token class-name">BackendDeveloper</span> <span class="token punctuation">{</span>  
+	<span class="token annotation punctuation">@Override</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">deployServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token punctuation">}</span>
-
+		<span class="token keyword">throws</span> <span class="token class-name">UnsupportedOperationException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+    
     <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setupDatabase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token punctuation">}</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setupDatabase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre></div>
-<p>직책(이름)은 DBA인데 정작 <code class="language-text">BackendDeveloper</code>를 상속받아 구현하고 있다.<br>
-만약, <code class="language-text">new Boss(new DBA(), ..., ...);</code> 가 호출된다면 어떻게 될까?<br>
-Boss는 당연히 BackendDeveloper가 수행할 동작들에 대해 기대할 것이다.<br>
-하지만 정작 실행 결과 DBA가 동작을 수행하게 될 것이다.</p>
-<p>에시가 약간 현실과 괴리감이 있다고 생각할 수 있다.<br>
-하지만 여기서 중요하게 볼 것은 <strong>하위 클래스가 상위 클래스의 동작을 잘 수행하는가?</strong> 이다.<br>
-또 다른 예시로 Stack과 Vector의 관계가 있다. <sup id="fnref-1"><a href="#fn-1" class="footnote-ref">1</a></sup></p>
-<h3 id="dip-의존관계-역전-원칙" style="position:relative;"><a href="#dip-%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84-%EC%97%AD%EC%A0%84-%EC%9B%90%EC%B9%99" aria-label="dip 의존관계 역전 원칙 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DIP: 의존관계 역전 원칙</h3>
-<p><strong>고수준 모듈은 저수준 모듈의 구현에 의존해서는 안되며, 저수준 모듈이 고수준 모듈에 의존해야 한다</strong>는 원칙이다.<br>
-말이 조금 어려운데 아래 그림을 통해 이해해보자.
-<span
+<p>사실상 DBA는 <code class="language-text">deployServer()</code> 메서드를 구현할 필요는 없다.
+하지만 <code class="language-text">BackendDeveloper</code> Interface에서 메서드를 정의해두었기에 어쩔 수 없이 구현해야 한다.</p>
+<p>즉, ISP를 위반하고 있는 것이다.
+따라서 Interface 구조가 아래와 같이 개선되면, ISP를 잘 지키는 구조가 되는 것이다.</p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">BackendDeveloper</span> <span class="token punctuation">{</span>
+	<span class="token keyword">void</span> <span class="token function">deployServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">DBA</span> <span class="token punctuation">{</span>
+	<span class="token keyword">void</span> <span class="token function">setupDatabase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<h2 id="5-dip-의존관계-역전-원칙" style="position:relative;"><a href="#5-dip-%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84-%EC%97%AD%EC%A0%84-%EC%9B%90%EC%B9%99" aria-label="5 dip 의존관계 역전 원칙 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. DIP: 의존관계 역전 원칙</h2>
+<blockquote>
+<p>주관적 중요도: ⭐️⭐️⭐️⭐️⭐️</p>
+</blockquote>
+<p><strong>고수준 모듈은 저수준 모듈의 구현에 의존해서는 안되며, 저수준 모듈이 고수준 모듈에 의존해야 한다</strong>는 원칙이다.</p>
+<ul>
+<li>고수준 모듈: 기능의 로직을 제어하는 핵심 모듈(클래스)</li>
+<li>저수준 모듈: 구체적인 동작을 직접 구현하는 모듈(클래스)</li>
+</ul>
+<p>여기서 <strong>모듈은 클래스를 의미할 수도 있고 패키지를 의미할 수 있다.</strong>
+만약, 클래스 관점에서만 DIP를 지킨다면 DIP가 완전히 지켜지지는 않는다.
+따라서 DIP를 잘 지켰는지 판단하려면 패키지 관점에서도 생각해야 한다.</p>
+<p>무슨 말인지 아래 사진을 보자.</p>
+<p>기존 예제였던 <code class="language-text">Boss</code> 객체는 핵심 로직을 수행하므로 고수준 모듈에 속한다.
+그리고 기존에 봤던 구조처럼, <code class="language-text">BackendDeveloper</code>에 의존한다.
+<code class="language-text">Boss</code>와 <code class="language-text">BackendDeveloper</code>는 어쩌면 패키지로 충분히 나눌 수 있다고 생각된다.
+그럼 아래 구조가 될 것이다.</p>
+<p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
     >
       <a
     class="gatsby-resp-image-link"
-    href="/static/6491ff84b1cbec534a282308cd2286df/fbf76/dip.png"
+    href="/static/6b43286e54a25ebde68f3f0c0c11a3e9/493ac/wrong_dip.png"
     style="display: block"
     target="_blank"
     rel="noopener"
   >
     <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 24.050632911392405%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA30lEQVR42oWP746DIBDEfYy2KmBN/QeIgJ5ie8m9/0vNLduk3y73YcIyv81kp5DqjtE4uMXj0fUQsmGppoW2FrNb4Jxnro398L9USNXCuojjSNB6hrE5IGDSFnZx2Ml//XwjpSdC3P4PrCqBy7VklbWAUHTdvYVsGtzKCpcb+bLm90r/zIVUqIT8qKSMrFooFJbqeB8R1hU+RNYwTngMGgvNIZIX336e+2FEPxlmvE/e4gNndN2AwoWN6x7pxNeekM4X1Z4p0GDddq6aa+/EzvOJcTQUOL93mZ3MErF8yC9jrZRgTmP+mQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+    style="padding-bottom: 75.31645569620254%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAACsklEQVR42iVSiW7TQBT0xyMolJS4vhLb670PX7FrO1dBIArN0TbQ1mkS/oZXkEbW29XOvHnzbL0c+8P++Xg6vJz6HnB47g+Pxz/7w2m/Pzz1+8f+8PRyej4ce3gJ98fTvt//7vtd/7KzHp92j7uHX7/ub9c3X75db+5Wi+vZavPjfrfd3K+2D+u7h/X2frXe3K42P9fb2+3d6ufq5vYV363NZr26uVkuZ/PlLC/zuq3zuqjaSTO7ahdtt5x2i2k776bztu2uumkzX0wBy8/zL1+vrfliPm2uTKqbrkEksV0b0SQmiHAWYSQzbcpM5ynAFFleZJOqrOpyOuuW13NLSCEYjeNojCLMCOYEUQx8eJ3AUVCupTBSplpl5j+5ridt13TTFsic4IQxShhNKKZwFBxeM8U/Di+AD2QmBVNCpkprlWammGRtV3VdY8FZckYphraXnjtGsRN4ozj0xsGbs3dvP5yBhO07oAIShBOlOeNkUhVNW1lKK8U5QjGDBqnWmYHv0LFB4uJy+P7jh0+O7Y58IJsiVZksSjAg8jKtm4mV5SbTisCwEoxpaWA2TTgF/4hgcAsFlQwKYQSX1GSKC1LV+Wtn0Mi0pASbzCCMxtH4n+3IDfwwifOqDJNo6Nq2YwfjwHEvExJjEpdV3na1lYMZQWFmk5oYRZ7vnQ/OB58Gju/GGEHCVDA/HHkjz3HtYOSiJIyTUKeirktrUuUajDEilcQkATiuczG88Mc+uE1LCDcF0XE4ct1LP3ChbYLj17ELY0H0klHg5EUuYEmSZ1kKqx+FAfwqsCfgKwOhJIQiYDKOobmAVWppeZ4NMcVxiDG0xVH86tz1XT/wAPDPcSUwQTEKgQPAOJIKmNyk0hoMzjSkKAEC+KACa0sSBHWCEYOkFROSKs204f8KDjccFi7FX+PHUSlDmey7AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="의존관계 역전 원칙"
+        alt="DIP를 온전히 지키지 못하는 구조"
         title=""
-        src="/static/6491ff84b1cbec534a282308cd2286df/f058b/dip.png"
-        srcset="/static/6491ff84b1cbec534a282308cd2286df/c26ae/dip.png 158w,
-/static/6491ff84b1cbec534a282308cd2286df/6bdcf/dip.png 315w,
-/static/6491ff84b1cbec534a282308cd2286df/f058b/dip.png 630w,
-/static/6491ff84b1cbec534a282308cd2286df/40601/dip.png 945w,
-/static/6491ff84b1cbec534a282308cd2286df/fbf76/dip.png 1252w"
+        src="/static/6b43286e54a25ebde68f3f0c0c11a3e9/f058b/wrong_dip.png"
+        srcset="/static/6b43286e54a25ebde68f3f0c0c11a3e9/c26ae/wrong_dip.png 158w,
+/static/6b43286e54a25ebde68f3f0c0c11a3e9/6bdcf/wrong_dip.png 315w,
+/static/6b43286e54a25ebde68f3f0c0c11a3e9/f058b/wrong_dip.png 630w,
+/static/6b43286e54a25ebde68f3f0c0c11a3e9/40601/wrong_dip.png 945w,
+/static/6b43286e54a25ebde68f3f0c0c11a3e9/78612/wrong_dip.png 1260w,
+/static/6b43286e54a25ebde68f3f0c0c11a3e9/493ac/wrong_dip.png 4032w"
         sizes="(max-width: 630px) 100vw, 630px"
         style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
         loading="lazy"
@@ -253,32 +233,66 @@ Boss는 당연히 BackendDeveloper가 수행할 동작들에 대해 기대할 �
       />
   </a>
     </span></p>
-<p>"<em>고수준 모듈은 저수준 모듈의 구현에 의존해서는 안되며</em>" == Boss가 Node, Spring, DjangoBackendDeveloper에 의존해서는 안되며<br>
-<br>
-"<em>저수준 모듈이 고수준 모듈에 의존해야 한다</em>" == Node, Spring, DjangoBackendDeveloper가 BackendDeveloper에 의존해야 한다.</p>
-<p>로 이해할 수 있다.</p>
-<h2 id="마치며" style="position:relative;"><a href="#%EB%A7%88%EC%B9%98%EB%A9%B0" aria-label="마치며 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>마치며</h2>
-<p>지금까지 SOLID 원칙에 대해 알아보았다.<br>
-결국 다섯 가지 원칙 모두 <strong>객체의 관심사에 따라 적절히 분리</strong>하고, 이 과정에서 <strong>추상화를 통해 유연한 설계를 하라</strong>는 의미와 일맥상통 하는 것 같다.</p>
-<hr>
-<div class="footnotes">
-<hr>
-<ol>
-<li id="fn-1"><a href="https://jaehee329.tistory.com/27">Stack보다는 ArrayDeque를 쓰자. Stack과 Vector의 문제점</a><a href="#fnref-1" class="footnote-backref">↩</a></li>
-</ol>
-</div></section><hr/><footer><div class="bio"><div data-gatsby-image-wrapper="" style="width:75px;height:75px" class="gatsby-image-wrapper bio-avatar"><div aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear;background-color:#a89888;width:75px;height:75px;position:relative"></div><picture><source type="image/avif" data-srcset="/static/fdc99851401fabaca2d68d6b9aefa2fe/1cf05/profile_img.avif 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/13b46/profile_img.avif 150w" sizes="75px"/><source type="image/webp" data-srcset="/static/fdc99851401fabaca2d68d6b9aefa2fe/96891/profile_img.webp 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/3554d/profile_img.webp 150w" sizes="75px"/><img data-gatsby-image-ssr="" layout="fixed" data-main-image="" style="opacity:0" sizes="75px" decoding="async" loading="lazy" data-src="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg" data-srcset="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/2e46f/profile_img.jpg 150w" alt="Profile picture"/></picture><noscript><picture><source type="image/avif" srcSet="/static/fdc99851401fabaca2d68d6b9aefa2fe/1cf05/profile_img.avif 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/13b46/profile_img.avif 150w" sizes="75px"/><source type="image/webp" srcSet="/static/fdc99851401fabaca2d68d6b9aefa2fe/96891/profile_img.webp 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/3554d/profile_img.webp 150w" sizes="75px"/><img data-gatsby-image-ssr="" layout="fixed" data-main-image="" style="opacity:0" sizes="75px" decoding="async" loading="lazy" src="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg" srcSet="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/2e46f/profile_img.jpg 150w" alt="Profile picture"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div><p>1. 2025년이 끝나기 전까지 <strong>기본기를 완벽히 정리한다.</strong><br/>2. <strong>내가 좋아하는 것</strong>을 차곡히 기록한다.<br/>3. 하루하루는 치열하게, 인생은 흘러가는대로~</p></div></footer></article></div><aside class="toc-container"><h3 class="toc-title">목차</h3><div class="toc-content"><ul>
-<li>
-<p><a href="#solid-%EC%9B%90%EC%B9%99">SOLID 원칙</a></p>
+<p>하지만 DIP의 설명 중, "<em>고수준 모듈은 저수준 모듈의 구현에 의존해서는 안되며</em>"를 위반한다.
+고수준 모듈인 <code class="language-text">Boss</code>가 저수준 모듈인 <code class="language-text">BackendDevloper</code>를 의존하고 있다.</p>
+<p>따라서 이러한 경우에는 Interface를 고수준 모듈(패키지)에 포함시키고, 구현체를 별도의 패키지로 분리함으로써 DIP를 온전히 지킬 수 있다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/4429a301c4e9ed54e40ff4b4a2a29148/493ac/dip.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 75.31645569620254%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAACtElEQVR42h1SiW6bUBDkmyu1SpuqaQ5HjWu5dmJzGMwNBnPfD3ictokdVf2mLpZGKyR2ZnYGiKbJszTwfet86f7+G5LUPw31caj7Ix7O7fnSH46464vrLPu+PB6rYWje39uPS09cn7rL5QDz/dxdPnpgwh6g7YvuUFZ1VpQxzLoaAfzTqQbW+dwSw6kGscMBw2vL1lAeOu6ubtC43aC2KwocoyLM8wiAy6SuUdvmXZcfj5iIYwfjZBjqDAVx4oaRHcZ2ivy8jMoqCSLbtGTb1aPE8TyzQFFZxFWVdm0OfkRdp/01EtzW9rluSLajB6GF69QP96LEitKGEyhQjFMXdspyJFdV0jaIGOs5YaBleYCrJEk9QF5EJY7ZLUkzbxT9Kiuc5xthZCWJG8NdqZvnIcYxAaf3127yMhyFcYKrNC9iP7Qcb6do/IZdqxq/tzU/2EeRHYFE7CDkVzghRmaXNy0C86ZDUBIAagtj5woryVzXN0AoCPcQB/hQE5gDH8gFMMHN9WDDgOn5JtSu7yQwlGRW34kAiMBtKUFgBIEWRUbXBc/bEYdD2TRZOuYMoW0IDGReoJnN24pcrKkFLzCaLpDUcrGcLl9nDPMmihtN23qeMZKh8CzzYUJPUNveUsABaC/Tp+nvCcutJYUFW4peLpfT1WrOblayzLquRvTwD1UpQkHbZPAB0swz97KiblWdV1ROlBgA3M9tSThHlkBlzfOkqm4dRydOpwq+SlkmTYPgPwlDCwKbpgw5DVO2bBUOATnLUmHbsTVJoDWFC7wdSy+ILPOy1A0D07FVC5auMHaCqrKyxEgiLfCkwK8VmZFFimMW9Gq2IeccvZjc3xCGzmkybagsQBUpabtmyPkauplP/sweZi8/p8/ffz19e5ncPj98vbv99Hj3+eHH58e7L8/3N/8BwuRiCJ/vQjYAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="DIP를 온전히 지키는 구조"
+        title=""
+        src="/static/4429a301c4e9ed54e40ff4b4a2a29148/f058b/dip.png"
+        srcset="/static/4429a301c4e9ed54e40ff4b4a2a29148/c26ae/dip.png 158w,
+/static/4429a301c4e9ed54e40ff4b4a2a29148/6bdcf/dip.png 315w,
+/static/4429a301c4e9ed54e40ff4b4a2a29148/f058b/dip.png 630w,
+/static/4429a301c4e9ed54e40ff4b4a2a29148/40601/dip.png 945w,
+/static/4429a301c4e9ed54e40ff4b4a2a29148/78612/dip.png 1260w,
+/static/4429a301c4e9ed54e40ff4b4a2a29148/493ac/dip.png 4032w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<h1 id="마치며" style="position:relative;"><a href="#%EB%A7%88%EC%B9%98%EB%A9%B0" aria-label="마치며 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>마치며</h1>
+<p>SOLID 원칙은 내가 좋아하는, 읽기 쉽고 유연한 구조를 만들기 위한 기본기였다.</p>
+<h1 id="참고" style="position:relative;"><a href="#%EC%B0%B8%EA%B3%A0" aria-label="참고 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>참고</h1>
 <ul>
-<li><a href="#srp-%EB%8B%A8%EC%9D%BC-%EC%B1%85%EC%9E%84-%EC%9B%90%EC%B9%99">SRP: 단일 책임 원칙</a></li>
-<li><a href="#ocp-%EA%B0%9C%EB%B0%A9-%ED%8F%90%EC%87%84-%EC%9B%90%EC%B9%99">OCP: 개방 폐쇄 원칙</a></li>
-<li><a href="#isp-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4-%EB%B6%84%EB%A6%AC-%EC%9B%90%EC%B9%99">ISP: 인터페이스 분리 원칙</a></li>
-<li><a href="#lsp-%EB%A6%AC%EC%8A%A4%EC%BD%94%ED%94%84-%EC%B9%98%ED%99%98-%EC%9B%90%EC%B9%99">LSP: 리스코프 치환 원칙</a></li>
-<li><a href="#dip-%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84-%EC%97%AD%EC%A0%84-%EC%9B%90%EC%B9%99">DIP: 의존관계 역전 원칙</a></li>
+<li><a href="https://www.baeldung.com/solid-principles">A Solid Guide to SOLID Principles</a></li>
+<li><a href="https://tech.kakaobank.com/posts/2411-solid-truth-or-myths-for-developers/">모든 개발자가 알아야 할 SOLID의 진실 혹은 거짓</a></li>
+<li><a href="https://youtu.be/4O6k9GN8FPo?si=47UNNDFVFRMWxKOV">얄팍한 코딩사진 YouTube, SOLID 원칙 - 객체지향 디자인 패턴의 기본기</a></li>
+</ul></section><hr/><footer><div class="bio"><div data-gatsby-image-wrapper="" style="width:75px;height:75px" class="gatsby-image-wrapper bio-avatar"><div aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear;background-color:#a89888;width:75px;height:75px;position:relative"></div><picture><source type="image/avif" data-srcset="/static/fdc99851401fabaca2d68d6b9aefa2fe/1cf05/profile_img.avif 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/13b46/profile_img.avif 150w" sizes="75px"/><source type="image/webp" data-srcset="/static/fdc99851401fabaca2d68d6b9aefa2fe/96891/profile_img.webp 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/3554d/profile_img.webp 150w" sizes="75px"/><img data-gatsby-image-ssr="" layout="fixed" data-main-image="" style="opacity:0" sizes="75px" decoding="async" loading="lazy" data-src="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg" data-srcset="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/2e46f/profile_img.jpg 150w" alt="Profile picture"/></picture><noscript><picture><source type="image/avif" srcSet="/static/fdc99851401fabaca2d68d6b9aefa2fe/1cf05/profile_img.avif 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/13b46/profile_img.avif 150w" sizes="75px"/><source type="image/webp" srcSet="/static/fdc99851401fabaca2d68d6b9aefa2fe/96891/profile_img.webp 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/3554d/profile_img.webp 150w" sizes="75px"/><img data-gatsby-image-ssr="" layout="fixed" data-main-image="" style="opacity:0" sizes="75px" decoding="async" loading="lazy" src="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg" srcSet="/static/fdc99851401fabaca2d68d6b9aefa2fe/b4d5e/profile_img.jpg 75w,/static/fdc99851401fabaca2d68d6b9aefa2fe/2e46f/profile_img.jpg 150w" alt="Profile picture"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div><p>1. 2025년이 끝나기 전까지 <strong>기본기를 완벽히 정리한다.</strong><br/>2. <strong>내가 좋아하는 것</strong>을 차곡히 기록한다.<br/>3. 하루하루는 치열하게, 인생은 흘러가는대로~</p></div></footer></article></div><aside class="toc-container"><h3 class="toc-title">목차</h3><div class="toc-content"><ul>
+<li>
+<ul>
+<li><a href="#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0">들어가며</a></li>
+<li><a href="#solid-%EC%9B%90%EC%B9%99">SOLID 원칙</a></li>
+<li><a href="#1-srpsingle-responsibility-principle-%EB%8B%A8%EC%9D%BC-%EC%B1%85%EC%9E%84-%EC%9B%90%EC%B9%99">1. SRP(Single Responsibility Principle): 단일 책임 원칙</a></li>
+<li><a href="#2-ocpopen-closed-principle-%EA%B0%9C%EB%B0%A9-%ED%8F%90%EC%87%84-%EC%9B%90%EC%B9%99">2. OCP(Open-Closed Principle): 개방 폐쇄 원칙</a></li>
+<li><a href="#3-lspliskov-substitution-principle-%EB%A6%AC%EC%8A%A4%EC%BD%94%ED%94%84-%EC%B9%98%ED%99%98-%EC%9B%90%EC%B9%99">3. LSP(Liskov Substitution Principle): 리스코프 치환 원칙</a></li>
+<li><a href="#4-ispinterface-segregation-principal-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4-%EB%B6%84%EB%A6%AC-%EC%9B%90%EC%B9%99">4. ISP(Interface Segregation Principal) 인터페이스 분리 원칙</a></li>
+<li><a href="#5-dip-%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84-%EC%97%AD%EC%A0%84-%EC%9B%90%EC%B9%99">5. DIP: 의존관계 역전 원칙</a></li>
 </ul>
 </li>
 <li>
 <p><a href="#%EB%A7%88%EC%B9%98%EB%A9%B0">마치며</a></p>
+</li>
+<li>
+<p><a href="#%EC%B0%B8%EA%B3%A0">참고</a></p>
 </li>
 </ul></div></aside></div><nav class="blog-post-nav"><ul><li><a rel="이전 글" href="/회고/회고록/2024년-7월-첫-째주-회고록/">2024년 7월 첫 째주 회고록</a></li><li><a rel="다음 글" href="/spring/insert-dummy-data-to-db/">[Spring] 스프링 애플리케이션 동작과 동시에 DB에 더미 데이터 삽입하기</a></li></ul></nav></main><footer style="text-align:center;padding:var(--spacing-12) 0;margin-top:var(--spacing-16);border-top:1px solid var(--color-border);color:var(--color-text-light);font-size:var(--fontSize-0)">© <!-- -->2025<!-- --> kdkdhoho. Built with<!-- --> <a href="https://www.gatsbyjs.com" style="color:var(--color-primary);text-decoration:none;font-weight:500">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/clean-code/solid/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
           <script

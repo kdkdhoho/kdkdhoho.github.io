@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[내가 좋아하고 재밌는 일을 기록하자]]></description><link>http://github.com/dylang/node-rss</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 24 Aug 2025 05:44:56 GMT</lastBuildDate><item><title><![CDATA[링글 네 번째 1:1 튜터링 복습]]></title><description><![CDATA[단어 escape reality: 현실에서 벗어나다. tourist attraction: 관광지 coincide: 일치하다 PTO(paid time off): 유급 휴가 prefer a over b: b보다는 a를 선호하다 (예: prefer…]]></description><link>null/영어/링글-네-번째-1-1-튜터링-복습/</link><guid isPermaLink="false">null/영어/링글-네-번째-1-1-튜터링-복습/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h1 id=&quot;단어&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8B%A8%EC%96%B4&quot; aria-label=&quot;단어 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;단어&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[내가 좋아하고 재밌는 일을 기록하자]]></description><link>http://github.com/dylang/node-rss</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 05 Oct 2025 09:24:25 GMT</lastBuildDate><item><title><![CDATA[링글 네 번째 1:1 튜터링 복습]]></title><description><![CDATA[단어 escape reality: 현실에서 벗어나다. tourist attraction: 관광지 coincide: 일치하다 PTO(paid time off): 유급 휴가 prefer a over b: b보다는 a를 선호하다 (예: prefer…]]></description><link>null/영어/링글-네-번째-1-1-튜터링-복습/</link><guid isPermaLink="false">null/영어/링글-네-번째-1-1-튜터링-복습/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h1 id=&quot;단어&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8B%A8%EC%96%B4&quot; aria-label=&quot;단어 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;단어&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;escape reality: 현실에서 벗어나다.&lt;/li&gt;
 &lt;li&gt;tourist attraction: 관광지&lt;/li&gt;
@@ -4000,205 +4000,183 @@ data.sql 파일의 실행 시점은 &lt;em&gt;Hibernate&lt;/em&gt; 가 초기화
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;또, &lt;code class=&quot;language-text&quot;&gt;@Profile&lt;/code&gt;을 이용해 원하는 환경에서만 수행할 수 있다.&lt;br&gt;
-추가로 쌩 SQL 스크립트를 작성하는 게 아닌, 코드를 작성해 저장할 수 있다는 점에서도 큰 메리트라고 생각한다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[객체지향 설계 원칙: SOLID]]></title><description><![CDATA[객체지향을 공부하면 빠질 수 없는 내용이 있다.
-바로 SOLID 라고 불리는 객체지향 설계 원칙이다.
-이번 글은 SOLID 원칙이 무엇이고 왜 탄생하게 되었으며 각 원칙은 무엇을 의미하는지 알아보겠다. SOLID 원칙 SOLID…]]></description><link>null/clean-code/solid/</link><guid isPermaLink="false">null/clean-code/solid/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;p&gt;객체지향을 공부하면 빠질 수 없는 내용이 있다.&lt;br&gt;
-바로 &lt;em&gt;SOLID&lt;/em&gt; 라고 불리는 객체지향 설계 원칙이다.&lt;br&gt;
-이번 글은 SOLID 원칙이 무엇이고 왜 탄생하게 되었으며 각 원칙은 무엇을 의미하는지 알아보겠다.&lt;/p&gt;
+추가로 쌩 SQL 스크립트를 작성하는 게 아닌, 코드를 작성해 저장할 수 있다는 점에서도 큰 메리트라고 생각한다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[객체지향 설계 원칙: SOLID]]></title><description><![CDATA[들어가며 SOLID…]]></description><link>null/clean-code/solid/</link><guid isPermaLink="false">null/clean-code/solid/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;들어가며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0&quot; aria-label=&quot;들어가며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가며&lt;/h2&gt;
+&lt;p&gt;SOLID 원칙은 &lt;strong&gt;객체지향 디자인 패턴의 근본&lt;/strong&gt;이다.&lt;/p&gt;
+&lt;p&gt;객체지향 프로그래밍으로 소프트웨어를 설계할 때 권장하는 다섯 가지 원칙이다.
+이 원칙을 준수하며 소프트웨어 설계를 하면 &lt;strong&gt;유지보수성, 이해성, 유연성이 뛰어난 소프트웨어가 알아서 만들어진다&lt;/strong&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!info] TMI
+SOLID 원칙은 로버트 C. 마틴(Robert C. Martin)의 디자인 원칙과 디자인 패턴 논문에서 처음 소개됐다.
+이후 마이클 페더스(Michael Feathers)가 발전시켜 현재의 SOLID라는 약어를 제안하게 됐다.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&quot;solid-원칙&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#solid-%EC%9B%90%EC%B9%99&quot; aria-label=&quot;solid 원칙 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;SOLID 원칙&lt;/h2&gt;
-&lt;p&gt;SOLID는 객체지향 프로그래밍을 할 때 객체지향의 특징을 잘 살릴 수 있는 설계 원칙이다.&lt;br&gt;
-총 5가지의 원칙이 있으며, 원칙이라는 이름이 붙은만큼 다섯 가지의 원칙을 모든 상황에서 지켜야 하는 것은 아니다. 대부분의 상황에 적절히 사용 가능한 &lt;em&gt;가이드라인&lt;/em&gt;과도 같다.&lt;br&gt;
-다만, SOLID를 생각하며 코드를 설계하고 작성하면 객체지향의 큰 장점인 유연함과 생산성이 향상되는 것을 느낄 수 있을 것이다.&lt;/p&gt;
-&lt;p&gt;이제 다섯 가지 원칙에 대해 알아보자.&lt;/p&gt;
-&lt;h3 id=&quot;srp-단일-책임-원칙&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#srp-%EB%8B%A8%EC%9D%BC-%EC%B1%85%EC%9E%84-%EC%9B%90%EC%B9%99&quot; aria-label=&quot;srp 단일 책임 원칙 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;SRP: 단일 책임 원칙&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;클래스나 모듈이 변경되는 이유는 단 한가지 때문이어야 한다&lt;/strong&gt;는 원칙이다.&lt;br&gt;
-아래 코드는 백엔드 개발자를 나타내는 객체를 나타내본 코드다.&lt;br&gt;
-메서드를 보면 서버를 구축하고 DB를 설정하며 MainPage를 개발하는 역할을 가진다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;SpringBackendDeveloper&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;deployServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupDatabase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;developMainPage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;p&gt;SOLID는 다섯 용어의 앞 글자를 따서 지은 용어이다.
+각 용어 순서대로 하나씩 살펴보자.&lt;/p&gt;
+&lt;h2 id=&quot;1-srpsingle-responsibility-principle-단일-책임-원칙&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-srpsingle-responsibility-principle-%EB%8B%A8%EC%9D%BC-%EC%B1%85%EC%9E%84-%EC%9B%90%EC%B9%99&quot; aria-label=&quot;1 srpsingle responsibility principle 단일 책임 원칙 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. SRP(Single Responsibility Principle): 단일 책임 원칙&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;주관적 중요도: ⭐️⭐️⭐️⭐️&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;각 클래스나 모듈은 하나의 책임만 가져야 한다.
+&lt;strong&gt;클래스나 모듈이 변경되는 이유는 단 한 가지 때문이어야 한다&lt;/strong&gt;는 의미이다.&lt;/p&gt;
+&lt;p&gt;아래는 예제 코드이다.
+백엔드 개발자를 의미하는 클래스인데, 서버를 구축하고 DB를 설정하며 MainPage를 개발하는 역할을 가진다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;SpringBackendDeveloper&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;  
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;deployServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupDatabase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;developMainPage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;보통 백엔드 개발자의 역할은 API 서버와 관련된 일을 수행한다.&lt;br&gt;
-MainPage를 개발하는 것은 &lt;strong&gt;백엔드 개발자의 관심사가 아니다&lt;/strong&gt;.&lt;br&gt;
-아래와 같은 백엔드 개발자가 있다면 MainPage를 수정해야 하는 상황이 생긴 순간, 백엔드 서버와 관련된 일뿐만 아니라 프론트엔드의 책임까지 가지게 되고&lt;br&gt;
-SRP를 위반한다고 할 수 있다.&lt;/p&gt;
-&lt;p&gt;이때, &lt;strong&gt;책임은 상황에 따라 유동적&lt;/strong&gt;일 수 있다.&lt;br&gt;
-요구 사항에 따라, 책임을 나누는 기준에 따라 달라질 수 있다.&lt;br&gt;
-바로 위 코드를 다시 살펴봤을 때, 백엔드 개발자가 MainPage까지 개발하는 것이 책임이라면 SRP를 위반하는 것이 아니게 된다.&lt;br&gt;
-따라서 중요한 것은, &lt;strong&gt;특정 객체의 역할이 무엇인지 잘 정의하는 것&lt;/strong&gt;이다.&lt;/p&gt;
-&lt;h3 id=&quot;ocp-개방-폐쇄-원칙&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ocp-%EA%B0%9C%EB%B0%A9-%ED%8F%90%EC%87%84-%EC%9B%90%EC%B9%99&quot; aria-label=&quot;ocp 개방 폐쇄 원칙 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;OCP: 개방 폐쇄 원칙&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;변경에는 열려있고 수정에는 닫혀 있어야 한다&lt;/strong&gt;는 원칙이다.&lt;br&gt;
-열려있고 닫혀 있다는 표현이 한국어로 표현하면 다소 어색할 수 있는데, 열려있다는 건 허용한다는 의미고 닫혀있다는 건 허용하지 않는다고 이해하면 될 것 같다.&lt;/p&gt;
-&lt;p&gt;아래 코드를 살펴보자.&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;보통의 경우 백엔드 개발자에게 메인 페이지 개발의 책임을 부여하진 않는다.
+따라서 이런 경우 SRP를 위반하고 있다고 볼 수 있다.&lt;/p&gt;
+&lt;p&gt;물론 상황에 따라 백엔드 개발자가 메인 페이지를 개발할 수는 있다.
+이런 경우엔 SRP를 위반한다고 볼 수 없다.&lt;/p&gt;
+&lt;p&gt;따라서 SRP에서 의미하는 책임은, 어디서부터 어디까지 부여하냐에 따라 달라질 수 있다.&lt;/p&gt;
+&lt;h2 id=&quot;2-ocpopen-closed-principle-개방-폐쇄-원칙&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-ocpopen-closed-principle-%EA%B0%9C%EB%B0%A9-%ED%8F%90%EC%87%84-%EC%9B%90%EC%B9%99&quot; aria-label=&quot;2 ocpopen closed principle 개방 폐쇄 원칙 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. OCP(Open-Closed Principle): 개방 폐쇄 원칙&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;주관적 중요도: ⭐️⭐️⭐️⭐️⭐️&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;구조 확장 및 변경에는 열려있고, 코드 수정에는 닫혀 있어야 한다&lt;/strong&gt;는 원칙이다.
+다섯 가지 원칙 중에서 가장 중요하게 생각하는 원칙이다.&lt;/p&gt;
+&lt;p&gt;예제 코드를 살펴보자.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Boss&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-
     &lt;span class=&quot;token class-name&quot;&gt;SpringBackendDeveloper&lt;/span&gt; springBackendDeveloper &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;SpringBackendDeveloper&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
     
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;developService&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;developService&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;  
         springBackendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setUpDatabase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
         springBackendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;deplyServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Boss&lt;/code&gt; 객체는 &lt;code class=&quot;language-text&quot;&gt;SpringBackendDeveloper&lt;/code&gt; 고용해 서비스 개발에 의존하고 있다.&lt;br&gt;
-그런데 갑자기 Spring이 아니라 Node로 서비스를 마이그레이션 해야 할 상황이 생겼다고 가정해보자.&lt;br&gt;
-&lt;code class=&quot;language-text&quot;&gt;Boss&lt;/code&gt;가 의존하는 &lt;code class=&quot;language-text&quot;&gt;SpringBackendDeveloper&lt;/code&gt;을 &lt;code class=&quot;language-text&quot;&gt;NodeBackendDevloper&lt;/code&gt;로 교체하기 위해 모든 코드를 고쳐나가야 할 것이다.&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;이제 아래 코드를 살펴보자.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BackendDeveloper&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-
-    &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;deployServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;  &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Client 코드인 &lt;code class=&quot;language-text&quot;&gt;Boss&lt;/code&gt; 객체는 &lt;code class=&quot;language-text&quot;&gt;SpringBackendDeveloper&lt;/code&gt; 에 의존한다.
+그런데 갑자기 Spring에서 Node로 서비스를 마이그레이션 해야 할 상황이 생겼다고 가정해보자.&lt;br&gt;&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;Boss&lt;/code&gt;가 의존하는 &lt;code class=&quot;language-text&quot;&gt;SpringBackendDeveloper&lt;/code&gt;을 &lt;code class=&quot;language-text&quot;&gt;NodeBackendDevloper&lt;/code&gt;로 교체하기 위해 모든 코드를 수정해야 한다.&lt;/p&gt;
+&lt;p&gt;구조를 변경하려고 하니 Client인 &lt;code class=&quot;language-text&quot;&gt;Boss&lt;/code&gt; 객체에도 코드 수정이 이뤄지고 있다.
+OCP를 잘 지키고 있지 못한다.&lt;/p&gt;
+&lt;p&gt;이제 OCP를 잘 지키는 코드를 보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BackendDeveloper&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;  
+    &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;deployServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;  
     &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupDatabase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;NodeBackendDeveloper&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BackendDeveloper&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;SpringBackendDeveloper&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BackendDeveloper&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;deployServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;deployServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupDatabase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupDatabase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Boss&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-
-    &lt;span class=&quot;token class-name&quot;&gt;BackendDeveloper&lt;/span&gt; backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Boss&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;BackendDeveloper&lt;/span&gt; backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;backendDeveloper &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;developService&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setupDatabase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;deployServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;BackendDeveloper&lt;/code&gt;라는 인터페이스를 만들고 &lt;code class=&quot;language-text&quot;&gt;NodeBackendDeveloper&lt;/code&gt;가 이를 구현하고 있다.&lt;br&gt;
-동시에 &lt;code class=&quot;language-text&quot;&gt;Boss&lt;/code&gt;는 생성자로 &lt;code class=&quot;language-text&quot;&gt;BackendDeveloper&lt;/code&gt;를 받고, 기존과 동일하게 작업을 요청한다.&lt;br&gt;
-위 코드는 &lt;code class=&quot;language-text&quot;&gt;Boss&lt;/code&gt; 입장에서 봤을 때, &lt;strong&gt;변경에는 열려있고 수정에는 닫혀있는 것&lt;/strong&gt;이다.&lt;/p&gt;
-&lt;p&gt;OCP는 &lt;strong&gt;높은 응집도, 낮은 결합도&lt;/strong&gt;라고도 표현할 수 있다.&lt;br&gt;
-특정 객체의 관심사(&lt;code class=&quot;language-text&quot;&gt;Boss&lt;/code&gt; 입장에서 서비스를 개발하는 것)를 하나의 객체가 모두 담당하고, 관심사가 아닌 것(개발자의 기술스택)과는 느슨하게 연결되어야 한다는 의미다.&lt;/p&gt;
-&lt;h3 id=&quot;isp-인터페이스-분리-원칙&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#isp-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4-%EB%B6%84%EB%A6%AC-%EC%9B%90%EC%B9%99&quot; aria-label=&quot;isp 인터페이스 분리 원칙 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;ISP: 인터페이스 분리 원칙&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;인터페이스도 관심사에 따라 적절히 분리해야 한다&lt;/strong&gt;는 원칙이다.&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;위의 예시를 계속해서 사용해보자.&lt;br&gt;
-만약 백엔드 개발자 2명과 프론트엔드 개발자 1명을 고용하고 싶다고 가정해보고 적절한 코드를 작성해보았다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FrontendDeveloper&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-
-    &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;developMainPage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Boss&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-
-    &lt;span class=&quot;token class-name&quot;&gt;BackendDeveloper&lt;/span&gt; backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token class-name&quot;&gt;FrontendDeveloper&lt;/span&gt; frontendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Boss&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;BackendDeveloper&lt;/span&gt; backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FrontendDeveloper&lt;/span&gt; frontendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;backendDeveloper &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;frontendDeveloper &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; frontendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;developService&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        frontendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;developMainPage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setupDatabase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;deployServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;화면 개발을 책임지는 &lt;code class=&quot;language-text&quot;&gt;FrontendDeveloper&lt;/code&gt; 인터페이스를 분리해 만들었다.&lt;br&gt;
-그리고 &lt;code class=&quot;language-text&quot;&gt;Boss&lt;/code&gt;는 &lt;code class=&quot;language-text&quot;&gt;BackendDeveloper&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;FrontendDeveloper&lt;/code&gt;를 의존하여 각각에게 적절한 역할을 요청한다.&lt;br&gt;
-만약 풀스택 개발자 1명을 더 데려오고 싶어도 아래와 같이 작성하면 된다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FullStackDeveloper&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BackendDeveloper&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FrontendDeveloper&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-
+  
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;NodeBackendDeveloper&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BackendDeveloper&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;  
     &lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;deployServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;deployServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupDatabase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;developMainPage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
+	&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupDatabase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;  
+  
 &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Boss&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-
-    &lt;span class=&quot;token class-name&quot;&gt;BackendDeveloper&lt;/span&gt; backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token class-name&quot;&gt;FrontendDeveloper&lt;/span&gt; frontendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token class-name&quot;&gt;FullStackDeveloper&lt;/span&gt; fullStackDeveloper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 풀스택 개발자 추가&lt;/span&gt;
-
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Boss&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;BackendDeveloper&lt;/span&gt; backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FrontendDeveloper&lt;/span&gt; frontendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FullStackDeveloper&lt;/span&gt; fullStackDeveloper&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;backendDeveloper &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;frontendDeveloper &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; frontendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fullStackDeveloper &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; fullStackDeveloper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
+	&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BackendDeveloper&lt;/span&gt; backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	
+	&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Boss&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;BackendDevloper&lt;/span&gt; backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;backendDeveloper &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+	
     &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;developService&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        frontendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;developMainPage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        fullStackDeveloper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;developMainPage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setupDatabase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 풀스택 개발자 추가&lt;/span&gt;
-        backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;deployServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        fullStackDeveloper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;deployServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 풀스택 개발자 추가&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;인터페이스를 관심사에 따라 적절히 분리하여 &lt;code class=&quot;language-text&quot;&gt;FullStackDeveloper&lt;/code&gt; 라는 객체가 손쉽게 탄생할 수 있게 되었다.&lt;/p&gt;
-&lt;h3 id=&quot;lsp-리스코프-치환-원칙&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#lsp-%EB%A6%AC%EC%8A%A4%EC%BD%94%ED%94%84-%EC%B9%98%ED%99%98-%EC%9B%90%EC%B9%99&quot; aria-label=&quot;lsp 리스코프 치환 원칙 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;LSP: 리스코프 치환 원칙&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;하위 타입은 상위 타입을 대체할 수 있어야 한다&lt;/strong&gt;는 원칙이다.&lt;br&gt;
-좀 더 풀어서 설명하면, &lt;strong&gt;상위 타입을 사용하는 클라이언트는 하위 타입이 어떻게 변해도 동일한 동작을 할 것으로 기대하고 보장되어야 한다&lt;/strong&gt;는 것이다.&lt;/p&gt;
+	    backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setupDatabase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	    backendDeveloper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;deployServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;  &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이번에는 Client인 &lt;code class=&quot;language-text&quot;&gt;Boss&lt;/code&gt; 객체가 &lt;code class=&quot;language-text&quot;&gt;BackendDeveloper&lt;/code&gt; 라는 Interface를 의존한다.
+그리고 생성자를 통해 외부로부터 구체적인 &lt;code class=&quot;language-text&quot;&gt;BackendDeveloper&lt;/code&gt; 를 주입받는다.&lt;/p&gt;
+&lt;p&gt;이러한 구조에서는 더이상 BackendDeveloper가 어떤 기술 스택을 사용하든 상관없이, 그리고 중간에 변경이 되어도 전혀 영향을 받지 않으며 본인의 로직을 수행할 수 있게 된다.&lt;/p&gt;
+&lt;p&gt;즉, &lt;strong&gt;구조 변경에는 열려있고 코드 수정에는 닫혀있는 구조&lt;/strong&gt;가 되는 것이다.&lt;/p&gt;
+&lt;h2 id=&quot;3-lspliskov-substitution-principle-리스코프-치환-원칙&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-lspliskov-substitution-principle-%EB%A6%AC%EC%8A%A4%EC%BD%94%ED%94%84-%EC%B9%98%ED%99%98-%EC%9B%90%EC%B9%99&quot; aria-label=&quot;3 lspliskov substitution principle 리스코프 치환 원칙 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. LSP(Liskov Substitution Principle): 리스코프 치환 원칙&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;주관적 중요도: ⭐️⭐️⭐️⭐️&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;하위 타입은 상위 타입을 대체할 수 있어야 한다&lt;/strong&gt;는 원칙이다.
+쉽게 생각하면, 상위 타입의 동작을 하위 타입에서도 그대로 동작한다는 것이다.&lt;/p&gt;
 &lt;p&gt;만약 아래와 같은 코드가 있다고 가정해보자.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;DBA&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BackendDeveloper&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token import&quot;&gt;&lt;span class=&quot;token namespace&quot;&gt;java&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;lang&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;UnsupportedOperationException&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;DBA&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BackendDeveloper&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;  
+	&lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;deployServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;UnsupportedOperationException&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
     
     &lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupDatabase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;  &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;BackendDeveloper&lt;/code&gt; Interface를 구현하는 DBA 클래스이다.
+만약, &lt;code class=&quot;language-text&quot;&gt;Boss&lt;/code&gt; 객체가 의존하는 &lt;code class=&quot;language-text&quot;&gt;BackendDeveloper&lt;/code&gt; 자리에 &lt;code class=&quot;language-text&quot;&gt;DBA&lt;/code&gt; 객체가 주입되면 어떻게 될까?&lt;/p&gt;
+&lt;p&gt;DBA이지만 백엔드 개발자의 역할을 충실히 수행하면 문제되진 않겠지만, 순정 DBA라면 &lt;code class=&quot;language-text&quot;&gt;deployServer()&lt;/code&gt; 메서드의 동작을 충실히 수행하긴 어려울 것이다.&lt;/p&gt;
+&lt;h2 id=&quot;4-ispinterface-segregation-principal-인터페이스-분리-원칙&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#4-ispinterface-segregation-principal-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4-%EB%B6%84%EB%A6%AC-%EC%9B%90%EC%B9%99&quot; aria-label=&quot;4 ispinterface segregation principal 인터페이스 분리 원칙 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;4. ISP(Interface Segregation Principal) 인터페이스 분리 원칙&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;주관적 중요도: ⭐️⭐️⭐️⭐️&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;클래스는 자신이 사용하지 않을 메서드를 구현하도록 강요받지 않아야 한다는 원칙&lt;/strong&gt;이다.&lt;/p&gt;
+&lt;p&gt;예제 코드를 살펴보자.
+아래는 위 예제 코드에서 살펴본 DBA 클래스이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;DBA&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BackendDeveloper&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;  
+	&lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
     &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;deployServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
+		&lt;span class=&quot;token keyword&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;UnsupportedOperationException&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    
     &lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupDatabase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupDatabase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;직책(이름)은 DBA인데 정작 &lt;code class=&quot;language-text&quot;&gt;BackendDeveloper&lt;/code&gt;를 상속받아 구현하고 있다.&lt;br&gt;
-만약, &lt;code class=&quot;language-text&quot;&gt;new Boss(new DBA(), ..., ...);&lt;/code&gt; 가 호출된다면 어떻게 될까?&lt;br&gt;
-Boss는 당연히 BackendDeveloper가 수행할 동작들에 대해 기대할 것이다.&lt;br&gt;
-하지만 정작 실행 결과 DBA가 동작을 수행하게 될 것이다.&lt;/p&gt;
-&lt;p&gt;에시가 약간 현실과 괴리감이 있다고 생각할 수 있다.&lt;br&gt;
-하지만 여기서 중요하게 볼 것은 &lt;strong&gt;하위 클래스가 상위 클래스의 동작을 잘 수행하는가?&lt;/strong&gt; 이다.&lt;br&gt;
-또 다른 예시로 Stack과 Vector의 관계가 있다. &lt;sup id=&quot;fnref-1&quot;&gt;&lt;a href=&quot;#fn-1&quot; class=&quot;footnote-ref&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;h3 id=&quot;dip-의존관계-역전-원칙&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#dip-%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84-%EC%97%AD%EC%A0%84-%EC%9B%90%EC%B9%99&quot; aria-label=&quot;dip 의존관계 역전 원칙 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;DIP: 의존관계 역전 원칙&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;고수준 모듈은 저수준 모듈의 구현에 의존해서는 안되며, 저수준 모듈이 고수준 모듈에 의존해야 한다&lt;/strong&gt;는 원칙이다.&lt;br&gt;
-말이 조금 어려운데 아래 그림을 통해 이해해보자.
-&lt;span
+&lt;p&gt;사실상 DBA는 &lt;code class=&quot;language-text&quot;&gt;deployServer()&lt;/code&gt; 메서드를 구현할 필요는 없다.
+하지만 &lt;code class=&quot;language-text&quot;&gt;BackendDeveloper&lt;/code&gt; Interface에서 메서드를 정의해두었기에 어쩔 수 없이 구현해야 한다.&lt;/p&gt;
+&lt;p&gt;즉, ISP를 위반하고 있는 것이다.
+따라서 Interface 구조가 아래와 같이 개선되면, ISP를 잘 지키는 구조가 되는 것이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BackendDeveloper&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;deployServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;DBA&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupDatabase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;5-dip-의존관계-역전-원칙&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#5-dip-%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84-%EC%97%AD%EC%A0%84-%EC%9B%90%EC%B9%99&quot; aria-label=&quot;5 dip 의존관계 역전 원칙 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;5. DIP: 의존관계 역전 원칙&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;주관적 중요도: ⭐️⭐️⭐️⭐️⭐️&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;고수준 모듈은 저수준 모듈의 구현에 의존해서는 안되며, 저수준 모듈이 고수준 모듈에 의존해야 한다&lt;/strong&gt;는 원칙이다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;고수준 모듈: 기능의 로직을 제어하는 핵심 모듈(클래스)&lt;/li&gt;
+&lt;li&gt;저수준 모듈: 구체적인 동작을 직접 구현하는 모듈(클래스)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;여기서 &lt;strong&gt;모듈은 클래스를 의미할 수도 있고 패키지를 의미할 수 있다.&lt;/strong&gt;
+만약, 클래스 관점에서만 DIP를 지킨다면 DIP가 완전히 지켜지지는 않는다.
+따라서 DIP를 잘 지켰는지 판단하려면 패키지 관점에서도 생각해야 한다.&lt;/p&gt;
+&lt;p&gt;무슨 말인지 아래 사진을 보자.&lt;/p&gt;
+&lt;p&gt;기존 예제였던 &lt;code class=&quot;language-text&quot;&gt;Boss&lt;/code&gt; 객체는 핵심 로직을 수행하므로 고수준 모듈에 속한다.
+그리고 기존에 봤던 구조처럼, &lt;code class=&quot;language-text&quot;&gt;BackendDeveloper&lt;/code&gt;에 의존한다.
+&lt;code class=&quot;language-text&quot;&gt;Boss&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;BackendDeveloper&lt;/code&gt;는 어쩌면 패키지로 충분히 나눌 수 있다고 생각된다.
+그럼 아래 구조가 될 것이다.&lt;/p&gt;
+&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/6491ff84b1cbec534a282308cd2286df/fbf76/dip.png&quot;
+    href=&quot;/static/6b43286e54a25ebde68f3f0c0c11a3e9/493ac/wrong_dip.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 24.050632911392405%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA30lEQVR42oWP746DIBDEfYy2KmBN/QeIgJ5ie8m9/0vNLduk3y73YcIyv81kp5DqjtE4uMXj0fUQsmGppoW2FrNb4Jxnro398L9USNXCuojjSNB6hrE5IGDSFnZx2Ml//XwjpSdC3P4PrCqBy7VklbWAUHTdvYVsGtzKCpcb+bLm90r/zIVUqIT8qKSMrFooFJbqeB8R1hU+RNYwTngMGgvNIZIX336e+2FEPxlmvE/e4gNndN2AwoWN6x7pxNeekM4X1Z4p0GDddq6aa+/EzvOJcTQUOL93mZ3MErF8yC9jrZRgTmP+mQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 75.31645569620254%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAACsklEQVR42iVSiW7TQBT0xyMolJS4vhLb670PX7FrO1dBIArN0TbQ1mkS/oZXkEbW29XOvHnzbL0c+8P++Xg6vJz6HnB47g+Pxz/7w2m/Pzz1+8f+8PRyej4ce3gJ98fTvt//7vtd/7KzHp92j7uHX7/ub9c3X75db+5Wi+vZavPjfrfd3K+2D+u7h/X2frXe3K42P9fb2+3d6ufq5vYV363NZr26uVkuZ/PlLC/zuq3zuqjaSTO7ahdtt5x2i2k776bztu2uumkzX0wBy8/zL1+vrfliPm2uTKqbrkEksV0b0SQmiHAWYSQzbcpM5ynAFFleZJOqrOpyOuuW13NLSCEYjeNojCLMCOYEUQx8eJ3AUVCupTBSplpl5j+5ridt13TTFsic4IQxShhNKKZwFBxeM8U/Di+AD2QmBVNCpkprlWammGRtV3VdY8FZckYphraXnjtGsRN4ozj0xsGbs3dvP5yBhO07oAIShBOlOeNkUhVNW1lKK8U5QjGDBqnWmYHv0LFB4uJy+P7jh0+O7Y58IJsiVZksSjAg8jKtm4mV5SbTisCwEoxpaWA2TTgF/4hgcAsFlQwKYQSX1GSKC1LV+Wtn0Mi0pASbzCCMxtH4n+3IDfwwifOqDJNo6Nq2YwfjwHEvExJjEpdV3na1lYMZQWFmk5oYRZ7vnQ/OB58Gju/GGEHCVDA/HHkjz3HtYOSiJIyTUKeirktrUuUajDEilcQkATiuczG88Mc+uE1LCDcF0XE4ct1LP3ChbYLj17ELY0H0klHg5EUuYEmSZ1kKqx+FAfwqsCfgKwOhJIQiYDKOobmAVWppeZ4NMcVxiDG0xVH86tz1XT/wAPDPcSUwQTEKgQPAOJIKmNyk0hoMzjSkKAEC+KACa0sSBHWCEYOkFROSKs204f8KDjccFi7FX+PHUSlDmey7AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;의존관계 역전 원칙&quot;
+        alt=&quot;DIP를 온전히 지키지 못하는 구조&quot;
         title=&quot;&quot;
-        src=&quot;/static/6491ff84b1cbec534a282308cd2286df/f058b/dip.png&quot;
-        srcset=&quot;/static/6491ff84b1cbec534a282308cd2286df/c26ae/dip.png 158w,
-/static/6491ff84b1cbec534a282308cd2286df/6bdcf/dip.png 315w,
-/static/6491ff84b1cbec534a282308cd2286df/f058b/dip.png 630w,
-/static/6491ff84b1cbec534a282308cd2286df/40601/dip.png 945w,
-/static/6491ff84b1cbec534a282308cd2286df/fbf76/dip.png 1252w&quot;
+        src=&quot;/static/6b43286e54a25ebde68f3f0c0c11a3e9/f058b/wrong_dip.png&quot;
+        srcset=&quot;/static/6b43286e54a25ebde68f3f0c0c11a3e9/c26ae/wrong_dip.png 158w,
+/static/6b43286e54a25ebde68f3f0c0c11a3e9/6bdcf/wrong_dip.png 315w,
+/static/6b43286e54a25ebde68f3f0c0c11a3e9/f058b/wrong_dip.png 630w,
+/static/6b43286e54a25ebde68f3f0c0c11a3e9/40601/wrong_dip.png 945w,
+/static/6b43286e54a25ebde68f3f0c0c11a3e9/78612/wrong_dip.png 1260w,
+/static/6b43286e54a25ebde68f3f0c0c11a3e9/493ac/wrong_dip.png 4032w&quot;
         sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -4206,20 +4184,50 @@ Boss는 당연히 BackendDeveloper가 수행할 동작들에 대해 기대할 �
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&quot;&lt;em&gt;고수준 모듈은 저수준 모듈의 구현에 의존해서는 안되며&lt;/em&gt;&quot; == Boss가 Node, Spring, DjangoBackendDeveloper에 의존해서는 안되며&lt;br&gt;
-&lt;br&gt;
-&quot;&lt;em&gt;저수준 모듈이 고수준 모듈에 의존해야 한다&lt;/em&gt;&quot; == Node, Spring, DjangoBackendDeveloper가 BackendDeveloper에 의존해야 한다.&lt;/p&gt;
-&lt;p&gt;로 이해할 수 있다.&lt;/p&gt;
-&lt;h2 id=&quot;마치며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A7%88%EC%B9%98%EB%A9%B0&quot; aria-label=&quot;마치며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;마치며&lt;/h2&gt;
-&lt;p&gt;지금까지 SOLID 원칙에 대해 알아보았다.&lt;br&gt;
-결국 다섯 가지 원칙 모두 &lt;strong&gt;객체의 관심사에 따라 적절히 분리&lt;/strong&gt;하고, 이 과정에서 &lt;strong&gt;추상화를 통해 유연한 설계를 하라&lt;/strong&gt;는 의미와 일맥상통 하는 것 같다.&lt;/p&gt;
-&lt;hr&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn-1&quot;&gt;&lt;a href=&quot;https://jaehee329.tistory.com/27&quot;&gt;Stack보다는 ArrayDeque를 쓰자. Stack과 Vector의 문제점&lt;/a&gt;&lt;a href=&quot;#fnref-1&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</content:encoded></item><item><title><![CDATA[2024년 7월 첫 째주 회고록]]></title><description><![CDATA[What I Studied DFS&BFS, 다익스트라 복습 ! Java 쓰레드 정리법 CS 공부할 때 얼추 손으로 정리하고, 블로그에 정리하는 게 더 정리가 잘된다. Java…]]></description><link>null/회고/회고록/2024년-7월-첫-째주-회고록/</link><guid isPermaLink="false">null/회고/회고록/2024년-7월-첫-째주-회고록/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;what-i-studied&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#what-i-studied&quot; aria-label=&quot;what i studied permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What I Studied&lt;/h2&gt;
+&lt;p&gt;하지만 DIP의 설명 중, &quot;&lt;em&gt;고수준 모듈은 저수준 모듈의 구현에 의존해서는 안되며&lt;/em&gt;&quot;를 위반한다.
+고수준 모듈인 &lt;code class=&quot;language-text&quot;&gt;Boss&lt;/code&gt;가 저수준 모듈인 &lt;code class=&quot;language-text&quot;&gt;BackendDevloper&lt;/code&gt;를 의존하고 있다.&lt;/p&gt;
+&lt;p&gt;따라서 이러한 경우에는 Interface를 고수준 모듈(패키지)에 포함시키고, 구현체를 별도의 패키지로 분리함으로써 DIP를 온전히 지킬 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4429a301c4e9ed54e40ff4b4a2a29148/493ac/dip.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75.31645569620254%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAACtElEQVR42h1SiW6bUBDkmyu1SpuqaQ5HjWu5dmJzGMwNBnPfD3ictokdVf2mLpZGKyR2ZnYGiKbJszTwfet86f7+G5LUPw31caj7Ix7O7fnSH46464vrLPu+PB6rYWje39uPS09cn7rL5QDz/dxdPnpgwh6g7YvuUFZ1VpQxzLoaAfzTqQbW+dwSw6kGscMBw2vL1lAeOu6ubtC43aC2KwocoyLM8wiAy6SuUdvmXZcfj5iIYwfjZBjqDAVx4oaRHcZ2ivy8jMoqCSLbtGTb1aPE8TyzQFFZxFWVdm0OfkRdp/01EtzW9rluSLajB6GF69QP96LEitKGEyhQjFMXdspyJFdV0jaIGOs5YaBleYCrJEk9QF5EJY7ZLUkzbxT9Kiuc5xthZCWJG8NdqZvnIcYxAaf3127yMhyFcYKrNC9iP7Qcb6do/IZdqxq/tzU/2EeRHYFE7CDkVzghRmaXNy0C86ZDUBIAagtj5woryVzXN0AoCPcQB/hQE5gDH8gFMMHN9WDDgOn5JtSu7yQwlGRW34kAiMBtKUFgBIEWRUbXBc/bEYdD2TRZOuYMoW0IDGReoJnN24pcrKkFLzCaLpDUcrGcLl9nDPMmihtN23qeMZKh8CzzYUJPUNveUsABaC/Tp+nvCcutJYUFW4peLpfT1WrOblayzLquRvTwD1UpQkHbZPAB0swz97KiblWdV1ROlBgA3M9tSThHlkBlzfOkqm4dRydOpwq+SlkmTYPgPwlDCwKbpgw5DVO2bBUOATnLUmHbsTVJoDWFC7wdSy+ILPOy1A0D07FVC5auMHaCqrKyxEgiLfCkwK8VmZFFimMW9Gq2IeccvZjc3xCGzmkybagsQBUpabtmyPkauplP/sweZi8/p8/ffz19e5ncPj98vbv99Hj3+eHH58e7L8/3N/8BwuRiCJ/vQjYAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;DIP를 온전히 지키는 구조&quot;
+        title=&quot;&quot;
+        src=&quot;/static/4429a301c4e9ed54e40ff4b4a2a29148/f058b/dip.png&quot;
+        srcset=&quot;/static/4429a301c4e9ed54e40ff4b4a2a29148/c26ae/dip.png 158w,
+/static/4429a301c4e9ed54e40ff4b4a2a29148/6bdcf/dip.png 315w,
+/static/4429a301c4e9ed54e40ff4b4a2a29148/f058b/dip.png 630w,
+/static/4429a301c4e9ed54e40ff4b4a2a29148/40601/dip.png 945w,
+/static/4429a301c4e9ed54e40ff4b4a2a29148/78612/dip.png 1260w,
+/static/4429a301c4e9ed54e40ff4b4a2a29148/493ac/dip.png 4032w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;마치며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A7%88%EC%B9%98%EB%A9%B0&quot; aria-label=&quot;마치며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;마치며&lt;/h1&gt;
+&lt;p&gt;SOLID 원칙은 내가 좋아하는, 읽기 쉽고 유연한 구조를 만들기 위한 기본기였다.&lt;/p&gt;
+&lt;h1 id=&quot;참고&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0&quot; aria-label=&quot;참고 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.baeldung.com/solid-principles&quot;&gt;A Solid Guide to SOLID Principles&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://tech.kakaobank.com/posts/2411-solid-truth-or-myths-for-developers/&quot;&gt;모든 개발자가 알아야 할 SOLID의 진실 혹은 거짓&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://youtu.be/4O6k9GN8FPo?si=47UNNDFVFRMWxKOV&quot;&gt;얄팍한 코딩사진 YouTube, SOLID 원칙 - 객체지향 디자인 패턴의 기본기&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[2024년 7월 첫 째주 회고록]]></title><description><![CDATA[What I Studied DFS&BFS, 다익스트라 복습 ! Java 쓰레드 정리법 CS 공부할 때 얼추 손으로 정리하고, 블로그에 정리하는 게 더 정리가 잘된다. Java…]]></description><link>null/회고/회고록/2024년-7월-첫-째주-회고록/</link><guid isPermaLink="false">null/회고/회고록/2024년-7월-첫-째주-회고록/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;what-i-studied&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#what-i-studied&quot; aria-label=&quot;what i studied permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What I Studied&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;DFS&amp;#x26;BFS, 다익스트라 복습 !&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://kdkdhoho.github.io/thread-in-jvm&quot;&gt;Java 쓰레드&lt;/a&gt;&lt;/li&gt;
@@ -8014,6 +8022,105 @@ list&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class
 &lt;ol&gt;
 &lt;li id=&quot;fn-1&quot;&gt;&lt;a href=&quot;https://docs.oracle.com/javase/tutorial/java/generics/types.html&quot;&gt;https://docs.oracle.com/javase/tutorial/java/generics/types.html&lt;/a&gt;&lt;a href=&quot;#fnref-1&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
+&lt;/div&gt;</content:encoded></item><item><title><![CDATA[8장. 누가 액세스하고 있는지를 확인하는 인증]]></title><description><![CDATA[들어가며 이번엔 HTTP 표준이 설명하는 여러 가지 인증 방식에 대해 알아보겠다. Basic 인증 이름 그대로 가장 기본적인 인증 방식이다. 클라이언트가 Http Request를 보낼 때  헤더에 ID와 패스워드를 Base6…]]></description><link>null/네트워크/네트워크-책-스터디/08-authentication-of-http/</link><guid isPermaLink="false">null/네트워크/네트워크-책-스터디/08-authentication-of-http/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;들어가며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0&quot; aria-label=&quot;들어가며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가며&lt;/h2&gt;
+&lt;p&gt;이번엔 HTTP 표준이 설명하는 여러 가지 인증 방식에 대해 알아보겠다.&lt;/p&gt;
+&lt;h2 id=&quot;basic-인증&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#basic-%EC%9D%B8%EC%A6%9D&quot; aria-label=&quot;basic 인증 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Basic 인증&lt;/h2&gt;
+&lt;p&gt;이름 그대로 가장 기본적인 인증 방식이다.&lt;/p&gt;
+&lt;p&gt;클라이언트가 Http Request를 보낼 때 &lt;code class=&quot;language-text&quot;&gt;Authorization&lt;/code&gt; 헤더에 ID와 패스워드를 Base64 형식으로 인코딩 한 값을 담아 보내는 방식이다.&lt;br&gt;
+이때 값 앞에 &lt;code class=&quot;language-text&quot;&gt;&quot;Basic &quot;&lt;/code&gt;을 Prefix로 담아 함께 보내어 Basic 인증임을 나타낸다.&lt;/p&gt;
+&lt;p&gt;Basic 인증은 아래와 같은 요청이 서버로 전달된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
+Authoization: Basic Z3Vlc3Q35wervc32= &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;가장 단순하며 간편한 인증 방식이다.&lt;br&gt;
+하지만 Base64 형식은 &lt;a href=&quot;https://www.base64decode.org/&quot;&gt;온라인 디코더 사이트&lt;/a&gt;도 있는만큼 매우 위험한 인증 방식이다.&lt;br&gt;
+따라서 잘 사용하진 않는다.&lt;/p&gt;
+&lt;h2 id=&quot;digest-인증&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#digest-%EC%9D%B8%EC%A6%9D&quot; aria-label=&quot;digest 인증 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;DIGEST 인증&lt;/h2&gt;
+&lt;p&gt;편리하지만 안전하지 않은 Basic 인증을 보완하기 위해 탄생한 기술이다.&lt;br&gt;
+DIGEST 인증에는 &lt;em&gt;챌린지 리스폰스&lt;/em&gt; 방식이 사용되고 있어 패스워드를 그대로 보낼 일은 없다.&lt;/p&gt;
+&lt;p&gt;챌린지 리스폰스 방식은 최초에 상대방에게 인증 요구를 보내고 그 결과로 받은 챌린지 코드를 사용해서 리스폰스 코드를 계산한다.&lt;br&gt;
+이 값을 상대에게 송신하여 인증하는 방법이다.&lt;br&gt;
+리스폰스 코드는 패스워드와 챌린지 코드를 이용해 계산한 결과이다. 이 결과값을 보내기에 패스워드가 통신되는 일은 없다.&lt;/p&gt;
+&lt;p&gt;좀 더 자세히 살펴보면 인증 순서에 따른 요청 및 응답 내용은 아래와 같다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;클라이언트가 리소스에 접근&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
+Host: listywave.com&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;서버는 인증이 필요하다는 상태 코드와 함께 패스워드와 챌린지 코드(nonce)를 송신&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;HTTP/1.1 401 Unauthorized
+WWW-Authenticate: Digest realm=&amp;quot;my&amp;quot;, nonce=&amp;quot;MoSq25=sddfAMi217wsnDS&amp;quot;, algorithm=MD5, qop=&amp;quot;auth&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;클라이언트는 패스워드와 챌린지 코드를 통해 리스폰스 코드를 계산해서 송신&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
+Host: listywave.com
+Authorization: Digest username=&amp;quot;kdkdhoho&amp;quot;, realm=&amp;quot;my&amp;quot;, nonce=&amp;quot;MoSq25=sddfAMi217wsnDS&amp;quot;, uri=&amp;quot;/my&amp;quot;, algorithm=MD5, response=&amp;quot;df563836bnfasf7acfasdfc78&amp;quot;, qop=&amp;quot;auth&amp;quot;, nc=000000001, cnonce=&amp;quot;0827c27c29c271&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;서버는 인증 성공 시 &lt;code class=&quot;language-text&quot;&gt;200 OK&lt;/code&gt;를 응답하고, 실패했을 경우 다시 &lt;code class=&quot;language-text&quot;&gt;401 Unauthorized&lt;/code&gt;를 응답한다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;HTTP/1.1 200 OK
+Authentication-Info: rspauth=&amp;quot;fvacacwararact3c5ttcctyct7tcc4t7y&amp;quot;, cnonce=&amp;quot;0827c27c29c271&amp;quot;, nc=000000001, qop=&amp;quot;auth&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;하지만 Digest 방식도 사용상의 문제와 부족한 보안성 때문에 잘 사용하지는 않는다.&lt;/p&gt;
+&lt;h2 id=&quot;ssl-클라이언트-인증&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ssl-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-%EC%9D%B8%EC%A6%9D&quot; aria-label=&quot;ssl 클라이언트 인증 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;SSL 클라이언트 인증&lt;/h2&gt;
+&lt;p&gt;위 두 방식은 사용자 ID와 패스워드를 통해 인증을 진행한다.&lt;br&gt;
+SSL 클라이언트 인증의 경우에는 클라이언트가 &lt;strong&gt;클라이언트 인증서&lt;/strong&gt;를 서버로 전송해 인증한다.&lt;/p&gt;
+&lt;p&gt;클라이언트가 클라이언트 인증서를 서버로 전송하기 위해서는 사전에 미리 가지고 있어야 한다.&lt;br&gt;
+이를 위해선 서버가 미리 증명서를 구매하여 사용자에게 배포를 해야 한다.&lt;br&gt;
+다른 말로 인증을 위한 비용이 상당하다는 것이다.&lt;br&gt;
+따라서 웹 애플리케이션 인증만을 위한 용도로는 사용하지 않고 후술할 Form 방식과 함께 사용되어 2-Factor 인증으로 사용한다.&lt;/p&gt;
+&lt;h2 id=&quot;form-방식&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#form-%EB%B0%A9%EC%8B%9D&quot; aria-label=&quot;form 방식 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Form 방식&lt;/h2&gt;
+&lt;p&gt;Form 방식은 HTTP 프로토콜로 스펙이 정의되어 있지는 않다.&lt;br&gt;
+하지만 많은 웹사이트에서 채택 중이며 대부분의 경우 로그인 페이지를 통해 사용자의 인증 정보를 폼에 입력 후 서버로 전송하면, 서버는 해당 값을 토대로 사용자를 식별하고 그에 따른 인증 처리를 하는 방식으로 채택 중이다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9c59e807258884b8c8889affd6decef8/d53ff/form-auth-example.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 96.20253164556962%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAABoElEQVR42q2Uy0vEMBDG9+8VD75Q96D4Qj2I4EXUg6y4PmDrPkA8WUU9C4J42IMIorB0VdqmSdM26WfSfeiKbnfVwFeGmeaXyUySDP55ZHr5SUqZKI7jvwM1SI9eYF2BLUC1WoVpmjAMA4yxVHhPGVqWhXq93n+GeuUoihIFQdCWECLRZ1/Lnwp0HAe2bbfBP4lzDt/304GuS+C4Hniosuwi3+fgSl2BUsZg1IXkbxCBq5fQ3m8lRJhk+SOw0TiJ2wcP0wWC+aKH+RLFXJFi5ZhgueIl9kKZYtqg2DI9sOaWPzf9CzDGzT3BWJ4ge0AwqTSxT7BUtjFjuBhXdvaQYFTF105cUNYF+NHlQFmdksJXMd7pkzxpzq+uHldbEyLq7xzKZtp3TxEGcxTDeYaRPYrZI6LqRrBYcTFV8DCUpxhQ8dUTpubEaTUEHl8E1k99bJwybJ4x7FxS5C4odq8ots895eMqzlG6Dtpz4rQt6zo6r8/wHAvEbkjbzmsNpGaB207vd1mvKtRRi9SnpTBqSNtBIBCGsl2iXzXl3x/YfoDvEiq/mkSMcbMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Form 방식의 로그인 페이지 (출처: https://gundogmuseray.medium.com/easy-way-to-stop-worry-about-client-side-auth-with-firebase-and-sveltekit-d17cdcccb663)&quot;
+        title=&quot;&quot;
+        src=&quot;/static/9c59e807258884b8c8889affd6decef8/f058b/form-auth-example.png&quot;
+        srcset=&quot;/static/9c59e807258884b8c8889affd6decef8/c26ae/form-auth-example.png 158w,
+/static/9c59e807258884b8c8889affd6decef8/6bdcf/form-auth-example.png 315w,
+/static/9c59e807258884b8c8889affd6decef8/f058b/form-auth-example.png 630w,
+/static/9c59e807258884b8c8889affd6decef8/40601/form-auth-example.png 945w,
+/static/9c59e807258884b8c8889affd6decef8/d53ff/form-auth-example.png 1068w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;세션-및-토큰&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%84%B8%EC%85%98-%EB%B0%8F-%ED%86%A0%ED%81%B0&quot; aria-label=&quot;세션 및 토큰 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;세션 및 토큰&lt;/h2&gt;
+&lt;p&gt;HTTP 프로토콜은 Stateless 하다.&lt;br&gt;
+방금 전에 로그인에 성공했지만 다음 요청마다 로그인을 새로 해야 한다.&lt;br&gt;
+이를 개선하기 위해 쿠키[&lt;sup id=&quot;fnref-2&quot;&gt;&lt;a href=&quot;#fn-2&quot; class=&quot;footnote-ref&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;] 가 도입되었고 여기에 세션[&lt;sup id=&quot;fnref-3&quot;&gt;&lt;a href=&quot;#fn-3&quot; class=&quot;footnote-ref&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;]이나 토큰[&lt;sup id=&quot;fnref-4&quot;&gt;&lt;a href=&quot;#fn-4&quot; class=&quot;footnote-ref&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;] 을 이용해 사용자 인증 정보를 유지한다.&lt;/p&gt;
+&lt;p&gt;세션과 토큰은 현재 대부분의 경우 사용 중인 방식이다.&lt;br&gt;
+이 둘을 잘 이해하고 사용할 줄 아는 것은 매우 중요하다는 의미이며 다른 포스팅에서 집중적으로 알아볼 예정이다.&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn-2&quot;&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/HTTP/Cookies&quot;&gt;MDN - 쿠키&lt;/a&gt;&lt;a href=&quot;#fnref-2&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&quot;fn-3&quot;&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/HTTP/Session&quot;&gt;MDN - 세션&lt;/a&gt;&lt;a href=&quot;#fnref-3&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&quot;fn-4&quot;&gt;&lt;a href=&quot;https://opentutorials.org/course/3405/22008&quot;&gt;오픈튜토리얼스 - AccessToken&lt;/a&gt;&lt;a href=&quot;#fnref-4&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/div&gt;</content:encoded></item><item><title><![CDATA[9장. HTTP에 기능을 추가한 프로토콜]]></title><description><![CDATA[들어가며 인터넷이 보급되고 웹 시장이 커져감에 따라 HTTP 프로토콜이 정말 많이 사용되고 있다.
 하지만 본래 HTML 문서를 전송하기 위해 탄생한 HTTP는 발전해가는 웹 시장에 비하면 부족한 기능들이 다수 존재했다.
 그래서 HTTP…]]></description><link>null/네트워크/네트워크-책-스터디/09-advanced-http-protocol/</link><guid isPermaLink="false">null/네트워크/네트워크-책-스터디/09-advanced-http-protocol/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;들어가며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0&quot; aria-label=&quot;들어가며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가며&lt;/h2&gt;
@@ -8178,105 +8285,6 @@ HTTP/2.0은 성능 개선이 주된 목표이다. 따라서 &lt;em&gt;SPDY&lt;/e
 &lt;li id=&quot;fn-5&quot;&gt;&lt;a href=&quot;https://developers-kr.googleblog.com/2015/02/hellohttp2.html&quot;&gt;헬로 HTTP/2, 굿바이 SPDY - Google for Developers KR&lt;/a&gt;&lt;a href=&quot;#fnref-5&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
 &lt;li id=&quot;fn-6&quot;&gt;&lt;a href=&quot;https://ko.wikipedia.org/wiki/%EC%9B%B9%EC%86%8C%EC%BC%93&quot;&gt;WebSocket - Wikipedia&lt;/a&gt;&lt;a href=&quot;#fnref-6&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
 &lt;li id=&quot;fn-7&quot;&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/101&quot;&gt;101 Switching Protocols - MDN&lt;/a&gt;&lt;a href=&quot;#fnref-7&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</content:encoded></item><item><title><![CDATA[8장. 누가 액세스하고 있는지를 확인하는 인증]]></title><description><![CDATA[들어가며 이번엔 HTTP 표준이 설명하는 여러 가지 인증 방식에 대해 알아보겠다. Basic 인증 이름 그대로 가장 기본적인 인증 방식이다. 클라이언트가 Http Request를 보낼 때  헤더에 ID와 패스워드를 Base6…]]></description><link>null/네트워크/네트워크-책-스터디/08-authentication-of-http/</link><guid isPermaLink="false">null/네트워크/네트워크-책-스터디/08-authentication-of-http/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;들어가며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0&quot; aria-label=&quot;들어가며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가며&lt;/h2&gt;
-&lt;p&gt;이번엔 HTTP 표준이 설명하는 여러 가지 인증 방식에 대해 알아보겠다.&lt;/p&gt;
-&lt;h2 id=&quot;basic-인증&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#basic-%EC%9D%B8%EC%A6%9D&quot; aria-label=&quot;basic 인증 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Basic 인증&lt;/h2&gt;
-&lt;p&gt;이름 그대로 가장 기본적인 인증 방식이다.&lt;/p&gt;
-&lt;p&gt;클라이언트가 Http Request를 보낼 때 &lt;code class=&quot;language-text&quot;&gt;Authorization&lt;/code&gt; 헤더에 ID와 패스워드를 Base64 형식으로 인코딩 한 값을 담아 보내는 방식이다.&lt;br&gt;
-이때 값 앞에 &lt;code class=&quot;language-text&quot;&gt;&quot;Basic &quot;&lt;/code&gt;을 Prefix로 담아 함께 보내어 Basic 인증임을 나타낸다.&lt;/p&gt;
-&lt;p&gt;Basic 인증은 아래와 같은 요청이 서버로 전달된다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
-Authoization: Basic Z3Vlc3Q35wervc32= &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;가장 단순하며 간편한 인증 방식이다.&lt;br&gt;
-하지만 Base64 형식은 &lt;a href=&quot;https://www.base64decode.org/&quot;&gt;온라인 디코더 사이트&lt;/a&gt;도 있는만큼 매우 위험한 인증 방식이다.&lt;br&gt;
-따라서 잘 사용하진 않는다.&lt;/p&gt;
-&lt;h2 id=&quot;digest-인증&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#digest-%EC%9D%B8%EC%A6%9D&quot; aria-label=&quot;digest 인증 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;DIGEST 인증&lt;/h2&gt;
-&lt;p&gt;편리하지만 안전하지 않은 Basic 인증을 보완하기 위해 탄생한 기술이다.&lt;br&gt;
-DIGEST 인증에는 &lt;em&gt;챌린지 리스폰스&lt;/em&gt; 방식이 사용되고 있어 패스워드를 그대로 보낼 일은 없다.&lt;/p&gt;
-&lt;p&gt;챌린지 리스폰스 방식은 최초에 상대방에게 인증 요구를 보내고 그 결과로 받은 챌린지 코드를 사용해서 리스폰스 코드를 계산한다.&lt;br&gt;
-이 값을 상대에게 송신하여 인증하는 방법이다.&lt;br&gt;
-리스폰스 코드는 패스워드와 챌린지 코드를 이용해 계산한 결과이다. 이 결과값을 보내기에 패스워드가 통신되는 일은 없다.&lt;/p&gt;
-&lt;p&gt;좀 더 자세히 살펴보면 인증 순서에 따른 요청 및 응답 내용은 아래와 같다.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;클라이언트가 리소스에 접근&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
-Host: listywave.com&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;ol start=&quot;2&quot;&gt;
-&lt;li&gt;서버는 인증이 필요하다는 상태 코드와 함께 패스워드와 챌린지 코드(nonce)를 송신&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;HTTP/1.1 401 Unauthorized
-WWW-Authenticate: Digest realm=&amp;quot;my&amp;quot;, nonce=&amp;quot;MoSq25=sddfAMi217wsnDS&amp;quot;, algorithm=MD5, qop=&amp;quot;auth&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;ol start=&quot;3&quot;&gt;
-&lt;li&gt;클라이언트는 패스워드와 챌린지 코드를 통해 리스폰스 코드를 계산해서 송신&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
-Host: listywave.com
-Authorization: Digest username=&amp;quot;kdkdhoho&amp;quot;, realm=&amp;quot;my&amp;quot;, nonce=&amp;quot;MoSq25=sddfAMi217wsnDS&amp;quot;, uri=&amp;quot;/my&amp;quot;, algorithm=MD5, response=&amp;quot;df563836bnfasf7acfasdfc78&amp;quot;, qop=&amp;quot;auth&amp;quot;, nc=000000001, cnonce=&amp;quot;0827c27c29c271&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;ol start=&quot;4&quot;&gt;
-&lt;li&gt;서버는 인증 성공 시 &lt;code class=&quot;language-text&quot;&gt;200 OK&lt;/code&gt;를 응답하고, 실패했을 경우 다시 &lt;code class=&quot;language-text&quot;&gt;401 Unauthorized&lt;/code&gt;를 응답한다.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;HTTP/1.1 200 OK
-Authentication-Info: rspauth=&amp;quot;fvacacwararact3c5ttcctyct7tcc4t7y&amp;quot;, cnonce=&amp;quot;0827c27c29c271&amp;quot;, nc=000000001, qop=&amp;quot;auth&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;하지만 Digest 방식도 사용상의 문제와 부족한 보안성 때문에 잘 사용하지는 않는다.&lt;/p&gt;
-&lt;h2 id=&quot;ssl-클라이언트-인증&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ssl-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-%EC%9D%B8%EC%A6%9D&quot; aria-label=&quot;ssl 클라이언트 인증 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;SSL 클라이언트 인증&lt;/h2&gt;
-&lt;p&gt;위 두 방식은 사용자 ID와 패스워드를 통해 인증을 진행한다.&lt;br&gt;
-SSL 클라이언트 인증의 경우에는 클라이언트가 &lt;strong&gt;클라이언트 인증서&lt;/strong&gt;를 서버로 전송해 인증한다.&lt;/p&gt;
-&lt;p&gt;클라이언트가 클라이언트 인증서를 서버로 전송하기 위해서는 사전에 미리 가지고 있어야 한다.&lt;br&gt;
-이를 위해선 서버가 미리 증명서를 구매하여 사용자에게 배포를 해야 한다.&lt;br&gt;
-다른 말로 인증을 위한 비용이 상당하다는 것이다.&lt;br&gt;
-따라서 웹 애플리케이션 인증만을 위한 용도로는 사용하지 않고 후술할 Form 방식과 함께 사용되어 2-Factor 인증으로 사용한다.&lt;/p&gt;
-&lt;h2 id=&quot;form-방식&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#form-%EB%B0%A9%EC%8B%9D&quot; aria-label=&quot;form 방식 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Form 방식&lt;/h2&gt;
-&lt;p&gt;Form 방식은 HTTP 프로토콜로 스펙이 정의되어 있지는 않다.&lt;br&gt;
-하지만 많은 웹사이트에서 채택 중이며 대부분의 경우 로그인 페이지를 통해 사용자의 인증 정보를 폼에 입력 후 서버로 전송하면, 서버는 해당 값을 토대로 사용자를 식별하고 그에 따른 인증 처리를 하는 방식으로 채택 중이다.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/9c59e807258884b8c8889affd6decef8/d53ff/form-auth-example.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 96.20253164556962%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAABoElEQVR42q2Uy0vEMBDG9+8VD75Q96D4Qj2I4EXUg6y4PmDrPkA8WUU9C4J42IMIorB0VdqmSdM26WfSfeiKbnfVwFeGmeaXyUySDP55ZHr5SUqZKI7jvwM1SI9eYF2BLUC1WoVpmjAMA4yxVHhPGVqWhXq93n+GeuUoihIFQdCWECLRZ1/Lnwp0HAe2bbfBP4lzDt/304GuS+C4Hniosuwi3+fgSl2BUsZg1IXkbxCBq5fQ3m8lRJhk+SOw0TiJ2wcP0wWC+aKH+RLFXJFi5ZhgueIl9kKZYtqg2DI9sOaWPzf9CzDGzT3BWJ4ge0AwqTSxT7BUtjFjuBhXdvaQYFTF105cUNYF+NHlQFmdksJXMd7pkzxpzq+uHldbEyLq7xzKZtp3TxEGcxTDeYaRPYrZI6LqRrBYcTFV8DCUpxhQ8dUTpubEaTUEHl8E1k99bJwybJ4x7FxS5C4odq8ots895eMqzlG6Dtpz4rQt6zo6r8/wHAvEbkjbzmsNpGaB207vd1mvKtRRi9SnpTBqSNtBIBCGsl2iXzXl3x/YfoDvEiq/mkSMcbMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Form 방식의 로그인 페이지 (출처: https://gundogmuseray.medium.com/easy-way-to-stop-worry-about-client-side-auth-with-firebase-and-sveltekit-d17cdcccb663)&quot;
-        title=&quot;&quot;
-        src=&quot;/static/9c59e807258884b8c8889affd6decef8/f058b/form-auth-example.png&quot;
-        srcset=&quot;/static/9c59e807258884b8c8889affd6decef8/c26ae/form-auth-example.png 158w,
-/static/9c59e807258884b8c8889affd6decef8/6bdcf/form-auth-example.png 315w,
-/static/9c59e807258884b8c8889affd6decef8/f058b/form-auth-example.png 630w,
-/static/9c59e807258884b8c8889affd6decef8/40601/form-auth-example.png 945w,
-/static/9c59e807258884b8c8889affd6decef8/d53ff/form-auth-example.png 1068w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h2 id=&quot;세션-및-토큰&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%84%B8%EC%85%98-%EB%B0%8F-%ED%86%A0%ED%81%B0&quot; aria-label=&quot;세션 및 토큰 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;세션 및 토큰&lt;/h2&gt;
-&lt;p&gt;HTTP 프로토콜은 Stateless 하다.&lt;br&gt;
-방금 전에 로그인에 성공했지만 다음 요청마다 로그인을 새로 해야 한다.&lt;br&gt;
-이를 개선하기 위해 쿠키[&lt;sup id=&quot;fnref-2&quot;&gt;&lt;a href=&quot;#fn-2&quot; class=&quot;footnote-ref&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;] 가 도입되었고 여기에 세션[&lt;sup id=&quot;fnref-3&quot;&gt;&lt;a href=&quot;#fn-3&quot; class=&quot;footnote-ref&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;]이나 토큰[&lt;sup id=&quot;fnref-4&quot;&gt;&lt;a href=&quot;#fn-4&quot; class=&quot;footnote-ref&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;] 을 이용해 사용자 인증 정보를 유지한다.&lt;/p&gt;
-&lt;p&gt;세션과 토큰은 현재 대부분의 경우 사용 중인 방식이다.&lt;br&gt;
-이 둘을 잘 이해하고 사용할 줄 아는 것은 매우 중요하다는 의미이며 다른 포스팅에서 집중적으로 알아볼 예정이다.&lt;/p&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn-2&quot;&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/HTTP/Cookies&quot;&gt;MDN - 쿠키&lt;/a&gt;&lt;a href=&quot;#fnref-2&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-3&quot;&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/HTTP/Session&quot;&gt;MDN - 세션&lt;/a&gt;&lt;a href=&quot;#fnref-3&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-4&quot;&gt;&lt;a href=&quot;https://opentutorials.org/course/3405/22008&quot;&gt;오픈튜토리얼스 - AccessToken&lt;/a&gt;&lt;a href=&quot;#fnref-4&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;</content:encoded></item><item><title><![CDATA[[MySQL] 바이너리 로그로 데이터 복구하기]]></title><description><![CDATA[들어가며 며칠 전, 리스티웨이브 프로젝트를 진행하며 특정 조건의 데이터를 모두 삭제 할 일이 있었습니다.
 하지만 실수로 해당 테이블의 데이터가 모두 삭제되는 일이 있었는데요..!
