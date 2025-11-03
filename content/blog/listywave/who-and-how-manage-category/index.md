@@ -3,7 +3,6 @@ title: "[ListyWave] SNS 서비스에서 카테고리를 관리하는 방법"
 description: "ListyWave가 카테고리를 관리하는 방법"
 date: 2024-02-21
 tags: ["ListyWave"]
-series: "ListyWave"
 ---
 
 ## 들어가며

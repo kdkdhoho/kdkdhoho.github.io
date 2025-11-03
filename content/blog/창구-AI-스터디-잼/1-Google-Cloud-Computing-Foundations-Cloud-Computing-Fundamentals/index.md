@@ -1,5 +1,5 @@
 ---
-title: "Google Cloud Computing Foundations: 클라우드 컴퓨팅 기초"
+title: "1. Google Cloud Computing Foundations: 클라우드 컴퓨팅 기초"
 description: "Google Cloud Skills Boost에서 학습한 클라우드 컴퓨팅의 핵심 개념과 GCP의 주요 서비스들을 정리했습니다. 클라우드의 5가지 특징부터 IaaS/PaaS/SaaS, GCP 아키텍처, 주요 컴퓨팅 서비스까지 실무에 필요한 기초 지식을 담았습니다."
 date: 2025-08-17
 tags: ["GCP", "인프라", "클라우드"]

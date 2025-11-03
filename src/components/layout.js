@@ -28,7 +28,30 @@ const Layout = ({ location, title, children }) => {
         <Search />
         <ThemeToggle />
       </div>
-      <header className="global-header">{header}</header>
+      <header className="global-header">
+        {header}
+        <nav className="main-navigation" style={{
+          marginTop: 'var(--spacing-4)',
+          textAlign: 'center'
+        }}>
+          <Link 
+            to="/series" 
+            style={{
+              color: 'var(--color-text-light)',
+              textDecoration: 'none',
+              fontSize: 'var(--fontSize-1)',
+              fontWeight: '500',
+              transition: 'color 0.3s ease'
+            }}
+            activeStyle={{
+              color: 'var(--color-primary)',
+              fontWeight: '600'
+            }}
+          >
+            📚 시리즈
+          </Link>
+        </nav>
+      </header>
       <main>{children}</main>
       <footer style={{
         textAlign: 'center',
