@@ -19,7 +19,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Get all markdown blog posts sorted by date
   const result = await graphql(`
     {
-      allMarkdownRemark(sort: { frontmatter: { date: ASC } }, limit: 1000) {
+      allMarkdownRemark(
+        sort: { frontmatter: { date: ASC } }
+        filter: { frontmatter: { draft: { ne: true } } }
+        limit: 1000
+      ) {
         nodes {
           id
           fields {
@@ -67,7 +71,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Create series pages
   const seriesResult = await graphql(`
     {
-      allMarkdownRemark(filter: { frontmatter: { series: { ne: null } } }) {
+      allMarkdownRemark(
+        filter: { 
+          frontmatter: { 
+            series: { ne: null },
+            draft: { ne: true }
+          } 
+        }
+      ) {
         group(field: { frontmatter: { series: SELECT } }) {
           fieldValue
           nodes {
@@ -184,10 +195,23 @@ exports.createSchemaCustomization = ({ actions }) => {
       date: Date @dateformat
       series: String
       tags: [String]
+      draft: Boolean
     }
 
     type Fields {
       slug: String
     }
   `)
+}
+
+exports.createResolvers = ({ createResolvers }) => {
+  createResolvers({
+    Frontmatter: {
+      draft: {
+        resolve(source) {
+          return source.draft || false
+        },
+      },
+    },
+  })
 }

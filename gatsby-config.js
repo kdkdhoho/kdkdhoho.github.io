@@ -1,11 +1,10 @@
 module.exports = {
   pathPrefix: "/",
   siteMetadata: {
-    title: `내가 재밌는 일을 하자 !`,
+    title: `김동호의 기록`,
     author: {
-      name: `Kim DongHo`,
+      name: `김동호`,
     },
-    description: `내가 좋아하고 재밌는 일을 기록하자`,
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -121,7 +120,7 @@ module.exports = {
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/profile_img.jpeg`, // This path is relative to the root of the site.
+        icon: `src/images/profile_img.png`, // This path is relative to the root of the site.
       },
     },
   ],

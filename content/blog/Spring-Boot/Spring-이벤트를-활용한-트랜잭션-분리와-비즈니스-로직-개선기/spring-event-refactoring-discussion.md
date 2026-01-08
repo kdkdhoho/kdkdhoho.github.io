@@ -1,4 +1,10 @@
-# Spring Event를 활용한 케어링 포인트 시스템 리팩토링 대화 기록
+---
+title: "Spring Event를 활용한 케어링 포인트 시스템 리팩토링 대화 기록"
+description: "임시"
+date: 2025-09-13
+tags: ["Spring", "Spring Event"]
+draft: true
+---
 
 ## 개요
 - **날짜**: 2025-08-28

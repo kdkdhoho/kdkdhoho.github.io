@@ -108,7 +108,12 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { frontmatter: { series: { ne: null } } }
+      filter: { 
+        frontmatter: { 
+          series: { ne: null },
+          draft: { ne: true }
+        } 
+      }
     ) {
       group(field: { frontmatter: { series: SELECT } }) {
         fieldValue

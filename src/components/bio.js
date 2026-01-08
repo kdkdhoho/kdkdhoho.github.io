@@ -37,16 +37,16 @@ const Bio = () => {
         className="bio-avatar"
         layout="fixed"
         formats={["auto", "webp", "avif", "jpeg"]}
-        src="../images/profile_img.jpeg"
+        src="../images/profile_img.png"
         width={75}
         height={75}
         quality={100}
         alt="Profile picture"
       />
       <p>
-        1. 2025년이 끝나기 전까지 <strong>기본기를 완벽히 정리한다.</strong><br/>
-        2. <strong>내가 좋아하는 것</strong>을 차곡히 기록한다.<br/>
-        3. 하루하루는 치열하게, 인생은 흘러가는대로~
+        끝을 생각하며 살고 있습니다.<br/>
+        꿈과 목적과 목표로 나누어 생각합니다.<br/>
+        타인과 경쟁하지 않고, 나만의 길을 설정하고 그것에만 집중합니다.
       </p>
     </div>
   )
