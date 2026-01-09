@@ -2,7 +2,7 @@
 title: "Garbage Collection 알고리즘"
 description: "Garbage Collection의 알고리즘에 대해 알아보자"
 date: 2023-12-10
-tags: ["java", "garbage-collection"]
+tags: ["JAVA", "garbage-collection"]
 ---
 
 지난 번엔 [Garbage Collection과 동작 원리](https://kdkdhoho.github.io/about-garbage-collection/)에 대해 알아보았다.<br>

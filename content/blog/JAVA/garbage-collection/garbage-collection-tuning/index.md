@@ -2,7 +2,7 @@
 title: "Garbage Collection 튜닝에 대해"
 description: "Garbage Collection 튜닝에 대해"
 date: 2023-12-09
-tags: ["java", "garbageccollection"]
+tags: ["JAVA", "garbageccollection"]
 ---
 
 ## GC에서 고려할 성능

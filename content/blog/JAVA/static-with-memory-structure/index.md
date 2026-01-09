@@ -3,7 +3,7 @@ title: "static을 더 잘 사용하기"
 description: "static 키워드 with JVM의 메모리 구조"
 date: 2023-12-06
 update: 2023-12-06
-tags: ["java", "operating-system"]
+tags: ["JAVA", "operating-system"]
 ---
 
 이번 글에서는 `static` 키워드에 대해 알아보고자 한다.<br>

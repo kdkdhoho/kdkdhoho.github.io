@@ -2,7 +2,7 @@
 title: "모든 원시값과 문자열을 포장한다. 왜?"
 description: "원시값과 문자열을 포장하면 좋은 점 + 일급 컬렉션"
 date: 2023-12-13
-tags: ["java", "oop", "clean-code"]
+tags: ["JAVA", "oop", "clean-code"]
 series: "Why? 시리즈"
 ---
 

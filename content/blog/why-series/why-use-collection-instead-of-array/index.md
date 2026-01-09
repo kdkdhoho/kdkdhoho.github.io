@@ -2,7 +2,7 @@
 title: "배열 대신 컬렉션을 쓴다. 왜?"
 description: "Java에서 배열 대신 컬렉션을 사용해야하는 이유"
 date: 2023-12-11
-tags: ["java", "clean-code"]
+tags: ["JAVA", "clean-code"]
 series: "Why? 시리즈"
 ---
 

@@ -2,7 +2,7 @@
 title: "JVM의 Garbage Collection과 동작 원리"
 description: "드디어 정리한다. Garbage Collection"
 date: 2023-12-08
-tags: ["java", "garbage-collection"]
+tags: ["JAVA", "garbage-collection"]
 ---
 
 ## Garbage Collection를 알아야 하는 이유

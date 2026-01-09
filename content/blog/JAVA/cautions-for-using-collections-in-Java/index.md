@@ -2,7 +2,7 @@
 title: "Java에서 컬렉션을 사용할 때 주의할 점"
 description: "주의하세요"
 date: 2023-12-11
-tags: ["java"]
+tags: ["JAVA"]
 ---
 
 ## 문제 상황

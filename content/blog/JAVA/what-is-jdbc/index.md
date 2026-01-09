@@ -2,7 +2,7 @@
 title: "[Java] JDBC 파헤쳐보기"
 description: "JDBC의 구성 요소인 Connection, Statement, ResultSet과 DataSource, Connection Pool에 대해"
 date: 2024-03-12
-tags: ["java", "jdbc", "connection pool", "datasource"]
+tags: ["JAVA", "jdbc", "connection pool", "datasource"]
 ---
 
 JPA, JDBCTemplate 등 자바 프로그램에서 DB에 연결하기 위해선 **JDBC**를 반드시 사용하게 된다.<br>
