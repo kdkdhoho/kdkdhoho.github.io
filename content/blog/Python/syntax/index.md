@@ -147,6 +147,8 @@ last = name[0:5] # Peter
 fisrt = name[6:] # Parker
 ```
 
+## `count()`
+
 # 형변환
 
 ## 문자열 -> int
@@ -265,3 +267,140 @@ print(symetric_diff) # 결과: {1, 2, 5, 6}
 집합을 사용하는 가장 핵심적인 이유 중 하나는 `in` 키워드를 이용한 멤버십 테스트의 효율성이다.  
 리스트의 경우 특정 요소가 있는 지 확인하기 위해 모든 요소를 순회해야 하므로 O(N)의 시간이 걸리지만, 집합은 해시 값을 통해 직접 위치를 찾으므로 데이터 크기에 상관없이 O(1)의 시간으로 결과를 얻을 수 있다.  
 따라서 대규모 데이터 Set에서 존재 여부를 반복적으로 확인해야 한다면, 데이터를 먼저 집합(Set)으로 변환하는 것이 성능 최적화에 큰 기여를 한다.
+
+# 딕셔너리(Dictionary)
+파이썬의 딕셔너리는 키(Key)와 값(Value) 쌍을 저장하는 가변 컨테이너 자료형이다.  
+`{}`를 사용하거나 `dict()` 생성자를 통해 생성할 수 있다.  
+고유한 키를 통해 연관된 데이터에 즉각적으로 접근할 수 있도록 설계되어 있다.
+
+## 해시 기반 작동 원리와 Key의 제약 조건
+딕셔너리는 내부적으로 [해시 테이블(Hash Table)](https://kdkdhoho.github.io/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/%ED%95%B4%EC%8B%9C/) 구조를 사용한다.  
+따라서 특정 키를 검색할 때, 해당 키의 해시 값을 계산하여 데이터가 저장된 메모리 위치를 직접 찾아낸다.  
+이로 인해 요소가 아무리 많아지더라도 평균적으로 O(1) 만큼의 시간 복잡도로 데이터를 저장, 탐색할 수 있다.
+
+Set과 마찬가지로 Key에는 반드시 해시 가능한 객체(정수, 문자열, 튜플)가 저장되어야 한다. 리스트나 딕셔너리 같은 가변 객체는 키로 사용될 수 없다.
+
+## 삽입 순서 보장과 메모리 최적화 구조
+과거에는 요소 순서가 무작위로 유지되었지만 파이썬 3.7부터는 요소가 삽입된 순서를 보장한다. (참고: [PEP 468 명세](https://peps.python.org/pep-0468/))  
+
+## 사용법
+
+### 요소 삽입
+딕셔너리에 요소를 삽입하는 방법은 크게 세 가지 방법이 있다.
+
+1. `[]` 키워드 사용
+
+인덱싱 하듯이 `[]`로 Key-Value 쌍을 넣을 수 있다.  
+만약 Key가 이미 존재한다면 새로운 Value로 덮어쓴다.
+
+```python
+profile = {}
+profile['username'] = 'coder123'
+print(profile) # {'username': 'coder123'}
+
+profile['username'] = 'coder456'
+print(profile) # {'username': 'coder456'}
+```
+
+2. `setdefault()`
+`setdefault()`는 딕셔너리에서 Key 존재를 확인하고, 없을 때만 값을 삽입한다.
+
+```python
+profile = {}
+
+# 'email' 이라는 키가 없으므로 삽입된다.
+profile.setdefault('email', 'coder@gmail.com')
+print(profile) # {'email': 'coder@gmail.com'}
+
+# 이미 'email' 이라는 키가 존재하므로 삽입되지 않는다.
+profile.setdefault('email', 'coder123@gmail.com')
+print(profile) # {'email': 'coder@gmail.com'}
+```
+
+3. `update()`
+여러 데이터를 한꺼번에 갱신하거나 추가할 때는 `update()` 메서드를 사용한다.  
+파라미터로 딕셔너리 객체나 키-값 쌍의 Iterable 객체를 받아 대상 딕셔너리에 병합한다.  
+이때 동일한 키가 있을 경우, 새로운 값으로 덮어쓴다.
+
+```python
+profile = {}
+profile.update({'username': 'coder123', 'access_level': 2})
+print(profile) # {'username': 'coder123', 'access_level': 2}
+```
+
+### 요소 조회
+딕셔너리에서 요소를 조회하는 방법에는 두 가지가 있다.
+
+1. `[]`
+삽입과 마찬가지로 인덱싱하듯이 `[]` 키워드로 조회할 수 있다.  
+이때, 존재하지 않는 Key로 조회할 경우 KeyError 가 발생한다.
+
+```python
+profile = {}
+name = profile['name']
+print(name) # KeyError 발생
+```
+
+2. `get()`
+`[]`과 달리 Key가 존재하지 않을 경우, 예외를 발생시키는 대신 개발자가 원하는 값을 반환한다.  
+만약 원하는 값을 지정하지 않으면 `None` 을 반환한다.
+
+```python
+profile = {}
+name = profile.get('name')
+print(name) # None
+
+name2 = profile.get('name', 'coder123')
+print(name2) # coder123
+```
+
+### 기타 메서드
+
+- `keys()`: 모든 Key를 담은 뷰 객체를 반환한다.
+- `values()`: 모든 Value를 담은 뷰 객체를 반환한다.
+- `items()`: Key-Value 한 쌍의 튜플을 담은 뷰 객체를 반환한다.
+- `clear()`: 모든 요소를 삭제한다.
+
+### 딕셔너리 뷰 객체 (Dictionary View Objects)
+`dict.keys()`, `dict.values()`, `dict.item()` 메서드가 반환하는 특수한 객체를 의미한다.  
+이 객체들은 딕셔너리의 항목들에 대한 동적인 뷰를 제공하며, 딕셔너리가 변경될 때마다 뷰 객체에 즉각 반영됨을 의미한다.
+
+`dict_keys`, `dict_items`은 집합(Set)과 유사한 동작을 지원한다.
+모든 항목이 해시 가능한 경우, 이 객체들에 대해 교집합(&), 합집합(|), 차집합(-) 등의 연산을 수행할 수 있기 때문이다.  
+이로 인해 두 딕셔너리 사이의 공통된 키를 찾거나, 특정 키를 제외하는 작업을 쉽게 처리할 수 있다.
+
+### 딕셔너리 컴프리헨션
+딕셔너리 컴프리헨션은 반복문과 조건문을 결합하여 딕셔너리를 선언적으로 구성하는 방법이다.  
+리스트 컴프리헨션의 딕셔너리 버전이다.  
+반복문을 사용하는 것보다, 가독성이 좋고 인터프리터 수준에서 최적화되어 실행 속도 면에서도 유리하다.
+
+이 기법은 특히 두 개의 리스트를 하나의 딕셔너리로 결합할 때 `zip()` 메서드와 함께 자주 사용된다.
+`zip()` 메서드는 파이썬의 내장 함수로, Iterable 객체를 인자로 받아서 각 객체의 동일한 인덱스에 있는 요소들을 튜플로 묶어주는 Iterator를 생성한다.
+
+```python
+keys = ['cpu', 'ram', 'storage']
+values = ['Intel i9', '32GB', '1TB SSD']
+
+# 출력 결과
+# ('cpu', 'Intel i9')
+# ('ram', '32GB')
+# ('storage', '1TB SSD')
+for z in zip(keys, values):
+    print(z)
+
+# zip()을 이용해 딕셔너리 컴프리헨션 적용
+specs = {k: v for k, v in zip(keys, values)}}
+
+# if 절을 추가하여 조건에 부합하는 항목만 필터링 할 수 있다.
+specs2 = {k: v for k, v in zip(keys, values) if len(k) > 3}
+
+# 값의 형태를 직접 가공하여 생성하는 것도 가능하다.
+upper_specs = {k.upper(): v for k, v in specs.items()}
+```
+
+```python
+keys = ['cpu', 'ram', 'storage']
+values = ['Intel i9', '32GB', '1TB SSD']
+
+
+```
