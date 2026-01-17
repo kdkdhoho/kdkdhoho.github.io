@@ -20,15 +20,16 @@ tags: ["Python"]
 파이썬에는 `sys.stdin`과 `sys.stdout`을 추상화 해놓은 함수가 있다.  
 바로 `input()`과 `print()` 이다.
 
-[파이썬 내장 함수 명세](https://docs.python.org/ko/3.13/library/functions.html)에 따르면, `print()` 함수는 인자로 받은 객체들을 문자열로 변환한 뒤 지정된 파일 스트림에 기록한다. 기본값으로 `sys.stdout`이 설정되어 있지만, file 매개변수를 통해 출력 대상을 변경할 수도 있다.
-
-`print()` 함수가 호출되면 **데이터는 스트림 버퍼에 저장**되어있다가 특정 조건이 충족되면 실제 출력 장치로 전달된다.
+[파이썬 내장 함수 명세](https://docs.python.org/ko/3.13/library/functions.html)에 따르면, `print()` 함수는 인자로 받은 객체들을 문자열로 변환한 뒤 지정된 파일 스트림에 기록한다. 기본값으로 `sys.stdout`이 설정되어 있지만, file 매개변수를 통해 출력 대상을 변경할 수도 있다.  
+`print()` 함수가 호출되면 **데이터는 스트림 버퍼에 저장**되어있다가 특정 조건이 충족되면 실제 출력 장치로 전달된다.  
+만약 `print()` 함수에 여러 인자를 전달하면, 파이썬은 각 인자들을 공백을 구분자로 하여 출력한다. 
 
 반면 `input()` 함수는 `sys.stdin`에서 한 줄을 읽은 뒤, 끝의 줄바꿈 문자를 제거하여 문자열로 반환한다.  
 만약 입력 스트림의 끝에 도달하면 EOFError를 발생하는데, 이는 스트림 기반 입출력의 기본적인 처리 방식이다. (참고: [geeksforgeeks - Handling EOFError Exception in Python](https://www.geeksforgeeks.org/python/handling-eoferror-exception-in-python/))
 
 # 문자열(String)
 
+## 특징
 파이썬에서 문자열은 불변 객체이다.
 
 ## `input()`과 함께 쓰기 좋은 `.strip()` 메서드
@@ -106,7 +107,7 @@ print(result2) # 결과: a, p, p, l, e
 
 ## 문자열의 시퀀스 자료형
 파이썬에서 문자열은 시퀀스 자료형으로 분류된다.  
-시퀀스랑 정수를 인덱스로 사용하여 효율적으로 원소에 접근할 수 있는 유한한 길이의 순서가 있는 집합을 의미한다.  
+시퀀스 자료형이란, 정수를 인덱스로 사용하여 효율적으로 원소에 접근할 수 있는 유한한 길이의 순서가 있는 집합을 의미한다.  
 구체적으로 파이썬에서는 유니코드 코드 포인트들의 불변 시퀀스로 정의되어 있어, 리스트나 튜플과 같은 유사한 구조적 특징을 공유한다.
 
 ### 문자열의 간접 순회
@@ -404,3 +405,75 @@ values = ['Intel i9', '32GB', '1TB SSD']
 
 
 ```
+
+
+# 패킹과 언패킹
+파이썬이 제공하는 기능 중 하나는 **패킹과 언패킹**이다.  
+
+## 패킹
+패킹은 여러 독립적인 데이터를 하나의 시퀀스 객체로 묶는 과정이다.  
+가장 대표적인 형태는 별도 선언 없이 `,`를 사용하여 나열된 값들을 하나의 변수에 할당하는 방식이다.  
+아래와 같은 코드를 실행할 때 파이썬 인터프리터는 `10, 20, 30` 을 하나의 튜플로 묶어준다.
+
+```python
+coordinates = 10, 20, 30
+print(coordinates)  # 출력: (10, 20, 30)
+print(type(coordinates))  # 출력: <class 'tuple'>
+```
+
+## 언패킹
+패킹의 반대 개념으로, 리스트나 튜플과 같은 Iterable 객체 내부에 담긴 요소들을 개별 변수에 할당하는 기법이다.  
+이때 [공식 레퍼런스](https://docs.python.org/3/reference/simple_stmts.html#assignment-statements)에 따르면, `=`의 좌항에 명시된 변수의 개수와, 우항에 있는 Iterable 객체의 사이즈가 동일해야 한다.  
+그렇지 않으면 ValueError가 발생한다.
+
+```python
+coordinates = 10, 20, 30
+x, y, z = coordinates
+print(x, y, z)  # 출력: 10 20 30
+```
+
+언패킹은 리스트, 튜플 뿐 아니라 문자열, Set, 딕셔너리의 뷰 객체 등 모든 Iterable에 대해 동일하게 작동한다.
+
+```python
+# 문자열 언패킹
+str_val = "roro"
+a, b, c, d = str_val
+print(a, b, c, d) # 출력: r o r o
+
+# Set 언패킹
+set_val = {'r', 'o', 'r', 'o'}
+a, b = set_val
+print(a, b) # 출력: o r (요소 순서가 보장되지 않는다.)
+
+# 딕셔너리 언패킹
+dic_val = {1: 'w', 2: 'a', 3:'d', 4: 'e'}
+a, b, c, d = dic_val
+print(a, b, c, d) # 출력: 1 2 3 4 (key 값에 대해서만 언패킹을 수행한다.)
+```
+
+## 확장된 Iterable 언패킹과 별표 연산자
+파이썬 3 버전에서는 [PEP 3132 명세](https://peps.python.org/pep-3132/)를 통해 확장된 Iterable 언패킹 기능을 지원한다.  
+`*` 연산자를 이용해서 Iterable의 나머지 요소를 하나의 리스트로 묶어 받는 기능이다.
+
+```python
+numbers = [1, 2, 3, 4, 5]
+first, *middle, last = numbers
+print(first, middle, last) # 출력: 1 [2, 3, 4] 5
+```
+
+만약 할당할 요소가 없다면 빈 리스트가 반환되며, 언패킹 연산 내에서 두 개 이상의 `*` 연산자를 사용할 수 없다.
+
+## 딕셔너리 언패킹
+`**` 연산자를 통해 딕셔너리도 Key-Value 형태로 언패킹할 수 있다.  
+주로 메서드 호출 시 인자를 전달하거나, 여러 딕셔너리를 하나로 합칠 때 사용할 수 있다.
+
+```python
+base_fruite = {'apple': 1, 'banana': 2}
+extra_fruite = {'kiwi': 3, 'banana': 4}
+
+# 두 딕셔너리를 언패킹하여 병합한다. 이때 중복된 키는 뒤에 오는 것으로 할당된다.
+merged_fruite = {**base_fruite, **extra_fruite}
+print(merged_fruite)  # 출력: {'apple': 1, 'banana': 4, 'kiwi': 3}
+```
+
+시간 복잡도는 O(N)로 효율적이다.
