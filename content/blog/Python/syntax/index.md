@@ -105,13 +105,55 @@ print(result2) # 결과: a, p, p, l, e
 반면 `join()` 메서드는 결합을 시작하기 전, iterable을 한 번 순회하여 결과 문자열의 총 길이를 미리 계산한다.  
 그리고 그만큼의 메모리 공간을 한 번만 할당하기 때문에 훨씬 효율적이다.
 
+## `startswith()`, `endswith()`
+대상 문자열이 특정 접두사(prefix)로 시작하는지? 그리고 특정 접미사(suffix)로 끝나는지를 확인하는 메서드이다.  
+대소문자를 구분하여 정확히 일치할 때만 True를 반환한다.
+
+```python
+text = "Python Programming is fun"
+
+print(text.startswith("Python"))  # 출력: True
+print(text.startswith("python"))  # 출력: False
+
+---
+
+filename = "document.pdf"
+
+# 확장자 확인
+if filename.endswith(".pdf"):
+    print("이 파일은 PDF 문서입니다.")
+```
+
+### 튜플을 이용한 다중 접사 검사
+심지어 두 메서드에는 튜플(Tuple)을 전달할 수도 있는데, 인자로 튜플을 전달하면 해당 튜플에 포함된 요소 중 하나라도 일치할 경우 True를 반환한다.  
+```python
+image_files = ["cat.jpg", "dog.png", "report.docx"]
+for file in image_files:
+    if file.endswith((".jpg", ".jpeg", ".png", ".gif")):
+        print(f"이미지 파일 발견: {file}")
+```
+
+### 검색 범위 지정 매개변수(start, end)
+`startswith()`와 `endswith()` 메서드는 검색 범위를 제한할 수 있는 매개변수인 start와 end를 지원한다.  
+필수값은 아니며, 슬라이싱과 동일하게 반개방 원칙을 적용한다.
+
+```python
+message = "Hello, Python developers"
+
+# 인덱스 7부터 모든 문자열을 추출하여 "Python" 으로 시작하는지 확인
+print(message.startswith("Python", 7)) # 결과: True
+
+# 인덱스 0부터 4까지 문자를 추출하여 "Hello"로 끝나는지 확인
+print(message.endswith("Hello", 0, 5)) # 결과: True
+```
+
 ## 문자열의 시퀀스 자료형
 파이썬에서 문자열은 시퀀스 자료형으로 분류된다.  
 시퀀스 자료형이란, 정수를 인덱스로 사용하여 효율적으로 원소에 접근할 수 있는 유한한 길이의 순서가 있는 집합을 의미한다.  
 구체적으로 파이썬에서는 유니코드 코드 포인트들의 불변 시퀀스로 정의되어 있어, 리스트나 튜플과 같은 유사한 구조적 특징을 공유한다.
 
 ### 문자열의 간접 순회
-반복문(for)과 `range()` 객체를 이용하여 생성된 정수로 문자열 시퀀스를 순회할 수 있다.
+반복문(for)과 `range()` 객체를 이용하여 문자열 시퀀스를 순회할 수 있다.
 
 ```python
 str = 'hello'
@@ -121,7 +163,7 @@ for i in range(0, len(str)):
 
 ### 문자열의 직접 순회
 정수 인덱스를 통한 순회가 아닌, 각 문자에 대해서도 순회할 수 있다.  
-이는 파이썬의 Iterable Protocol과 관련이 있는데 모든 시퀀스 자료형은 Iterable 객체이다.  
+이는 파이썬의 Iterable Protocol과 관련이 있는데 **모든 시퀀스 자료형은 Iterable 객체**이다.  
 즉, `for char in str:` 과 같은 구문으로 문자열 내부의 각 문자를 직접 하나씩 꺼내올 수 있다.
 
 ```python
@@ -150,8 +192,6 @@ fisrt = name[6:] # Parker
 
 또한 `[::-1]` 을 활용하면, 리스트를 역순으로 쉽게 뒤집을 수 있다.  
 이는 시퀀스의 모든 원소를 역순으로 정렬한 새로운 리스트 객체를 반환한다.
-
-## `count()`
 
 # 형변환
 
@@ -209,6 +249,28 @@ print(squares) # [0, 1, 4, 9, 16]`
 리스트 컴프리헨션은 내부적으로 최적화된 바이트코드를 생성하여 작동한다. 덕분에 일반적인 for 루프를 돌며 리스트의 `append()` 메서드를 매번 호출하는 방식보다 실행 속도가 빠르다.
 
 또한, 파이썬 3 이후의 리스트 컴프리헨션은 내부에서 사용되는 루프 변수(예: `i`)가 컴프리헨션 내부의 로컬 스코프에만 고립되도록 설계되어 있다. 
+
+## 리스트 정렬
+리스트를 정렬하는 방법에는 크게 두 가지가 있다.
+
+1. 리스트 객체 자체의 내용을 변경하는 `list.sort()`
+2. 정렬된 새로운 리스트를 반환하는 내장함수 `sorted()`
+
+[표준 라이브러리 명세](https://www.google.com/search?q=https://docs.python.org/3/library/stdtypes.html%23list.sort)에 따르면 `list.sort()`는 리스트를 제자리에서 정렬하여 메모리를 절약하며, 반환 값은 None이다.  
+반면 `sorted()` 메서드는 인자로 전달된 Iterable 객체를 변경하지 않고, 새로운 리스트를 반환하므로 원본 데이터를 유지해야 하는 경우에 적합하다.
+
+파이썬의 정렬 알고리즘은 Timsort 알고리즘을 적용했다.
+
+### 대소문자 구분 및 사용자 정의 정렬
+기본적인 사전순 정렬은 대문자가 소문자를 앞서는 방식으로 진행된다. 이는 유니코드 표에서 대문자가 소문자보다 작은 값을 가지기 때문이다.  
+만약 대소문자를 구분하지 않고 정렬하고 싶다면, `key` 매개변수를 활용해야 한다.  
+`key` 매개변수에 `str.lower` 또는 `str.upper`를 전달함으로써, 모든 요소를 일시적으로 변환한 상태에서 비교를 수행한다.
+
+```python
+names = ['Bob', 'Amy', 'Xavier']
+names.sort(key=str.lower)
+print(names) # 결과: ['Amy', 'Bob', 'Xavier']  
+```
 
 # 집합(Set)
 파이썬에서 집합, Set은 **중복을 허용하지 않고 요소의 순서를 유지하지 않는 가변 컨테이너 자료형**이다.  
@@ -286,6 +348,11 @@ print(symetric_diff) # 결과: {1, 2, 5, 6}
 집합을 사용하는 가장 핵심적인 이유 중 하나는 `in` 키워드를 이용한 멤버십 테스트의 효율성이다.  
 리스트의 경우 특정 요소가 있는 지 확인하기 위해 모든 요소를 순회해야 하므로 O(N)의 시간이 걸리지만, 집합은 해시 값을 통해 직접 위치를 찾으므로 데이터 크기에 상관없이 O(1)의 시간으로 결과를 얻을 수 있다.  
 따라서 대규모 데이터 Set에서 존재 여부를 반복적으로 확인해야 한다면, 데이터를 먼저 집합(Set)으로 변환하는 것이 성능 최적화에 큰 기여를 한다.
+
+```python
+numbers = {1, 2, 3}
+print(1 in numbers) # True
+```
 
 # 딕셔너리(Dictionary)
 파이썬의 딕셔너리는 키(Key)와 값(Value) 쌍을 저장하는 가변 컨테이너 자료형이다.  
