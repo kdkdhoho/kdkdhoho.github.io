@@ -181,6 +181,14 @@ last <span class="token operator">=</span> name<span class="token punctuation">[
 fisrt <span class="token operator">=</span> name<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token comment"># Parker</span></code></pre></div>
 <p>또한 <code class="language-text">[::-1]</code> 을 활용하면, 리스트를 역순으로 쉽게 뒤집을 수 있다.<br>
 이는 시퀀스의 모든 원소를 역순으로 정렬한 새로운 리스트 객체를 반환한다.</p>
+<h2 id="문자에서-유니코드로-ord-유니코드에서-문자로-chr" style="position:relative;"><a href="#%EB%AC%B8%EC%9E%90%EC%97%90%EC%84%9C-%EC%9C%A0%EB%8B%88%EC%BD%94%EB%93%9C%EB%A1%9C-ord-%EC%9C%A0%EB%8B%88%EC%BD%94%EB%93%9C%EC%97%90%EC%84%9C-%EB%AC%B8%EC%9E%90%EB%A1%9C-chr" aria-label="문자에서 유니코드로 ord 유니코드에서 문자로 chr permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>문자에서 유니코드로 (<code class="language-text">ord()</code>), 유니코드에서 문자로 (<code class="language-text">chr()</code>)</h2>
+<p>특정 문자의 유니코드 값을 구하는 방법은 파이썬 내장 함수 중 하나인, <code class="language-text">ord()</code>를 사용하면 된다. (참고로 서수를 뜻하는 "ordinary"의 약어이다.)<br>
+그 반대의 경우에는 마찬가지로 파이썬의 내장 함수 중 하나인, <code class="language-text">chr()</code>를 사용하면 된다.</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python">ch <span class="token operator">=</span> <span class="token string">'a'</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">ord</span><span class="token punctuation">(</span>ch<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 결과: 97</span>
+
+code <span class="token operator">=</span> <span class="token number">97</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">chr</span><span class="token punctuation">(</span>code<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 결과: a</span></code></pre></div>
 <h1 id="형변환" style="position:relative;"><a href="#%ED%98%95%EB%B3%80%ED%99%98" aria-label="형변환 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>형변환</h1>
 <h2 id="문자열---int" style="position:relative;"><a href="#%EB%AC%B8%EC%9E%90%EC%97%B4---int" aria-label="문자열   int permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>문자열 -> int</h2>
 <p>기본적으로 내장 함수인 <code class="language-text">int()</code> 메서드를 사용한다.</p>
@@ -225,6 +233,21 @@ start부터 시작하여 step 크기만큼 증가하며 stop-1 까지의 시퀀�
 <p><a href="https://www.google.com/search?q=https://docs.python.org/3/library/stdtypes.html%23list.sort">표준 라이브러리 명세</a>에 따르면 <code class="language-text">list.sort()</code>는 리스트를 제자리에서 정렬하여 메모리를 절약하며, 반환 값은 None이다.<br>
 반면 <code class="language-text">sorted()</code> 메서드는 인자로 전달된 Iterable 객체를 변경하지 않고, 새로운 리스트를 반환하므로 원본 데이터를 유지해야 하는 경우에 적합하다.</p>
 <p>파이썬의 정렬 알고리즘은 Timsort 알고리즘을 적용했다.</p>
+<h2 id="indexx-start-end" style="position:relative;"><a href="#indexx-start-end" aria-label="indexx start end permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code class="language-text">index(x, [start, end])</code></h2>
+<p>해당 리스트 내에 있는 요소 중, x 파라미터에 전달된 요소와 일치하는 값의 가장 앞의 인덱스를 반환한다.<br>
+이때 <code class="language-text">[start, end]</code> 파라미터에 인자를 선택적으로 전달하여, 특정 범위 내에서 조회가 가능하다.</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python">fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'apple'</span><span class="token punctuation">,</span> <span class="token string">'banana'</span><span class="token punctuation">,</span> <span class="token string">'cherry'</span><span class="token punctuation">,</span> <span class="token string">'banana'</span><span class="token punctuation">]</span>
+index_of_banana <span class="token operator">=</span> fruits<span class="token punctuation">.</span>index<span class="token punctuation">(</span><span class="token string">'banana'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>index_of_banana<span class="token punctuation">)</span> <span class="token comment"># 결과: 1</span>
+
+second_banana_index <span class="token operator">=</span> fruits<span class="token punctuation">.</span>index<span class="token punctuation">(</span><span class="token string">'banana'</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>second_banana_index<span class="token punctuation">)</span> <span class="token comment"># 결과: 3</span></code></pre></div>
+<p>만약, 찾으려는 요소가 리스트에 존재하지 않으면 ValueError가 발생한다. 따라서 안전한 코드를 작성하려면 예외처리를 반드시 해야 한다.</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token keyword">try</span><span class="token punctuation">:</span>
+    result <span class="token operator">=</span> fruits<span class="token punctuation">.</span>index<span class="token punctuation">(</span><span class="token string">'orange'</span><span class="token punctuation">)</span>
+<span class="token keyword">except</span> ValueError<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"리스트에 해당 값이 존재하지 않습니다."</span><span class="token punctuation">)</span></code></pre></div>
+<p><code class="language-text">index()</code> 메서드의 시간 복잡도는 O(N)이다.</p>
 <h3 id="대소문자-구분-및-사용자-정의-정렬" style="position:relative;"><a href="#%EB%8C%80%EC%86%8C%EB%AC%B8%EC%9E%90-%EA%B5%AC%EB%B6%84-%EB%B0%8F-%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%A0%95%EC%9D%98-%EC%A0%95%EB%A0%AC" aria-label="대소문자 구분 및 사용자 정의 정렬 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>대소문자 구분 및 사용자 정의 정렬</h3>
 <p>기본적인 사전순 정렬은 대문자가 소문자를 앞서는 방식으로 진행된다. 이는 유니코드 표에서 대문자가 소문자보다 작은 값을 가지기 때문이다.<br>
 만약 대소문자를 구분하지 않고 정렬하고 싶다면, <code class="language-text">key</code> 매개변수를 활용해야 한다.<br>
@@ -232,6 +255,7 @@ start부터 시작하여 step 크기만큼 증가하며 stop-1 까지의 시퀀�
 <div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python">names <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Bob'</span><span class="token punctuation">,</span> <span class="token string">'Amy'</span><span class="token punctuation">,</span> <span class="token string">'Xavier'</span><span class="token punctuation">]</span>
 names<span class="token punctuation">.</span>sort<span class="token punctuation">(</span>key<span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">.</span>lower<span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>names<span class="token punctuation">)</span> <span class="token comment"># 결과: ['Amy', 'Bob', 'Xavier']  </span></code></pre></div>
+<h2 id="두-리스트를-합치는-방법" style="position:relative;"><a href="#%EB%91%90-%EB%A6%AC%EC%8A%A4%ED%8A%B8%EB%A5%BC-%ED%95%A9%EC%B9%98%EB%8A%94-%EB%B0%A9%EB%B2%95" aria-label="두 리스트를 합치는 방법 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>두 리스트를 합치는 방법</h2>
 <h1 id="집합set" style="position:relative;"><a href="#%EC%A7%91%ED%95%A9set" aria-label="집합set permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>집합(Set)</h1>
 <p>파이썬에서 집합, Set은 <strong>중복을 허용하지 않고 요소의 순서를 유지하지 않는 가변 컨테이너 자료형</strong>이다.<br>
 수학의 집합 개념을 프로그래밍적으로 구현한 것이며, 주로 데이터의 중복을 제거하거나 특정 요소가 존재하는 지 확인을 효율적으로 수행하기 위해 사용한다.</p>
@@ -501,6 +525,9 @@ merged_fruite <span class="token operator">=</span> <span class="token punctuati
 <li><a href="#%EC%8A%AC%EB%9D%BC%EC%9D%B4%EC%8B%B1">슬라이싱</a></li>
 </ul>
 </li>
+<li>
+<p><a href="#%EB%AC%B8%EC%9E%90%EC%97%90%EC%84%9C-%EC%9C%A0%EB%8B%88%EC%BD%94%EB%93%9C%EB%A1%9C-ord-%EC%9C%A0%EB%8B%88%EC%BD%94%EB%93%9C%EC%97%90%EC%84%9C-%EB%AC%B8%EC%9E%90%EB%A1%9C-chr">문자에서 유니코드로 (<code class="language-text">ord()</code>), 유니코드에서 문자로 (<code class="language-text">chr()</code>)</a></p>
+</li>
 </ul>
 </li>
 <li>
@@ -527,9 +554,15 @@ merged_fruite <span class="token operator">=</span> <span class="token punctuati
 </li>
 <li>
 <p><a href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%A0%95%EB%A0%AC">리스트 정렬</a></p>
+</li>
+<li>
+<p><a href="#indexx-start-end"><code class="language-text">index(x, [start, end])</code></a></p>
 <ul>
 <li><a href="#%EB%8C%80%EC%86%8C%EB%AC%B8%EC%9E%90-%EA%B5%AC%EB%B6%84-%EB%B0%8F-%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%A0%95%EC%9D%98-%EC%A0%95%EB%A0%AC">대소문자 구분 및 사용자 정의 정렬</a></li>
 </ul>
+</li>
+<li>
+<p><a href="#%EB%91%90-%EB%A6%AC%EC%8A%A4%ED%8A%B8%EB%A5%BC-%ED%95%A9%EC%B9%98%EB%8A%94-%EB%B0%A9%EB%B2%95">두 리스트를 합치는 방법</a></p>
 </li>
 </ul>
 </li>
