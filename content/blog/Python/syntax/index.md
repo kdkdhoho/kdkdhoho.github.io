@@ -193,6 +193,18 @@ fisrt = name[6:] # Parker
 또한 `[::-1]` 을 활용하면, 리스트를 역순으로 쉽게 뒤집을 수 있다.  
 이는 시퀀스의 모든 원소를 역순으로 정렬한 새로운 리스트 객체를 반환한다.
 
+## 문자에서 유니코드로 (`ord()`), 유니코드에서 문자로 (`chr()`)
+특정 문자의 유니코드 값을 구하는 방법은 파이썬 내장 함수 중 하나인, `ord()`를 사용하면 된다. (참고로 서수를 뜻하는 "ordinary"의 약어이다.)  
+그 반대의 경우에는 마찬가지로 파이썬의 내장 함수 중 하나인, `chr()`를 사용하면 된다.
+
+```python
+ch = 'a'
+print(ord(ch)) # 결과: 97
+
+code = 97
+print(chr(code)) # 결과: a
+```
+
 # 형변환
 
 ## 문자열 -> int
@@ -261,6 +273,30 @@ print(squares) # [0, 1, 4, 9, 16]`
 
 파이썬의 정렬 알고리즘은 Timsort 알고리즘을 적용했다.
 
+## `index(x, [start, end])`
+해당 리스트 내에 있는 요소 중, x 파라미터에 전달된 요소와 일치하는 값의 가장 앞의 인덱스를 반환한다.  
+이때 `[start, end]` 파라미터에 인자를 선택적으로 전달하여, 특정 범위 내에서 조회가 가능하다.
+
+```python
+fruits = ['apple', 'banana', 'cherry', 'banana']
+index_of_banana = fruits.index('banana')
+print(index_of_banana) # 결과: 1
+
+second_banana_index = fruits.index('banana', 2)
+print(second_banana_index) # 결과: 3
+```
+
+만약, 찾으려는 요소가 리스트에 존재하지 않으면 ValueError가 발생한다. 따라서 안전한 코드를 작성하려면 예외처리를 반드시 해야 한다.
+
+```python
+try:
+    result = fruits.index('orange')
+except ValueError:
+    print("리스트에 해당 값이 존재하지 않습니다.")
+```
+
+`index()` 메서드의 시간 복잡도는 O(N)이다.
+
 ### 대소문자 구분 및 사용자 정의 정렬
 기본적인 사전순 정렬은 대문자가 소문자를 앞서는 방식으로 진행된다. 이는 유니코드 표에서 대문자가 소문자보다 작은 값을 가지기 때문이다.  
 만약 대소문자를 구분하지 않고 정렬하고 싶다면, `key` 매개변수를 활용해야 한다.  
@@ -271,6 +307,9 @@ names = ['Bob', 'Amy', 'Xavier']
 names.sort(key=str.lower)
 print(names) # 결과: ['Amy', 'Bob', 'Xavier']  
 ```
+
+## 두 리스트를 합치는 방법
+
 
 # 집합(Set)
 파이썬에서 집합, Set은 **중복을 허용하지 않고 요소의 순서를 유지하지 않는 가변 컨테이너 자료형**이다.  
@@ -490,7 +529,6 @@ values = ['Intel i9', '32GB', '1TB SSD']
 
 
 ```
-
 
 # 패킹과 언패킹
 파이썬이 제공하는 기능 중 하나는 **패킹과 언패킹**이다.  
