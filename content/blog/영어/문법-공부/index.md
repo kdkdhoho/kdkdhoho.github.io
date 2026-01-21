@@ -179,3 +179,38 @@ tags: ["영어", "문법"]
 - may as well A as B: A가 B보다 낫다. (would ratter A than B)
 - cannot ~ too: 아무리 ~해도 지나치지 않는다. 
 - cannot help ~ing: ~하지 않을 수 없다. (cannot but v / have no choice but to-v)
+
+# 시제
+- 대과거 (had p.p)
+  - 과거보다 더 과거인 시점
+
+- 과거완료 (had p.p)
+  - 대과거에서 과거까지 행동이 이어진 경우. 즉, 기간을 의미하는 내용이 포함돼야 한다.
+
+- 과거 (been v-ing)
+
+- 현재완료 (have p.p)
+  - 과거부터 현재까지 이어지고 있는 행위. 단, 정확한 과거시점 부사구와 쓸 수 없다.
+
+- 현재 (v)
+  - 불변의 진리, 속담
+  - 진행형/가까운 미래: be v-ing
+
+- 미래완료 (will have p.p)
+  - 시작 시점은 알 수 없으나 완료되는 시점만 존재한다.
+
+- 미래 (will v)
+  - 진행형: will be v-ing
+  
+- 현재완료 진행형 (have been v-ing)
+- 과거완료 진행형 (had been v-ing0)
+- 현재완료 수동태 (had p.p be p.p)
+
+- 시간, 조건 부사절에서는 현재가 미래를 대신한다.
+  - I don't know when he will come. (O) -> _when he will come_ 은 명사절로서 목적어이다.
+  - I will call you when he will come. (X) -> I will call you when he comes. -> _when he comes_ 는 (시간) 부사절이므로 현재가 미래를 대신한다. 
+
+  - I don't know if it will be fine tomorrow. (O) -> _if it will be find tomorrow_ 는 명사절로서 목적어이다.
+  - I will go out, if it will be fine tomorrow. (X) -> I will go out, if it is fine tomorrow. -> _go_ 는 자동사다. 따라서 _if it will be find tomorrow_ 는 (조건) 부사절이다. 따라서 현재가 미래를 대신한다.
+
+  - 시간/조건 부사절을 이끄는 단어: when, if, until, til, by the time, as soon as, before, after 
