@@ -214,3 +214,19 @@ tags: ["영어", "문법"]
   - I will go out, if it will be fine tomorrow. (X) -> I will go out, if it is fine tomorrow. -> _go_ 는 자동사다. 따라서 _if it will be find tomorrow_ 는 (조건) 부사절이다. 따라서 현재가 미래를 대신한다.
 
   - 시간/조건 부사절을 이끄는 단어: when, if, until, til, by the time, as soon as, before, after 
+
+# 가정법 (시제+의미)
+## 1. 가정법 현재
+- 의미: 단순한 미래 가정
+- 형식: If + S + V, S + 조동사현재형(will, may, shall, can) + V
+- 예문: If I have money, I will buy a car.
+
+## 2. 가정법 과거
+- 의미: 현재 사실 반대 가정
+- 형식: If + S + p.p, S + 조동사과거형(would, should, could, might) + V
+- 예문: If I had money, I would buy a car.
+
+## 3. 가정법 과거완료
+- 의미: 과거 사실 반대 과정
+- 형식: If + S + had p.p, S + 조동사과거형(would, should, could, might) + have p.p
+- 예문: If I had had money, I would have bought a car.
