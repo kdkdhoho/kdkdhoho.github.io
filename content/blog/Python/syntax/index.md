@@ -46,7 +46,7 @@ tags: ["Python"]
 `.split()` 메서드는 파이썬 문자열 클래스인, `str`에 정의되어 있다.  
 이 메서드는 하나의 문자열을 특정 구분자를 기준으로 분리하여, 부분 문자열 리스트를 반환하는 메서드이다.
 
-`sep` 매개변수에 아무런 인자를 전달하지 않으면, 모든 화이트스페이스(whitespace)를 구분자로 간주한다.  
+`sep` 매개변수에 **아무런 인자를 전달하지 않으면, 모든 화이트스페이스(whitespace)를 구분자로 간주**한다.  
 만약 문자열이 `a b c`인 경우, `['a', 'b', 'c']`가 반환된다.
 
 만약 인자가 전달되는 경우, 해당 구분자가 나타나는 모든 위치를 기준으로 분리한다.  
@@ -147,6 +147,67 @@ print(message.startswith("Python", 7)) # 결과: True
 # 인덱스 0부터 4까지 문자를 추출하여 "Hello"로 끝나는지 확인
 print(message.endswith("Hello", 0, 5)) # 결과: True
 ```
+
+## `replace()`
+str 클래스에는 문자열 내부에 특정 문구나 패턴을 다른 문구로 교체하는 `replace(old, new[, count])` 메서드를 제공한다.  
+대상 문자열에서 발견되는 모든 `old` 부분 문자열을 `new`로 치환한 복사본을 반환한다.
+
+이 메서드를 사용할 때 가장 유의해야 할 점은 **문자열의 불변성**이다.  
+`replace()` 메서드는 원본 문자열을 직접 수정하는 것이 아니라, 치환 작업이 완료된 새로운 문자열 객체를 생성하여 메모리에 할당한다.  
+만약 원본 변수의 내용을 바꾸고 싶다면 변수에 결과값을 다시 대입해야 한다.
+
+세 번째 선택적 파라미터인 `count`를 통해 치환할 횟수를 지정할 수 있다.  
+예를 들어 `text.replace(" ", "", 2)` 코드는 `text` 변수 내 공백 중에서 앞에서부터 2개까지만 빈 문자열로 변경된다.
+
+대소문자를 엄격하게 구분한다.
+
+## `index(x, [start, end])`, `rindex(x, [start, end])`
+### `index(x, [start, end])`
+해당 리스트 내에 있는 요소 중, x 파라미터에 전달된 요소와 일치하는 값의 가장 앞의 인덱스를 반환한다.  
+이때 `[start, end]` 파라미터에 인자를 선택적으로 전달하여, 특정 범위 내에서 조회가 가능하다.
+
+```python
+fruits = ['apple', 'banana', 'cherry', 'banana']
+index_of_banana = fruits.index('banana')
+print(index_of_banana) # 결과: 1
+
+second_banana_index = fruits.index('banana', 2)
+print(second_banana_index) # 결과: 3
+```
+
+만약, 찾으려는 요소가 리스트에 존재하지 않으면 ValueError가 발생한다. 따라서 안전한 코드를 작성하려면 예외처리를 반드시 해야 한다.
+
+```python
+try:
+    result = fruits.index('orange')
+except ValueError:
+    print("리스트에 해당 값이 존재하지 않습니다.")
+```
+
+`index()` 메서드의 시간 복잡도는 O(N)이다.
+
+### `rindex(x, [start, end])`
+`rindex()`는 `index()`와 방향이 반대인 메서드이다.  
+즉, 문자열에서 특정 부분 문자열이 나타나는 가장 오른쪽 인덱스를 반환하는 메서드이다.
+
+```python
+text = "banana"
+last_a = text.rindex("a")
+print(last_a) # 출력: 5
+
+text2 = "AbCdEFG"
+last_dE = text2.rindex("dE")
+```
+
+`rindex()` 메서드 역시 `start`와 `end` 매개변수를 통해 탐색 범위를 제한할 수 있다.
+
+`rindex()`는 `index()`와 똑같이, 특정 문자열을 찾지 못하면 ValueError를 뱉는다.
+
+## `find(sub[, start[, end]])`와 `rfind(sub[, start[, end]])`
+`find()`와 `rfind()` 는 문자열 내에서 특정 부분 문자열(sub)이 처음으로 나타내는 인덱스를 반환한다.  
+`find()`는 인덱스 0부터 마지막 인덱스까지 탐색을 시작하고, `rfind()`는 마지막 인덱스부터 0까지 탐색한다.
+
+`index()`, `rindex()`와 가장 큰 차이는 부분 문자열이 존재하지 않을 경우 예외를 뱉지 않고 -1을 반환한다는 점이다.
 
 ## 문자열의 시퀀스 자료형
 파이썬에서 문자열은 시퀀스 자료형으로 분류된다.  
@@ -257,6 +318,18 @@ start부터 시작하여 step 크기만큼 증가하며 stop-1 까지의 시퀀�
 
 만약 리스트 내 요소들이 부동소수점 데이터라면, 오차를 방지하기 위해 `math` 모듈에서 `fsum()` 함수를 별도로 지원한다.
 
+# `enumerated()`
+내장 함수인 `enumerated(iterable, start=0)`는 Iterable 객체를 인자로 전달받아, 인덱스와 해당 요소를 포함하는 튜플을 반환하는 Iterator 를 생성한다.  
+이를 for loop 에 활용하면, 인덱스와 해당 인덱스의 요소 값을 하나의 튜플 형태로 사용할 수 있다. 
+
+```python
+fruits = ['apple', 'banana', 'cherry']
+for i, fruit in enumerate(fruits):
+    print(f"인덱스 {i}의 과일은 {fruit}다.")
+```
+
+두 번째 파라미터인 `start`에 정수값을 전달하여 시작 번호를 0이 아닌 위치부터 순회하도록 할 수 있다.
+
 # 리스트(List)
 
 ## 리스트 컴프리헨션
@@ -282,30 +355,6 @@ print(squares) # [0, 1, 4, 9, 16]`
 반면 `sorted()` 메서드는 인자로 전달된 Iterable 객체를 변경하지 않고, 새로운 리스트를 반환하므로 원본 데이터를 유지해야 하는 경우에 적합하다.
 
 파이썬의 정렬 알고리즘은 Timsort 알고리즘을 적용했다.
-
-## `index(x, [start, end])`
-해당 리스트 내에 있는 요소 중, x 파라미터에 전달된 요소와 일치하는 값의 가장 앞의 인덱스를 반환한다.  
-이때 `[start, end]` 파라미터에 인자를 선택적으로 전달하여, 특정 범위 내에서 조회가 가능하다.
-
-```python
-fruits = ['apple', 'banana', 'cherry', 'banana']
-index_of_banana = fruits.index('banana')
-print(index_of_banana) # 결과: 1
-
-second_banana_index = fruits.index('banana', 2)
-print(second_banana_index) # 결과: 3
-```
-
-만약, 찾으려는 요소가 리스트에 존재하지 않으면 ValueError가 발생한다. 따라서 안전한 코드를 작성하려면 예외처리를 반드시 해야 한다.
-
-```python
-try:
-    result = fruits.index('orange')
-except ValueError:
-    print("리스트에 해당 값이 존재하지 않습니다.")
-```
-
-`index()` 메서드의 시간 복잡도는 O(N)이다.
 
 ### 대소문자 구분 및 사용자 정의 정렬
 기본적인 사전순 정렬은 대문자가 소문자를 앞서는 방식으로 진행된다. 이는 유니코드 표에서 대문자가 소문자보다 작은 값을 가지기 때문이다.  
@@ -621,7 +670,6 @@ print(merged_fruite)  # 출력: {'apple': 1, 'banana': 4, 'kiwi': 3}
 ```
 
 시간 복잡도는 O(N)로 효율적이다.
-
 
 # math 모듈
 
