@@ -80,7 +80,7 @@
 <h2 id="input과-함께-쓰기-좋은-split-메서드" style="position:relative;"><a href="#input%EA%B3%BC-%ED%95%A8%EA%BB%98-%EC%93%B0%EA%B8%B0-%EC%A2%8B%EC%9D%80-split-%EB%A9%94%EC%84%9C%EB%93%9C" aria-label="input과 함께 쓰기 좋은 split 메서드 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code class="language-text">input()</code>과 함께 쓰기 좋은 <code class="language-text">.split()</code> 메서드</h2>
 <p><code class="language-text">.split()</code> 메서드는 파이썬 문자열 클래스인, <code class="language-text">str</code>에 정의되어 있다.<br>
 이 메서드는 하나의 문자열을 특정 구분자를 기준으로 분리하여, 부분 문자열 리스트를 반환하는 메서드이다.</p>
-<p><code class="language-text">sep</code> 매개변수에 아무런 인자를 전달하지 않으면, 모든 화이트스페이스(whitespace)를 구분자로 간주한다.<br>
+<p><code class="language-text">sep</code> 매개변수에 <strong>아무런 인자를 전달하지 않으면, 모든 화이트스페이스(whitespace)를 구분자로 간주</strong>한다.<br>
 만약 문자열이 <code class="language-text">a b c</code>인 경우, <code class="language-text">['a', 'b', 'c']</code>가 반환된다.</p>
 <p>만약 인자가 전달되는 경우, 해당 구분자가 나타나는 모든 위치를 기준으로 분리한다.<br>
 만약 문자열이 <code class="language-text">a, b, c</code>이면서 인자가 <code class="language-text">, </code> 인 경우에, <code class="language-text">['a', 'b', 'c']</code>가 반환된다.</p>
@@ -152,6 +152,46 @@ filename <span class="token operator">=</span> <span class="token string">"docum
 
 <span class="token comment"># 인덱스 0부터 4까지 문자를 추출하여 "Hello"로 끝나는지 확인</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>message<span class="token punctuation">.</span>endswith<span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 결과: True</span></code></pre></div>
+<h2 id="replace" style="position:relative;"><a href="#replace" aria-label="replace permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code class="language-text">replace()</code></h2>
+<p>str 클래스에는 문자열 내부에 특정 문구나 패턴을 다른 문구로 교체하는 <code class="language-text">replace(old, new[, count])</code> 메서드를 제공한다.<br>
+대상 문자열에서 발견되는 모든 <code class="language-text">old</code> 부분 문자열을 <code class="language-text">new</code>로 치환한 복사본을 반환한다.</p>
+<p>이 메서드를 사용할 때 가장 유의해야 할 점은 <strong>문자열의 불변성</strong>이다.<br>
+<code class="language-text">replace()</code> 메서드는 원본 문자열을 직접 수정하는 것이 아니라, 치환 작업이 완료된 새로운 문자열 객체를 생성하여 메모리에 할당한다.<br>
+만약 원본 변수의 내용을 바꾸고 싶다면 변수에 결과값을 다시 대입해야 한다.</p>
+<p>세 번째 선택적 파라미터인 <code class="language-text">count</code>를 통해 치환할 횟수를 지정할 수 있다.<br>
+예를 들어 <code class="language-text">text.replace(" ", "", 2)</code> 코드는 <code class="language-text">text</code> 변수 내 공백 중에서 앞에서부터 2개까지만 빈 문자열로 변경된다.</p>
+<p>대소문자를 엄격하게 구분한다.</p>
+<h2 id="indexx-start-end-rindexx-start-end" style="position:relative;"><a href="#indexx-start-end-rindexx-start-end" aria-label="indexx start end rindexx start end permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code class="language-text">index(x, [start, end])</code>, <code class="language-text">rindex(x, [start, end])</code></h2>
+<h3 id="indexx-start-end" style="position:relative;"><a href="#indexx-start-end" aria-label="indexx start end permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code class="language-text">index(x, [start, end])</code></h3>
+<p>해당 리스트 내에 있는 요소 중, x 파라미터에 전달된 요소와 일치하는 값의 가장 앞의 인덱스를 반환한다.<br>
+이때 <code class="language-text">[start, end]</code> 파라미터에 인자를 선택적으로 전달하여, 특정 범위 내에서 조회가 가능하다.</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python">fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'apple'</span><span class="token punctuation">,</span> <span class="token string">'banana'</span><span class="token punctuation">,</span> <span class="token string">'cherry'</span><span class="token punctuation">,</span> <span class="token string">'banana'</span><span class="token punctuation">]</span>
+index_of_banana <span class="token operator">=</span> fruits<span class="token punctuation">.</span>index<span class="token punctuation">(</span><span class="token string">'banana'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>index_of_banana<span class="token punctuation">)</span> <span class="token comment"># 결과: 1</span>
+
+second_banana_index <span class="token operator">=</span> fruits<span class="token punctuation">.</span>index<span class="token punctuation">(</span><span class="token string">'banana'</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>second_banana_index<span class="token punctuation">)</span> <span class="token comment"># 결과: 3</span></code></pre></div>
+<p>만약, 찾으려는 요소가 리스트에 존재하지 않으면 ValueError가 발생한다. 따라서 안전한 코드를 작성하려면 예외처리를 반드시 해야 한다.</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token keyword">try</span><span class="token punctuation">:</span>
+    result <span class="token operator">=</span> fruits<span class="token punctuation">.</span>index<span class="token punctuation">(</span><span class="token string">'orange'</span><span class="token punctuation">)</span>
+<span class="token keyword">except</span> ValueError<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"리스트에 해당 값이 존재하지 않습니다."</span><span class="token punctuation">)</span></code></pre></div>
+<p><code class="language-text">index()</code> 메서드의 시간 복잡도는 O(N)이다.</p>
+<h3 id="rindexx-start-end" style="position:relative;"><a href="#rindexx-start-end" aria-label="rindexx start end permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code class="language-text">rindex(x, [start, end])</code></h3>
+<p><code class="language-text">rindex()</code>는 <code class="language-text">index()</code>와 방향이 반대인 메서드이다.<br>
+즉, 문자열에서 특정 부분 문자열이 나타나는 가장 오른쪽 인덱스를 반환하는 메서드이다.</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python">text <span class="token operator">=</span> <span class="token string">"banana"</span>
+last_a <span class="token operator">=</span> text<span class="token punctuation">.</span>rindex<span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>last_a<span class="token punctuation">)</span> <span class="token comment"># 출력: 5</span>
+
+text2 <span class="token operator">=</span> <span class="token string">"AbCdEFG"</span>
+last_dE <span class="token operator">=</span> text2<span class="token punctuation">.</span>rindex<span class="token punctuation">(</span><span class="token string">"dE"</span><span class="token punctuation">)</span></code></pre></div>
+<p><code class="language-text">rindex()</code> 메서드 역시 <code class="language-text">start</code>와 <code class="language-text">end</code> 매개변수를 통해 탐색 범위를 제한할 수 있다.</p>
+<p><code class="language-text">rindex()</code>는 <code class="language-text">index()</code>와 똑같이, 특정 문자열을 찾지 못하면 ValueError를 뱉는다.</p>
+<h2 id="findsub-start-end와-rfindsub-start-end" style="position:relative;"><a href="#findsub-start-end%EC%99%80-rfindsub-start-end" aria-label="findsub start end와 rfindsub start end permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code class="language-text">find(sub[, start[, end]])</code>와 <code class="language-text">rfind(sub[, start[, end]])</code></h2>
+<p><code class="language-text">find()</code>와 <code class="language-text">rfind()</code> 는 문자열 내에서 특정 부분 문자열(sub)이 처음으로 나타내는 인덱스를 반환한다.<br>
+<code class="language-text">find()</code>는 인덱스 0부터 마지막 인덱스까지 탐색을 시작하고, <code class="language-text">rfind()</code>는 마지막 인덱스부터 0까지 탐색한다.</p>
+<p><code class="language-text">index()</code>, <code class="language-text">rindex()</code>와 가장 큰 차이는 부분 문자열이 존재하지 않을 경우 예외를 뱉지 않고 -1을 반환한다는 점이다.</p>
 <h2 id="문자열의-시퀀스-자료형" style="position:relative;"><a href="#%EB%AC%B8%EC%9E%90%EC%97%B4%EC%9D%98-%EC%8B%9C%ED%80%80%EC%8A%A4-%EC%9E%90%EB%A3%8C%ED%98%95" aria-label="문자열의 시퀀스 자료형 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>문자열의 시퀀스 자료형</h2>
 <p>파이썬에서 문자열은 시퀀스 자료형으로 분류된다.<br>
 시퀀스 자료형이란, 정수를 인덱스로 사용하여 효율적으로 원소에 접근할 수 있는 유한한 길이의 순서가 있는 집합을 의미한다.<br>
@@ -222,6 +262,13 @@ start부터 시작하여 step 크기만큼 증가하며 stop-1 까지의 시퀀�
 <p>파이썬 내장함수인 <code class="language-text">sum(iterable, [start=0])</code>은 인자로 전달된 Iterable 객체(리스트, 튜플, 집합)의 요소들을 왼쪽에서 오른쪽으로 합산한 총합을 반환한다.</p>
 <p>두 번째 인자인 start는 합산 결과에 더해질 초기값을 지정하는 역할을 하며, 기본값은 0으로 설정되어 있다. Optional 한 파라미터이다.</p>
 <p>만약 리스트 내 요소들이 부동소수점 데이터라면, 오차를 방지하기 위해 <code class="language-text">math</code> 모듈에서 <code class="language-text">fsum()</code> 함수를 별도로 지원한다.</p>
+<h1 id="enumerated" style="position:relative;"><a href="#enumerated" aria-label="enumerated permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code class="language-text">enumerated()</code></h1>
+<p>내장 함수인 <code class="language-text">enumerated(iterable, start=0)</code>는 Iterable 객체를 인자로 전달받아, 인덱스와 해당 요소를 포함하는 튜플을 반환하는 Iterator 를 생성한다.<br>
+이를 for loop 에 활용하면, 인덱스와 해당 인덱스의 요소 값을 하나의 튜플 형태로 사용할 수 있다.</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python">fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'apple'</span><span class="token punctuation">,</span> <span class="token string">'banana'</span><span class="token punctuation">,</span> <span class="token string">'cherry'</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> i<span class="token punctuation">,</span> fruit <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>fruits<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"인덱스 </span><span class="token interpolation"><span class="token punctuation">{</span>i<span class="token punctuation">}</span></span><span class="token string">의 과일은 </span><span class="token interpolation"><span class="token punctuation">{</span>fruit<span class="token punctuation">}</span></span><span class="token string">다."</span></span><span class="token punctuation">)</span></code></pre></div>
+<p>두 번째 파라미터인 <code class="language-text">start</code>에 정수값을 전달하여 시작 번호를 0이 아닌 위치부터 순회하도록 할 수 있다.</p>
 <h1 id="리스트list" style="position:relative;"><a href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8list" aria-label="리스트list permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>리스트(List)</h1>
 <h2 id="리스트-컴프리헨션" style="position:relative;"><a href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%BB%B4%ED%94%84%EB%A6%AC%ED%97%A8%EC%85%98" aria-label="리스트 컴프리헨션 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>리스트 컴프리헨션</h2>
 <p>Iterable 객체를 바탕으로 새로운 리스트를 생성할 때 사용하는 구문이다.<br>
@@ -239,21 +286,6 @@ start부터 시작하여 step 크기만큼 증가하며 stop-1 까지의 시퀀�
 <p><a href="https://www.google.com/search?q=https://docs.python.org/3/library/stdtypes.html%23list.sort">표준 라이브러리 명세</a>에 따르면 <code class="language-text">list.sort()</code>는 리스트를 제자리에서 정렬하여 메모리를 절약하며, 반환 값은 None이다.<br>
 반면 <code class="language-text">sorted()</code> 메서드는 인자로 전달된 Iterable 객체를 변경하지 않고, 새로운 리스트를 반환하므로 원본 데이터를 유지해야 하는 경우에 적합하다.</p>
 <p>파이썬의 정렬 알고리즘은 Timsort 알고리즘을 적용했다.</p>
-<h2 id="indexx-start-end" style="position:relative;"><a href="#indexx-start-end" aria-label="indexx start end permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code class="language-text">index(x, [start, end])</code></h2>
-<p>해당 리스트 내에 있는 요소 중, x 파라미터에 전달된 요소와 일치하는 값의 가장 앞의 인덱스를 반환한다.<br>
-이때 <code class="language-text">[start, end]</code> 파라미터에 인자를 선택적으로 전달하여, 특정 범위 내에서 조회가 가능하다.</p>
-<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python">fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'apple'</span><span class="token punctuation">,</span> <span class="token string">'banana'</span><span class="token punctuation">,</span> <span class="token string">'cherry'</span><span class="token punctuation">,</span> <span class="token string">'banana'</span><span class="token punctuation">]</span>
-index_of_banana <span class="token operator">=</span> fruits<span class="token punctuation">.</span>index<span class="token punctuation">(</span><span class="token string">'banana'</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>index_of_banana<span class="token punctuation">)</span> <span class="token comment"># 결과: 1</span>
-
-second_banana_index <span class="token operator">=</span> fruits<span class="token punctuation">.</span>index<span class="token punctuation">(</span><span class="token string">'banana'</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>second_banana_index<span class="token punctuation">)</span> <span class="token comment"># 결과: 3</span></code></pre></div>
-<p>만약, 찾으려는 요소가 리스트에 존재하지 않으면 ValueError가 발생한다. 따라서 안전한 코드를 작성하려면 예외처리를 반드시 해야 한다.</p>
-<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token keyword">try</span><span class="token punctuation">:</span>
-    result <span class="token operator">=</span> fruits<span class="token punctuation">.</span>index<span class="token punctuation">(</span><span class="token string">'orange'</span><span class="token punctuation">)</span>
-<span class="token keyword">except</span> ValueError<span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"리스트에 해당 값이 존재하지 않습니다."</span><span class="token punctuation">)</span></code></pre></div>
-<p><code class="language-text">index()</code> 메서드의 시간 복잡도는 O(N)이다.</p>
 <h3 id="대소문자-구분-및-사용자-정의-정렬" style="position:relative;"><a href="#%EB%8C%80%EC%86%8C%EB%AC%B8%EC%9E%90-%EA%B5%AC%EB%B6%84-%EB%B0%8F-%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%A0%95%EC%9D%98-%EC%A0%95%EB%A0%AC" aria-label="대소문자 구분 및 사용자 정의 정렬 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>대소문자 구분 및 사용자 정의 정렬</h3>
 <p>기본적인 사전순 정렬은 대문자가 소문자를 앞서는 방식으로 진행된다. 이는 유니코드 표에서 대문자가 소문자보다 작은 값을 가지기 때문이다.<br>
 만약 대소문자를 구분하지 않고 정렬하고 싶다면, <code class="language-text">key</code> 매개변수를 활용해야 한다.<br>
@@ -532,6 +564,19 @@ merged_fruite <span class="token operator">=</span> <span class="token punctuati
 </ul>
 </li>
 <li>
+<p><a href="#replace"><code class="language-text">replace()</code></a></p>
+</li>
+<li>
+<p><a href="#indexx-start-end-rindexx-start-end"><code class="language-text">index(x, [start, end])</code>, <code class="language-text">rindex(x, [start, end])</code></a></p>
+<ul>
+<li><a href="#indexx-start-end"><code class="language-text">index(x, [start, end])</code></a></li>
+<li><a href="#rindexx-start-end"><code class="language-text">rindex(x, [start, end])</code></a></li>
+</ul>
+</li>
+<li>
+<p><a href="#findsub-start-end%EC%99%80-rfindsub-start-end"><code class="language-text">find(sub[, start[, end]])</code>와 <code class="language-text">rfind(sub[, start[, end]])</code></a></p>
+</li>
+<li>
 <p><a href="#%EB%AC%B8%EC%9E%90%EC%97%B4%EC%9D%98-%EC%8B%9C%ED%80%80%EC%8A%A4-%EC%9E%90%EB%A3%8C%ED%98%95">문자열의 시퀀스 자료형</a></p>
 <ul>
 <li><a href="#%EB%AC%B8%EC%9E%90%EC%97%B4%EC%9D%98-%EA%B0%84%EC%A0%91-%EC%88%9C%ED%9A%8C">문자열의 간접 순회</a></li>
@@ -569,6 +614,9 @@ merged_fruite <span class="token operator">=</span> <span class="token punctuati
 <p><a href="#sum"><code class="language-text">sum()</code></a></p>
 </li>
 <li>
+<p><a href="#enumerated"><code class="language-text">enumerated()</code></a></p>
+</li>
+<li>
 <p><a href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8list">리스트(List)</a></p>
 <ul>
 <li>
@@ -576,9 +624,6 @@ merged_fruite <span class="token operator">=</span> <span class="token punctuati
 </li>
 <li>
 <p><a href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%A0%95%EB%A0%AC">리스트 정렬</a></p>
-</li>
-<li>
-<p><a href="#indexx-start-end"><code class="language-text">index(x, [start, end])</code></a></p>
 <ul>
 <li><a href="#%EB%8C%80%EC%86%8C%EB%AC%B8%EC%9E%90-%EA%B5%AC%EB%B6%84-%EB%B0%8F-%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%A0%95%EC%9D%98-%EC%A0%95%EB%A0%AC">대소문자 구분 및 사용자 정의 정렬</a></li>
 </ul>
