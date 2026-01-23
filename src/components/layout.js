@@ -1,12 +1,56 @@
 import * as React from "react"
-import { Link } from "gatsby"
-import ThemeToggle from "./theme-toggle"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import Search from "./search"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
+
+  const data = useStaticQuery(graphql`
+    query LayoutQuery {
+      allMarkdownRemark(filter: { frontmatter: { draft: { ne: true } } }) {
+        nodes {
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  `)
+
+  // 카테고리 추출 로직
+  const categories = React.useMemo(() => {
+    const posts = data.allMarkdownRemark.nodes
+    const categoryMap = new Map()
+    categoryMap.set("All", posts.length)
+
+    posts.forEach(post => {
+      const slug = post.fields.slug
+      const parts = slug.split("/").filter(Boolean)
+      const category = parts.length >= 2 ? parts[0] : "Etc"
+      
+      const count = categoryMap.get(category) || 0
+      categoryMap.set(category, count + 1)
+    })
+
+    return Array.from(categoryMap.entries()).sort((a, b) => {
+      if (a[0] === "All") return -1
+      if (b[0] === "All") return 1
+      if (a[0] === "Etc") return 1
+      if (b[0] === "Etc") return -1
+      return a[0].localeCompare(b[0])
+    })
+  }, [data])
+
+  // 현재 선택된 카테고리 파싱 (URL 쿼리 스트링)
+  const currentCategory = React.useMemo(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(location.search)
+      return params.get("category") || "All"
+    }
+    return "All"
+  }, [location.search])
 
   if (isRootPath) {
     header = (
@@ -24,35 +68,42 @@ const Layout = ({ location, title, children }) => {
 
   return (
     <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <div className="top-buttons">
-        <Search />
-        <ThemeToggle />
-      </div>
       <header className="global-header">
-        {header}
-        <nav className="main-navigation" style={{
-          marginTop: 'var(--spacing-4)',
-          textAlign: 'center'
-        }}>
-          <Link 
-            to="/series" 
-            style={{
-              color: 'var(--color-text-light)',
-              textDecoration: 'none',
-              fontSize: 'var(--fontSize-1)',
-              fontWeight: '500',
-              transition: 'color 0.3s ease'
-            }}
-            activeStyle={{
-              color: 'var(--color-primary)',
-              fontWeight: '600'
-            }}
-          >
-            📚 시리즈
-          </Link>
-        </nav>
+        <div className="header-container">
+          <div className="header-left">
+            {header}
+          </div>
+          <div className="header-right">
+            {/* Series 링크 제거됨 */}
+            <div className="header-buttons">
+              <Search />
+            </div>
+          </div>
+        </div>
       </header>
-      <main>{children}</main>
+      
+      <div className="layout-container">
+        <aside className="sidebar">
+          <div className="sidebar-section">
+            <h3>Categories</h3>
+            <ul className="sidebar-category-list">
+              {categories.map(([category, count]) => (
+                <li key={category}>
+                  <Link 
+                    to={`/?category=${category}`} 
+                    className={`sidebar-category-item ${currentCategory === category ? "active" : ""}`}
+                  >
+                    {category} ({count})
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </aside>
+
+        <main className="main-content">{children}</main>
+      </div>
+
       <footer style={{
         textAlign: 'center',
         padding: 'var(--spacing-12) 0',
