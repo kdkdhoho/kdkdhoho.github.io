@@ -230,3 +230,27 @@ tags: ["영어", "문법"]
 - 의미: 과거 사실 반대 과정
 - 형식: If + S + had p.p, S + 조동사과거형(would, should, could, might) + have p.p
 - 예문: If I had had money, I would have bought a car.
+
+# 변형된 가정법
+## 1. 혼합 가정
+- 가정법 과거완료와 가정법 과거가 혼합된 구조다.
+- 형식: If + S + had p.p, S + 조동사과거형 + V
+- 반드시 시간 부사구가 존재한다.
+- 예문: If I had taken your advice at that time, I would be successful now.
+
+## 2. 도치가정
+- If를 생략하고, 주어랑 동사를 도치한다.
+- 예문: Had I had money, I would have bought a car. (= If I had had money, I would have bought a car.)
+
+## 3. 가정법if 대용어구
+- I wish 가정법
+  - 가정법 과거
+  - 가정법 과거완료
+- as if 가정법
+- but for
+- without
+- otherwise
+  - He worked hard, he would fail now.
+
+## 4. It is time that (S + p.p) or (S + should + V)
+- 의미: ~해야 할 때이다.
