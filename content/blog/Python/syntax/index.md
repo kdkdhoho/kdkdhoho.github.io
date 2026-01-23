@@ -209,6 +209,22 @@ last_dE = text2.rindex("dE")
 
 `index()`, `rindex()`와 가장 큰 차이는 부분 문자열이 존재하지 않을 경우 예외를 뱉지 않고 -1을 반환한다는 점이다.
 
+## `isspace()`
+str 객체가 지원하는 `isspace()` 함수는 문자열 내의 모든 문자가 공백 문자이고, 적어도 하나 이상의 문자가 존재할 때 True 를 반환한다.
+여기서 공백 문자란, 유니코드 문자 상에서 공백으로 분류된 문자나 탭(\t), 줄바꿈(\n), 캐리지 리턴(\r) 등을 포함한다.
+
+```python
+text1 = "   "
+text2 = "\t\n"
+text3 = "  a  "
+text4 = ""
+
+print(text1.isspace()) # 출력: True
+print(text2.isspace()) # 출력: True
+print(text3.isspace()) # 출력: False
+print(test4.isspace()) # 출력: False
+```
+
 ## 문자열의 시퀀스 자료형
 파이썬에서 문자열은 시퀀스 자료형으로 분류된다.  
 시퀀스 자료형이란, 정수를 인덱스로 사용하여 효율적으로 원소에 접근할 수 있는 유한한 길이의 순서가 있는 집합을 의미한다.  
@@ -329,6 +345,28 @@ for i, fruit in enumerate(fruits):
 ```
 
 두 번째 파라미터인 `start`에 정수값을 전달하여 시작 번호를 0이 아닌 위치부터 순회하도록 할 수 있다.
+
+# `filter(function, iterable)`
+Python의 내장 함수인 `filter(function, iterable)` 함수는 iterable 객체의 각 요소에 대해 특정 조건의 함수(function)을 적용하여, 그 결과가 True인 요소들만 골라내는 함수이다.
+
+function이 `None`이 아닌 경우, `(item for item in iterable if function(item))` 과 동일한 역할을 하는 iterator를 반환한다.  
+만약 `None`인 경우, 다음과 같은 요소들을 필터링한다.
+- 빈 문자열: `""`
+- 숫자 0: `0`, `0.0`
+- 빈 컨테이너: `[]`, `{}`, `()`
+- 기타: `None`, `False`
+
+```python
+def is_even(n):
+    return n & 1 == 0
+numbers = [1, 2, 3, 4, 5, 6]
+result = filter(is_even, numbers)
+print(list(result))  # 출력: [2, 4, 6]
+
+data = ["a", "", "b", None, "c", False]
+result = list(filter(None, data))
+print(result)  # 출력: ['a', 'b', 'c']
+```
 
 # 리스트(List)
 
