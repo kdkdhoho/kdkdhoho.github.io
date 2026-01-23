@@ -671,6 +671,10 @@ a:focus {
 
 /* 모바일 최적화 */
 @media (max-width: 42rem) {
+  .sidebar {
+    display: none;
+  }
+
   .global-wrapper {
     padding: var(--spacing-6) var(--spacing-4);
   }
@@ -1878,4 +1882,12 @@ mark {
   100% { transform: translateY(0px) rotate(0deg); }
 }
 
+
+
+
+
+/* Mobile Sidebar Toggle Button & Responsive Sidebar */
+
+
+/* Styles removed as per user request */
 
