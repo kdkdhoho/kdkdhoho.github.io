@@ -304,16 +304,42 @@ a:focus {
 
 .blog-post-layout {
   position: relative;
-  max-width: 768px;
+  width: 100%;
   margin: 0 auto;
 }
 
 .blog-post-container {
   width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1400px) {
+  .blog-post-layout {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--spacing-8);
+    max-width: 1200px;
+  }
+  
+  .blog-post-container {
+    margin: 0;
+    flex: 1;
+  }
 }
 
 .blog-post {
   width: 100%;
+}
+
+.blog-post img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: var(--spacing-8) auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .global-wrapper {
@@ -1196,40 +1222,41 @@ a:focus {
 }
 
 .toc-container {
-  position: fixed;
-  top: 2rem;
-  left: calc(50% + var(--maxWidth-2xl)/2 + 2rem);
-  width: 280px;
-  height: fit-content;
+  /* Default: Stacked (Mobile/Tablet) */
+  position: static;
+  width: 100%;
+  max-width: 768px;
+  margin: var(--spacing-8) auto;
+  padding: 1.5rem;
   background: var(--color-bg-secondary);
   border-radius: 12px;
-  padding: 1.5rem;
   border: 1px solid var(--color-border);
-  max-height: calc(100vh - 4rem);
-  overflow-y: auto;
+  height: fit-content;
+  max-height: none;
+  overflow-y: visible;
   z-index: 100;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
 }
 
+/* Desktop: Sticky Side-by-Side */
 @media (min-width: 1400px) {
   .toc-container {
-    left: calc(50% + var(--maxWidth-2xl)/2 + 3rem);
-    width: 320px;
+    position: sticky;
+    top: 2rem;
+    width: 280px;
+    min-width: 280px;
+    max-width: none;
+    margin: 0;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   }
 }
 
-/* TOC 반응형 최적화 */
-@media (max-width: 1200px) {
-  .blog-post-layout {
-    max-width: 100%;
-    padding: 0 1rem;
-  }
-  
+@media (min-width: 1600px) {
   .toc-container {
-    position: static;
-    width: 100%;
-    margin: var(--spacing-8) 0;
-    background: var(--color-card-bg);
+    width: 320px;
+    min-width: 320px;
   }
 }
 
