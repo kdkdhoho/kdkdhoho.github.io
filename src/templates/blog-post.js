@@ -76,6 +76,7 @@ const BlogPostTemplate = ({
               )}</p>
             </header>
             <section
+              className="blog-post-content"
               dangerouslySetInnerHTML={{ __html: post.html }}
               itemProp="articleBody"
             />

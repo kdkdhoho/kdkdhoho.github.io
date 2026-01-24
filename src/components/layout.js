@@ -93,7 +93,7 @@ const Layout = ({ location, title, children }) => {
                     to={`/?category=${category}`} 
                     className={`sidebar-category-item ${currentCategory === category ? "active" : ""}`}
                   >
-                    {category} ({count})
+                    {category.replace(/-/g, " ")} ({count})
                   </Link>
                 </li>
               ))}

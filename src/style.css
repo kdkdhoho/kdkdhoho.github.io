@@ -333,7 +333,7 @@ a:focus {
   width: 100%;
 }
 
-.blog-post img {
+.blog-post-content img {
   max-width: 100%;
   height: auto;
   display: block;
