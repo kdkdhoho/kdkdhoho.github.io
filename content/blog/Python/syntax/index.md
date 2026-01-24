@@ -387,22 +387,29 @@ print(squares) # [0, 1, 4, 9, 16]`
 리스트를 정렬하는 방법에는 크게 두 가지가 있다.
 
 1. 리스트 객체 자체의 내용을 변경하는 `list.sort()`
+- 리스트를 제자리에서 정렬하여 메모리를 절약하며, 반환 값은 `None`이다.
+
 2. 정렬된 새로운 리스트를 반환하는 내장함수 `sorted()`
+- 인자로 전달된 Iterable 객체를 변경하지 않고, **새로운 리스트를 반환**하므로 원본 데이터를 유지해야 하는 경우에 적합하다.
 
-[표준 라이브러리 명세](https://www.google.com/search?q=https://docs.python.org/3/library/stdtypes.html%23list.sort)에 따르면 `list.sort()`는 리스트를 제자리에서 정렬하여 메모리를 절약하며, 반환 값은 None이다.  
-반면 `sorted()` 메서드는 인자로 전달된 Iterable 객체를 변경하지 않고, 새로운 리스트를 반환하므로 원본 데이터를 유지해야 하는 경우에 적합하다.
+파이썬의 정렬 알고리즘은 Timsort 알고리즘을 적용한다.
 
-파이썬의 정렬 알고리즘은 Timsort 알고리즘을 적용했다.
-
-### 대소문자 구분 및 사용자 정의 정렬
 기본적인 사전순 정렬은 대문자가 소문자를 앞서는 방식으로 진행된다. 이는 유니코드 표에서 대문자가 소문자보다 작은 값을 가지기 때문이다.  
 만약 대소문자를 구분하지 않고 정렬하고 싶다면, `key` 매개변수를 활용해야 한다.  
-`key` 매개변수에 `str.lower` 또는 `str.upper`를 전달함으로써, 모든 요소를 일시적으로 변환한 상태에서 비교를 수행한다.
+`list.sort()`와 `sorted()`는 모두 _key_ 매개변수를 가지는데, 이는 값을 비교하기 전에 각 리스트 요소에 대해 호출할 함수를 지정한다.  
+
+_key_ 매개변수는 단일 인자를 취하고 정렬 목적으로 사용할 키를 반환하는 함수(또는 Callable)여야 한다.  
+_key_ 함수가 각 입력 레코드에 대해 정확히 한 번 호출되기 때문에 속도가 빠르다.  
+사용에 유의해야 할 점은, _key_ 매개변수는 매개변수의 위치에 기반하여 인자를 전달하는 Positional Argument가 아니다. 매개변수의 이름을 명시해서 `=` 연산자로 인자를 전달해야 하는 **Keyword Argument**이다. 
 
 ```python
-names = ['Bob', 'Amy', 'Xavier']
-names.sort(key=str.lower)
-print(names) # 결과: ['Amy', 'Bob', 'Xavier']  
+student_tuples = [
+    ('john', 'A', 15),
+    ('jane', 'B', 12),
+    ('dave', 'B', 10),
+]
+result = sorted(student_tuples, key=lambda student: -student[2]) # 2번 인덱스 값을 역순으로 정렬한다.
+print(result) # 결과: [('john', 'A', 15), ('jane', 'B', 12), ('dave', 'B', 10)]
 ```
 
 ## 리스트 복사
@@ -418,6 +425,29 @@ print(names) # 결과: ['Amy', 'Bob', 'Xavier']
 
 반면 식별 연산자인 `is`는 두 리스트가 메모리상 동일한 객체인지를 확인한다.  
 두 리스트의 요소가 완벽하게 같더라도 서로 다른 메모리 주소에 할당된 객체이면 `is` 연산은 `False`를 반환한다.
+
+# lambda
+프로그래밍에서 람다(lambda)는 이름 없는 익명 함수를 의미한다. Python에서도 람다식을 지원한다.  
+기본 구문은 `lambda parameters: expression`의 형태를 띈다.  
+이 식은 호출되었을 때 인자(parameters)를 받아 지정된 표현식(expression)을 평가한 결과를 반환하는 함수 객체를 생성한다.
+
+아래 코드는 일반 함수 정의와 lambda 표현식을 이용한 함수 생성을 비교한 코드다.  
+```python
+def add(x, y):
+    return x + y
+    
+add_lambda = lambda x, y: x + y
+print(add_lambda(2, 3)) # 결과: 5
+```
+
+lambda는 그 자체로 변수를 할당하기보다는 **다른 함수의 인자로 전달할 때 유용하다**.  
+특히 `map()`, `filter()`, `sorted()` 같은 함수와 함께 자주 사용된다.
+
+```python
+numbers = [1, 2, 3, 4, 5, 6]
+print(list(filter(lambda x: x & 1 == 0, numbers))) # 출력: [2, 4, 6]
+print(list(map(lambda x: x**2, numbers))) # 출력: [1, 4, 9, 16, 25, 36]
+```
 
 # 집합(Set)
 파이썬에서 집합, Set은 **중복을 허용하지 않고 요소의 순서를 유지하지 않는 가변 컨테이너 자료형**이다.  
@@ -714,3 +744,40 @@ print(merged_fruite)  # 출력: {'apple': 1, 'banana': 4, 'kiwi': 3}
 ## `prod()`
 `prod(Iterable, *, [start=1])` 메서드는 Iterable 객체를 인자로 받아, 해당 객체의 모든 요소의 곱을 반환한다.  
 `start` 파라미터는 곱셈의 시작값을 지정하는 데 사용되며, 기본값은 1이다.
+
+
+## `comb()`
+서로 다른 n개의 원소 중에서 r개를 선택하는 조합(Combination)의 개수를 구하려면 `math.comb(n, r)` 함수를 사용하면 된다.  
+
+```python
+import math
+
+a, b = 3, 2
+result = math.comb(a, b)
+print(result) # 3
+```
+
+# `itertools` 모듈
+
+## `combinations()`
+서로 다른 n개의 원소 중에서 r개를 선택하는 조합(Combination)은 `itertools.combinations(iterable, r)` 함수를 이용하면 된다.  
+이 함수는 iterable 객체에서 길이가 r인 모든 가능한 조합을 사전식 순서로 반환한다.
+
+```python
+from itertools import combinations
+
+numbers = [1, 2, 3]
+result = list(combinations(numbers, 2))
+print(result) # 결과: [(1, 2), (1, 3), (2, 3)]
+```
+
+## `combinations_with_replacement()`
+동일한 요소를 중복해서 선택할 수 있는 중복 조합이 필요한 경우에는 `itertools.combinations_with_replacement(iterable, r)` 함수를 사용한다.  
+
+```python
+from itertools import combinations_with_replacement
+
+items = ['A', 'B']
+result = list(combinations_with_replacement(items, 2))
+print(result) # 결과: [('A', 'A'), ('A', 'B'), ('B', 'B')]
+```
