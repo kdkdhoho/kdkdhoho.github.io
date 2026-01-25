@@ -285,6 +285,16 @@ code = 97
 print(chr(code)) # 결과: a
 ```
 
+## `in` 연산자로 부분 문자열 판별하기 
+Python에서 `in` 연산자를 이용하면 임의의 문자열이 특정 문자열의 부분 문자열인지 쉽게 판별 가능하다.  
+왼쪽 피연산자가 우측 피연산자의 부분 문자열인 경우 `Ture`를, 그렇지 않으면 `False`를 반환한다.
+
+```python
+str_a = "banana"
+str_b = "ana"
+print(str_b in str_a) # 결과: True
+```
+
 # 형변환
 
 ## 문자열 -> int
@@ -369,6 +379,12 @@ print(result)  # 출력: ['a', 'b', 'c']
 ```
 
 # 리스트(List)
+
+## 리스트를 큐로 사용하기
+리스트를 큐로도 사용할 수 있다. 하지만 이는 권장되지 않는다.  
+리스트의 끝에 덧붙이거나, 끝에서 꺼내는 것은 빠르지만, 리스트의 머리(0번 인덱스)에 덧붙이거나 머리에서 꺼내는 것은 느리다. 다른 요소들을 모두 한 칸씩 이동시켜야 하기 때문이다.
+
+대신 `collections.deque`를 사용할 것을 권장한다.
 
 ## 리스트 컴프리헨션
 Iterable 객체를 바탕으로 새로운 리스트를 생성할 때 사용하는 구문이다.  
@@ -780,4 +796,45 @@ from itertools import combinations_with_replacement
 items = ['A', 'B']
 result = list(combinations_with_replacement(items, 2))
 print(result) # 결과: [('A', 'A'), ('A', 'B'), ('B', 'B')]
+```
+
+
+# `collections` 모듈
+
+## `collections.deque`
+Deque 자료구조를 지원하는 모듈이다.  
+> Deque 자료구조는 Double-Ended Queue의 약자로, Head와 Tail에서 모두 요소를 삽입/삭제 할 수 있는 구조이다.
+
+다음과 같이 사용할 수 있다.
+
+```python
+from collections import deque
+
+d = deque()
+d.append(1)
+d.append(2)
+print(d) # 출력: deque([1, 2])
+
+d.appendleft(3)
+print(d) # 출력: deque([3, 1, 2])
+
+d.reverse()
+print(d) # 출력: deque([2, 1, 3])
+
+d.rotate(1) # rotate(n): 내부 요소를 오른쪽으로 n번 시프트한다. 음수이면 왼쪽으로 시프트한다. 
+print(d) # 출력: deque([3, 2, 1])
+
+print(d.count(1)) # 출력: 1
+print(d.index(3)) # 출력: 0. index(): 첫 번째 일치를 반환하거나 찾을 수 없으면 ValueError를 발생시킵니다.
+
+x = d.pop()
+print(d) # 출력: deque([3, 2])
+print(x) # 출력: 1
+
+x = d.popleft()
+print(d) # 출력: deque([2])
+print(x) # 출력: 3
+
+d.clear()
+print(d) # 출력: deque([])
 ```
