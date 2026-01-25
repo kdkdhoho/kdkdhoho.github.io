@@ -254,3 +254,14 @@ tags: ["영어", "문법"]
 
 ## 4. It is time that (S + p.p) or (S + should + V)
 - 의미: ~해야 할 때이다.
+
+
+# 시제의 일치/불일치
+- 주절에 suggest(제안하다), insist(~하라고 주장하다), demand(요구하다), order(명령하다), propose, required, request 처럼 **제안, 주장, 명령, 요구 등의 동사가 나오면, 종속절에는 시제 일치와 상관없이 반드시 (should) + V 를 사용한다**.
+  - 예문 1) I suggested that she (should) take a break.
+  - 예문 2) I insisted that she (should) study hard.
+- 단, suggest가 '보여주다, 암시하다'이거나, order이 '주장하다'이거나, insist의 종속절이 "~했다고 주장하다". 즉, **과거사실 주장이면 반드시 시제일치를 따진다**.
+  - 예문 1) The report suggested that the smokers decreased.
+  - 예문 2) The witness insisted that Jack stole the wallet.
+- It is(was) 감성/이성/판단 의미의 형용사 뒤 that 절은 (should) + V
+  - 예문 1) It is strange/pity/necessary/natural/important that he go home.
