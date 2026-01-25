@@ -342,6 +342,16 @@ a:focus {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
+.blog-post-content strong {
+  background: linear-gradient(to top, #fff176 40%, transparent 40%);
+  padding: 0 2px;
+}
+
+[data-theme="dark"] .blog-post-content strong {
+  background: linear-gradient(to top, #fcd34d 40%, transparent 40%);
+  color: #ffffff;
+}
+
 .global-wrapper {
   margin: var(--spacing-0) auto;
   max-width: var(--maxWidth-wrapper-large);
