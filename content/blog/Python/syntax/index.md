@@ -312,7 +312,7 @@ print(int(a))
 def
 ```
 
-# range()
+# `range()`
 파이썬에서 `range()`는 숫자들의 **불변 시퀀스**를 표현하는 내장 타입이다.  
 주로 for 루프에서 특정 횟수만큼 반복할 때 사용되지만, 리스트나 튜플처럼 인덱싱, 슬라이싱, 멤버십 테스트를 지원하는 완전한 시퀀스 자료형으로 분류된다.  
 호출 시점에 모든 숫자를 메모리에 생성하여 저장하는 것이 아니라, 필요한 시점에 값을 계산하여 반환하는 특징을 가진다.
@@ -378,6 +378,28 @@ result = list(filter(None, data))
 print(result)  # 출력: ['a', 'b', 'c']
 ```
 
+# `map(function, iterable, *iterables)`
+Python의 `map(function, iterable, *iterables)` 함수는 iterable 파라미터에 Iterable 객체를 인자로 전달하면, 모든 요소에 function을 적용한 결과인 새로운 Iterator를 반환한다.
+
+`map()`은 결과를 즉시 리스트로 반환하지 않고, map 객체라는 Iterator를 반환한다. 데이터를 메모리에 미리 다 올려두지 않고, 필요할 때마다 하나씩 생성하여 전달하는 지연 평가(Lazy Evaluation) 방식을 사용하기 때문에 메모리 효율성을 높여주며, 결과가 필요할 때 `list()`나 for문을 통해 구체화 할 수 있다.
+
+`map()`은 두 개 이상의 리스트를 인자로 전달받을 수 있다. 이때 전달된 function은 각 리스트에서 하나씩 꺼낸 값을 인자로 받으며, 가장 짧은 리스트의 길이가 끝나면 반복이 종료된다.
+
+```python
+str_numbers = ["1", "2", "3"]
+int_numbers = list(map(int, str_numbers)) # 결과: [1, 2, 3] 
+
+numbers = [1, 2, 3, 4]
+squared = list(map(lambda x: x**2, numbers)) # 결과: [1, 4, 9, 16]
+
+list1 = [1, 2, 3]
+list2 = [10, 20, 30]
+sums = list(map(lambda x, y: x + y, list1, list2)) # 결과: [11, 22, 33]
+```
+
+Python 창시자인 귀도 반 로섬을 비롯한 많은 개발자들은 단순한 연산의 경우 `map()`보다 리스트 컴프리헨션을 사용하는 것을 권장한다.  
+별도의 lambda를 선언할 필요가 없어 읽기 쉽고, 성능 면에서도 미세하게 유리한 경우가 많다.
+
 # 리스트(List)
 
 ## 리스트를 큐로 사용하기
@@ -398,6 +420,14 @@ print(squares) # [0, 1, 4, 9, 16]`
 리스트 컴프리헨션은 내부적으로 최적화된 바이트코드를 생성하여 작동한다. 덕분에 일반적인 for 루프를 돌며 리스트의 `append()` 메서드를 매번 호출하는 방식보다 실행 속도가 빠르다.
 
 또한, 파이썬 3 이후의 리스트 컴프리헨션은 내부에서 사용되는 루프 변수(예: `i`)가 컴프리헨션 내부의 로컬 스코프에만 고립되도록 설계되어 있다. 
+
+### 2차원 리스트 객체 생성
+2차원 리스트를 선언할 때도 리스트 컴프리헨션을 사용한다.
+
+```python
+arr = [[0] * m for _ in range(n)]
+```
+
 
 ## 리스트 정렬
 리스트를 정렬하는 방법에는 크게 두 가지가 있다.
@@ -797,7 +827,6 @@ items = ['A', 'B']
 result = list(combinations_with_replacement(items, 2))
 print(result) # 결과: [('A', 'A'), ('A', 'B'), ('B', 'B')]
 ```
-
 
 # `collections` 모듈
 
