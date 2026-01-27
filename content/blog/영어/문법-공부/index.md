@@ -16,6 +16,9 @@ tags: ["영어", "문법"]
   - 묶을 때에는 다음에 묶는거 앞까지 or 동사 앞까지 묶는다.
 - 문장은 구조에 따라 단문/중문/복문/홑문으로 분류된다.
 
+> 관계사: (관계 대명사) who, which, that, what, (관계부사) when, where, why, how  
+> 전치사: in, on, at, in, under, over, to, from, into, onto, of, with, for
+
 # 동사의 수일치
 1. 주어가 긴 경우 (기본형)
 실질명사 S를 찾는다.
@@ -80,6 +83,9 @@ tags: ["영어", "문법"]
   - 예문) I make you a king.
 
 ### 문장의 형식 (10가지)
+
+형식 별 동사, 특히 수가 적은 자동사는 외우는 것이 좋다.
+
 1. 1, 2형식의 공통점 
 - 자동사(vi)를 사용하고, 목적어가 없기에 수동태가 될 수 없다. 하지만 해석상 수동태가 매끄럽기에 이 점을 유의해야 한다.
 - 예문) The earth consists of water.
@@ -213,7 +219,7 @@ tags: ["영어", "문법"]
   - I don't know if it will be fine tomorrow. (O) -> _if it will be find tomorrow_ 는 명사절로서 목적어이다.
   - I will go out, if it will be fine tomorrow. (X) -> I will go out, if it is fine tomorrow. -> _go_ 는 자동사다. 따라서 _if it will be find tomorrow_ 는 (조건) 부사절이다. 따라서 현재가 미래를 대신한다.
 
-  - 시간/조건 부사절을 이끄는 단어: when, if, until, til, by the time, as soon as, before, after 
+  - 시간/조건 부사절을 이끄는 단어: when, if, until, til, by the time, as soon as, before 
 
 # 가정법 (시제+의미)
 ## 1. 가정법 현재
@@ -237,6 +243,7 @@ tags: ["영어", "문법"]
 - 형식: If + S + had p.p, S + 조동사과거형 + V
 - 반드시 시간 부사구가 존재한다.
 - 예문: If I had taken your advice at that time, I would be successful now.
+  - ','를 기준으로 앞의 절은 _had taken_ 으로 가정법 과거완료, 뒤의 절은 _would be_ 로 가정법 과거다.
 
 ## 2. 도치가정
 - If를 생략하고, 주어랑 동사를 도치한다.
@@ -255,7 +262,6 @@ tags: ["영어", "문법"]
 ## 4. It is time that (S + p.p) or (S + should + V)
 - 의미: ~해야 할 때이다.
 
-
 # 시제의 일치/불일치
 - 주절에 suggest(제안하다), insist(~하라고 주장하다), demand(요구하다), order(명령하다), propose, required, request 처럼 **제안, 주장, 명령, 요구 등의 동사가 나오면, 종속절에는 시제 일치와 상관없이 반드시 (should) + V 를 사용한다**.
   - 예문 1) I suggested that she (should) take a break.
@@ -265,3 +271,27 @@ tags: ["영어", "문법"]
   - 예문 2) The witness insisted that Jack stole the wallet.
 - It is(was) 감성/이성/판단 의미의 형용사 뒤 that 절은 (should) + V
   - 예문 1) It is strange/pity/necessary/natural/important that he go home.
+
+# 구와 절
+문장이 길고 복잡해지는 이유는 구와 절 때문이다.
+
+## 구
+**단어와 단어가 만나 하나의 품사 또는 하나의 문장 성분을 만드는 것**
+
+> 품사: 명사·대명사·수사·조사·동사·형용사·관형사·부사·감탄사  
+> 문장 성분: 주어·동사·목적어·보어
+
+- 명사구 종류: to+V, 동명사(v-ing), 의문사+to+v(예: what to do)  
+- 형용사구 종류: to+V, 분사(ing, p.p)  
+- 부사구 종류: to+V
+
+## 절
+**주어와 동사를 갖춘 문장이 하나의 품사 또는 하나의 문장 성분이 되는 것**
+
+- 명사절 종류: if절(뜻: ~인지 아닌지), whether, that, what(관계대명사), 의문사절
+- 형용사절 종류: 관계대명사, 관계부사
+- 부사절 종류: if절(뜻: 만약 ~~라면), when(뜻: ~할 때), until, til 등
+
+## 그래서 문장이 너무 길어지면 어떻게 해석하지?
+**본동사를 찾는다!**
+
