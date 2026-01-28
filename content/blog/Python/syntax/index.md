@@ -867,3 +867,85 @@ print(x) # 출력: 3
 d.clear()
 print(d) # 출력: deque([])
 ```
+
+
+# 클래스와 메서드
+```python
+class Smartphone:
+    # 클래스 변수: 모든 인스턴스가 공유하는 데이터
+    market = "Global Market"
+
+    def __init__(self, model: str, battery: int):
+        # 인스턴스 변수: 각 객체마다 고유하게 가지는 데이터
+        # self를 통해 현재 생성되는 객체의 속성에 값을 할당한다.
+        self.model = model
+        self.battery = battery
+
+    # 인스턴스 메서드: 객체의 상태(battery)를 변경한다.
+    # 첫 번째 파라미터에 항상 `self`를 정의한다.
+    def use_app(self, app_name: str, consumption: int):
+        # `self` 키워드를 통해 인스턴스 변수에 접근한다.   
+        if self.battery >= consumption:
+            self.battery -= consumption
+            print(f"{self.model}에서 {app_name} 앱을 실행한다. 잔량: {self.battery}%")
+        else:
+            print(f"배터리가 부족하여 {app_name}을 실행할 수 없다.")
+
+    @classmethod
+    def change_market(cls, new_market: str):
+        # 클래스 메서드: 클래스 변수(market)를 수정한다.
+        # cls는 클래스 자체(Smartphone)를 가리킨다.
+        cls.market = new_market
+        print(f"판매 시장이 {cls.market}으로 변경되었다.")
+
+    @staticmethod
+    def is_valid_battery(level: int) -> bool:
+        # 정적 메서드: 클래스나 인스턴스의 속성에 접근하지 않는 독립적 기능을 수행한다.
+        return 0 <= level <= 100
+
+# 인스턴스 생성: 설계도(클래스)를 바탕으로 실제 객체를 만든다.
+# 이때 __init__ 메서드가 자동으로 호출되어 self에 iphone 객체가 전달된다.
+iphone = Smartphone("iPhone 15", 100)
+galaxy = Smartphone("Galaxy S24", 80)
+
+# 인스턴스 메서드 호출: self는 자동으로 각 객체(iphone, galaxy)를 가리킨다.
+iphone.use_app("YouTube", 20)
+galaxy.use_app("Instagram", 15)
+
+# 클래스 메서드 호출: 클래스 이름을 통해 호출하며 모든 인스턴스에 영향을 미친다.
+Smartphone.change_market("Korea Market")
+
+# 정적 메서드 호출: 인스턴스 생성 없이도 유효성 검사 등의 로직을 수행할 수 있다.
+print(f"배터리 수치 유효성 확인: {Smartphone.is_valid_battery(120)}")```
+```
+
+- `__init__`에 `self.model`과 같이 self를 통해 변수명을 적으면 해당 인스턴스만의 고유 공간에 데이터가 저장된다. 인스턴스 변수는 각 인스턴스별로 고유한 데이터를 위한 것이고, 클래스 변수는 해당 클래스의 모든 인스턴스가 공유하는 속성과 메서드를 위한 것이다.
+- 메서드를 호출할 때 `self`를 직접 명시하지 않아도 되는 이유는, 파이썬의 메서드 바인딩 메커니즘 때문이다. `iphone.use_app()`을 호출하면 파이썬은 내부적으로 `Smartphone.use_app(iphone, ...)`으로 변환하여 실행한다. 이를 통해 `use_app()` 메서드 내부에서 `self` 키워드를 통해 인스턴스 변수(`self.battery`)에 접근할 수 있게 된다.
+- `@classmethod`로 지정된 메서드는 인스턴스가 아닌, 클래스 자체를 첫 번째 인자로 전달받는다. 이름 관례는 `cls`이다.
+- `@staticmethod`로 지정된 메서드는 어떠한 인자도 자동으로 받지 않으며, 단순히 클래스라는 공간 안에 포함된 일반 함수와 같이 동작한다.
+
+## 중첩 함수 (Nested Function)
+인스턴스 메서드 내부에 또 다른 메서드를 선언하여 사용할 수 있다. 이를 **중첩 함수(Nested Function)**이라고 한다.
+
+특징  
+- 중첩 함수는 **부모 함수 내에서만 호출할 수 있다**.
+- 중첩 함수는 **부모 메서드의 변수나 `self`에 접근할 수 있다**. 
+- 중첩 함수는 자동으로 **`self` 인자를 전달받지 않는다**. `self`를 사용하려면 부모 함수가 받은 `self`를 그대로 사용해야 한다.
+
+```python
+class MyClass:
+    def parent_method(self, x):
+        def child_func(y):
+            return y + x
+            
+        result = child_func(10)
+        return f"Result is {result}"
+
+obj = MyClass()
+print(obj.outer_method(5))  # 출력: Result is 15
+```
+
+## 타입 힌트 (Python 3.5+)
+파이썬은 기본적으로 동적 타입 언어다. 하지만 Python 3.5 버전부터 `def func(a: int, b: str, c: List[int]) -> bool:` 형태의 **타입 힌트**를 사용하여 예상 타입을 명시할 수 있다.
+
+이로 인해 가독성과 디버깅을 도우며, 정적 분석 도구(mypy 등)나 IDE를 통해 타입 검사를 할 수 있다. 물론, 파이썬 인터프리터가 런타임에 타입을 강제하지는 않는다.
