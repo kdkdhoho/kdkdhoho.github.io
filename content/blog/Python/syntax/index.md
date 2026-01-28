@@ -27,6 +27,27 @@ tags: ["Python"]
 반면 `input()` 함수는 `sys.stdin`에서 한 줄을 읽은 뒤, 끝의 줄바꿈 문자를 제거하여 문자열로 반환한다.  
 만약 입력 스트림의 끝에 도달하면 EOFError를 발생하는데, 이는 스트림 기반 입출력의 기본적인 처리 방식이다. (참고: [geeksforgeeks - Handling EOFError Exception in Python](https://www.geeksforgeeks.org/python/handling-eoferror-exception-in-python/))
 
+## `input()` vs `sys.stdin.readline`
+`input()`은 파이썬 내장 함수로, 편의성에 초점이 맞춰져 있다.  
+추상화된 기능으로는 다음과 같다.  
+- 입력받기 전 화면에 출력할 안내 메시지(prompt)를 인자로 받을 수 있다.
+- 입력한 문자열에서 끝에 개행 문자(`\n`)를 자동으로 제거하여 반환한다.
+- 매번 호출될 때마다 개행 문자를 확인하고 제거하는 과정을 거치므로 `sys.stdin.readline`에 비해 느리다.
+
+`sys.stdin.readline`은 `sys` 모듈에 정의된 메서드이다.  
+특징으로는 다음과 같다.  
+- 안내 메시지를 출력하는 기능이 없으며, 단순히 버퍼에서 한 줄을 읽어온다.
+- 개행 문자를 포함한 상태로 문자열을 반환한다. 따라서 공백 제거가 필요한 경우 `strip()` 사용이 필요하다.
+- `input()`보다 훨씬 빠르다. 대량의 데이터를 반복적으로 입력받아야 하는 경우 적합하다.
+
+함수 앨리어싱(Function Aliasing)을 통해 `input()` 메서드를 사용하는 것처럼 사용할 수 있다.  
+파이썬에서는 **모든 것이 객체**이다. 즉, 메서드인 `sys.stdin.readline`의 객체 주소값이 `input` 이라는 변수에 할당된다. 이후 `input()`을 호춣하면 `sys.stdin.readline` 메서드가 호출되는 구조다.  
+```python
+import sys
+input = sys.stdin.readline
+data = input()
+```
+
 # 문자열(String)
 
 ## 특징
@@ -428,7 +449,6 @@ print(squares) # [0, 1, 4, 9, 16]`
 arr = [[0] * m for _ in range(n)]
 ```
 
-
 ## 리스트 정렬
 리스트를 정렬하는 방법에는 크게 두 가지가 있다.
 
@@ -464,6 +484,12 @@ print(result) # 결과: [('john', 'A', 15), ('jane', 'B', 12), ('dave', 'B', 10)
 
 ### 깊은 복사
 `copy` 모듈에서 `deepcopy()` 함수를 제공한다.
+
+### 2차원 리스트 복사
+2차원 리스트의 경우, 단순히 리스트 슬라이싱으로 복사하는 건 위험하다.  
+슬라이싱은 내부 요소에 대해서는 참조값을 그대로 복사하기 때문에, 원본 배열의 요소 중 한 리스트 내부의 값이 바뀌면 복사한 배열에 저장된 동일한 참조값의 리스트의 요소값도 똑같이 바뀐다. 이 경우에는 리스트 컴프리헨션으로 각 리스트에 대해서 슬라이싱을 해서 복사하는 것이 안전하다.
+
+`new_list = [row[:] for row in old_list]`
 
 ## 리스트 비교
 파이썬에서 두 리스트를 비교하는 가장 기본적인 방법은 `==` 연산자를 사용하는 것이다.  
@@ -690,12 +716,13 @@ print(name2) # coder123
 keys = ['cpu', 'ram', 'storage']
 values = ['Intel i9', '32GB', '1TB SSD']
 
+for z in zip(keys, values):
+    print(z)
+    
 # 출력 결과
 # ('cpu', 'Intel i9')
 # ('ram', '32GB')
 # ('storage', '1TB SSD')
-for z in zip(keys, values):
-    print(z)
 
 # zip()을 이용해 딕셔너리 컴프리헨션 적용
 specs = {k: v for k, v in zip(keys, values)}}
@@ -867,7 +894,6 @@ print(x) # 출력: 3
 d.clear()
 print(d) # 출력: deque([])
 ```
-
 
 # 클래스와 메서드
 ```python
