@@ -812,89 +812,6 @@ print(merged_fruite)  # 출력: {'apple': 1, 'banana': 4, 'kiwi': 3}
 
 시간 복잡도는 O(N)로 효율적이다.
 
-# math 모듈
-
-## `prod()`
-`prod(Iterable, *, [start=1])` 메서드는 Iterable 객체를 인자로 받아, 해당 객체의 모든 요소의 곱을 반환한다.  
-`start` 파라미터는 곱셈의 시작값을 지정하는 데 사용되며, 기본값은 1이다.
-
-
-## `comb()`
-서로 다른 n개의 원소 중에서 r개를 선택하는 조합(Combination)의 개수를 구하려면 `math.comb(n, r)` 함수를 사용하면 된다.  
-
-```python
-import math
-
-a, b = 3, 2
-result = math.comb(a, b)
-print(result) # 3
-```
-
-# `itertools` 모듈
-
-## `combinations()`
-서로 다른 n개의 원소 중에서 r개를 선택하는 조합(Combination)은 `itertools.combinations(iterable, r)` 함수를 이용하면 된다.  
-이 함수는 iterable 객체에서 길이가 r인 모든 가능한 조합을 사전식 순서로 반환한다.
-
-```python
-from itertools import combinations
-
-numbers = [1, 2, 3]
-result = list(combinations(numbers, 2))
-print(result) # 결과: [(1, 2), (1, 3), (2, 3)]
-```
-
-## `combinations_with_replacement()`
-동일한 요소를 중복해서 선택할 수 있는 중복 조합이 필요한 경우에는 `itertools.combinations_with_replacement(iterable, r)` 함수를 사용한다.  
-
-```python
-from itertools import combinations_with_replacement
-
-items = ['A', 'B']
-result = list(combinations_with_replacement(items, 2))
-print(result) # 결과: [('A', 'A'), ('A', 'B'), ('B', 'B')]
-```
-
-# `collections` 모듈
-
-## `collections.deque`
-Deque 자료구조를 지원하는 모듈이다.  
-> Deque 자료구조는 Double-Ended Queue의 약자로, Head와 Tail에서 모두 요소를 삽입/삭제 할 수 있는 구조이다.
-
-다음과 같이 사용할 수 있다.
-
-```python
-from collections import deque
-
-d = deque()
-d.append(1)
-d.append(2)
-print(d) # 출력: deque([1, 2])
-
-d.appendleft(3)
-print(d) # 출력: deque([3, 1, 2])
-
-d.reverse()
-print(d) # 출력: deque([2, 1, 3])
-
-d.rotate(1) # rotate(n): 내부 요소를 오른쪽으로 n번 시프트한다. 음수이면 왼쪽으로 시프트한다. 
-print(d) # 출력: deque([3, 2, 1])
-
-print(d.count(1)) # 출력: 1
-print(d.index(3)) # 출력: 0. index(): 첫 번째 일치를 반환하거나 찾을 수 없으면 ValueError를 발생시킵니다.
-
-x = d.pop()
-print(d) # 출력: deque([3, 2])
-print(x) # 출력: 1
-
-x = d.popleft()
-print(d) # 출력: deque([2])
-print(x) # 출력: 3
-
-d.clear()
-print(d) # 출력: deque([])
-```
-
 # 클래스와 메서드
 ```python
 class Smartphone:
@@ -975,3 +892,128 @@ print(obj.outer_method(5))  # 출력: Result is 15
 파이썬은 기본적으로 동적 타입 언어다. 하지만 Python 3.5 버전부터 `def func(a: int, b: str, c: List[int]) -> bool:` 형태의 **타입 힌트**를 사용하여 예상 타입을 명시할 수 있다.
 
 이로 인해 가독성과 디버깅을 도우며, 정적 분석 도구(mypy 등)나 IDE를 통해 타입 검사를 할 수 있다. 물론, 파이썬 인터프리터가 런타임에 타입을 강제하지는 않는다.
+
+
+# math 모듈
+
+## `prod()`
+`prod(Iterable, *, [start=1])` 메서드는 Iterable 객체를 인자로 받아, 해당 객체의 모든 요소의 곱을 반환한다.  
+`start` 파라미터는 곱셈의 시작값을 지정하는 데 사용되며, 기본값은 1이다.
+
+
+## `comb()`
+서로 다른 n개의 원소 중에서 r개를 선택하는 조합(Combination)의 개수를 구하려면 `math.comb(n, r)` 함수를 사용하면 된다.
+
+```python
+import math
+
+a, b = 3, 2
+result = math.comb(a, b)
+print(result) # 3
+```
+
+# `itertools` 모듈
+
+## `combinations()`
+서로 다른 n개의 원소 중에서 r개를 선택하는 조합(Combination)은 `itertools.combinations(iterable, r)` 함수를 이용하면 된다.  
+이 함수는 iterable 객체에서 길이가 r인 모든 가능한 조합을 사전식 순서로 반환한다.
+
+```python
+from itertools import combinations
+
+numbers = [1, 2, 3]
+result = list(combinations(numbers, 2))
+print(result) # 결과: [(1, 2), (1, 3), (2, 3)]
+```
+
+## `combinations_with_replacement()`
+동일한 요소를 중복해서 선택할 수 있는 중복 조합이 필요한 경우에는 `itertools.combinations_with_replacement(iterable, r)` 함수를 사용한다.
+
+```python
+from itertools import combinations_with_replacement
+
+items = ['A', 'B']
+result = list(combinations_with_replacement(items, 2))
+print(result) # 결과: [('A', 'A'), ('A', 'B'), ('B', 'B')]
+```
+
+# `collections` 모듈
+
+## `collections.deque`
+Deque 자료구조를 지원하는 모듈이다.
+> Deque 자료구조는 Double-Ended Queue의 약자로, Head와 Tail에서 모두 요소를 삽입/삭제 할 수 있는 구조이다.
+
+다음과 같이 사용할 수 있다.
+
+```python
+from collections import deque
+
+d = deque()
+d.append(1)
+d.append(2)
+print(d) # 출력: deque([1, 2])
+
+d.appendleft(3)
+print(d) # 출력: deque([3, 1, 2])
+
+d.reverse()
+print(d) # 출력: deque([2, 1, 3])
+
+d.rotate(1) # rotate(n): 내부 요소를 오른쪽으로 n번 시프트한다. 음수이면 왼쪽으로 시프트한다. 
+print(d) # 출력: deque([3, 2, 1])
+
+print(d.count(1)) # 출력: 1
+print(d.index(3)) # 출력: 0. index(): 첫 번째 일치를 반환하거나 찾을 수 없으면 ValueError를 발생시킵니다.
+
+x = d.pop()
+print(d) # 출력: deque([3, 2])
+print(x) # 출력: 1
+
+x = d.popleft()
+print(d) # 출력: deque([2])
+print(x) # 출력: 3
+
+d.clear()
+print(d) # 출력: deque([])
+```
+
+# `heapq` 모듈
+Python에서 힙(Heap) 자료구조는 `heapq` 모듈을 통해 제공된다. 기본적으로 최소 힙으로 구현되어 있다.
+
+기본적으로 리스트를 선언한 다음, heapq 모듈의 `heappush(heap, item)`, `heappop(heap, item)` 메서드를 이용해 리스트에 요소를 삽입, 삭제하는 구조로 사용된다.  
+```python
+import heapq
+
+heap = []
+heapq.heappush(heap, 4)
+heapq.heappush(heap, 1)
+heapq.heappush(heap, 7)
+print(heap) # 출력: [1, 4, 7]
+
+smallest = heapq.heappop(heap)
+print(smallest) # 출력: 1
+print(heap) # 출력: [4, 7]
+```
+
+기존에 요소가 들어있는 리스트를 힙으로 만드려면, `heapq.heapify(heap)` 메서드를 사용한다.  
+```python
+import heapq
+
+nums = [5,2,8,4]
+heapq.heapify(nums)
+print(nums) # 출력: [2, 4, 8, 5]
+```
+
+최대 힙을 구현하려면, 데이터에 `-`를 붙여서 음수값으로 만들어줘야 한다. 값을 넣을 때와 추출할 때 모두 `-`를 붙여 최대 힙을 사용하는 방식이다.  
+```python
+import heapq
+
+nums = [5,2,8,4]
+max_heap = list(map(lambda x: -x, nums))
+heapq.heapify(max_heap)
+print(max_heap) # 출력: [-8, -4, -5, -2]
+
+max_value = -heapq.heappop(max_heap)
+print(max_value) # 출력: 8
+print(max_heap) # [-5, -4, -2]
+```
