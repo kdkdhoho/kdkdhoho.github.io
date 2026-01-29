@@ -753,7 +753,7 @@ Smartphone<span class="token punctuation">.</span>change_market<span class="toke
 <p>특징</p>
 <ul>
 <li>중첩 함수는 <strong>부모 함수 내에서만 호출할 수 있다</strong>.</li>
-<li>중첩 함수는 <strong>부모 메서드의 변수나 <code class="language-text">self</code>에 접근할 수 있다</strong>.</li>
+<li>중첩 함수는 <strong>부모 함수의 변수나 <code class="language-text">self</code>에 접근할 수 있다</strong>. 이때 부모 함수의 변수 값을 변경하려면 <code class="language-text">nonlocal</code> 키워드로 먼저 선언해주고 값을 업데이트해야 한다. 그렇지 않으면, 중첩 함수 내에서만 유효한 지역 변수가 할당되는 것으로 처리된다.</li>
 <li>중첩 함수는 자동으로 <strong><code class="language-text">self</code> 인자를 전달받지 않는다</strong>. <code class="language-text">self</code>를 사용하려면 부모 함수가 받은 <code class="language-text">self</code>를 그대로 사용해야 한다.</li>
 </ul>
 <div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">MyClass</span><span class="token punctuation">:</span>
