@@ -889,11 +889,56 @@ obj = MyClass()
 print(obj.outer_method(5))  # 출력: Result is 15
 ```
 
+## LEGB 규칙
+Python에서 변수에 값을 바인딩하거나 변수 값을 참조하는 경우, LEGB 규칙을 따른다.  
+LEGB는 다음과 같은 의미를 가진다.
+
+- Local: 함수 또는 람다 표현식 내부의 변수. 변수가 정의된 가장 안쪽의 범위다.
+- Enclosing: 중첩 함수에서 자신을 감싸는 바깥 함수의 범위다. 즉, 부모 함수에 선언된 변수다.
+- Global: 모듈의 최상위 수준 또는 전역 선언이 된 변수 범위다.
+- Built-in: `len`, `range`, `ValueError` 등 파이썬에 기본적으로 내장된 이름들이다.
+
+### _UnboundLocalError_
+Python의 LEGB 규칙이 익숙하지 않을 때, _UnboundLocalError_ 가 흔하게 발생한다.  
+이 에러는 **함수 내에서 전역 변수를 수정하려 할 때 발생**한다.  
+파이썬은 함수 내부에서 변수에 값을 할당하는 문장이 존재하면, 해당 변수를 해당 함수의 지역 변수로 취급한다.
+
+```python
+x = 10
+
+def example():
+    x = x + 1 
+
+example() # UnboundLocalError 발생
+```
+
+[파이썬 공식 명세](https://www.google.com/search?q=https://docs.python.org/3/faq/programming.html%23why-am-i-getting-an-unboundlocalerror-when-the-variable-has-a-value)에 따르면, **함수 내의 어디서든 변수에 할당이 이루어지면, 그 변수는 명시적으로 다른 선언이 없는 한 로컬 변수로 간주된다**.
+
+### `global`, `nonlocal` 
+만약 함수 내부에서 외부 범위(_Enclosing_ or _Global_) 변수의 값을 할당하려면 특정 키워드가 필요하다.
+
+- `global`: 전역 범위(Global)에 선언된 변수에 할당할 때 사용한다.
+- `nonlocal`: 부모 함수(Enclosing)에 선언된 변수에 할당할 때 사용한다.
+
+### 가변 객체(예: 리스트, 딕셔너리)의 예외 상황
+리스트나 딕셔너리 같은 객체는 `global` 선언 없이도 내부 값을 수정할 수 있다.  
+이는 변수 이름이 가리키는 객체 자체를 재할당하는 것이 아니라, 객체 내부 속성을 변경하는 것이기 때문이다.
+
+```python
+arr = [1, 2, 3]
+
+def modify_list():
+    arr[0] = 99 # global 선언 없이 가능 (객체 내부 수정)
+
+def replace_list():
+    # global arr # 이 선언이 없으면 UnboundLocalError 발생 가능성 있음
+    arr = [4, 5, 6] # 변수 이름에 새 객체를 할당하므로 Local 변수로 새로 생성됨
+```
+
 ## 타입 힌트 (Python 3.5+)
 파이썬은 기본적으로 동적 타입 언어다. 하지만 Python 3.5 버전부터 `def func(a: int, b: str, c: List[int]) -> bool:` 형태의 **타입 힌트**를 사용하여 예상 타입을 명시할 수 있다.
 
 이로 인해 가독성과 디버깅을 도우며, 정적 분석 도구(mypy 등)나 IDE를 통해 타입 검사를 할 수 있다. 물론, 파이썬 인터프리터가 런타임에 타입을 강제하지는 않는다.
-
 
 # math 모듈
 
