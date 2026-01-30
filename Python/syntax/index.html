@@ -704,6 +704,43 @@ Smartphone<span class="token punctuation">.</span>change_market<span class="toke
 
 obj <span class="token operator">=</span> MyClass<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>outer_method<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 출력: Result is 15</span></code></pre></div>
+<h2 id="legb-규칙" style="position:relative;"><a href="#legb-%EA%B7%9C%EC%B9%99" aria-label="legb 규칙 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>LEGB 규칙</h2>
+<p>Python에서 변수에 값을 바인딩하거나 변수 값을 참조하는 경우, LEGB 규칙을 따른다.<br>
+LEGB는 다음과 같은 의미를 가진다.</p>
+<ul>
+<li>Local: 함수 또는 람다 표현식 내부의 변수. 변수가 정의된 가장 안쪽의 범위다.</li>
+<li>Enclosing: 중첩 함수에서 자신을 감싸는 바깥 함수의 범위다. 즉, 부모 함수에 선언된 변수다.</li>
+<li>Global: 모듈의 최상위 수준 또는 전역 선언이 된 변수 범위다.</li>
+<li>Built-in: <code class="language-text">len</code>, <code class="language-text">range</code>, <code class="language-text">ValueError</code> 등 파이썬에 기본적으로 내장된 이름들이다.</li>
+</ul>
+<h3 id="unboundlocalerror" style="position:relative;"><a href="#unboundlocalerror" aria-label="unboundlocalerror permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><em>UnboundLocalError</em></h3>
+<p>Python의 LEGB 규칙이 익숙하지 않을 때, <em>UnboundLocalError</em> 가 흔하게 발생한다.<br>
+이 에러는 <strong>함수 내에서 전역 변수를 수정하려 할 때 발생</strong>한다.<br>
+파이썬은 함수 내부에서 변수에 값을 할당하는 문장이 존재하면, 해당 변수를 해당 함수의 지역 변수로 취급한다.</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python">x <span class="token operator">=</span> <span class="token number">10</span>
+
+<span class="token keyword">def</span> <span class="token function">example</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    x <span class="token operator">=</span> x <span class="token operator">+</span> <span class="token number">1</span> 
+
+example<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># UnboundLocalError 발생</span></code></pre></div>
+<p><a href="https://www.google.com/search?q=https://docs.python.org/3/faq/programming.html%23why-am-i-getting-an-unboundlocalerror-when-the-variable-has-a-value">파이썬 공식 명세</a>에 따르면, <strong>함수 내의 어디서든 변수에 할당이 이루어지면, 그 변수는 명시적으로 다른 선언이 없는 한 로컬 변수로 간주된다</strong>.</p>
+<h3 id="global-nonlocal" style="position:relative;"><a href="#global-nonlocal" aria-label="global nonlocal permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code class="language-text">global</code>, <code class="language-text">nonlocal</code></h3>
+<p>만약 함수 내부에서 외부 범위(<em>Enclosing</em> or <em>Global</em>) 변수의 값을 할당하려면 특정 키워드가 필요하다.</p>
+<ul>
+<li><code class="language-text">global</code>: 전역 범위(Global)에 선언된 변수에 할당할 때 사용한다.</li>
+<li><code class="language-text">nonlocal</code>: 부모 함수(Enclosing)에 선언된 변수에 할당할 때 사용한다.</li>
+</ul>
+<h3 id="가변-객체예-리스트-딕셔너리의-예외-상황" style="position:relative;"><a href="#%EA%B0%80%EB%B3%80-%EA%B0%9D%EC%B2%B4%EC%98%88-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EB%94%95%EC%85%94%EB%84%88%EB%A6%AC%EC%9D%98-%EC%98%88%EC%99%B8-%EC%83%81%ED%99%A9" aria-label="가변 객체예 리스트 딕셔너리의 예외 상황 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>가변 객체(예: 리스트, 딕셔너리)의 예외 상황</h3>
+<p>리스트나 딕셔너리 같은 객체는 <code class="language-text">global</code> 선언 없이도 내부 값을 수정할 수 있다.<br>
+이는 변수 이름이 가리키는 객체 자체를 재할당하는 것이 아니라, 객체 내부 속성을 변경하는 것이기 때문이다.</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python">arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+
+<span class="token keyword">def</span> <span class="token function">modify_list</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">99</span> <span class="token comment"># global 선언 없이 가능 (객체 내부 수정)</span>
+
+<span class="token keyword">def</span> <span class="token function">replace_list</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># global arr # 이 선언이 없으면 UnboundLocalError 발생 가능성 있음</span>
+    arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span> <span class="token comment"># 변수 이름에 새 객체를 할당하므로 Local 변수로 새로 생성됨</span></code></pre></div>
 <h2 id="타입-힌트-python-35" style="position:relative;"><a href="#%ED%83%80%EC%9E%85-%ED%9E%8C%ED%8A%B8-python-35" aria-label="타입 힌트 python 35 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>타입 힌트 (Python 3.5+)</h2>
 <p>파이썬은 기본적으로 동적 타입 언어다. 하지만 Python 3.5 버전부터 <code class="language-text">def func(a: int, b: str, c: List[int]) -> bool:</code> 형태의 <strong>타입 힌트</strong>를 사용하여 예상 타입을 명시할 수 있다.</p>
 <p>이로 인해 가독성과 디버깅을 도우며, 정적 분석 도구(mypy 등)나 IDE를 통해 타입 검사를 할 수 있다. 물론, 파이썬 인터프리터가 런타임에 타입을 강제하지는 않는다.</p>
@@ -977,8 +1014,20 @@ max_value <span class="token operator">=</span> <span class="token operator">-</
 <li>
 <p><a href="#%ED%81%B4%EB%9E%98%EC%8A%A4%EC%99%80-%EB%A9%94%EC%84%9C%EB%93%9C">클래스와 메서드</a></p>
 <ul>
-<li><a href="#%EC%A4%91%EC%B2%A9-%ED%95%A8%EC%88%98-nested-function">중첩 함수 (Nested Function)</a></li>
-<li><a href="#%ED%83%80%EC%9E%85-%ED%9E%8C%ED%8A%B8-python-35">타입 힌트 (Python 3.5+)</a></li>
+<li>
+<p><a href="#%EC%A4%91%EC%B2%A9-%ED%95%A8%EC%88%98-nested-function">중첩 함수 (Nested Function)</a></p>
+</li>
+<li>
+<p><a href="#legb-%EA%B7%9C%EC%B9%99">LEGB 규칙</a></p>
+<ul>
+<li><a href="#unboundlocalerror"><em>UnboundLocalError</em></a></li>
+<li><a href="#global-nonlocal"><code class="language-text">global</code>, <code class="language-text">nonlocal</code></a></li>
+<li><a href="#%EA%B0%80%EB%B3%80-%EA%B0%9D%EC%B2%B4%EC%98%88-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EB%94%95%EC%85%94%EB%84%88%EB%A6%AC%EC%9D%98-%EC%98%88%EC%99%B8-%EC%83%81%ED%99%A9">가변 객체(예: 리스트, 딕셔너리)의 예외 상황</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#%ED%83%80%EC%9E%85-%ED%9E%8C%ED%8A%B8-python-35">타입 힌트 (Python 3.5+)</a></p>
+</li>
 </ul>
 </li>
 <li>
