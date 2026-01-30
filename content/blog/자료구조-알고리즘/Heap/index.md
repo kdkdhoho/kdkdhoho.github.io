@@ -56,7 +56,13 @@ tags: ["자료구조", "힙"]
 
 ![Build Heap](build_heap.png)
 
+# Python에서 Heap 사용하기
+Python에서는 Heap을 사용하기 위해서는 `heapq` 모듈[^1]을 사용한다.
+
 # Reference
+
+[^1]: https://kdkdhoho.github.io/Python/syntax/#heapq-%EB%AA%A8%EB%93%88
+
 - https://ko.wikipedia.org/wiki/%ED%9E%99_(%EC%9E%90%EB%A3%8C_%EA%B5%AC%EC%A1%B0)
 - https://velog.io/@emplam27/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EA%B7%B8%EB%A6%BC%EC%9C%BC%EB%A1%9C-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-%ED%9E%99Heap
 - https://gmlwjd9405.github.io/2018/05/10/data-structure-heap.html
