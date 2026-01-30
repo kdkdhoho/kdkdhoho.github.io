@@ -1,9 +1,8 @@
 ---
-title: ""
-description: ""
-date: yyyy-MM-dd
-tags: ["", ""]
-series: ""
+title: "그래프 탐색 알고리즘: BFS, DFS"
+description: "그래프 탐색 알고리즘인 BFS, DFS 알고리즘에 대해 작성한 (1차 작성) 글입니다."
+date: 2026-01-30
+tags: ["그래프 탐색 알고리즘", "BFS", "DFS"]
 ---
 
 # BFS
