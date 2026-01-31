@@ -429,6 +429,27 @@ Python 창시자인 귀도 반 로섬을 비롯한 많은 개발자들은 단순
 
 대신 `collections.deque`를 사용할 것을 권장한다.
 
+## 리스트끼리 `+` 연산
+Python에서 두 리스트에 `+` 연산을 적용하면 두 리스트를 결합하여 새로운 리스트를 반환한다.
+
+```python
+# case1
+[0] + [list(map(int, input().strip().split())) for _ in range(n)]
+
+# case2
+board = [[0] * (m + 1)]
+for _ in range(n):
+    row = [0] + [list(map(int, input().strip().split()))]
+    board.append(row)
+
+# case3
+board = [[0]*(m+1)] + [[list(map(int, input().strip().split()))] for _ in range(r)]
+```
+
+### `extend()`
+`list.extend(list2)`는 대상 list에 인자로 전달된 리스트(_list2_)를 하나씩 추가한다.  
+즉, 새로운 리스트를 생성하는 것이 아닌 기존 리스트의 값을 추가하므로 메모리를 절약할 수 있는 방법이다.
+
 ## 리스트 컴프리헨션
 Iterable 객체를 바탕으로 새로운 리스트를 생성할 때 사용하는 구문이다.  
 기본 구조는 대괄호 내부에 결과값으로 산출될 표현식을 가장 먼저 배치하고, 그 뒤에 최소 하나 이상의 for 절과 필요한 경우 if 절을 덧붙이는 형태이다.
