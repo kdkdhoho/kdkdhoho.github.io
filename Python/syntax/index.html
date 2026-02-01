@@ -402,14 +402,58 @@ board <span class="token operator">=</span> <span class="token punctuation">[</s
 result <span class="token operator">=</span> <span class="token builtin">sorted</span><span class="token punctuation">(</span>student_tuples<span class="token punctuation">,</span> key<span class="token operator">=</span><span class="token keyword">lambda</span> student<span class="token punctuation">:</span> <span class="token operator">-</span>student<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># 2번 인덱스 값을 역순으로 정렬한다.</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token comment"># 결과: [('john', 'A', 15), ('jane', 'B', 12), ('dave', 'B', 10)]</span></code></pre></div>
 <h2 id="리스트-복사" style="position:relative;"><a href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EB%B3%B5%EC%82%AC" aria-label="리스트 복사 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>리스트 복사</h2>
-<h3 id="얕은-복사" style="position:relative;"><a href="#%EC%96%95%EC%9D%80-%EB%B3%B5%EC%82%AC" aria-label="얕은 복사 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>얕은 복사</h3>
-<p>기본적으로 슬라이싱(<code class="language-text">[::]</code>)을 사용하거나, 리스트 메서드인 <code class="language-text">copy()</code>를 이용하는 방법, 혹은 리스트 생성자(<code class="language-text">list()</code>)를 이용하는 방법이 있다.</p>
-<h3 id="깊은-복사" style="position:relative;"><a href="#%EA%B9%8A%EC%9D%80-%EB%B3%B5%EC%82%AC" aria-label="깊은 복사 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>깊은 복사</h3>
-<p><code class="language-text">copy</code> 모듈에서 <code class="language-text">deepcopy()</code> 함수를 제공한다.</p>
+<h3 id="1차원-리스트" style="position:relative;"><a href="#1%EC%B0%A8%EC%9B%90-%EB%A6%AC%EC%8A%A4%ED%8A%B8" aria-label="1차원 리스트 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1차원 리스트</h3>
+<p>1차원 리스트를 복사하는 방법으로는 다음과 같다.</p>
+<ul>
+<li>슬라이싱 활용: <code class="language-text">copied = origin[:]</code></li>
+<li><code class="language-text">list()</code> 생성자 활용: <code class="language-text">copied = list(origin)</code></li>
+<li><code class="language-text">copy()</code> 메서드 활용: <code class="language-text">copied = origin.copy()</code></li>
+</ul>
+<p>다만 모두 <strong>얕은 복사</strong> 방법이다. 리스트의 각 요소도 새로운 객체로 복사하는 <strong>깊은 복사</strong>를 수행하려면 <code class="language-text">copy</code> 모듈의 <code class="language-text">deepcopy()</code> 메서드를 사용한다.</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token keyword">import</span> copy
+
+copied <span class="token operator">=</span> copy<span class="token punctuation">.</span>deepcopy<span class="token punctuation">(</span>origin<span class="token punctuation">)</span> </code></pre></div>
 <h3 id="2차원-리스트-복사" style="position:relative;"><a href="#2%EC%B0%A8%EC%9B%90-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EB%B3%B5%EC%82%AC" aria-label="2차원 리스트 복사 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2차원 리스트 복사</h3>
-<p>2차원 리스트의 경우, 단순히 리스트 슬라이싱으로 복사하는 건 위험하다.<br>
-슬라이싱은 내부 요소에 대해서는 참조값을 그대로 복사하기 때문에, 원본 배열의 요소 중 한 리스트 내부의 값이 바뀌면 복사한 배열에 저장된 동일한 참조값의 리스트의 요소값도 똑같이 바뀐다. 이 경우에는 리스트 컴프리헨션으로 각 리스트에 대해서 슬라이싱을 해서 복사하는 것이 안전하다.</p>
-<p><code class="language-text">new_list = [row[:] for row in old_list]</code></p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python">origin <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span>
+<span class="token punctuation">]</span></code></pre></div>
+<p>위와 같은 2차원 리스트의 경우, 단순히 리스트 슬라이싱(<code class="language-text">copied = origin[:]</code>)으로 복사하는 건 위험하다.
+각 행에 해당하는 리스트 요소들의 주소값이 그대로 복사되기 때문에, 참조 오염이 발생할 수 있기 때문이다.</p>
+<p>따라서 2차원 리스트는 다음과 같은 방법으로 복사한다.</p>
+<ul>
+<li>리스트 컴프리헨션
+<ul>
+<li>가장 빠르고 범용적인 방법이다. 각 행을 순회하면서 슬라이싱으로 새로운 행을 복사해서 넣는다.</li>
+<li><code class="language-text">copied = [row[:] for row in origin]</code></li>
+</ul>
+</li>
+<li><code class="language-text">copy.deepcopy()</code> 사용
+<ul>
+<li>모든 객체를 재귀적으로 복사한다.</li>
+<li>그만큼 속도가 매우 느리다.</li>
+<li><code class="language-text">copied = copy.deepcopy(origin)</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="기존-리스트에-새로운-리스트-덮어쓰기" style="position:relative;"><a href="#%EA%B8%B0%EC%A1%B4-%EB%A6%AC%EC%8A%A4%ED%8A%B8%EC%97%90-%EC%83%88%EB%A1%9C%EC%9A%B4-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EB%8D%AE%EC%96%B4%EC%93%B0%EA%B8%B0" aria-label="기존 리스트에 새로운 리스트 덮어쓰기 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>기존 리스트에 새로운 리스트 덮어쓰기</h3>
+<p>기존에 존재하는 리스트의 주소값을 그대로 유지한 채, 새로운 리스트의 내부 요소를 덮어쓰고 싶을 때가 있다.<br>
+이때는 <strong>슬라이싱 할당</strong> 기법을 사용한다.</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python">origin <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span>
+<span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">id</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 4444236928</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span> <span class="token comment"># [[1, 2, 3], [4, 5, 6]]</span>
+
+new_arr <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+<span class="token punctuation">]</span>
+
+origin<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span>row<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token keyword">for</span> row <span class="token keyword">in</span> new_arr<span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">id</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 4415761408</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span> <span class="token comment"># [[4, 5, 6], [1, 2, 3]]</span></code></pre></div>
 <h2 id="리스트-비교" style="position:relative;"><a href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EB%B9%84%EA%B5%90" aria-label="리스트 비교 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>리스트 비교</h2>
 <p>파이썬에서 두 리스트를 비교하는 가장 기본적인 방법은 <code class="language-text">==</code> 연산자를 사용하는 것이다.<br>
 <code class="language-text">==</code> 연산자는 두 리스트의 길이가 동일하고, 대응하는 모든 요소의 값이 같으며, 그 순서까지 일치할 때 <code class="language-text">True</code> 를 반환한다.</p>
@@ -982,9 +1026,9 @@ max_value <span class="token operator">=</span> <span class="token operator">-</
 <li>
 <p><a href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EB%B3%B5%EC%82%AC">리스트 복사</a></p>
 <ul>
-<li><a href="#%EC%96%95%EC%9D%80-%EB%B3%B5%EC%82%AC">얕은 복사</a></li>
-<li><a href="#%EA%B9%8A%EC%9D%80-%EB%B3%B5%EC%82%AC">깊은 복사</a></li>
+<li><a href="#1%EC%B0%A8%EC%9B%90-%EB%A6%AC%EC%8A%A4%ED%8A%B8">1차원 리스트</a></li>
 <li><a href="#2%EC%B0%A8%EC%9B%90-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EB%B3%B5%EC%82%AC">2차원 리스트 복사</a></li>
+<li><a href="#%EA%B8%B0%EC%A1%B4-%EB%A6%AC%EC%8A%A4%ED%8A%B8%EC%97%90-%EC%83%88%EB%A1%9C%EC%9A%B4-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EB%8D%AE%EC%96%B4%EC%93%B0%EA%B8%B0">기존 리스트에 새로운 리스트 덮어쓰기</a></li>
 </ul>
 </li>
 <li>
