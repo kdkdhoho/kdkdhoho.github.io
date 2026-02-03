@@ -44,7 +44,8 @@ tags: ["코딩테스트", "시뮬레이션"]
 
 # 3. 자주 나오는 유형
 ## 3.1. 2차원 배열 90도 회전하기
-3x3 크기의 2차원 배열이 있다. 큐브처럼 오른쪽으로 90도 씩 회전한다고 했을 때 인덱스는 다음과 같다.
+### 3.1.1. 정사각형 형태의 2차원 배열 회전하기
+만약 3x3 크기의 2차원 배열이 있을 때, 큐브처럼 오른쪽으로 90도 씩 회전하면 인덱스는 다음과 같다.
 
 - 변경 전  
 (0,0) (0,1) (0,2)
@@ -64,18 +65,52 @@ tags: ["코딩테스트", "시뮬레이션"]
 ```python
 def rotate(arr):
     n = len(arr)
+
+    result = [[0] * n for _ in range(n)]
+
+    for x in range(n):
+        for y in range(n):
+            result[y][n-1-x] = arr[x][y]
+            
+    return result
+```
+
+파이썬에서는 다음과 같이 간결하게 작성할 수도 있다.
+
+- 시계 방향: `list(zip(*arr[::-1]))` 
+- 반시계 방향: ` list(zip(*arr))[::-1]`
+
+### 3.1.2. 직사각형 형태의 2차원 배열 90도 회전하기
+3x4 형태의 2차원 배열을 시계 방향으로 90도 회전하면 4x3 형태의 2차원 배열이 된다.  
+따라서 나머지는 모두 똑같은데 `result` 배열을 만들 때 크기를 신경써줘야 한다.
+
+```python
+def rotate(arr):
+    n = len(arr)
     m = len(arr[0])
 
-    result = [[0] * m for _ in range(n)]
+    result = [[0] * n for _ in range(m)]
 
     for x in range(n):
         for y in range(m):
             result[y][n-1-x] = arr[x][y]
+            
     return result
-```
+    
+arr = [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12]
+]
+result = rotate(arr)
+print(result)
 
-- 시계 방향: `return list(zip(*arr[::-1]))` 
-- 반시계 방향: `return list(zip(*arr))[::-1]`
+# 출력
+# [9, 5, 1]
+# [10, 6, 2]
+# [11, 7, 3]
+# [12, 8, 4]]
+```
 
 ## 3.2. 값 땡겨오기, 사이사이 빈칸 압축(1차원 배열)
 만약 `arr = [1, 0, 1, 2, 3, 1, 0, 0, 0, 3, 3, 4, 2, 0, 2]` 이 배열이 주어질 때, 0을 모두 뒤로 배치하고 나머지 값을 앞으로 땡겨야 하는 경우다.
@@ -100,13 +135,16 @@ def solution(arr):
 ```python
 def solution(arr):
     last = -1
+    
     for i, x in enumerate(arr):
         if x == 0:
             continue
         last += 1
         arr[last] = arr[i]
+        
     for i in range(last + 1, len(arr)):
         arr[i] = 0
+        
     return arr
 
 
@@ -119,13 +157,16 @@ print(result) # 출력: [1, 1, 2, 3, 1, 3, 3, 4, 2, 2, 0, 0, 0, 0, 0]
 ```python
 def solution(arr):
     last = len(arr)
+    
     for i in range(len(arr))[::-1]:
         if arr[i] == 0:
             continue
         last -= 1
         arr[last] = arr[i]
+        
     for i in range(0, last):
         arr[i] = 0
+        
     return arr
 
 
@@ -140,17 +181,19 @@ print(result)  # 출력: [0, 0, 0, 0, 0, 1, 1, 2, 3, 1, 3, 3, 4, 2, 2]
 ```python
 def gravity(arr):
     n = len(arr)
+    
     for y in range(n):
         last = n
-        for x in range(n)[::-1]:
-            if arr[x][y] == -1:
-                break
+        
+        for x in range(n - 1, -1, -1):
             if arr[x][y] == 0:
                 continue
             last -= 1
             arr[last][y] = arr[x][y]
+            
         for x in range(last - 1, -1, -1):
             arr[x][y] = 0
+            
     return arr
 
 
@@ -172,18 +215,24 @@ print(result)
 ```python
 def gravity(arr):
     n = len(arr)
+    
     for y in range(n):
         last = n
+        
         for x in range(n)[::-1]:
             if arr[x][y] == -1:
                 last = x
                 continue
+                
             if arr[x][y] == 0:
                 continue
+                
             last -= 1
             arr[last][y] = arr[x][y]
+            
         for x in range(last - 1, -1, -1):
             arr[x][y] = 0
+            
     return arr
 
 
@@ -201,7 +250,6 @@ print(result)
 # [0, 2, 0, 4]
 # [0, -1, 3, 3]
 # [1, 0, 2, 1]
-
 ```
 
 ## 3.4. 격자에서 이동 dx, dy (우회전, 좌회전, 반대방향보기)
