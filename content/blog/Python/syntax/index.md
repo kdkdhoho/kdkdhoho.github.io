@@ -1131,3 +1131,19 @@ max_value = -heapq.heappop(max_heap)
 print(max_value) # 출력: 8
 print(max_heap) # [-5, -4, -2]
 ```
+
+
+# `bisect` 모듈
+Python의 `bisect` 모듈은 정렬된 리스트를 유지하면서 새로운 요소를 삽입할 적절한 위치를 찾는 이진 분할(Binary Bisection) 알고리즘을 제공한다.
+
+이 모듈은 정렬된 시퀀스에서 특정 값을 찾거나, 삽입할 때 매번 전체를 다시 정렬하지 않고도 효율적으로 순서를 유지할 수 있도록 돕는다.
+
+내부적으로 **이진 탐색(Binary Search)** 알고리즘을 사용하기 때문에, 위치를 찾는 데 O(logN)의 시간 복잡도를 가진다.  
+하지만 실제로 삽입하는 함수(`insort_left()`, `insort_right()`)의 경우, 리스트 중간에 요소를 삽입할 떄 발생하는 데이터 이동으로 인해 O(n)의 시간이 소요된다.
+
+주요 함수는 다음과 같다.
+
+- `bisect_left(a, x, lo=0, hi=len(a))`: 정렬된 순서를 유지하면서 리스트 a에 값 x를 삽입할 가장 왼쪽 인덱스를 찾는다. 만약 리스트 내에 이미 x와 동일한 값이 있다면, 그 값 왼쪽 인덱스를 반환한다.
+- `bisect_right(a, x, lo=0, hi=len(a))`: bisect_left와 유사하지만, 리스트 내에 이미 x와 동일한 값이 있는 경우 그 값의 오른쪽 인덱스를 반환한다. `bisect()` 함수는 이 함수의 별칭이다.
+- `insort_left(a, x, lo=0, hi=len(a))`: bisect_left를 사용하여 삽입 위치를 찾은 뒤, 실제로 리스트 a에 x를 삽입한다.
+- `insort_right(a, x, lo=0, hi=len(a))`: bisect_right를 사용하여 삽입 위치를 찾은 뒤, 실제로 리스트 a에 x를 삽입한다. `insort()` 함수는 이 함수의 별칭이다.
