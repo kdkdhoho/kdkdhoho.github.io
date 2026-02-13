@@ -1,7 +1,7 @@
 ---
-title: "CI 빌드 속도 66% 단축기: TestContainers에서 H2로 전환하며 마주한 고민들"
+title: "CI 빌드 속도 66% 단축기: 테스트 환경의 DB를 TestContainers(MySQL)에서 H2로 전환하며 마주한 고민들"
 description: "CI 최적화를 위해 테스트 DB 환경을 교체하며 분석한 성능 병목 지점과 '환경 불일치' 관리 전략을 공유하기 위해 작성한 글입니다."
-date: 2026-02-12
+date: 2026-02-13
 tags: ["TestContainers", "H2", "CI/CD", "Testing"]
 ---
 
@@ -44,8 +44,19 @@ H2에 MySQL 모드가 있긴 합니다만, SQL Parser 수준의 호환성을 지
 
 따라서 특정 구현체에 종속되지 않도록 다음과 같은 전략으로 이 차이를 극복했습니다.
 
-1. **JPA에 의존**: 애플리케이션 내 모든 Repository는 JPQL과 Spring Data JPA를 사용하여 JPA에 의존하도록 했습니다. JPA를 사용하면 구현체에 따라 SQL을 만들어주기에 구현체를 변경하더라도 안전합니다.  
-2. **테스트 격리 시, Truncate 대신 `@Transactional` 사용**: 기존에는 _DatabaseCleaner_ 라는 객체를 만들어서 Junit5의 `@BeforeEach` 단계마다 Truncate SQL을 통해 직접 DB를 초기화해줬습니다. 이 방법은 MySQL과 H2에서 호환되지 않기에 `@Transactional` 어노테이션을 통해 각 테스트 메서드가 수행되면, 자동으로 롤백하도록 하여 테스트 격리를 지켰습니다. 이에 자연스레 특정 벤더에 종속되는 방법에서 벗어날 수 있었습니다.  
+1. **프로덕션 코드에서 모두 JPA에 의존한다.**
+프로덕션 코드에서 DB와 통신하는 모든 코드는 JPQL과 Spring Data JPA를 사용함으로써 JPA에 의존하도록 했습니다.  
+JPA를 사용하면 구현체에 따라 알아서 SQL을 만들어주기에 구현체를 변경하더라도 안전합니다.  
+
+3. **테스트 격리 시, Truncate SQL 대신 JPA의 `deleteAllInBatch()` 사용**
+기존에는 _DatabaseCleaner_ 라는 객체 안에서 Junit5의 `@BeforeEach` 단계마다 Truncate SQL을 통해 직접 DB CleanUp을 수행했습니다.  
+이를 위해 외래키 제약 조건을 잠시 해제했다가 다시 설정해줬는데요. 이때 MySQL과 H2의 쿼리가 달랐습니다.  
+
+MySQL은 `SET FOREIGN_KEY_CHECKS = 0;`, H2는 `SET REFERENTIAL_INTEGRITY FALSE;`를 사용합니다. 이 차이로 테스트 환경이 달라져 실패가 발생했습니다.  
+
+그래서 Truncate SQL 대신 `deleteAllInBatch()`를 순서대로 호출해 벤더 종속 없이 데이터를 정리했습니다.  
+
+> 물론 위 방법은 삭제 순서를 반드시 지켜야하며 모든 엔티티마다 삭제 코드를 반드시 추가해야 한다는 수고로움이 있긴 했습니다.
 
 ---
 
