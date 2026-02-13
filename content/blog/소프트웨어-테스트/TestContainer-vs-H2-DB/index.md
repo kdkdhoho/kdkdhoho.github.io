@@ -50,7 +50,9 @@ H2에 MySQL 모드가 있긴 합니다만, SQL Parser 수준의 호환성을 지
 ---
 
 # 4. TestContainers를 포기할 수 없다면? (최적화 대안)
-만약 프로젝트 특성상 반드시 운영 DB와 동일한 환경에서 테스트해야 한다면, 아래 방법들을 고려해볼 수 있습니다.
+만약 프로덕션 코드에서 특정 DB에 종속적인 SQL으로 구현된 로직이 있거나, 운영 DB와 동일한 환경에서 테스트를 해야 한다면 TestContainers 사용이 불가피할 수 있습니다. 
+
+이 경우에는 아래 방법들을 고려하여 TestContainers를 이용한 테스트 속도를 향상해볼 수 있습니다.
 
 - **[Reusable Containers](https://java.testcontainers.org/features/reuse/) (v2.0.3+):** 테스트가 끝나도 컨테이너를 유지하여 다음 테스트 시 재사용합니다. 하지만 GitHub Actions 같은 일회성 CI 환경에서는 적용이 어렵다는 한계가 있습니다.
 - **CI 환경 Docker Image 캐싱:** [GitHub Actions의 캐시 기능](https://docs.github.com/en/actions/reference/workflows-and-actions/dependency-caching)을 이용해 이미지 Pull 시간을 단축할 수 있습니다.
