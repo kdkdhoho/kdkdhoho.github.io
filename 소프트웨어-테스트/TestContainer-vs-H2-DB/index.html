@@ -118,7 +118,8 @@ H2에 MySQL 모드가 있긴 합니다만, SQL Parser 수준의 호환성을 지
 </ol>
 <hr>
 <h1 id="4-testcontainers를-포기할-수-없다면-최적화-대안" style="position:relative;"><a href="#4-testcontainers%EB%A5%BC-%ED%8F%AC%EA%B8%B0%ED%95%A0-%EC%88%98-%EC%97%86%EB%8B%A4%EB%A9%B4-%EC%B5%9C%EC%A0%81%ED%99%94-%EB%8C%80%EC%95%88" aria-label="4 testcontainers를 포기할 수 없다면 최적화 대안 permalink" class="anchor-header before"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. TestContainers를 포기할 수 없다면? (최적화 대안)</h1>
-<p>만약 프로젝트 특성상 반드시 운영 DB와 동일한 환경에서 테스트해야 한다면, 아래 방법들을 고려해볼 수 있습니다.</p>
+<p>만약 프로덕션 코드에서 특정 DB에 종속적인 SQL으로 구현된 로직이 있거나, 운영 DB와 동일한 환경에서 테스트를 해야 한다면 TestContainers 사용이 불가피할 수 있습니다.</p>
+<p>이 경우에는 아래 방법들을 고려하여 TestContainers를 이용한 테스트 속도를 향상해볼 수 있습니다.</p>
 <ul>
 <li><strong><a href="https://java.testcontainers.org/features/reuse/">Reusable Containers</a> (v2.0.3+):</strong> 테스트가 끝나도 컨테이너를 유지하여 다음 테스트 시 재사용합니다. 하지만 GitHub Actions 같은 일회성 CI 환경에서는 적용이 어렵다는 한계가 있습니다.</li>
 <li><strong>CI 환경 Docker Image 캐싱:</strong> <a href="https://docs.github.com/en/actions/reference/workflows-and-actions/dependency-caching">GitHub Actions의 캐시 기능</a>을 이용해 이미지 Pull 시간을 단축할 수 있습니다.</li>
@@ -159,7 +160,7 @@ H2에 MySQL 모드가 있긴 합니다만, SQL Parser 수준의 호환성을 지
 <li>
 <p><a href="#%EC%B0%B8%EA%B3%A0">참고</a></p>
 </li>
-</ul></div></aside></div><nav class="blog-post-nav"><ul><li><a rel="이전 글" href="/JPA/JPA-기본기/">JPA 기본기</a></li><li></li></ul></nav></main></div><footer style="text-align:center;padding:var(--spacing-12) 0;margin-top:var(--spacing-16);border-top:1px solid var(--color-border);color:var(--color-text-light);font-size:var(--fontSize-0)">© <!-- -->2026<!-- --> kdkdhoho. Built with<!-- --> <a href="https://www.gatsbyjs.com" style="color:var(--color-primary);text-decoration:none;font-weight:500">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/소프트웨어-테스트/TestContainer-vs-H2-DB/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+</ul></div></aside></div><nav class="blog-post-nav"><ul><li><a rel="이전 글" href="/JPA/JPA-기본기/">JPA 기본기</a></li><li><a rel="다음 글" href="/인프라/React-앱-배포-방식을-EC2에서-S3와-CloudFront로-변경한-이유/">React 배포 방식을 EC2에서 S3와 CloudFront로 변경한 이유</a></li></ul></nav></main></div><footer style="text-align:center;padding:var(--spacing-12) 0;margin-top:var(--spacing-16);border-top:1px solid var(--color-border);color:var(--color-text-light);font-size:var(--fontSize-0)">© <!-- -->2026<!-- --> kdkdhoho. Built with<!-- --> <a href="https://www.gatsbyjs.com" style="color:var(--color-primary);text-decoration:none;font-weight:500">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/소프트웨어-테스트/TestContainer-vs-H2-DB/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
           <script
             id="gatsby-chunk-mapping"
           >
