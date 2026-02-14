@@ -1,10 +1,9 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
+import React, { useCallback, useEffect, useMemo, useState } from "react"
 import * as styles from "./toc.module.css"
 
 const TableOfContents = ({ tableOfContents }) => {
   const [activeId, setActiveId] = useState("")
   const [headings, setHeadings] = useState([])
-  const tocRef = useRef(null)
 
   const extractTocIds = useCallback(tocHtml => {
     if (!tocHtml) return []
@@ -75,8 +74,8 @@ const TableOfContents = ({ tableOfContents }) => {
         }
       }
 
-      if (current?.id && current.id !== activeId) {
-        setActiveId(current.id)
+      if (current?.id) {
+        setActiveId(prev => (current.id !== prev ? current.id : prev))
       }
     }
 
@@ -98,13 +97,14 @@ const TableOfContents = ({ tableOfContents }) => {
       window.removeEventListener("scroll", onScroll)
       window.removeEventListener("resize", onScroll)
     }
-  }, [activeId, headings])
+  }, [headings])
 
   const handleTocClick = useCallback(e => {
-    if (e.target.tagName !== "A") return
+    const anchor = e.target instanceof Element ? e.target.closest("a") : null
+    if (!anchor) return
 
     e.preventDefault()
-    const href = e.target.getAttribute("href")
+    const href = anchor.getAttribute("href")
     if (!href || !href.startsWith("#")) return
 
     const encodedId = href.substring(1)
@@ -153,10 +153,10 @@ const TableOfContents = ({ tableOfContents }) => {
     return ((safeIndex + 1) / headings.length) * 100
   }, [activeId, headings])
 
-  if (!tableOfContents) return null
+  if (!tableOfContents?.trim()) return null
 
   return (
-    <aside className={styles.tocContainer} ref={tocRef}>
+    <aside className={styles.tocContainer}>
       <div className={styles.tocHeader}>
         <h3 className={styles.tocTitle}>목차</h3>
       </div>

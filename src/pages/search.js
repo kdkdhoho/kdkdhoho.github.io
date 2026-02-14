@@ -5,12 +5,12 @@ import { useLocation } from "@reach/router"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import * as styles from "./search-page.module.css"
-
-const getFirstImageFromHtml = html => {
-  if (!html) return null
-  const match = html.match(/<img[^>]+src=["']([^"']+)["']/i)
-  return match ? match[1] : null
-}
+import {
+  getFirstImageFromHtml,
+  getReadingTimeText,
+  matchesPostQuery,
+  normalizeSearchQuery,
+} from "../utils/post-utils"
 
 const highlightSearchTerm = (text, searchTerm) => {
   if (!searchTerm || !text) return text
@@ -19,6 +19,8 @@ const highlightSearchTerm = (text, searchTerm) => {
 }
 
 const sortPosts = (posts, sortType, searchQuery) => {
+  const normalizedQuery = normalizeSearchQuery(searchQuery)
+
   switch (sortType) {
     case "title":
       return [...posts].sort((a, b) =>
@@ -26,11 +28,10 @@ const sortPosts = (posts, sortType, searchQuery) => {
       )
     case "relevance":
       return [...posts].sort((a, b) => {
-        const searchTerm = searchQuery.toLowerCase()
         const aTitle = (a.frontmatter.title || "").toLowerCase()
         const bTitle = (b.frontmatter.title || "").toLowerCase()
-        const aInTitle = aTitle.includes(searchTerm) ? 1 : 0
-        const bInTitle = bTitle.includes(searchTerm) ? 1 : 0
+        const aInTitle = aTitle.includes(normalizedQuery) ? 1 : 0
+        const bInTitle = bTitle.includes(normalizedQuery) ? 1 : 0
         return bInTitle - aInTitle
       })
     case "date":
@@ -58,21 +59,7 @@ const SearchPage = ({ data }) => {
 
   const filteredPosts = React.useMemo(() => {
     if (queryFromUrl.trim().length < 2) return []
-    const searchTerm = queryFromUrl.toLowerCase()
-
-    return posts.filter(post => {
-      const title = post.frontmatter.title?.toLowerCase() || ""
-      const description = post.frontmatter.description?.toLowerCase() || ""
-      const excerpt = post.excerpt?.toLowerCase() || ""
-      const tags = post.frontmatter.tags?.join(" ").toLowerCase() || ""
-
-      return (
-        title.includes(searchTerm) ||
-        description.includes(searchTerm) ||
-        excerpt.includes(searchTerm) ||
-        tags.includes(searchTerm)
-      )
-    })
+    return posts.filter(post => matchesPostQuery(post, queryFromUrl))
   }, [posts, queryFromUrl])
 
   const sortedPosts = React.useMemo(
@@ -138,7 +125,7 @@ const SearchPage = ({ data }) => {
                   const title = post.frontmatter.title || post.fields.slug
                   const description = post.frontmatter.description || post.excerpt
                   const thumbnailSrc = getFirstImageFromHtml(post.html)
-                  const minutes = Math.max(1, post.timeToRead || 0)
+                  const readingTime = getReadingTimeText(post.timeToRead)
 
                   return (
                     <article key={post.fields.slug} className={styles.resultCard}>
@@ -163,7 +150,7 @@ const SearchPage = ({ data }) => {
                             />
                             <div className={styles.cardMeta}>
                               <span className={styles.cardDate}>{post.frontmatter.date}</span>
-                              <span className={styles.readingTime}>{minutes} min read</span>
+                              <span className={styles.readingTime}>{readingTime}</span>
                             </div>
                             <p
                               className={styles.cardDescription}

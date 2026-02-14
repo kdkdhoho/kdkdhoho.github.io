@@ -39,31 +39,29 @@ const BlogPostTemplate = ({
 }) => {
   const siteTitle = site.siteMetadata?.title || `Title`
   const postHtml = React.useMemo(() => withNewTabLinks(post.html), [post.html])
+  const [scrollProgress, setScrollProgress] = React.useState(0)
 
   React.useEffect(() => {
-    const progressBar = document.createElement('div')
-    progressBar.className = styles.scrollProgress
-    document.body.appendChild(progressBar)
-
     const updateProgress = () => {
       const scrollTop = window.pageYOffset
       const docHeight = document.body.scrollHeight - window.innerHeight
-      const scrollPercent = (scrollTop / docHeight) * 100
-      progressBar.style.width = scrollPercent + '%'
+      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0
+      setScrollProgress(Math.min(100, Math.max(0, scrollPercent)))
     }
 
-    window.addEventListener('scroll', updateProgress)
-    
+    window.addEventListener("scroll", updateProgress, { passive: true })
+    window.addEventListener("resize", updateProgress, { passive: true })
+    updateProgress()
+
     return () => {
-      window.removeEventListener('scroll', updateProgress)
-      if (document.body.contains(progressBar)) {
-        document.body.removeChild(progressBar)
-      }
+      window.removeEventListener("scroll", updateProgress)
+      window.removeEventListener("resize", updateProgress)
     }
   }, [])
 
   return (
     <Layout location={location} title={siteTitle} variant="post">
+      <div className={styles.scrollProgress} style={{ width: `${scrollProgress}%` }} aria-hidden="true" />
       <div className={styles.blogPostLayout}>
         <div className={styles.blogPostContainer}>
           <article

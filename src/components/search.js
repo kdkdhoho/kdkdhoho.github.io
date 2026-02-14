@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect, useCallback } from "react"
 import { useStaticQuery, graphql, navigate } from "gatsby"
 import * as styles from "./search.module.css"
+import { matchesPostQuery } from "../utils/post-utils"
 
 const Search = ({ variant = "toggle" }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [query, setQuery] = useState("")
-  const [results, setResults] = useState([])
   const searchRef = useRef(null)
   const inputRef = useRef(null)
 
@@ -33,15 +33,15 @@ const Search = ({ variant = "toggle" }) => {
 
   const posts = data.allMarkdownRemark.nodes
   const isInline = variant === "inline"
-
-  const showRecentPosts = () => {
-    setResults(posts.slice(0, 5))
-  }
+  const recentPosts = React.useMemo(() => posts.slice(0, 5), [posts])
+  const matchedPosts = React.useMemo(() => {
+    if (query.length < 2) return []
+    return posts.filter(post => matchesPostQuery(post, query)).slice(0, 5)
+  }, [posts, query])
 
   const resetSearchState = useCallback(() => {
     setIsOpen(false)
     setQuery("")
-    setResults([])
   }, [])
 
   useEffect(() => {
@@ -70,33 +70,6 @@ const Search = ({ variant = "toggle" }) => {
 
   const handleSearch = searchQuery => {
     setQuery(searchQuery)
-
-    if (searchQuery.length === 0) {
-      showRecentPosts()
-      return
-    }
-
-    if (searchQuery.length < 2) {
-      setResults([])
-      return
-    }
-
-    const filteredPosts = posts.filter(post => {
-      const title = post.frontmatter.title?.toLowerCase() || ""
-      const description = post.frontmatter.description?.toLowerCase() || ""
-      const excerpt = post.excerpt?.toLowerCase() || ""
-      const tags = post.frontmatter.tags?.join(" ").toLowerCase() || ""
-      const searchTerm = searchQuery.toLowerCase()
-
-      return (
-        title.includes(searchTerm) ||
-        description.includes(searchTerm) ||
-        excerpt.includes(searchTerm) ||
-        tags.includes(searchTerm)
-      )
-    })
-
-    setResults(filteredPosts.slice(0, 5))
   }
 
   const handleResultClick = slug => {
@@ -114,8 +87,7 @@ const Search = ({ variant = "toggle" }) => {
   const toggleSearch = () => {
     if (!isOpen) {
       setIsOpen(true)
-      showRecentPosts()
-      setTimeout(() => inputRef.current?.focus(), 50)
+      requestAnimationFrame(() => inputRef.current?.focus())
       return
     }
 
@@ -126,22 +98,23 @@ const Search = ({ variant = "toggle" }) => {
     if (!isOpen) {
       setIsOpen(true)
       setQuery("")
-      showRecentPosts()
     }
   }
 
   const renderResultsContent = () => {
     if (!isOpen) return null
 
+    const displayPosts = query.length === 0 ? recentPosts : matchedPosts
+
     return (
       <>
-        {query.length === 0 && results.length > 0 && (
+        {query.length === 0 && displayPosts.length > 0 && (
           <div className={styles.searchResults}>
             <div className={styles.searchResultsHeader}>
               <span>최근 포스트</span>
               <small>최대 5개</small>
             </div>
-            {results.map(post => (
+            {displayPosts.map(post => (
               <button
                 key={post.fields.slug}
                 type="button"
@@ -156,13 +129,13 @@ const Search = ({ variant = "toggle" }) => {
           </div>
         )}
 
-        {query.length >= 2 && results.length > 0 && (
+        {query.length >= 2 && displayPosts.length > 0 && (
           <div className={styles.searchResults}>
             <div className={styles.searchResultsHeader}>
               <span>검색 결과</span>
-              <small>{results.length}개 / 최대 5개</small>
+              <small>{displayPosts.length}개 / 최대 5개</small>
             </div>
-            {results.map(post => (
+            {displayPosts.map(post => (
               <button
                 key={post.fields.slug}
                 type="button"
@@ -177,7 +150,7 @@ const Search = ({ variant = "toggle" }) => {
           </div>
         )}
 
-        {query.length >= 2 && results.length === 0 && (
+        {query.length >= 2 && displayPosts.length === 0 && (
           <div className={styles.searchNoResults}>
             <p>검색 결과가 없습니다.</p>
             <small>다른 키워드로 검색해보세요.</small>

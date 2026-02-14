@@ -5,17 +5,12 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import * as styles from "./index.module.css"
+import { getFirstImageFromHtml, getReadingTimeText } from "../utils/post-utils"
 
 const getCategoryPathFromSlug = slug => {
   const parts = slug.split("/").filter(Boolean)
   if (parts.length <= 1) return ""
   return parts.slice(0, -1).join("/")
-}
-
-const getFirstImageFromHtml = html => {
-  if (!html) return null
-  const match = html.match(/<img[^>]+src=["']([^"']+)["']/i)
-  return match ? match[1] : null
 }
 
 const BlogIndex = ({ data, location }) => {
@@ -59,7 +54,7 @@ const BlogIndex = ({ data, location }) => {
         {filteredPosts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
           const thumbnailSrc = getFirstImageFromHtml(post.html)
-          const minutes = Math.max(1, post.timeToRead || 0)
+          const readingTime = getReadingTimeText(post.timeToRead)
 
           return (
             <article
@@ -87,7 +82,7 @@ const BlogIndex = ({ data, location }) => {
                       </h2>
                       <div className={styles.postMeta}>
                         <small className={styles.postDate}>{post.frontmatter.date}</small>
-                        <span className={styles.readingTimeText}>{minutes} min read</span>
+                        <span className={styles.readingTimeText}>{readingTime}</span>
                       </div>
                     </header>
                     <section className={styles.postCardExcerpt}>
