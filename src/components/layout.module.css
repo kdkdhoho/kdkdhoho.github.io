@@ -79,6 +79,10 @@
   box-shadow: 0 10px 26px rgba(37, 99, 235, 0.08);
 }
 
+.sidebarSection + .sidebarSection {
+  margin-top: var(--spacing-4);
+}
+
 .sidebarTitle {
   margin: 0 0 var(--spacing-4);
   font-size: var(--fontSize-1);
@@ -86,6 +90,37 @@
   letter-spacing: 0.02em;
   padding-bottom: var(--spacing-2);
   border-bottom: 1px solid #d6e3fa;
+}
+
+.latestPostList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.latestPostListItem + .latestPostListItem {
+  margin-top: var(--spacing-3);
+}
+
+.latestPostLink {
+  display: block;
+  color: #1f2937;
+  text-decoration: none;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  transition: color 0.18s ease;
+}
+
+.latestPostLink:hover,
+.latestPostLink:focus-visible {
+  color: #1d4ed8;
+}
+
+.latestPostDate {
+  display: block;
+  margin-top: 0.2rem;
+  color: #64748b;
+  font-size: 0.75rem;
 }
 
 .categoryScrollArea {

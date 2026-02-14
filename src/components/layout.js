@@ -17,10 +17,17 @@ const Layout = ({ location, title, children, variant = "default" }) => {
 
   const data = useStaticQuery(graphql`
     query LayoutQuery {
-      allMarkdownRemark(filter: { frontmatter: { draft: { ne: true } } }) {
+      allMarkdownRemark(
+        filter: { frontmatter: { draft: { ne: true } } }
+        sort: { fields: [frontmatter___date], order: DESC }
+      ) {
         nodes {
           fields {
             slug
+          }
+          frontmatter {
+            title
+            date(formatString: "YYYY.MM.DD")
           }
         }
       }
@@ -28,6 +35,7 @@ const Layout = ({ location, title, children, variant = "default" }) => {
   `)
 
   const posts = data.allMarkdownRemark.nodes
+  const recentPosts = posts.slice(0, 5)
 
   const categories = React.useMemo(() => {
     const root = {
@@ -156,6 +164,19 @@ const Layout = ({ location, title, children, variant = "default" }) => {
       <div className={layoutContainerClassName}>
         <aside className={sidebarClassName}>
           <Bio variant="compact" />
+          <div className={styles.sidebarSection}>
+            <h3 className={styles.sidebarTitle}>Latest Posts</h3>
+            <ul className={styles.latestPostList}>
+              {recentPosts.map(post => (
+                <li key={post.fields.slug} className={styles.latestPostListItem}>
+                  <Link to={post.fields.slug} className={styles.latestPostLink}>
+                    {post.frontmatter.title || post.fields.slug}
+                  </Link>
+                  <time className={styles.latestPostDate}>{post.frontmatter.date}</time>
+                </li>
+              ))}
+            </ul>
+          </div>
           <div className={styles.sidebarSection}>
             <h3 className={styles.sidebarTitle}>Categories</h3>
             <div className={styles.categoryScrollArea}>
