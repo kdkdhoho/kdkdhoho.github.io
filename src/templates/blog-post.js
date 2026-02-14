@@ -46,25 +46,6 @@ const BlogPostTemplate = ({
             <header>
               <h1>{post.frontmatter.title}</h1>
               <p className="post-date">{post.frontmatter.date}</p>
-              {post.frontmatter.series && (
-                <div className="series-info">
-                  <Link to={`/series/${(() => {
-                    const map = {
-                      '링글 튜터링 복습': 'ringle-tutoring-review',
-                      '셀럽잇 프로젝트': 'celuveat-project', 
-                      '그림으로 배우는 Http & Network Basic': 'http-network-basic',
-                      '창구 AI 스터디 잼': 'changgu-ai-study-jam',
-                      '운영체제 면접 스터디': 'os-interview-study',
-                      'Why? 시리즈': 'why-series',
-                      'DB 면접 스터디': 'db-interview-study',
-                      'Real MySQL 8.0': 'real-mysql-8'
-                    }
-                    return map[post.frontmatter.series] || post.frontmatter.series.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')
-                  })()}`} className="series-link">
-                    📚 {post.frontmatter.series} 시리즈
-                  </Link>
-                </div>
-              )}
               <p>{post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
                 <div className="tags-container">
                   {post.frontmatter.tags.map(tag => (
@@ -142,7 +123,6 @@ export const pageQuery = graphql`
         date(formatString: "YYYY년 M월 D일")
         description
         tags
-        series
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

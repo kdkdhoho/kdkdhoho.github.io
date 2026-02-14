@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import Search from "./search"
+import Bio from "./bio"
 import * as styles from "./layout.module.css"
 
 const getCategoryPathFromSlug = slug => {
@@ -133,6 +134,7 @@ const Layout = ({ location, title, children }) => {
 
       <div className={styles.layoutContainer}>
         <aside className={styles.sidebar}>
+          <Bio variant="compact" />
           <div className={styles.sidebarSection}>
             <h3 className={styles.sidebarTitle}>Categories</h3>
             <div className={styles.categoryScrollArea}>
