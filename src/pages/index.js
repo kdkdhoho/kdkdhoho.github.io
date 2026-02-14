@@ -4,11 +4,18 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import * as styles from "./index.module.css"
 
 const getCategoryPathFromSlug = slug => {
   const parts = slug.split("/").filter(Boolean)
   if (parts.length <= 1) return ""
   return parts.slice(0, -1).join("/")
+}
+
+const getFirstImageFromHtml = html => {
+  if (!html) return null
+  const match = html.match(/<img[^>]+src=["']([^"']+)["']/i)
+  return match ? match[1] : null
 }
 
 const BlogIndex = ({ data, location }) => {
@@ -48,47 +55,60 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <div className="posts-grid">
+      <div className={styles.postsGrid}>
         {filteredPosts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
+          const thumbnailSrc = getFirstImageFromHtml(post.html)
 
           return (
             <article
               key={post.fields.slug}
-              className="post-list-item"
+              className={styles.postListItem}
               itemScope
               itemType="http://schema.org/Article"
             >
-              <Link to={post.fields.slug} itemProp="url" className="post-link">
-                <div className="post-card-content">
-                  <header className="post-card-header">
-                    <h2 className="post-title">
-                      <span itemProp="headline">{title}</span>
-                    </h2>
-                    <small className="post-date">{post.frontmatter.date}</small>
-                  </header>
-                  <section className="post-card-excerpt">
-                    {post.frontmatter.description && (
-                      <p
-                        dangerouslySetInnerHTML={{
-                          __html: post.frontmatter.description,
-                        }}
-                        itemProp="description"
+              <Link to={post.fields.slug} itemProp="url" className={styles.postLink}>
+                <div className={styles.postCardBody}>
+                  {thumbnailSrc && (
+                    <div className={styles.postThumbnailWrapper}>
+                      <img
+                        src={thumbnailSrc}
+                        alt={`${title} 썸네일`}
+                        className={styles.postThumbnailImage}
+                        loading="lazy"
                       />
-                    )}
-                  </section>
-                </div>
-                <footer className="post-card-footer">
-                  {post.frontmatter.tags && (
-                    <div className="post-tags">
-                      {post.frontmatter.tags.map(tag => (
-                        <span key={tag} className="post-tag">
-                          #{tag}
-                        </span>
-                      ))}
                     </div>
                   )}
-                </footer>
+                  <div className={styles.postCardContent}>
+                    <header className={styles.postCardHeader}>
+                      <h2 className={styles.postTitle}>
+                        <span itemProp="headline">{title}</span>
+                      </h2>
+                      <small className={styles.postDate}>{post.frontmatter.date}</small>
+                    </header>
+                    <section className={styles.postCardExcerpt}>
+                      {post.frontmatter.description && (
+                        <p
+                          dangerouslySetInnerHTML={{
+                            __html: post.frontmatter.description,
+                          }}
+                          itemProp="description"
+                        />
+                      )}
+                    </section>
+                    {post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
+                      <footer className={styles.postCardFooter}>
+                        <div className={styles.postTags}>
+                          {post.frontmatter.tags.map(tag => (
+                            <span key={tag} className={styles.postTag}>
+                              #{tag}
+                            </span>
+                          ))}
+                        </div>
+                      </footer>
+                    )}
+                  </div>
+                </div>
               </Link>
             </article>
           )
@@ -120,6 +140,7 @@ export const pageQuery = graphql`
     ) {
       nodes {
         excerpt
+        html
         fields {
           slug
         }
