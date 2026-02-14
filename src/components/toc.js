@@ -4,6 +4,7 @@ import * as styles from "./toc.module.css"
 const TableOfContents = ({ tableOfContents }) => {
   const [activeId, setActiveId] = useState("")
   const [headings, setHeadings] = useState([])
+  const [isMobileTocOpen, setIsMobileTocOpen] = useState(false)
 
   const extractTocIds = useCallback(tocHtml => {
     if (!tocHtml) return []
@@ -123,6 +124,45 @@ const TableOfContents = ({ tableOfContents }) => {
     const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset - 96
     window.scrollTo({ top: offsetTop, behavior: "smooth" })
     setActiveId(targetElement.id)
+    setIsMobileTocOpen(false)
+  }, [])
+
+  useEffect(() => {
+    if (!isMobileTocOpen) return undefined
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = "hidden"
+
+    const handleEscape = event => {
+      if (event.key === "Escape") {
+        setIsMobileTocOpen(false)
+      }
+    }
+
+    document.addEventListener("keydown", handleEscape)
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+      document.removeEventListener("keydown", handleEscape)
+    }
+  }, [isMobileTocOpen])
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 42rem)")
+
+    const handleViewportChange = event => {
+      if (!event.matches) {
+        setIsMobileTocOpen(false)
+      }
+    }
+
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener("change", handleViewportChange)
+      return () => mediaQuery.removeEventListener("change", handleViewportChange)
+    }
+
+    mediaQuery.addListener(handleViewportChange)
+    return () => mediaQuery.removeListener(handleViewportChange)
   }, [])
 
   const processedTableOfContents = useMemo(() => {
@@ -156,19 +196,50 @@ const TableOfContents = ({ tableOfContents }) => {
   if (!tableOfContents?.trim()) return null
 
   return (
-    <aside className={styles.tocContainer}>
-      <div className={styles.tocHeader}>
-        <h3 className={styles.tocTitle}>목차</h3>
-      </div>
-      <div className={styles.tocProgress} aria-hidden="true">
-        <span className={styles.tocProgressFill} style={{ width: `${progress}%` }} />
-      </div>
-      <div
-        className={styles.tocContent}
-        onClick={handleTocClick}
-        dangerouslySetInnerHTML={{ __html: processedTableOfContents }}
+    <>
+      <button
+        type="button"
+        className={styles.mobileTocButton}
+        onClick={() => setIsMobileTocOpen(true)}
+        aria-haspopup="dialog"
+        aria-expanded={isMobileTocOpen}
+        aria-controls="mobile-toc-sheet"
+      >
+        목차
+      </button>
+
+      <button
+        type="button"
+        className={`${styles.mobileTocBackdrop} ${isMobileTocOpen ? styles.mobileVisible : ""}`}
+        aria-label="목차 닫기"
+        onClick={() => setIsMobileTocOpen(false)}
       />
-    </aside>
+
+      <aside
+        id="mobile-toc-sheet"
+        className={`${styles.tocContainer} ${isMobileTocOpen ? styles.mobileOpen : ""}`}
+      >
+        <div className={styles.tocHeader}>
+          <h3 className={styles.tocTitle}>목차</h3>
+          <button
+            type="button"
+            className={styles.mobileCloseButton}
+            onClick={() => setIsMobileTocOpen(false)}
+            aria-label="목차 닫기"
+          >
+            닫기
+          </button>
+        </div>
+        <div className={styles.tocProgress} aria-hidden="true">
+          <span className={styles.tocProgressFill} style={{ width: `${progress}%` }} />
+        </div>
+        <div
+          className={styles.tocContent}
+          onClick={handleTocClick}
+          dangerouslySetInnerHTML={{ __html: processedTableOfContents }}
+        />
+      </aside>
+    </>
   )
 }
 

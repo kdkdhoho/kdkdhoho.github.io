@@ -290,6 +290,20 @@
   }
 }
 
+@media (min-width: 900px) and (max-width: 1279px) {
+  .blogPostLayout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 16rem;
+    align-items: start;
+    column-gap: var(--spacing-6);
+  }
+
+  .blogPostContainer {
+    max-width: none;
+    margin: 0;
+  }
+}
+
 @media (min-width: 1600px) {
   .blogPostLayout {
     grid-template-columns: minmax(0, 1fr) 320px;

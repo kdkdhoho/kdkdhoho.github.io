@@ -112,10 +112,7 @@
 
 @media (max-width: 42rem) {
   .bioCard {
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
-    margin-bottom: var(--spacing-10);
+    margin-bottom: var(--spacing-4);
   }
 
   .tags {
@@ -123,17 +120,40 @@
   }
 
   .compactBio {
-    margin-bottom: var(--spacing-3);
-    padding: var(--spacing-3);
+    margin-bottom: var(--spacing-2);
+    padding: 0.65rem 0.85rem;
+    align-items: center;
+    gap: var(--spacing-3);
   }
 
   .compactContent {
-    flex-direction: column;
-    justify-content: center;
-    gap: var(--spacing-2);
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-3);
   }
 
   .compactText {
-    text-align: center;
+    flex: 1;
+    text-align: left;
+    min-width: 0;
+  }
+
+  .compactBio .tags {
+    margin-top: 0;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+  }
+
+  .compactBio .tagLink {
+    width: 1.7rem;
+    height: 1.7rem;
+  }
+
+  .compactBio .compactDescription {
+    margin-top: 0.08rem;
+    font-size: 0.72rem;
+    line-height: 1.35;
   }
 }

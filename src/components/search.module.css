@@ -185,13 +185,20 @@
 
 @media (max-width: 42rem) {
   .searchContainer {
-    max-width: 100%;
+    max-width: 8.25rem;
   }
 
   .inlineSearchInput {
-    min-width: 9.5rem;
-    height: 2.125rem;
-    font-size: 0.78rem;
+    min-width: 8.25rem;
+    height: 2rem;
+    padding: 0.38rem 0.65rem 0.38rem 1.75rem;
+    font-size: 0.74rem;
+  }
+
+  .searchIcon {
+    left: 0.55rem;
+    width: 0.9rem;
+    height: 0.9rem;
   }
 
   .searchDropdown {
