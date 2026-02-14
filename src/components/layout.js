@@ -1,6 +1,13 @@
 import * as React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import Search from "./search"
+import * as styles from "./layout.module.css"
+
+const getCategoryPathFromSlug = slug => {
+  const parts = slug.split("/").filter(Boolean)
+  if (parts.length <= 1) return ""
+  return parts.slice(0, -1).join("/")
+}
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -19,48 +26,94 @@ const Layout = ({ location, title, children }) => {
     }
   `)
 
-  // 카테고리 추출 로직
+  const posts = data.allMarkdownRemark.nodes
+
   const categories = React.useMemo(() => {
-    const posts = data.allMarkdownRemark.nodes
-    const categoryMap = new Map()
-    categoryMap.set("All", posts.length)
+    const root = {
+      name: "All",
+      path: "All",
+      count: posts.length,
+      children: new Map(),
+    }
 
     posts.forEach(post => {
-      const slug = post.fields.slug
-      const parts = slug.split("/").filter(Boolean)
-      const category = parts.length >= 2 ? parts[0] : "Etc"
-      
-      const count = categoryMap.get(category) || 0
-      categoryMap.set(category, count + 1)
+      const categoryPath = getCategoryPathFromSlug(post.fields.slug)
+      if (!categoryPath) return
+
+      const segments = categoryPath.split("/")
+      let cursor = root
+
+      segments.forEach((segment, index) => {
+        const nodePath = segments.slice(0, index + 1).join("/")
+
+        if (!cursor.children.has(segment)) {
+          cursor.children.set(segment, {
+            name: segment,
+            path: nodePath,
+            count: 0,
+            children: new Map(),
+          })
+        }
+
+        cursor = cursor.children.get(segment)
+        cursor.count += 1
+      })
     })
 
-    return Array.from(categoryMap.entries()).sort((a, b) => {
-      if (a[0] === "All") return -1
-      if (b[0] === "All") return 1
-      if (a[0] === "Etc") return 1
-      if (b[0] === "Etc") return -1
-      return a[0].localeCompare(b[0])
-    })
-  }, [data])
+    const sortTree = nodes =>
+      nodes
+        .sort((a, b) => a.name.localeCompare(b.name, "ko"))
+        .map(node => ({
+          ...node,
+          children: sortTree(Array.from(node.children.values())),
+        }))
 
-  // 현재 선택된 카테고리 파싱 (URL 쿼리 스트링)
+    return sortTree(Array.from(root.children.values()))
+  }, [posts])
+
   const currentCategory = React.useMemo(() => {
-    if (typeof window !== "undefined") {
-      const params = new URLSearchParams(location.search)
-      return params.get("category") || "All"
-    }
-    return "All"
+    const params = new URLSearchParams(location.search || "")
+    return params.get("category") || "All"
   }, [location.search])
+
+  const getCategoryLink = categoryPath =>
+    categoryPath === "All" ? "/" : `/?category=${encodeURIComponent(categoryPath)}`
+
+  const renderCategoryNodes = (nodes, depth = 0) => (
+    <ul className={styles.sidebarCategoryList}>
+      {nodes.map(node => {
+        const isActive =
+          currentCategory === node.path ||
+          (currentCategory !== "All" && currentCategory.startsWith(`${node.path}/`))
+
+        return (
+          <li key={node.path} className={styles.sidebarCategoryListItem}>
+            <Link
+              to={getCategoryLink(node.path)}
+              className={`${styles.sidebarCategoryItem} ${isActive ? styles.activeCategory : ""}`}
+              style={{ "--depth": depth }}
+            >
+              <span className={styles.categoryName}>{node.name.replace(/-/g, " ")}</span>
+              <span className={styles.categoryCount}>{node.count}</span>
+            </Link>
+            {node.children.length > 0 && renderCategoryNodes(node.children, depth + 1)}
+          </li>
+        )
+      })}
+    </ul>
+  )
 
   if (isRootPath) {
     header = (
-      <h1 className="main-heading">
-        <Link to="/">{title}</Link>
+      <h1 className={styles.mainHeading}>
+        <Link to="/" className={styles.titleLink}>
+          {title}
+        </Link>
       </h1>
     )
   } else {
     header = (
-      <Link className="header-link-home" to="/">
+      <Link to="/" className={styles.titleLink}>
         {title}
       </Link>
     )
@@ -68,57 +121,60 @@ const Layout = ({ location, title, children }) => {
 
   return (
     <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <header className="global-header">
-        <div className="header-container">
-          <div className="header-left">
-            {header}
-          </div>
-          <div className="header-right">
-            {/* Series 링크 제거됨 */}
-            <div className="header-buttons">
-              <Search />
-            </div>
+      <header className={styles.globalHeader}>
+        <div className={styles.headerContainer}>
+          <div className={styles.headerSide} aria-hidden="true" />
+          <div className={styles.headerCenter}>{header}</div>
+          <div className={styles.headerRight}>
+            <Search variant="inline" />
           </div>
         </div>
       </header>
-      
-      <div className="layout-container">
-        <aside className="sidebar">
-          <div className="sidebar-section">
-            <h3>Categories</h3>
-            <ul className="sidebar-category-list">
-              {categories.map(([category, count]) => (
-                <li key={category}>
-                  <Link 
-                    to={`/?category=${category}`} 
-                    className={`sidebar-category-item ${currentCategory === category ? "active" : ""}`}
+
+      <div className={styles.layoutContainer}>
+        <aside className={styles.sidebar}>
+          <div className={styles.sidebarSection}>
+            <h3 className={styles.sidebarTitle}>Categories</h3>
+            <div className={styles.categoryScrollArea}>
+              <ul className={styles.sidebarCategoryList}>
+                <li className={styles.sidebarCategoryListItem}>
+                  <Link
+                    to={getCategoryLink("All")}
+                    className={`${styles.sidebarCategoryItem} ${
+                      currentCategory === "All" ? styles.activeCategory : ""
+                    }`}
+                    style={{ "--depth": 0 }}
                   >
-                    {category.replace(/-/g, " ")} ({count})
+                    <span className={styles.categoryName}>All</span>
+                    <span className={styles.categoryCount}>{posts.length}</span>
                   </Link>
                 </li>
-              ))}
-            </ul>
+              </ul>
+              {renderCategoryNodes(categories)}
+            </div>
           </div>
         </aside>
 
-        <main className="main-content">{children}</main>
+        <main className={styles.mainContent}>{children}</main>
       </div>
 
-      <footer style={{
-        textAlign: 'center',
-        padding: 'var(--spacing-12) 0',
-        marginTop: 'var(--spacing-16)',
-        borderTop: '1px solid var(--color-border)',
-        color: 'var(--color-text-light)',
-        fontSize: 'var(--fontSize-0)'
-      }}>
-        © {new Date().getFullYear()} kdkdhoho. Built with{` `}
-        <a 
+      <footer
+        style={{
+          textAlign: "center",
+          padding: "var(--spacing-12) 0",
+          marginTop: "var(--spacing-16)",
+          borderTop: "1px solid var(--color-border)",
+          color: "var(--color-text-light)",
+          fontSize: "var(--fontSize-0)",
+        }}
+      >
+        © {new Date().getFullYear()} kdkdhoho. Built with{" "}
+        <a
           href="https://www.gatsbyjs.com"
           style={{
-            color: 'var(--color-primary)',
-            textDecoration: 'none',
-            fontWeight: '500'
+            color: "var(--color-primary)",
+            textDecoration: "none",
+            fontWeight: "500",
           }}
         >
           Gatsby

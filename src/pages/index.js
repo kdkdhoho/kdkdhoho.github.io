@@ -6,28 +6,30 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
+const getCategoryPathFromSlug = slug => {
+  const parts = slug.split("/").filter(Boolean)
+  if (parts.length <= 1) return ""
+  return parts.slice(0, -1).join("/")
+}
+
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
 
-  // URL에서 카테고리 파싱
   const selectedCategory = useMemo(() => {
-    if (typeof window !== "undefined") {
-      const params = new URLSearchParams(location.search)
-      return params.get("category") || "All"
-    }
-    return "All"
+    const params = new URLSearchParams(location.search || "")
+    return params.get("category") || "All"
   }, [location.search])
 
-  // 선택된 카테고리에 따라 포스트 필터링
   const filteredPosts = useMemo(() => {
     if (selectedCategory === "All") return posts
 
     return posts.filter(post => {
-      const slug = post.fields.slug
-      const parts = slug.split("/").filter(Boolean)
-      const category = parts.length >= 2 ? parts[0] : "Etc"
-      return category === selectedCategory
+      const categoryPath = getCategoryPathFromSlug(post.fields.slug)
+      return (
+        categoryPath === selectedCategory ||
+        categoryPath.startsWith(`${selectedCategory}/`)
+      )
     })
   }, [posts, selectedCategory])
 
@@ -49,8 +51,6 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Bio />
-      
-      {/* Category Nav Removed (Moved to Sidebar in Layout) */}
 
       <div className="posts-grid">
         {filteredPosts.map(post => {
