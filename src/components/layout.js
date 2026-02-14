@@ -10,7 +10,7 @@ const getCategoryPathFromSlug = slug => {
   return parts.slice(0, -1).join("/")
 }
 
-const Layout = ({ location, title, children }) => {
+const Layout = ({ location, title, children, variant = "default" }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
@@ -120,10 +120,31 @@ const Layout = ({ location, title, children }) => {
     )
   }
 
+  const wrapperClassName =
+    variant === "post" ? `global-wrapper ${styles.postWrapper}` : "global-wrapper"
+  const layoutContainerClassName =
+    variant === "post"
+      ? `${styles.layoutContainer} ${styles.postLayoutContainer}`
+      : styles.layoutContainer
+  const headerClassName =
+    variant === "post"
+      ? `${styles.globalHeader} ${styles.postGlobalHeader}`
+      : styles.globalHeader
+  const headerContainerClassName =
+    variant === "post"
+      ? `${styles.headerContainer} ${styles.postHeaderContainer}`
+      : styles.headerContainer
+  const sidebarClassName =
+    variant === "post" ? `${styles.sidebar} ${styles.postSidebar}` : styles.sidebar
+  const mainContentClassName =
+    variant === "post"
+      ? `${styles.mainContent} ${styles.postMainContent}`
+      : styles.mainContent
+
   return (
-    <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <header className={styles.globalHeader}>
-        <div className={styles.headerContainer}>
+    <div className={wrapperClassName} data-is-root-path={isRootPath}>
+      <header className={headerClassName}>
+        <div className={headerContainerClassName}>
           <div className={styles.headerSide} aria-hidden="true" />
           <div className={styles.headerCenter}>{header}</div>
           <div className={styles.headerRight}>
@@ -132,8 +153,8 @@ const Layout = ({ location, title, children }) => {
         </div>
       </header>
 
-      <div className={styles.layoutContainer}>
-        <aside className={styles.sidebar}>
+      <div className={layoutContainerClassName}>
+        <aside className={sidebarClassName}>
           <Bio variant="compact" />
           <div className={styles.sidebarSection}>
             <h3 className={styles.sidebarTitle}>Categories</h3>
@@ -157,7 +178,7 @@ const Layout = ({ location, title, children }) => {
           </div>
         </aside>
 
-        <main className={styles.mainContent}>{children}</main>
+        <main className={mainContentClassName}>{children}</main>
       </div>
 
       <footer

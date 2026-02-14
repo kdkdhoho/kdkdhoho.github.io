@@ -59,6 +59,7 @@ const BlogIndex = ({ data, location }) => {
         {filteredPosts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
           const thumbnailSrc = getFirstImageFromHtml(post.html)
+          const minutes = Math.max(1, post.timeToRead || 0)
 
           return (
             <article
@@ -84,7 +85,10 @@ const BlogIndex = ({ data, location }) => {
                       <h2 className={styles.postTitle}>
                         <span itemProp="headline">{title}</span>
                       </h2>
-                      <small className={styles.postDate}>{post.frontmatter.date}</small>
+                      <div className={styles.postMeta}>
+                        <small className={styles.postDate}>{post.frontmatter.date}</small>
+                        <span className={styles.readingTimeText}>{minutes} min read</span>
+                      </div>
                     </header>
                     <section className={styles.postCardExcerpt}>
                       {post.frontmatter.description && (
@@ -96,17 +100,6 @@ const BlogIndex = ({ data, location }) => {
                         />
                       )}
                     </section>
-                    {post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
-                      <footer className={styles.postCardFooter}>
-                        <div className={styles.postTags}>
-                          {post.frontmatter.tags.map(tag => (
-                            <span key={tag} className={styles.postTag}>
-                              #{tag}
-                            </span>
-                          ))}
-                        </div>
-                      </footer>
-                    )}
                   </div>
                 </div>
               </Link>
@@ -141,6 +134,7 @@ export const pageQuery = graphql`
       nodes {
         excerpt
         html
+        timeToRead
         fields {
           slug
         }
@@ -148,7 +142,6 @@ export const pageQuery = graphql`
           date(formatString: "YYYY년 M월 D일")
           title
           description
-          tags
         }
       }
     }
