@@ -1,11 +1,11 @@
 ---
 title: "그래프, 그래프 탐색 알고리즘"
 description: "그래프 자료구조와 그래프 탐색 알고리즘인 DFS, BFS에 대해 학습한 내용을 기록했습니다."
-date: 2026-02-11
+date: 2026-02-14
 tags: ["그래프", "그래프 탐색 알고리즘", "BFS", "DFS"]
 ---
 
-# 그래프
+# 1. 그래프
 자료구조에는 **선형 자료구조**(배열, 리스트, 스택, 큐 등)와 **비선형 자료구조**(그래프, 트리 등)이 있습니다.
 
 선형 자료구조는 데이터의 순서가 중요한 자료구조입니다.  
@@ -28,17 +28,17 @@ tags: ["그래프", "그래프 탐색 알고리즘", "BFS", "DFS"]
 한 노드에서 다른 노드로 향할 때, 간선의 크기를 의미합니다.  
 예를 들어, 서울이 노드 A, 부산이 노드 B라고 할 때, A에서 B로 향하는 가중치는 10이라고 표현할 수 있습니다.
 
-# 그래프 탐색 알고리즘
+# 2. 그래프 탐색 알고리즘
 그래프를 탐색하는 방법(알고리즘)에는 크게 두 가지가 있습니다. DFS와 BFS 입니다.
 
-## DFS (Depth First Search)
-### 특징
+## 2.1. DFS (Depth First Search)
+### 2.1.1. 특징
 깊이 우선 탐색이라 불리는 DFS는, 그래프를 탐색할 때 다음 노드를 먼저 방문하는 식으로 탐색합니다.  
 이미지로 표현하면 다음과 같습니다.
 
 ![DFS의 노드 탐색 순서 (출처: Wikipedia - 깊이 우선 탐색)](dfs.png)
 
-### 용도
+### 2.1.2. 용도
 DFS를 주로 사용하는 경우는 다음과 같습니다.
 
 - 연결 요소의 크기 구하기
@@ -48,7 +48,7 @@ DFS를 주로 사용하는 경우는 다음과 같습니다.
 - 이분 그래프 판별
 - 사이클 존재 파악 및 사이클 크기 구하기
 
-### 기본 구현
+### 2.1.3. 기본 구현
 DFS를 구현할 때 가장 먼저, 주어진 노드와 간선 정보를 그래프 형태로 저장해야 합니다.  
 그래프를 저장할 때는 **인접 행렬**과 **인접 그래프** 방식으로 구현할 수 있습니다.
 
@@ -116,12 +116,12 @@ def dfs(curr_node):
 
 위 DFS 코드를 기반으로, 문제에서 필요한 해를 구하는 코드를 추가하면 됩니다.
 
-### 이분 그래프
+### 2.1.4. 이분 그래프
 이분 그래프란, 모든 정점을 빨간색, 혹은 파란색으로 칠했을 때, 모든 간선에 대해서 각 간선이 빨간색이랑 파란색을 포함하도록 색칠할 수 있는 그래프입니다.
 
 ![이분 그래프 예시 (출처: Wikipedia)](이분-그래프-예시.png)
 
-기본 구현(Python)은 다음과 같습니다.
+이분 그래프도 DFS 알고리즘을 이용해서 판별할 수 있습니다.
 
 ```python
 import sys
@@ -164,8 +164,8 @@ for i in range(1, n + 1):
 print(answer)
 ```
 
-### 사이클 존재 유무 파악 및 사이클 크기 구하기
-사이클이 존재하는지? 존재한다면 사이클의 크기를 구할 때도 DFS를 이용할 수 있습니다.
+### 2.1.5. 사이클 존재 유무 파악 및 사이클 크기 구하기
+그래프에 사이클이 존재하는지 판별할 수 있고, 사이클의 크기도 DFS를 통해 구할 수 있습니다.
 
 기본 구현(Python)은 다음과 같습니다.
 
@@ -175,56 +175,114 @@ has_cycle = False
 
 # cur: 현재 방문한 노드 번호입니다.
 # prev: 이전에 방문한 노드 번호입니다.
-def dfs(cur, prev):
-    for nxt in graph[cur]:
-        if prev != nxt: # cur과 연결된 노드인 경우
-          if depth[nxt] == 0: # 해당 노드에 처음 방문하는 경우
-              depth[nxt] = depth[cur] + 1
-              dfs(nxt, cur)
-          elif depth[nxt] > depth[cur]: # 연결된 노드가 현재 노드보다 먼저 방문한 경우 -> 사이클 존재
-            has_cycle = True
-            size = depth[cur] - depth[nxt] + 1 # 사이클의 사이즈를 구한다.    
+def dfs(curr, prev):
+    for nxt in graph[curr]:
+        if prev != nxt: # curr과 연결된 노드인 경우
+            if depth[nxt] == 0: # 해당 노드에 처음 방문하는 경우
+                depth[nxt] = depth[curr] + 1
+                dfs(nxt, curr)
+            elif depth[nxt] > depth[curr]: # 연결된 노드가 현재 노드보다 먼저 방문한 경우 -> 사이클 존재
+                has_cycle = True
+                size = depth[curr] - depth[nxt] + 1 # 사이클의 사이즈를 구한다.    
 ```
 
 대표적인 문제로는 [백준의 아침은 고구마야](https://www.acmicpc.net/problem/20426)가 있으니 위를 참고하여 풀어보는 것도 좋겠습니다.
 
-### 순열 사이클 분할 (임시 저장)
-
-![](순열-사이클-분할.png)
-
 ---
 
-## BFS (임시 저장)
-### 특징
+## 2.2. BFS
+### 2.2.1. 특징
+너비 우선 탐색이라 불리는 BFS(Breadth First Search)는 그래프 상에서 특정 노드를 기준으로, 연결된 노드를 먼저 탐색하는 방식입니다.
 
-### 용도
-- 최단 거리
+말보단 아래 이미지를 보는 것이 이해가 훨씬 쉽습니다.
+
+![BFS](bfs.png)
+
+### 2.2.2. 용도
+- **가중치가 모두 1인 그래프에서 최단 거리 구하기** ()
 - 단계별 확산 시뮬레이션
+- 그래프에서 depth 단위로 끊어서 탐색하기
 
-### 구현 시 주의사항
-**방문 여부를 반드시 큐에 넣기 전에 설정**해야 한다.  
-큐에서 뺄 때 처리하면, 중복된 노드가 큐에 여러 번 들어가 메모리 초과가 발생할 수 있다.
+### 2.2.3. 기본 구현
+DFS는 재귀 함수로 구현하는 반면, BFS는 **큐**를 이용해서 구현합니다.
 
-### 구현(Python)  
+인접 그래프 형태의 자료구조에서는 다음과 같이 작성하는 것이 기본 형태입니다.
 ```python
 from collections import deque
 
-dx = [-1,0,1,0]
-dy = [0,1,0,-1]
+def bfs(start):
+    visited = [False] * n
+    q = deque()
+    
+    visited[start] = True
+    q.append(start)
+    
+    while q:
+        curr = q.popleft()
+        
+        for next in graph[curr]:
+            if visited[next]:
+                continue
+                
+            q.append(next)
+            visited[next] = True
+```
+
+이때 유의해야 할 점은, **방문 여부를 처리할 때 반드시 큐에 넣기 전에 해야 한다는 점**입니다.  
+큐에서 뺄 때 처리하면, 중복된 노드가 큐에 여러 번 들어갈 수 있어 불필요한 연산이 수행될 수 있기 때문입니다.
+
+만약 2차원 격자에서 BFS 방식으로 탐색하려면 다음과 같이 작성하는 것이 기본 형태입니다.
+```python
+from collections import deque
+
+dx = [-1, 0, 1, 0]
+dy = [0, 1, 0, -1]
 
 def bfs(start_x, start_y):
     visited = [[False] * n for _ in range(n)]
     q = deque((start_x, start_y))
     
+    visited[start_x][start_y] = True
+    q.append((start_x, start_y))
+    
     while q:
         x, y = q.popleft()
         
         for d in range(4):
-            nxt_x, nxt_y = x + dx[d], y + dy[d]
-            if not in_array(nxt_x, nxt_y):
+            next_x, next_y = x + dx[d], y + dy[d]
+            
+            if not in_array(next_x, next_y):
                 continue
-            if visited[nxt_x][nxt_y]:
+            if visited[next_x][next_y]:
                 continue
-            visited[nxt_x][nxt_y] = True
-            q.append((nxt_x, nxt_y))
+                
+            visited[next_x][next_y] = True
+            q.append((next_x, next_y))
+```
+
+### 2.2.4. 그래프에서 depth 단위로 끊어서 탐색하기
+
+```python
+from collections import deque
+
+graph = ... # 생략
+
+visited = [False] * n
+q = deque()
+
+q.append(n)
+visited[n] = True
+
+# while문이 실행될 때마다 시작 노드(n)를 기준으로 거리가 1씩 증가하는 노드들만 탐색하게 된다.
+# (거리가 1인 노드들 -> 거리가 2인 노드들 -> ...)
+while q:
+    size = len(q)
+    for _ in range(size):
+        curr = q.popleft()
+        for nxt in graph[curr]:
+            if visited[nxt]:
+                continue
+                
+            q.append(nxt)
+            visited[nxt] = True
 ```
