@@ -29,9 +29,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           fields {
             slug
           }
-          frontmatter {
-            series
-          }
         }
       }
     }
@@ -68,75 +65,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   }
 
-  // Create series pages
-  const seriesResult = await graphql(`
-    {
-      allMarkdownRemark(
-        filter: { 
-          frontmatter: { 
-            series: { ne: null },
-            draft: { ne: true }
-          } 
-        }
-      ) {
-        group(field: { frontmatter: { series: SELECT } }) {
-          fieldValue
-          nodes {
-            id
-            frontmatter {
-              title
-              date
-              description
-            }
-            fields {
-              slug
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  if (seriesResult.errors) {
-    reporter.panicOnBuild(
-      `There was an error loading series data`,
-      seriesResult.errors
-    )
-    return
-  }
-
-  const series = seriesResult.data.allMarkdownRemark.group
-  const seriesTemplate = path.resolve(`./src/templates/series.js`)
-
-  // Create individual series pages
-  series.forEach(({ fieldValue, nodes }) => {
-    // 한글을 영어로 변환하는 함수
-    const createSlug = (str) => {
-      const map = {
-        '링글 튜터링 복습': 'ringle-tutoring-review',
-        '셀럽잇 프로젝트': 'celuveat-project', 
-        '그림으로 배우는 Http & Network Basic': 'http-network-basic',
-        '창구 AI 스터디 잼': 'changgu-ai-study-jam',
-        '운영체제 면접 스터디': 'os-interview-study',
-        'Why? 시리즈': 'why-series',
-        'DB 면접 스터디': 'db-interview-study',
-        'Real MySQL 8.0': 'real-mysql-8'
-      }
-      
-      return map[str] || str.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')
-    }
-    
-    const seriesSlug = createSlug(fieldValue)
-    
-    createPage({
-      path: `/series/${seriesSlug}`,
-      component: seriesTemplate,
-      context: {
-        series: fieldValue,
-        posts: nodes,
-      },
-    })
-  })
 }
 
 /**
@@ -193,7 +121,6 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       description: String
       date: Date @dateformat
-      series: String
       tags: [String]
       draft: Boolean
     }

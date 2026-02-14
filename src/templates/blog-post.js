@@ -1,111 +1,115 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import TableOfContents from "../components/toc"
+import * as styles from "./blog-post.module.css"
+
+const withNewTabLinks = html => {
+  if (!html) return html
+
+  return html.replace(/<a\s+([^>]*href=(?:"[^"]*"|'[^']*')[^>]*)>/gi, (match, attrs) => {
+    let nextAttrs = attrs
+
+    if (!/\btarget\s*=/i.test(nextAttrs)) {
+      nextAttrs = `${nextAttrs} target="_blank"`
+    } else {
+      nextAttrs = nextAttrs.replace(/\btarget\s*=\s*(['"])[^'"]*\1/i, 'target="_blank"')
+    }
+
+    if (!/\brel\s*=/i.test(nextAttrs)) {
+      nextAttrs = `${nextAttrs} rel="noopener noreferrer"`
+    } else {
+      nextAttrs = nextAttrs.replace(/\brel\s*=\s*(['"])([^'"]*)\1/i, (relMatch, quote, value) => {
+        const tokens = value.split(/\s+/).filter(Boolean)
+        if (!tokens.includes("noopener")) tokens.push("noopener")
+        if (!tokens.includes("noreferrer")) tokens.push("noreferrer")
+        return `rel=${quote}${tokens.join(" ")}${quote}`
+      })
+    }
+
+    return `<a ${nextAttrs}>`
+  })
+}
 
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
   location,
 }) => {
   const siteTitle = site.siteMetadata?.title || `Title`
+  const postHtml = React.useMemo(() => withNewTabLinks(post.html), [post.html])
+  const [scrollProgress, setScrollProgress] = React.useState(0)
 
   React.useEffect(() => {
-    const progressBar = document.createElement('div')
-    progressBar.className = 'scroll-progress'
-    document.body.appendChild(progressBar)
-
     const updateProgress = () => {
       const scrollTop = window.pageYOffset
       const docHeight = document.body.scrollHeight - window.innerHeight
-      const scrollPercent = (scrollTop / docHeight) * 100
-      progressBar.style.width = scrollPercent + '%'
+      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0
+      setScrollProgress(Math.min(100, Math.max(0, scrollPercent)))
     }
 
-    window.addEventListener('scroll', updateProgress)
-    
+    window.addEventListener("scroll", updateProgress, { passive: true })
+    window.addEventListener("resize", updateProgress, { passive: true })
+    updateProgress()
+
     return () => {
-      window.removeEventListener('scroll', updateProgress)
-      if (document.body.contains(progressBar)) {
-        document.body.removeChild(progressBar)
-      }
+      window.removeEventListener("scroll", updateProgress)
+      window.removeEventListener("resize", updateProgress)
     }
   }, [])
 
   return (
-    <Layout location={location} title={siteTitle}>
-      <div className="blog-post-layout">
-        <div className="blog-post-container">
+    <Layout location={location} title={siteTitle} variant="post">
+      <div className={styles.scrollProgress} style={{ width: `${scrollProgress}%` }} aria-hidden="true" />
+      <div className={styles.blogPostLayout}>
+        <div className={styles.blogPostContainer}>
           <article
-            className="blog-post"
+            className={styles.blogPost}
             itemScope
             itemType="http://schema.org/Article"
           >
-            <header>
-              <h1>{post.frontmatter.title}</h1>
-              <p className="post-date">{post.frontmatter.date}</p>
-              {post.frontmatter.series && (
-                <div className="series-info">
-                  <Link to={`/series/${(() => {
-                    const map = {
-                      '링글 튜터링 복습': 'ringle-tutoring-review',
-                      '셀럽잇 프로젝트': 'celuveat-project', 
-                      '그림으로 배우는 Http & Network Basic': 'http-network-basic',
-                      '창구 AI 스터디 잼': 'changgu-ai-study-jam',
-                      '운영체제 면접 스터디': 'os-interview-study',
-                      'Why? 시리즈': 'why-series',
-                      'DB 면접 스터디': 'db-interview-study',
-                      'Real MySQL 8.0': 'real-mysql-8'
-                    }
-                    return map[post.frontmatter.series] || post.frontmatter.series.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')
-                  })()}`} className="series-link">
-                    📚 {post.frontmatter.series} 시리즈
-                  </Link>
-                </div>
-              )}
-              <p>{post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
-                <div className="tags-container">
+            <header className={styles.blogPostHeader}>
+              <h1 className={styles.postTitle}>{post.frontmatter.title}</h1>
+              <time className={styles.postDate}>{post.frontmatter.date}</time>
+              {post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
+                <div className={styles.tagsContainer}>
                   {post.frontmatter.tags.map(tag => (
-                    <span key={tag} className="tag">
+                    <span key={tag} className={styles.tag}>
                       #{tag}
                     </span>
                   ))}
                 </div>
-              )}</p>
+              )}
             </header>
             <section
-              className="blog-post-content"
-              dangerouslySetInnerHTML={{ __html: post.html }}
+              className={`${styles.blogPostContent} blog-post-content`}
+              dangerouslySetInnerHTML={{ __html: postHtml }}
               itemProp="articleBody"
             />
-            <hr />
-            <footer>
-              <Bio />
-            </footer>
+            <hr className={styles.postDivider} />
           </article>
+          <nav className={styles.blogPostNav}>
+            <ul>
+              <li>
+                {previous && (
+                  <Link to={previous.fields.slug} rel="이전 글">
+                    {previous.frontmatter.title}
+                  </Link>
+                )}
+              </li>
+              <li>
+                {next && (
+                  <Link to={next.fields.slug} rel="다음 글">
+                    {next.frontmatter.title}
+                  </Link>
+                )}
+              </li>
+            </ul>
+          </nav>
         </div>
         {post.tableOfContents && <TableOfContents tableOfContents={post.tableOfContents} />}
       </div>
-      <nav className="blog-post-nav">
-        <ul>
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="이전 글">
-                {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="다음 글">
-                {next.frontmatter.title}
-              </Link>
-            )}
-          </li>
-        </ul>
-      </nav>
     </Layout>
   )
 }
@@ -142,7 +146,6 @@ export const pageQuery = graphql`
         date(formatString: "YYYY년 M월 D일")
         description
         tags
-        series
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

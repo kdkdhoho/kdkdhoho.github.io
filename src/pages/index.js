@@ -2,39 +2,41 @@ import * as React from "react"
 import { useMemo } from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import * as styles from "./index.module.css"
+import { getFirstImageFromHtml, getReadingTimeText } from "../utils/post-utils"
+
+const getCategoryPathFromSlug = slug => {
+  const parts = slug.split("/").filter(Boolean)
+  if (parts.length <= 1) return ""
+  return parts.slice(0, -1).join("/")
+}
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
 
-  // URL에서 카테고리 파싱
   const selectedCategory = useMemo(() => {
-    if (typeof window !== "undefined") {
-      const params = new URLSearchParams(location.search)
-      return params.get("category") || "All"
-    }
-    return "All"
+    const params = new URLSearchParams(location.search || "")
+    return params.get("category") || "All"
   }, [location.search])
 
-  // 선택된 카테고리에 따라 포스트 필터링
   const filteredPosts = useMemo(() => {
     if (selectedCategory === "All") return posts
 
     return posts.filter(post => {
-      const slug = post.fields.slug
-      const parts = slug.split("/").filter(Boolean)
-      const category = parts.length >= 2 ? parts[0] : "Etc"
-      return category === selectedCategory
+      const categoryPath = getCategoryPathFromSlug(post.fields.slug)
+      return (
+        categoryPath === selectedCategory ||
+        categoryPath.startsWith(`${selectedCategory}/`)
+      )
     })
   }, [posts, selectedCategory])
 
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
-        <Bio />
         <div className="empty-posts">
           <p>
             No blog posts found. Add markdown posts to "content/blog" (or the
@@ -48,51 +50,53 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Bio />
-      
-      {/* Category Nav Removed (Moved to Sidebar in Layout) */}
-
-      <div className="posts-grid">
+      <div className={styles.postsGrid}>
         {filteredPosts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
+          const thumbnailSrc = getFirstImageFromHtml(post.html)
+          const readingTime = getReadingTimeText(post.timeToRead)
 
           return (
             <article
               key={post.fields.slug}
-              className="post-list-item"
+              className={styles.postListItem}
               itemScope
               itemType="http://schema.org/Article"
             >
-              <Link to={post.fields.slug} itemProp="url" className="post-link">
-                <div className="post-card-content">
-                  <header className="post-card-header">
-                    <h2 className="post-title">
-                      <span itemProp="headline">{title}</span>
-                    </h2>
-                    <small className="post-date">{post.frontmatter.date}</small>
-                  </header>
-                  <section className="post-card-excerpt">
-                    {post.frontmatter.description && (
-                      <p
-                        dangerouslySetInnerHTML={{
-                          __html: post.frontmatter.description,
-                        }}
-                        itemProp="description"
+              <Link to={post.fields.slug} itemProp="url" className={styles.postLink}>
+                <div className={styles.postCardBody}>
+                  {thumbnailSrc && (
+                    <div className={styles.postThumbnailWrapper}>
+                      <img
+                        src={thumbnailSrc}
+                        alt={`${title} 썸네일`}
+                        className={styles.postThumbnailImage}
+                        loading="lazy"
                       />
-                    )}
-                  </section>
-                </div>
-                <footer className="post-card-footer">
-                  {post.frontmatter.tags && (
-                    <div className="post-tags">
-                      {post.frontmatter.tags.map(tag => (
-                        <span key={tag} className="post-tag">
-                          #{tag}
-                        </span>
-                      ))}
                     </div>
                   )}
-                </footer>
+                  <div className={styles.postCardContent}>
+                    <header className={styles.postCardHeader}>
+                      <h2 className={styles.postTitle}>
+                        <span itemProp="headline">{title}</span>
+                      </h2>
+                      <div className={styles.postMeta}>
+                        <small className={styles.postDate}>{post.frontmatter.date}</small>
+                        <span className={styles.readingTimeText}>{readingTime}</span>
+                      </div>
+                    </header>
+                    <section className={styles.postCardExcerpt}>
+                      {post.frontmatter.description && (
+                        <p
+                          dangerouslySetInnerHTML={{
+                            __html: post.frontmatter.description,
+                          }}
+                          itemProp="description"
+                        />
+                      )}
+                    </section>
+                  </div>
+                </div>
               </Link>
             </article>
           )
@@ -124,6 +128,8 @@ export const pageQuery = graphql`
     ) {
       nodes {
         excerpt
+        html
+        timeToRead
         fields {
           slug
         }
@@ -131,7 +137,6 @@ export const pageQuery = graphql`
           date(formatString: "YYYY년 M월 D일")
           title
           description
-          tags
         }
       }
     }
