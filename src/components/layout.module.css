@@ -37,15 +37,16 @@
 
 .mainHeading {
   margin: 0;
-  font-size: var(--fontSize-2);
+  font-size: var(--fontSize-3);
   line-height: 1.2;
-  font-weight: 600;
+  font-weight: 800;
 }
 
 .titleLink {
   color: var(--color-heading);
   text-decoration: none;
-  font-size: var(--fontSize-2);
+  font-size: var(--fontSize-3);
+  font-weight: 800;
   letter-spacing: -0.01em;
   transition: color 0.2s ease;
 }
@@ -251,7 +252,7 @@
 
   .titleLink,
   .mainHeading {
-    font-size: var(--fontSize-1);
+    font-size: var(--fontSize-2);
   }
 
   .sidebar {

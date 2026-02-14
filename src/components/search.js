@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react"
+import React, { useState, useRef, useEffect, useCallback } from "react"
 import { useStaticQuery, graphql, navigate } from "gatsby"
 import * as styles from "./search.module.css"
 
@@ -11,7 +11,10 @@ const Search = ({ variant = "toggle" }) => {
 
   const data = useStaticQuery(graphql`
     query SearchQuery {
-      allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
+      allMarkdownRemark(
+        sort: { frontmatter: { date: DESC } }
+        filter: { frontmatter: { draft: { ne: true } } }
+      ) {
         nodes {
           fields {
             slug
@@ -35,20 +38,24 @@ const Search = ({ variant = "toggle" }) => {
     setResults(posts.slice(0, 5))
   }
 
+  const resetSearchState = useCallback(() => {
+    setIsOpen(false)
+    setQuery("")
+    setResults([])
+  }, [])
+
   useEffect(() => {
     if (!isOpen) return undefined
 
     const handleClickOutside = event => {
       if (searchRef.current && !searchRef.current.contains(event.target)) {
-        setIsOpen(false)
+        resetSearchState()
       }
     }
 
     const handleEscape = event => {
       if (event.key === "Escape") {
-        setIsOpen(false)
-        setQuery("")
-        setResults([])
+        resetSearchState()
       }
     }
 
@@ -59,7 +66,7 @@ const Search = ({ variant = "toggle" }) => {
       document.removeEventListener("mousedown", handleClickOutside)
       document.removeEventListener("keydown", handleEscape)
     }
-  }, [isOpen])
+  }, [isOpen, resetSearchState])
 
   const handleSearch = searchQuery => {
     setQuery(searchQuery)
@@ -94,17 +101,13 @@ const Search = ({ variant = "toggle" }) => {
 
   const handleResultClick = slug => {
     navigate(slug)
-    setIsOpen(false)
-    setQuery("")
-    setResults([])
+    resetSearchState()
   }
 
   const handleEnterSearch = event => {
     if (event.key === "Enter" && query.trim().length >= 2) {
       navigate(`/search?q=${encodeURIComponent(query.trim())}`)
-      setIsOpen(false)
-      setQuery("")
-      setResults([])
+      resetSearchState()
     }
   }
 
@@ -116,14 +119,13 @@ const Search = ({ variant = "toggle" }) => {
       return
     }
 
-    setIsOpen(false)
-    setQuery("")
-    setResults([])
+    resetSearchState()
   }
 
   const openInlineSearch = () => {
-    setIsOpen(true)
-    if (query.length === 0) {
+    if (!isOpen) {
+      setIsOpen(true)
+      setQuery("")
       showRecentPosts()
     }
   }
