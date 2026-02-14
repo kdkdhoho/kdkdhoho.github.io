@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import TableOfContents from "../components/toc"
 import * as styles from "./blog-post.module.css"
+import { getFirstImageFromHtml } from "../utils/post-utils"
 
 const withNewTabLinks = html => {
   if (!html) return html
@@ -114,11 +115,17 @@ const BlogPostTemplate = ({
   )
 }
 
-export const Head = ({ data: { markdownRemark: post } }) => {
+export const Head = ({ data: { markdownRemark: post }, location }) => {
+  const image = getFirstImageFromHtml(post.html)
+
   return (
     <Seo
       title={post.frontmatter.title}
       description={post.frontmatter.description || post.excerpt}
+      pathname={location.pathname}
+      image={image}
+      article
+      publishedTime={post.frontmatter.dateISO}
     />
   )
 }
@@ -144,6 +151,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "YYYY년 M월 D일")
+        dateISO: date(formatString: "YYYY-MM-DD")
         description
         tags
       }

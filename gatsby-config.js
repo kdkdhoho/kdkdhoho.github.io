@@ -2,8 +2,14 @@ module.exports = {
   pathPrefix: "/",
   siteMetadata: {
     title: `김동호 블로그`,
+    description: `백엔드 개발과 학습 내용을 기록하는 김동호의 기술 블로그`,
+    siteUrl: `https://kdkdhoho.github.io`,
+    siteImage: `/favicon-32x32.png`,
     author: {
       name: `김동호`,
+    },
+    social: {
+      twitter: ``,
     },
   },
   plugins: [
@@ -25,10 +31,6 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        tableOfContents: {
-          heading: null,
-          maxDepth: 4,
-        },
         plugins: [
           {
             resolve: `gatsby-remark-images`,

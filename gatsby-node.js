@@ -98,8 +98,11 @@ exports.createSchemaCustomization = ({ actions }) => {
   // blog posts are stored inside "content/blog" instead of returning an error
   createTypes(`
     type SiteSiteMetadata {
+      title: String
+      description: String
       author: Author
       siteUrl: String
+      siteImage: String
       social: Social
     }
 

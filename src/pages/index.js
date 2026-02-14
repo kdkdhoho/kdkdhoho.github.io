@@ -113,7 +113,13 @@ export default BlogIndex
  *
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
-export const Head = () => <Seo title="All posts" />
+export const Head = ({ location }) => (
+  <Seo
+    title="All posts"
+    description="최신 개발 글과 학습 기록을 확인할 수 있습니다."
+    pathname={location.pathname}
+  />
+)
 
 export const pageQuery = graphql`
   {

@@ -196,6 +196,8 @@ export const Head = ({ location }) => {
     <Seo
       title={query ? `'${query}' 검색 결과` : "포스트 검색"}
       description={query ? `'${query}'에 대한 검색 결과` : "블로그 포스트를 검색하세요"}
+      pathname={location.pathname}
+      noindex
     />
   )
 }
