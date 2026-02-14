@@ -3,26 +3,32 @@ import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import * as styles from "./404.module.css"
 
 const NotFoundPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
 
   return (
     <Layout location={location} title={siteTitle}>
-      <div className="not-found-container">
-        <div className="not-found-content">
-          <span className="not-found-emoji" role="img" aria-label="Compass">🧭</span>
-          <h1 className="not-found-title">404</h1>
-          <h2 className="not-found-subtitle">페이지를 찾을 수 없습니다</h2>
-          <p className="not-found-description">
-            방문하시려는 페이지의 주소가 잘못 입력되었거나,<br />
-            페이지의 주소가 변경 혹은 삭제되어 요청하신 페이지를 찾을 수 없습니다.
+      <section className={styles.notFoundPage}>
+        <div className={styles.heroCard}>
+          <span className={styles.errorCode}>404</span>
+          <h1 className={styles.title}>페이지를 찾을 수 없습니다</h1>
+          <p className={styles.description}>
+            요청하신 주소가 변경되었거나 삭제되었습니다.
+            <br />
+            아래 버튼으로 홈 또는 검색 페이지로 이동해 주세요.
           </p>
-          <Link to="/" className="not-found-button">
-            홈으로 돌아가기
-          </Link>
+          <div className={styles.actions}>
+            <Link to="/" className={styles.primaryButton}>
+              홈으로 이동
+            </Link>
+            <Link to="/search" className={styles.secondaryButton}>
+              포스트 검색
+            </Link>
+          </div>
         </div>
-      </div>
+      </section>
     </Layout>
   )
 }
