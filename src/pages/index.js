@@ -16,6 +16,7 @@ const getCategoryPathFromSlug = slug => {
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
+  const recentPosts = posts.slice(0, 5)
 
   const selectedCategory = useMemo(() => {
     const params = new URLSearchParams(location.search || "")
@@ -49,7 +50,40 @@ const BlogIndex = ({ data, location }) => {
   }
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location} title={siteTitle} showLatestPostsInSidebar={false}>
+      <section className={styles.latestPostsSection}>
+        <h2 className={styles.latestPostsTitle}>최신 글</h2>
+        <ul className={styles.latestPostsList}>
+          {recentPosts.map(post => {
+            const latestTitle = post.frontmatter.title || post.fields.slug
+            const latestThumbnailSrc = getFirstImageFromHtml(post.html)
+
+            return (
+              <li key={post.fields.slug} className={styles.latestPostsItem}>
+                <Link to={post.fields.slug} className={styles.latestPostsLink}>
+                  <div className={styles.latestPostThumbnailWrap}>
+                    {latestThumbnailSrc ? (
+                      <img
+                        src={latestThumbnailSrc}
+                        alt={`${latestTitle} 썸네일`}
+                        className={styles.latestPostThumbnailImage}
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className={styles.latestPostThumbnailFallback} aria-hidden="true" />
+                    )}
+                  </div>
+                  <div className={styles.latestPostContent}>
+                    <h3 className={styles.latestPostTitle}>{latestTitle}</h3>
+                    <time className={styles.latestPostsDate}>{post.frontmatter.date}</time>
+                  </div>
+                </Link>
+              </li>
+            )
+          })}
+        </ul>
+      </section>
+
       <div className={styles.postsGrid}>
         {filteredPosts.map(post => {
           const title = post.frontmatter.title || post.fields.slug

@@ -52,6 +52,7 @@ const SearchPage = ({ data }) => {
 
   const [searchInput, setSearchInput] = React.useState(queryFromUrl)
   const [sortBy, setSortBy] = React.useState("date")
+  const [isComposing, setIsComposing] = React.useState(false)
 
   React.useEffect(() => {
     setSearchInput(queryFromUrl)
@@ -69,6 +70,8 @@ const SearchPage = ({ data }) => {
 
   const handleSearchSubmit = event => {
     event.preventDefault()
+    if (isComposing) return
+
     const nextQuery = searchInput.trim()
     if (nextQuery.length >= 2) {
       navigate(`/search?q=${encodeURIComponent(nextQuery)}`, { replace: true })
@@ -77,8 +80,15 @@ const SearchPage = ({ data }) => {
     navigate("/search", { replace: true })
   }
 
+  const handleSearchInputKeyDown = event => {
+    if (event.key !== "Enter") return
+    if (isComposing || event.nativeEvent?.isComposing || event.keyCode === 229) {
+      event.preventDefault()
+    }
+  }
+
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location} title={siteTitle} showLatestPostsInSidebar={false}>
       <section className={styles.searchPage}>
         <header className={styles.searchHeader}>
           <h1 className={styles.searchTitle}>검색 결과</h1>
@@ -88,6 +98,12 @@ const SearchPage = ({ data }) => {
               placeholder="검색어를 입력하세요..."
               value={searchInput}
               onChange={event => setSearchInput(event.target.value)}
+              onCompositionStart={() => setIsComposing(true)}
+              onCompositionEnd={event => {
+                setIsComposing(false)
+                setSearchInput(event.target.value)
+              }}
+              onKeyDown={handleSearchInputKeyDown}
               className={styles.searchInput}
             />
             <button type="submit" className={styles.searchButton}>

@@ -6,6 +6,7 @@ import { matchesPostQuery } from "../utils/post-utils"
 const Search = ({ variant = "toggle" }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [query, setQuery] = useState("")
+  const [isComposing, setIsComposing] = useState(false)
   const searchRef = useRef(null)
   const inputRef = useRef(null)
 
@@ -78,7 +79,10 @@ const Search = ({ variant = "toggle" }) => {
   }
 
   const handleEnterSearch = event => {
-    if (event.key === "Enter" && query.trim().length >= 2) {
+    if (event.key !== "Enter") return
+    if (isComposing || event.nativeEvent?.isComposing || event.keyCode === 229) return
+
+    if (query.trim().length >= 2) {
       navigate(`/search?q=${encodeURIComponent(query.trim())}`)
       resetSearchState()
     }
@@ -177,6 +181,11 @@ const Search = ({ variant = "toggle" }) => {
             onFocus={openInlineSearch}
             onClick={openInlineSearch}
             onChange={event => handleSearch(event.target.value)}
+            onCompositionStart={() => setIsComposing(true)}
+            onCompositionEnd={event => {
+              setIsComposing(false)
+              handleSearch(event.target.value)
+            }}
             onKeyDown={handleEnterSearch}
             className={styles.inlineSearchInput}
             aria-label="포스트 검색"
@@ -208,6 +217,11 @@ const Search = ({ variant = "toggle" }) => {
             placeholder="포스트 검색... (엔터로 전체 검색)"
             value={query}
             onChange={event => handleSearch(event.target.value)}
+            onCompositionStart={() => setIsComposing(true)}
+            onCompositionEnd={event => {
+              setIsComposing(false)
+              handleSearch(event.target.value)
+            }}
             onKeyDown={handleEnterSearch}
             className={styles.searchInput}
           />

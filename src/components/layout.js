@@ -10,7 +10,13 @@ const getCategoryPathFromSlug = slug => {
   return parts.slice(0, -1).join("/")
 }
 
-const Layout = ({ location, title, children, variant = "default" }) => {
+const Layout = ({
+  location,
+  title,
+  children,
+  variant = "default",
+  showLatestPostsInSidebar = true,
+}) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
@@ -175,21 +181,23 @@ const Layout = ({ location, title, children, variant = "default" }) => {
       <div className={layoutContainerClassName}>
         <aside className={sidebarClassName}>
           <Bio variant="compact" />
+          {showLatestPostsInSidebar && (
+            <div className={styles.sidebarSection}>
+              <h3 className={styles.sidebarTitle}>Latest Posts</h3>
+              <ul className={styles.latestPostList}>
+                {recentPosts.map(post => (
+                  <li key={post.fields.slug} className={styles.latestPostListItem}>
+                    <Link to={post.fields.slug} className={styles.latestPostLink}>
+                      {post.frontmatter.title || post.fields.slug}
+                    </Link>
+                    <time className={styles.latestPostDate}>{post.frontmatter.date}</time>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
           <div className={styles.sidebarSection}>
-            <h3 className={styles.sidebarTitle}>Latest Posts</h3>
-            <ul className={styles.latestPostList}>
-              {recentPosts.map(post => (
-                <li key={post.fields.slug} className={styles.latestPostListItem}>
-                  <Link to={post.fields.slug} className={styles.latestPostLink}>
-                    {post.frontmatter.title || post.fields.slug}
-                  </Link>
-                  <time className={styles.latestPostDate}>{post.frontmatter.date}</time>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className={styles.sidebarSection}>
-            <h3 className={styles.sidebarTitle}>Categories</h3>
+            <h3 className={styles.sidebarTitle}>카테고리</h3>
             <div className={styles.categoryScrollArea}>
               <ul className={styles.sidebarCategoryList}>
                 <li className={styles.sidebarCategoryListItem}>
