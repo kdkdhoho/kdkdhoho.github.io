@@ -69,13 +69,24 @@ const Layout = ({ location, title, children, variant = "default" }) => {
       })
     })
 
+    const getSortPriority = name => {
+      const firstChar = (name || "").trim().charAt(0)
+      if (/^[A-Za-z]$/.test(firstChar)) return 0
+      if (/^[가-힣]$/.test(firstChar)) return 1
+      return 2
+    }
+
+    const compareCategoryNames = (a, b) => {
+      const priorityDiff = getSortPriority(a.name) - getSortPriority(b.name)
+      if (priorityDiff !== 0) return priorityDiff
+      return a.name.localeCompare(b.name, "ko")
+    }
+
     const sortTree = nodes =>
-      nodes
-        .sort((a, b) => a.name.localeCompare(b.name, "ko"))
-        .map(node => ({
-          ...node,
-          children: sortTree(Array.from(node.children.values())),
-        }))
+      nodes.sort(compareCategoryNames).map(node => ({
+        ...node,
+        children: sortTree(Array.from(node.children.values())),
+      }))
 
     return sortTree(Array.from(root.children.values()))
   }, [posts])
