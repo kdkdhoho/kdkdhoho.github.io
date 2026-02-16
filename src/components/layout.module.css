@@ -243,6 +243,7 @@
 
   .postLayoutContainer {
     margin-left: 18.75rem;
+    margin-right: 20rem;
   }
 
   .postGlobalHeader {
@@ -281,7 +282,54 @@
 
   .postMainContent {
     width: 100%;
-    max-width: min(96rem, calc(100vw - 21.25rem));
+    max-width: min(82rem, calc(100vw - 41.25rem));
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1600px) and (max-width: 2199px) {
+  .postLayoutContainer {
+    margin-right: 21.25rem;
+  }
+
+  .postMainContent {
+    max-width: min(86rem, calc(100vw - 42.5rem));
+  }
+}
+
+@media (min-width: 2200px) {
+  .postWrapper {
+    width: 100%;
+    max-width: 132rem;
+    margin: 0 auto;
+    padding-left: clamp(1.5rem, 2vw, 3rem);
+    padding-right: clamp(1.5rem, 2vw, 3rem);
+  }
+
+  .postGlobalHeader::after {
+    left: 0;
+  }
+
+  .postLayoutContainer {
+    display: grid;
+    grid-template-columns: 17.5rem minmax(0, 1fr);
+    gap: 1.5rem;
+    margin-left: 0;
+    align-items: start;
+  }
+
+  .postSidebar {
+    position: sticky;
+    top: 1.25rem;
+    left: auto;
+    width: 17.5rem;
+    height: calc(100vh - 2.5rem);
+    padding-right: 0.25rem;
+  }
+
+  .postMainContent {
+    width: 100%;
+    max-width: 100%;
   }
 }
 

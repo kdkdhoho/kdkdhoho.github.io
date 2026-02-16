@@ -277,16 +277,14 @@
 
 @media (min-width: 1280px) {
   .blogPostLayout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 280px;
-    align-items: flex-start;
-    column-gap: var(--spacing-8);
+    display: block;
     max-width: 100%;
   }
 
   .blogPostContainer {
     width: 100%;
-    margin: 0;
+    max-width: min(76rem, 100%);
+    margin: 0 auto;
   }
 }
 
@@ -305,8 +303,22 @@
 }
 
 @media (min-width: 1600px) {
+  .blogPostContainer {
+    max-width: min(82rem, 100%);
+  }
+}
+
+@media (min-width: 2200px) {
   .blogPostLayout {
-    grid-template-columns: minmax(0, 1fr) 320px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 20rem;
+    column-gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .blogPostContainer {
+    max-width: 100%;
+    margin: 0;
   }
 }
 
