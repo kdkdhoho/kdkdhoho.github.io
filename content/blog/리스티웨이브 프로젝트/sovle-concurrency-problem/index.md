@@ -3,6 +3,7 @@ title: "[ListyWave] 리스트 수정 시, 동시성 이슈 발생 확인 및 해
 description: ""
 date: 2024-03-17
 tags: ["ListyWave", "concurrency problem", "MySQL"]
+slug: "sovle-concurrency-problem"
 ---
 
 ## 들어가며

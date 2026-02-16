@@ -3,6 +3,7 @@ title: "[github] Github Repository에 Issue, PR Template 적용하기"
 description: "개발자의 숙명, 반복 작업 제거하기"
 date: 2024-01-23
 tags: ["git", "github", "Issue Template", "PR Template"]
+slug: "apply-issue-and-pr-template"
 ---
 
 ## 들어가며

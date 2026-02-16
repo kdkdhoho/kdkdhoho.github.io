@@ -3,6 +3,7 @@ title: "[Spring] @Controller와 @RestController 비교하기"
 description: "@Controller와 @RestController의 역할과 차이에 대해"
 date: 2024-01-12
 tags: ["Spring", "Spring MVC"]
+slug: "difference-of-controller-and-restcontroller"
 ---
 
 @Controller와 @RestController의 역할과 차이점에 대해 알아보기 전에, 둘의 근본이 되는 Controller의 역할에 대해 이야기하겠습니다. (여기서 Controller는 Spring MVC에서의 Controller를 의미합니다.)

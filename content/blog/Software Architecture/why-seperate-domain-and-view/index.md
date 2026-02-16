@@ -4,6 +4,7 @@ description: "Domain과 View는 왜 친해질 수 없는가?"
 date: 2023-12-04
 update: 2023-12-04
 tags: ["design-pattern", "mvc-pattern", "클린코드"]
+slug: "why-seperate-domain-and-view"
 ---
 
 ## 들어가며

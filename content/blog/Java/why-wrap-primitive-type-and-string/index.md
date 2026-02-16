@@ -3,6 +3,7 @@ title: "모든 원시값과 문자열을 포장한다. 왜?"
 description: "원시값과 문자열을 포장하면 좋은 점 + 일급 컬렉션"
 date: 2023-12-13
 tags: ["Java", "oop", "클린코드"]
+slug: "why-wrap-primitive-type-and-string"
 ---
 
 ## 세 줄 요약

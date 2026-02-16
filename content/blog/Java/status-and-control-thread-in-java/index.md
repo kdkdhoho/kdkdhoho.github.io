@@ -3,6 +3,7 @@ title: "Java Thread 2 - Java Thread의 상태와 행동을 제어하는 방법"
 description: "쓰레드 상태와 상태 관련 메서드 (sleep, interrupt, yield, join)"
 date: 2024-07-05
 tags: [ "Java", "Thread" ]
+slug: "status-and-control-thread-in-java"
 ---
 
 ## 들어가며

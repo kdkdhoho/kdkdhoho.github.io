@@ -5,6 +5,7 @@ date: 2023-11-28
 update: 2023-12-01
 tags: ["database", "interview"]
 series: "DB 면접 스터디"
+slug: "db-interview-study-2week"
 ---
 
 ## 📝 질문 리스트

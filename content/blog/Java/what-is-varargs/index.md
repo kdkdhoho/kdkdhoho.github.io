@@ -3,6 +3,7 @@ title: "[Java] Varargs는 어떻게 사용하고, 사용했을 때 장점이 무
 description: "Java의 Varargs에 대해 알아보자"
 date: 2023-04-08
 tags: ["Java", "varargs"]
+slug: "what-is-varargs"
 ---
 
 ## Varargs 탄생 배경

@@ -3,6 +3,7 @@ title: "Kotlin 기본 문법"
 description: "Kotlin의 기본 문법을 정리한 글입니다."
 date: 2026-01-09
 tags: ["Kotlin", "Kotlin 기본 문법"]
+slug: "post-20260109-8902e3"
 ---
 
 # Hello world

@@ -9,12 +9,19 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 
 // Define the template for blog post
 const blogPost = path.resolve(`./src/templates/blog-post.js`)
+const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
+
+const getCategoryPathFromLegacySlug = legacySlug => {
+  const parts = (legacySlug || "").split("/").filter(Boolean)
+  if (parts.length <= 1) return ""
+  return parts.slice(0, -1).join("/")
+}
 
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
  */
 exports.createPages = async ({ graphql, actions, reporter }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
 
   // Get all markdown blog posts sorted by date
   const result = await graphql(`
@@ -26,7 +33,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       ) {
         nodes {
           id
+          fileAbsolutePath
           fields {
+            slug
+            legacySlug
+          }
+          frontmatter {
             slug
           }
         }
@@ -43,6 +55,31 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   const posts = result.data.allMarkdownRemark.nodes
+  const duplicatedPaths = new Map()
+
+  posts.forEach(post => {
+    const canonicalPath = post.fields?.slug
+    if (!canonicalPath) return
+
+    if (!duplicatedPaths.has(canonicalPath)) {
+      duplicatedPaths.set(canonicalPath, [post.fileAbsolutePath || post.id])
+      return
+    }
+
+    duplicatedPaths.get(canonicalPath).push(post.fileAbsolutePath || post.id)
+  })
+
+  const duplicates = Array.from(duplicatedPaths.entries()).filter(([, refs]) => refs.length > 1)
+  if (duplicates.length > 0) {
+    const details = duplicates
+      .map(([canonicalPath, refs]) => `${canonicalPath}\n  - ${refs.join("\n  - ")}`)
+      .join("\n")
+
+    reporter.panicOnBuild(
+      `Duplicated canonical slugs were found. Each post frontmatter.slug must be unique.\n${details}`
+    )
+    return
+  }
 
   // Create blog posts pages
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
@@ -62,24 +99,65 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           nextPostId,
         },
       })
+
+      if (post.fields.legacySlug && post.fields.legacySlug !== post.fields.slug) {
+        createRedirect({
+          fromPath: post.fields.legacySlug,
+          toPath: post.fields.slug,
+          isPermanent: true,
+          redirectInBrowser: true,
+        })
+      }
     })
   }
-
 }
 
 /**
  * @type {import('gatsby').GatsbyNode['onCreateNode']}
  */
-exports.onCreateNode = ({ node, actions, getNode }) => {
+exports.onCreateNode = ({ node, actions, getNode, reporter }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
+    const legacySlug = createFilePath({ node, getNode })
+    const categoryPath = getCategoryPathFromLegacySlug(legacySlug)
+    const markdownFileNode = getNode(node.parent)
+    const filePath = markdownFileNode?.absolutePath || node.fileAbsolutePath || node.id
+    const frontmatterSlug = node.frontmatter?.slug?.trim()
+    const isDraft = node.frontmatter?.draft === true
+
+    if (!isDraft && !frontmatterSlug) {
+      reporter.panicOnBuild(
+        `Missing frontmatter.slug for post file: ${filePath}. Add a unique slug and rebuild.`
+      )
+      return
+    }
+
+    if (frontmatterSlug && !SLUG_PATTERN.test(frontmatterSlug)) {
+      reporter.panicOnBuild(
+        `Invalid frontmatter.slug "${frontmatterSlug}" in ${filePath}. Use lowercase letters, numbers, and hyphens only.`
+      )
+      return
+    }
+
+    const canonicalSlug = frontmatterSlug ? `/posts/${frontmatterSlug}/` : legacySlug
 
     createNodeField({
       name: `slug`,
       node,
-      value,
+      value: canonicalSlug,
+    })
+
+    createNodeField({
+      name: `legacySlug`,
+      node,
+      value: legacySlug,
+    })
+
+    createNodeField({
+      name: `categoryPath`,
+      node,
+      value: categoryPath,
     })
   }
 }
@@ -126,10 +204,13 @@ exports.createSchemaCustomization = ({ actions }) => {
       date: Date @dateformat
       tags: [String]
       draft: Boolean
+      slug: String
     }
 
     type Fields {
       slug: String
+      legacySlug: String
+      categoryPath: String
     }
   `)
 }

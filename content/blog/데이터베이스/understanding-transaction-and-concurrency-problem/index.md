@@ -3,6 +3,7 @@ title: "[MySQL] 트랜잭션과 트랜잭션 격리 수준"
 description: "동시성 이슈를 이해하기 위한 첫 걸음!"
 date: 2024-03-13
 tags: ["mysql", "transaction", "isolation-level"]
+slug: "understanding-transaction-and-concurrency-problem"
 ---
 
 ## 들어가며

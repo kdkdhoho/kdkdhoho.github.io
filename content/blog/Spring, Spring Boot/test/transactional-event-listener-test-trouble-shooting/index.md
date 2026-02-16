@@ -3,6 +3,7 @@ title: "@TransactionalEventListener 메서드를 테스트하기 위한 방법"
 description: "TestTransaction를 이용해 테스트 중간에 트랜잭션을 강제로 커밋하기"
 date: 2024-09-26
 tags: ["Spring", "TestTransaction"]
+slug: "transactional-event-listener-test-trouble-shooting"
 ---
 
 ## 개요

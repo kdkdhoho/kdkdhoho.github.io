@@ -4,6 +4,7 @@ description: "4.4 MySQL 로그파일"
 date: 2024-01-03
 tags: ["database"]
 series: "Real MySQL 8.0"
+slug: "04-mysql-log"
 ---
 
 ## MySQL 로그 파일

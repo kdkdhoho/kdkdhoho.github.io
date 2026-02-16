@@ -3,6 +3,7 @@ title: "[DB] 프로시저, 함수, 패키지에 대해"
 description: "데이터베이스 프로시저, 함수, 패키지 && 프로시저 vs 함수"
 date: 2024-07-22
 tags: ["DB"]
+slug: "procedure-function-package"
 ---
 
 DB의 프로시저(Procedure), 함수(Function), 패키지(Package)에 대해 간단히 알아보자.<br>

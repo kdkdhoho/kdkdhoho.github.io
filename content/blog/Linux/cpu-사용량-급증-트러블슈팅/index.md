@@ -3,6 +3,7 @@ title: "[Ubuntu] CPU 사용량 급증 트러블슈팅"
 description: "CPU 사용량이 급격하게 증가하여 EC2 사용액이 추가로 부과된 문제를 해결한 과정을 기록했습니다."
 date: 2026-02-14
 tags: ["Ubuntu", "트러블슈팅"]
+slug: "cpu"
 ---
 
 ![썸네일](thumbnail.png)

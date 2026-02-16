@@ -4,6 +4,7 @@ description: "MySQL의 격리 수준 이해하기"
 date: 2024-01-11
 tags: [ "database", "MySQL" ]
 series: "Real MySQL 8.0"
+slug: "05-isolation-level-of-mysql"
 ---
 
 ## 들어가며

@@ -3,6 +3,7 @@ title: "Spring Boot에서 Rest Assured로 인수 테스트할 때 OAuth 로그�
 description: "인수테스트에서 OAuth 로그인 처리하기"
 date: 2024-03-05
 tags: ["Spring Boot", "Acceptance Test", "Rest Assured", "OAuth"]
+slug: "oauth-test"
 ---
 
 이번 글에서는 Spring Boot에서 Rest Assured를 이용해 인수 테스트를 하는 과정에서 OAuth를 처리하는 방법을 고민한 흔적과 해결 방법을 기록하려고 합니다.

@@ -4,6 +4,7 @@ description: "HTTP를 기반으로 해서 새로운 기능을 추가한 프로�
 date: 2024-04-10
 tags: ["Network"]
 series: "그림으로 배우는 Http & Network Basic"
+slug: "09-advanced-http-protocol"
 ---
 
 ## 들어가며 

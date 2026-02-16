@@ -3,6 +3,7 @@ title: "QueryDSL"
 description: "QueryDSL의 특징, 의존성 설치 방법, 사용법에 대해 정리해봤습니다."
 date: 2026-02-05
 tags: ["JPA", "QueryDSL"]
+slug: "querydsl"
 ---
 
 # 특징

@@ -3,6 +3,7 @@ title: "Java Thread 1 - Java의 Thread에 대해 알아보자"
 description: "Java에서 Thread를 구현하고 실행하는 방법과 쓰레드 우선순위, 쓰레드 그룹, 데몬 쓰레드"
 date: 2024-07-03
 tags: [ "Java", "Thread" ]
+slug: "thread-in-jvm"
 ---
 
 ## 1. Java에서 Thread를 구현하고 실행하는 방법

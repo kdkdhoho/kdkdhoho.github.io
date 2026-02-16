@@ -3,6 +3,7 @@ title: "JPA 기본기"
 description: "JPA 기본기를 학습하고 이를 기록했습니다."
 date: 2026-02-12
 tags: ["JPA", "Hibernate", "JPA 기본"]
+slug: "jpa"
 ---
 
 ![](thumbnail.png)

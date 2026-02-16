@@ -63,10 +63,81 @@
   font-weight: 600;
 }
 
+.shareButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border: 1px solid #bfdbfe;
+  background: #eff6ff;
+  color: #1d4ed8;
+  border-radius: 999px;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.shareButton:hover,
+.shareButton:focus-visible {
+  border-color: #93c5fd;
+  background: #dbeafe;
+  transform: translateY(-1px);
+}
+
+.shareIcon {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.metaRow {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.35rem;
+  min-height: 2.1rem;
+}
+
+.metaRow .shareButton {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.metaRow .shareButton:hover,
+.metaRow .shareButton:focus-visible {
+  transform: translateY(-50%);
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 1.4rem;
+  transform: translateX(-50%) translateY(12px);
+  border-radius: 10px;
+  background: rgba(15, 23, 42, 0.92);
+  color: #ffffff;
+  padding: 0.62rem 0.92rem;
+  font-size: 0.84rem;
+  line-height: 1;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 1200;
+}
+
+.toastVisible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 .tagsContainer {
   margin: 0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 0.45rem;
 }
@@ -357,5 +428,35 @@
   .blogPostContent h3,
   .blogPostContent h4 {
     margin-top: 2rem;
+  }
+
+  .shareButton {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .metaRow {
+    justify-content: center;
+    min-height: 0;
+  }
+
+  .tagsContainer {
+    justify-content: center;
+  }
+
+  .metaRow .shareButton {
+    position: static;
+    transform: none;
+    margin-top: 0.4rem;
+  }
+
+  .metaRow .shareButton:hover,
+  .metaRow .shareButton:focus-visible {
+    transform: none;
+  }
+
+  .toast {
+    bottom: 1rem;
+    font-size: 0.8rem;
   }
 }

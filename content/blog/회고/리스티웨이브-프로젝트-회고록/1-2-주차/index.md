@@ -3,6 +3,7 @@ title: "ListyWave 프로젝트 1, 2주차 회고록"
 description: "ListyWave 프로젝트를 진행하며 작성한 회고록입니다."
 date: 2024-02-04
 tags: ["ListyWave", "회고록"]
+slug: "post-20240204-013b80"
 ---
 
 ## 들어가며

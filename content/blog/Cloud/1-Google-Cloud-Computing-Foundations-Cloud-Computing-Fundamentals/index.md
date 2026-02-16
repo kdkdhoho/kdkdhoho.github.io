@@ -4,6 +4,7 @@ description: "Google Cloud Skills Boost에서 학습한 클라우드 컴퓨팅�
 date: 2025-08-17
 tags: ["GCP", "InfraStructure", "클라우드"]
 series: "창구 AI 스터디 잼"
+slug: "1-google-cloud-computing-foundations-cloud-computing-fundamentals"
 ---
 
 ## 클라우드 컴퓨팅의 핵심 특징

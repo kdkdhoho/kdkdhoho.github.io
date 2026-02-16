@@ -3,6 +3,7 @@ title: "ListyWave 프로젝트 3~6주차 회고록"
 description: "ListyWave 프로젝트를 마치며 작성한 회고록입니다."
 date: 2024-03-04
 tags: ["ListyWave", "회고"]
+slug: "post-20240304-e55ccc"
 ---
 
 ## 들어가며

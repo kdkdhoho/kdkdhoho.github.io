@@ -4,6 +4,7 @@ description: "final 키워드의 장단점"
 date: 2023-12-05
 update: 2023-12-05
 tags: ["Java", "클린코드"]
+slug: "why-use-final"
 ---
 
 ## 왜 값의 변경을 막아야 할까?

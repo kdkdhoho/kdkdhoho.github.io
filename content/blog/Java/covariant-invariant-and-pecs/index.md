@@ -3,6 +3,7 @@ title: "[Java] 배열의 공변, 제네릭의 불공변. 그리고 PECS"
 description: "공변, 불공변. 그리고 PECS에 대해 알아보자"
 date: 2024-04-23
 tags: ["Java", "공변, 불공변", "PECS"]
+slug: "covariant-invariant-and-pecs"
 ---
 
 ## 들어가며

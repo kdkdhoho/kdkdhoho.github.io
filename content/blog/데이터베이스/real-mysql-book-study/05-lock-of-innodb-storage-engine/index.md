@@ -4,6 +4,7 @@ description: "InnoDB 스토리지 엔진 레벨의 락에 대해 이해해보자
 date: 2024-01-11
 tags: ["database", "MySQL"]
 series: "Real MySQL 8.0"
+slug: "05-lock-of-innodb-storage-engine"
 ---
 
 Lock에는 MySQL 엔진이 관리하는 Lock과 InnoDB 스토리지 엔진이 관리하는 락이 있다.

@@ -41,6 +41,8 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "slug:generate": "node scripts/generate-slug-candidates.js",
+    "slug:apply": "node scripts/apply-slug-candidates.js",
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",

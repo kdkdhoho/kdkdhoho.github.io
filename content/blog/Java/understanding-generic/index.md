@@ -3,6 +3,7 @@ title: "[Java] 제네릭 이해하기"
 description: "제네릭 이해하기"
 date: 2024-04-18
 tags: ["Java", "generic"]
+slug: "understanding-generic"
 ---
 
 ## 제네릭

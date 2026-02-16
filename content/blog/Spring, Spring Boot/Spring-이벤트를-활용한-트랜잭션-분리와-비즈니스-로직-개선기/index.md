@@ -3,6 +3,7 @@ title: "Spring 이벤트를 활용한 트랜잭션 분리와 비즈니스 로직
 date: 2025-08-28
 tags: ["Spring", "Spring Event"]
 draft: true
+slug: "spring"
 ---
 
 > TODO: 2025.08.28 임시로 작성해두었습니다. 모든 흐름을 다시 정리하며 각 내용들에 대해 Deep Dive 합시다.

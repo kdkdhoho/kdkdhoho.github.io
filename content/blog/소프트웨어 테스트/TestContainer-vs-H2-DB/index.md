@@ -3,6 +3,7 @@ title: "CI 빌드 속도 66% 단축기: 테스트 환경의 DB를 TestContainers
 description: "CI 최적화를 위해 테스트 DB 환경을 교체하며 분석한 성능 병목 지점과 '환경 불일치' 관리 전략을 공유하기 위해 작성한 글입니다."
 date: 2026-02-13
 tags: ["TestContainers", "H2", "CI/CD", "Testing"]
+slug: "testcontainer-vs-h2-db"
 ---
 
 # 1. 들어가며

@@ -2,6 +2,7 @@
 title: "Github Actions와 Docker를 이용해 배포 자동화 구축하기"
 date: 2024-05-29
 tags: ["InfraStructure", "Github Actions", "Docker"]
+slug: "github-actions-docker"
 ---
 
 ## 들어가며

@@ -4,6 +4,7 @@ description: "Real MySQL 8.0 - Part 4. InnoDB 엔진"
 date: 2023-12-17
 tags: ["database"]
 series: "Real MySQL 8.0"
+slug: "04-innodb-engine"
 ---
 
 ## InnoDB 스토리지 엔진

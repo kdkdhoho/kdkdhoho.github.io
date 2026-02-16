@@ -3,6 +3,7 @@ title: "[git&github] IntelliJ에서 커밋 메시지 작성 시, 자동으로 �
 description: "커밋 메시지를 엄격하지만 편리하게 작성하자"
 date: 2024-01-12
 tags: ["git", "github"]
+slug: "add-feat-and-issue-number-automatically"
 ---
 
 # 개선된 버전

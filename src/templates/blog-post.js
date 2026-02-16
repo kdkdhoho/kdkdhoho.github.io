@@ -34,6 +34,27 @@ const withNewTabLinks = html => {
   })
 }
 
+const copyTextToClipboard = async text => {
+  if (typeof window === "undefined") return false
+
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(text)
+    return true
+  }
+
+  const textarea = document.createElement("textarea")
+  textarea.value = text
+  textarea.setAttribute("readonly", "")
+  textarea.style.position = "absolute"
+  textarea.style.left = "-9999px"
+  document.body.appendChild(textarea)
+  textarea.select()
+
+  const copied = document.execCommand("copy")
+  document.body.removeChild(textarea)
+  return copied
+}
+
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
   location,
@@ -41,6 +62,9 @@ const BlogPostTemplate = ({
   const siteTitle = site.siteMetadata?.title || `Title`
   const postHtml = React.useMemo(() => withNewTabLinks(post.html), [post.html])
   const [scrollProgress, setScrollProgress] = React.useState(0)
+  const [toastMessage, setToastMessage] = React.useState("")
+  const [isToastVisible, setIsToastVisible] = React.useState(false)
+  const toastTimerRef = React.useRef(null)
 
   React.useEffect(() => {
     const updateProgress = () => {
@@ -60,6 +84,36 @@ const BlogPostTemplate = ({
     }
   }, [])
 
+  React.useEffect(
+    () => () => {
+      if (toastTimerRef.current) {
+        window.clearTimeout(toastTimerRef.current)
+      }
+    },
+    []
+  )
+
+  const handleShareClick = async () => {
+    try {
+      const currentUrl = typeof window !== "undefined" ? window.location.href : location.pathname
+      const copied = await copyTextToClipboard(currentUrl)
+      const message = copied ? "링크가 복사되었습니다." : "복사에 실패했습니다."
+      setToastMessage(message)
+      setIsToastVisible(true)
+    } catch (error) {
+      setToastMessage("복사에 실패했습니다.")
+      setIsToastVisible(true)
+    }
+
+    if (toastTimerRef.current) {
+      window.clearTimeout(toastTimerRef.current)
+    }
+
+    toastTimerRef.current = window.setTimeout(() => {
+      setIsToastVisible(false)
+    }, 2200)
+  }
+
   return (
     <Layout location={location} title={siteTitle} variant="post">
       <div className={styles.scrollProgress} style={{ width: `${scrollProgress}%` }} aria-hidden="true" />
@@ -73,15 +127,36 @@ const BlogPostTemplate = ({
             <header className={styles.blogPostHeader}>
               <h1 className={styles.postTitle}>{post.frontmatter.title}</h1>
               <time className={styles.postDate}>{post.frontmatter.date}</time>
-              {post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
-                <div className={styles.tagsContainer}>
-                  {post.frontmatter.tags.map(tag => (
-                    <span key={tag} className={styles.tag}>
-                      #{tag}
-                    </span>
-                  ))}
-                </div>
-              )}
+              <div className={styles.metaRow}>
+                {post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
+                  <div className={styles.tagsContainer}>
+                    {post.frontmatter.tags.map(tag => (
+                      <span key={tag} className={styles.tag}>
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                <button
+                  type="button"
+                  className={styles.shareButton}
+                  onClick={handleShareClick}
+                  aria-label="링크 공유"
+                  title="링크 공유"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    className={styles.shareIcon}
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path
+                      d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7a2.9 2.9 0 0 0 0-1.39l7.05-4.11A2.99 2.99 0 1 0 15 5a3 3 0 0 0 .05.52L8 9.63a3 3 0 1 0 0 4.74l7.05 4.11c-.03.17-.05.34-.05.52a3 3 0 1 0 3-2.92Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </button>
+              </div>
             </header>
             <section
               className={`${styles.blogPostContent} blog-post-content`}
@@ -110,6 +185,13 @@ const BlogPostTemplate = ({
           </nav>
         </div>
         {post.tableOfContents && <TableOfContents tableOfContents={post.tableOfContents} />}
+      </div>
+      <div
+        className={`${styles.toast} ${isToastVisible ? styles.toastVisible : ""}`}
+        role="status"
+        aria-live="polite"
+      >
+        {toastMessage}
       </div>
     </Layout>
   )

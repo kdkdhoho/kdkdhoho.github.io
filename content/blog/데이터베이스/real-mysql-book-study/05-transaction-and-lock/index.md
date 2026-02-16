@@ -4,6 +4,7 @@ description: "5.1 트랜잭션, 5.2 MySQL 엔진의 잠금"
 date: 2024-01-03
 tags: ["database"]
 series: "Real MySQL 8.0"
+slug: "05-transaction-and-lock"
 ---
 
 ## 트랜잭션

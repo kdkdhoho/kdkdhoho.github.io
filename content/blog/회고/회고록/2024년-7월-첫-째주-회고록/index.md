@@ -2,6 +2,7 @@
 title: "2024년 7월 첫 째주 회고록"
 date: 2024-07-07
 tags: ["회고"]
+slug: "post-20240707-46a126"
 ---
 
 ## What I Studied

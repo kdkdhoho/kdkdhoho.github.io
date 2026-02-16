@@ -3,6 +3,7 @@ title: "JUnit과 AssertJ 활용법"
 description: "코드로 보는 JUnit, AssertJ 활용법"
 date: 2023-11-28
 tags: ["unit-test", "JUnit", "AssertJ", "test"]
+slug: "using-junit-and-assertj"
 ---
 
 ## 이 글의 목적

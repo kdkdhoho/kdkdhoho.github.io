@@ -3,6 +3,7 @@ title: "AWS EC2에 AMI Architecture에 대해"
 description: "EC2 인스턴스 생성할 때 아키텍처 선택하다가 궁금해서 정리한 글"
 date: 2024-01-16
 tags: ["AWS", "운영체제"]
+slug: "aws-ec2-ami-architecture"
 ---
 
 ## 들어가며

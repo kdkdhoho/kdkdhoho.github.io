@@ -4,6 +4,7 @@ description: "JSCODE를 통해 진행한 OS 면접 스터디 3주차 정리입�
 date: 2023-11-23
 tags: ["운영체제"]
 series: "운영체제 면접 스터디"
+slug: "post-20231123-7038ea"
 ---
 
 ## 📝 질문 리스트

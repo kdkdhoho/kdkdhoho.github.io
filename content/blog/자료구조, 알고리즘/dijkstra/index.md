@@ -3,6 +3,7 @@ title: "다익스트라 알고리즘"
 description: "다익스트라 알고리즘의 특징, 원리, 기본형 구현, 최적화형 구현에 대해 기록했습니다."
 date: 2026-02-14
 tags: ["algorithm", "dijkstra"]
+slug: "dijkstra"
 ---
 
 # 1. 다익스트라 알고리즘

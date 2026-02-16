@@ -3,6 +3,7 @@ title: "일정하게 증가하는 수열에서 특정 값보다 같거나 작은
 description: "일정하게 증가하는 수열에서 특정 값보다 같거나 작은 값의 개수를 세는 법"
 date: 2024-09-07
 tags: ["algorithm"]
+slug: "counting-the-number-of-values-lower-or-equal-to-constantly-increasing-sequence"
 ---
 
 ## 개요

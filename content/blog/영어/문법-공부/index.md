@@ -3,6 +3,7 @@ title: "로즈리의 Grammar Holic 정리"
 description: "로즈리의 Grammar Holic을 통해 학습한 영문법 정리입니다."
 date: 2026-01-20
 tags: ["영어", "문법"]
+slug: "post-20260120-32cdcd"
 ---
 
 # 간접의문문 판별법

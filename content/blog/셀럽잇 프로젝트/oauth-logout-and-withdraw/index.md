@@ -4,6 +4,7 @@ description: "[셀럽잇] OAuth 2.0 로그아웃 구현"
 date: 2023-08-14
 tags: ["셀럽잇", "OAuth-2.0"]
 series: "셀럽잇 프로젝트"
+slug: "oauth-logout-and-withdraw"
 ---
 
 ## 로그아웃 API 명세

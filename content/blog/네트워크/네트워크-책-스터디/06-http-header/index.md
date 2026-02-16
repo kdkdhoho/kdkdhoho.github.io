@@ -4,6 +4,7 @@ description: "HTTP 헤더에 대해 알아보자"
 date: 2024-03-06
 tags: [ "Network" ]
 series: "그림으로 배우는 Http & Network Basic"
+slug: "06-http-header"
 ---
 
 ## 들어가며

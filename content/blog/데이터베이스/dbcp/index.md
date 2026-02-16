@@ -3,6 +3,7 @@ title: "DBCP와 HikariCP 이해하기"
 description: "DBCP와 HikariCP 이해하기"
 date: 2023-10-16
 tags: ["database", "DBCP", "hikariCP"]
+slug: "dbcp"
 ---
 
 ## DBCP (DataBase Connection Pool) 탄생 배경

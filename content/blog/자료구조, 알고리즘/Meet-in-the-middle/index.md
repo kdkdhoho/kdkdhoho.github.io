@@ -3,6 +3,7 @@ title: "알고리즘 - Meet in the middle"
 description: "완전탐색 기법 중, Meet in the middle 기법에 대해 학습한 글입니다."
 date: 2026-02-05
 tags: ["알고리즘", "Meet in the middle"]
+slug: "meet-in-the-middle"
 ---
 
 # Meet in the middle이란?

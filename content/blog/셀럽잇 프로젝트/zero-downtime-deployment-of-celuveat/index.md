@@ -4,6 +4,7 @@ description: "[셀럽잇] 무중단 배포 적용기"
 date: 2023-10-21
 tags: ["셀럽잇", "zero-downtime-deployment"]
 series: "셀럽잇 프로젝트"
+slug: "zero-downtime-deployment-of-celuveat"
 ---
 
 이번 글에선 셀럽잇이 왜? 그리고 어떻게? 무중단 배포를 적용했는 지에 대해 작성하고자 합니다.

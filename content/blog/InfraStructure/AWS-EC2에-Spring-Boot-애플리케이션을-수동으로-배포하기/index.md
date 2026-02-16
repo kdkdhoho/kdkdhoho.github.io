@@ -2,6 +2,7 @@
 title: "AWS EC2에 Spring Boot 애플리케이션을 수동으로 배포하기"
 date: 2024-01-16
 tags: ["InfraStructure", "AWS"]
+slug: "aws-ec2-spring-boot"
 ---
 
 ## 들어가며

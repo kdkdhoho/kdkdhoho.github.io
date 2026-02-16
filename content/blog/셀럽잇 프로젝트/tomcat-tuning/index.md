@@ -4,6 +4,7 @@ description: "[셀럽잇] Tomcat 성능 최적화를 위해 Max-Threads, Max-Con
 date: 2023-09-09
 tags: ["셀럽잇", "tomcat"]
 series: "셀럽잇 프로젝트"
+slug: "tomcat-tuning"
 ---
 
 사용자 유치 전, 서버 성능 개선을 위해 Tomcat 성능 최적화를 진행하려고 합니다.

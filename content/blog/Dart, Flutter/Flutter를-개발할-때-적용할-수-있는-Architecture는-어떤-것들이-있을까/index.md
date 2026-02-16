@@ -4,6 +4,7 @@ description: ""
 date: yyyy-MM-dd
 tags: ["Flutter", "Software Architecture"]
 draft: true
+slug: "flutter-architecture"
 ---
 
 임시

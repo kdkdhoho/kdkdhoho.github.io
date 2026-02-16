@@ -4,6 +4,7 @@ description: "10. 실행 계획"
 date: 2024-03-05
 tags: ["database"]
 series: "Real MySQL 8.0"
+slug: "10-execute-plain"
 ---
 
 ## 들어가며

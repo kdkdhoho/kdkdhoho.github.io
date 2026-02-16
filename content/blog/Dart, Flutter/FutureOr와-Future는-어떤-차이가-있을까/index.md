@@ -4,6 +4,7 @@ description: ""
 date: 2025-08-20
 tags: ["Dart"]
 draft: true
+slug: "futureor-future"
 ---
 
 # Future<T>란?

@@ -4,6 +4,7 @@ description: ""
 date: yyyy-MM-dd
 tags: ["Flutter", "UI"]
 draft: true
+slug: "flutter-ui"
 ---
 
 <details>

@@ -3,6 +3,7 @@ title: "[Spring] 스프링 애플리케이션 동작과 동시에 DB에 더미 �
 description: "data.sql, @PostConstructor"
 date: 2024-07-14
 tags: ["Spring"]
+slug: "insert-dummy-data-to-db"
 ---
 
 프로젝트를 진행하다보면 애플리케이션 실행과 동시에 DB에 더미 데이터를 넣고 싶은 경우가 있다.<br>

@@ -3,6 +3,7 @@ title: "LeetCode Weekly Contest 488 후기"
 description: "LeetCode에서 주최하는 Weekly Contest 488을 보고 난 후기를 기록한 글입니다."
 date: 2026-02-08
 tags: ["LeetCode", "알고리즘", "Weekly Contest"]
+slug: "weekly-contest-488"
 ---
 
 # 들어가며

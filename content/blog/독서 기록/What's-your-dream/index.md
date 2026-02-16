@@ -3,6 +3,7 @@ title: "사이먼 스큅의 <What's your dream?> 기록"
 description: "사이먼 스큅의 <What's your dream?>을 읽고 인상깊은 구절을 기록했습니다."
 date: 2025-12-16
 tags: ["독서 기록", "사이먼 스큅", "What's your dream?"]
+slug: "whats-your-dream"
 ---
 
 P.17

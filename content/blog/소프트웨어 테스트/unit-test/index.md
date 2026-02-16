@@ -3,6 +3,7 @@ title: "단위 테스트 이해하기"
 description: "단위 테스트, JUnit, AssertJ"
 date: 2023-11-27
 tags: ["unit-test", "test"]
+slug: "unit-test"
 ---
 
 ## 단위 테스트란?

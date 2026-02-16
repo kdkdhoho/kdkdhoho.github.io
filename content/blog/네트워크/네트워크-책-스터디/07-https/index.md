@@ -4,6 +4,7 @@ description: "HTTPS에 대해 알아보자"
 date: 2024-03-28
 tags: ["Network"]
 series: "그림으로 배우는 Http & Network Basic"
+slug: "07-https"
 ---
 
 ## 들어가며 

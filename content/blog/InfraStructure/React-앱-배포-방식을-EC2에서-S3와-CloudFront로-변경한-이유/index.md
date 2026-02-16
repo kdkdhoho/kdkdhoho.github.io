@@ -3,6 +3,7 @@ title: "React.js 배포 방식을 EC2에서 S3와 CloudFront로 변경한 이유
 description: "React를 배포하는 방식부터, 왜 배포 방식을 EC2에서 S3와 CloudFront를 사용하는 방식으로 변경했는 지? 그리고 그 결과에 대해 작성한 글입니다."
 date: 2026-02-13
 tags: ["React.js", "배포"]
+slug: "react-ec2-s3-cloudfront"
 ---
 
 ![썸네일](thumbnail.png)

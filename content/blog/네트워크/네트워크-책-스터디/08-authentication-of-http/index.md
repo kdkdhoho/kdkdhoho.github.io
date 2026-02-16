@@ -4,6 +4,7 @@ description: "HTTP 표준에서 설명하는 여러 인증 방법에 대해 알�
 date: 2024-04-10
 tags: ["Network"]
 series: "그림으로 배우는 Http & Network Basic"
+slug: "08-authentication-of-http"
 ---
 
 ## 들어가며 

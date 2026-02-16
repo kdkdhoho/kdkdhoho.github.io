@@ -5,6 +5,7 @@ date: yyyy-MM-dd
 tags: ["", ""]
 series: ""
 draft: true
+slug: "about-jjwt"
 ---
 
 	1.	JJWT란?

@@ -4,12 +4,6 @@ import Search from "./search"
 import Bio from "./bio"
 import * as styles from "./layout.module.css"
 
-const getCategoryPathFromSlug = slug => {
-  const parts = slug.split("/").filter(Boolean)
-  if (parts.length <= 1) return ""
-  return parts.slice(0, -1).join("/")
-}
-
 const Layout = ({
   location,
   title,
@@ -25,11 +19,12 @@ const Layout = ({
     query LayoutQuery {
       allMarkdownRemark(
         filter: { frontmatter: { draft: { ne: true } } }
-        sort: { fields: [frontmatter___date], order: DESC }
+        sort: { frontmatter: { date: DESC } }
       ) {
         nodes {
           fields {
             slug
+            categoryPath
           }
           frontmatter {
             title
@@ -52,7 +47,7 @@ const Layout = ({
     }
 
     posts.forEach(post => {
-      const categoryPath = getCategoryPathFromSlug(post.fields.slug)
+      const categoryPath = post.fields.categoryPath || ""
       if (!categoryPath) return
 
       const segments = categoryPath.split("/")

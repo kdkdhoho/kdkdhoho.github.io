@@ -3,6 +3,7 @@ title: "[JDBC] execute(String)과 execute(). executeUpdate(String)와 executeUpd
 description: "execute()와 executeUpdate(), execute(String)와 executeUpdate(String)의 차이"
 date: 2024-08-02
 tags: ["Java", "jdbc"]
+slug: "execute-and-executeupdate-of-jdbc"
 ---
 
 ## TL;DR

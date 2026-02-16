@@ -3,6 +3,7 @@ title: "[MySQL] 바이너리 로그로 데이터 복구하기"
 description: "알아두면 유용한.. 하지만 쓸 일이 없었으면 하는"
 date: 2024-04-05
 tags: ["MySQL", "바이너리 로그", "복구"]
+slug: "restore-using-binarylog"
 ---
 
 ## 들어가며

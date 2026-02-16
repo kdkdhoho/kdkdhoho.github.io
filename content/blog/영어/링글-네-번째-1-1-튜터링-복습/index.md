@@ -4,6 +4,7 @@ description: ""
 date: 2025-08-24
 tags: ["링글", "영어"]
 series: "링글 튜터링 복습"
+slug: "post-20250824-594123"
 ---
 
 # 단어

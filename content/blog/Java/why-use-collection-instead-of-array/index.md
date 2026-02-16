@@ -3,6 +3,7 @@ title: "배열 대신 컬렉션을 쓴다. 왜?"
 description: "Java에서 배열 대신 컬렉션을 사용해야하는 이유"
 date: 2023-12-11
 tags: ["Java", "클린코드"]
+slug: "why-use-collection-instead-of-array"
 ---
 
 우아한테크코스의 모든 미션에 "배열 대신 컬렉션을 사용하라"는 요구 사항이 항상 존재한다.

@@ -4,6 +4,7 @@ description: "HTTP 메시지 구조, 압축, 멀티파트, 콘텐츠 협상"
 date: 2024-01-23
 tags: ["Network"]
 series: "그림으로 배우는 Http & Network Basic"
+slug: "03-http-detail"
 ---
 
 ## 들어가며 

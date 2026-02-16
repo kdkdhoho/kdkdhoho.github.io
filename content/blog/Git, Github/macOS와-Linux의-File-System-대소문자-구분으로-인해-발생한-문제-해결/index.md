@@ -3,6 +3,7 @@ title: "macOS와 Linux의 File System 대소문자 구분으로 인해 발생한
 description: "GitHub Actions에 배포할 때 import가 자꾸 실패하는 경우 Git Working Tree Index를 확인해보세요"
 date: 2025-08-18
 tags: ["InfraStructure", "운영체제", "Git"]
+slug: "macos-linux-file-system"
 ---
 
 # 발생한 문제

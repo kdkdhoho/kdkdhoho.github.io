@@ -2,6 +2,7 @@
 title: "Prometheus와 Grafana, 그리고 Docker를 이용해 모니터링 대시보드 구축하기"
 date: 2024-06-15
 tags: ["백엔드", "InfraStructure"]
+slug: "prometheus-grafana-docker"
 ---
 
 ## 들어가며

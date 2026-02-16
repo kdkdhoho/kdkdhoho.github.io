@@ -4,6 +4,7 @@ description: "8.3 B-Tree 인덱스"
 date: 2024-02-01
 tags: ["database"]
 series: "Real MySQL 8.0"
+slug: "08-03-b-tree-index"
 ---
 
 ## B-Tree 인덱스

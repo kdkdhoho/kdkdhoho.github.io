@@ -4,6 +4,7 @@ description: "웹과 네트워크의 기본에 대해 알아보자"
 date: 2024-01-12
 tags: [ "Network" ]
 series: "그림으로 배우는 Http & Network Basic"
+slug: "01-comprehension-about-web-and-network-basic"
 ---
 
 ## 들어가며

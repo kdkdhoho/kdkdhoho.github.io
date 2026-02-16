@@ -3,6 +3,7 @@ title: "S3와 CloudFront를 이용해 SPA를 배포할 때 캐싱 정책 (feat. 
 description: "React를 S3와 CloudFront를 이용하여 배포할 때 적용해야 할 캐싱 정책과 그 이유에 대해 설명하는 글입니다."
 date: 2026-01-24
 tags: ["React.js", "SPA", "캐싱", "S3", "CloudFront", "Tiered TTLs"]
+slug: "post-20260124-07fabb"
 ---
 
 # 들어가며

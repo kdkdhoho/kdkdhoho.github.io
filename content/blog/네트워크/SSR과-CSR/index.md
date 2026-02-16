@@ -3,6 +3,7 @@ title: "웹페이지를 응답하는 방식의 발전과 CSR, SSR, 그리고 Uni
 description: "웹 애플리케이션이 초창기에 어떻게 웹페이지를 응답했는 지에 대해 알아보고 현대의 두 방식인 SSR(Server Side Rendering)과 CSR(Client Side Rendering), 그리고 Universal Rendering에 대해 작성한 글입니다."
 date: 2026-01-09
 tags: ["네트워크", "웹 개발", "CSR", "SSR", "Universal Rendering"]
+slug: "ssr-csr"
 ---
 
 # 들어가며

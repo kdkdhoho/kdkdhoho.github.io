@@ -3,6 +3,7 @@ title: "Gemini CLI에서 Gemini 3(Pro, Flash) 적용하기 및 모델 최적화,
 description: "Gemini CLI에서 Gemini 3(Pro, Flash)를 적용하는 방법과 Gemini CLI가 알아서 모델을 최적화하는 방법, 그리고 토큰 사용량을 확인하는 방법에 대해 설명한다."
 date: 2026-01-08
 tags: ["Gemini CLI", "모델 최적화", "토큰 사용량"]
+slug: "gemini-cli"
 ---
 
 # 들어가며

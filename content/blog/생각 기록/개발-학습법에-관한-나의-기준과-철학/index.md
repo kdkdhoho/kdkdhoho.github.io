@@ -4,6 +4,7 @@ description: "개발 학습법에 대해서 더이상 혼란스러워 하지 않
 date: 2026-01-10
 tags: ["개발 학습법"]
 draft: true
+slug: "post-20260110-bf2c8f"
 ---
 
 ### 개발 학습 방법에 대한 나의 원칙

@@ -4,6 +4,7 @@ description: "static 키워드 with JVM의 메모리 구조"
 date: 2023-12-06
 update: 2023-12-06
 tags: ["Java", "operating-system"]
+slug: "static-with-memory-structure"
 ---
 
 이번 글에서는 `static` 키워드에 대해 알아보고자 한다.<br>

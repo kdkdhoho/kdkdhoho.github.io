@@ -3,6 +3,7 @@ title: "Java Thread 3 - Thread 동기화하기"
 description: "synchronized, wait()과 notify(), Lock과 Condition"
 date: 2024-07-06
 tags: [ "Java", "Thread" ]
+slug: "synchronize-threads"
 ---
 
 ## 들어가며

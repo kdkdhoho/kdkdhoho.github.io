@@ -3,6 +3,7 @@ title: "Python 기본 문법"
 description: "Python의 기본 문법에 대해 정리한 글입니다. 지속적으로 업데이트 해 갈 예정입니다."
 date: 2026-01-14
 tags: ["Python"]
+slug: "syntax"
 ---
 
 # 표준 입출력

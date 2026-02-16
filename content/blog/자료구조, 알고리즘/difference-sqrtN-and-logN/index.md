@@ -3,6 +3,7 @@ title: "O(sqrt(N))과 O(log2(N))의 차이"
 description: "같은 줄 알았지만 미묘하게 다르다!"
 date: 2024-09-02
 tags: [ "algorithm", "time complexity" ]
+slug: "difference-sqrtn-and-logn"
 ---
 
 O(sqrt(N))과 O(log2(N))은 비슷해보이지만 차이가 많이 다르다.<br>

@@ -4,6 +4,7 @@ description: "HTTP 프로토콜에 대해 알아보자"
 date: 2024-01-17
 tags: ["Network"]
 series: "그림으로 배우는 Http & Network Basic"
+slug: "02-http-protocol"
 ---
 
 ## 들어가며 

@@ -7,12 +7,6 @@ import Seo from "../components/seo"
 import * as styles from "./index.module.css"
 import { getFirstImageFromHtml, getReadingTimeText } from "../utils/post-utils"
 
-const getCategoryPathFromSlug = slug => {
-  const parts = slug.split("/").filter(Boolean)
-  if (parts.length <= 1) return ""
-  return parts.slice(0, -1).join("/")
-}
-
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
@@ -27,7 +21,7 @@ const BlogIndex = ({ data, location }) => {
     if (selectedCategory === "All") return posts
 
     return posts.filter(post => {
-      const categoryPath = getCategoryPathFromSlug(post.fields.slug)
+      const categoryPath = post.fields.categoryPath || ""
       return (
         categoryPath === selectedCategory ||
         categoryPath.startsWith(`${selectedCategory}/`)
@@ -172,6 +166,7 @@ export const pageQuery = graphql`
         timeToRead
         fields {
           slug
+          categoryPath
         }
         frontmatter {
           date(formatString: "YYYY년 M월 D일")

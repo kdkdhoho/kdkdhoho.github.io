@@ -3,6 +3,7 @@ title: "RFC 9111: HTTP Caching 명세서 정리"
 description: "HTTP 캐시와 이를 제어하는 Cache-Control을 이해하기 위해 'RFC 9111: HTTP Caching' 명세서를 모두 기록했습니다."
 date: 2026-01-23
 tags: ["네트워크", "HTTP", "HTTP 캐시", "HTTP Header", "Cache-Control"]
+slug: "rfc-9111-http-caching"
 ---
 
 # 개요

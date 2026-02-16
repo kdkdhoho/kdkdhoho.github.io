@@ -4,6 +4,7 @@ description: "웹서버의 종류와 역할, 그리고 캐시"
 date: 2024-02-14
 tags: ["Network"]
 series: "그림으로 배우는 Http & Network Basic"
+slug: "05-web-server"
 ---
 
 ## 들어가며 

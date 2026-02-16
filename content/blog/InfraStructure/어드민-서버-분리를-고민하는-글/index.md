@@ -2,6 +2,7 @@
 title: "어드민 서버 분리를 고민한 글"
 date: 2025-08-12
 tags: ["InfraStructure", "백엔드", "아키텍처"]
+slug: "post-20250812-c48dea"
 ---
 
 # 개요

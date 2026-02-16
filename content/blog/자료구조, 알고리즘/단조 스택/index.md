@@ -3,6 +3,7 @@ title: "단조 스택(Monotonic Stack)"
 description: "단조 스택에 대해 학습한 내용을 기록했습니다."
 date: 2026-02-05
 tags: ["자료구조", "단조 스택", "Monotonic Stack"]
+slug: "post-20260205-80e111"
 ---
 
 # 단조 스택이란?

@@ -5,6 +5,7 @@ date: 2023-12-08
 update: 2023-12-08
 tags: ["retrospection"]
 series: "운영체제 면접 스터디"
+slug: "post-20231208-8f5af0"
 ---
 
 ## 들어가며

@@ -2,6 +2,7 @@
 title: "HTTPS 적용기"
 date: 2023-08-02
 tags: ["InfraStructure", "Nginx", "HTTPS"]
+slug: "https"
 ---
 
 안녕하세요. 셀럽잇 팀의 백엔드 도기입니다. 🐶  

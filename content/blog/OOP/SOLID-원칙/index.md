@@ -3,6 +3,7 @@ title: "SOLID 원칙"
 description: "객체지향 프로그래밍으로 소프트웨어를 설계할 때 권장하는 다섯 가지 원칙인 SOLID 원칙에 대해 정리한 글입니다."
 date: 2025-10-05
 tags: ["OOP", "SOLID 원칙"]
+slug: "solid"
 ---
 
 # 들어가며

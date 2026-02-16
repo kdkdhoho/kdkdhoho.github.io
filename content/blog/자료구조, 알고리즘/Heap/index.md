@@ -3,6 +3,7 @@ title: "자료구조 - 힙(Heap)"
 description: "자료구조 중, 힙(Heap)에 대해 알아보고 힙을 구현하는 방법과 힙을 재구조화하는 방법, 임의의 배열로 힙을 만드는 방법에 대해 정리한 글입니다."
 date: 2026-01-29
 tags: ["자료구조", "힙"]
+slug: "heap"
 ---
 
 ![최대 힙(Max Heap)](https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Max-Heap.svg/500px-Max-Heap.svg.png)

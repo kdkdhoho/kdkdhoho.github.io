@@ -4,6 +4,7 @@ description: "나를 이해하기 위해 기록한 글입니다."
 date: 2025-08-01
 draft: true
 tags: ["생각 정리"]
+slug: "post-20250801-6860cb"
 ---
 
 # 내가 좋아하는 것

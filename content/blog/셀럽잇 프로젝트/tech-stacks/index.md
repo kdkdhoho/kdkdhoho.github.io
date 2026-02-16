@@ -4,6 +4,7 @@ description: "[셀럽잇] 기술 스택 및 선정 이유"
 date: 2023-07-07
 tags: ["셀럽잇"]
 series: "셀럽잇 프로젝트"
+slug: "tech-stacks"
 ---
 
 ![프로젝트에서 선택한 기술 스택 아이콘](tech_stack_icons.png)

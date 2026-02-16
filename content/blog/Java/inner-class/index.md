@@ -3,6 +3,7 @@ title: "[Java] inner 클래스와 종류에 대해"
 description: "inner class, static inner class, non-static member class, anonymous inner class, local area inner class"
 date: 2024-07-26
 tags: ["Java", "inner class"]
+slug: "inner-class"
 ---
 
 ## 내부 클래스(inner class)

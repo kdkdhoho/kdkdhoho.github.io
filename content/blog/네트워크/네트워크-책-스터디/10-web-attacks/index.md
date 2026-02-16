@@ -4,6 +4,7 @@ description: "해커들의 공격 수단에 대해 알아보자"
 date: 2024-05-12
 tags: ["Network"]
 series: "그림으로 배우는 Http & Network Basic"
+slug: "10-web-attacks"
 ---
 
 이번 장에서는 **웹 애플리케이션을 공격하는 기술**들에 대해 알아본다.

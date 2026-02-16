@@ -2,6 +2,7 @@
 title: "2024년 6월 셋째 주 회고록 "
 date: 2024-06-16
 tags: ["회고"]
+slug: "post-20240616-db12de"
 ---
 
 ## What I Studied

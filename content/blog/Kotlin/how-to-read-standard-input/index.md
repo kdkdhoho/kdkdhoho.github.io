@@ -3,6 +3,7 @@ title: "[Kotlin] 표준 입력 읽는 방법"
 description: "readln() 함수를 사용하여 표준 입력을 읽는 방법에 대해"
 date: 2025-08-03
 tags: ["Kotlin"]
+slug: "how-to-read-standard-input"
 ---
 
 Kotlin에서 표준 입력을 받기 위해선 `readln()` 함수를 사용하면 된다.  

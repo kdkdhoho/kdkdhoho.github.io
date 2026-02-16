@@ -2,6 +2,7 @@
 title: "Docker의 기본적인 명령어들"
 date: 2024-05-01
 tags: ["Docker"]
+slug: "docker"
 ---
 
 웬만하면 `docker command --help`처럼, `--help`를 통해 바로 파악하거나 공식 문서를 통해 자세히 이해할 수 있다.
