@@ -1092,6 +1092,27 @@ d.clear()
 print(d) # 출력: deque([])
 ```
 
+## `defaultdict()`
+Python에서 기본 딕셔너리를 사용할 때 _KeyError_ 를 항상 신경써야 한다.  
+하지만 `collections.defaultdict` 모듈을 사용하면 이 _KeyError_ 에서 자유롭고 간결한 코드를 작성할 수 있게 된다.
+
+일단 사용 예제 코드를 살펴보자.
+
+```python
+from collections import defaultdict
+
+nums = [10, 20, 30, 30]
+
+counter = defaultdict(int)
+for num in nums:
+    counter[num] += 1
+
+print(counter) # 출력: defaultdict(<class 'int'>, {10: 1, 20: 1, 30: 2})
+```
+
+1. `defaultdict()`는 인자로 `int` 나 `list` 같은 _Callable 객체_ (함수 형태 또는 람다식)만 가능하다.
+2. 이제 `defaultdict()`로 생성된 딕셔너리에 존재하지 않는 Key 값으로 조회를 하면, 인자로 전달한 _Callable 객체_ 에 따라 **기본값을 생성**해준다.
+
 # `heapq` 모듈
 Python에서 힙(Heap) 자료구조는 `heapq` 모듈을 통해 제공된다. 기본적으로 최소 힙으로 구현되어 있다.
 
@@ -1132,7 +1153,6 @@ max_value = -heapq.heappop(max_heap)
 print(max_value) # 출력: 8
 print(max_heap) # [-5, -4, -2]
 ```
-
 
 # `bisect` 모듈
 Python의 `bisect` 모듈은 정렬된 리스트를 유지하면서 새로운 요소를 삽입할 적절한 위치를 찾는 이진 분할(Binary Bisection) 알고리즘을 제공한다.
