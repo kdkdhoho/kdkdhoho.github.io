@@ -1,9 +1,9 @@
 ---
-title: "Python 기본 문법"
-description: "Python의 기본 문법에 대해 정리한 글입니다. 지속적으로 업데이트 해 갈 예정입니다."
-date: 2026-01-14
+title: "Python Syntax, 각종 라이브러리"
+description: "Python Syntax와 각종 라이브러리에 대한 학습을 기록했습니다."
+date: 2026-02-25
 tags: ["Python"]
-slug: "syntax"
+slug: "python-syntax"
 ---
 
 # 표준 입출력
@@ -481,7 +481,8 @@ arr = [[0] * m for _ in range(n)]
 2. 정렬된 새로운 리스트를 반환하는 내장함수 `sorted()`
 - 인자로 전달된 Iterable 객체를 변경하지 않고, **새로운 리스트를 반환**하므로 원본 데이터를 유지해야 하는 경우에 적합하다.
 
-파이썬의 정렬 알고리즘은 Timsort 알고리즘을 적용한다.
+파이썬의 정렬 알고리즘은 [Tim Sort 알고리즘](https://d2.naver.com/helloworld/0315536)을 적용한다.  
+참고로 Tim Sort 알고리즘의 시간 복잡도는 O(NlogN) 이다.
 
 기본적인 사전순 정렬은 대문자가 소문자를 앞서는 방식으로 진행된다. 이는 유니코드 표에서 대문자가 소문자보다 작은 값을 가지기 때문이다.  
 만약 대소문자를 구분하지 않고 정렬하고 싶다면, `key` 매개변수를 활용해야 한다.  
@@ -757,6 +758,51 @@ print(name) # None
 
 name2 = profile.get('name', 'coder123')
 print(name2) # coder123
+```
+
+### 요소 삭제
+특정 Key 값과 일치하는 요소를 삭제하기 위해서는 크게 3가지 방법이 있다.
+
+1. `del()`
+`del()` 메서드에 인자로 전달한 값과 동일한 Key를 가진 요소를 삭제한다.  
+다만 해당 Key 값이 없다면 KeyError 가 발생하기에 주의해야 한다.
+
+```python
+my_dict = {"name": "Jack", "age": 25, "city": "Seoul"}
+
+del my_dict["age"]
+print(my_dict)  # 결과: {'name': 'Jack', 'city': 'Seoul'}
+```
+
+2. `.pop()`
+요소를 삭제함과 동시에 해당 요소의 값(Value)를 반환받을 수 있다.  
+또한 두 번째 인자로 기본값을 설정하면 해당 요소가 없어도 에러 없이 넘어갈 수 있어 안전하다.
+
+```python
+my_dict = {"name": "Jack", "age": 25}
+
+# 삭제된 값을 변수에 담을 수 있음
+removed_value = my_dict.pop("age") 
+
+# 키가 없을 경우를 대비한 기본값 설정 (에러 방지)
+result = my_dict.pop("hobby", "찾는 키가 없습니다.") 
+
+print(my_dict)  # 결과: {'name': 'Jack'}
+print(result)   # 결과: '찾는 키가 없습니다.'
+```
+
+3. 딕셔너리 컴프리헨션
+기존 딕셔너리를 수정하는 것이 아닌, 특정 키를 제외한 새로운 딕셔너리를 생성하는 방법이다.  
+특정 Key 값이 존재하지 않아도 안전하고, 여러 Key 값을 한꺼번에 제거할 때 유용하다.  
+다만, 위 두 방법보다 더 많은 연산이 수행된다.
+   
+```python
+my_dict = {"a": 1, "b": 2, "c": 3}
+
+# 'b' 키만 제외하고 새로운 딕셔너리 생성
+new_dict = {k: v for k, v in my_dict.items() if k != "b"}
+
+print(new_dict)  # 결과: {'a': 1, 'c': 3}
 ```
 
 ### 기타 메서드
