@@ -684,6 +684,24 @@ upper_specs <span class="token operator">=</span> <span class="token punctuation
 values <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Intel i9'</span><span class="token punctuation">,</span> <span class="token string">'32GB'</span><span class="token punctuation">,</span> <span class="token string">'1TB SSD'</span><span class="token punctuation">]</span>
 
 </code></pre></div>
+<h1 id="튜플-tuple" style="position:relative;"><a href="#%ED%8A%9C%ED%94%8C-tuple" aria-label="튜플 tuple permalink" class="anchor-header before" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>튜플 (Tuple)</h1>
+<p>Python에서 튜플(Tuple)은 <strong>여러 개의 항목을 하나의 변수에 저장할 수 있게 해주는 자료구조</strong>입니다.</p>
+<p>얼핏 보면 리스트(List)와 비슷해보입니다.<br>
+실제로 Iterable하고 요소 순서대로 인덱싱이 가능하고 중복 요소를 저장할 수 있다는 점에서 리스트와 비슷합니다.<br>
+<a href="#%ED%8C%A8%ED%82%B9%EA%B3%BC-%EC%96%B8%ED%8C%A8%ED%82%B9" target="_blank" rel="noopener noreferrer">언패킹</a>도 튜플과 리스트 모두 동일하게 적용할 수 있습니다.</p>
+<p>하지만 Mutable 한 리스트와 달리, <strong>튜플은 Immutable</strong> 합니다.<br>
+그래서 주로 좌표값처럼 데이터가 고정된 쌍을 튜플로 묶어서 사용합니다.<br>
+그리고 Immutable 한 특성 덕분에 딕셔너리(Dictonary)의 Key 값으로 할당될 수 있고, 집합(Set)에도 저장될 수 있습니다.</p>
+<p>또한, 튜플이 리스트보다 메모리를 적게 사용하고 처리 속도가 빨라 성능 최적화에도 유리합니다.</p>
+<h2 id="생성-및-선언" style="position:relative;"><a href="#%EC%83%9D%EC%84%B1-%EB%B0%8F-%EC%84%A0%EC%96%B8" aria-label="생성 및 선언 permalink" class="anchor-header before" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>생성 및 선언</h2>
+<p>튜플은 기본적으로 <code class="language-text">()</code> 안에 요소를 담는 방식입니다.</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python">tuple1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c <span class="token operator">=</span> tuple1 <span class="token comment"># 튜플 언패킹</span>
+tuple2 <span class="token operator">=</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c <span class="token comment"># 튜플 패킹</span></code></pre></div>
+<p>이때 요소가 하나인 튜플을 초기화할 때는 다음과 같이 쉼표(,)를 반드시 추가해줘야 합니다.<br>
+그렇지 않으면 튜플에 포함된 요소가 단순히 문자열로 인식되기 때문입니다.</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token comment"># 요소가 한 개일 때는 반드시 뒤에 쉼표를 함께 작성한다.</span>
+single_tuple <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">"apple"</span><span class="token punctuation">,</span><span class="token punctuation">)</span></code></pre></div>
 <h1 id="패킹과-언패킹" style="position:relative;"><a href="#%ED%8C%A8%ED%82%B9%EA%B3%BC-%EC%96%B8%ED%8C%A8%ED%82%B9" aria-label="패킹과 언패킹 permalink" class="anchor-header before" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>패킹과 언패킹</h1>
 <p>파이썬이 제공하는 기능 중 하나는 <strong>패킹과 언패킹</strong>이다.</p>
 <h2 id="패킹" style="position:relative;"><a href="#%ED%8C%A8%ED%82%B9" aria-label="패킹 permalink" class="anchor-header before" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>패킹</h2>
@@ -1138,6 +1156,12 @@ max_value <span class="token operator">=</span> <span class="token operator">-</
 </ul>
 </li>
 <li>
+<p><a href="#%ED%8A%9C%ED%94%8C-tuple">튜플 (Tuple)</a></p>
+<ul>
+<li><a href="#%EC%83%9D%EC%84%B1-%EB%B0%8F-%EC%84%A0%EC%96%B8">생성 및 선언</a></li>
+</ul>
+</li>
+<li>
 <p><a href="#%ED%8C%A8%ED%82%B9%EA%B3%BC-%EC%96%B8%ED%8C%A8%ED%82%B9">패킹과 언패킹</a></p>
 <ul>
 <li><a href="#%ED%8C%A8%ED%82%B9">패킹</a></li>
@@ -1196,6 +1220,6 @@ max_value <span class="token operator">=</span> <span class="token operator">-</
           <script
             id="gatsby-chunk-mapping"
           >
-            window.___chunkMapping="{\"app\":[\"/app-a3a13e75dcd39e2b1c10.js\"],\"component---src-pages-404-js\":[\"/component---src-pages-404-js-ba52f6d2b7404e2dda4d.js\"],\"component---src-pages-index-js\":[\"/component---src-pages-index-js-126a788a37bbf4851627.js\"],\"component---src-pages-search-js\":[\"/component---src-pages-search-js-d8dfd38aa4b8658e619d.js\"],\"component---src-templates-blog-post-js\":[\"/component---src-templates-blog-post-js-bda21d2a1417e6a1727c.js\"]}";
+            window.___chunkMapping="{\"app\":[\"/app-d1a2cdc6942e48e69424.js\"],\"component---src-pages-404-js\":[\"/component---src-pages-404-js-ba52f6d2b7404e2dda4d.js\"],\"component---src-pages-index-js\":[\"/component---src-pages-index-js-126a788a37bbf4851627.js\"],\"component---src-pages-search-js\":[\"/component---src-pages-search-js-d8dfd38aa4b8658e619d.js\"],\"component---src-templates-blog-post-js\":[\"/component---src-templates-blog-post-js-bda21d2a1417e6a1727c.js\"]}";
           </script>
-        <script>window.___webpackCompilationHash="2cd8d8972d81b5474bc4";</script><script src="/webpack-runtime-8b80c4bac80ee1e3330d.js" async></script><script src="/framework-647153102893cffe9a5c.js" async></script><script src="/app-a3a13e75dcd39e2b1c10.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
+        <script>window.___webpackCompilationHash="f32a96c6fdac79f54f63";</script><script src="/webpack-runtime-8b80c4bac80ee1e3330d.js" async></script><script src="/framework-647153102893cffe9a5c.js" async></script><script src="/app-d1a2cdc6942e48e69424.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
