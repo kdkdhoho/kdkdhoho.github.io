@@ -80,7 +80,7 @@ for _ in range(k): # k: 간선의 개수
 ```
 
 인접 행렬은 공간을 더 많이 차지하는 대신, O(1) 만에 연결 정보를 조회할 수 있는 장점이 있습니다.  
-반면, 인접 그래프는 공간을 더 효울적으로 사용하는 대신, 그래프를 탐색할 때 연결된 노드 개수만큼 선형적으로 늘어난다는 단점이 있습니다.
+반면, 인접 그래프는 공간을 더 효율적으로 사용하는 대신, 그래프를 탐색할 때 연결된 노드 개수만큼 선형적으로 늘어난다는 단점이 있습니다.
 
 따라서 문제 요구사항이나 제약 조건에 따라 적절한 방식을 사용하는 것이 좋겠습니다.
 
@@ -119,6 +119,8 @@ def dfs(curr_node):
 
 ### 2.1.4. 이분 그래프
 이분 그래프란, 모든 정점을 빨간색, 혹은 파란색으로 칠했을 때, 모든 간선에 대해서 각 간선이 빨간색이랑 파란색을 포함하도록 색칠할 수 있는 그래프입니다.
+
+(연습하기 좋은 기본 문제가 백준에 있습니다. ([문제 바로가기](https://www.acmicpc.net/problem/1707)))
 
 ![이분 그래프 예시 (출처: Wikipedia)](이분-그래프-예시.png)
 
@@ -171,20 +173,25 @@ print(answer)
 기본 구현(Python)은 다음과 같습니다.
 
 ```python
-depth  = [0] * n # 각 노드의 방문 깊이(순서)를 기록하는 배열입니다.
+depth  = [0] * (n + 1) # 각 노드의 방문 깊이(순서)를 기록하는 배열입니다.
 has_cycle = False
+cycle_size = 0
 
-# cur: 현재 방문한 노드 번호입니다.
+# curr: 현재 노드 번호입니다.
 # prev: 이전에 방문한 노드 번호입니다.
 def dfs(curr, prev):
+    global has_cycle, cycle_size
+    
     for nxt in graph[curr]:
-        if prev != nxt: # curr과 연결된 노드인 경우
-            if depth[nxt] == 0: # 해당 노드에 처음 방문하는 경우
-                depth[nxt] = depth[curr] + 1
-                dfs(nxt, curr)
-            elif depth[nxt] > depth[curr]: # 연결된 노드가 현재 노드보다 먼저 방문한 경우 -> 사이클 존재
-                has_cycle = True
-                size = depth[curr] - depth[nxt] + 1 # 사이클의 사이즈를 구한다.    
+        # 직전 노드로 되돌아가지 않습니다.
+        if nxt == prev: continue
+        
+        if depth[nxt] == 0: # 처음 방문하는 경우
+            depth[nxt] = depth[curr] + 1
+            dfs(nxt, curr)
+        elif depth[curr] > depth[nxt]: # 사이클이 존재하는 경우
+            has_cycle = True
+            cycle_size = depth[curr] - depth[nxt] + 1
 ```
 
 대표적인 문제로는 [백준의 아침은 고구마야](https://www.acmicpc.net/problem/20426)가 있으니 위를 참고하여 풀어보는 것도 좋겠습니다.
@@ -195,12 +202,12 @@ def dfs(curr, prev):
 ### 2.2.1. 특징
 너비 우선 탐색이라 불리는 BFS(Breadth First Search)는 그래프 상에서 특정 노드를 기준으로, 연결된 노드를 먼저 탐색하는 방식입니다.
 
-말보단 아래 이미지를 보는 것이 이해가 훨씬 쉽습니다.
+아래 그림과 같은 그래프가 있을 때, BFS 방식으로 그래프를 탐색하면 알파벳 순서대로 탐색합니다.
 
 ![BFS](bfs.png)
 
 ### 2.2.2. 용도
-- **가중치가 모두 1인 그래프에서 최단 거리 구하기** ()
+- **가중치가 모두 1인 그래프에서 최단 거리 구하기**
 - 단계별 확산 시뮬레이션
 - 그래프에서 depth 단위로 끊어서 탐색하기
 
@@ -222,11 +229,9 @@ def bfs(start):
         curr = q.popleft()
         
         for next in graph[curr]:
-            if visited[next]:
-                continue
-                
-            q.append(next)
-            visited[next] = True
+            if not visited[next]:
+                q.append(next)
+                visited[next] = True
 ```
 
 이때 유의해야 할 점은, **방문 여부를 처리할 때 반드시 큐에 넣기 전에 해야 한다는 점**입니다.  
@@ -240,7 +245,7 @@ dx = [-1, 0, 1, 0]
 dy = [0, 1, 0, -1]
 
 def bfs(start_x, start_y):
-    visited = [[False] * n for _ in range(n)]
+    visited = [[False] * m for _ in range(n)]
     q = deque((start_x, start_y))
     
     visited[start_x][start_y] = True
@@ -252,13 +257,9 @@ def bfs(start_x, start_y):
         for d in range(4):
             next_x, next_y = x + dx[d], y + dy[d]
             
-            if not in_array(next_x, next_y):
-                continue
-            if visited[next_x][next_y]:
-                continue
-                
-            visited[next_x][next_y] = True
-            q.append((next_x, next_y))
+            if in_array(next_x, next_y) and not visited[next_x][next_y]:
+                visited[next_x][next_y] = True
+                q.append((next_x, next_y))
 ```
 
 ### 2.2.4. 그래프에서 depth 단위로 끊어서 탐색하기
@@ -266,11 +267,8 @@ def bfs(start_x, start_y):
 ```python
 from collections import deque
 
-graph = ... # 생략
-
-visited = [False] * n
+visited = [False] * (n + 1)
 q = deque()
-
 q.append(n)
 visited[n] = True
 
@@ -281,9 +279,7 @@ while q:
     for _ in range(size):
         curr = q.popleft()
         for nxt in graph[curr]:
-            if visited[nxt]:
-                continue
-                
-            q.append(nxt)
-            visited[nxt] = True
+            if not visited[nxt]:
+                q.append(nxt)
+                visited[nxt] = True
 ```
