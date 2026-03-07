@@ -166,7 +166,7 @@
     graph<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>b<span class="token punctuation">)</span>
     graph<span class="token punctuation">[</span>b<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>a<span class="token punctuation">)</span></code></pre></div>
 <p>인접 행렬은 공간을 더 많이 차지하는 대신, O(1) 만에 연결 정보를 조회할 수 있는 장점이 있습니다.<br>
-반면, 인접 그래프는 공간을 더 효울적으로 사용하는 대신, 그래프를 탐색할 때 연결된 노드 개수만큼 선형적으로 늘어난다는 단점이 있습니다.</p>
+반면, 인접 그래프는 공간을 더 효율적으로 사용하는 대신, 그래프를 탐색할 때 연결된 노드 개수만큼 선형적으로 늘어난다는 단점이 있습니다.</p>
 <p>따라서 문제 요구사항이나 제약 조건에 따라 적절한 방식을 사용하는 것이 좋겠습니다.</p>
 <p>이제 DFS 탐색을 위해서는 다음과 같이 작성할 수 있는데요. 인접 그래프 형태로 저장했다고 가정하고 구현해보겠습니다.<br>
 이때 한 노드를 중복 방문하는 것을 방지하기 위해 <code class="language-text">visited = [False] * n</code> 과 같이 배열 형태로 값을 기록하는데요. 방문 처리는 DFS 함수 내부의 첫 번째 라인에서 수행하는 것이 권장됩니다.</p>
@@ -197,6 +197,7 @@ visited <span class="token operator">=</span> <span class="token punctuation">[<
 <p>위 DFS 코드를 기반으로, 문제에서 필요한 해를 구하는 코드를 추가하면 됩니다.</p>
 <h3 id="214-이분-그래프" style="position:relative;"><a href="#214-%EC%9D%B4%EB%B6%84-%EA%B7%B8%EB%9E%98%ED%94%84" aria-label="214 이분 그래프 permalink" class="anchor-header before" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.1.4. 이분 그래프</h3>
 <p>이분 그래프란, 모든 정점을 빨간색, 혹은 파란색으로 칠했을 때, 모든 간선에 대해서 각 간선이 빨간색이랑 파란색을 포함하도록 색칠할 수 있는 그래프입니다.</p>
+<p>(연습하기 좋은 기본 문제가 백준에 있습니다. (<a href="https://www.acmicpc.net/problem/1707" target="_blank" rel="noopener noreferrer">문제 바로가기</a>))</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; "
@@ -268,26 +269,31 @@ answer <span class="token operator">=</span> <span class="token boolean">True</s
 <h3 id="215-사이클-존재-유무-파악-및-사이클-크기-구하기" style="position:relative;"><a href="#215-%EC%82%AC%EC%9D%B4%ED%81%B4-%EC%A1%B4%EC%9E%AC-%EC%9C%A0%EB%AC%B4-%ED%8C%8C%EC%95%85-%EB%B0%8F-%EC%82%AC%EC%9D%B4%ED%81%B4-%ED%81%AC%EA%B8%B0-%EA%B5%AC%ED%95%98%EA%B8%B0" aria-label="215 사이클 존재 유무 파악 및 사이클 크기 구하기 permalink" class="anchor-header before" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.1.5. 사이클 존재 유무 파악 및 사이클 크기 구하기</h3>
 <p>그래프에 사이클이 존재하는지 판별할 수 있고, 사이클의 크기도 DFS를 통해 구할 수 있습니다.</p>
 <p>기본 구현(Python)은 다음과 같습니다.</p>
-<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python">depth  <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> n <span class="token comment"># 각 노드의 방문 깊이(순서)를 기록하는 배열입니다.</span>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python">depth  <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token punctuation">(</span>n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment"># 각 노드의 방문 깊이(순서)를 기록하는 배열입니다.</span>
 has_cycle <span class="token operator">=</span> <span class="token boolean">False</span>
+cycle_size <span class="token operator">=</span> <span class="token number">0</span>
 
-<span class="token comment"># cur: 현재 방문한 노드 번호입니다.</span>
+<span class="token comment"># curr: 현재 노드 번호입니다.</span>
 <span class="token comment"># prev: 이전에 방문한 노드 번호입니다.</span>
 <span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>curr<span class="token punctuation">,</span> prev<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">global</span> has_cycle<span class="token punctuation">,</span> cycle_size
+    
     <span class="token keyword">for</span> nxt <span class="token keyword">in</span> graph<span class="token punctuation">[</span>curr<span class="token punctuation">]</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> prev <span class="token operator">!=</span> nxt<span class="token punctuation">:</span> <span class="token comment"># curr과 연결된 노드인 경우</span>
-            <span class="token keyword">if</span> depth<span class="token punctuation">[</span>nxt<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span> <span class="token comment"># 해당 노드에 처음 방문하는 경우</span>
-                depth<span class="token punctuation">[</span>nxt<span class="token punctuation">]</span> <span class="token operator">=</span> depth<span class="token punctuation">[</span>curr<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span>
-                dfs<span class="token punctuation">(</span>nxt<span class="token punctuation">,</span> curr<span class="token punctuation">)</span>
-            <span class="token keyword">elif</span> depth<span class="token punctuation">[</span>nxt<span class="token punctuation">]</span> <span class="token operator">></span> depth<span class="token punctuation">[</span>curr<span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token comment"># 연결된 노드가 현재 노드보다 먼저 방문한 경우 -> 사이클 존재</span>
-                has_cycle <span class="token operator">=</span> <span class="token boolean">True</span>
-                size <span class="token operator">=</span> depth<span class="token punctuation">[</span>curr<span class="token punctuation">]</span> <span class="token operator">-</span> depth<span class="token punctuation">[</span>nxt<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span> <span class="token comment"># 사이클의 사이즈를 구한다.    </span></code></pre></div>
+        <span class="token comment"># 직전 노드로 되돌아가지 않습니다.</span>
+        <span class="token keyword">if</span> nxt <span class="token operator">==</span> prev<span class="token punctuation">:</span> <span class="token keyword">continue</span>
+        
+        <span class="token keyword">if</span> depth<span class="token punctuation">[</span>nxt<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span> <span class="token comment"># 처음 방문하는 경우</span>
+            depth<span class="token punctuation">[</span>nxt<span class="token punctuation">]</span> <span class="token operator">=</span> depth<span class="token punctuation">[</span>curr<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span>
+            dfs<span class="token punctuation">(</span>nxt<span class="token punctuation">,</span> curr<span class="token punctuation">)</span>
+        <span class="token keyword">elif</span> depth<span class="token punctuation">[</span>curr<span class="token punctuation">]</span> <span class="token operator">></span> depth<span class="token punctuation">[</span>nxt<span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token comment"># 사이클이 존재하는 경우</span>
+            has_cycle <span class="token operator">=</span> <span class="token boolean">True</span>
+            cycle_size <span class="token operator">=</span> depth<span class="token punctuation">[</span>curr<span class="token punctuation">]</span> <span class="token operator">-</span> depth<span class="token punctuation">[</span>nxt<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span></code></pre></div>
 <p>대표적인 문제로는 <a href="https://www.acmicpc.net/problem/20426" target="_blank" rel="noopener noreferrer">백준의 아침은 고구마야</a>가 있으니 위를 참고하여 풀어보는 것도 좋겠습니다.</p>
 <hr>
 <h2 id="22-bfs" style="position:relative;"><a href="#22-bfs" aria-label="22 bfs permalink" class="anchor-header before" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.2. BFS</h2>
 <h3 id="221-특징" style="position:relative;"><a href="#221-%ED%8A%B9%EC%A7%95" aria-label="221 특징 permalink" class="anchor-header before" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.2.1. 특징</h3>
 <p>너비 우선 탐색이라 불리는 BFS(Breadth First Search)는 그래프 상에서 특정 노드를 기준으로, 연결된 노드를 먼저 탐색하는 방식입니다.</p>
-<p>말보단 아래 이미지를 보는 것이 이해가 훨씬 쉽습니다.</p>
+<p>아래 그림과 같은 그래프가 있을 때, BFS 방식으로 그래프를 탐색하면 알파벳 순서대로 탐색합니다.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 187px; "
@@ -318,7 +324,7 @@ has_cycle <span class="token operator">=</span> <span class="token boolean">Fals
     </span></p>
 <h3 id="222-용도" style="position:relative;"><a href="#222-%EC%9A%A9%EB%8F%84" aria-label="222 용도 permalink" class="anchor-header before" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.2.2. 용도</h3>
 <ul>
-<li><strong>가중치가 모두 1인 그래프에서 최단 거리 구하기</strong> ()</li>
+<li><strong>가중치가 모두 1인 그래프에서 최단 거리 구하기</strong></li>
 <li>단계별 확산 시뮬레이션</li>
 <li>그래프에서 depth 단위로 끊어서 탐색하기</li>
 </ul>
@@ -338,11 +344,9 @@ has_cycle <span class="token operator">=</span> <span class="token boolean">Fals
         curr <span class="token operator">=</span> q<span class="token punctuation">.</span>popleft<span class="token punctuation">(</span><span class="token punctuation">)</span>
         
         <span class="token keyword">for</span> <span class="token builtin">next</span> <span class="token keyword">in</span> graph<span class="token punctuation">[</span>curr<span class="token punctuation">]</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> visited<span class="token punctuation">[</span><span class="token builtin">next</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-                <span class="token keyword">continue</span>
-                
-            q<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token builtin">next</span><span class="token punctuation">)</span>
-            visited<span class="token punctuation">[</span><span class="token builtin">next</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">True</span></code></pre></div>
+            <span class="token keyword">if</span> <span class="token keyword">not</span> visited<span class="token punctuation">[</span><span class="token builtin">next</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                q<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token builtin">next</span><span class="token punctuation">)</span>
+                visited<span class="token punctuation">[</span><span class="token builtin">next</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">True</span></code></pre></div>
 <p>이때 유의해야 할 점은, <strong>방문 여부를 처리할 때 반드시 큐에 넣기 전에 해야 한다는 점</strong>입니다.<br>
 큐에서 뺄 때 처리하면, 중복된 노드가 큐에 여러 번 들어갈 수 있어 불필요한 연산이 수행될 수 있기 때문입니다.</p>
 <p>만약 2차원 격자에서 BFS 방식으로 탐색하려면 다음과 같이 작성하는 것이 기본 형태입니다.</p>
@@ -352,7 +356,7 @@ dx <span class="token operator">=</span> <span class="token punctuation">[</span
 dy <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
 
 <span class="token keyword">def</span> <span class="token function">bfs</span><span class="token punctuation">(</span>start_x<span class="token punctuation">,</span> start_y<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    visited <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token boolean">False</span><span class="token punctuation">]</span> <span class="token operator">*</span> n <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">]</span>
+    visited <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token boolean">False</span><span class="token punctuation">]</span> <span class="token operator">*</span> m <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">]</span>
     q <span class="token operator">=</span> deque<span class="token punctuation">(</span><span class="token punctuation">(</span>start_x<span class="token punctuation">,</span> start_y<span class="token punctuation">)</span><span class="token punctuation">)</span>
     
     visited<span class="token punctuation">[</span>start_x<span class="token punctuation">]</span><span class="token punctuation">[</span>start_y<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">True</span>
@@ -364,21 +368,14 @@ dy <span class="token operator">=</span> <span class="token punctuation">[</span
         <span class="token keyword">for</span> d <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
             next_x<span class="token punctuation">,</span> next_y <span class="token operator">=</span> x <span class="token operator">+</span> dx<span class="token punctuation">[</span>d<span class="token punctuation">]</span><span class="token punctuation">,</span> y <span class="token operator">+</span> dy<span class="token punctuation">[</span>d<span class="token punctuation">]</span>
             
-            <span class="token keyword">if</span> <span class="token keyword">not</span> in_array<span class="token punctuation">(</span>next_x<span class="token punctuation">,</span> next_y<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">continue</span>
-            <span class="token keyword">if</span> visited<span class="token punctuation">[</span>next_x<span class="token punctuation">]</span><span class="token punctuation">[</span>next_y<span class="token punctuation">]</span><span class="token punctuation">:</span>
-                <span class="token keyword">continue</span>
-                
-            visited<span class="token punctuation">[</span>next_x<span class="token punctuation">]</span><span class="token punctuation">[</span>next_y<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">True</span>
-            q<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>next_x<span class="token punctuation">,</span> next_y<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre></div>
+            <span class="token keyword">if</span> in_array<span class="token punctuation">(</span>next_x<span class="token punctuation">,</span> next_y<span class="token punctuation">)</span> <span class="token keyword">and</span> <span class="token keyword">not</span> visited<span class="token punctuation">[</span>next_x<span class="token punctuation">]</span><span class="token punctuation">[</span>next_y<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                visited<span class="token punctuation">[</span>next_x<span class="token punctuation">]</span><span class="token punctuation">[</span>next_y<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">True</span>
+                q<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>next_x<span class="token punctuation">,</span> next_y<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre></div>
 <h3 id="224-그래프에서-depth-단위로-끊어서-탐색하기" style="position:relative;"><a href="#224-%EA%B7%B8%EB%9E%98%ED%94%84%EC%97%90%EC%84%9C-depth-%EB%8B%A8%EC%9C%84%EB%A1%9C-%EB%81%8A%EC%96%B4%EC%84%9C-%ED%83%90%EC%83%89%ED%95%98%EA%B8%B0" aria-label="224 그래프에서 depth 단위로 끊어서 탐색하기 permalink" class="anchor-header before" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.2.4. 그래프에서 depth 단위로 끊어서 탐색하기</h3>
 <div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token keyword">from</span> collections <span class="token keyword">import</span> deque
 
-graph <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token comment"># 생략</span>
-
-visited <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token boolean">False</span><span class="token punctuation">]</span> <span class="token operator">*</span> n
+visited <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token boolean">False</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token punctuation">(</span>n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
 q <span class="token operator">=</span> deque<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
 q<span class="token punctuation">.</span>append<span class="token punctuation">(</span>n<span class="token punctuation">)</span>
 visited<span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">True</span>
 
@@ -389,11 +386,9 @@ visited<span class="token punctuation">[</span>n<span class="token punctuation">
     <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>size<span class="token punctuation">)</span><span class="token punctuation">:</span>
         curr <span class="token operator">=</span> q<span class="token punctuation">.</span>popleft<span class="token punctuation">(</span><span class="token punctuation">)</span>
         <span class="token keyword">for</span> nxt <span class="token keyword">in</span> graph<span class="token punctuation">[</span>curr<span class="token punctuation">]</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> visited<span class="token punctuation">[</span>nxt<span class="token punctuation">]</span><span class="token punctuation">:</span>
-                <span class="token keyword">continue</span>
-                
-            q<span class="token punctuation">.</span>append<span class="token punctuation">(</span>nxt<span class="token punctuation">)</span>
-            visited<span class="token punctuation">[</span>nxt<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">True</span></code></pre></div></section><hr class="blog-post-module--postDivider--aa8ca"/></article><nav class="blog-post-module--blogPostNav--d05de"><ul><li><a rel="이전 글" href="/posts/dijkstra/">다익스트라 알고리즘</a></li><li><a rel="다음 글" href="/posts/manacher-algorithm/">Manacher 알고리즘</a></li></ul></nav></div><button type="button" class="toc-module--mobileTocButton--56883" aria-haspopup="dialog" aria-expanded="false" aria-controls="mobile-toc-sheet">목차</button><button type="button" class="toc-module--mobileTocBackdrop--a19ba " aria-label="목차 닫기"></button><aside id="mobile-toc-sheet" class="toc-module--tocContainer--ffa0b "><div class="toc-module--tocHeader--b1f84"><h3 class="toc-module--tocTitle--0befc">목차</h3><button type="button" class="toc-module--mobileCloseButton--e0810" aria-label="목차 닫기">닫기</button></div><div class="toc-module--tocProgress--b5e48" aria-hidden="true"><span class="toc-module--tocProgressFill--48e0b" style="width:0%"></span></div><div class="toc-module--tocContent--d6318"><ul>
+            <span class="token keyword">if</span> <span class="token keyword">not</span> visited<span class="token punctuation">[</span>nxt<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                q<span class="token punctuation">.</span>append<span class="token punctuation">(</span>nxt<span class="token punctuation">)</span>
+                visited<span class="token punctuation">[</span>nxt<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">True</span></code></pre></div></section><hr class="blog-post-module--postDivider--aa8ca"/></article><nav class="blog-post-module--blogPostNav--d05de"><ul><li><a rel="이전 글" href="/posts/dijkstra/">다익스트라 알고리즘</a></li><li><a rel="다음 글" href="/posts/manacher-algorithm/">Manacher 알고리즘</a></li></ul></nav></div><button type="button" class="toc-module--mobileTocButton--56883" aria-haspopup="dialog" aria-expanded="false" aria-controls="mobile-toc-sheet">목차</button><button type="button" class="toc-module--mobileTocBackdrop--a19ba " aria-label="목차 닫기"></button><aside id="mobile-toc-sheet" class="toc-module--tocContainer--ffa0b "><div class="toc-module--tocHeader--b1f84"><h3 class="toc-module--tocTitle--0befc">목차</h3><button type="button" class="toc-module--mobileCloseButton--e0810" aria-label="목차 닫기">닫기</button></div><div class="toc-module--tocProgress--b5e48" aria-hidden="true"><span class="toc-module--tocProgressFill--48e0b" style="width:0%"></span></div><div class="toc-module--tocContent--d6318"><ul>
 <li>
 <p><a href="#1-%EA%B7%B8%EB%9E%98%ED%94%84">1. 그래프</a></p>
 </li>
