@@ -35,7 +35,13 @@ const Layout = ({
     }
   `)
 
-  const posts = data.allMarkdownRemark.nodes
+  const posts = React.useMemo(
+    () =>
+      (data.allMarkdownRemark.nodes || []).filter(
+        post => post?.fields?.slug
+      ),
+    [data.allMarkdownRemark.nodes]
+  )
   const recentPosts = posts.slice(0, 5)
 
   const categories = React.useMemo(() => {
@@ -47,7 +53,7 @@ const Layout = ({
     }
 
     posts.forEach(post => {
-      const categoryPath = post.fields.categoryPath || ""
+      const categoryPath = post.fields?.categoryPath || ""
       if (!categoryPath) return
 
       const segments = categoryPath.split("/")
@@ -183,7 +189,7 @@ const Layout = ({
                 {recentPosts.map(post => (
                   <li key={post.fields.slug} className={styles.latestPostListItem}>
                     <Link to={post.fields.slug} className={styles.latestPostLink}>
-                      {post.frontmatter.title || post.fields.slug}
+                      {post.frontmatter?.title || post.fields.slug}
                     </Link>
                     <time className={styles.latestPostDate}>{post.frontmatter.date}</time>
                   </li>

@@ -32,7 +32,13 @@ const Search = ({ variant = "toggle" }) => {
     }
   `)
 
-  const posts = data.allMarkdownRemark.nodes
+  const posts = React.useMemo(
+    () =>
+      (data.allMarkdownRemark.nodes || []).filter(
+        post => post?.fields?.slug
+      ),
+    [data.allMarkdownRemark.nodes]
+  )
   const isInline = variant === "inline"
   const recentPosts = React.useMemo(() => posts.slice(0, 5), [posts])
   const matchedPosts = React.useMemo(() => {

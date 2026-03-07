@@ -42,7 +42,13 @@ const sortPosts = (posts, sortType, searchQuery) => {
 
 const SearchPage = ({ data }) => {
   const location = useLocation()
-  const posts = data.allMarkdownRemark.nodes
+  const posts = React.useMemo(
+    () =>
+      (data.allMarkdownRemark.nodes || []).filter(
+        post => post?.fields?.slug
+      ),
+    [data.allMarkdownRemark.nodes]
+  )
   const siteTitle = data.site.siteMetadata?.title || `Title`
 
   const queryFromUrl = React.useMemo(() => {
@@ -138,8 +144,8 @@ const SearchPage = ({ data }) => {
             {sortedPosts.length > 0 ? (
               <div className={styles.resultsList}>
                 {sortedPosts.map(post => {
-                  const title = post.frontmatter.title || post.fields.slug
-                  const description = post.frontmatter.description || post.excerpt
+                  const title = post.frontmatter?.title || post.fields.slug
+                  const description = post.frontmatter?.description || post.excerpt
                   const thumbnailSrc = getFirstImageFromHtml(post.html)
                   const readingTime = getReadingTimeText(post.timeToRead)
 

@@ -9,7 +9,13 @@ import { getFirstImageFromHtml, getReadingTimeText } from "../utils/post-utils"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
+  const posts = useMemo(
+    () =>
+      (data.allMarkdownRemark.nodes || []).filter(
+        post => post?.fields?.slug
+      ),
+    [data.allMarkdownRemark.nodes]
+  )
   const recentPosts = posts.slice(0, 5)
 
   const selectedCategory = useMemo(() => {
@@ -49,7 +55,7 @@ const BlogIndex = ({ data, location }) => {
         <h2 className={styles.latestPostsTitle}>최신 글</h2>
         <ul className={styles.latestPostsList}>
           {recentPosts.map(post => {
-            const latestTitle = post.frontmatter.title || post.fields.slug
+            const latestTitle = post.frontmatter?.title || post.fields.slug
             const latestThumbnailSrc = getFirstImageFromHtml(post.html)
 
             return (
@@ -80,7 +86,7 @@ const BlogIndex = ({ data, location }) => {
 
       <div className={styles.postsGrid}>
         {filteredPosts.map(post => {
-          const title = post.frontmatter.title || post.fields.slug
+          const title = post.frontmatter?.title || post.fields.slug
           const thumbnailSrc = getFirstImageFromHtml(post.html)
           const readingTime = getReadingTimeText(post.timeToRead)
 

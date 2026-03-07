@@ -55,9 +55,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   const posts = result.data.allMarkdownRemark.nodes
+  const validPosts = posts.filter(post => post?.fields?.slug)
   const duplicatedPaths = new Map()
 
-  posts.forEach(post => {
+  validPosts.forEach(post => {
     const canonicalPath = post.fields?.slug
     if (!canonicalPath) return
 
@@ -85,10 +86,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
   // `context` is available in the template as a prop and as a variable in GraphQL
 
-  if (posts.length > 0) {
-    posts.forEach((post, index) => {
-      const previousPostId = index === 0 ? null : posts[index - 1].id
-      const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
+  if (validPosts.length > 0) {
+    validPosts.forEach((post, index) => {
+      const previousPostId = index === 0 ? null : validPosts[index - 1].id
+      const nextPostId = index === validPosts.length - 1 ? null : validPosts[index + 1].id
 
       createPage({
         path: post.fields.slug,
