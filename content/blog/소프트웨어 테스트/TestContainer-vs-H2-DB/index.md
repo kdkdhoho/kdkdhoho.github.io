@@ -1,89 +1,229 @@
 ---
-title: "CI 빌드 속도 66% 단축기: 테스트 환경의 DB를 TestContainers(MySQL)에서 H2로 전환하며 마주한 고민들"
-description: "CI 최적화를 위해 테스트 DB 환경을 교체하며 분석한 성능 병목 지점과 '환경 불일치' 관리 전략을 공유하기 위해 작성한 글입니다."
-date: 2026-02-13
-tags: ["TestContainers", "H2", "CI/CD", "Testing"]
+title: "CI 빌드 시간 66% 단축기"
+description: "CI 시간 최적화를 위해 테스트 DB 환경을 교체하며 분석한 성능 병목 지점과 '환경 불일치' 관리 전략을 공유하기 위해 작성한 글입니다."
+date: 2026-03-10
+tags: [ "TestContainers", "H2", "CI/CD", "Testing" ]
 slug: "testcontainer-vs-h2-db"
 ---
 
-# 1. 들어가며
-Spring Boot로 백엔드 API를 개발할 때, 데이터베이스와 연동되는 테스트는 필수적입니다.  
-기존에는 운영 환경(MySQL)과 100% 동일한 환경을 보장하기 위해 TestContainers를 사용했습니다.
-
-하지만 프로젝트 규모가 커짐에 따라 **GitHub Actions에서 수행되는 CI 과정의 빌드 시간이 3분을 넘어가기 시작**했습니다. 이는 잦은 배포에 하나의 병목 지점이 되었습니다.  
-이를 해결하기 위해 **인메모리 DB인 H2로 전환**을 결정했고, 결과적으로 **빌드 시간을 1분으로 단축**할 수 있었습니다.
-
-이 과정에서 왜 TestContainers가 느린지, 그리고 테스트 환경 불일치 문제는 어떻게 관리했는지에 대한 분석을 기록해보려고 합니다.
-
----
-
-# 2. TestContainers vs H2: 성능 병목의 근본적 원인
-
-TestContainers를 사용할 때 발생하는 약 2분의 지연은 어디서 오는 걸까요? 단순히 DB 엔진의 차이를 넘어 인프라 구조적인 차이가 큽니다.
-
 ![TestContainers와 H2 비교](thumbnail.png)
 
-## 2.1 인프라 라이프사이클과 오버헤드
-- **컨테이너 초기화 비용**: H2는 JVM 내에서 객체가 생성되는 수준으로 즉시 실행됩니다. 반면 TestContainers는 Docker Daemon에 요청을 보내고, 이미지를 Pull 하고, 컨테이너를 생성/실행하는 무거운 과정을 거칩니다.
-- **Ready-Check 메커니즘**: 컨테이너가 뜬 후에도 내부의 MySQL 프로세스가 완전히 올라올 때까지 _Wait Strategy_ 가 동작하며 추가로 수~수십 초를 대기합니다.
-- **Cleanup 프로세스**: 테스트 종료 후 _Ryuk_ 컨테이너(TestContainers의 리소스 정리용 컨테이너)가 리소스를 정리하는 과정 또한 CI 환경에서는 모두 비용입니다.
+# 1. 들어가며
 
-## 2.2 I/O 관점의 차이 (Memory vs Disk/Network)
-I/O 성능은 이 두 방식의 격차를 가장 크게 만드는 요인입니다.
+실무에서 Spring Boot로 백엔드 API를 개발할 때 통합 테스트를 작성했습니다.  
+테스트용 DB로는 운영 환경(MySQL)과의 일관성을 위해 TestContainers를 사용했습니다.
 
-- **저장 매체 (RAM vs Storage)**: H2는 JVM Heap 메모리에 데이터를 저장하므로 디스크 I/O가 0입니다. 반면, MySQL은 기본적으로 영속성을 위해 Docker 내부의 가상 파일 시스템(_Virtual File System_)에 데이터를 기록하며 실제 디스크 I/O를 유발합니다.
-- **전송 계층 (Method Call vs Network Stack)**:
-  - **H2**: 동일 프로세스 내 통신으로 비용이 사실상 없습니다.
-  - **TestContainers:** 애플리케이션(Host)에서 컨테이너(Guest)로 데이터를 보낼 때 TCP/IP 네트워크 스택과 Docker Bridge Network를 통과해야 하며, 이 과정에서 컨텍스트 스위칭이 발생합니다.
+하지만 GitHub Actions에서 수행되는 **CI 빌드 시간이 3분을 넘었습니다**.  
+때문에 주기적인 배포와 개발 속도를 저해하는 하나의 병목 현상이 되었습니다.  
+더구나 스타트업인데 개발 서버에 개발한 기능 배포할 때마다 3분 이상 기다리는 게 너무 아깝게 느껴졌습니다.  
+자연스레 반드시 해결해야 되는 문제라고 판단했습니다.
 
---- 
-
-## 3. 리스크 관리: '환경 불일치'를 어떻게 극복했는가?
-
-이렇게 H2 DB로 전환함에 따라 속도를 얻은 대신 잃게 되는 가장 큰 가치는 **운영 환경과의 동일성**입니다.  
-H2에 MySQL 모드가 있긴 합니다만, SQL Parser 수준의 호환성을 지원할 뿐, MySQL과 완전히 동일한 방식으로 동작하지는 않습니다.  
-
-따라서 특정 구현체에 종속되지 않도록 다음과 같은 전략으로 이 차이를 극복했습니다.
-
-1. **프로덕션 코드에서 모두 JPA에 의존한다.**
-프로덕션 코드에서 DB와 통신하는 모든 코드는 JPQL과 Spring Data JPA를 사용함으로써 JPA에 의존하도록 했습니다.  
-JPA를 사용하면 구현체에 따라 알아서 SQL을 만들어주기에 구현체를 변경하더라도 안전합니다.  
-
-3. **테스트 격리 시, Truncate SQL 대신 JPA의 `deleteAllInBatch()` 사용**
-기존에는 _DatabaseCleaner_ 라는 객체 안에서 Junit5의 `@BeforeEach` 단계마다 Truncate SQL을 통해 직접 DB CleanUp을 수행했습니다.  
-이를 위해 외래키 제약 조건을 잠시 해제했다가 다시 설정해줬는데요. 이때 MySQL과 H2의 쿼리가 달랐습니다.  
-
-MySQL은 `SET FOREIGN_KEY_CHECKS = 0;`, H2는 `SET REFERENTIAL_INTEGRITY FALSE;`를 사용합니다. 이 차이로 테스트 환경이 달라져 실패가 발생했습니다.  
-
-그래서 Truncate SQL 대신 `deleteAllInBatch()`를 순서대로 호출해 벤더 종속 없이 데이터를 정리했습니다.  
-
-> 물론 위 방법은 삭제 순서를 반드시 지켜야하며 모든 엔티티마다 삭제 코드를 반드시 추가해야 한다는 수고로움이 있긴 했습니다.
+이 글에서는 TestContainers를 사용한 통합 테스트의 CI 빌드 시간이 느린 이유와, 이를 해결하는 과정에 대해 작성해보려고 합니다.
 
 ---
 
-# 4. TestContainers를 포기할 수 없다면? (최적화 대안)
-만약 프로덕션 코드에서 특정 DB에 종속적인 SQL으로 구현된 로직이 있거나, 운영 DB와 동일한 환경에서 테스트를 해야 한다면 TestContainers 사용이 불가피할 수 있습니다. 
+# 2. TestContainers가 느린 이유는?
 
-이 경우에는 아래 방법들을 고려하여 TestContainers를 이용한 테스트 속도를 향상해볼 수 있습니다.
+우선 TestContainers가 느린 이유에 대해 파악해봤습니다.
 
-- **[Reusable Containers](https://java.testcontainers.org/features/reuse/) (v2.0.3+):** 테스트가 끝나도 컨테이너를 유지하여 다음 테스트 시 재사용합니다. 하지만 GitHub Actions 같은 일회성 CI 환경에서는 적용이 어렵다는 한계가 있습니다.
-- **CI 환경 Docker Image 캐싱:** [GitHub Actions의 캐시 기능](https://docs.github.com/en/actions/reference/workflows-and-actions/dependency-caching)을 이용해 이미지 Pull 시간을 단축할 수 있습니다.
-- **MySQL 설정 최적화:** `innodb_flush_log_at_trx_commit=0` 등 데이터 유실을 감수하더라도 속도를 극대화하는 옵션을 `withCommand`로 주입하여 초기화 속도를 높일 수 있습니다.
+결론부터 말하면, **Docker 기술을 사용하기 때문**입니다.
 
-```java
-// MySQL 컨테이너 기동 속도 최적화 예시
-new MySQLContainer<>("mysql:8.0")
-    .withCommand(
-        "--innodb_flush_log_at_trx_commit=0",
-        "--sync_binlog=0",
-        "--innodb_use_native_aio=0"
-    );
+원인에 대한 힌트는 [TestContainers 공식문서](https://testcontainers.com/getting-started/)에서 얻을 수 있었습니다.
+
+TestContainers는 E2E 테스트 시에, 외부 인프라(Redis, MySQL 등) 의존성을 실제 운영 환경의 인프라와 100% 일치하도록 대체하기 위해 탄생한 기술입니다.  
+Docker 기술을 기반으로 구현됩니다.
+
+아래 그림은 TestContainers Workflow 입니다.
+
+![TestContainers Workflow (출처: TestContainers 공식문서)](testcontainers-workflow.png)
+
+과정을 잘 보면 테스트를 실행하기 전에, **실행할 외부 의존성을 Docker 컨테이너로 띄웁니다**.
+
+GitHub Actions에서 Docker 컨테이너를 띄우기 위해서는 항상 이미지를 Pull 받아야 합니다.  
+GitHub Hosted Runner는 실행될 때마다 매번 새로운 가상 환경에서 실행되기 때문입니다.
+
+제 경우에는 MySQL:8 을 설치하고 있었는데요. 아래 사진을 보시면 로컬에서 쌩으로 _mysql:lts_ 버전을 설치해도 16초가 나옵니다.
+
+![MySQL Docker Image Pull 결과](docker-mysql-pull-result.png)
+
+당시 GitHub Actions에서 동작하는 호스트의 하드웨어는 2 Processor, 8GB RAM, 14GB SSD, x64 Architecture 였습니다.
+
+> 아래는 GitHub Actions에서 지원하는 Private Repository의 호스트 하드웨어 표입니다.  
+> ![GitHub Actions에서 지원하는 Private Repository의 호스트 하드웨어 표](github-actions-hardware-resources.png)
+
+GitHub Actions는 MS Azure를 기반으로 호스트를 실행하는데요.  
+이에 대응하는 MS Azure의 VM Size는 _Standard_D2_v3_ 이고, 해당 스펙의 Network 성능은 Max NICs == 2, Max Networks Bandwidth(Mb/s) == 1000
+입니다.
+
+즉, **MySQL Docker Image Pull을 다운로드 받을 때 상당한 시간이 걸림**을 유추할 수 있습니다.  
+(당시에 로그를 확인했으면 정확히 파악했을텐데 그러지 못해 아쉽습니다..)
+
+---
+
+이 외에도 아래의 이유들로 시간이 자꾸 추가될 것입니다.
+
+- MySQL 컨테이너가 띄어지고 초기화되는데까지 시간이 걸린다.
+- TestContainers 자체적으로 Wait 전략을 통해 컨테이너가 올바르게 초기화됐는지 확인한다.
+- Testcontainers API가 Ryuk 사이드카 컨테이너를 사용하여 테스트 실행 완료 후 생성된 모든 리소스(컨테이너, 볼륨, 네트워크 등)를 자동으로 제거한다. 이때 리소스가 정리되는 데까지 필요한 시간도
+  있을 것이다.
+
+---
+
+# 3. 어떻게 개선할 수 있을까?
+
+## 3.1. MySQL Docker Image를 캐싱해놓는다.
+
+매번 새로운 가상환경이 실행되므로 매번 새로운 Docker Image를 Pull 받는 것이 큰 병목이라면, 이를 캐싱해두면 됩니다.  
+Docker Manuals에도 잘 안내되어 있습니다. ([공식문서 링크](https://docs.docker.com/build/ci/github-actions/cache/))
+
+[docker/setup-buildx-action](https://github.com/docker/setup-buildx-action)
+과 [docker/build-push-action](https://github.com/docker/build-push-action) 을 조합해서 구현할 수 있습니다.
+
+```yaml
+steps:
+  - name: Set up Docker Buildx
+    uses: docker/setup-buildx-action@v3
+
+  - name: Build and push
+    uses: docker/build-push-action@v5
+    with:
+      context: .
+      push: true
+      tags: user/app:latest
+      cache-from: type=gha
+      cache-to: type=gha,mode=max
 ```
 
-# 5. 마치며
-CI 빌드 시간을 3분에서 1분으로 단축함에 따라 더 잦은 배포가 가능하게 되었고, 이는 생산성과 시스템 안정성 향상을 야기할 수 있었습니다. 
+- `cache-from: type=gha`
+    - GitHub Actions 캐시 저장소에서 이전 빌드 레이어를 찾아 현재 빌드에 재사용하도록 설정합니다.
+- `cache-to: type=gha,mode=max`
+    - 빌드가 완료된 후 생성된 모든 레이어를 GitHub Actions 캐시에 저장합니다. `mode=max`를 설정하면 최종 이미지뿐만 아니라 중간 단계의 모든 레이어까지 캐싱하여 재사용성을 극대화합니다.
 
-중요한 것은 **어떤 도구가 더 좋은가**가 아니라, **현재 우리 팀의 상황에서 어떤 불편함을 해결해야 하는가**를 파악하고 그에 따른 기회비용을 관리하는 능력이라고 생각합니다.
+|                          장점                          |                    단점                    |
+|:----------------------------------------------------:|:----------------------------------------:|
+| 가장 큰 병목이 되는 Docker Image Pull에 걸리는 시간을 간단히 해결할 수 있다. |      해결책이 GitHub Actions 환경에 종속적이다.      |
+|               테스트 환경을 MySQL로 유지할 수 있다.               |           최초 1회에는 똑같이 3분이 걸린다.           |
+|                                                      | **캐시를 불러오는 과정 역시, 네트워크 I/O 오버헤드가 존재**한다. |
+
+## 3.2. TestContainers 설정으로 실행 시간을 단축한다.
+
+TestContainers의 [Reusable Containers](https://java.testcontainers.org/features/reuse/) 기능을 통해 컨테이너 생성 및 파괴에 드는 리소스를 줄이는
+방안이 있겠습니다.
+
+`testcontainers.reuse.enable=true`를 설정하고, 소스 코드에서 `.withReuse(true)`를 명시하여 기능을 활성화 할 수 있습니다.
+
+|            장점            |                             단점                             |
+|:------------------------:|:----------------------------------------------------------:|
+| 테스트 환경을 MySQL로 유지할 수 있다. | **매번 새로운 가상 환경에서 실행되는 GitHub Actions Runner 에서는 먹히지 않는다**. |
+|     설정을 손쉽게 할 수 있다.      |                                                            |
+
+## 3.3. H2 In-Memory DB를 사용한다.
+
+아예 TestContainers(MySQL)를 사용하지 않고 H2 In-Memory DB를 사용하는 방식입니다.
+
+|               장점               |                     단점                      |
+|:------------------------------:|:-------------------------------------------:|
+|    네트워크 I/O 오버헤드가 전부 사라진다.     |     테스트와 운영 환경의 불일치가 발생할 가능성이 존재하게 된다.      |
+|            적용이 쉽다.             |               코드 수정이 일부 필요하다.               |
+| 로컬 환경에서 항상 Docker를 켜두지 않아도 된다. | 프로덕션 코드에서 MySQL에 종속적인 SQL을 수행했다면 전부 고쳐야 한다. |
+
+# 4. 해결
+
+위 해결 방안 중에서 **H2 In-Memory DB를 사용**하는 방식을 택했습니다.
+
+따지고 보면 MySQL에 종속적인 SQL을 사용하거나 기능을 호출하고 있지 않았습니다. 굳이 운영 환경과 일치할 필요가 없었던 것이죠.
+
+그리고 프로덕션 코드에서 DB에 접근하는 모든 코드는 JPA에 의존하고 있었기에 특정 DB에 종속적이지 않아 쉽게 교체가 가능했습니다.
+
+하지만 이 방법의 경우 아래의 `DatabaseCleaner` 라는 객체에 대해 코드 수정이 필요했습니다.  
+테스트 격리를 위해 모든 테이블에 `TRUNCATE` 쿼리를 날리는 객체입니다. SQL이 MySQL에 종속적이기에 H2로 변경하면 테스트가 실패하게 됩니다.
+
+```java
+public class DatabaseCleaner {
+
+    private final JdbcTemplate jdbcTemplate;
+    private final List<String> truncateQueries;
+
+    public DatabaseCleaner(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+        this.truncateQueries = jdbcTemplate.queryForList("""
+                SELECT CONCAT('TRUNCATE TABLE ', TABLE_NAME) AS query
+                FROM INFORMATION_SCHEMA.TABLES
+                WHERE TABLE_SCHEMA = DATABASE()
+                AND TABLE_TYPE = 'BASE TABLE'
+                """,
+                String.class
+        );
+    }
+
+    public void clean() {
+        jdbcTemplate.execute("SET FOREIGN_KEY_CHECKS = 0");
+        truncateQueries.forEach(query -> jdbcTemplate.execute(query));
+        jdbcTemplate.execute("SET FOREIGN_KEY_CHECKS = 1");
+    }
+}
+```
+
+가장 이상적으로는 JPA에 의존해서 DB 구현체에 상관없이 외래키 제약 조건을 해제하고, 모든 테이블에 대해 `TRUNCATE` 하는 것입니다.  
+하지만, 외래 키 제약 조건 해제 명령은 SQL 표준이 아니므로 모든 벤더에서 공통으로 동작하는 단일 SQL은 존재하지 않습니다.
+
+이를 해결하기 위해 다음과 같은 해결 방안이 있겠습니다.
+
+1. 엔티티 간의 연관 관계 순서를 고려하여 삭제한다.  
+   | 장점 | 단점 |
+   |:------------------------------------------------:|:------------------------------------:|
+   | 순수 JPA에만 의존하기 때문에 DB 구현체가 달라지더라도 코드를 수정할 필요가 없다. | 외래키 제약 조건을 위반하지 않는 순서를 고려해서 삭제해야 한다. |
+   | | 엔티티가 추가될 때마다 코드를 추가해야 한다. |
+
+2. 연관 관계가 복잡하다면 각 벤더별 Dialect를 분기 처리한다.
+   | 장점 | 단점 |
+   |:------------------------------------------------:|:------------------------------------:|
+   | 연관 관계를 고려하지 않아도 된다. | DB 구현체가 달라지면 코드 수정이 조금 필요하다. |
+   | 엔티티가 추가되더라도 코드를 수정하지 않아도 된다. | |
+
+저는 1번 방법을 선택했습니다.  
+엔티티 간의 연관 관계가 복잡하지 않았기 때문에 가장 직관적인 방법을 택했습니다.
+
+> 지금 생각하면 2번 방법이 더 나은 방법 같아 보입니다.  
+> DB 구현체가 달라질 가능성은 매우 희박했고, 오히려 엔티티를 추가하고 삭제하는 빈도가 더 잦았기 때문입니다.
+
+그 결과 아래 코드와 같이 작성했습니다.
+
+```java
+@Component
+public class DatabaseCleaner {
+
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private PostRepository postRepository;
+    @Autowired
+    private CommentRepository commentRepository;
+    @Autowired
+    private LikeRepository likeRepository;
+
+    public void clean() {
+        likeRepository.deleteAllInBatch();
+        commentRepository.deleteAllInBatch();
+        postRepository.deleteAllInBatch();
+        userRepository.deleteAllInBatch();
+    }
+}
+```
+
+# 4. 결과
+TestContainers를 걷어내고 H2 DB를 적용하니 CI 빌드 시간이 약 1분까지 감소하여 약 66%가 단축되었습니다.
+
+만약 앞으로 운영 환경에 종속적인 SQL이나 기능을 구현해야 한다면, 해당 기능만 따로 TestContainers를 이용한 테스트를 수행하도록 해야 될 것 같습니다.  
+물론 이때도 테스트 속도가 큰 병목이 될텐데요.  
+그때는 GitHub Actions에 MySQL Image를 캐싱하거나, 아예 인프라용 서버를 구축해서 테스트용 MySQL 컨테이너를 상시 띄어놓는 방법 등을 적용해볼 수 있겠습니다.
+
+# 5. 마치며
+지금까지 TestContainers를 사용해서 CI 시간이 3분이 걸린 이유에 대해 알아보고, 여러 해결 방안 중 H2 In-Memory DB를 사용해서 문제를 해결한 과정에 대해 정리해봤습니다.
+
+지금 생각해보면 처음부터 TestContainers를 사용할 이유가 없었던 것 같습니다.
+
+---
 
 # 참고
 - [Testcontainers 공식 문서](https://testcontainers.com/)
