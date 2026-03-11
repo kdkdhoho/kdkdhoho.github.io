@@ -382,4 +382,4 @@ VLAN1에서 브로드캐스트를 하게 되면 VLAN1에 속한 호스트에만 
 ---
 
 # 참고 자료
-- [혼자 공부하는 네트워크](https://product.kyobobook.co.kr/detail/S000212911507)
+- [강민철 저, 혼자 공부하는 네트워크](https://product.kyobobook.co.kr/detail/S000212911507)
