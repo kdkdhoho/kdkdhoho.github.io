@@ -211,14 +211,14 @@ public class DatabaseCleaner {
 }
 ```
 
-# 4. 결과
+# 5. 결과
 TestContainers를 걷어내고 H2 DB를 적용하니 CI 빌드 시간이 약 1분까지 감소하여 약 66%가 단축되었습니다.
 
 만약 앞으로 운영 환경에 종속적인 SQL이나 기능을 구현해야 한다면, 해당 기능만 따로 TestContainers를 이용한 테스트를 수행하도록 해야 될 것 같습니다.  
 물론 이때도 테스트 속도가 큰 병목이 될텐데요.  
 그때는 GitHub Actions에 MySQL Image를 캐싱하거나, 아예 인프라용 서버를 구축해서 테스트용 MySQL 컨테이너를 상시 띄어놓는 방법 등을 적용해볼 수 있겠습니다.
 
-# 5. 마치며
+# 6. 마치며
 지금까지 TestContainers를 사용해서 CI 시간이 3분이 걸린 이유에 대해 알아보고, 여러 해결 방안 중 H2 In-Memory DB를 사용해서 문제를 해결한 과정에 대해 정리해봤습니다.
 
 지금 생각해보면 처음부터 TestContainers를 사용할 이유가 없었던 것 같습니다.
