@@ -529,6 +529,189 @@ Mac OS 기준으로는 터미널에서 <code class="language-text">arp -a</code>
 <p>실제로 와이어샤크 프로그램을 통해 패킷을 조회해보면, 대부분 IP 패킷에 <a href="#3212-%ED%94%8C%EB%9E%98%EA%B7%B8" target="_blank" rel="noopener noreferrer">DF 플래그</a> 가 0으로 표시되어 있습니다.<br>
 이는, IP 단편화를 수행하지 말라는 의미이며, 오늘날 네트워크에서는 대부분 경로 MTU 발견을 지원한다는 것을 의미합니다.<br>
 경로 MTU 발견은 기본적으로 DF 플래그 값을 0으로 설정한 채 동작하기 때문입니다.</p>
+<h1 id="6-ip-주소" style="position:relative;"><a href="#6-ip-%EC%A3%BC%EC%86%8C" aria-label="6 ip 주소 permalink" class="anchor-header before" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. IP 주소</h1>
+<p>이번에는 IP 주소에 대해서 좀 더 자세히 알아보겠습니다.</p>
+<h2 id="61-네트워크-주소와-호스트-주소" style="position:relative;"><a href="#61-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%A3%BC%EC%86%8C%EC%99%80-%ED%98%B8%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EC%86%8C" aria-label="61 네트워크 주소와 호스트 주소 permalink" class="anchor-header before" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.1. 네트워크 주소와 호스트 주소</h2>
+<p>IP주소는 크게 <strong>네트워크 주소</strong>와 <strong>호스트 주소</strong>로 이루어집니다.</p>
+<p>네트워크 주소는 호스트가 속한 특정 네트워크를 식별하는 역할을 하며, 호스트 주소는 네트워크 내에서 특정 호스트를 식별하는 역할을 합니다.</p>
+<p>8비트가 총 네 개로 나뉜 IP 주소(v4 기준)의 각 8비트를 <em>옥텟</em> 이라고 한다고 했는데요.<br>
+네트워크 주소는 1옥텟에서 3옥텟까지 할당될 수 있습니다.</p>
+<p>네트워크 주소를 구분하는 방법에는 <strong>클래스풀 주소 체계</strong>와 <strong>클래스리스 주소 체계</strong>가 존재합니다.</p>
+<h3 id="611-클래스풀-주소-체계" style="position:relative;"><a href="#611-%ED%81%B4%EB%9E%98%EC%8A%A4%ED%92%80-%EC%A3%BC%EC%86%8C-%EC%B2%B4%EA%B3%84" aria-label="611 클래스풀 주소 체계 permalink" class="anchor-header before" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.1.1. 클래스풀 주소 체계</h3>
+<p>클래스풀 주소 체계는 <strong>클래스</strong>로 네트워크 주소 크기를 구분합니다.</p>
+<p>클래스는 A, B, C, D, E로 나뉩니다.</p>
+<ul>
+<li>A 클래스
+<ul>
+<li>기본적으로 <code class="language-text">**0**xxxxxx.xxxxxxxx.xxxxxxxx.xxxxxxxx</code> 형태입니다.</li>
+<li>맨 앞에 비트 <code class="language-text">0</code> 이 무조건 오며, 1옥텟만이 네트워크 주소로 사용됩니다.</li>
+<li>따라서 이론상으로는 네트워크 주소는 2^7개의 주소가 사용될 수 있고, 호스트 주소는 2^24개의 주소가 사용될 수 있습니다.</li>
+</ul>
+</li>
+<li>B 클래스
+<ul>
+<li>기본적으로 <code class="language-text">**10**xxxxxx.xxxxxxxx.xxxxxxxx.xxxxxxxx</code> 형태입니다.</li>
+<li>맨 앞에 비트 <code class="language-text">10</code>이 무조건 오며, 2옥텟을 네트워크 주소로 사용합니다.</li>
+<li>이론상으로 네트워크 주소는 2^14개의 주소가 사용될 수 있고, 호스트 주소는 2^16개의 주소가 사용될 수 있습니다.</li>
+</ul>
+</li>
+<li>C 클래스
+<ul>
+<li>기본적으로 <code class="language-text">**110**xxxxx.xxxxxxxx.xxxxxxxx.xxxxxxxx</code> 형태입니다.</li>
+<li>맨 앞에 비트 <code class="language-text">110</code>이 무조건 오며, 3옥텟을 네트워크 주소로 사용합니다.</li>
+<li>이론상, 네트워크 주소는 2^21개의 주소가 사용될 수 있고, 호스트 주소는 2^8개의 주소가 사용될 수 있습니다.</li>
+</ul>
+</li>
+<li>D 클래스
+<ul>
+<li>멀티캐스트를 위해 예약된 클래스입니다.</li>
+</ul>
+</li>
+<li>E 클래스
+<ul>
+<li>특수한 목적을 위해 예약된 클래스입니다.</li>
+</ul>
+</li>
+</ul>
+<p>다만, 실제로 호스트 주소를 부여할 때, 비트가 모두 0인 IP 주소와 1인 IP 주소는 사용할 수 없습니다.</p>
+<p>비트가 모두 0인 경우 <strong>해당 네트워크 자체를 의미</strong>하는 것이고, 비트가 모두 1일 땐 브로드캐스트를 위한 주소로 사용되기 때문입니다.</p>
+<p>따라서 이론상 호스트 주소로 사용가능한 값에서 2를 빼주어야 실제로 사용 가능한 호스트 주소의 개수가 산출됩니다.</p>
+<h3 id="621-클래스리스-주소-체계" style="position:relative;"><a href="#621-%ED%81%B4%EB%9E%98%EC%8A%A4%EB%A6%AC%EC%8A%A4-%EC%A3%BC%EC%86%8C-%EC%B2%B4%EA%B3%84" aria-label="621 클래스리스 주소 체계 permalink" class="anchor-header before" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.2.1. 클래스리스 주소 체계</h3>
+<p>클래스풀 주소 체계는 명확합니다.<br>
+하지만 만약, 300개의 호스트 주소가 필요한 경우 불가피하게 B 클래스를 이용해야만 합니다.<br>
+C 클래스는 최대 254개의 호스트 주소가 사용할 수 있기 때문입니다.<br>
+하지만 B 클래스는 65,534개의 호스트 주소가 사용될 수 있습니다.<br>
+따라서 <strong>다수의 IP 주소가 낭비</strong>되고 있습니다.</p>
+<p>이러한 문제를 개선하기 위해 <strong>클래스리스 주소 체계</strong>가 탄생했습니다.</p>
+<p>클래스리스 주소 체계는 <strong>서브넷 마스크</strong>를 이용해서 네트워크 주소 범위를 더 유동적이고 정교하게 네트워크를 구획할 수 있는 방법입니다.</p>
+<h4 id="서브넷-마스크" style="position:relative;"><a href="#%EC%84%9C%EB%B8%8C%EB%84%B7-%EB%A7%88%EC%8A%A4%ED%81%AC" aria-label="서브넷 마스크 permalink" class="anchor-header before" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>서브넷 마스크</h4>
+<p>서브넷 마스크는 IP 주소상에서 네트워크 주소는 <code class="language-text">1</code>, 호스트 주소는 <code class="language-text">0</code>으로 표기한 비트열입니다.<br>
+네트워크 내의 부분 네트워크(Subnet)를 구분 짓기 위한 비트 마스크인 셈이죠.<br>
+이 서브넷 마스크를 활용해 네트워크 주소를 원하는만큼 잘게 나눌 수 있는 것입니다.</p>
+<h4 id="서브넷-마스크-표기법" style="position:relative;"><a href="#%EC%84%9C%EB%B8%8C%EB%84%B7-%EB%A7%88%EC%8A%A4%ED%81%AC-%ED%91%9C%EA%B8%B0%EB%B2%95" aria-label="서브넷 마스크 표기법 permalink" class="anchor-header before" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>서브넷 마스크 표기법</h4>
+<p>서브넷 마스크를 표기하는 방법에는 두 가지가 있습니다.</p>
+<ol>
+<li><code class="language-text">255.255.255.0</code>처럼 10진수로 직접 표기하는 방법</li>
+<li><strong>IP 주소/서브넷 마스크 상의 1의 개수</strong> 형식으로 표기하는 방법</li>
+</ol>
+<p>이 중에서 두 번째 방법을 <strong>CIDR(Classless Inter-Domain Routing Notation) 표기법</strong>이라고 부르며, 오늘날 흔히 사용됩니다.</p>
+<p>예를 들어 C 클래스의 기본 서브넷 마스크는 <code class="language-text">255.255.255.0</code> 입니다.<br>
+이를 이진수로 표기하면 <code class="language-text">11111111.11111111.11111111.00000000</code> 입니다.<br>
+1이 총 24개이므로 CIDR 표기법에 따르면 <code class="language-text">/24</code> 로 표기할 수 있습니다.</p>
+<h4 id="서브넷팅" style="position:relative;"><a href="#%EC%84%9C%EB%B8%8C%EB%84%B7%ED%8C%85" aria-label="서브넷팅 permalink" class="anchor-header before" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>서브넷팅</h4>
+<p>이 서브넷 마스크를 이용해서 네트워크 주소를 구하는 방법은 IP 주소에 서브넷 마스크를 비트 AND 연산을 수행하는 것입니다.</p>
+<p>만약 <code class="language-text">192.168.0.2/25</code> 라는 IP 주소가 있을 때, 네트워크 주소는 다음과 같이 구합니다.</p>
+<p>서브넷 마스크는 <code class="language-text">11111111.11111111.11111111.10000000</code> 이므로, <code class="language-text">192.168.0.2</code>와 비트 AND 연산을 수행합니다.<br>
+그 결과는 <code class="language-text">192.168.0.0</code> 입니다.</p>
+<p>네트워크 주소는 <code class="language-text">192.168.0.0</code>이 되고, 이 네트워크 안에서 할당 가능한 호스트 IP 주소의 범위는 네트워크 주소 <code class="language-text">192.168.0.0</code>과 브로드캐스트 주소 <code class="language-text">192.168.0.127</code>을 제외한, <code class="language-text">192.168.0.1</code> ~ <code class="language-text">192.168.0.126</code>이 됩니다.</p>
+<p>즉, <code class="language-text">192.168.0.2/25</code>는 총 126개의 호스트를 할당할 수 있는 <code class="language-text">192.168.0.0</code>이라는 네트워크에 속한 <code class="language-text">2</code>라는 호스트를 의미합니다.</p>
+<h2 id="62-공인-ip-주소와-사설-ip-주소" style="position:relative;"><a href="#62-%EA%B3%B5%EC%9D%B8-ip-%EC%A3%BC%EC%86%8C%EC%99%80-%EC%82%AC%EC%84%A4-ip-%EC%A3%BC%EC%86%8C" aria-label="62 공인 ip 주소와 사설 ip 주소 permalink" class="anchor-header before" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.2. 공인 IP 주소와 사설 IP 주소</h2>
+<p>IP 주소는 <strong>공인 IP 주소</strong>와 <strong>사설 IP 주소</strong>로 나눌 수 있습니다.</p>
+<h3 id="621-공인-ip-주소" style="position:relative;"><a href="#621-%EA%B3%B5%EC%9D%B8-ip-%EC%A3%BC%EC%86%8C" aria-label="621 공인 ip 주소 permalink" class="anchor-header before" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.2.1. 공인 IP 주소</h3>
+<p><strong>공인 IP 주소는 전 세계에서 고유한 IP 주소</strong>입니다.<br>
+인터넷에서 라우팅되는 네트워크 간 통신에서 사용하는 IP 주소가 바로 공인 IP 주소입니다.</p>
+<p>공인 IP 주소는 ISP나 공인 IP 주소 할당 기관을 통해 할당받을 수 있습니다.</p>
+<h3 id="622-사설-ip-주소" style="position:relative;"><a href="#622-%EC%82%AC%EC%84%A4-ip-%EC%A3%BC%EC%86%8C" aria-label="622 사설 ip 주소 permalink" class="anchor-header before" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.2.2. 사설 IP 주소</h3>
+<ul>
+<li>사설 IP 주소는 사설 네트워크에서 사용하기 위한 IP 주소입니다.</li>
+<li>사설 네트워크란 인터넷, 외부 네트워크에 공개되지 않은 네트워크를 의미합니다.</li>
+<li>IP 주소 공간 중에서는 사설 IP 주소를 위해 예약된 IP 주소 공간이 있습니다.
+<ul>
+<li><code class="language-text">10.0.0.0.8</code> (<code class="language-text">10.0.0.0</code> ~ <code class="language-text">10.255.255.255</code>)</li>
+<li><code class="language-text">172.16.0.0/12</code> (<code class="language-text">172.16.0.0</code> ~ <code class="language-text">172.31.255.255</code>)</li>
+<li><code class="language-text">192.168.0.0/16</code> (<code class="language-text">192.168.0.0</code> ~ <code class="language-text">192.168.255.255</code>)</li>
+</ul>
+</li>
+<li>사설 IP 주소의 할당 주체는 보통 라우터입니다.</li>
+<li>사설 IP 주소는 해당 호스트가 속한 사설 네트워크 상에서만 유효하기 때문에, 다른 네트워크의 사설 IP 주소와 중복될 수 있다.<br>
+때문에 사설 IP 주소만으로는 인터넷 통신을 할 수 없다.<br>
+이를 해결하기 위해 <strong>NAT(Network Address Translation)</strong> 라는 기술이 존재합니다.
+<ul>
+<li><img src="nat.png" alt="NAT 기술">
+NAT는 보통 라우터나 공유기에 내장되어 있습니다.
+따라서 사설 네트워크에서 만들어진 사설 IP 주소를 라우터/공유기가 공인 IP 주소로 변환되어 외부 네트워크로 전송됩니다.
+반대로 외부 네트워크로부터 받은 공인 IP 주소를 라우터/공유기가 사설 IP 주소로 변경해서 사설 네트워크 속 호스트에 전달합니다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="63-정적-ip-주소와-동적-ip-주소" style="position:relative;"><a href="#63-%EC%A0%95%EC%A0%81-ip-%EC%A3%BC%EC%86%8C%EC%99%80-%EB%8F%99%EC%A0%81-ip-%EC%A3%BC%EC%86%8C" aria-label="63 정적 ip 주소와 동적 ip 주소 permalink" class="anchor-header before" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.3. 정적 IP 주소와 동적 IP 주소</h2>
+<h3 id="631-정적-할당" style="position:relative;"><a href="#631-%EC%A0%95%EC%A0%81-%ED%95%A0%EB%8B%B9" aria-label="631 정적 할당 permalink" class="anchor-header before" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.3.1. 정적 할당</h3>
+<ul>
+<li>호스트에 직접 IP 주소를 부여하는 방식입니다.</li>
+<li>이렇게 할당된 IP 주소를 <strong>정적 IP 주소(Static IP Address)</strong> 라고 부릅니다.</li>
+<li>IP 주소를 직접 할당하다보면 호스트 수가 많아짐에 따라 관리가 어려워집니다.</li>
+</ul>
+<h3 id="632-동적-할당과-dhcp" style="position:relative;"><a href="#632-%EB%8F%99%EC%A0%81-%ED%95%A0%EB%8B%B9%EA%B3%BC-dhcp" aria-label="632 동적 할당과 dhcp permalink" class="anchor-header before" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.3.2. 동적 할당과 DHCP</h3>
+<ul>
+<li>호스트에 IP 주소를 동적으로 할당하는 방식입니다.</li>
+<li>이렇게 할당된 IP 주소를 <strong>동적 IP 주소(Dynamic IP Address)</strong> 라고 부릅니다.</li>
+<li>IP 동적 할당에 사용되는 대표적인 프로토콜이 <strong>DHCP (Dynamic Host Configuration Protocol)</strong> 입니다.
+<ul>
+<li>DHCP는 응용 계층(7계층)에 속합니다.</li>
+<li>DHCP를 통한 동적 IP 주소 할당은 IP 주소를 할당받고자 하는 호스트(클라이언트)와 해당 호스트에게 IP 주소를 부여하는 DHCP 서버 간 통신을 통해 이루어집니다.</li>
+<li>DHCP 서버의 역할은 보통 라우터(공유기)가 수행하지만, 특정 호스트에 DHCP 서버 기능을 추가할 수도 있습니다.</li>
+<li>DHCP 서버는 할당 가능한 IP 주소 목록을 관리하다가, 클라이언트가 요청할 때 IP 주소를 할당합니다.</li>
+<li>이때, 동적 IP 주소는 <strong>임대 기간이 정해져 있습니다</strong>. (보통 수 시간 ~ 수 일 정도로 설정합니다.)</li>
+<li>임대 기간이 끝난 IP 주소는 다시 DHCP 서버로 반납됩니다.</li>
+<li>클라이언트와 DHCP 서버가 통신하는 과정은 네 가지로 나눕니다.
+<ol>
+<li>DHCP Discover
+<ul>
+<li>클라이언트가 DHCP 서버에 <em>DHCP Discover</em> 패킷을 전달합니다.</li>
+<li>브로드캐스트로 전송하며, 송신지 IP 주소는 아직 할당받지 못했으므로 <code class="language-text">0.0.0.0</code>으로 설정됩니다.</li>
+</ul>
+</li>
+<li>DHCP Offer
+<ul>
+<li>DHCP 서버가 클라이언트에게 할당해 줄 IP 주소, 서브넷 마스크, 임대 기간 등의 정보를 담아 "제안"합니다.</li>
+</ul>
+</li>
+<li>DHCP Request
+<ul>
+<li>DHCP Offer 패킷을 받은 클라이언트는, 제안받은 IP 주소를 사용하겠다는 요청을 보냅니다.</li>
+<li>이 또한 브로드캐스트로 전송됩니다.</li>
+</ul>
+</li>
+<li>DHCP Acknowledgment (DHCP ACK)
+<ul>
+<li>DHCP Request 패킷을 전달받은 서버는 최종 승인을 내리기 위해 DHCP ACK 패킷을 응답합니다.</li>
+<li>DHCP ACK 패킷을 전달받은 클라이언트는 할당받은 IP 주소를 자신의 IP 주소로 설정한 뒤, 임대 기간동안 IP 주소를 사용합니다.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>임대 기간이 모두 끝나면 원칙적으로는 부여받은 동적 IP 주소를 DHCP 서버에 반납해야합니다.
+하지만, 임대 기간이 끝나기 전에 연장할 수도 있는데요.<br>
+이를 <strong>임대 갱신</strong>이라고 합니다.<br>
+임대 갱신은 임대 기간이 끝나기 전에 기본적으로 두 차례 자동으로 수행됩니다.<br>
+두 차례의 갱신 시도 모두 실패하면, 동적 IP 주소는 DHCP 서버로 반납됩니다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="64-네트워크-주소와-호스트-주소를-나누는-이유" style="position:relative;"><a href="#64-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%A3%BC%EC%86%8C%EC%99%80-%ED%98%B8%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EC%86%8C%EB%A5%BC-%EB%82%98%EB%88%84%EB%8A%94-%EC%9D%B4%EC%9C%A0" aria-label="64 네트워크 주소와 호스트 주소를 나누는 이유 permalink" class="anchor-header before" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.4. 네트워크 주소와 호스트 주소를 나누는 이유</h2>
+<p>그런데 네트워크 주소와 호스트 주소를 왜 나누는걸까요?</p>
+<p>IP 주소는 단순히 장치 하나를 식별하는 값이 아니라, <strong>라우팅을 위한 계층적 주소</strong>입니다.</p>
+<p>만약, <code class="language-text">192.168.1.23</code> 이라는 IP 주소가 있을 때, 이를 '[네트워크 부분] + [호스트 부분]' 으로 나눕니다.<br>
+(예: <code class="language-text">192.168.1</code> + <code class="language-text">23</code>)</p>
+<p>이렇게 나누었을 때, 다음과 같은 이점이 있습니다.</p>
+<ul>
+<li>같은 네트워크 내부 통신인지 판단이 쉽습니다.
+<ul>
+<li>목적지 IP를 확인하고, 자신의 Subnet Mask를 적용합니다. 이때의 네트워크 주소를 비교합니다.</li>
+<li>네트워크 주소가 같다면 <a href="#4-arp" target="_blank" rel="noopener noreferrer">ARP</a>를 통해 목적지의 MAC 주소를 찾습니다.</li>
+<li>다르면 다른 네트워크이므로, 다음 라우터로 전송합니다.</li>
+</ul>
+</li>
+<li>라우터의 라우팅 테이블 효율화</li>
+<li>인터넷 규모 확장 가능
+<ul>
+<li>ISP가 <code class="language-text">203.0.113.0/24</code> 를 할당했다고 가정했을 때, 조직 내부에서 <code class="language-text">203.0.113.0/25</code> 와 <code class="language-text">203.0.113.128/25</code> 같이 더 쪼개서 사용할 수도 있습니다.</li>
+<li>즉, 공인 IP 블록은 ISP가 할당하고, 네트워크 분할은 조직 내에서 네트워크 확장을 위해 필요에 따라 이루어집니다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="65-예약-주소" style="position:relative;"><a href="#65-%EC%98%88%EC%95%BD-%EC%A3%BC%EC%86%8C" aria-label="65 예약 주소 permalink" class="anchor-header before" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.5. 예약 주소</h2>
+<p>IP 주소에는 예약된 IP 주소가 있습니다.</p>
 <h1 id="참고-자료" style="position:relative;"><a href="#%EC%B0%B8%EA%B3%A0-%EC%9E%90%EB%A3%8C" aria-label="참고 자료 permalink" class="anchor-header before" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>참고 자료</h1>
 <ul>
 <li><a href="https://product.kyobobook.co.kr/detail/S000212911507" target="_blank" rel="noopener noreferrer">강민철 저, 혼자 공부하는 네트워크</a></li>
@@ -602,12 +785,53 @@ Mac OS 기준으로는 터미널에서 <code class="language-text">arp -a</code>
 <p><a href="#5-ip-%EB%8B%A8%ED%8E%B8%ED%99%94%EB%A5%BC-%ED%94%BC%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95">5. IP 단편화를 피하는 방법</a></p>
 </li>
 <li>
+<p><a href="#6-ip-%EC%A3%BC%EC%86%8C">6. IP 주소</a></p>
+<ul>
+<li>
+<p><a href="#61-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%A3%BC%EC%86%8C%EC%99%80-%ED%98%B8%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EC%86%8C">6.1. 네트워크 주소와 호스트 주소</a></p>
+<ul>
+<li>
+<p><a href="#611-%ED%81%B4%EB%9E%98%EC%8A%A4%ED%92%80-%EC%A3%BC%EC%86%8C-%EC%B2%B4%EA%B3%84">6.1.1. 클래스풀 주소 체계</a></p>
+</li>
+<li>
+<p><a href="#621-%ED%81%B4%EB%9E%98%EC%8A%A4%EB%A6%AC%EC%8A%A4-%EC%A3%BC%EC%86%8C-%EC%B2%B4%EA%B3%84">6.2.1. 클래스리스 주소 체계</a></p>
+<ul>
+<li><a href="#%EC%84%9C%EB%B8%8C%EB%84%B7-%EB%A7%88%EC%8A%A4%ED%81%AC">서브넷 마스크</a></li>
+<li><a href="#%EC%84%9C%EB%B8%8C%EB%84%B7-%EB%A7%88%EC%8A%A4%ED%81%AC-%ED%91%9C%EA%B8%B0%EB%B2%95">서브넷 마스크 표기법</a></li>
+<li><a href="#%EC%84%9C%EB%B8%8C%EB%84%B7%ED%8C%85">서브넷팅</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#62-%EA%B3%B5%EC%9D%B8-ip-%EC%A3%BC%EC%86%8C%EC%99%80-%EC%82%AC%EC%84%A4-ip-%EC%A3%BC%EC%86%8C">6.2. 공인 IP 주소와 사설 IP 주소</a></p>
+<ul>
+<li><a href="#621-%EA%B3%B5%EC%9D%B8-ip-%EC%A3%BC%EC%86%8C">6.2.1. 공인 IP 주소</a></li>
+<li><a href="#622-%EC%82%AC%EC%84%A4-ip-%EC%A3%BC%EC%86%8C">6.2.2. 사설 IP 주소</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#63-%EC%A0%95%EC%A0%81-ip-%EC%A3%BC%EC%86%8C%EC%99%80-%EB%8F%99%EC%A0%81-ip-%EC%A3%BC%EC%86%8C">6.3. 정적 IP 주소와 동적 IP 주소</a></p>
+<ul>
+<li><a href="#631-%EC%A0%95%EC%A0%81-%ED%95%A0%EB%8B%B9">6.3.1. 정적 할당</a></li>
+<li><a href="#632-%EB%8F%99%EC%A0%81-%ED%95%A0%EB%8B%B9%EA%B3%BC-dhcp">6.3.2. 동적 할당과 DHCP</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#64-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%A3%BC%EC%86%8C%EC%99%80-%ED%98%B8%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EC%86%8C%EB%A5%BC-%EB%82%98%EB%88%84%EB%8A%94-%EC%9D%B4%EC%9C%A0">6.4. 네트워크 주소와 호스트 주소를 나누는 이유</a></p>
+</li>
+<li>
+<p><a href="#65-%EC%98%88%EC%95%BD-%EC%A3%BC%EC%86%8C">6.5. 예약 주소</a></p>
+</li>
+</ul>
+</li>
+<li>
 <p><a href="#%EC%B0%B8%EA%B3%A0-%EC%9E%90%EB%A3%8C">참고 자료</a></p>
 </li>
 </ul></div></aside></div><div class="blog-post-module--toast--c08b7 " role="status" aria-live="polite"></div></main></div><footer class="layout-module--siteFooter--80c5d">© <!-- -->2026<!-- --> kdkdhoho. Built with<!-- --> <a href="https://www.gatsbyjs.com" class="layout-module--siteFooterLink--72b70">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/network-layer/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
           <script
             id="gatsby-chunk-mapping"
           >
-            window.___chunkMapping="{\"app\":[\"/app-44a61b662014434218e5.js\"],\"component---src-pages-404-js\":[\"/component---src-pages-404-js-ba52f6d2b7404e2dda4d.js\"],\"component---src-pages-index-js\":[\"/component---src-pages-index-js-c2278449ace8449f0eb3.js\"],\"component---src-pages-search-js\":[\"/component---src-pages-search-js-44cfd67d562431bbc2c1.js\"],\"component---src-templates-blog-post-js\":[\"/component---src-templates-blog-post-js-bda21d2a1417e6a1727c.js\"]}";
+            window.___chunkMapping="{\"app\":[\"/app-33f9cc0a9d8dd958bf90.js\"],\"component---src-pages-404-js\":[\"/component---src-pages-404-js-ba52f6d2b7404e2dda4d.js\"],\"component---src-pages-index-js\":[\"/component---src-pages-index-js-c2278449ace8449f0eb3.js\"],\"component---src-pages-search-js\":[\"/component---src-pages-search-js-44cfd67d562431bbc2c1.js\"],\"component---src-templates-blog-post-js\":[\"/component---src-templates-blog-post-js-bda21d2a1417e6a1727c.js\"]}";
           </script>
-        <script>window.___webpackCompilationHash="04f70880afa58e240d37";</script><script src="/webpack-runtime-ae98aef09ad081bc1637.js" async></script><script src="/framework-647153102893cffe9a5c.js" async></script><script src="/app-44a61b662014434218e5.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
+        <script>window.___webpackCompilationHash="33c4b8491d97cc10979b";</script><script src="/webpack-runtime-ae98aef09ad081bc1637.js" async></script><script src="/framework-647153102893cffe9a5c.js" async></script><script src="/app-33f9cc0a9d8dd958bf90.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
