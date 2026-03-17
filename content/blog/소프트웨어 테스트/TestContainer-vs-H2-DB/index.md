@@ -23,7 +23,6 @@ slug: "testcontainer-vs-h2-db"
 ---
 
 # 2. TestContainers가 느린 이유는?
-
 우선 TestContainers가 느린 이유에 대해 파악해봤습니다.
 
 결론부터 말하면, **Docker 기술을 사용하기 때문**입니다.
@@ -42,21 +41,21 @@ Docker 기술을 기반으로 구현됩니다.
 GitHub Actions에서 Docker 컨테이너를 띄우기 위해서는 항상 이미지를 Pull 받아야 합니다.  
 GitHub Hosted Runner는 실행될 때마다 매번 새로운 가상 환경에서 실행되기 때문입니다.
 
-제 경우에는 MySQL:8 을 설치하고 있었는데요. 아래 사진을 보시면 로컬에서 쌩으로 _mysql:lts_ 버전을 설치해도 16초가 나옵니다.
+제 경우에는 MySQL:8 을 설치하고 있었는데요. 아래 사진을 보시면 로컬에서 쌩으로 _mysql:lts_ 버전을 설치해도 16초가 나옵니다.  
+(참고로 맥북 M1 입니다.)
 
 ![MySQL Docker Image Pull 결과](docker-mysql-pull-result.png)
 
-당시 GitHub Actions에서 동작하는 호스트의 하드웨어는 2 Processor, 8GB RAM, 14GB SSD, x64 Architecture 였습니다.
+당시 GitHub Actions에서 동작하는 호스트의 하드웨어는 2 Processor, 8GB RAM, 14GB SSD, x64 Architecture 였습니다.  
+GitHub Actions는 MS Azure를 기반으로 호스트를 실행하는데요.  
+GitHub Hosted Runner 스펙에 대응하는 MS Azure의 VM Size는 _Standard_D2_v3_ 이고, 해당 스펙의 Network 성능은 Max NICs == 2, Max Networks Bandwidth(Mb/s) == 1000 입니다.
 
 > 아래는 GitHub Actions에서 지원하는 Private Repository의 호스트 하드웨어 표입니다.  
 > ![GitHub Actions에서 지원하는 Private Repository의 호스트 하드웨어 표](github-actions-hardware-resources.png)
 
-GitHub Actions는 MS Azure를 기반으로 호스트를 실행하는데요.  
-이에 대응하는 MS Azure의 VM Size는 _Standard_D2_v3_ 이고, 해당 스펙의 Network 성능은 Max NICs == 2, Max Networks Bandwidth(Mb/s) == 1000
-입니다.
+하드웨어와 네트워크 스펙만 놓고 보면, Docker Image 다운로드 자체가 아주 큰 병목이라고 단정하기는 어렵습니다.  
 
-즉, **MySQL Docker Image Pull을 다운로드 받을 때 상당한 시간이 걸림**을 유추할 수 있습니다.  
-(당시에 로그를 확인했으면 정확히 파악했을텐데 그러지 못해 아쉽습니다..)
+결국, GitHub Hosted Runner가 매 실행마다 새로운 가상 환경에서 시작되기 때문에, 이미지 Pull 자체뿐 아니라 레이어 압축 해제, 디스크 기록, 그리고 MySQL 컨테이너 초기화까지 매번 다시 수행된다는 점이 더 큰 원인이었을 가능성이 높습니다.
 
 ---
 
@@ -64,8 +63,7 @@ GitHub Actions는 MS Azure를 기반으로 호스트를 실행하는데요.
 
 - MySQL 컨테이너가 띄어지고 초기화되는데까지 시간이 걸린다.
 - TestContainers 자체적으로 Wait 전략을 통해 컨테이너가 올바르게 초기화됐는지 확인한다.
-- Testcontainers API가 Ryuk 사이드카 컨테이너를 사용하여 테스트 실행 완료 후 생성된 모든 리소스(컨테이너, 볼륨, 네트워크 등)를 자동으로 제거한다. 이때 리소스가 정리되는 데까지 필요한 시간도
-  있을 것이다.
+- Testcontainers API가 Ryuk 사이드카 컨테이너를 사용하여 테스트 실행 완료 후 생성된 모든 리소스(컨테이너, 볼륨, 네트워크 등)를 자동으로 제거한다. 이때 리소스가 정리되는 데까지 필요한 시간도 있을 것이다.
 
 ---
 
