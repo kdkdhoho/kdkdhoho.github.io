@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[백엔드 개발과 학습 내용을 기록하는 김동호의 기술 블로그]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 19 Mar 2026 06:51:20 GMT</lastBuildDate><item><title><![CDATA[임시 제목: Flutter로 반응형 UI를 어떻게 개발할까? or Flutter와 UI]]></title><description><![CDATA[가로 폭 기준 설계 일반적으로 가로 폭을 기준으로 주요 레이아웃 분기한다. (예: Compact (≤ 600dp), Medium (601–900dp), Expanded (≥ 900dp)) Flutter, Android, iOS 모두 width…]]></description><link>https://kdkdhoho.github.io/posts/flutter-ui/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/flutter-ui/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;details&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[백엔드 개발과 학습 내용을 기록하는 김동호의 기술 블로그]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 24 Mar 2026 07:10:39 GMT</lastBuildDate><item><title><![CDATA[임시 제목: Flutter로 반응형 UI를 어떻게 개발할까? or Flutter와 UI]]></title><description><![CDATA[가로 폭 기준 설계 일반적으로 가로 폭을 기준으로 주요 레이아웃 분기한다. (예: Compact (≤ 600dp), Medium (601–900dp), Expanded (≥ 900dp)) Flutter, Android, iOS 모두 width…]]></description><link>https://kdkdhoho.github.io/posts/flutter-ui/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/flutter-ui/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;details&gt;
 &lt;summary&gt;앱 개발에서 반응형 원칙 적용 방법&lt;/summary&gt;
 &lt;ol&gt;
 &lt;li&gt;가로 폭 기준 설계&lt;/li&gt;
@@ -46,7 +46,269 @@ Widget은 임시 느낌의 객체로, 애플리케이션의 현재 상태를 표
 ▪	비밀 키의 안전한 관리	▪	JWT의 취약점 및 방어 방법	8.	JJWT의 성능 및 최적화
 ▪	성능 고려사항	▪	JWT 크기 최적화	9.	결론
 ▪	JJWT의 장단점 요약	▪	향후 발전 방향	10.	참고 자료
-▪	공식 문서	▪	관련 블로그 및 자료 링크&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[[알고리즘 오답노트] LeetCode - Longest Palindromic Substring]]></title><description><![CDATA[문제 링크 https://leetcode.com/problems/longest-palindromic-substring/description/?envType=problem-list-v2&envId=dynamic-programming 어려웠던 점…]]></description><link>https://kdkdhoho.github.io/posts/longest-palindromic-substring/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/longest-palindromic-substring/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h1 id=&quot;문제-링크&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AC%B8%EC%A0%9C-%EB%A7%81%ED%81%AC&quot; aria-label=&quot;문제 링크 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;문제 링크&lt;/h1&gt;
+▪	공식 문서	▪	관련 블로그 및 자료 링크&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[유기견 보호센터 자원봉사 3회 차 후기!]]></title><description><![CDATA[오늘은 정말 오랜만에 포해피니스에 유기견 보호센터 자원봉사를 다녀왔습니다! 이번이 무려 3회차인데요. 1월 6일에 마지막으로 방문했으니 두 달이 훌쩍 넘었네요.. 1~…]]></description><link>https://kdkdhoho.github.io/posts/volunteering-at-a-stray-dog-shelter-3/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/volunteering-at-a-stray-dog-shelter-3/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;p&gt;오늘은 정말 오랜만에 &lt;a href=&quot;https://naver.me/FnmZDAb5&quot;&gt;포해피니스&lt;/a&gt;에 유기견 보호센터 자원봉사를 다녀왔습니다!&lt;br&gt;
+이번이 무려 3회차인데요.&lt;br&gt;
+1월 6일에 마지막으로 방문했으니 두 달이 훌쩍 넘었네요..&lt;br&gt;
+1~2월부터 본격적인 취업 준비를 시작해서 바쁘다는 핑계로 미뤄왔습죠 😭&lt;/p&gt;
+&lt;p&gt;자차가 있었다면 더 쉽게 갔을텐데 거리가 멀어서 참..&lt;/p&gt;
+&lt;p&gt;시작 사진은 본가에 있는 반려견인 사랑이 사진으로 시작!&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3a6094ac439c3838d7c16f8a543bde1e/2bef9/%EC%82%AC%EB%9E%91%EC%9D%B4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75.31645569620254%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEEklEQVR42i2RWVPTVxiH/+NM60fwwhk71VZb246tA664IdFaxeIQxwUFFaQjVoICYTMQEiSBkIREksiO2rAEJCwJECAhCwgiiJQqxq2OznTaL9Dbp6e0F7/5nZvzvO9zjpR0/BgXzp+hUluCrkKF2XgLi6UKm81MY0Mdzc0O7t5rxNneSlOzHaezlfaONjo67+Fy3af7gZMH7k7c/V24B1xIST8eJT3tDKpCBYW5P6MtLUR/q4xqvQaTUYfZVIXdVovDYcUkzjZHLTa7GbvdguOOlXoxtLHJJmIXcSDJ9sRwNTOVCnUhN/OuUV6cR0VZEZrSIio1KgEvx2jQY6zRo9dpsdZWY7UYsFhNWG6bsNaZsd7+92xcaSklcTcnZDs5vD+OAztjOXnsMDeyMtGrb1JTWY5eo6ZcVSy2qxEbNGKwN1Cqq6JKwPUGHdU1Iv+3QRhJx/dt4eyRWGTbN5N0cC9JMhmbN2zgq882iCF7uZRyhqb6epZfv+XN+w8svv+TykAURaUZtTBRV2go05ai1pRSLloquZJCo66MgbYmpjweHvlGGezoRK0sIiFuL5vWr6fOWkvQ78PnddNgqWYm+pa0/pdk5uSQX6QkVyS/WElhSQFSwN1DsN9NaGCAgOiwZ5D5UJAXc/O8eLzAhGcIlTIfnbac4YE+TifL6RK/e2f5b06q7VxMO0eWQsG169kocnOQRruc+B+4CA72EfZ6mPaNMOsf51HAz/LDSfomnmJzeTkcH0+t1cb7Pz7gD/tZfLaEwxPik7Vr2fj5RmQJCcjlyUghsWF4wE3E28/06PAKbD44wWwwxKuHYW4NR0m8YeBqxmWycwsw2+qodtRT0hHgct8y2/YksHrVKiRJYvVHHyOFheb0sIcZAXs0ProCnAuFWJiM8DQSIdP9ijWJuewTF0+du0RW9nWySrR8WtDOVusUPUMT9La2kHUxnS1fbkaaFm82PTTI7PgIcxMCFgywGA6wNBXBPTZN72yUu+Nz7EpVUqTRcbe3jxyVlm8LWsjtnsYv7LyubrqaW3BUG5BmfUM89gnVcR+PA+P8KmDdvklKRl5S4XtGa3CR6pm/2G+fwtbVT1NPLxnKMn5qG0N+24OtyUmD0UB2RjrJ3x9CmhsdYSHoZ94/xpOJMWaFbmrPMhlD70jpf8321ig7778jrSXEidTLyFPTWX9ayUGTl/MNPvIsTvRF+ciPHiF+e+x/wBWYUH0e8dPmnSKu/XeKfVHyxl4ha1tC0btE51iExFPnWbdmDbFnFcTrerh+P0BuhZWrqWc5tGc3B3dsQ1oQqnMiT0IBfpsM0j0c4eZYlGTXc+S9bzjgmCFG3cPXyhauqKrY+sVG1n2zg+RCIz9U/sKmLBP7ki8QvyOGuJjv+AfD6hxQNxcZOAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;사랑이&quot;
+        title=&quot;&quot;
+        src=&quot;/static/3a6094ac439c3838d7c16f8a543bde1e/f058b/%EC%82%AC%EB%9E%91%EC%9D%B4.png&quot;
+        srcset=&quot;/static/3a6094ac439c3838d7c16f8a543bde1e/c26ae/%EC%82%AC%EB%9E%91%EC%9D%B4.png 158w,
+/static/3a6094ac439c3838d7c16f8a543bde1e/6bdcf/%EC%82%AC%EB%9E%91%EC%9D%B4.png 315w,
+/static/3a6094ac439c3838d7c16f8a543bde1e/f058b/%EC%82%AC%EB%9E%91%EC%9D%B4.png 630w,
+/static/3a6094ac439c3838d7c16f8a543bde1e/40601/%EC%82%AC%EB%9E%91%EC%9D%B4.png 945w,
+/static/3a6094ac439c3838d7c16f8a543bde1e/2bef9/%EC%82%AC%EB%9E%91%EC%9D%B4.png 1024w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;봉사-사진&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B4%89%EC%82%AC-%EC%82%AC%EC%A7%84&quot; aria-label=&quot;봉사 사진 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;봉사 사진&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;낯가리는 파티&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4c23276cb2146243af19672bb56f2901/71c1d/1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 133.54430379746836%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;1&quot;
+        title=&quot;&quot;
+        src=&quot;/static/4c23276cb2146243af19672bb56f2901/f058b/1.png&quot;
+        srcset=&quot;/static/4c23276cb2146243af19672bb56f2901/c26ae/1.png 158w,
+/static/4c23276cb2146243af19672bb56f2901/6bdcf/1.png 315w,
+/static/4c23276cb2146243af19672bb56f2901/f058b/1.png 630w,
+/static/4c23276cb2146243af19672bb56f2901/40601/1.png 945w,
+/static/4c23276cb2146243af19672bb56f2901/78612/1.png 1260w,
+/static/4c23276cb2146243af19672bb56f2901/71c1d/1.png 1536w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;아직 누가 누구인지 헷갈리는 친구들..&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5bd67da4518b41177c7200b8360d0cbe/71c1d/2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 133.54430379746836%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;2&quot;
+        title=&quot;&quot;
+        src=&quot;/static/5bd67da4518b41177c7200b8360d0cbe/f058b/2.png&quot;
+        srcset=&quot;/static/5bd67da4518b41177c7200b8360d0cbe/c26ae/2.png 158w,
+/static/5bd67da4518b41177c7200b8360d0cbe/6bdcf/2.png 315w,
+/static/5bd67da4518b41177c7200b8360d0cbe/f058b/2.png 630w,
+/static/5bd67da4518b41177c7200b8360d0cbe/40601/2.png 945w,
+/static/5bd67da4518b41177c7200b8360d0cbe/78612/2.png 1260w,
+/static/5bd67da4518b41177c7200b8360d0cbe/71c1d/2.png 1536w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;덩치에 비해 다리가 짧아 귀여운 칸쵸&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a9c6a2041750f3f8da04d37b6935e1f1/71c1d/3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 133.54430379746836%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;3&quot;
+        title=&quot;&quot;
+        src=&quot;/static/a9c6a2041750f3f8da04d37b6935e1f1/f058b/3.png&quot;
+        srcset=&quot;/static/a9c6a2041750f3f8da04d37b6935e1f1/c26ae/3.png 158w,
+/static/a9c6a2041750f3f8da04d37b6935e1f1/6bdcf/3.png 315w,
+/static/a9c6a2041750f3f8da04d37b6935e1f1/f058b/3.png 630w,
+/static/a9c6a2041750f3f8da04d37b6935e1f1/40601/3.png 945w,
+/static/a9c6a2041750f3f8da04d37b6935e1f1/78612/3.png 1260w,
+/static/a9c6a2041750f3f8da04d37b6935e1f1/71c1d/3.png 1536w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;(아마도) 토르랑 같이 찍은 사진&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d07eb288d033f360b26236d36bb24ddf/71c1d/4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 133.54430379746836%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAbCAYAAAB836/YAAAACXBIWXMAAAsTAAALEwEAmpwYAAAHMklEQVR42iWT61OTZxrG3+7YGXd2Z6cf2m2349gZu7WtSrUoRxUICiinEBAonljF8xGFRUEQAiQQAiYG5AxJQA4JJOGUEML5IKAool1XO7PTmdWqYGd3Z3f/gN8+ZT9c88z7fvg9131f1yN1z7/FKtT9YBnL/WU676/QtfAO++LP9D4Revozfc9WGHv5Xx6s/Ie6Tienc3RcLWshU9vKuZt3OHHxJsXXcsk9fwHJ9eg1joXXdN1/g23hLb2LK0Lv6Ft6x+D37/C8WGb65T9p7HFzKO08Abv2EREYQmJQEMkyGaf2BFF6VIFNV8JIaxOSZ/EVnqWfGFj8iZ5HbwRsmf6lZZxPVwTwLbMv/42hxcKG9Zt4f82HfLDmt8Su/4jMXVtQRgeiTtyL+mAUlsIrDJnqBXDpNaNPXjH29CWeJy8ZfPJ6Ve6nbxh5/o7RZ38nYGcYa9d+zJq1H7H19x9SFO5Nc2o4tYdknJXtQJuWhNPUxNDQNNKAZ4Lh+y+Y/Msr5n5YZub5G6Z+WGHi+TJzP/6DnqkFPv10I7/+zSe89/7v2LHuEzQKf6pTdlN74TAdFSrGnG5G7j3Dfe85Up06hya9hq67JlwDAzidTobHphiZecDk4l/FZUt8tsGL9371AZIkEeH9NZl7v6EqOx33+ENcE48ZnljAM7GIe+YZUoMmD7OukA59AS3iNOpV3Cm6jr44l5qKEtqb60k6kMzHH28gKuEwDWYTjVmpjNhaGJxawimA7snHOEfv4xp/hNRhKMasvUltYRamW4W0Vaq5XZBBpSqHak0uTRVKasry0GuV9M8sYPWMMzJgZcbZybDbw8joFH1Ds/QNTq9CJUPjbYr0Ws5mZFCkVtLSZMCkysCsyqSjPI9WfaFwex2tOh+T1ULLwDDdYjUzri4mnL1MeIbpH5qjf3yRtp4JJFWziqxGPUWdDaS36lHbmtBbm8gy1nC4sZr0qnLytWXcLC/HLICmAQ911m7c/TZm3P2MuoZwDk7SaRui3T6GZOvU0dNVT1d7LWXNpdSaK9DUq9lVfpM/CKflI0YmFzzY3XZMtm6a+1xUtXdS7XDTM+DC09XKYIeZPocTfa0FaW7Mwb3RXuYnXLgcHbj7Ohjrb0d9R4W6rpz5GTfzc2PChR2j3UaDvZfqrm4ah8a41e6isMJMaUExl89cxDvwANKko47J3gZmRxzcbWtguL+NufEBpoZszIlLZqdHBHSMIVc3JruDZoeD25ZeTiuNRB0t4Y/bk1j35V42ivPboDSk6QEj94atQnZam3S4uhsYH2hl3C2W7rEzPdrD3FgPHhFCe38/ZY0WotIMeMmuEhCZwVc+B/ENv8DXwan4hJ9DMmkv4qjPpa2hBGODniptFh2lx+nUnMGiu4zVcA1r7Q3s1npa+pwcTK9ja3gePlHZhB/WESi/SUhCHtvDTgvwZaQXdy/xvfkSA20GWu7k4LTe5ulgFUuWfB5aivmbLZsXlnTGnU2kq81sjylkW8SfCU5UE5okwksoYXeill2KYr70O4T041ApM4NmMWot/dZqemxGhqcnGZud4XqREmN1Hv+aN2C3GAlOVrNtf66AFBF+qIKIo5XEnjYRdcqE7/50NgWdELWx1NAiwmio12HvtTIxP8vEg4cMj7q4kZ9Ojjafx3MmsrJL8Y0So8UWEqgoQp5aSsolM5EnzXwjO8nnfkfYoShDarfUYzYbaDYa0OmV3G2twir+lZZeR1OjJkenQ5GmJuxAHsHy7FWHsvg8kk4b2H+sjk07/8Rn3sn4xmnwj9cgObrraeusxXy3CnOLQRRbBNNYSomhCKWhkoQTeXjtvY5vTD675DeQJWuQp1USdqQaL1GT9V6x+MeVEKBQr0rqsxtx2JrpsDTQJeCVxjoyNY0czWwkOEFJYHQ2fvJC/BQlRKbVEnu8ir0pt/Dbd4V1m/bhHZmPX5wKX7lKAEuQ7F112LpqRBh1lFWbOZRuIuZEEzFnjGzdc5FtoZeIPllHdGoFMQdVRCQVsychn8+9ItgSmiEuKsVHwH45V4H56hIyCnRcytYSosgl4WwjCqGoU79Am4k6ZiAupYDYuCvEKa4gTxG1CUhkoyh0QPz/Yf4CFBhfIkZXISVfqEVxrJzNQZcJCD5M8jnxfaqGsNQ7RB/REJuUQ3RsOrHyyyQcyCQ86gxfbA5FFnONkHglO+NVQsUExhWJ1RQhOU2dWGqa2Lgtjt2yI0R/l0fcUY14BbdEHS7iLztFRNR5IqMvIldcZat3BNv8U9gnUg8VEwUpCgRMubpnf4VwOF0j0r2Rw96d+wgNO4489qxwcZbYFCXBKQZ8RRWCFflEyq8SEnqEL74KYk9MBmEJOcjELoPiC9ipEEDh0EdejJQjl1N0KImQwGhk+88RLfYUFnkO2b4z7E8UDr7T4ZegXU38W58oNm8JW3W8X7jdI95wULyok3DpK1x6xyj5H+CzXteQwLkAAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;4&quot;
+        title=&quot;&quot;
+        src=&quot;/static/d07eb288d033f360b26236d36bb24ddf/f058b/4.png&quot;
+        srcset=&quot;/static/d07eb288d033f360b26236d36bb24ddf/c26ae/4.png 158w,
+/static/d07eb288d033f360b26236d36bb24ddf/6bdcf/4.png 315w,
+/static/d07eb288d033f360b26236d36bb24ddf/f058b/4.png 630w,
+/static/d07eb288d033f360b26236d36bb24ddf/40601/4.png 945w,
+/static/d07eb288d033f360b26236d36bb24ddf/78612/4.png 1260w,
+/static/d07eb288d033f360b26236d36bb24ddf/71c1d/4.png 1536w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&quot;5&quot;&gt;
+&lt;li&gt;점박이가 매력적인 루이&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f34cedccac5c80f6d217d9753dff061c/71c1d/img.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 133.54430379746836%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img.png&quot;
+        title=&quot;&quot;
+        src=&quot;/static/f34cedccac5c80f6d217d9753dff061c/f058b/img.png&quot;
+        srcset=&quot;/static/f34cedccac5c80f6d217d9753dff061c/c26ae/img.png 158w,
+/static/f34cedccac5c80f6d217d9753dff061c/6bdcf/img.png 315w,
+/static/f34cedccac5c80f6d217d9753dff061c/f058b/img.png 630w,
+/static/f34cedccac5c80f6d217d9753dff061c/40601/img.png 945w,
+/static/f34cedccac5c80f6d217d9753dff061c/78612/img.png 1260w,
+/static/f34cedccac5c80f6d217d9753dff061c/71c1d/img.png 1536w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이 날 할 일이 꽤 많고 아이들도 볕이 따뜻한 탓인지 사람이 많은 탓인지 잘 나오지 않아 사진을 많이 못찍었다.&lt;br&gt;
+토르랑 야외 산책도 나갔는데 주민 분들도 많이 오가고 대형견들을 단체로 산책하다보니 집중해야해서 사진 찍을 여력이 없었다.&lt;/p&gt;
+&lt;p&gt;오랜만에 간 보호센터에는 자주 보이던 친구들이 많이 보이지 않았다.&lt;br&gt;
+특히 내 최애였던 동동이는 인스타를 통해 해외로 입양 간 사실을 알고 있었지만, 내심 아쉬웠다 ㅜ&lt;br&gt;
+그래도 아이들한테는 더 나은 세상을 살고 있다는 뜻이니까 너무너무 다행이다.&lt;br&gt;
+남은 아이들도 모두 좋은 곳으로 입양갔으면 좋겠다.&lt;/p&gt;
+&lt;h2 id=&quot;정봉-티셔츠&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%B4%89-%ED%8B%B0%EC%85%94%EC%B8%A0&quot; aria-label=&quot;정봉 티셔츠 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정봉 티셔츠&lt;/h2&gt;
+&lt;p&gt;모든 봉사활동이 끝나고 마무리하는 중에 현장 관리자 님께서 정봉티를 챙겨주셨다!&lt;br&gt;
+봉사를 3회차 이상 온 사람들을 &lt;strong&gt;정봉&lt;/strong&gt;이라고 부르는데, 정봉들에게 나눠주는 티셔츠이다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d8cc891f4ae0595684663584550e8757/21b4d/t_shirt.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 133.54430379746836%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;3회 차 방문 기념으로 받은 티셔츠!&quot;
+        title=&quot;&quot;
+        src=&quot;/static/d8cc891f4ae0595684663584550e8757/f058b/t_shirt.png&quot;
+        srcset=&quot;/static/d8cc891f4ae0595684663584550e8757/c26ae/t_shirt.png 158w,
+/static/d8cc891f4ae0595684663584550e8757/6bdcf/t_shirt.png 315w,
+/static/d8cc891f4ae0595684663584550e8757/f058b/t_shirt.png 630w,
+/static/d8cc891f4ae0595684663584550e8757/40601/t_shirt.png 945w,
+/static/d8cc891f4ae0595684663584550e8757/78612/t_shirt.png 1260w,
+/static/d8cc891f4ae0595684663584550e8757/21b4d/t_shirt.png 1280w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;직접 입어보니 생각보다 티셔치가 쫀쫀하고 페인팅도 너무 이뻤다.&lt;br&gt;
+너무 감사합니다 ☺️&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[알고리즘 오답노트] LeetCode - Longest Palindromic Substring]]></title><description><![CDATA[문제 링크 https://leetcode.com/problems/longest-palindromic-substring/description/?envType=problem-list-v2&envId=dynamic-programming 어려웠던 점…]]></description><link>https://kdkdhoho.github.io/posts/longest-palindromic-substring/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/longest-palindromic-substring/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h1 id=&quot;문제-링크&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AC%B8%EC%A0%9C-%EB%A7%81%ED%81%AC&quot; aria-label=&quot;문제 링크 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;문제 링크&lt;/h1&gt;
 &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/longest-palindromic-substring/description/?envType=problem-list-v2&amp;#x26;envId=dynamic-programming&quot;&gt;https://leetcode.com/problems/longest-palindromic-substring/description/?envType=problem-list-v2&amp;#x26;envId=dynamic-programming&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;어려웠던-점&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%96%B4%EB%A0%A4%EC%9B%A0%EB%8D%98-%EC%A0%90&quot; aria-label=&quot;어려웠던 점 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;어려웠던 점&lt;/h1&gt;
 &lt;h2 id=&quot;1-문제-접근-자체가-잘못됐다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%EB%AC%B8%EC%A0%9C-%EC%A0%91%EA%B7%BC-%EC%9E%90%EC%B2%B4%EA%B0%80-%EC%9E%98%EB%AA%BB%EB%90%90%EB%8B%A4&quot; aria-label=&quot;1 문제 접근 자체가 잘못됐다 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 문제 접근 자체가 잘못됐다.&lt;/h2&gt;
@@ -4196,7 +4458,30 @@ sys&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;setrecursionlim
 &lt;h2 id=&quot;22-nullif&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#22-nullif&quot; aria-label=&quot;22 nullif permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2.2. NULLIF&lt;/h2&gt;
 &lt;p&gt;두 값이 같으면 NULL을, 다르면 첫 번째 값을 반환한다.&lt;br&gt;
 주로 0으로 나누기 에러를 방지하거나, 의미 없는 특정 데이터(예: 공백)을 NULL로 처리할 때 사용한다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;NULLIF&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;col1&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; col2&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[[SQL] UNION과 UNION ALL 정리]]></title><description><![CDATA[1. UNION에 대해서와 UNION…]]></description><link>https://kdkdhoho.github.io/posts/sql-union-and-union-all/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/sql-union-and-union-all/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h1 id=&quot;1-union에-대해서와-union을-사용하는-이유&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-union%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C%EC%99%80-union%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0&quot; aria-label=&quot;1 union에 대해서와 union을 사용하는 이유 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. UNION에 대해서와 UNION을 사용하는 이유&lt;/h1&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;NULLIF&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;col1&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; col2&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[[SQL] GROUP BY 사용할 때 명심할 점]]></title><description><![CDATA[문제 상황 식당의 정보를 가지는  테이블과 각 식당의 리뷰 데이터를 가지는  테이블이 있습니다. 이 두 테이블을 조인해서 원하는 칼럼의 값과 특정 식당의 평균 점수를 가져오는 요구 사항이 있었습니다. 처음엔 아래와 같이 SQL…]]></description><link>https://kdkdhoho.github.io/posts/remember-to-use-group-by/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/remember-to-use-group-by/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h1 id=&quot;문제-상황&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AC%B8%EC%A0%9C-%EC%83%81%ED%99%A9&quot; aria-label=&quot;문제 상황 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;문제 상황&lt;/h1&gt;
+&lt;p&gt;식당의 정보를 가지는 &lt;code class=&quot;language-text&quot;&gt;REST_INFO&lt;/code&gt; 테이블과 각 식당의 리뷰 데이터를 가지는 &lt;code class=&quot;language-text&quot;&gt;REST_REVIEW&lt;/code&gt; 테이블이 있습니다.&lt;/p&gt;
+&lt;p&gt;이 두 테이블을 조인해서 원하는 칼럼의 값과 특정 식당의 평균 점수를 가져오는 요구 사항이 있었습니다.&lt;/p&gt;
+&lt;p&gt;처음엔 아래와 같이 SQL을 작성했습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; ri&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;rest_id&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; ri&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;rest_name&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; ri&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;food_type&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; ri&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;favorites&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; ri&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;address&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;ROUND&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;AVG&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;rr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;review_score&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; average
+&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; rest_info ri &lt;span class=&quot;token keyword&quot;&gt;JOIN&lt;/span&gt; rest_review rr &lt;span class=&quot;token keyword&quot;&gt;ON&lt;/span&gt; ri&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;rest_id &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; rr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;rest_id
+&lt;span class=&quot;token keyword&quot;&gt;WHERE&lt;/span&gt; ri&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;address &lt;span class=&quot;token operator&quot;&gt;LIKE&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;서울%&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;GROUP&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;BY&lt;/span&gt; ri&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;rest_id
+&lt;span class=&quot;token keyword&quot;&gt;ORDER&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;BY&lt;/span&gt; average &lt;span class=&quot;token keyword&quot;&gt;DESC&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; ri&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;favorites &lt;span class=&quot;token keyword&quot;&gt;DESC&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;원하는 결과는 나왔지만, &lt;code class=&quot;language-text&quot;&gt;GROUP BY&lt;/code&gt; 절에서 잘못 사용했다는 점을 알게 됐습니다.&lt;/p&gt;
+&lt;h1 id=&quot;왜-잘못-사용했는가&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%99%9C-%EC%9E%98%EB%AA%BB-%EC%82%AC%EC%9A%A9%ED%96%88%EB%8A%94%EA%B0%80&quot; aria-label=&quot;왜 잘못 사용했는가 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;왜 잘못 사용했는가?&lt;/h1&gt;
+&lt;p&gt;ANSI 표준 SQL의 원칙은 다음과 같습니다.&lt;br&gt;
+&quot;&lt;em&gt;SELECT 절에 있는 컬럼 중, 집계 함수(SUM, AVG, COUNT 등)에 들어가지 않은 모든 컬럼은 반드시 GROUP BY 절에 명시해야 한다.&lt;/em&gt;&quot;&lt;/p&gt;
+&lt;p&gt;하지만 저는 어차피 id로 묶으면 결과는 똑같이 묶인다고 판단해서 id로만 그룹화를 수행했습니다.&lt;/p&gt;
+&lt;p&gt;그렇다면 결과는 똑같은데 왜 굳이 SELECT 절에 있는 칼럼 중, 집계 함수를 제외한 모든 칼럼을 GROUP BY 절에 명시해야 할까요?&lt;/p&gt;
+&lt;p&gt;바로, &lt;strong&gt;DB 엔진이 그룹으로 묶이지 않은 데이터 중 어떤 것을 출력해야 할지 스스로 결정하지 않기 위해서&lt;/strong&gt;입니다.&lt;br&gt;
+과거 MySQL의 경우 &quot;어차피 ID가 같으면 이름이나 주소도 같겠지?&quot;라고 대충 이해하고 결과를 보여줍니다. 이를 &apos;Hidden Columns&apos; 허용이라고 합니다.&lt;/p&gt;
+&lt;p&gt;하지만 현대 MySQL, Oracle, SQL Server에서는 &quot;&lt;em&gt;id는 묶였는데 이름은 그룹화되지 않았어! 어떤 이름을 가져올지 모르겠으니 에러를 낼게!&lt;/em&gt;&quot; 라며 실행을 거부합니다.&lt;/p&gt;
+&lt;p&gt;우리는 id가 유니크하다는 걸 알지만, DB 입장에서는 id가 같아도 address가 여러 개일 가능성을 배제할 수도, 보장할 수도 없기 때문입니다.&lt;/p&gt;
+&lt;p&gt;따라서 조회하려는 모든 정보가 이 그룹 내에서 유일하다는 것을 문법적으로 확정해주는 작업이, 바로 GROUP BY에 모든 컬럼을 적는 것입니다.&lt;/p&gt;
+&lt;h1 id=&quot;참고&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0&quot; aria-label=&quot;참고 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/doc/refman/8.0/en/group-by-handling.html&quot;&gt;MySQL 공식문서 - 14.19.3 MySQL Handling of GROUP BY&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[SQL] UNION과 UNION ALL 정리]]></title><description><![CDATA[1. UNION에 대해서와 UNION…]]></description><link>https://kdkdhoho.github.io/posts/sql-union-and-union-all/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/sql-union-and-union-all/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h1 id=&quot;1-union에-대해서와-union을-사용하는-이유&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-union%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C%EC%99%80-union%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0&quot; aria-label=&quot;1 union에 대해서와 union을 사용하는 이유 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. UNION에 대해서와 UNION을 사용하는 이유&lt;/h1&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;UNION&lt;/code&gt; 은 두 개 이상의 &lt;code class=&quot;language-text&quot;&gt;SELECT&lt;/code&gt; 문 결과 집합을 &lt;strong&gt;세로로 결합&lt;/strong&gt;하여 하나의 결과로 만드는 집합 연산자이다.&lt;/p&gt;
 &lt;p&gt;주로 &lt;code class=&quot;language-text&quot;&gt;UNION&lt;/code&gt;은 다음과 같은 이유로 사용한다.&lt;/p&gt;
 &lt;ul&gt;
@@ -4300,30 +4585,7 @@ sys&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;setrecursionlim
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;UNION&lt;/code&gt;은 여러 결과 집합을 하나로 합쳐야 할 때 매우 유용한 도구입니다.&lt;br&gt;
 하지만 중복 제거가 필요한지 여부에 따라 &lt;code class=&quot;language-text&quot;&gt;UNION&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;UNION ALL&lt;/code&gt;을 명확히 구분해서 선택해야 합니다.&lt;/p&gt;
 &lt;p&gt;만약 성능이 중요하다면 기본적으로 &lt;code class=&quot;language-text&quot;&gt;UNION ALL&lt;/code&gt;을 먼저 고려하고, 정말 중복 제거가 필요할 때만 &lt;code class=&quot;language-text&quot;&gt;UNION&lt;/code&gt;을 사용하는 것이 안전합니다.&lt;br&gt;
-또한 열 개수와 타입 호환성, 정렬 위치 같은 제약을 정확히 지켜야 예측 가능한 쿼리를 만들 수 있습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[SQL] GROUP BY 사용할 때 명심할 점]]></title><description><![CDATA[문제 상황 식당의 정보를 가지는  테이블과 각 식당의 리뷰 데이터를 가지는  테이블이 있습니다. 이 두 테이블을 조인해서 원하는 칼럼의 값과 특정 식당의 평균 점수를 가져오는 요구 사항이 있었습니다. 처음엔 아래와 같이 SQL…]]></description><link>https://kdkdhoho.github.io/posts/remember-to-use-group-by/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/remember-to-use-group-by/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h1 id=&quot;문제-상황&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AC%B8%EC%A0%9C-%EC%83%81%ED%99%A9&quot; aria-label=&quot;문제 상황 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;문제 상황&lt;/h1&gt;
-&lt;p&gt;식당의 정보를 가지는 &lt;code class=&quot;language-text&quot;&gt;REST_INFO&lt;/code&gt; 테이블과 각 식당의 리뷰 데이터를 가지는 &lt;code class=&quot;language-text&quot;&gt;REST_REVIEW&lt;/code&gt; 테이블이 있습니다.&lt;/p&gt;
-&lt;p&gt;이 두 테이블을 조인해서 원하는 칼럼의 값과 특정 식당의 평균 점수를 가져오는 요구 사항이 있었습니다.&lt;/p&gt;
-&lt;p&gt;처음엔 아래와 같이 SQL을 작성했습니다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; ri&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;rest_id&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; ri&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;rest_name&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; ri&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;food_type&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; ri&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;favorites&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; ri&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;address&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;ROUND&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;AVG&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;rr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;review_score&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; average
-&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; rest_info ri &lt;span class=&quot;token keyword&quot;&gt;JOIN&lt;/span&gt; rest_review rr &lt;span class=&quot;token keyword&quot;&gt;ON&lt;/span&gt; ri&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;rest_id &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; rr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;rest_id
-&lt;span class=&quot;token keyword&quot;&gt;WHERE&lt;/span&gt; ri&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;address &lt;span class=&quot;token operator&quot;&gt;LIKE&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;서울%&apos;&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;GROUP&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;BY&lt;/span&gt; ri&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;rest_id
-&lt;span class=&quot;token keyword&quot;&gt;ORDER&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;BY&lt;/span&gt; average &lt;span class=&quot;token keyword&quot;&gt;DESC&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; ri&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;favorites &lt;span class=&quot;token keyword&quot;&gt;DESC&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;원하는 결과는 나왔지만, &lt;code class=&quot;language-text&quot;&gt;GROUP BY&lt;/code&gt; 절에서 잘못 사용했다는 점을 알게 됐습니다.&lt;/p&gt;
-&lt;h1 id=&quot;왜-잘못-사용했는가&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%99%9C-%EC%9E%98%EB%AA%BB-%EC%82%AC%EC%9A%A9%ED%96%88%EB%8A%94%EA%B0%80&quot; aria-label=&quot;왜 잘못 사용했는가 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;왜 잘못 사용했는가?&lt;/h1&gt;
-&lt;p&gt;ANSI 표준 SQL의 원칙은 다음과 같습니다.&lt;br&gt;
-&quot;&lt;em&gt;SELECT 절에 있는 컬럼 중, 집계 함수(SUM, AVG, COUNT 등)에 들어가지 않은 모든 컬럼은 반드시 GROUP BY 절에 명시해야 한다.&lt;/em&gt;&quot;&lt;/p&gt;
-&lt;p&gt;하지만 저는 어차피 id로 묶으면 결과는 똑같이 묶인다고 판단해서 id로만 그룹화를 수행했습니다.&lt;/p&gt;
-&lt;p&gt;그렇다면 결과는 똑같은데 왜 굳이 SELECT 절에 있는 칼럼 중, 집계 함수를 제외한 모든 칼럼을 GROUP BY 절에 명시해야 할까요?&lt;/p&gt;
-&lt;p&gt;바로, &lt;strong&gt;DB 엔진이 그룹으로 묶이지 않은 데이터 중 어떤 것을 출력해야 할지 스스로 결정하지 않기 위해서&lt;/strong&gt;입니다.&lt;br&gt;
-과거 MySQL의 경우 &quot;어차피 ID가 같으면 이름이나 주소도 같겠지?&quot;라고 대충 이해하고 결과를 보여줍니다. 이를 &apos;Hidden Columns&apos; 허용이라고 합니다.&lt;/p&gt;
-&lt;p&gt;하지만 현대 MySQL, Oracle, SQL Server에서는 &quot;&lt;em&gt;id는 묶였는데 이름은 그룹화되지 않았어! 어떤 이름을 가져올지 모르겠으니 에러를 낼게!&lt;/em&gt;&quot; 라며 실행을 거부합니다.&lt;/p&gt;
-&lt;p&gt;우리는 id가 유니크하다는 걸 알지만, DB 입장에서는 id가 같아도 address가 여러 개일 가능성을 배제할 수도, 보장할 수도 없기 때문입니다.&lt;/p&gt;
-&lt;p&gt;따라서 조회하려는 모든 정보가 이 그룹 내에서 유일하다는 것을 문법적으로 확정해주는 작업이, 바로 GROUP BY에 모든 컬럼을 적는 것입니다.&lt;/p&gt;
-&lt;h1 id=&quot;참고&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0&quot; aria-label=&quot;참고 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/doc/refman/8.0/en/group-by-handling.html&quot;&gt;MySQL 공식문서 - 14.19.3 MySQL Handling of GROUP BY&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Python Syntax, 각종 라이브러리]]></title><description><![CDATA[표준 입출력 파이썬은 유닉스 계열 운영체제의 전통을 따라 표준 입력, 표준 출력, 표준 에러 스트림으로 구분된다. 이 스트림들은  모듈 내에 객체 형태로 정의되어 있다. sys…]]></description><link>https://kdkdhoho.github.io/posts/python-syntax/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/python-syntax/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h1 id=&quot;표준-입출력&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%91%9C%EC%A4%80-%EC%9E%85%EC%B6%9C%EB%A0%A5&quot; aria-label=&quot;표준 입출력 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;표준 입출력&lt;/h1&gt;
+또한 열 개수와 타입 호환성, 정렬 위치 같은 제약을 정확히 지켜야 예측 가능한 쿼리를 만들 수 있습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Python Syntax, 각종 라이브러리]]></title><description><![CDATA[표준 입출력 파이썬은 유닉스 계열 운영체제의 전통을 따라 표준 입력, 표준 출력, 표준 에러 스트림으로 구분된다. 이 스트림들은  모듈 내에 객체 형태로 정의되어 있다. sys…]]></description><link>https://kdkdhoho.github.io/posts/python-syntax/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/python-syntax/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h1 id=&quot;표준-입출력&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%91%9C%EC%A4%80-%EC%9E%85%EC%B6%9C%EB%A0%A5&quot; aria-label=&quot;표준 입출력 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;표준 입출력&lt;/h1&gt;
 &lt;p&gt;파이썬은 유닉스 계열 운영체제의 전통을 따라 표준 입력, 표준 출력, 표준 에러 스트림으로 구분된다.&lt;br&gt;
 이 스트림들은 &lt;code class=&quot;language-text&quot;&gt;sys&lt;/code&gt; 모듈 내에 객체 형태로 정의되어 있다.&lt;/p&gt;
 &lt;h2 id=&quot;sys-모듈과-표준-스트림&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#sys-%EB%AA%A8%EB%93%88%EA%B3%BC-%ED%91%9C%EC%A4%80-%EC%8A%A4%ED%8A%B8%EB%A6%BC&quot; aria-label=&quot;sys 모듈과 표준 스트림 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;sys 모듈과 표준 스트림&lt;/h2&gt;
@@ -20929,105 +21191,6 @@ list&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class
 &lt;ol&gt;
 &lt;li id=&quot;fn-1&quot;&gt;&lt;a href=&quot;https://docs.oracle.com/javase/tutorial/java/generics/types.html&quot;&gt;https://docs.oracle.com/javase/tutorial/java/generics/types.html&lt;/a&gt;&lt;a href=&quot;#fnref-1&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</content:encoded></item><item><title><![CDATA[8장. 누가 액세스하고 있는지를 확인하는 인증]]></title><description><![CDATA[들어가며 이번엔 HTTP 표준이 설명하는 여러 가지 인증 방식에 대해 알아보겠다. Basic 인증 이름 그대로 가장 기본적인 인증 방식이다. 클라이언트가 Http Request를 보낼 때  헤더에 ID와 패스워드를 Base6…]]></description><link>https://kdkdhoho.github.io/posts/08-authentication-of-http/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/08-authentication-of-http/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;들어가며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0&quot; aria-label=&quot;들어가며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가며&lt;/h2&gt;
-&lt;p&gt;이번엔 HTTP 표준이 설명하는 여러 가지 인증 방식에 대해 알아보겠다.&lt;/p&gt;
-&lt;h2 id=&quot;basic-인증&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#basic-%EC%9D%B8%EC%A6%9D&quot; aria-label=&quot;basic 인증 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Basic 인증&lt;/h2&gt;
-&lt;p&gt;이름 그대로 가장 기본적인 인증 방식이다.&lt;/p&gt;
-&lt;p&gt;클라이언트가 Http Request를 보낼 때 &lt;code class=&quot;language-text&quot;&gt;Authorization&lt;/code&gt; 헤더에 ID와 패스워드를 Base64 형식으로 인코딩 한 값을 담아 보내는 방식이다.&lt;br&gt;
-이때 값 앞에 &lt;code class=&quot;language-text&quot;&gt;&quot;Basic &quot;&lt;/code&gt;을 Prefix로 담아 함께 보내어 Basic 인증임을 나타낸다.&lt;/p&gt;
-&lt;p&gt;Basic 인증은 아래와 같은 요청이 서버로 전달된다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
-Authoization: Basic Z3Vlc3Q35wervc32= &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;가장 단순하며 간편한 인증 방식이다.&lt;br&gt;
-하지만 Base64 형식은 &lt;a href=&quot;https://www.base64decode.org/&quot;&gt;온라인 디코더 사이트&lt;/a&gt;도 있는만큼 매우 위험한 인증 방식이다.&lt;br&gt;
-따라서 잘 사용하진 않는다.&lt;/p&gt;
-&lt;h2 id=&quot;digest-인증&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#digest-%EC%9D%B8%EC%A6%9D&quot; aria-label=&quot;digest 인증 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;DIGEST 인증&lt;/h2&gt;
-&lt;p&gt;편리하지만 안전하지 않은 Basic 인증을 보완하기 위해 탄생한 기술이다.&lt;br&gt;
-DIGEST 인증에는 &lt;em&gt;챌린지 리스폰스&lt;/em&gt; 방식이 사용되고 있어 패스워드를 그대로 보낼 일은 없다.&lt;/p&gt;
-&lt;p&gt;챌린지 리스폰스 방식은 최초에 상대방에게 인증 요구를 보내고 그 결과로 받은 챌린지 코드를 사용해서 리스폰스 코드를 계산한다.&lt;br&gt;
-이 값을 상대에게 송신하여 인증하는 방법이다.&lt;br&gt;
-리스폰스 코드는 패스워드와 챌린지 코드를 이용해 계산한 결과이다. 이 결과값을 보내기에 패스워드가 통신되는 일은 없다.&lt;/p&gt;
-&lt;p&gt;좀 더 자세히 살펴보면 인증 순서에 따른 요청 및 응답 내용은 아래와 같다.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;클라이언트가 리소스에 접근&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
-Host: listywave.com&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;ol start=&quot;2&quot;&gt;
-&lt;li&gt;서버는 인증이 필요하다는 상태 코드와 함께 패스워드와 챌린지 코드(nonce)를 송신&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;HTTP/1.1 401 Unauthorized
-WWW-Authenticate: Digest realm=&amp;quot;my&amp;quot;, nonce=&amp;quot;MoSq25=sddfAMi217wsnDS&amp;quot;, algorithm=MD5, qop=&amp;quot;auth&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;ol start=&quot;3&quot;&gt;
-&lt;li&gt;클라이언트는 패스워드와 챌린지 코드를 통해 리스폰스 코드를 계산해서 송신&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
-Host: listywave.com
-Authorization: Digest username=&amp;quot;kdkdhoho&amp;quot;, realm=&amp;quot;my&amp;quot;, nonce=&amp;quot;MoSq25=sddfAMi217wsnDS&amp;quot;, uri=&amp;quot;/my&amp;quot;, algorithm=MD5, response=&amp;quot;df563836bnfasf7acfasdfc78&amp;quot;, qop=&amp;quot;auth&amp;quot;, nc=000000001, cnonce=&amp;quot;0827c27c29c271&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;ol start=&quot;4&quot;&gt;
-&lt;li&gt;서버는 인증 성공 시 &lt;code class=&quot;language-text&quot;&gt;200 OK&lt;/code&gt;를 응답하고, 실패했을 경우 다시 &lt;code class=&quot;language-text&quot;&gt;401 Unauthorized&lt;/code&gt;를 응답한다.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;HTTP/1.1 200 OK
-Authentication-Info: rspauth=&amp;quot;fvacacwararact3c5ttcctyct7tcc4t7y&amp;quot;, cnonce=&amp;quot;0827c27c29c271&amp;quot;, nc=000000001, qop=&amp;quot;auth&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;하지만 Digest 방식도 사용상의 문제와 부족한 보안성 때문에 잘 사용하지는 않는다.&lt;/p&gt;
-&lt;h2 id=&quot;ssl-클라이언트-인증&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ssl-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-%EC%9D%B8%EC%A6%9D&quot; aria-label=&quot;ssl 클라이언트 인증 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;SSL 클라이언트 인증&lt;/h2&gt;
-&lt;p&gt;위 두 방식은 사용자 ID와 패스워드를 통해 인증을 진행한다.&lt;br&gt;
-SSL 클라이언트 인증의 경우에는 클라이언트가 &lt;strong&gt;클라이언트 인증서&lt;/strong&gt;를 서버로 전송해 인증한다.&lt;/p&gt;
-&lt;p&gt;클라이언트가 클라이언트 인증서를 서버로 전송하기 위해서는 사전에 미리 가지고 있어야 한다.&lt;br&gt;
-이를 위해선 서버가 미리 증명서를 구매하여 사용자에게 배포를 해야 한다.&lt;br&gt;
-다른 말로 인증을 위한 비용이 상당하다는 것이다.&lt;br&gt;
-따라서 웹 애플리케이션 인증만을 위한 용도로는 사용하지 않고 후술할 Form 방식과 함께 사용되어 2-Factor 인증으로 사용한다.&lt;/p&gt;
-&lt;h2 id=&quot;form-방식&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#form-%EB%B0%A9%EC%8B%9D&quot; aria-label=&quot;form 방식 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Form 방식&lt;/h2&gt;
-&lt;p&gt;Form 방식은 HTTP 프로토콜로 스펙이 정의되어 있지는 않다.&lt;br&gt;
-하지만 많은 웹사이트에서 채택 중이며 대부분의 경우 로그인 페이지를 통해 사용자의 인증 정보를 폼에 입력 후 서버로 전송하면, 서버는 해당 값을 토대로 사용자를 식별하고 그에 따른 인증 처리를 하는 방식으로 채택 중이다.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/9c59e807258884b8c8889affd6decef8/d53ff/form-auth-example.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 96.20253164556962%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAABoElEQVR42q2Uy0vEMBDG9+8VD75Q96D4Qj2I4EXUg6y4PmDrPkA8WUU9C4J42IMIorB0VdqmSdM26WfSfeiKbnfVwFeGmeaXyUySDP55ZHr5SUqZKI7jvwM1SI9eYF2BLUC1WoVpmjAMA4yxVHhPGVqWhXq93n+GeuUoihIFQdCWECLRZ1/Lnwp0HAe2bbfBP4lzDt/304GuS+C4Hniosuwi3+fgSl2BUsZg1IXkbxCBq5fQ3m8lRJhk+SOw0TiJ2wcP0wWC+aKH+RLFXJFi5ZhgueIl9kKZYtqg2DI9sOaWPzf9CzDGzT3BWJ4ge0AwqTSxT7BUtjFjuBhXdvaQYFTF105cUNYF+NHlQFmdksJXMd7pkzxpzq+uHldbEyLq7xzKZtp3TxEGcxTDeYaRPYrZI6LqRrBYcTFV8DCUpxhQ8dUTpubEaTUEHl8E1k99bJwybJ4x7FxS5C4odq8ots895eMqzlG6Dtpz4rQt6zo6r8/wHAvEbkjbzmsNpGaB207vd1mvKtRRi9SnpTBqSNtBIBCGsl2iXzXl3x/YfoDvEiq/mkSMcbMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Form 방식의 로그인 페이지 (출처: https://gundogmuseray.medium.com/easy-way-to-stop-worry-about-client-side-auth-with-firebase-and-sveltekit-d17cdcccb663)&quot;
-        title=&quot;&quot;
-        src=&quot;/static/9c59e807258884b8c8889affd6decef8/f058b/form-auth-example.png&quot;
-        srcset=&quot;/static/9c59e807258884b8c8889affd6decef8/c26ae/form-auth-example.png 158w,
-/static/9c59e807258884b8c8889affd6decef8/6bdcf/form-auth-example.png 315w,
-/static/9c59e807258884b8c8889affd6decef8/f058b/form-auth-example.png 630w,
-/static/9c59e807258884b8c8889affd6decef8/40601/form-auth-example.png 945w,
-/static/9c59e807258884b8c8889affd6decef8/d53ff/form-auth-example.png 1068w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h2 id=&quot;세션-및-토큰&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%84%B8%EC%85%98-%EB%B0%8F-%ED%86%A0%ED%81%B0&quot; aria-label=&quot;세션 및 토큰 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;세션 및 토큰&lt;/h2&gt;
-&lt;p&gt;HTTP 프로토콜은 Stateless 하다.&lt;br&gt;
-방금 전에 로그인에 성공했지만 다음 요청마다 로그인을 새로 해야 한다.&lt;br&gt;
-이를 개선하기 위해 쿠키[&lt;sup id=&quot;fnref-2&quot;&gt;&lt;a href=&quot;#fn-2&quot; class=&quot;footnote-ref&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;] 가 도입되었고 여기에 세션[&lt;sup id=&quot;fnref-3&quot;&gt;&lt;a href=&quot;#fn-3&quot; class=&quot;footnote-ref&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;]이나 토큰[&lt;sup id=&quot;fnref-4&quot;&gt;&lt;a href=&quot;#fn-4&quot; class=&quot;footnote-ref&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;] 을 이용해 사용자 인증 정보를 유지한다.&lt;/p&gt;
-&lt;p&gt;세션과 토큰은 현재 대부분의 경우 사용 중인 방식이다.&lt;br&gt;
-이 둘을 잘 이해하고 사용할 줄 아는 것은 매우 중요하다는 의미이며 다른 포스팅에서 집중적으로 알아볼 예정이다.&lt;/p&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn-2&quot;&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/HTTP/Cookies&quot;&gt;MDN - 쿠키&lt;/a&gt;&lt;a href=&quot;#fnref-2&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-3&quot;&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/HTTP/Session&quot;&gt;MDN - 세션&lt;/a&gt;&lt;a href=&quot;#fnref-3&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-4&quot;&gt;&lt;a href=&quot;https://opentutorials.org/course/3405/22008&quot;&gt;오픈튜토리얼스 - AccessToken&lt;/a&gt;&lt;a href=&quot;#fnref-4&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
 &lt;/div&gt;</content:encoded></item><item><title><![CDATA[9장. HTTP에 기능을 추가한 프로토콜]]></title><description><![CDATA[들어가며 인터넷이 보급되고 웹 시장이 커져감에 따라 HTTP 프로토콜이 정말 많이 사용되고 있다.
 하지만 본래 HTML 문서를 전송하기 위해 탄생한 HTTP는 발전해가는 웹 시장에 비하면 부족한 기능들이 다수 존재했다.
 그래서 HTTP…]]></description><link>https://kdkdhoho.github.io/posts/09-advanced-http-protocol/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/09-advanced-http-protocol/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;들어가며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0&quot; aria-label=&quot;들어가며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가며&lt;/h2&gt;
@@ -21192,6 +21355,105 @@ HTTP/2.0은 성능 개선이 주된 목표이다. 따라서 &lt;em&gt;SPDY&lt;/e
 &lt;li id=&quot;fn-5&quot;&gt;&lt;a href=&quot;https://developers-kr.googleblog.com/2015/02/hellohttp2.html&quot;&gt;헬로 HTTP/2, 굿바이 SPDY - Google for Developers KR&lt;/a&gt;&lt;a href=&quot;#fnref-5&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
 &lt;li id=&quot;fn-6&quot;&gt;&lt;a href=&quot;https://ko.wikipedia.org/wiki/%EC%9B%B9%EC%86%8C%EC%BC%93&quot;&gt;WebSocket - Wikipedia&lt;/a&gt;&lt;a href=&quot;#fnref-6&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
 &lt;li id=&quot;fn-7&quot;&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/101&quot;&gt;101 Switching Protocols - MDN&lt;/a&gt;&lt;a href=&quot;#fnref-7&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</content:encoded></item><item><title><![CDATA[8장. 누가 액세스하고 있는지를 확인하는 인증]]></title><description><![CDATA[들어가며 이번엔 HTTP 표준이 설명하는 여러 가지 인증 방식에 대해 알아보겠다. Basic 인증 이름 그대로 가장 기본적인 인증 방식이다. 클라이언트가 Http Request를 보낼 때  헤더에 ID와 패스워드를 Base6…]]></description><link>https://kdkdhoho.github.io/posts/08-authentication-of-http/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/08-authentication-of-http/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;들어가며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0&quot; aria-label=&quot;들어가며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가며&lt;/h2&gt;
+&lt;p&gt;이번엔 HTTP 표준이 설명하는 여러 가지 인증 방식에 대해 알아보겠다.&lt;/p&gt;
+&lt;h2 id=&quot;basic-인증&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#basic-%EC%9D%B8%EC%A6%9D&quot; aria-label=&quot;basic 인증 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Basic 인증&lt;/h2&gt;
+&lt;p&gt;이름 그대로 가장 기본적인 인증 방식이다.&lt;/p&gt;
+&lt;p&gt;클라이언트가 Http Request를 보낼 때 &lt;code class=&quot;language-text&quot;&gt;Authorization&lt;/code&gt; 헤더에 ID와 패스워드를 Base64 형식으로 인코딩 한 값을 담아 보내는 방식이다.&lt;br&gt;
+이때 값 앞에 &lt;code class=&quot;language-text&quot;&gt;&quot;Basic &quot;&lt;/code&gt;을 Prefix로 담아 함께 보내어 Basic 인증임을 나타낸다.&lt;/p&gt;
+&lt;p&gt;Basic 인증은 아래와 같은 요청이 서버로 전달된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
+Authoization: Basic Z3Vlc3Q35wervc32= &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;가장 단순하며 간편한 인증 방식이다.&lt;br&gt;
+하지만 Base64 형식은 &lt;a href=&quot;https://www.base64decode.org/&quot;&gt;온라인 디코더 사이트&lt;/a&gt;도 있는만큼 매우 위험한 인증 방식이다.&lt;br&gt;
+따라서 잘 사용하진 않는다.&lt;/p&gt;
+&lt;h2 id=&quot;digest-인증&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#digest-%EC%9D%B8%EC%A6%9D&quot; aria-label=&quot;digest 인증 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;DIGEST 인증&lt;/h2&gt;
+&lt;p&gt;편리하지만 안전하지 않은 Basic 인증을 보완하기 위해 탄생한 기술이다.&lt;br&gt;
+DIGEST 인증에는 &lt;em&gt;챌린지 리스폰스&lt;/em&gt; 방식이 사용되고 있어 패스워드를 그대로 보낼 일은 없다.&lt;/p&gt;
+&lt;p&gt;챌린지 리스폰스 방식은 최초에 상대방에게 인증 요구를 보내고 그 결과로 받은 챌린지 코드를 사용해서 리스폰스 코드를 계산한다.&lt;br&gt;
+이 값을 상대에게 송신하여 인증하는 방법이다.&lt;br&gt;
+리스폰스 코드는 패스워드와 챌린지 코드를 이용해 계산한 결과이다. 이 결과값을 보내기에 패스워드가 통신되는 일은 없다.&lt;/p&gt;
+&lt;p&gt;좀 더 자세히 살펴보면 인증 순서에 따른 요청 및 응답 내용은 아래와 같다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;클라이언트가 리소스에 접근&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
+Host: listywave.com&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;서버는 인증이 필요하다는 상태 코드와 함께 패스워드와 챌린지 코드(nonce)를 송신&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;HTTP/1.1 401 Unauthorized
+WWW-Authenticate: Digest realm=&amp;quot;my&amp;quot;, nonce=&amp;quot;MoSq25=sddfAMi217wsnDS&amp;quot;, algorithm=MD5, qop=&amp;quot;auth&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;클라이언트는 패스워드와 챌린지 코드를 통해 리스폰스 코드를 계산해서 송신&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
+Host: listywave.com
+Authorization: Digest username=&amp;quot;kdkdhoho&amp;quot;, realm=&amp;quot;my&amp;quot;, nonce=&amp;quot;MoSq25=sddfAMi217wsnDS&amp;quot;, uri=&amp;quot;/my&amp;quot;, algorithm=MD5, response=&amp;quot;df563836bnfasf7acfasdfc78&amp;quot;, qop=&amp;quot;auth&amp;quot;, nc=000000001, cnonce=&amp;quot;0827c27c29c271&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;서버는 인증 성공 시 &lt;code class=&quot;language-text&quot;&gt;200 OK&lt;/code&gt;를 응답하고, 실패했을 경우 다시 &lt;code class=&quot;language-text&quot;&gt;401 Unauthorized&lt;/code&gt;를 응답한다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;HTTP/1.1 200 OK
+Authentication-Info: rspauth=&amp;quot;fvacacwararact3c5ttcctyct7tcc4t7y&amp;quot;, cnonce=&amp;quot;0827c27c29c271&amp;quot;, nc=000000001, qop=&amp;quot;auth&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;하지만 Digest 방식도 사용상의 문제와 부족한 보안성 때문에 잘 사용하지는 않는다.&lt;/p&gt;
+&lt;h2 id=&quot;ssl-클라이언트-인증&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ssl-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-%EC%9D%B8%EC%A6%9D&quot; aria-label=&quot;ssl 클라이언트 인증 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;SSL 클라이언트 인증&lt;/h2&gt;
+&lt;p&gt;위 두 방식은 사용자 ID와 패스워드를 통해 인증을 진행한다.&lt;br&gt;
+SSL 클라이언트 인증의 경우에는 클라이언트가 &lt;strong&gt;클라이언트 인증서&lt;/strong&gt;를 서버로 전송해 인증한다.&lt;/p&gt;
+&lt;p&gt;클라이언트가 클라이언트 인증서를 서버로 전송하기 위해서는 사전에 미리 가지고 있어야 한다.&lt;br&gt;
+이를 위해선 서버가 미리 증명서를 구매하여 사용자에게 배포를 해야 한다.&lt;br&gt;
+다른 말로 인증을 위한 비용이 상당하다는 것이다.&lt;br&gt;
+따라서 웹 애플리케이션 인증만을 위한 용도로는 사용하지 않고 후술할 Form 방식과 함께 사용되어 2-Factor 인증으로 사용한다.&lt;/p&gt;
+&lt;h2 id=&quot;form-방식&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#form-%EB%B0%A9%EC%8B%9D&quot; aria-label=&quot;form 방식 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Form 방식&lt;/h2&gt;
+&lt;p&gt;Form 방식은 HTTP 프로토콜로 스펙이 정의되어 있지는 않다.&lt;br&gt;
+하지만 많은 웹사이트에서 채택 중이며 대부분의 경우 로그인 페이지를 통해 사용자의 인증 정보를 폼에 입력 후 서버로 전송하면, 서버는 해당 값을 토대로 사용자를 식별하고 그에 따른 인증 처리를 하는 방식으로 채택 중이다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9c59e807258884b8c8889affd6decef8/d53ff/form-auth-example.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 96.20253164556962%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAABoElEQVR42q2Uy0vEMBDG9+8VD75Q96D4Qj2I4EXUg6y4PmDrPkA8WUU9C4J42IMIorB0VdqmSdM26WfSfeiKbnfVwFeGmeaXyUySDP55ZHr5SUqZKI7jvwM1SI9eYF2BLUC1WoVpmjAMA4yxVHhPGVqWhXq93n+GeuUoihIFQdCWECLRZ1/Lnwp0HAe2bbfBP4lzDt/304GuS+C4Hniosuwi3+fgSl2BUsZg1IXkbxCBq5fQ3m8lRJhk+SOw0TiJ2wcP0wWC+aKH+RLFXJFi5ZhgueIl9kKZYtqg2DI9sOaWPzf9CzDGzT3BWJ4ge0AwqTSxT7BUtjFjuBhXdvaQYFTF105cUNYF+NHlQFmdksJXMd7pkzxpzq+uHldbEyLq7xzKZtp3TxEGcxTDeYaRPYrZI6LqRrBYcTFV8DCUpxhQ8dUTpubEaTUEHl8E1k99bJwybJ4x7FxS5C4odq8ots895eMqzlG6Dtpz4rQt6zo6r8/wHAvEbkjbzmsNpGaB207vd1mvKtRRi9SnpTBqSNtBIBCGsl2iXzXl3x/YfoDvEiq/mkSMcbMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Form 방식의 로그인 페이지 (출처: https://gundogmuseray.medium.com/easy-way-to-stop-worry-about-client-side-auth-with-firebase-and-sveltekit-d17cdcccb663)&quot;
+        title=&quot;&quot;
+        src=&quot;/static/9c59e807258884b8c8889affd6decef8/f058b/form-auth-example.png&quot;
+        srcset=&quot;/static/9c59e807258884b8c8889affd6decef8/c26ae/form-auth-example.png 158w,
+/static/9c59e807258884b8c8889affd6decef8/6bdcf/form-auth-example.png 315w,
+/static/9c59e807258884b8c8889affd6decef8/f058b/form-auth-example.png 630w,
+/static/9c59e807258884b8c8889affd6decef8/40601/form-auth-example.png 945w,
+/static/9c59e807258884b8c8889affd6decef8/d53ff/form-auth-example.png 1068w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;세션-및-토큰&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%84%B8%EC%85%98-%EB%B0%8F-%ED%86%A0%ED%81%B0&quot; aria-label=&quot;세션 및 토큰 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;세션 및 토큰&lt;/h2&gt;
+&lt;p&gt;HTTP 프로토콜은 Stateless 하다.&lt;br&gt;
+방금 전에 로그인에 성공했지만 다음 요청마다 로그인을 새로 해야 한다.&lt;br&gt;
+이를 개선하기 위해 쿠키[&lt;sup id=&quot;fnref-2&quot;&gt;&lt;a href=&quot;#fn-2&quot; class=&quot;footnote-ref&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;] 가 도입되었고 여기에 세션[&lt;sup id=&quot;fnref-3&quot;&gt;&lt;a href=&quot;#fn-3&quot; class=&quot;footnote-ref&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;]이나 토큰[&lt;sup id=&quot;fnref-4&quot;&gt;&lt;a href=&quot;#fn-4&quot; class=&quot;footnote-ref&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;] 을 이용해 사용자 인증 정보를 유지한다.&lt;/p&gt;
+&lt;p&gt;세션과 토큰은 현재 대부분의 경우 사용 중인 방식이다.&lt;br&gt;
+이 둘을 잘 이해하고 사용할 줄 아는 것은 매우 중요하다는 의미이며 다른 포스팅에서 집중적으로 알아볼 예정이다.&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn-2&quot;&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/HTTP/Cookies&quot;&gt;MDN - 쿠키&lt;/a&gt;&lt;a href=&quot;#fnref-2&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&quot;fn-3&quot;&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/HTTP/Session&quot;&gt;MDN - 세션&lt;/a&gt;&lt;a href=&quot;#fnref-3&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&quot;fn-4&quot;&gt;&lt;a href=&quot;https://opentutorials.org/course/3405/22008&quot;&gt;오픈튜토리얼스 - AccessToken&lt;/a&gt;&lt;a href=&quot;#fnref-4&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;</content:encoded></item><item><title><![CDATA[[MySQL] 바이너리 로그로 데이터 복구하기]]></title><description><![CDATA[들어가며 며칠 전, 리스티웨이브 프로젝트를 진행하며 특정 조건의 데이터를 모두 삭제 할 일이 있었습니다.
 하지만 실수로 해당 테이블의 데이터가 모두 삭제되는 일이 있었는데요..!
@@ -28138,6 +28400,89 @@ https://www.google.com:443/search?q=google&amp;amp;hl=ko&lt;/code&gt;&lt;/pre&gt
 &lt;li&gt;&lt;a href=&quot;https://m.yes24.com/Goods/Detail/15894097&quot;&gt;그림으로 배우는 Http &amp;#x26; Network Basic&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://inf.run/8ZEU8&quot;&gt;모든 개발자를 위한 HTTP 웹 기본 지식&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[InnoDB 스토리지 엔진의 락]]></title><description><![CDATA[Lock에는 MySQL 엔진이 관리하는 Lock과 InnoDB 스토리지 엔진이 관리하는 락이 있다. 이번에는 InnoDB 스토리지 엔진이 관리하는 Lock에 대해 알아보자. 레코드 락 InnoDB 엔진이 관리하는 락 중에서 핵심이다. 다른 DBMS…]]></description><link>https://kdkdhoho.github.io/posts/05-lock-of-innodb-storage-engine/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/05-lock-of-innodb-storage-engine/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;p&gt;Lock에는 MySQL 엔진이 관리하는 Lock과 InnoDB 스토리지 엔진이 관리하는 락이 있다.&lt;/p&gt;
+&lt;p&gt;이번에는 InnoDB 스토리지 엔진이 관리하는 Lock에 대해 알아보자.&lt;/p&gt;
+&lt;h2 id=&quot;레코드-락&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A0%88%EC%BD%94%EB%93%9C-%EB%9D%BD&quot; aria-label=&quot;레코드 락 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;레코드 락&lt;/h2&gt;
+&lt;p&gt;InnoDB 엔진이 관리하는 락 중에서 핵심이다.&lt;/p&gt;
+&lt;p&gt;다른 DBMS의 레코드 락과 동일하지만 한 가지 중요한 차이는 &lt;strong&gt;레코드 자체가 아니라 인덱스의 레코드를 잠근다는 것이다.&lt;/strong&gt;&lt;br&gt;
+따로 생성한 세컨더리 인덱스 뿐만 아니라 PK 인덱스도 마찬가지다.&lt;br&gt;
+다만, PK 인덱스는 갭 락을 걸지 않고 레코드 락만 걸지만 세컨더리 인덱스에서는 넥스트 키 락 또는 갭 락을 이용한다.&lt;/p&gt;
+&lt;h2 id=&quot;갭-락&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%AD-%EB%9D%BD&quot; aria-label=&quot;갭 락 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;갭 락&lt;/h2&gt;
+&lt;p&gt;갭 락은 &lt;strong&gt;레코드와 해당 레코드와 바로 인접한 레코드 사이 간격을 잠그는 것을 의미&lt;/strong&gt;한다.&lt;/p&gt;
+&lt;p&gt;갭 락의 역할은 &lt;strong&gt;레코드와 레코드 사이에 새로운 레코드가 INSERT 되는 것을 막기 위함&lt;/strong&gt;이다.&lt;/p&gt;
+&lt;p&gt;갭 락 그 자체보다는 넥스트 키 락의 일부로 자주 사용된다.&lt;/p&gt;
+&lt;h2 id=&quot;넥스트-키-락&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%84%A5%EC%8A%A4%ED%8A%B8-%ED%82%A4-%EB%9D%BD&quot; aria-label=&quot;넥스트 키 락 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;넥스트 키 락&lt;/h2&gt;
+&lt;p&gt;레코드 락과 갭 락을 합쳐놓은 형태의 잠금이다.&lt;/p&gt;
+&lt;p&gt;갭 락이나 넥스트 키 락의 주목적은, 바이너리 로그에 기록되는 쿼리가 Slave 서버에서 실행될 때 Master 서버에서 만들어 낸 결과와 동일한 결과를 만들어내도록 보장하는 것이다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.linux.co.kr/bbs/board.php?bo_table=lecture&amp;#x26;wr_id=5775&quot;&gt;바이너리 로그?&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;auto-increment-락&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#auto-increment-%EB%9D%BD&quot; aria-label=&quot;auto increment 락 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Auto Increment 락&lt;/h2&gt;
+&lt;p&gt;MySQL에는 테이블에 INSERT 할 때, 자동 증가하는 숫자를 넣어주는 &lt;code class=&quot;language-text&quot;&gt;AUTO_INCREMENT&lt;/code&gt; 칼럼 속성이 존재한다.&lt;/p&gt;
+&lt;p&gt;보통 ID 칼럼에 사용하곤 하는데, 테이블에 동시에 여러 건의 INSERT가 발생하는 경우 저장되는 각 레코드의 ID 값은 중복되지 않고 순서대로 증가하는 값이 자동으로 저장된다.&lt;/p&gt;
+&lt;p&gt;InnoDB 스토리지 엔진에서는 이 작업을 위해 내부적으로 &lt;strong&gt;AUTO_INCREMENT 락&lt;/strong&gt; 이라고 하는 테이블 수준의 잠금을 사용한다.&lt;/p&gt;
+&lt;p&gt;어쩌면 당연하게 새로운 레코드를 저장하는 쿼리, INSERT, REPLACE 쿼리에서만 작동한다.&lt;/p&gt;
+&lt;p&gt;해당 락은, &lt;strong&gt;트랜잭션과 상관없이 INSERT 혹은 REPLACE 쿼리에서 AUTO_INCREMENT 값을 가져올 때만 락이 걸렸다가 즉시 해제한다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;AUTO_INCREMENT 락은 테이블 당 하나만 존재한다.&lt;br&gt;
+따라서 2개 이상의 INSERT 쿼리가 동시에 실행되는 경우, 하나의 쿼리가 해당 테이블에 AUTO_INCREMENT 락을 걸면 나머지 쿼리는 락이 해제될 때까지 기다려야 한다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;참고로 AUTO_INCREMENT 칼럼에 값을 명시적으로 넣어준 쿼리가 실행되어도 AUTO_INCREMENT 락은 수행된다. 그 이유는, AUTO_INCREMENT 속성이 걸린 칼럼에 값이 명시적으로 담겨져
+INSERT 되면, AUTO_INCREMENT 값을 재설정하는 작업이 수행되기 떄문이다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;AUTO_INCREMENT 락은 명시적으로 획득하고 해제하는 방법은 없다.&lt;br&gt;
+그리고 아주 짧은 시간동안 존재하는 락이기 때문에 대부분 문제가 잘 되지 않는다.&lt;/p&gt;
+&lt;p&gt;지금까지는 MySQL 5.0 이하 버전에서 사용되던 방식이다.&lt;br&gt;
+MySQL 5.1 이상부터는 &lt;code class=&quot;language-text&quot;&gt;innodb_autoinc_lock_mode&lt;/code&gt; 시스템 변수를 이용해 작동 방식을 변경할 수 있다.&lt;/p&gt;
+&lt;h3 id=&quot;innodb_autoinc_lock_mode--0&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#innodb_autoinc_lock_mode--0&quot; aria-label=&quot;innodb_autoinc_lock_mode  0 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;innodb_autoinc_lock_mode = 0&lt;/h3&gt;
+&lt;p&gt;위에서 설명된 방식 그대로 사용한다.&lt;/p&gt;
+&lt;h3 id=&quot;innodb_autoinc_lock_mode--1&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#innodb_autoinc_lock_mode--1&quot; aria-label=&quot;innodb_autoinc_lock_mode  1 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;innodb_autoinc_lock_mode = 1&lt;/h3&gt;
+&lt;p&gt;MySQL 서버가 INSERT 되는 레코드의 수를 정확히 예측할 수 있을 때에는 AUTO_INCREMENT 락을 걸지 않고, 훨씬 빠른 래치(뮤텍스)를 이용한다.&lt;/p&gt;
+&lt;p&gt;락이 존재하는 타이밍이 존재하긴 하지만 AUTO_INCREMNET 락보다는 훨씬 빠르게 테이블에 락을 걸고 해제하게 된다.&lt;/p&gt;
+&lt;p&gt;다만, _INSERT 되는 레코드의 수를 정확히 예측할 수 있어야 한다_는 전제 조건이 있기 때문에 이 조건을 만족하지 못하면 AUTO_INCREMENT를 사용한다.&lt;/p&gt;
+&lt;p&gt;대량의 INSERT 쿼리가 처리될 때는, InnoDB 스토리지 엔진이 AUTO_INCREMENT 값을 한 번에 여러 값을 할당받아서 사용한다.&lt;br&gt;
+하지만 이때 할당받은 값을 모두 사용하지 못하게 되면 폐기하게 되어, 그 다음 INSERT 쿼리에서 AUTO_INCREMENT 값은 중간 값이 누락된 값이 저장될 수 있다.&lt;/p&gt;
+&lt;p&gt;위 설정에서는 하나의 INSERT 쿼리로 저장되는 레코드는 연속된 자동 증가 값을 가진다는 특징을 가진다.&lt;br&gt;
+따라서 이 설정 모드를 &lt;em&gt;연속 모드&lt;/em&gt; 라고도 한다.&lt;/p&gt;
+&lt;h3 id=&quot;innodb_autoinc_lock_mode--2&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#innodb_autoinc_lock_mode--2&quot; aria-label=&quot;innodb_autoinc_lock_mode  2 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;innodb_autoinc_lock_mode = 2&lt;/h3&gt;
+&lt;p&gt;해당 설정은 AUTO_INCREMENT 락을 걸지 않고 가벼운 래치(뮤텍스)를 사용한다.&lt;/p&gt;
+&lt;p&gt;이 설정에서는 &lt;strong&gt;대량 INSERT 문장이 실행되는 중에도 다른 커넥션에서 INSERT를 수행할 수 있다.&lt;/strong&gt;&lt;br&gt;
+결과적으로 동시 처리 성능이 높아진다.&lt;/p&gt;
+&lt;p&gt;하지만 자동 증가 값이 연속되는 것은 보장할 수 없다. 단지 유니크한 값만 생성한다는 것만 보장한다.&lt;br&gt;
+하나의 INSERT 쿼리로 저장할 때에도 순서는 보장할 수 없다. 따라서 &lt;em&gt;인터리빙 모드&lt;/em&gt; 라고도 한다.&lt;/p&gt;
+&lt;p&gt;위 설정에서 &lt;strong&gt;STATEMENT 포맷의 바이너리 로그를 사용하는 Replication 에서는 Master와 Slave의 AUTO_INCREMENT 값이 달라질 수 있다.&lt;/strong&gt;&lt;br&gt;
+STATEMENT 포맷의 바이너리 로그를 사용한다면 mode 값을 1로 설정하자.&lt;/p&gt;
+&lt;h2 id=&quot;인덱스와-innodb의-잠금&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B8%EB%8D%B1%EC%8A%A4%EC%99%80-innodb%EC%9D%98-%EC%9E%A0%EA%B8%88&quot; aria-label=&quot;인덱스와 innodb의 잠금 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;인덱스와 InnoDB의 잠금&lt;/h2&gt;
+&lt;p&gt;레코드 락에서 언급한대로 InnoDB는 &lt;strong&gt;레코드 자체가 아니라 인덱스의 레코드를 잠근다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;이 말은 즉슨, &lt;strong&gt;SELECT나 UPDATE, DELETE 처럼 변경해야 할 레코드를 찾기 위해 인덱스를 타고 검색하게 되는데, 이 과정에서 조건에 해당하는 레코드를 전부 잠근다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;MySQL의 InnoDB에서 인덱스 설계가 중요한 이유 또한 이것이다.&lt;/p&gt;
+&lt;h3 id=&quot;레코드-수준의-잠금-확인-및-해제&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A0%88%EC%BD%94%EB%93%9C-%EC%88%98%EC%A4%80%EC%9D%98-%EC%9E%A0%EA%B8%88-%ED%99%95%EC%9D%B8-%EB%B0%8F-%ED%95%B4%EC%A0%9C&quot; aria-label=&quot;레코드 수준의 잠금 확인 및 해제 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;레코드 수준의 잠금 확인 및 해제&lt;/h3&gt;
+&lt;p&gt;MySQL 8.0부터는 performance_schema의 data_locks와 data_lock_waits 테이블을 통해 확인할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# 현재 프로세스의 목록을 조회한다.&lt;/span&gt;
+mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;SHOW&lt;/span&gt; PROCESSLIST&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# performance_schema의 data_locks와 data_lock_waits 테이블을 통해 잠금 대기 순서를 조회한다.&lt;/span&gt;
+mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; 
+    r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_id waiting_trx_id&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 
+    r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_mysql_thread_id waiting_thread&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 
+    r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_query waiting_query&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 
+    b&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_id blocking_trx_id&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    b&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_mysql_thread_id blocking_thread&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 
+    b&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_query blocking_query 
+    &lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; performance_schema&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data_lock_watis w
+    &lt;span class=&quot;token keyword&quot;&gt;JOIN&lt;/span&gt; information_schema&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innodb_trx b
+    &lt;span class=&quot;token keyword&quot;&gt;ON&lt;/span&gt; b&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_id &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; w&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;blocking_engine_transaction_id
+    &lt;span class=&quot;token keyword&quot;&gt;JOIN&lt;/span&gt; infromation_schema&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innodb_trx r
+    &lt;span class=&quot;token keyword&quot;&gt;ON&lt;/span&gt; r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_id &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; w&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;requesting_engine_transaction_id&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    
+&lt;span class=&quot;token comment&quot;&gt;# 각 스레드가 어떤 잠금을 가지는지 상세하게 조회한다.&lt;/span&gt;
+mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; performance_schema&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data_locks\G&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;문제가 되는 잠금이 있다면 &lt;code class=&quot;language-text&quot;&gt;mysql&gt; KILL {thread_id}&lt;/code&gt; 를 통해 스레드를 강제 종료하자.&lt;/p&gt;
+&lt;h3 id=&quot;reference&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#reference&quot; aria-label=&quot;reference permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Reference&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/doc/refman/8.0/en/example-auto-increment.html&quot;&gt;https://dev.mysql.com/doc/refman/8.0/en/example-auto-increment.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://product.kyobobook.co.kr/detail/S000001766482&quot;&gt;https://product.kyobobook.co.kr/detail/S000001766482&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[MySQL의 격리 수준]]></title><description><![CDATA[들어가며 MySQL에는…]]></description><link>https://kdkdhoho.github.io/posts/05-isolation-level-of-mysql/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/05-isolation-level-of-mysql/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;들어가며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0&quot; aria-label=&quot;들어가며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가며&lt;/h2&gt;
 &lt;p&gt;MySQL에는 4가지의 격리 수준이 존재한다.&lt;/p&gt;
 &lt;p&gt;격리 수준에 따라 같은 상황, 그리고 같은 쿼리라 하더라도 결과가 매번 달라질 수 있다.&lt;br&gt;
@@ -28548,89 +28893,6 @@ MySQL은 주로 _Repeatable Read_를 사용한다.&lt;/p&gt;
 &lt;h3 id=&quot;reference&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#reference&quot; aria-label=&quot;reference permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Reference&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://product.kyobobook.co.kr/detail/S000001766482&quot;&gt;https://product.kyobobook.co.kr/detail/S000001766482&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[InnoDB 스토리지 엔진의 락]]></title><description><![CDATA[Lock에는 MySQL 엔진이 관리하는 Lock과 InnoDB 스토리지 엔진이 관리하는 락이 있다. 이번에는 InnoDB 스토리지 엔진이 관리하는 Lock에 대해 알아보자. 레코드 락 InnoDB 엔진이 관리하는 락 중에서 핵심이다. 다른 DBMS…]]></description><link>https://kdkdhoho.github.io/posts/05-lock-of-innodb-storage-engine/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/05-lock-of-innodb-storage-engine/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;p&gt;Lock에는 MySQL 엔진이 관리하는 Lock과 InnoDB 스토리지 엔진이 관리하는 락이 있다.&lt;/p&gt;
-&lt;p&gt;이번에는 InnoDB 스토리지 엔진이 관리하는 Lock에 대해 알아보자.&lt;/p&gt;
-&lt;h2 id=&quot;레코드-락&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A0%88%EC%BD%94%EB%93%9C-%EB%9D%BD&quot; aria-label=&quot;레코드 락 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;레코드 락&lt;/h2&gt;
-&lt;p&gt;InnoDB 엔진이 관리하는 락 중에서 핵심이다.&lt;/p&gt;
-&lt;p&gt;다른 DBMS의 레코드 락과 동일하지만 한 가지 중요한 차이는 &lt;strong&gt;레코드 자체가 아니라 인덱스의 레코드를 잠근다는 것이다.&lt;/strong&gt;&lt;br&gt;
-따로 생성한 세컨더리 인덱스 뿐만 아니라 PK 인덱스도 마찬가지다.&lt;br&gt;
-다만, PK 인덱스는 갭 락을 걸지 않고 레코드 락만 걸지만 세컨더리 인덱스에서는 넥스트 키 락 또는 갭 락을 이용한다.&lt;/p&gt;
-&lt;h2 id=&quot;갭-락&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%AD-%EB%9D%BD&quot; aria-label=&quot;갭 락 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;갭 락&lt;/h2&gt;
-&lt;p&gt;갭 락은 &lt;strong&gt;레코드와 해당 레코드와 바로 인접한 레코드 사이 간격을 잠그는 것을 의미&lt;/strong&gt;한다.&lt;/p&gt;
-&lt;p&gt;갭 락의 역할은 &lt;strong&gt;레코드와 레코드 사이에 새로운 레코드가 INSERT 되는 것을 막기 위함&lt;/strong&gt;이다.&lt;/p&gt;
-&lt;p&gt;갭 락 그 자체보다는 넥스트 키 락의 일부로 자주 사용된다.&lt;/p&gt;
-&lt;h2 id=&quot;넥스트-키-락&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%84%A5%EC%8A%A4%ED%8A%B8-%ED%82%A4-%EB%9D%BD&quot; aria-label=&quot;넥스트 키 락 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;넥스트 키 락&lt;/h2&gt;
-&lt;p&gt;레코드 락과 갭 락을 합쳐놓은 형태의 잠금이다.&lt;/p&gt;
-&lt;p&gt;갭 락이나 넥스트 키 락의 주목적은, 바이너리 로그에 기록되는 쿼리가 Slave 서버에서 실행될 때 Master 서버에서 만들어 낸 결과와 동일한 결과를 만들어내도록 보장하는 것이다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.linux.co.kr/bbs/board.php?bo_table=lecture&amp;#x26;wr_id=5775&quot;&gt;바이너리 로그?&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;auto-increment-락&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#auto-increment-%EB%9D%BD&quot; aria-label=&quot;auto increment 락 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Auto Increment 락&lt;/h2&gt;
-&lt;p&gt;MySQL에는 테이블에 INSERT 할 때, 자동 증가하는 숫자를 넣어주는 &lt;code class=&quot;language-text&quot;&gt;AUTO_INCREMENT&lt;/code&gt; 칼럼 속성이 존재한다.&lt;/p&gt;
-&lt;p&gt;보통 ID 칼럼에 사용하곤 하는데, 테이블에 동시에 여러 건의 INSERT가 발생하는 경우 저장되는 각 레코드의 ID 값은 중복되지 않고 순서대로 증가하는 값이 자동으로 저장된다.&lt;/p&gt;
-&lt;p&gt;InnoDB 스토리지 엔진에서는 이 작업을 위해 내부적으로 &lt;strong&gt;AUTO_INCREMENT 락&lt;/strong&gt; 이라고 하는 테이블 수준의 잠금을 사용한다.&lt;/p&gt;
-&lt;p&gt;어쩌면 당연하게 새로운 레코드를 저장하는 쿼리, INSERT, REPLACE 쿼리에서만 작동한다.&lt;/p&gt;
-&lt;p&gt;해당 락은, &lt;strong&gt;트랜잭션과 상관없이 INSERT 혹은 REPLACE 쿼리에서 AUTO_INCREMENT 값을 가져올 때만 락이 걸렸다가 즉시 해제한다.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;AUTO_INCREMENT 락은 테이블 당 하나만 존재한다.&lt;br&gt;
-따라서 2개 이상의 INSERT 쿼리가 동시에 실행되는 경우, 하나의 쿼리가 해당 테이블에 AUTO_INCREMENT 락을 걸면 나머지 쿼리는 락이 해제될 때까지 기다려야 한다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;참고로 AUTO_INCREMENT 칼럼에 값을 명시적으로 넣어준 쿼리가 실행되어도 AUTO_INCREMENT 락은 수행된다. 그 이유는, AUTO_INCREMENT 속성이 걸린 칼럼에 값이 명시적으로 담겨져
-INSERT 되면, AUTO_INCREMENT 값을 재설정하는 작업이 수행되기 떄문이다.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;AUTO_INCREMENT 락은 명시적으로 획득하고 해제하는 방법은 없다.&lt;br&gt;
-그리고 아주 짧은 시간동안 존재하는 락이기 때문에 대부분 문제가 잘 되지 않는다.&lt;/p&gt;
-&lt;p&gt;지금까지는 MySQL 5.0 이하 버전에서 사용되던 방식이다.&lt;br&gt;
-MySQL 5.1 이상부터는 &lt;code class=&quot;language-text&quot;&gt;innodb_autoinc_lock_mode&lt;/code&gt; 시스템 변수를 이용해 작동 방식을 변경할 수 있다.&lt;/p&gt;
-&lt;h3 id=&quot;innodb_autoinc_lock_mode--0&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#innodb_autoinc_lock_mode--0&quot; aria-label=&quot;innodb_autoinc_lock_mode  0 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;innodb_autoinc_lock_mode = 0&lt;/h3&gt;
-&lt;p&gt;위에서 설명된 방식 그대로 사용한다.&lt;/p&gt;
-&lt;h3 id=&quot;innodb_autoinc_lock_mode--1&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#innodb_autoinc_lock_mode--1&quot; aria-label=&quot;innodb_autoinc_lock_mode  1 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;innodb_autoinc_lock_mode = 1&lt;/h3&gt;
-&lt;p&gt;MySQL 서버가 INSERT 되는 레코드의 수를 정확히 예측할 수 있을 때에는 AUTO_INCREMENT 락을 걸지 않고, 훨씬 빠른 래치(뮤텍스)를 이용한다.&lt;/p&gt;
-&lt;p&gt;락이 존재하는 타이밍이 존재하긴 하지만 AUTO_INCREMNET 락보다는 훨씬 빠르게 테이블에 락을 걸고 해제하게 된다.&lt;/p&gt;
-&lt;p&gt;다만, _INSERT 되는 레코드의 수를 정확히 예측할 수 있어야 한다_는 전제 조건이 있기 때문에 이 조건을 만족하지 못하면 AUTO_INCREMENT를 사용한다.&lt;/p&gt;
-&lt;p&gt;대량의 INSERT 쿼리가 처리될 때는, InnoDB 스토리지 엔진이 AUTO_INCREMENT 값을 한 번에 여러 값을 할당받아서 사용한다.&lt;br&gt;
-하지만 이때 할당받은 값을 모두 사용하지 못하게 되면 폐기하게 되어, 그 다음 INSERT 쿼리에서 AUTO_INCREMENT 값은 중간 값이 누락된 값이 저장될 수 있다.&lt;/p&gt;
-&lt;p&gt;위 설정에서는 하나의 INSERT 쿼리로 저장되는 레코드는 연속된 자동 증가 값을 가진다는 특징을 가진다.&lt;br&gt;
-따라서 이 설정 모드를 &lt;em&gt;연속 모드&lt;/em&gt; 라고도 한다.&lt;/p&gt;
-&lt;h3 id=&quot;innodb_autoinc_lock_mode--2&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#innodb_autoinc_lock_mode--2&quot; aria-label=&quot;innodb_autoinc_lock_mode  2 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;innodb_autoinc_lock_mode = 2&lt;/h3&gt;
-&lt;p&gt;해당 설정은 AUTO_INCREMENT 락을 걸지 않고 가벼운 래치(뮤텍스)를 사용한다.&lt;/p&gt;
-&lt;p&gt;이 설정에서는 &lt;strong&gt;대량 INSERT 문장이 실행되는 중에도 다른 커넥션에서 INSERT를 수행할 수 있다.&lt;/strong&gt;&lt;br&gt;
-결과적으로 동시 처리 성능이 높아진다.&lt;/p&gt;
-&lt;p&gt;하지만 자동 증가 값이 연속되는 것은 보장할 수 없다. 단지 유니크한 값만 생성한다는 것만 보장한다.&lt;br&gt;
-하나의 INSERT 쿼리로 저장할 때에도 순서는 보장할 수 없다. 따라서 &lt;em&gt;인터리빙 모드&lt;/em&gt; 라고도 한다.&lt;/p&gt;
-&lt;p&gt;위 설정에서 &lt;strong&gt;STATEMENT 포맷의 바이너리 로그를 사용하는 Replication 에서는 Master와 Slave의 AUTO_INCREMENT 값이 달라질 수 있다.&lt;/strong&gt;&lt;br&gt;
-STATEMENT 포맷의 바이너리 로그를 사용한다면 mode 값을 1로 설정하자.&lt;/p&gt;
-&lt;h2 id=&quot;인덱스와-innodb의-잠금&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B8%EB%8D%B1%EC%8A%A4%EC%99%80-innodb%EC%9D%98-%EC%9E%A0%EA%B8%88&quot; aria-label=&quot;인덱스와 innodb의 잠금 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;인덱스와 InnoDB의 잠금&lt;/h2&gt;
-&lt;p&gt;레코드 락에서 언급한대로 InnoDB는 &lt;strong&gt;레코드 자체가 아니라 인덱스의 레코드를 잠근다.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;이 말은 즉슨, &lt;strong&gt;SELECT나 UPDATE, DELETE 처럼 변경해야 할 레코드를 찾기 위해 인덱스를 타고 검색하게 되는데, 이 과정에서 조건에 해당하는 레코드를 전부 잠근다.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;MySQL의 InnoDB에서 인덱스 설계가 중요한 이유 또한 이것이다.&lt;/p&gt;
-&lt;h3 id=&quot;레코드-수준의-잠금-확인-및-해제&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A0%88%EC%BD%94%EB%93%9C-%EC%88%98%EC%A4%80%EC%9D%98-%EC%9E%A0%EA%B8%88-%ED%99%95%EC%9D%B8-%EB%B0%8F-%ED%95%B4%EC%A0%9C&quot; aria-label=&quot;레코드 수준의 잠금 확인 및 해제 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;레코드 수준의 잠금 확인 및 해제&lt;/h3&gt;
-&lt;p&gt;MySQL 8.0부터는 performance_schema의 data_locks와 data_lock_waits 테이블을 통해 확인할 수 있다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# 현재 프로세스의 목록을 조회한다.&lt;/span&gt;
-mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;SHOW&lt;/span&gt; PROCESSLIST&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;token comment&quot;&gt;# performance_schema의 data_locks와 data_lock_waits 테이블을 통해 잠금 대기 순서를 조회한다.&lt;/span&gt;
-mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; 
-    r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_id waiting_trx_id&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 
-    r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_mysql_thread_id waiting_thread&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 
-    r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_query waiting_query&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 
-    b&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_id blocking_trx_id&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    b&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_mysql_thread_id blocking_thread&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 
-    b&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_query blocking_query 
-    &lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; performance_schema&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data_lock_watis w
-    &lt;span class=&quot;token keyword&quot;&gt;JOIN&lt;/span&gt; information_schema&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innodb_trx b
-    &lt;span class=&quot;token keyword&quot;&gt;ON&lt;/span&gt; b&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_id &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; w&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;blocking_engine_transaction_id
-    &lt;span class=&quot;token keyword&quot;&gt;JOIN&lt;/span&gt; infromation_schema&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innodb_trx r
-    &lt;span class=&quot;token keyword&quot;&gt;ON&lt;/span&gt; r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;trx_id &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; w&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;requesting_engine_transaction_id&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    
-&lt;span class=&quot;token comment&quot;&gt;# 각 스레드가 어떤 잠금을 가지는지 상세하게 조회한다.&lt;/span&gt;
-mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; performance_schema&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data_locks\G&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;문제가 되는 잠금이 있다면 &lt;code class=&quot;language-text&quot;&gt;mysql&gt; KILL {thread_id}&lt;/code&gt; 를 통해 스레드를 강제 종료하자.&lt;/p&gt;
-&lt;h3 id=&quot;reference&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#reference&quot; aria-label=&quot;reference permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Reference&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/doc/refman/8.0/en/example-auto-increment.html&quot;&gt;https://dev.mysql.com/doc/refman/8.0/en/example-auto-increment.html&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://product.kyobobook.co.kr/detail/S000001766482&quot;&gt;https://product.kyobobook.co.kr/detail/S000001766482&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[[MySQL] DATETIME vs TIMESTAMP]]></title><description><![CDATA[들어가며 최근 개인 프로젝트를 시작하면서 ERD 설계를 진행했습니다. 이때, 작성 날짜나 시작 날짜 같은 날짜에 대한 값을 저장할 칼럼이 필요했고 해당 칼럼의 자료형을 결정하는 과정에서 DATETIME과 TIMESTAMP…]]></description><link>https://kdkdhoho.github.io/posts/compare-of-datetime-and-timestamp/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/compare-of-datetime-and-timestamp/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;들어가며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0&quot; aria-label=&quot;들어가며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가며&lt;/h2&gt;
