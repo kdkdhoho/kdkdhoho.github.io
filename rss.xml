@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[백엔드 개발과 학습 내용을 기록하는 김동호의 기술 블로그]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 24 Mar 2026 07:15:28 GMT</lastBuildDate><item><title><![CDATA[임시 제목: Flutter로 반응형 UI를 어떻게 개발할까? or Flutter와 UI]]></title><description><![CDATA[가로 폭 기준 설계 일반적으로 가로 폭을 기준으로 주요 레이아웃 분기한다. (예: Compact (≤ 600dp), Medium (601–900dp), Expanded (≥ 900dp)) Flutter, Android, iOS 모두 width…]]></description><link>https://kdkdhoho.github.io/posts/flutter-ui/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/flutter-ui/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;details&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[백엔드 개발과 학습 내용을 기록하는 김동호의 기술 블로그]]></description><link>https://kdkdhoho.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 31 Mar 2026 05:57:52 GMT</lastBuildDate><item><title><![CDATA[임시 제목: Flutter로 반응형 UI를 어떻게 개발할까? or Flutter와 UI]]></title><description><![CDATA[가로 폭 기준 설계 일반적으로 가로 폭을 기준으로 주요 레이아웃 분기한다. (예: Compact (≤ 600dp), Medium (601–900dp), Expanded (≥ 900dp)) Flutter, Android, iOS 모두 width…]]></description><link>https://kdkdhoho.github.io/posts/flutter-ui/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/flutter-ui/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;details&gt;
 &lt;summary&gt;앱 개발에서 반응형 원칙 적용 방법&lt;/summary&gt;
 &lt;ol&gt;
 &lt;li&gt;가로 폭 기준 설계&lt;/li&gt;
@@ -46,7 +46,255 @@ Widget은 임시 느낌의 객체로, 애플리케이션의 현재 상태를 표
 ▪	비밀 키의 안전한 관리	▪	JWT의 취약점 및 방어 방법	8.	JJWT의 성능 및 최적화
 ▪	성능 고려사항	▪	JWT 크기 최적화	9.	결론
 ▪	JJWT의 장단점 요약	▪	향후 발전 방향	10.	참고 자료
-▪	공식 문서	▪	관련 블로그 및 자료 링크&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[유기견 보호센터 자원봉사 3회 차 후기!]]></title><description><![CDATA[오늘은 정말 오랜만에 포해피니스에 유기견 보호센터 자원봉사를 다녀왔다! 이번이 무려 3회차인데, 마지막으로 1월 6일에 마지막으로 방문했으니 두 달이 훌쩍 넘었네.. 1~…]]></description><link>https://kdkdhoho.github.io/posts/volunteering-at-a-stray-dog-shelter-3/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/volunteering-at-a-stray-dog-shelter-3/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;p&gt;오늘은 정말 오랜만에 &lt;a href=&quot;https://naver.me/FnmZDAb5&quot;&gt;포해피니스&lt;/a&gt;에 유기견 보호센터 자원봉사를 다녀왔다!&lt;br&gt;
+▪	공식 문서	▪	관련 블로그 및 자료 링크&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[유기견 보호센터 자원봉사 4회 차 후기]]></title><description><![CDATA[3회 차를 지난 주(3/23 월)에 다녀오고 일주일만에 다시 방문했습니다. 3월 25일(수)에 쏘마 최종 합격 연락을 받고 급하게 서울에 방도 알아보고 계약까지 했는데요. 입주일이 5/3으로 결정되었고…]]></description><link>https://kdkdhoho.github.io/posts/volunteering-at-a-stray-dog-shelter-4/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/volunteering-at-a-stray-dog-shelter-4/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://kdkdhoho.github.io/posts/volunteering-at-a-stray-dog-shelter-3/&quot;&gt;3회 차&lt;/a&gt;를 지난 주(3/23 월)에 다녀오고 일주일만에 다시 방문했습니다.&lt;/p&gt;
+&lt;p&gt;3월 25일(수)에 쏘마 최종 합격 연락을 받고 급하게 서울에 방도 알아보고 계약까지 했는데요.&lt;/p&gt;
+&lt;p&gt;입주일이 5/3으로 결정되었고 4월부터는 쏘마 예비 과정이 본격적으로 시작되는 만큼, 이제 천안에서 있을 시간이 없다고 생각이 됐습니다.&lt;/p&gt;
+&lt;p&gt;이 생각이 들자마자 곧바로 4회차 봉사를 신청해서 다녀오게 되었습니다!&lt;/p&gt;
+&lt;p&gt;금요일엔 온종일 서울 방 알아보고, 토-일은 군대 선임 만나서 술 거하게 마시고 찜질방에서 자고 온 터라, 아침에 일어나는 게 힘들긴 했지만 마지막이라는 생각에 힘이 났습니다.&lt;/p&gt;
+&lt;p&gt;그럼 봉사 사진 슛~!&lt;/p&gt;
+&lt;h2 id=&quot;봉사-사진&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B4%89%EC%82%AC-%EC%82%AC%EC%A7%84&quot; aria-label=&quot;봉사 사진 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;봉사 사진&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;돌돌, 순심, 흰둥이1, 레옹, 파티, 흰둥이3&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/790d05129512c3e4b998d388d6aad045/e5715/1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 133.54430379746836%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;1&quot;
+        title=&quot;&quot;
+        src=&quot;/static/790d05129512c3e4b998d388d6aad045/f058b/1.png&quot;
+        srcset=&quot;/static/790d05129512c3e4b998d388d6aad045/c26ae/1.png 158w,
+/static/790d05129512c3e4b998d388d6aad045/6bdcf/1.png 315w,
+/static/790d05129512c3e4b998d388d6aad045/f058b/1.png 630w,
+/static/790d05129512c3e4b998d388d6aad045/e5715/1.png 768w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;거울에서 한 장&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5e803ef3542a90514d3475650a41f83a/cc155/2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFWklEQVR42iWUaVNb5xmGz0/ITL5kJmnSdDxJmqQZZzx2O27qxh2nrR2axWDj2g6GsFkCgSWBNpBYtAuQQEKAJGRJZpEAsQjJQiAJMMhgdi+xm0wnH/s7rr5NP7xz5sycue77vM99P5Lb42FsKoA22Y/B343eoECtUqJoaUXXaaCjuwt9h46urg50HQZa1GpMRh06vY5WtQqNrp1eWzcLy/OMz84gtdxrwpBy0/LYj3IvQPuYBXnjXZSaNswO6y/H0KmnXatBK4BypRqlWonN0o3dYcNg7MRscRIYiVHXdBfpXlsL6oIXecmLIj1Aq1GFXqvC4ujF1Gumx24W8HaaW1vRCFf/A37fKPtFwGqz0msx4ffMEPLkuNOoQPKHxvEu3qcrP8ZgOsyQp///qkLd4e6nf2iQ4WAIXzCIc9CL1e2hy+6iQ4jpTSb0XSacTh+h0Qe09nQjhRNR5lcCrBQn2d7LsHNYIJVNMrs0I95LZPMr4uQ5evGUk3+9ZP/lT+z/8IpHB0dktx4zv1ogNJMkHJ9F1W9His5GSa8Ns7I5xtrWKBu7IR4fxtjeD7NeCrG+PU58cZiFrE8IRZhIZRiNJxlJLOJ9kMAxGsUVniQ4m6HeYkGaWYxxvOsV0H7ShT4eFvtY2XCRKTpZeNhDNK5FrlLQ5VASmR7ANhKiLxhmMDJFKJkmkdomNpXHH5nnllGPtLg6x8x8O+FJOZPzSuYyBpbXzOIaeknnLaRzLq7dqKZNryAYG2BoYpaJbJGFwibTD1ewR+J0uabEPaa5odcgrZYyFHfHhTO3APUwn9WwkNOztNrBcsGOL9RH7Z0G7CIN0+N+rMEYwWQKdywhfnUaayCGzu3HM5GmwexAyh9ssXqSZX0vSOk4yNaBj/Xdfrb2nRgcFi5fFZlT3uPLS+XIvm/CNHwffzKHb3KW7kACnT9ObG2HwoufaTabkTafHbF8mCO1phUuTWwfetg59nP0MkS9ysCp01d4/2wZb31ymd+cvkytwYV9chlndJHpTI7c7h6pnWOCS7tUWk1IpRd77DybZu9kkK09Fxs7FuHOxpOnDnpdMl5781N+9bu/curMV7z70XmaDBaWtg8oHp6wefycWGaTvukFErYZbjkMSIXddTHdBHOpIJn8KKuPRsiuD4vnkJigiwtl9Zy9VM2Hf6zkcvlt9D1WxsV0h6NT9LgDqHtF7TpHcNf3UGZoRFre2CAiPhgcGUXT2SGSb6Tb1iva0UeDWsOfyuScvlDJ++e+4fwX17h6s5rKGhm1zWpq5PfokYnqNTioul3LFZMMaSWjY3l1hvuJOM1aA7UtSqplzdQ1K/h7RR1n/lLFmYs3+eDctwJYTmVVFde/q+ZmbT03axqQ2/WowmZkd5v4ytKKlEvJKRUdFPIisL5RXL4g5v4hgtEYN2oUvP7rs7z78eec+vRLAbxK2bUblH93R0BrkY+LPp8E6PwhTKtZwzfONgEslni8GWUtrSMQuS9yF6XNZMM84KWiqoV3PrzI27/9jHc+vkRZZQ236+Vcq2lEplDhSPkwvgrT+WME2aCRMqtwuLf/hGfPnzMeCWOy2mk32mhQqKmTybl45Tpvvnee9z65IFxe5G9f/5MaRRvXa+U4xTZamYvizY6gT3tpMGr42q1G+vnVMf8+OuJJMc9GNsXS7CSeARfe4RCff1HB26d+z7k//4PX3jpNxa1GsdKGGYvFRV0XCEUniMUeEJ2MoxWL+Fu/DunZbolcYpujR1merqdIjiyy9CDCf0TA60Td/lBeTkebhtff+EAsXBeppYdsbBQ4Oj4gOT/HtBjmjz+9olR6RMWolv8CdwEfERa83LsAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;2&quot;
+        title=&quot;&quot;
+        src=&quot;/static/5e803ef3542a90514d3475650a41f83a/f058b/2.png&quot;
+        srcset=&quot;/static/5e803ef3542a90514d3475650a41f83a/c26ae/2.png 158w,
+/static/5e803ef3542a90514d3475650a41f83a/6bdcf/2.png 315w,
+/static/5e803ef3542a90514d3475650a41f83a/f058b/2.png 630w,
+/static/5e803ef3542a90514d3475650a41f83a/cc155/2.png 886w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;똑같은 자세로 자는게 귀여워서 ㅋㅋㅋ&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9f8ae65bc33bed361fc49518de9ea077/e5715/3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 133.54430379746836%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;3&quot;
+        title=&quot;&quot;
+        src=&quot;/static/9f8ae65bc33bed361fc49518de9ea077/f058b/3.png&quot;
+        srcset=&quot;/static/9f8ae65bc33bed361fc49518de9ea077/c26ae/3.png 158w,
+/static/9f8ae65bc33bed361fc49518de9ea077/6bdcf/3.png 315w,
+/static/9f8ae65bc33bed361fc49518de9ea077/f058b/3.png 630w,
+/static/9f8ae65bc33bed361fc49518de9ea077/e5715/3.png 768w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;민들레 홀씨 행복이랑 도도한 루이&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9f8ae65bc33bed361fc49518de9ea077/e5715/4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 133.54430379746836%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;4&quot;
+        title=&quot;&quot;
+        src=&quot;/static/9f8ae65bc33bed361fc49518de9ea077/f058b/4.png&quot;
+        srcset=&quot;/static/9f8ae65bc33bed361fc49518de9ea077/c26ae/4.png 158w,
+/static/9f8ae65bc33bed361fc49518de9ea077/6bdcf/4.png 315w,
+/static/9f8ae65bc33bed361fc49518de9ea077/f058b/4.png 630w,
+/static/9f8ae65bc33bed361fc49518de9ea077/e5715/4.png 768w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&quot;5&quot;&gt;
+&lt;li&gt;지난 주 같이 산책했던 젠틀한 토르&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e6364c5baa28e5a631fbe4460e1ec436/e5715/5.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 133.54430379746836%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;5&quot;
+        title=&quot;&quot;
+        src=&quot;/static/e6364c5baa28e5a631fbe4460e1ec436/f058b/5.png&quot;
+        srcset=&quot;/static/e6364c5baa28e5a631fbe4460e1ec436/c26ae/5.png 158w,
+/static/e6364c5baa28e5a631fbe4460e1ec436/6bdcf/5.png 315w,
+/static/e6364c5baa28e5a631fbe4460e1ec436/f058b/5.png 630w,
+/static/e6364c5baa28e5a631fbe4460e1ec436/e5715/5.png 768w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&quot;6&quot;&gt;
+&lt;li&gt;마지막 날이라고 쓰레기도 버리고, 사진은 없지만 아이들 하네스도 채워주고 사료도 줬답니다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e6364c5baa28e5a631fbe4460e1ec436/e5715/6.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 133.54430379746836%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;6&quot;
+        title=&quot;&quot;
+        src=&quot;/static/e6364c5baa28e5a631fbe4460e1ec436/f058b/6.png&quot;
+        srcset=&quot;/static/e6364c5baa28e5a631fbe4460e1ec436/c26ae/6.png 158w,
+/static/e6364c5baa28e5a631fbe4460e1ec436/6bdcf/6.png 315w,
+/static/e6364c5baa28e5a631fbe4460e1ec436/f058b/6.png 630w,
+/static/e6364c5baa28e5a631fbe4460e1ec436/e5715/6.png 768w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&quot;7&quot;&gt;
+&lt;li&gt;마지막은 몸이 다부진 꼬삼이&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e6364c5baa28e5a631fbe4460e1ec436/e5715/7.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 133.54430379746836%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;7&quot;
+        title=&quot;&quot;
+        src=&quot;/static/e6364c5baa28e5a631fbe4460e1ec436/f058b/7.png&quot;
+        srcset=&quot;/static/e6364c5baa28e5a631fbe4460e1ec436/c26ae/7.png 158w,
+/static/e6364c5baa28e5a631fbe4460e1ec436/6bdcf/7.png 315w,
+/static/e6364c5baa28e5a631fbe4460e1ec436/f058b/7.png 630w,
+/static/e6364c5baa28e5a631fbe4460e1ec436/e5715/7.png 768w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;마치며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A7%88%EC%B9%98%EB%A9%B0&quot; aria-label=&quot;마치며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;마치며&lt;/h2&gt;
+&lt;p&gt;이제야 아이들 성격이 보이고 이름도 외워지려고 하는데 마지막이라니 참 아쉽습니다.&lt;/p&gt;
+&lt;p&gt;포해피니스에서의 봉사는 마지막이지만 서울에서도 주기적으로 할 예정입니다. 쉬는 날에 할 것도 없는데 봉사 다녀오면 아~주 개운하고 뿌듯하거든요.&lt;/p&gt;
+&lt;p&gt;아마 내년에 취업이든 창업이든 해서 돈 벌면서 포해피니스에는 후원으로나마 응원해야겠습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[유기견 보호센터 자원봉사 3회 차 후기!]]></title><description><![CDATA[오늘은 정말 오랜만에 포해피니스에 유기견 보호센터 자원봉사를 다녀왔다! 이번이 무려 3회차인데, 마지막으로 1월 6일에 마지막으로 방문했으니 두 달이 훌쩍 넘었네.. 1~…]]></description><link>https://kdkdhoho.github.io/posts/volunteering-at-a-stray-dog-shelter-3/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/volunteering-at-a-stray-dog-shelter-3/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;p&gt;오늘은 정말 오랜만에 &lt;a href=&quot;https://naver.me/FnmZDAb5&quot;&gt;포해피니스&lt;/a&gt;에 유기견 보호센터 자원봉사를 다녀왔다!&lt;br&gt;
 이번이 무려 3회차인데, 마지막으로 1월 6일에 마지막으로 방문했으니 두 달이 훌쩍 넘었네..&lt;br&gt;
 1~2월부터 본격적인 취업 준비를 시작해서 바빴다는 핑계뿐 😭&lt;br&gt;
 그리고 자차가 있었다면 더 쉽게 갔을텐데 아쉽다 ㅜㅜ&lt;/p&gt;
@@ -1475,7 +1723,37 @@ C 클래스는 최대 254개의 호스트 주소가 사용할 수 있기 때문�
 때문에 사설 IP 주소만으로는 인터넷 통신을 할 수 없다.&lt;br&gt;
 이를 해결하기 위해 &lt;strong&gt;NAT(Network Address Translation)&lt;/strong&gt; 라는 기술이 존재합니다.
 &lt;ul&gt;
-&lt;li&gt;&lt;img src=&quot;nat.png&quot; alt=&quot;NAT 기술&quot;&gt;
+&lt;li&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d2da65fafd6aff34039685dcde2c94a9/0012b/nat.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 43.0379746835443%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABfElEQVR42o2S2XLCMAxF8/+/xlMZWvaELCR2bOzsK3ArmbYDPNUzyiLbR7qSPDytpmlwThJUZfnsxv1+x3+Xx4/rfIXJNeLghOpinbVlhWkYX4BVVaIoCvd9u93+7AXYNy2Ouz3CIIB/OCCNE0gpITIBJSS6usY8z86EyBAEPrIsg9IKaZpSkMoF7Pv+AawpmzSMkQQhNh9LHL/WMPqCgmRrmUPGZ3yuVmjbloAC2+0WURS5TEs6Y611CbCfod6WAJXUMGcBmwrIkDKkACbJYMmnkhSLxQKGLjKU68wwtpqy5397MdCkZhoneOHBR6MNRBTjuN7hkklYqmdJvoLehVBgFeMwQKmHzK7rXDbjODqbpsntcz29xpbw9wfkJCejGqk8R0TNCaieki5bkUORpIEAWmsnO+czJPvo+07yc+M8PhgwkJpQ0KZRGv7XBvvlCoIaxJF7Ms7kVyZDfIKdKLA1b8CfScPYD25UmqJEX7eYCfA+EnzpfVTeZ/Qbf0WvKfSzjN4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;NAT 기술&quot;
+        title=&quot;&quot;
+        src=&quot;/static/d2da65fafd6aff34039685dcde2c94a9/f058b/nat.png&quot;
+        srcset=&quot;/static/d2da65fafd6aff34039685dcde2c94a9/c26ae/nat.png 158w,
+/static/d2da65fafd6aff34039685dcde2c94a9/6bdcf/nat.png 315w,
+/static/d2da65fafd6aff34039685dcde2c94a9/f058b/nat.png 630w,
+/static/d2da65fafd6aff34039685dcde2c94a9/0012b/nat.png 661w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
 NAT는 보통 라우터나 공유기에 내장되어 있습니다.
 따라서 사설 네트워크에서 만들어진 사설 IP 주소를 라우터/공유기가 공인 IP 주소로 변환되어 외부 네트워크로 전송됩니다.
 반대로 외부 네트워크로부터 받은 공인 IP 주소를 라우터/공유기가 사설 IP 주소로 변경해서 사설 네트워크 속 호스트에 전달합니다.&lt;/li&gt;
@@ -1560,7 +1838,37 @@ NAT는 보통 라우터나 공유기에 내장되어 있습니다.
 &lt;/ul&gt;
 &lt;h2 id=&quot;65-예약-주소&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#65-%EC%98%88%EC%95%BD-%EC%A3%BC%EC%86%8C&quot; aria-label=&quot;65 예약 주소 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;6.5. 예약 주소&lt;/h2&gt;
 &lt;p&gt;IP 주소에는 예약된 IP 주소가 있습니다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;reserved-addresses.png&quot; alt=&quot;예약 주소&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a02a0a9403a19ee6190af13bd631f083/1ddef/reserved-addresses.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 53.16455696202532%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACKklEQVR42lVS144TQRDcf+cNOCR4OR8g3cMhxD8gJM4S+OwLctocvLPZG5xzKrrHfjhGKnX39G5Ndc0ofz7dovX1B+rvb1C/+oz7dzXcv63hoXZH+Eb5tdyrf7j0CL9pr3F9h+aX7+fe1Q1+vfkI+2cdSvdvE7HpoPIjDLoatOYTjNYLeo0WVMoze4DCC5BaHsznNoynDpx2H35fR0n/5K6Q4O9mRQWl8dCEphsY5jkc18XzC5H1+2g9PuKh2YRuGMiGQ4ggQLfXQ7evyjyKYyRJQkiRpKmsJ9MplIFlI/YFluMpyjSDcFxkQUTRg2da8G2XehNUWQ5LM6B2erBUHYkIsZxMsaAex3k1wmaxhBIT85AULJdLrNdrcF1VlURKJ3PNve1uiyAQ8DwPtm1RHmA0GklVIyJbrVbgpWiaBpUgZdMImq7DdhwJzvuqKu2ILz22RxBxFEUIwhAhx+AcZ/M5FIM8csm7xWKBoihgmiZC+tC2bYnxeCyVj2k0l+woSTnXrOh1lFNst1Da7bY0m09gY7nWSYlBxJ1uly6oJxWwLaZlwSDPWXFRlv8hJzFzEqU4NJo3GEiFrIZr9k0IIZVzb7PZYD6bQ9DlsWeshPdeg1Xu93sobG5FJ/CazWY0bkCj5whpn8HkwEn+kNAr4CcUR7EkOZ1OOB2P53iBInwfJRFyMaXTA1JW0EjsY3AhPBwOkiDLhkjjRHot6Gnlwwy73U72GcfjEf8ADXgd8Fl1KboAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;예약 주소&quot;
+        title=&quot;&quot;
+        src=&quot;/static/a02a0a9403a19ee6190af13bd631f083/f058b/reserved-addresses.png&quot;
+        srcset=&quot;/static/a02a0a9403a19ee6190af13bd631f083/c26ae/reserved-addresses.png 158w,
+/static/a02a0a9403a19ee6190af13bd631f083/6bdcf/reserved-addresses.png 315w,
+/static/a02a0a9403a19ee6190af13bd631f083/f058b/reserved-addresses.png 630w,
+/static/a02a0a9403a19ee6190af13bd631f083/1ddef/reserved-addresses.png 635w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;h3 id=&quot;651-00008&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#651-00008&quot; aria-label=&quot;651 00008 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;6.5.1. 0.0.0.0/8&lt;/h3&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;0.0.0.0/8&lt;/code&gt;은 RFC 6890에 따르면, &lt;strong&gt;이 네트워크의 이 호스트를 지칭&lt;/strong&gt;하도록 예약되어있다고 명시되어 있습니다.&lt;/p&gt;
 &lt;p&gt;이를 사용하는 대표적인 예시로는 &lt;a href=&quot;#632-%EB%8F%99%EC%A0%81-%ED%95%A0%EB%8B%B9%EA%B3%BC-dhcp&quot;&gt;DHCP&lt;/a&gt; 과정 중, 첫 번째인 DHCP Discover 과정에서 송신지 IP 주소를 &lt;code class=&quot;language-text&quot;&gt;0.0.0.0&lt;/code&gt;으로 설정하는 것입니다.&lt;/p&gt;
@@ -21193,6 +21501,105 @@ list&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class
 &lt;ol&gt;
 &lt;li id=&quot;fn-1&quot;&gt;&lt;a href=&quot;https://docs.oracle.com/javase/tutorial/java/generics/types.html&quot;&gt;https://docs.oracle.com/javase/tutorial/java/generics/types.html&lt;/a&gt;&lt;a href=&quot;#fnref-1&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
+&lt;/div&gt;</content:encoded></item><item><title><![CDATA[8장. 누가 액세스하고 있는지를 확인하는 인증]]></title><description><![CDATA[들어가며 이번엔 HTTP 표준이 설명하는 여러 가지 인증 방식에 대해 알아보겠다. Basic 인증 이름 그대로 가장 기본적인 인증 방식이다. 클라이언트가 Http Request를 보낼 때  헤더에 ID와 패스워드를 Base6…]]></description><link>https://kdkdhoho.github.io/posts/08-authentication-of-http/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/08-authentication-of-http/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;들어가며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0&quot; aria-label=&quot;들어가며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가며&lt;/h2&gt;
+&lt;p&gt;이번엔 HTTP 표준이 설명하는 여러 가지 인증 방식에 대해 알아보겠다.&lt;/p&gt;
+&lt;h2 id=&quot;basic-인증&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#basic-%EC%9D%B8%EC%A6%9D&quot; aria-label=&quot;basic 인증 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Basic 인증&lt;/h2&gt;
+&lt;p&gt;이름 그대로 가장 기본적인 인증 방식이다.&lt;/p&gt;
+&lt;p&gt;클라이언트가 Http Request를 보낼 때 &lt;code class=&quot;language-text&quot;&gt;Authorization&lt;/code&gt; 헤더에 ID와 패스워드를 Base64 형식으로 인코딩 한 값을 담아 보내는 방식이다.&lt;br&gt;
+이때 값 앞에 &lt;code class=&quot;language-text&quot;&gt;&quot;Basic &quot;&lt;/code&gt;을 Prefix로 담아 함께 보내어 Basic 인증임을 나타낸다.&lt;/p&gt;
+&lt;p&gt;Basic 인증은 아래와 같은 요청이 서버로 전달된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
+Authoization: Basic Z3Vlc3Q35wervc32= &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;가장 단순하며 간편한 인증 방식이다.&lt;br&gt;
+하지만 Base64 형식은 &lt;a href=&quot;https://www.base64decode.org/&quot;&gt;온라인 디코더 사이트&lt;/a&gt;도 있는만큼 매우 위험한 인증 방식이다.&lt;br&gt;
+따라서 잘 사용하진 않는다.&lt;/p&gt;
+&lt;h2 id=&quot;digest-인증&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#digest-%EC%9D%B8%EC%A6%9D&quot; aria-label=&quot;digest 인증 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;DIGEST 인증&lt;/h2&gt;
+&lt;p&gt;편리하지만 안전하지 않은 Basic 인증을 보완하기 위해 탄생한 기술이다.&lt;br&gt;
+DIGEST 인증에는 &lt;em&gt;챌린지 리스폰스&lt;/em&gt; 방식이 사용되고 있어 패스워드를 그대로 보낼 일은 없다.&lt;/p&gt;
+&lt;p&gt;챌린지 리스폰스 방식은 최초에 상대방에게 인증 요구를 보내고 그 결과로 받은 챌린지 코드를 사용해서 리스폰스 코드를 계산한다.&lt;br&gt;
+이 값을 상대에게 송신하여 인증하는 방법이다.&lt;br&gt;
+리스폰스 코드는 패스워드와 챌린지 코드를 이용해 계산한 결과이다. 이 결과값을 보내기에 패스워드가 통신되는 일은 없다.&lt;/p&gt;
+&lt;p&gt;좀 더 자세히 살펴보면 인증 순서에 따른 요청 및 응답 내용은 아래와 같다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;클라이언트가 리소스에 접근&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
+Host: listywave.com&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;서버는 인증이 필요하다는 상태 코드와 함께 패스워드와 챌린지 코드(nonce)를 송신&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;HTTP/1.1 401 Unauthorized
+WWW-Authenticate: Digest realm=&amp;quot;my&amp;quot;, nonce=&amp;quot;MoSq25=sddfAMi217wsnDS&amp;quot;, algorithm=MD5, qop=&amp;quot;auth&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;클라이언트는 패스워드와 챌린지 코드를 통해 리스폰스 코드를 계산해서 송신&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
+Host: listywave.com
+Authorization: Digest username=&amp;quot;kdkdhoho&amp;quot;, realm=&amp;quot;my&amp;quot;, nonce=&amp;quot;MoSq25=sddfAMi217wsnDS&amp;quot;, uri=&amp;quot;/my&amp;quot;, algorithm=MD5, response=&amp;quot;df563836bnfasf7acfasdfc78&amp;quot;, qop=&amp;quot;auth&amp;quot;, nc=000000001, cnonce=&amp;quot;0827c27c29c271&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;서버는 인증 성공 시 &lt;code class=&quot;language-text&quot;&gt;200 OK&lt;/code&gt;를 응답하고, 실패했을 경우 다시 &lt;code class=&quot;language-text&quot;&gt;401 Unauthorized&lt;/code&gt;를 응답한다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;HTTP/1.1 200 OK
+Authentication-Info: rspauth=&amp;quot;fvacacwararact3c5ttcctyct7tcc4t7y&amp;quot;, cnonce=&amp;quot;0827c27c29c271&amp;quot;, nc=000000001, qop=&amp;quot;auth&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;하지만 Digest 방식도 사용상의 문제와 부족한 보안성 때문에 잘 사용하지는 않는다.&lt;/p&gt;
+&lt;h2 id=&quot;ssl-클라이언트-인증&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ssl-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-%EC%9D%B8%EC%A6%9D&quot; aria-label=&quot;ssl 클라이언트 인증 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;SSL 클라이언트 인증&lt;/h2&gt;
+&lt;p&gt;위 두 방식은 사용자 ID와 패스워드를 통해 인증을 진행한다.&lt;br&gt;
+SSL 클라이언트 인증의 경우에는 클라이언트가 &lt;strong&gt;클라이언트 인증서&lt;/strong&gt;를 서버로 전송해 인증한다.&lt;/p&gt;
+&lt;p&gt;클라이언트가 클라이언트 인증서를 서버로 전송하기 위해서는 사전에 미리 가지고 있어야 한다.&lt;br&gt;
+이를 위해선 서버가 미리 증명서를 구매하여 사용자에게 배포를 해야 한다.&lt;br&gt;
+다른 말로 인증을 위한 비용이 상당하다는 것이다.&lt;br&gt;
+따라서 웹 애플리케이션 인증만을 위한 용도로는 사용하지 않고 후술할 Form 방식과 함께 사용되어 2-Factor 인증으로 사용한다.&lt;/p&gt;
+&lt;h2 id=&quot;form-방식&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#form-%EB%B0%A9%EC%8B%9D&quot; aria-label=&quot;form 방식 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Form 방식&lt;/h2&gt;
+&lt;p&gt;Form 방식은 HTTP 프로토콜로 스펙이 정의되어 있지는 않다.&lt;br&gt;
+하지만 많은 웹사이트에서 채택 중이며 대부분의 경우 로그인 페이지를 통해 사용자의 인증 정보를 폼에 입력 후 서버로 전송하면, 서버는 해당 값을 토대로 사용자를 식별하고 그에 따른 인증 처리를 하는 방식으로 채택 중이다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9c59e807258884b8c8889affd6decef8/d53ff/form-auth-example.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 96.20253164556962%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAABoElEQVR42q2Uy0vEMBDG9+8VD75Q96D4Qj2I4EXUg6y4PmDrPkA8WUU9C4J42IMIorB0VdqmSdM26WfSfeiKbnfVwFeGmeaXyUySDP55ZHr5SUqZKI7jvwM1SI9eYF2BLUC1WoVpmjAMA4yxVHhPGVqWhXq93n+GeuUoihIFQdCWECLRZ1/Lnwp0HAe2bbfBP4lzDt/304GuS+C4Hniosuwi3+fgSl2BUsZg1IXkbxCBq5fQ3m8lRJhk+SOw0TiJ2wcP0wWC+aKH+RLFXJFi5ZhgueIl9kKZYtqg2DI9sOaWPzf9CzDGzT3BWJ4ge0AwqTSxT7BUtjFjuBhXdvaQYFTF105cUNYF+NHlQFmdksJXMd7pkzxpzq+uHldbEyLq7xzKZtp3TxEGcxTDeYaRPYrZI6LqRrBYcTFV8DCUpxhQ8dUTpubEaTUEHl8E1k99bJwybJ4x7FxS5C4odq8ots895eMqzlG6Dtpz4rQt6zo6r8/wHAvEbkjbzmsNpGaB207vd1mvKtRRi9SnpTBqSNtBIBCGsl2iXzXl3x/YfoDvEiq/mkSMcbMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Form 방식의 로그인 페이지 (출처: https://gundogmuseray.medium.com/easy-way-to-stop-worry-about-client-side-auth-with-firebase-and-sveltekit-d17cdcccb663)&quot;
+        title=&quot;&quot;
+        src=&quot;/static/9c59e807258884b8c8889affd6decef8/f058b/form-auth-example.png&quot;
+        srcset=&quot;/static/9c59e807258884b8c8889affd6decef8/c26ae/form-auth-example.png 158w,
+/static/9c59e807258884b8c8889affd6decef8/6bdcf/form-auth-example.png 315w,
+/static/9c59e807258884b8c8889affd6decef8/f058b/form-auth-example.png 630w,
+/static/9c59e807258884b8c8889affd6decef8/40601/form-auth-example.png 945w,
+/static/9c59e807258884b8c8889affd6decef8/d53ff/form-auth-example.png 1068w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;세션-및-토큰&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%84%B8%EC%85%98-%EB%B0%8F-%ED%86%A0%ED%81%B0&quot; aria-label=&quot;세션 및 토큰 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;세션 및 토큰&lt;/h2&gt;
+&lt;p&gt;HTTP 프로토콜은 Stateless 하다.&lt;br&gt;
+방금 전에 로그인에 성공했지만 다음 요청마다 로그인을 새로 해야 한다.&lt;br&gt;
+이를 개선하기 위해 쿠키[&lt;sup id=&quot;fnref-2&quot;&gt;&lt;a href=&quot;#fn-2&quot; class=&quot;footnote-ref&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;] 가 도입되었고 여기에 세션[&lt;sup id=&quot;fnref-3&quot;&gt;&lt;a href=&quot;#fn-3&quot; class=&quot;footnote-ref&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;]이나 토큰[&lt;sup id=&quot;fnref-4&quot;&gt;&lt;a href=&quot;#fn-4&quot; class=&quot;footnote-ref&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;] 을 이용해 사용자 인증 정보를 유지한다.&lt;/p&gt;
+&lt;p&gt;세션과 토큰은 현재 대부분의 경우 사용 중인 방식이다.&lt;br&gt;
+이 둘을 잘 이해하고 사용할 줄 아는 것은 매우 중요하다는 의미이며 다른 포스팅에서 집중적으로 알아볼 예정이다.&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn-2&quot;&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/HTTP/Cookies&quot;&gt;MDN - 쿠키&lt;/a&gt;&lt;a href=&quot;#fnref-2&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&quot;fn-3&quot;&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/HTTP/Session&quot;&gt;MDN - 세션&lt;/a&gt;&lt;a href=&quot;#fnref-3&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&quot;fn-4&quot;&gt;&lt;a href=&quot;https://opentutorials.org/course/3405/22008&quot;&gt;오픈튜토리얼스 - AccessToken&lt;/a&gt;&lt;a href=&quot;#fnref-4&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/div&gt;</content:encoded></item><item><title><![CDATA[9장. HTTP에 기능을 추가한 프로토콜]]></title><description><![CDATA[들어가며 인터넷이 보급되고 웹 시장이 커져감에 따라 HTTP 프로토콜이 정말 많이 사용되고 있다.
 하지만 본래 HTML 문서를 전송하기 위해 탄생한 HTTP는 발전해가는 웹 시장에 비하면 부족한 기능들이 다수 존재했다.
 그래서 HTTP…]]></description><link>https://kdkdhoho.github.io/posts/09-advanced-http-protocol/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/09-advanced-http-protocol/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;들어가며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0&quot; aria-label=&quot;들어가며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가며&lt;/h2&gt;
@@ -21357,105 +21764,6 @@ HTTP/2.0은 성능 개선이 주된 목표이다. 따라서 &lt;em&gt;SPDY&lt;/e
 &lt;li id=&quot;fn-5&quot;&gt;&lt;a href=&quot;https://developers-kr.googleblog.com/2015/02/hellohttp2.html&quot;&gt;헬로 HTTP/2, 굿바이 SPDY - Google for Developers KR&lt;/a&gt;&lt;a href=&quot;#fnref-5&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
 &lt;li id=&quot;fn-6&quot;&gt;&lt;a href=&quot;https://ko.wikipedia.org/wiki/%EC%9B%B9%EC%86%8C%EC%BC%93&quot;&gt;WebSocket - Wikipedia&lt;/a&gt;&lt;a href=&quot;#fnref-6&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
 &lt;li id=&quot;fn-7&quot;&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/101&quot;&gt;101 Switching Protocols - MDN&lt;/a&gt;&lt;a href=&quot;#fnref-7&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</content:encoded></item><item><title><![CDATA[8장. 누가 액세스하고 있는지를 확인하는 인증]]></title><description><![CDATA[들어가며 이번엔 HTTP 표준이 설명하는 여러 가지 인증 방식에 대해 알아보겠다. Basic 인증 이름 그대로 가장 기본적인 인증 방식이다. 클라이언트가 Http Request를 보낼 때  헤더에 ID와 패스워드를 Base6…]]></description><link>https://kdkdhoho.github.io/posts/08-authentication-of-http/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/08-authentication-of-http/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;들어가며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0&quot; aria-label=&quot;들어가며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가며&lt;/h2&gt;
-&lt;p&gt;이번엔 HTTP 표준이 설명하는 여러 가지 인증 방식에 대해 알아보겠다.&lt;/p&gt;
-&lt;h2 id=&quot;basic-인증&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#basic-%EC%9D%B8%EC%A6%9D&quot; aria-label=&quot;basic 인증 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Basic 인증&lt;/h2&gt;
-&lt;p&gt;이름 그대로 가장 기본적인 인증 방식이다.&lt;/p&gt;
-&lt;p&gt;클라이언트가 Http Request를 보낼 때 &lt;code class=&quot;language-text&quot;&gt;Authorization&lt;/code&gt; 헤더에 ID와 패스워드를 Base64 형식으로 인코딩 한 값을 담아 보내는 방식이다.&lt;br&gt;
-이때 값 앞에 &lt;code class=&quot;language-text&quot;&gt;&quot;Basic &quot;&lt;/code&gt;을 Prefix로 담아 함께 보내어 Basic 인증임을 나타낸다.&lt;/p&gt;
-&lt;p&gt;Basic 인증은 아래와 같은 요청이 서버로 전달된다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
-Authoization: Basic Z3Vlc3Q35wervc32= &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;가장 단순하며 간편한 인증 방식이다.&lt;br&gt;
-하지만 Base64 형식은 &lt;a href=&quot;https://www.base64decode.org/&quot;&gt;온라인 디코더 사이트&lt;/a&gt;도 있는만큼 매우 위험한 인증 방식이다.&lt;br&gt;
-따라서 잘 사용하진 않는다.&lt;/p&gt;
-&lt;h2 id=&quot;digest-인증&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#digest-%EC%9D%B8%EC%A6%9D&quot; aria-label=&quot;digest 인증 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;DIGEST 인증&lt;/h2&gt;
-&lt;p&gt;편리하지만 안전하지 않은 Basic 인증을 보완하기 위해 탄생한 기술이다.&lt;br&gt;
-DIGEST 인증에는 &lt;em&gt;챌린지 리스폰스&lt;/em&gt; 방식이 사용되고 있어 패스워드를 그대로 보낼 일은 없다.&lt;/p&gt;
-&lt;p&gt;챌린지 리스폰스 방식은 최초에 상대방에게 인증 요구를 보내고 그 결과로 받은 챌린지 코드를 사용해서 리스폰스 코드를 계산한다.&lt;br&gt;
-이 값을 상대에게 송신하여 인증하는 방법이다.&lt;br&gt;
-리스폰스 코드는 패스워드와 챌린지 코드를 이용해 계산한 결과이다. 이 결과값을 보내기에 패스워드가 통신되는 일은 없다.&lt;/p&gt;
-&lt;p&gt;좀 더 자세히 살펴보면 인증 순서에 따른 요청 및 응답 내용은 아래와 같다.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;클라이언트가 리소스에 접근&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
-Host: listywave.com&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;ol start=&quot;2&quot;&gt;
-&lt;li&gt;서버는 인증이 필요하다는 상태 코드와 함께 패스워드와 챌린지 코드(nonce)를 송신&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;HTTP/1.1 401 Unauthorized
-WWW-Authenticate: Digest realm=&amp;quot;my&amp;quot;, nonce=&amp;quot;MoSq25=sddfAMi217wsnDS&amp;quot;, algorithm=MD5, qop=&amp;quot;auth&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;ol start=&quot;3&quot;&gt;
-&lt;li&gt;클라이언트는 패스워드와 챌린지 코드를 통해 리스폰스 코드를 계산해서 송신&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;GET /my HTTP/1.1
-Host: listywave.com
-Authorization: Digest username=&amp;quot;kdkdhoho&amp;quot;, realm=&amp;quot;my&amp;quot;, nonce=&amp;quot;MoSq25=sddfAMi217wsnDS&amp;quot;, uri=&amp;quot;/my&amp;quot;, algorithm=MD5, response=&amp;quot;df563836bnfasf7acfasdfc78&amp;quot;, qop=&amp;quot;auth&amp;quot;, nc=000000001, cnonce=&amp;quot;0827c27c29c271&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;ol start=&quot;4&quot;&gt;
-&lt;li&gt;서버는 인증 성공 시 &lt;code class=&quot;language-text&quot;&gt;200 OK&lt;/code&gt;를 응답하고, 실패했을 경우 다시 &lt;code class=&quot;language-text&quot;&gt;401 Unauthorized&lt;/code&gt;를 응답한다.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;httprequest&quot;&gt;&lt;pre class=&quot;language-httprequest&quot;&gt;&lt;code class=&quot;language-httprequest&quot;&gt;HTTP/1.1 200 OK
-Authentication-Info: rspauth=&amp;quot;fvacacwararact3c5ttcctyct7tcc4t7y&amp;quot;, cnonce=&amp;quot;0827c27c29c271&amp;quot;, nc=000000001, qop=&amp;quot;auth&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;하지만 Digest 방식도 사용상의 문제와 부족한 보안성 때문에 잘 사용하지는 않는다.&lt;/p&gt;
-&lt;h2 id=&quot;ssl-클라이언트-인증&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ssl-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-%EC%9D%B8%EC%A6%9D&quot; aria-label=&quot;ssl 클라이언트 인증 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;SSL 클라이언트 인증&lt;/h2&gt;
-&lt;p&gt;위 두 방식은 사용자 ID와 패스워드를 통해 인증을 진행한다.&lt;br&gt;
-SSL 클라이언트 인증의 경우에는 클라이언트가 &lt;strong&gt;클라이언트 인증서&lt;/strong&gt;를 서버로 전송해 인증한다.&lt;/p&gt;
-&lt;p&gt;클라이언트가 클라이언트 인증서를 서버로 전송하기 위해서는 사전에 미리 가지고 있어야 한다.&lt;br&gt;
-이를 위해선 서버가 미리 증명서를 구매하여 사용자에게 배포를 해야 한다.&lt;br&gt;
-다른 말로 인증을 위한 비용이 상당하다는 것이다.&lt;br&gt;
-따라서 웹 애플리케이션 인증만을 위한 용도로는 사용하지 않고 후술할 Form 방식과 함께 사용되어 2-Factor 인증으로 사용한다.&lt;/p&gt;
-&lt;h2 id=&quot;form-방식&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#form-%EB%B0%A9%EC%8B%9D&quot; aria-label=&quot;form 방식 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Form 방식&lt;/h2&gt;
-&lt;p&gt;Form 방식은 HTTP 프로토콜로 스펙이 정의되어 있지는 않다.&lt;br&gt;
-하지만 많은 웹사이트에서 채택 중이며 대부분의 경우 로그인 페이지를 통해 사용자의 인증 정보를 폼에 입력 후 서버로 전송하면, 서버는 해당 값을 토대로 사용자를 식별하고 그에 따른 인증 처리를 하는 방식으로 채택 중이다.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/9c59e807258884b8c8889affd6decef8/d53ff/form-auth-example.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 96.20253164556962%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAABoElEQVR42q2Uy0vEMBDG9+8VD75Q96D4Qj2I4EXUg6y4PmDrPkA8WUU9C4J42IMIorB0VdqmSdM26WfSfeiKbnfVwFeGmeaXyUySDP55ZHr5SUqZKI7jvwM1SI9eYF2BLUC1WoVpmjAMA4yxVHhPGVqWhXq93n+GeuUoihIFQdCWECLRZ1/Lnwp0HAe2bbfBP4lzDt/304GuS+C4Hniosuwi3+fgSl2BUsZg1IXkbxCBq5fQ3m8lRJhk+SOw0TiJ2wcP0wWC+aKH+RLFXJFi5ZhgueIl9kKZYtqg2DI9sOaWPzf9CzDGzT3BWJ4ge0AwqTSxT7BUtjFjuBhXdvaQYFTF105cUNYF+NHlQFmdksJXMd7pkzxpzq+uHldbEyLq7xzKZtp3TxEGcxTDeYaRPYrZI6LqRrBYcTFV8DCUpxhQ8dUTpubEaTUEHl8E1k99bJwybJ4x7FxS5C4odq8ots895eMqzlG6Dtpz4rQt6zo6r8/wHAvEbkjbzmsNpGaB207vd1mvKtRRi9SnpTBqSNtBIBCGsl2iXzXl3x/YfoDvEiq/mkSMcbMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Form 방식의 로그인 페이지 (출처: https://gundogmuseray.medium.com/easy-way-to-stop-worry-about-client-side-auth-with-firebase-and-sveltekit-d17cdcccb663)&quot;
-        title=&quot;&quot;
-        src=&quot;/static/9c59e807258884b8c8889affd6decef8/f058b/form-auth-example.png&quot;
-        srcset=&quot;/static/9c59e807258884b8c8889affd6decef8/c26ae/form-auth-example.png 158w,
-/static/9c59e807258884b8c8889affd6decef8/6bdcf/form-auth-example.png 315w,
-/static/9c59e807258884b8c8889affd6decef8/f058b/form-auth-example.png 630w,
-/static/9c59e807258884b8c8889affd6decef8/40601/form-auth-example.png 945w,
-/static/9c59e807258884b8c8889affd6decef8/d53ff/form-auth-example.png 1068w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h2 id=&quot;세션-및-토큰&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%84%B8%EC%85%98-%EB%B0%8F-%ED%86%A0%ED%81%B0&quot; aria-label=&quot;세션 및 토큰 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;세션 및 토큰&lt;/h2&gt;
-&lt;p&gt;HTTP 프로토콜은 Stateless 하다.&lt;br&gt;
-방금 전에 로그인에 성공했지만 다음 요청마다 로그인을 새로 해야 한다.&lt;br&gt;
-이를 개선하기 위해 쿠키[&lt;sup id=&quot;fnref-2&quot;&gt;&lt;a href=&quot;#fn-2&quot; class=&quot;footnote-ref&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;] 가 도입되었고 여기에 세션[&lt;sup id=&quot;fnref-3&quot;&gt;&lt;a href=&quot;#fn-3&quot; class=&quot;footnote-ref&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;]이나 토큰[&lt;sup id=&quot;fnref-4&quot;&gt;&lt;a href=&quot;#fn-4&quot; class=&quot;footnote-ref&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;] 을 이용해 사용자 인증 정보를 유지한다.&lt;/p&gt;
-&lt;p&gt;세션과 토큰은 현재 대부분의 경우 사용 중인 방식이다.&lt;br&gt;
-이 둘을 잘 이해하고 사용할 줄 아는 것은 매우 중요하다는 의미이며 다른 포스팅에서 집중적으로 알아볼 예정이다.&lt;/p&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn-2&quot;&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/HTTP/Cookies&quot;&gt;MDN - 쿠키&lt;/a&gt;&lt;a href=&quot;#fnref-2&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-3&quot;&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/HTTP/Session&quot;&gt;MDN - 세션&lt;/a&gt;&lt;a href=&quot;#fnref-3&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-4&quot;&gt;&lt;a href=&quot;https://opentutorials.org/course/3405/22008&quot;&gt;오픈튜토리얼스 - AccessToken&lt;/a&gt;&lt;a href=&quot;#fnref-4&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;</content:encoded></item><item><title><![CDATA[[MySQL] 바이너리 로그로 데이터 복구하기]]></title><description><![CDATA[들어가며 며칠 전, 리스티웨이브 프로젝트를 진행하며 특정 조건의 데이터를 모두 삭제 할 일이 있었습니다.
 하지만 실수로 해당 테이블의 데이터가 모두 삭제되는 일이 있었는데요..!
@@ -26828,257 +27136,6 @@ HTTP 메시지는 ASCII로 인코딩된 동일한 구조의 텍스트입니다.&
 &lt;li&gt;&lt;a href=&quot;https://m.yes24.com/Goods/Detail/15894097&quot;&gt;그림으로 배우는 Http &amp;#x26; Network Basic&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/HTTP/Overview&quot;&gt;HTTP 개요 - MDN&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[AWS EC2에 AMI Architecture에 대해]]></title><description><![CDATA[들어가며 EC2에 스프링 배포하기 글을 작성하다가 EC2 인스턴스를 생성할 때 AMI…]]></description><link>https://kdkdhoho.github.io/posts/aws-ec2-ami-architecture/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/aws-ec2-ami-architecture/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;들어가며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0&quot; aria-label=&quot;들어가며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가며&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://kdkdhoho.github.io/deploy-spring-boot-in-aws-ec2-manually/&quot;&gt;EC2에 스프링 배포하기&lt;/a&gt; 글을 작성하다가 EC2 인스턴스를 생성할 때 AMI를 설정하게 됩니다.&lt;/p&gt;
-&lt;p&gt;이때 선택할 수 있는 아키텍처는 아래와 같이 &lt;code class=&quot;language-text&quot;&gt;x86&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;Arm&lt;/code&gt; 두 가지로 나뉩니다.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/9843ebbaabdcd7dad49a3a5a7d016291/108f8/type_of_cpu_architecture.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 94.30379746835443%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAADCklEQVR42n1U226bQBDl/x/6A/2EPrcvVZU+VJYSRUmaqlUcG+MLtoO5L7DsguF0ZjC2m4eudDTDYuZy5oydPM/xMn3FlLDwPHjeEnPXxfR1hvncFd91F4L5bA5v5aM0DY5tg6Zp0BKstYK6ruEYa5Bl+QAKnislfppl57vRyl2uUBsLYwwMBWG0bQs+HNSJ4wTL9Qb7twDrzRa7/Ru2J2y2O3n2ya79Ldn9Gfzbjb8TPziEyCmRpWodpUqUZYWu73HsOnSE43GwXde/s/zueEJHlQ0+V9g0rVhHU995XiBOMoRhhCxNkabkRwkhRkL3UThYY4b2rgNccCQODRzOkKtCOClri6w0VPrlowGN2Evl/4JjsOXfOOwkaS4T2kUZ3G2EhCrm0xMNgmv/Cnh3z4Gdyh6xjXIccg1VFMizBJXWiKhdfubJHsIQRVkKBayCOEmgKy0BuRO+54DCYdl0eFnTVONCWtbGChf2JAmtB5+TNKQ95pElFEQhDbFHUjVYHzLkNVFDPFLAHq8LFwFl3WcaHr2sdUVy2UOlCeJwKcEUSSOdzYieDIFK8LRz0VPAgIb3dogRxqkMxqnbDgVVWdgOmiori/JSoRnUz2TXmqwZ7jiBNrW0zLzx0MbhiLBd18NyuRLw6nEQ5nyc4qg3nvKoQ763thGemV9NSUTYWaYwmy+wom2Z0b5uaCPiJBXIEGgDWPiKpMW+og6KggPUEriQ54LeK7lzOLIQTm2ZcUepZX7J4Cqu9dY018I+njeJq+fvnYxIZlRURUFVDNk1VTVkrqrqVKESbq9P31MwwqhJ4TB9vENw+wPVrwfkP++hHm4R+mtEtIKagkVxjANNmAOzjP53JGB0N4G38aHow5bL9uaIp38QkAy4da7UJ14TSiC7TkIfz+ffn/Bx8gFP2zt5Zp06wfMj7knY8wOtHF3uVyvYnQ9tW1gztDhMeuCOuRpPqmMExQ6VLc9b46TfvmB98xXh5Dual2eYyQ30do2aytf1MDDmlP+VRlSnQVpDSWh1TT1os6gq/AWOSLMkUPzCwwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;img.png&quot;
-        title=&quot;&quot;
-        src=&quot;/static/9843ebbaabdcd7dad49a3a5a7d016291/f058b/type_of_cpu_architecture.png&quot;
-        srcset=&quot;/static/9843ebbaabdcd7dad49a3a5a7d016291/c26ae/type_of_cpu_architecture.png 158w,
-/static/9843ebbaabdcd7dad49a3a5a7d016291/6bdcf/type_of_cpu_architecture.png 315w,
-/static/9843ebbaabdcd7dad49a3a5a7d016291/f058b/type_of_cpu_architecture.png 630w,
-/static/9843ebbaabdcd7dad49a3a5a7d016291/108f8/type_of_cpu_architecture.png 777w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;문득, 이 둘의 차이에 대해 궁금해져 학습하고 정리해봤습니다.&lt;/p&gt;
-&lt;h2 id=&quot;amazon-machine-image&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#amazon-machine-image&quot; aria-label=&quot;amazon machine image permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Amazon Machine Image?&lt;/h2&gt;
-&lt;p&gt;우선 Amazon Machine Image에 대해 알아보겠습니다.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/AMIs.html&quot;&gt;공식 문서&lt;/a&gt;에 따르면 다음과 같습니다.&lt;br&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;인스턴스를 시작하는 데 필요한 정보를 제공하는 AWS에서 지원하는 이미지다.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;즉, 운영체제를 &apos;도커의 이미지&apos; 처럼 EC2 인스턴스에 설치하는 것으로 이해하면 되겠습니다.&lt;/p&gt;
-&lt;h2 id=&quot;아키텍처&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98&quot; aria-label=&quot;아키텍처 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;아키텍처?&lt;/h2&gt;
-&lt;p&gt;그럼 여기서의 아키텍처는 무엇을 의미하며 64비트(x86), 그리고 64비트(Arm)은 각각 무엇을 의미하는걸까요?&lt;/p&gt;
-&lt;p&gt;이것들은 모두 &lt;em&gt;CPU 아키텍처&lt;/em&gt; 를 의미하는 것입니다.&lt;/p&gt;
-&lt;p&gt;CPU 아키텍처란, 간단히 말해 CPU를 만드는 설계 방법입니다.&lt;/p&gt;
-&lt;p&gt;이 CPU를 만드는 회사는 다양하고 각 회사마다 CPU를 만드는 방법이 조금씩 다른데요.&lt;/p&gt;
-&lt;p&gt;가장 유명한 CPU 제조 회사인 &lt;a href=&quot;https://www.intel.com/content/www/us/en/homepage.html&quot;&gt;Intel&lt;/a&gt; 사가 만드는 CPU의 아키텍처는 &lt;code class=&quot;language-text&quot;&gt;x86&lt;/code&gt; 라고 부릅니다.&lt;br&gt;
-그리고 타사인 &lt;a href=&quot;https://www.ARM.com/&quot;&gt;ARM&lt;/a&gt; 사가 만드는 CPU의 아키텍처가 바로 &lt;code class=&quot;language-text&quot;&gt;Arm&lt;/code&gt; 입니다.&lt;/p&gt;
-&lt;p&gt;이 두 CPU 아키텍처에는 큰 차이가 있습니다.&lt;/p&gt;
-&lt;h2 id=&quot;x86-vs-arm&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#x86-vs-arm&quot; aria-label=&quot;x86 vs arm permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;x86 vs Arm&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&quot;center&quot;&gt;아키텍처&lt;/th&gt;
-&lt;th align=&quot;center&quot;&gt;지원 OS&lt;/th&gt;
-&lt;th align=&quot;center&quot;&gt;타겟&lt;/th&gt;
-&lt;th align=&quot;center&quot;&gt;에너지 사용량&lt;/th&gt;
-&lt;th align=&quot;center&quot;&gt;발열&lt;/th&gt;
-&lt;th align=&quot;center&quot;&gt;비용&lt;/th&gt;
-&lt;th align=&quot;center&quot;&gt;트랜지스터 수&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td align=&quot;center&quot;&gt;x86&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;윈도우, 리눅스, 맥 등&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;PC&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;높음&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;높음&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;높음&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;많음&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;center&quot;&gt;Arm&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;리눅스 계열 등&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;스마트폰, 저전력 PC&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;낮음&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;낮음&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;낮음&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;적음&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;x86은 CPU 내에 상대적으로 더 많은 트랜지스터가 존재합니다.&lt;br&gt;
-따라서 &lt;strong&gt;처리 성능은 뛰어납니다.&lt;/strong&gt; 하지만 그만큼 &lt;strong&gt;에너지 사용량이 높고 발열량이 높습니다.&lt;/strong&gt;&lt;br&gt;
-그에 따라 &lt;strong&gt;비용도 상대적으로 비쌉니다.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Arm은 x86에 비해 &lt;strong&gt;더 싸고 발열도 낮습니다.&lt;/strong&gt;&lt;br&gt;
-본래 Arm의 설계 목적은 스마트폰 같이 소형 전자 장치에 들어갈 CPU를 목적으로 설계되었습니다.&lt;br&gt;
-따라서 더 작고, 배터리 수명이 길고, &lt;strong&gt;저비용&lt;/strong&gt;에 초점을 맞춰 설계합니다.&lt;/p&gt;
-&lt;h2 id=&quot;그럼-어떤-아키텍처를-선택하면-좋을까&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B7%B8%EB%9F%BC-%EC%96%B4%EB%96%A4-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98%EB%A5%BC-%EC%84%A0%ED%83%9D%ED%95%98%EB%A9%B4-%EC%A2%8B%EC%9D%84%EA%B9%8C&quot; aria-label=&quot;그럼 어떤 아키텍처를 선택하면 좋을까 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;그럼 어떤 아키텍처를 선택하면 좋을까?&lt;/h2&gt;
-&lt;p&gt;목적은 클라우딩 컴퓨터인 EC2에 들어갈 아키텍처를 선택하는 것입니다.&lt;/p&gt;
-&lt;p&gt;클라우딩 컴퓨터는 &quot;저비용에 고효율&quot;을 가지는 대표적인 기술입니다.&lt;br&gt;
-또한 물리적 자원이 아니다보니 CPU 발열을 냉각시켜야 하는 제약이 존재하지 않습니다.&lt;/p&gt;
-&lt;p&gt;추가로 아래 사진을 보시겠습니다.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/9677eb3ba68ba08cd27a7caa1c3faaf7/d69c4/x86.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 44.93670886075949%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABt0lEQVR42k1S2Y7TQBD0//8Ob/ACAoknJJbsCkECm8RXfM3tOXwV3d7NipZaPT3yVFdVO0spwVkHYRwujYQPEdu2YV3Xt3o/35MjWYP+y0f0D99hng6Qj48wXz8jiwSolMboRozWotMjGkqpHbQ20DTMGItpmrGsGwapMVOdYkR3OuJ2PEFec/iqwtaUyHwIKPIrzOjREhBnJSyUlgjBw0sFMQwYlKJvEs51D+UCDZioDxB0jiuw4iWylCLiqHYmnTQYLAN7OD+C2buOAIRAmonhssB7j4XO0zxBaIuiFTTM4h6ZEBJFWaOqa5RlSfIMRmLrKFOa6OFCHr54yX57H5CIXSTJvY34U/X4W7Z4JubXVhIgScrzgkAr5EW11/Ml36sjXzlZ3kzAPEiRr5b9JqYqLPh5qfHw+xmH4xmH0wWZc26fPO8yZswkixfA/T2ZHcfrgvcIxNDEhRh2+PZ0xI9X0Kzve/T9AMvbpC03Tbv3kpgrXgRZIK1AmD3+D5asCTAfDPJOoRgsKh2RSXp0u7U7K5ZmCZR95Xvu123Fh1/v8On0/u0f3AFJ1RgTDVqQlo1yRfQS/wCHYrFAv71bqwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;x86 선택&quot;
-        title=&quot;&quot;
-        src=&quot;/static/9677eb3ba68ba08cd27a7caa1c3faaf7/f058b/x86.png&quot;
-        srcset=&quot;/static/9677eb3ba68ba08cd27a7caa1c3faaf7/c26ae/x86.png 158w,
-/static/9677eb3ba68ba08cd27a7caa1c3faaf7/6bdcf/x86.png 315w,
-/static/9677eb3ba68ba08cd27a7caa1c3faaf7/f058b/x86.png 630w,
-/static/9677eb3ba68ba08cd27a7caa1c3faaf7/40601/x86.png 945w,
-/static/9677eb3ba68ba08cd27a7caa1c3faaf7/d69c4/x86.png 1002w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/951e3b6feb548223f570d84276c5151c/58bb7/arm.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 46.202531645569614%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABtElEQVR42mVSyW7bMBDV//9Lr73lErTHJmiK1E3i2HGslbIoijup5XVIN0CLEngYUsIM38LCWgdrLXouUbIRIc5Y142wZizLtW7b9ge0BxC8Q397A3Z/B717hNjtIL/eolDaQEwSxuiMdiQIi1FoTGKCVNf/8zxjoYvYIHINMYIfj2AvrxDnErapAdagGPgA1rUQxoFNBg1XqAaJaRpgrIG9DGg7BiElhLJ4ay4YpckDJ1LHjYdbtsw6rcISK28lRmLBBUF7DATrLEIIsAOHUppYXaWnb8uyICaGk8o2XUaV7cgDm6bDuaxRlhXKqiKJKkOTFZH8jNT84adzDtoYOO/hg8dFBbzWAw4Vw6HucepGFB3JqZs2o0qoG5zez2haBkNDNbGLOaglh5cu0lrnvfArfp0aPDwf8WN/wsPLG4VCDcnw1JRqYpJqDoHYJXzI+Xt5YinDgj2x+/b4jO9PR9zv9iiqqoYQAlKSVDK+Joacc8JI6VLKkkAexzX+O5AkT35BOSi89wIVhVlyg4KxPjeHEDMEPZV0HumSGGb42eHzz0/4crj5b6DxAW5e4emt5uo1fgM837EQuIVrAgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Arm 선택&quot;
-        title=&quot;&quot;
-        src=&quot;/static/951e3b6feb548223f570d84276c5151c/f058b/arm.png&quot;
-        srcset=&quot;/static/951e3b6feb548223f570d84276c5151c/c26ae/arm.png 158w,
-/static/951e3b6feb548223f570d84276c5151c/6bdcf/arm.png 315w,
-/static/951e3b6feb548223f570d84276c5151c/f058b/arm.png 630w,
-/static/951e3b6feb548223f570d84276c5151c/40601/arm.png 945w,
-/static/951e3b6feb548223f570d84276c5151c/58bb7/arm.png 985w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;x86을 선택하면 기본적으로 &lt;em&gt;t2.micro&lt;/em&gt; 타입이 설정됩니다.&lt;br&gt;
-반면, Arm을 선택하면 &lt;em&gt;t4g.micro&lt;/em&gt; 타입이 설정됩니다.&lt;/p&gt;
-&lt;p&gt;이 두 인스턴스 타입의 차이에 대해 알아보겠습니다.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/899f2eb6a20b94228f8ec15706290ba9/c54b3/type_of_t2.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 43.67088607594937%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABk0lEQVR42k1R2W7CMBDM//9K3yu1L0WVekIPQFRAD0QbAnFuyGHHgemOVVAtWTueWe+ux16cZuDKigLGGNiuQxCGCKMYKo6dtlguUVYV6qYRLsH/ZdoWq/UaG6XQWQsv979hkggmjU+7/Ys2T51WrH5QqxBF4CNZLqBjBS08Y5ulqCKFKgzQVqUUvOvBjp9gXvtoh310w0cY2c3LA+xoAMuz4G48QH5/DdW7EL4vdwYuUgt7l4hvrqDPz+BlkxHM1xz6cwb9MYNZvKORczWfON6dP6eCZ8gmQ0TDgeRNT1o1f8O6fws1ekYtQ3lK3q7FO3rRigfdfu+8pF/E9JQ6tVx8Zj4xeeqN1lhvNogisYAehvIBLQuKwLiXROJyt3OYRjdS3ErDLMuwkcvE5KlT833f8bznpWkKK2Jd19AsKslM2klBYk5byQ9Ty/PcTUjuuJnL6VhHHwt20omXWfhwOLhIkXgvzyJmDpskSeIweUauY0Pme0EQOKIsy5PAuN1uHeYExHwBm9MicsfNHFpRiL+c8Bc+g6w2juJ2iwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;t2 유형&quot;
-        title=&quot;&quot;
-        src=&quot;/static/899f2eb6a20b94228f8ec15706290ba9/f058b/type_of_t2.png&quot;
-        srcset=&quot;/static/899f2eb6a20b94228f8ec15706290ba9/c26ae/type_of_t2.png 158w,
-/static/899f2eb6a20b94228f8ec15706290ba9/6bdcf/type_of_t2.png 315w,
-/static/899f2eb6a20b94228f8ec15706290ba9/f058b/type_of_t2.png 630w,
-/static/899f2eb6a20b94228f8ec15706290ba9/c54b3/type_of_t2.png 727w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/23a6fc7da7254cdc9b2b4164f830e083/ef916/type_of_t4g.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 40.50632911392405%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABoUlEQVR42i1Sy27bMBDU/39LLz30UhTooWnTJG7TNK5THxxYsB3rRb0o8aXHdJaoAIJD7uwsNbuJ1hpKKUzThGVZ0Pc95KvrGlVVxfuiKNC2LYwx2O12MZbnecQS67oO+/0eZVkiGayFItnPM9cC4z2mFdDGoh8MwrqiH8d4nogH7i5MCCxeNQ0cC0puySKGWsmoKpTpEaFr4/Jtjbnv/uMGi+5hqhK2VhG7RiEIR3eoTmnk2LpC9nqAVnyh/vgexdfPsI93sE/3MD9u4Z4eYH8RP36HJ+7ub6A33+CfN9APN7y/g/+9QfXlU8Tjz1tk1Og+vKPgfovy7xb+dMT0doI/p1iyC8IljXdrfsFwPMCkB+I32PQ1xpbsjHr/B4F8fz6ifNlieHmmh/Ss4P97euKXFZZ+iIeOu6U/Mxuk6c3gfMQj+W4ih1h1tIC+Cy9XTeQklp2rygJTCJi5gndYKRacg6cQWw8zDLBmBCSZDQoUFU7b1JiIhavEZ3ISafn1eo0j4RgYJYHCch4oJGMjoyTjJVh2iQlHxsSyqJyzLIuxf6LoX0y+Y07AAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;t4g 유형&quot;
-        title=&quot;&quot;
-        src=&quot;/static/23a6fc7da7254cdc9b2b4164f830e083/f058b/type_of_t4g.png&quot;
-        srcset=&quot;/static/23a6fc7da7254cdc9b2b4164f830e083/c26ae/type_of_t4g.png 158w,
-/static/23a6fc7da7254cdc9b2b4164f830e083/6bdcf/type_of_t4g.png 315w,
-/static/23a6fc7da7254cdc9b2b4164f830e083/f058b/type_of_t4g.png 630w,
-/static/23a6fc7da7254cdc9b2b4164f830e083/ef916/type_of_t4g.png 815w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;두 타입 모두 프리티어이면서 동일한 AMI에서 설정되는 인스턴스 타입임에도 불구하고, CPU 아키텍처의 차이에 따라 성능과 비용의 차이가 있음을 확인할 수 있습니다.&lt;/p&gt;
-&lt;p&gt;결론적으로, 저비용 고효율을 위해서라면 &lt;code class=&quot;language-text&quot;&gt;Arm 아키텍처&lt;/code&gt;를 선택하는 것이 바람직해보입니다.&lt;/p&gt;
-&lt;h2 id=&quot;64비트는-무엇이지&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#64%EB%B9%84%ED%8A%B8%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%B4%EC%A7%80&quot; aria-label=&quot;64비트는 무엇이지 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;64비트는 무엇이지?&lt;/h2&gt;
-&lt;p&gt;그런데 64비트는 무엇일까요?&lt;/p&gt;
-&lt;p&gt;여기서의 &apos;비트&apos;는 CPU가 가지는 &lt;em&gt;레지스터&lt;/em&gt;의 크기를 의미합니다.&lt;/p&gt;
-&lt;p&gt;CPU가 프로그램 명령어를 처리하기 위해 자체적으로 저장소를 가집니다.&lt;br&gt;
-이 저장소를 레지스터라고 합니다.&lt;br&gt;
-레지스터는 용량은 매우 작은 대신 속도는 매우 빠른 특징을 가집니다.&lt;/p&gt;
-&lt;p&gt;따라서 저장소의 크기가 클수록 더 많은 데이터를 이용해 CPU가 명령어를 처리하는 능력이 향상됩니다.&lt;/p&gt;
-&lt;p&gt;참고로 32비트도 존재합니다만 64비트와의 차이는 다음과 같습니다.&lt;br&gt;
-32비트는 2^32 = 4,294,967,296 bit ≒ &lt;strong&gt;4GB&lt;/strong&gt;&lt;br&gt;
-64비트는 2^64 = 18,446,744,073,709,551,616 bit ≒ &lt;strong&gt;16EB&lt;/strong&gt; (= 4GB x 4GB)&lt;/p&gt;
-&lt;p&gt;현대의 많은 CPU는 대부분 64비트로 생산되고 있습니다.&lt;/p&gt;
-&lt;h2 id=&quot;마치며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A7%88%EC%B9%98%EB%A9%B0&quot; aria-label=&quot;마치며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;마치며&lt;/h2&gt;
-&lt;p&gt;지금까지 CPU 아키텍처를 선택하는 데에 있어 필요한 정보들을 알아보았습니다.&lt;/p&gt;
-&lt;p&gt;처음 접한 내용이다보니 틀리거나 빠진 내용이 있을 수 있습니다.&lt;br&gt;
-만약 정보의 수정이 필요하다면 언제든 댓글 남겨주시길 바랍니다.&lt;/p&gt;
-&lt;p&gt;감사합니다.&lt;/p&gt;
-&lt;h3 id=&quot;reference&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#reference&quot; aria-label=&quot;reference permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Reference&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.redhat.com/en/topics/linux/Arm-vs-x86&quot;&gt;AMR vs x86 - Red Hat 공식문서&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://velog.io/@480/%EC%9D%B4%EC%A0%9C%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%8F%84-CPU-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98%EB%A5%BC-%EA%B5%AC%EB%B6%84%ED%95%B4%EC%95%BC-%ED%95%A9%EB%8B%88%EB%8B%A4&quot;&gt;https://velog.io/@480/이제는-개발자도-CPU-아키텍처를-구분해야-합니다&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.e-focus.co.kr/news/articleView.html?idxno=2638858&quot;&gt;CPU 32비트와 64비트 차이, 모르고 사용하면 낭비다 - 이포커스&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://dev.to/aws-builders/data-points-you-need-to-know-about-Arm-for-your-application-code-migration-5c0f&quot;&gt;https://dev.to/aws-builders/data-points-you-need-to-know-about-Arm-for-your-application-code-migration-5c0f&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://youtu.be/ndXKHgFIIL4&quot;&gt;https://youtu.be/ndXKHgFIIL4&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[AWS EC2에 Spring Boot 애플리케이션을 수동으로 배포하기]]></title><description><![CDATA[들어가며 이번 글은 AWS EC2 인스턴스를 생성하고 수작업으로 Spring Boot…]]></description><link>https://kdkdhoho.github.io/posts/aws-ec2-spring-boot/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/aws-ec2-spring-boot/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;들어가며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0&quot; aria-label=&quot;들어가며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가며&lt;/h2&gt;
 &lt;p&gt;이번 글은 AWS EC2 인스턴스를 생성하고 수작업으로 Spring Boot를 실행시키는 방법을 정리한 글입니다.&lt;/p&gt;
 &lt;p&gt;개발 환경은 &lt;code class=&quot;language-text&quot;&gt;MacOS&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;Warp(Terminal)&lt;/code&gt; 입니다.&lt;/p&gt;
@@ -27783,6 +27840,257 @@ clone이 완료되면 &lt;code class=&quot;language-text&quot;&gt;ls&lt;/code&gt
 &lt;li&gt;&lt;a href=&quot;https://docs.aws.amazon.com/corretto/latest/corretto-17-ug/downloads-list.html&quot;&gt;EC2에 JDK 설치&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.lesstif.com/lpt/ssh-unprotected-private-key-file-80249001.html&quot;&gt;SSH 접속 시 UNPROTECTED PRIVATE KEY FILE! 에러 해결&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://aws.amazon.com/ko/ec2/instance-types/&quot;&gt;EC2 인스턴스 유형&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[AWS EC2에 AMI Architecture에 대해]]></title><description><![CDATA[들어가며 EC2에 스프링 배포하기 글을 작성하다가 EC2 인스턴스를 생성할 때 AMI…]]></description><link>https://kdkdhoho.github.io/posts/aws-ec2-ami-architecture/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/aws-ec2-ami-architecture/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2 id=&quot;들어가며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0&quot; aria-label=&quot;들어가며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가며&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://kdkdhoho.github.io/deploy-spring-boot-in-aws-ec2-manually/&quot;&gt;EC2에 스프링 배포하기&lt;/a&gt; 글을 작성하다가 EC2 인스턴스를 생성할 때 AMI를 설정하게 됩니다.&lt;/p&gt;
+&lt;p&gt;이때 선택할 수 있는 아키텍처는 아래와 같이 &lt;code class=&quot;language-text&quot;&gt;x86&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;Arm&lt;/code&gt; 두 가지로 나뉩니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9843ebbaabdcd7dad49a3a5a7d016291/108f8/type_of_cpu_architecture.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 94.30379746835443%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAADCklEQVR42n1U226bQBDl/x/6A/2EPrcvVZU+VJYSRUmaqlUcG+MLtoO5L7DsguF0ZjC2m4eudDTDYuZy5oydPM/xMn3FlLDwPHjeEnPXxfR1hvncFd91F4L5bA5v5aM0DY5tg6Zp0BKstYK6ruEYa5Bl+QAKnislfppl57vRyl2uUBsLYwwMBWG0bQs+HNSJ4wTL9Qb7twDrzRa7/Ru2J2y2O3n2ya79Ldn9Gfzbjb8TPziEyCmRpWodpUqUZYWu73HsOnSE43GwXde/s/zueEJHlQ0+V9g0rVhHU995XiBOMoRhhCxNkabkRwkhRkL3UThYY4b2rgNccCQODRzOkKtCOClri6w0VPrlowGN2Evl/4JjsOXfOOwkaS4T2kUZ3G2EhCrm0xMNgmv/Cnh3z4Gdyh6xjXIccg1VFMizBJXWiKhdfubJHsIQRVkKBayCOEmgKy0BuRO+54DCYdl0eFnTVONCWtbGChf2JAmtB5+TNKQ95pElFEQhDbFHUjVYHzLkNVFDPFLAHq8LFwFl3WcaHr2sdUVy2UOlCeJwKcEUSSOdzYieDIFK8LRz0VPAgIb3dogRxqkMxqnbDgVVWdgOmiori/JSoRnUz2TXmqwZ7jiBNrW0zLzx0MbhiLBd18NyuRLw6nEQ5nyc4qg3nvKoQ763thGemV9NSUTYWaYwmy+wom2Z0b5uaCPiJBXIEGgDWPiKpMW+og6KggPUEriQ54LeK7lzOLIQTm2ZcUepZX7J4Cqu9dY018I+njeJq+fvnYxIZlRURUFVDNk1VTVkrqrqVKESbq9P31MwwqhJ4TB9vENw+wPVrwfkP++hHm4R+mtEtIKagkVxjANNmAOzjP53JGB0N4G38aHow5bL9uaIp38QkAy4da7UJ14TSiC7TkIfz+ffn/Bx8gFP2zt5Zp06wfMj7knY8wOtHF3uVyvYnQ9tW1gztDhMeuCOuRpPqmMExQ6VLc9b46TfvmB98xXh5Dual2eYyQ30do2aytf1MDDmlP+VRlSnQVpDSWh1TT1os6gq/AWOSLMkUPzCwwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img.png&quot;
+        title=&quot;&quot;
+        src=&quot;/static/9843ebbaabdcd7dad49a3a5a7d016291/f058b/type_of_cpu_architecture.png&quot;
+        srcset=&quot;/static/9843ebbaabdcd7dad49a3a5a7d016291/c26ae/type_of_cpu_architecture.png 158w,
+/static/9843ebbaabdcd7dad49a3a5a7d016291/6bdcf/type_of_cpu_architecture.png 315w,
+/static/9843ebbaabdcd7dad49a3a5a7d016291/f058b/type_of_cpu_architecture.png 630w,
+/static/9843ebbaabdcd7dad49a3a5a7d016291/108f8/type_of_cpu_architecture.png 777w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;문득, 이 둘의 차이에 대해 궁금해져 학습하고 정리해봤습니다.&lt;/p&gt;
+&lt;h2 id=&quot;amazon-machine-image&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#amazon-machine-image&quot; aria-label=&quot;amazon machine image permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Amazon Machine Image?&lt;/h2&gt;
+&lt;p&gt;우선 Amazon Machine Image에 대해 알아보겠습니다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/AMIs.html&quot;&gt;공식 문서&lt;/a&gt;에 따르면 다음과 같습니다.&lt;br&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;인스턴스를 시작하는 데 필요한 정보를 제공하는 AWS에서 지원하는 이미지다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;즉, 운영체제를 &apos;도커의 이미지&apos; 처럼 EC2 인스턴스에 설치하는 것으로 이해하면 되겠습니다.&lt;/p&gt;
+&lt;h2 id=&quot;아키텍처&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98&quot; aria-label=&quot;아키텍처 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;아키텍처?&lt;/h2&gt;
+&lt;p&gt;그럼 여기서의 아키텍처는 무엇을 의미하며 64비트(x86), 그리고 64비트(Arm)은 각각 무엇을 의미하는걸까요?&lt;/p&gt;
+&lt;p&gt;이것들은 모두 &lt;em&gt;CPU 아키텍처&lt;/em&gt; 를 의미하는 것입니다.&lt;/p&gt;
+&lt;p&gt;CPU 아키텍처란, 간단히 말해 CPU를 만드는 설계 방법입니다.&lt;/p&gt;
+&lt;p&gt;이 CPU를 만드는 회사는 다양하고 각 회사마다 CPU를 만드는 방법이 조금씩 다른데요.&lt;/p&gt;
+&lt;p&gt;가장 유명한 CPU 제조 회사인 &lt;a href=&quot;https://www.intel.com/content/www/us/en/homepage.html&quot;&gt;Intel&lt;/a&gt; 사가 만드는 CPU의 아키텍처는 &lt;code class=&quot;language-text&quot;&gt;x86&lt;/code&gt; 라고 부릅니다.&lt;br&gt;
+그리고 타사인 &lt;a href=&quot;https://www.ARM.com/&quot;&gt;ARM&lt;/a&gt; 사가 만드는 CPU의 아키텍처가 바로 &lt;code class=&quot;language-text&quot;&gt;Arm&lt;/code&gt; 입니다.&lt;/p&gt;
+&lt;p&gt;이 두 CPU 아키텍처에는 큰 차이가 있습니다.&lt;/p&gt;
+&lt;h2 id=&quot;x86-vs-arm&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#x86-vs-arm&quot; aria-label=&quot;x86 vs arm permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;x86 vs Arm&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;center&quot;&gt;아키텍처&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;지원 OS&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;타겟&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;에너지 사용량&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;발열&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;비용&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;트랜지스터 수&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;x86&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;윈도우, 리눅스, 맥 등&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;PC&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;높음&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;높음&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;높음&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;많음&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;Arm&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;리눅스 계열 등&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;스마트폰, 저전력 PC&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;낮음&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;낮음&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;낮음&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;적음&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;x86은 CPU 내에 상대적으로 더 많은 트랜지스터가 존재합니다.&lt;br&gt;
+따라서 &lt;strong&gt;처리 성능은 뛰어납니다.&lt;/strong&gt; 하지만 그만큼 &lt;strong&gt;에너지 사용량이 높고 발열량이 높습니다.&lt;/strong&gt;&lt;br&gt;
+그에 따라 &lt;strong&gt;비용도 상대적으로 비쌉니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Arm은 x86에 비해 &lt;strong&gt;더 싸고 발열도 낮습니다.&lt;/strong&gt;&lt;br&gt;
+본래 Arm의 설계 목적은 스마트폰 같이 소형 전자 장치에 들어갈 CPU를 목적으로 설계되었습니다.&lt;br&gt;
+따라서 더 작고, 배터리 수명이 길고, &lt;strong&gt;저비용&lt;/strong&gt;에 초점을 맞춰 설계합니다.&lt;/p&gt;
+&lt;h2 id=&quot;그럼-어떤-아키텍처를-선택하면-좋을까&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B7%B8%EB%9F%BC-%EC%96%B4%EB%96%A4-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98%EB%A5%BC-%EC%84%A0%ED%83%9D%ED%95%98%EB%A9%B4-%EC%A2%8B%EC%9D%84%EA%B9%8C&quot; aria-label=&quot;그럼 어떤 아키텍처를 선택하면 좋을까 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;그럼 어떤 아키텍처를 선택하면 좋을까?&lt;/h2&gt;
+&lt;p&gt;목적은 클라우딩 컴퓨터인 EC2에 들어갈 아키텍처를 선택하는 것입니다.&lt;/p&gt;
+&lt;p&gt;클라우딩 컴퓨터는 &quot;저비용에 고효율&quot;을 가지는 대표적인 기술입니다.&lt;br&gt;
+또한 물리적 자원이 아니다보니 CPU 발열을 냉각시켜야 하는 제약이 존재하지 않습니다.&lt;/p&gt;
+&lt;p&gt;추가로 아래 사진을 보시겠습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9677eb3ba68ba08cd27a7caa1c3faaf7/d69c4/x86.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 44.93670886075949%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABt0lEQVR42k1S2Y7TQBD0//8Ob/ACAoknJJbsCkECm8RXfM3tOXwV3d7NipZaPT3yVFdVO0spwVkHYRwujYQPEdu2YV3Xt3o/35MjWYP+y0f0D99hng6Qj48wXz8jiwSolMboRozWotMjGkqpHbQ20DTMGItpmrGsGwapMVOdYkR3OuJ2PEFec/iqwtaUyHwIKPIrzOjREhBnJSyUlgjBw0sFMQwYlKJvEs51D+UCDZioDxB0jiuw4iWylCLiqHYmnTQYLAN7OD+C2buOAIRAmonhssB7j4XO0zxBaIuiFTTM4h6ZEBJFWaOqa5RlSfIMRmLrKFOa6OFCHr54yX57H5CIXSTJvY34U/X4W7Z4JubXVhIgScrzgkAr5EW11/Ml36sjXzlZ3kzAPEiRr5b9JqYqLPh5qfHw+xmH4xmH0wWZc26fPO8yZswkixfA/T2ZHcfrgvcIxNDEhRh2+PZ0xI9X0Kzve/T9AMvbpC03Tbv3kpgrXgRZIK1AmD3+D5asCTAfDPJOoRgsKh2RSXp0u7U7K5ZmCZR95Xvu123Fh1/v8On0/u0f3AFJ1RgTDVqQlo1yRfQS/wCHYrFAv71bqwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;x86 선택&quot;
+        title=&quot;&quot;
+        src=&quot;/static/9677eb3ba68ba08cd27a7caa1c3faaf7/f058b/x86.png&quot;
+        srcset=&quot;/static/9677eb3ba68ba08cd27a7caa1c3faaf7/c26ae/x86.png 158w,
+/static/9677eb3ba68ba08cd27a7caa1c3faaf7/6bdcf/x86.png 315w,
+/static/9677eb3ba68ba08cd27a7caa1c3faaf7/f058b/x86.png 630w,
+/static/9677eb3ba68ba08cd27a7caa1c3faaf7/40601/x86.png 945w,
+/static/9677eb3ba68ba08cd27a7caa1c3faaf7/d69c4/x86.png 1002w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/951e3b6feb548223f570d84276c5151c/58bb7/arm.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 46.202531645569614%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABtElEQVR42mVSyW7bMBDV//9Lr73lErTHJmiK1E3i2HGslbIoijup5XVIN0CLEngYUsIM38LCWgdrLXouUbIRIc5Y142wZizLtW7b9ge0BxC8Q397A3Z/B717hNjtIL/eolDaQEwSxuiMdiQIi1FoTGKCVNf/8zxjoYvYIHINMYIfj2AvrxDnErapAdagGPgA1rUQxoFNBg1XqAaJaRpgrIG9DGg7BiElhLJ4ay4YpckDJ1LHjYdbtsw6rcISK28lRmLBBUF7DATrLEIIsAOHUppYXaWnb8uyICaGk8o2XUaV7cgDm6bDuaxRlhXKqiKJKkOTFZH8jNT84adzDtoYOO/hg8dFBbzWAw4Vw6HucepGFB3JqZs2o0qoG5zez2haBkNDNbGLOaglh5cu0lrnvfArfp0aPDwf8WN/wsPLG4VCDcnw1JRqYpJqDoHYJXzI+Xt5YinDgj2x+/b4jO9PR9zv9iiqqoYQAlKSVDK+Joacc8JI6VLKkkAexzX+O5AkT35BOSi89wIVhVlyg4KxPjeHEDMEPZV0HumSGGb42eHzz0/4crj5b6DxAW5e4emt5uo1fgM837EQuIVrAgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Arm 선택&quot;
+        title=&quot;&quot;
+        src=&quot;/static/951e3b6feb548223f570d84276c5151c/f058b/arm.png&quot;
+        srcset=&quot;/static/951e3b6feb548223f570d84276c5151c/c26ae/arm.png 158w,
+/static/951e3b6feb548223f570d84276c5151c/6bdcf/arm.png 315w,
+/static/951e3b6feb548223f570d84276c5151c/f058b/arm.png 630w,
+/static/951e3b6feb548223f570d84276c5151c/40601/arm.png 945w,
+/static/951e3b6feb548223f570d84276c5151c/58bb7/arm.png 985w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;x86을 선택하면 기본적으로 &lt;em&gt;t2.micro&lt;/em&gt; 타입이 설정됩니다.&lt;br&gt;
+반면, Arm을 선택하면 &lt;em&gt;t4g.micro&lt;/em&gt; 타입이 설정됩니다.&lt;/p&gt;
+&lt;p&gt;이 두 인스턴스 타입의 차이에 대해 알아보겠습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/899f2eb6a20b94228f8ec15706290ba9/c54b3/type_of_t2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 43.67088607594937%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABk0lEQVR42k1R2W7CMBDM//9K3yu1L0WVekIPQFRAD0QbAnFuyGHHgemOVVAtWTueWe+ux16cZuDKigLGGNiuQxCGCKMYKo6dtlguUVYV6qYRLsH/ZdoWq/UaG6XQWQsv979hkggmjU+7/Ys2T51WrH5QqxBF4CNZLqBjBS08Y5ulqCKFKgzQVqUUvOvBjp9gXvtoh310w0cY2c3LA+xoAMuz4G48QH5/DdW7EL4vdwYuUgt7l4hvrqDPz+BlkxHM1xz6cwb9MYNZvKORczWfON6dP6eCZ8gmQ0TDgeRNT1o1f8O6fws1ekYtQ3lK3q7FO3rRigfdfu+8pF/E9JQ6tVx8Zj4xeeqN1lhvNogisYAehvIBLQuKwLiXROJyt3OYRjdS3ErDLMuwkcvE5KlT833f8bznpWkKK2Jd19AsKslM2klBYk5byQ9Ty/PcTUjuuJnL6VhHHwt20omXWfhwOLhIkXgvzyJmDpskSeIweUauY0Pme0EQOKIsy5PAuN1uHeYExHwBm9MicsfNHFpRiL+c8Bc+g6w2juJ2iwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;t2 유형&quot;
+        title=&quot;&quot;
+        src=&quot;/static/899f2eb6a20b94228f8ec15706290ba9/f058b/type_of_t2.png&quot;
+        srcset=&quot;/static/899f2eb6a20b94228f8ec15706290ba9/c26ae/type_of_t2.png 158w,
+/static/899f2eb6a20b94228f8ec15706290ba9/6bdcf/type_of_t2.png 315w,
+/static/899f2eb6a20b94228f8ec15706290ba9/f058b/type_of_t2.png 630w,
+/static/899f2eb6a20b94228f8ec15706290ba9/c54b3/type_of_t2.png 727w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/23a6fc7da7254cdc9b2b4164f830e083/ef916/type_of_t4g.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 40.50632911392405%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABoUlEQVR42i1Sy27bMBDU/39LLz30UhTooWnTJG7TNK5THxxYsB3rRb0o8aXHdJaoAIJD7uwsNbuJ1hpKKUzThGVZ0Pc95KvrGlVVxfuiKNC2LYwx2O12MZbnecQS67oO+/0eZVkiGayFItnPM9cC4z2mFdDGoh8MwrqiH8d4nogH7i5MCCxeNQ0cC0puySKGWsmoKpTpEaFr4/Jtjbnv/uMGi+5hqhK2VhG7RiEIR3eoTmnk2LpC9nqAVnyh/vgexdfPsI93sE/3MD9u4Z4eYH8RP36HJ+7ub6A33+CfN9APN7y/g/+9QfXlU8Tjz1tk1Og+vKPgfovy7xb+dMT0doI/p1iyC8IljXdrfsFwPMCkB+I32PQ1xpbsjHr/B4F8fz6ifNlieHmmh/Ss4P97euKXFZZ+iIeOu6U/Mxuk6c3gfMQj+W4ih1h1tIC+Cy9XTeQklp2rygJTCJi5gndYKRacg6cQWw8zDLBmBCSZDQoUFU7b1JiIhavEZ3ISafn1eo0j4RgYJYHCch4oJGMjoyTjJVh2iQlHxsSyqJyzLIuxf6LoX0y+Y07AAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;t4g 유형&quot;
+        title=&quot;&quot;
+        src=&quot;/static/23a6fc7da7254cdc9b2b4164f830e083/f058b/type_of_t4g.png&quot;
+        srcset=&quot;/static/23a6fc7da7254cdc9b2b4164f830e083/c26ae/type_of_t4g.png 158w,
+/static/23a6fc7da7254cdc9b2b4164f830e083/6bdcf/type_of_t4g.png 315w,
+/static/23a6fc7da7254cdc9b2b4164f830e083/f058b/type_of_t4g.png 630w,
+/static/23a6fc7da7254cdc9b2b4164f830e083/ef916/type_of_t4g.png 815w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;두 타입 모두 프리티어이면서 동일한 AMI에서 설정되는 인스턴스 타입임에도 불구하고, CPU 아키텍처의 차이에 따라 성능과 비용의 차이가 있음을 확인할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;결론적으로, 저비용 고효율을 위해서라면 &lt;code class=&quot;language-text&quot;&gt;Arm 아키텍처&lt;/code&gt;를 선택하는 것이 바람직해보입니다.&lt;/p&gt;
+&lt;h2 id=&quot;64비트는-무엇이지&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#64%EB%B9%84%ED%8A%B8%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%B4%EC%A7%80&quot; aria-label=&quot;64비트는 무엇이지 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;64비트는 무엇이지?&lt;/h2&gt;
+&lt;p&gt;그런데 64비트는 무엇일까요?&lt;/p&gt;
+&lt;p&gt;여기서의 &apos;비트&apos;는 CPU가 가지는 &lt;em&gt;레지스터&lt;/em&gt;의 크기를 의미합니다.&lt;/p&gt;
+&lt;p&gt;CPU가 프로그램 명령어를 처리하기 위해 자체적으로 저장소를 가집니다.&lt;br&gt;
+이 저장소를 레지스터라고 합니다.&lt;br&gt;
+레지스터는 용량은 매우 작은 대신 속도는 매우 빠른 특징을 가집니다.&lt;/p&gt;
+&lt;p&gt;따라서 저장소의 크기가 클수록 더 많은 데이터를 이용해 CPU가 명령어를 처리하는 능력이 향상됩니다.&lt;/p&gt;
+&lt;p&gt;참고로 32비트도 존재합니다만 64비트와의 차이는 다음과 같습니다.&lt;br&gt;
+32비트는 2^32 = 4,294,967,296 bit ≒ &lt;strong&gt;4GB&lt;/strong&gt;&lt;br&gt;
+64비트는 2^64 = 18,446,744,073,709,551,616 bit ≒ &lt;strong&gt;16EB&lt;/strong&gt; (= 4GB x 4GB)&lt;/p&gt;
+&lt;p&gt;현대의 많은 CPU는 대부분 64비트로 생산되고 있습니다.&lt;/p&gt;
+&lt;h2 id=&quot;마치며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A7%88%EC%B9%98%EB%A9%B0&quot; aria-label=&quot;마치며 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;마치며&lt;/h2&gt;
+&lt;p&gt;지금까지 CPU 아키텍처를 선택하는 데에 있어 필요한 정보들을 알아보았습니다.&lt;/p&gt;
+&lt;p&gt;처음 접한 내용이다보니 틀리거나 빠진 내용이 있을 수 있습니다.&lt;br&gt;
+만약 정보의 수정이 필요하다면 언제든 댓글 남겨주시길 바랍니다.&lt;/p&gt;
+&lt;p&gt;감사합니다.&lt;/p&gt;
+&lt;h3 id=&quot;reference&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#reference&quot; aria-label=&quot;reference permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Reference&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.redhat.com/en/topics/linux/Arm-vs-x86&quot;&gt;AMR vs x86 - Red Hat 공식문서&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://velog.io/@480/%EC%9D%B4%EC%A0%9C%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%8F%84-CPU-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98%EB%A5%BC-%EA%B5%AC%EB%B6%84%ED%95%B4%EC%95%BC-%ED%95%A9%EB%8B%88%EB%8B%A4&quot;&gt;https://velog.io/@480/이제는-개발자도-CPU-아키텍처를-구분해야-합니다&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.e-focus.co.kr/news/articleView.html?idxno=2638858&quot;&gt;CPU 32비트와 64비트 차이, 모르고 사용하면 낭비다 - 이포커스&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://dev.to/aws-builders/data-points-you-need-to-know-about-Arm-for-your-application-code-migration-5c0f&quot;&gt;https://dev.to/aws-builders/data-points-you-need-to-know-about-Arm-for-your-application-code-migration-5c0f&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://youtu.be/ndXKHgFIIL4&quot;&gt;https://youtu.be/ndXKHgFIIL4&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[[git&github] IntelliJ에서 커밋 메시지 작성 시, 자동으로 커밋 타입과 이슈 번호 추가하기]]></title><description><![CDATA[…]]></description><link>https://kdkdhoho.github.io/posts/add-feat-and-issue-number-automatically/</link><guid isPermaLink="false">https://kdkdhoho.github.io/posts/add-feat-and-issue-number-automatically/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h1 id=&quot;개선된-버전&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%9C%EC%84%A0%EB%90%9C-%EB%B2%84%EC%A0%84&quot; aria-label=&quot;개선된 버전 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.65 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;개선된 버전&lt;/h1&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token shebang important&quot;&gt;#!/bin/sh&lt;/span&gt;
