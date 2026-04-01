@@ -1,9 +1,9 @@
 ---
 title: "그래프, 그래프 탐색 알고리즘"
 description: "그래프 자료구조와 그래프 탐색 알고리즘인 DFS, BFS에 대해 학습한 내용을 기록했습니다."
-date: 2026-02-14
+date: 2026-04-01
 tags: ["그래프", "그래프 탐색 알고리즘", "BFS", "DFS"]
-slug: "post-20260214-8885be"
+slug: "graph-algorithm"
 ---
 
 # 1. 그래프
@@ -46,14 +46,14 @@ DFS를 주로 사용하는 경우는 다음과 같습니다.
 - 연결 요소의 개수 구하기
 - Flood Fill
   - 2차원 배열의 데이터가 주어지고, 특정 위치의 연결 요소의 크기를 구하는 경우가 있을 때, 이 크기를 DFS를 이용하여 구할 수 있습니다. ([대표적인 문제](https://www.acmicpc.net/problem/2667))
-- 이분 그래프 판별
-- 사이클 존재 파악 및 사이클 크기 구하기
+- [이분 그래프 판별](#214-이분-그래프)
+- [사이클 존재 파악 및 사이클 크기 구하기](#215-사이클-존재-유무-파악-및-사이클-크기-구하기)
 
 ### 2.1.3. 기본 구현
 DFS를 구현할 때 가장 먼저, 주어진 노드와 간선 정보를 그래프 형태로 저장해야 합니다.  
 그래프를 저장할 때는 **인접 행렬**과 **인접 그래프** 방식으로 구현할 수 있습니다.
 
-1. 인접 행렬
+#### 1. 인접 행렬
 2차원 배열을 만들고, 연결 정보를 이 배열에 저장합니다.  
 만약 `arr` 라는 이름의 변수가 있다고 가정하면 노드 x에서 노드 y로 향하는 간선의 정보는 `arr[x][y]`로 접근할 수 있습니다.
 
@@ -67,7 +67,7 @@ for _ in range(k): # k: 간선의 개수
     arr[b][a] = 0
 ```
 
-2. 인접 그래프
+#### 2. 인접 그래프
 각 노드에 연결된 노드를 리스트 형태로 저장합니다.  
 만약 n개의 노드와 k개의 간선이 있다고 가정하면, 인접 그래프로 저장하는 코드는 다음과 같습니다. 
 
@@ -79,43 +79,35 @@ for _ in range(k): # k: 간선의 개수
     graph[b].append(a)
 ```
 
+#### 각각의 장단점
 인접 행렬은 공간을 더 많이 차지하는 대신, O(1) 만에 연결 정보를 조회할 수 있는 장점이 있습니다.  
 반면, 인접 그래프는 공간을 더 효율적으로 사용하는 대신, 그래프를 탐색할 때 연결된 노드 개수만큼 선형적으로 늘어난다는 단점이 있습니다.
 
 따라서 문제 요구사항이나 제약 조건에 따라 적절한 방식을 사용하는 것이 좋겠습니다.
 
-이제 DFS 탐색을 위해서는 다음과 같이 작성할 수 있는데요. 인접 그래프 형태로 저장했다고 가정하고 구현해보겠습니다.  
-이때 한 노드를 중복 방문하는 것을 방지하기 위해 `visited = [False] * n` 과 같이 배열 형태로 값을 기록하는데요. 방문 처리는 DFS 함수 내부의 첫 번째 라인에서 수행하는 것이 권장됩니다.
+대부분의 코딩 테스트 문제에서 인접 그래프가 효율적입니다.
 
-특정 노드에 방문했을 때 해야 할 일(방문 표시, 결과 합산 등)이 한곳에 모여 있어 코드가 깔끔하고 별도로 처리해줄 필요가 없어 실수할 확률이 줄어듭니다. 또한 재귀 함수는 자기 자신을 정의하는 함수라는 측면에서도 자연스럽습니다.
+---
+
+이제부터는 구현 코드가 나오는데요. 기본적으로 인접 그래프 형태로 저장합니다.
+
+아래는 Python으로 작성한 DFS의 기본 형태입니다.
 
 ```python
-# 파이썬의 기본 재귀 호출 한도는 보통 1,000회로 제한됩니다.  
-# 따라서 `sys` 모듈의 `setrecursionlimit=n`으로 최대 한도를 설정합니다.
-import sys
-sys.setrecursionlimit(n**2)
-
-# 그래프
-graph = [[] * for _ in range(n)]
-for _ in range(k): # k: 간선의 개수
-    a, b = map(int, input().split())
-    graph[a].append(b)
-    graph[b].append(a)
-    
-# 노드 방문 여부
 visited = [False] * n
 
-# DFS 로직
-def dfs(curr_node):
-    visited[curr_node] = True
+def dfs(curr):
+    visited[curr] = True
     
-    for next_node in graph[curr_node]:
-        if visited[next_node]:
+    for next in graph[curr]:
+        if visited[next]:
             continue
-        dfs(next_node)
+        dfs(next)
 ```
 
-위 DFS 코드를 기반으로, 문제에서 필요한 해를 구하는 코드를 추가하면 됩니다.
+중복된 노드에 방문하는 걸 피하기 위해 `visited = [False] * n` 과 같이 배열 형태로 값을 기록하는데요. **방문 처리는 DFS 함수 내부의 첫 번째 라인에서 수행하는 것이 권장**됩니다.
+
+노드에 방문했을 때 해야 할 일(방문 표시, 결과 합산 등)이 한 곳에 모여 있어 코드가 깔끔하고 별도로 처리해줄 필요가 없어 실수할 확률이 줄어듭니다. 또한 재귀 함수는 자기 자신을 정의하는 함수라는 측면에서도 자연스럽습니다.
 
 ### 2.1.4. 이분 그래프
 이분 그래프란, 모든 정점을 빨간색, 혹은 파란색으로 칠했을 때, 모든 간선에 대해서 각 간선이 빨간색이랑 파란색을 포함하도록 색칠할 수 있는 그래프입니다.
@@ -127,9 +119,14 @@ def dfs(curr_node):
 이분 그래프도 DFS 알고리즘을 이용해서 판별할 수 있습니다.
 
 ```python
-import sys
+colors = [0] * (n + 1) # 색상 기록 배열. 0: 방문하지 않은 노드, 1: 빨간색, -1: 파란색
+answer = True
+for i in range(1, n + 1):
+    if colors[i] == 0: # 아직 방문하지 않았다면
+        if not is_bipartite_graph(i, 1):
+            answer = False
+            break
 
-# 이분 그래프 판별 함수
 def is_bipartite_graph(curr, color):
     colors[curr] = color
     
@@ -142,35 +139,17 @@ def is_bipartite_graph(curr, color):
         
         # 연결된 노드를 탐색하면서 현재 노드와 다른 색상으로 칠한다. 
         if not is_bipartite_graph(nxt, colors[curr] * -1):
-          return False
+            return False
     
     return True
-
-n, m = map(int, input().split())
-sys.setrecursionlimit(n**2)
-
-# 그래프 생성
-graph = [[] for _ in range(n + 1)]
-for _ in range(m):
-    a, b = map(int, input().split())
-    graph[a].append(b)
-    graph[b].append(a)
-      
-colors = [0] * (n + 1) # 색상 기록 배열. 0: 방문하지 않은 노드, 1: 빨간색, -1: 파란색
-answer = True
-for i in range(1, n + 1):
-    if colors[i] == 0: # 아직 방문하지 않았다면
-        if not is_bipartite_graph(i, 1):
-          answer = False
-          break
-        
-print(answer)
 ```
 
 ### 2.1.5. 사이클 존재 유무 파악 및 사이클 크기 구하기
 그래프에 사이클이 존재하는지 판별할 수 있고, 사이클의 크기도 DFS를 통해 구할 수 있습니다.
 
-기본 구현(Python)은 다음과 같습니다.
+대표적인 문제로는 [백준의 아침은 고구마야](https://www.acmicpc.net/problem/20426)가 있습니다.
+
+구현은 아래와 같습니다.
 
 ```python
 depth  = [0] * (n + 1) # 각 노드의 방문 깊이(순서)를 기록하는 배열입니다.
@@ -193,8 +172,6 @@ def dfs(curr, prev):
             has_cycle = True
             cycle_size = depth[curr] - depth[nxt] + 1
 ```
-
-대표적인 문제로는 [백준의 아침은 고구마야](https://www.acmicpc.net/problem/20426)가 있으니 위를 참고하여 풀어보는 것도 좋겠습니다.
 
 ---
 
